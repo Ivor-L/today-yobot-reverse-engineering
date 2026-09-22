@@ -15,8 +15,11 @@
 
 | 目录 | 产品 | 说明 |
 |---|---|---|
+| `PLANNING/` | — | **让 GPT 产出「YoBot → Today 式改造」开发计划的输入包**：可直接粘贴的提示词 + 三份事实底稿（YoBot 现状 / Today 范式 / 差异与决策点） |
 | `01-Today/` | **Today**（`ai.today.macos.app` v1.19.5） | 发布者 Today AI PTE. LTD.，内部仓库名 `today-platform-web`。Electron + 内嵌 Next.js 全栈应用 + 本地 Agent 执行引擎 |
 | `02-YoBot-WeChat-RPA/` | **YoBot**（v1.3.5）+ 微信 RPA 插件（v1.9.19 / v2.0.0） | Electron 桌面端 + Python 字节码业务模块 + native Helper |
+
+> 如果目标是「把 YoBot 改造成 Today 这种产品」，**直接从 [`PLANNING/README.md`](PLANNING/README.md) 开始**。
 
 ---
 
