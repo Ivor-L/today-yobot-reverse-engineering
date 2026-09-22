@@ -15,11 +15,22 @@
 
 | 目录 | 产品 | 说明 |
 |---|---|---|
-| `PLANNING/` | — | **让 GPT 产出「YoBot → Today 式改造」开发计划的输入包**：可直接粘贴的提示词 + 三份事实底稿（YoBot 现状 / Today 范式 / 差异与决策点） |
+| `PLANNING/` | — | **让 GPT 产出「数字分身 × YoBot」开发计划的输入包**：可直接粘贴的提示词 + 六份底稿（数据现实 / YoBot 资产 / 数字分身规格 / Today 范式 / 结合方案与决策地图） |
+| `DIGITAL-TWIN/` | **数字分身** | 要新增的产品线：完整产品方案 + 可交互原型 + 上游能力说明 + 外挂式接入方案。**原始材料归档** |
 | `01-Today/` | **Today**（`ai.today.macos.app` v1.19.5） | 发布者 Today AI PTE. LTD.，内部仓库名 `today-platform-web`。Electron + 内嵌 Next.js 全栈应用 + 本地 Agent 执行引擎 |
 | `02-YoBot-WeChat-RPA/` | **YoBot**（v1.3.5）+ 微信 RPA 插件（v1.9.19 / v2.0.0） | Electron 桌面端 + Python 字节码业务模块 + native Helper |
 
-> 如果目标是「把 YoBot 改造成 Today 这种产品」，**直接从 [`PLANNING/README.md`](PLANNING/README.md) 开始**。
+### 两条阅读路线
+
+**目标：给「数字分身做进 YoBot」做开发计划**
+→ 从 [`PLANNING/README.md`](PLANNING/README.md) 开始，**先读 `PLANNING/01-数据现实与P0门槛.md`**（那里有真正的阻塞点）。
+
+**目标：理解两个产品各自的架构与设计**
+→ 按下面的「阅读顺序建议」走。
+
+> ⚠️ 如果你是从 `PLANNING/` 进来的，请注意一件事：
+> **`DIGITAL-TWIN/product_plan.md` 的起点写的是「已有本地机器人能够取得微信历史与每日聊天记录」，而实测证明这件事不成立。**
+> 详见 `PLANNING/01-数据现实与P0门槛.md` §二。
 
 ---
 
@@ -56,11 +67,22 @@
 
 > YoBot 的 `recovered/app/dist/electron/` 是本次合并中信息密度最高的资产：**未压缩、保留原始 JSDoc 注释的 ESM 模块树**，按 `agent / skills / knowledge / memory / gateway / scheduler / browser / channels / commercial` 等业务域组织，可直接用于理解系统设计。
 
+### 数字分身（DIGITAL-TWIN/）
+| 想了解 | 去哪里看 |
+|---|---|
+| 完整产品方案（六页面 / 九维 Wiki / 三个闭环 / 安全边界 / 分期） | `DIGITAL-TWIN/product_plan.md` |
+| 可交互原型（单文件 HTML，含完整视觉规范） | `DIGITAL-TWIN/digital_twin_prototype.html` |
+| 上游能力与红线（三通道 / 7 个 MCP 工具 / SQLite / JSONL） | `DIGITAL-TWIN/微信数据对外接入文档.md` |
+| 外挂式接入方案（P0–P4 与验收门槛） | `DIGITAL-TWIN/数字分身_Agent开发说明_v1.md` |
+| 原型渲染截图 | `DIGITAL-TWIN/preview/` |
+
+> 归档说明与脱敏记录见 [`DIGITAL-TWIN/README.md`](DIGITAL-TWIN/README.md)。
+
 ---
 
 ## 完整性说明
 
-原始两个工作区共约 **5.0 GB / 62259 个文件**。本仓库为**面向阅读与检索的精简版**（149 MB / 4450 文件），已剔除：
+原始两个工作区共约 **5.0 GB / 62259 个文件**，另有 `DIGITAL-TWIN/` 的 10 个归档文件（1.2 MB，来自本机其它位置）。本仓库为**面向阅读与检索的精简版**（约 147 MB / 4470 文件），已剔除：
 
 - **构建产物与二进制**：`node_modules/`、`.next/`、`.app` 包体、`.framework`、`.asar`、`.marshal` 字节码、`.dylib`、`.node`、图片/字体等（约 1953 个文件）
 - **重复内容**：`standalone/dist/` 下 4 份 `.app` 构建（各约 776 MB，共 3.1 GB）；`standalone/app/dist/server.cjs` 与 `recovered/app/dist/server.cjs` 完全一致，仅保留后者
