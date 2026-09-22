@@ -1,0 +1,2611 @@
+  1           0 LOAD_CONST               0 ('Shared startup state and command orchestration without native automation.\n\nThe startup shell needs one stable vocabulary for Windows launch/initialization\nand future macOS hot attachment/TCC guidance.  Platform backends own process\ndiscovery, native launch, permission prompts, accessibility setup and Driver\ninitialization.  This module only validates normalized state, protects commands\nthat can close/reconfigure a client behind explicit confirmation, and prevents\nnative references from crossing the application boundary.\n')
+              2 STORE_NAME               0 (__doc__)
+
+ 11           4 LOAD_CONST               1 (0)
+              6 LOAD_CONST               2 (('dataclass', 'field'))
+              8 IMPORT_NAME              1 (dataclasses)
+             10 IMPORT_FROM              2 (dataclass)
+             12 STORE_NAME               2 (dataclass)
+             14 IMPORT_FROM              3 (field)
+             16 STORE_NAME               3 (field)
+             18 POP_TOP
+
+ 12          20 LOAD_CONST               1 (0)
+             22 LOAD_CONST               3 (('Enum',))
+             24 IMPORT_NAME              4 (enum)
+             26 IMPORT_FROM              5 (Enum)
+             28 STORE_NAME               5 (Enum)
+             30 POP_TOP
+
+ 13          32 LOAD_CONST               1 (0)
+             34 LOAD_CONST               4 (('Any', 'Mapping', 'Optional', 'Protocol', 'Tuple', 'runtime_checkable'))
+             36 IMPORT_NAME              6 (typing)
+             38 IMPORT_FROM              7 (Any)
+             40 STORE_NAME               7 (Any)
+             42 IMPORT_FROM              8 (Mapping)
+             44 STORE_NAME               8 (Mapping)
+             46 IMPORT_FROM              9 (Optional)
+             48 STORE_NAME               9 (Optional)
+             50 IMPORT_FROM             10 (Protocol)
+             52 STORE_NAME              10 (Protocol)
+             54 IMPORT_FROM             11 (Tuple)
+             56 STORE_NAME              11 (Tuple)
+             58 IMPORT_FROM             12 (runtime_checkable)
+             60 STORE_NAME              12 (runtime_checkable)
+             62 POP_TOP
+
+ 15          64 LOAD_CONST               1 (0)
+             66 LOAD_CONST               5 (('freeze_compatibility_value',))
+             68 IMPORT_NAME             13 (WeRobotCore.application.instances.inventory)
+             70 IMPORT_FROM             14 (freeze_compatibility_value)
+             72 STORE_NAME              14 (freeze_compatibility_value)
+             74 POP_TOP
+
+ 18          76 LOAD_CONST               1 (0)
+             78 LOAD_CONST               6 (('ErrorCode',))
+             80 IMPORT_NAME             15 (WeRobotCore.domain)
+             82 IMPORT_FROM             16 (ErrorCode)
+             84 STORE_NAME              16 (ErrorCode)
+             86 POP_TOP
+
+ 21          88 LOAD_NAME                7 (Any)
+             90 LOAD_NAME               17 (str)
+             92 LOAD_NAME               17 (str)
+             94 LOAD_CONST               7 (('value', 'field_name', 'return'))
+             96 BUILD_CONST_KEY_MAP      3
+             98 LOAD_CONST               8 (<code object _required_text at 0x1092443a0, file "WeRobotCore/application/startup/workflow.py", line 21>)
+            100 LOAD_CONST               9 ('_required_text')
+            102 MAKE_FUNCTION            4 (annotations)
+            104 STORE_NAME              18 (_required_text)
+
+ 27         106 LOAD_NAME                9 (Optional)
+            108 LOAD_NAME               17 (str)
+            110 BINARY_SUBSCR
+            112 LOAD_NAME               17 (str)
+            114 LOAD_NAME                9 (Optional)
+            116 LOAD_NAME               17 (str)
+            118 BINARY_SUBSCR
+            120 LOAD_CONST               7 (('value', 'field_name', 'return'))
+            122 BUILD_CONST_KEY_MAP      3
+            124 LOAD_CONST              10 (<code object _optional_text at 0x1092442f0, file "WeRobotCore/application/startup/workflow.py", line 27>)
+            126 LOAD_CONST              11 ('_optional_text')
+            128 MAKE_FUNCTION            4 (annotations)
+            130 STORE_NAME              19 (_optional_text)
+
+ 36         132 LOAD_BUILD_CLASS
+            134 LOAD_CONST              12 (<code object StartupPhase at 0x1092440e0, file "WeRobotCore/application/startup/workflow.py", line 36>)
+            136 LOAD_CONST              13 ('StartupPhase')
+            138 MAKE_FUNCTION            0
+            140 LOAD_CONST              13 ('StartupPhase')
+            142 LOAD_NAME               17 (str)
+            144 LOAD_NAME                5 (Enum)
+            146 CALL_FUNCTION            4
+            148 STORE_NAME              20 (StartupPhase)
+
+ 45         150 LOAD_BUILD_CLASS
+            152 LOAD_CONST              14 (<code object StartupAction at 0x109244920, file "WeRobotCore/application/startup/workflow.py", line 45>)
+            154 LOAD_CONST              15 ('StartupAction')
+            156 MAKE_FUNCTION            0
+            158 LOAD_CONST              15 ('StartupAction')
+            160 LOAD_NAME               17 (str)
+            162 LOAD_NAME                5 (Enum)
+            164 CALL_FUNCTION            4
+            166 STORE_NAME              21 (StartupAction)
+
+ 52         168 LOAD_BUILD_CLASS
+            170 LOAD_CONST              16 (<code object StartupCompatibilityMode at 0x109244df0, file "WeRobotCore/application/startup/workflow.py", line 52>)
+            172 LOAD_CONST              17 ('StartupCompatibilityMode')
+            174 MAKE_FUNCTION            0
+            176 LOAD_CONST              17 ('StartupCompatibilityMode')
+            178 LOAD_NAME               17 (str)
+            180 LOAD_NAME                5 (Enum)
+            182 CALL_FUNCTION            4
+            184 STORE_NAME              22 (StartupCompatibilityMode)
+
+ 57         186 LOAD_BUILD_CLASS
+            188 LOAD_CONST              18 (<code object StartupInstanceState at 0x109244450, file "WeRobotCore/application/startup/workflow.py", line 57>)
+            190 LOAD_CONST              19 ('StartupInstanceState')
+            192 MAKE_FUNCTION            0
+            194 LOAD_CONST              19 ('StartupInstanceState')
+            196 LOAD_NAME               17 (str)
+            198 LOAD_NAME                5 (Enum)
+            200 CALL_FUNCTION            4
+            202 STORE_NAME              23 (StartupInstanceState)
+
+ 65         204 LOAD_NAME                2 (dataclass)
+            206 LOAD_CONST              20 (True)
+            208 LOAD_CONST              21 (('frozen',))
+            210 CALL_FUNCTION_KW         1
+
+ 66         212 LOAD_BUILD_CLASS
+            214 LOAD_CONST              22 (<code object StartupGuidance at 0x1092447c0, file "WeRobotCore/application/startup/workflow.py", line 65>)
+            216 LOAD_CONST              23 ('StartupGuidance')
+            218 MAKE_FUNCTION            0
+            220 LOAD_CONST              23 ('StartupGuidance')
+            222 CALL_FUNCTION            2
+            224 CALL_FUNCTION            1
+            226 STORE_NAME              24 (StartupGuidance)
+
+103         228 LOAD_NAME                2 (dataclass)
+            230 LOAD_CONST              20 (True)
+            232 LOAD_CONST              21 (('frozen',))
+            234 CALL_FUNCTION_KW         1
+
+104         236 LOAD_BUILD_CLASS
+            238 LOAD_CONST              24 (<code object StartupInstanceStatus at 0x10924c030, file "WeRobotCore/application/startup/workflow.py", line 103>)
+            240 LOAD_CONST              25 ('StartupInstanceStatus')
+            242 MAKE_FUNCTION            0
+            244 LOAD_CONST              25 ('StartupInstanceStatus')
+            246 CALL_FUNCTION            2
+            248 CALL_FUNCTION            1
+            250 STORE_NAME              25 (StartupInstanceStatus)
+
+155         252 LOAD_NAME                2 (dataclass)
+            254 LOAD_CONST              20 (True)
+            256 LOAD_CONST              21 (('frozen',))
+            258 CALL_FUNCTION_KW         1
+
+156         260 LOAD_BUILD_CLASS
+            262 LOAD_CONST              26 (<code object StartupActionAvailability at 0x10924c7c0, file "WeRobotCore/application/startup/workflow.py", line 155>)
+            264 LOAD_CONST              27 ('StartupActionAvailability')
+            266 MAKE_FUNCTION            0
+            268 LOAD_CONST              27 ('StartupActionAvailability')
+            270 CALL_FUNCTION            2
+            272 CALL_FUNCTION            1
+            274 STORE_NAME              26 (StartupActionAvailability)
+
+205         276 LOAD_NAME                2 (dataclass)
+            278 LOAD_CONST              20 (True)
+            280 LOAD_CONST              21 (('frozen',))
+            282 CALL_FUNCTION_KW         1
+
+206         284 LOAD_BUILD_CLASS
+            286 LOAD_CONST              28 (<code object StartupWorkflowSnapshot at 0x10924cea0, file "WeRobotCore/application/startup/workflow.py", line 205>)
+            288 LOAD_CONST              29 ('StartupWorkflowSnapshot')
+            290 MAKE_FUNCTION            0
+            292 LOAD_CONST              29 ('StartupWorkflowSnapshot')
+            294 CALL_FUNCTION            2
+            296 CALL_FUNCTION            1
+            298 STORE_NAME              27 (StartupWorkflowSnapshot)
+
+316         300 LOAD_NAME                2 (dataclass)
+            302 LOAD_CONST              20 (True)
+            304 LOAD_CONST              21 (('frozen',))
+            306 CALL_FUNCTION_KW         1
+
+317         308 LOAD_BUILD_CLASS
+            310 LOAD_CONST              30 (<code object StartupCommand at 0x10924b240, file "WeRobotCore/application/startup/workflow.py", line 316>)
+            312 LOAD_CONST              31 ('StartupCommand')
+            314 MAKE_FUNCTION            0
+            316 LOAD_CONST              31 ('StartupCommand')
+            318 CALL_FUNCTION            2
+            320 CALL_FUNCTION            1
+            322 STORE_NAME              28 (StartupCommand)
+
+384         324 LOAD_NAME                2 (dataclass)
+            326 LOAD_CONST              20 (True)
+            328 LOAD_CONST              21 (('frozen',))
+            330 CALL_FUNCTION_KW         1
+
+385         332 LOAD_BUILD_CLASS
+            334 LOAD_CONST              32 (<code object StartupExecutionResult at 0x10924bd40, file "WeRobotCore/application/startup/workflow.py", line 384>)
+            336 LOAD_CONST              33 ('StartupExecutionResult')
+            338 MAKE_FUNCTION            0
+            340 LOAD_CONST              33 ('StartupExecutionResult')
+            342 CALL_FUNCTION            2
+            344 CALL_FUNCTION            1
+            346 STORE_NAME              29 (StartupExecutionResult)
+
+433         348 LOAD_NAME               12 (runtime_checkable)
+
+434         350 LOAD_BUILD_CLASS
+            352 LOAD_CONST              34 (<code object StartupWorkflowBackend at 0x10924bf50, file "WeRobotCore/application/startup/workflow.py", line 433>)
+            354 LOAD_CONST              35 ('StartupWorkflowBackend')
+            356 MAKE_FUNCTION            0
+            358 LOAD_CONST              35 ('StartupWorkflowBackend')
+            360 LOAD_NAME               10 (Protocol)
+            362 CALL_FUNCTION            3
+            364 CALL_FUNCTION            1
+            366 STORE_NAME              30 (StartupWorkflowBackend)
+
+442         368 LOAD_BUILD_CLASS
+            370 LOAD_CONST              36 (<code object StartupWorkflowService at 0x10924ba80, file "WeRobotCore/application/startup/workflow.py", line 442>)
+            372 LOAD_CONST              37 ('StartupWorkflowService')
+            374 MAKE_FUNCTION            0
+            376 LOAD_CONST              37 ('StartupWorkflowService')
+            378 CALL_FUNCTION            2
+            380 STORE_NAME              31 (StartupWorkflowService)
+            382 LOAD_CONST              38 (None)
+            384 RETURN_VALUE
+
+Disassembly of <code object _required_text at 0x1092443a0, file "WeRobotCore/application/startup/workflow.py", line 21>:
+ 22           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                0 (value)
+              4 LOAD_GLOBAL              1 (str)
+              6 CALL_FUNCTION            2
+              8 POP_JUMP_IF_FALSE       18
+             10 LOAD_FAST                0 (value)
+             12 LOAD_METHOD              2 (strip)
+             14 CALL_METHOD              0
+             16 POP_JUMP_IF_TRUE        32
+
+ 23     >>   18 LOAD_GLOBAL              3 (ValueError)
+             20 LOAD_CONST               1 ('{} must be a non-empty string')
+             22 LOAD_METHOD              4 (format)
+             24 LOAD_FAST                1 (field_name)
+             26 CALL_METHOD              1
+             28 CALL_FUNCTION            1
+             30 RAISE_VARARGS            1
+
+ 24     >>   32 LOAD_FAST                0 (value)
+             34 LOAD_METHOD              2 (strip)
+             36 CALL_METHOD              0
+             38 RETURN_VALUE
+
+Disassembly of <code object _optional_text at 0x1092442f0, file "WeRobotCore/application/startup/workflow.py", line 27>:
+ 28           0 LOAD_FAST                0 (value)
+              2 LOAD_CONST               0 (None)
+              4 IS_OP                    0
+              6 POP_JUMP_IF_FALSE       12
+
+ 29           8 LOAD_CONST               0 (None)
+             10 RETURN_VALUE
+
+ 30     >>   12 LOAD_GLOBAL              0 (isinstance)
+             14 LOAD_FAST                0 (value)
+             16 LOAD_GLOBAL              1 (str)
+             18 CALL_FUNCTION            2
+             20 POP_JUMP_IF_TRUE        36
+
+ 31          22 LOAD_GLOBAL              2 (TypeError)
+             24 LOAD_CONST               1 ('{} must be a string when provided')
+             26 LOAD_METHOD              3 (format)
+             28 LOAD_FAST                1 (field_name)
+             30 CALL_METHOD              1
+             32 CALL_FUNCTION            1
+             34 RAISE_VARARGS            1
+
+ 32     >>   36 LOAD_FAST                0 (value)
+             38 LOAD_METHOD              4 (strip)
+             40 CALL_METHOD              0
+             42 STORE_FAST               2 (normalized)
+
+ 33          44 LOAD_FAST                2 (normalized)
+             46 JUMP_IF_TRUE_OR_POP     50
+             48 LOAD_CONST               0 (None)
+        >>   50 RETURN_VALUE
+
+Disassembly of <code object StartupPhase at 0x1092440e0, file "WeRobotCore/application/startup/workflow.py", line 36>:
+ 36           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('StartupPhase')
+              6 STORE_NAME               2 (__qualname__)
+
+ 37           8 LOAD_CONST               1 ('no_instance')
+             10 STORE_NAME               3 (NO_INSTANCE)
+
+ 38          12 LOAD_CONST               2 ('login_required')
+             14 STORE_NAME               4 (LOGIN_REQUIRED)
+
+ 39          16 LOAD_CONST               3 ('initialization_required')
+             18 STORE_NAME               5 (INITIALIZATION_REQUIRED)
+
+ 40          20 LOAD_CONST               4 ('configuration_required')
+             22 STORE_NAME               6 (CONFIGURATION_REQUIRED)
+
+ 41          24 LOAD_CONST               5 ('ready')
+             26 STORE_NAME               7 (READY)
+
+ 42          28 LOAD_CONST               6 ('blocked')
+             30 STORE_NAME               8 (BLOCKED)
+             32 LOAD_CONST               7 (None)
+             34 RETURN_VALUE
+
+Disassembly of <code object StartupAction at 0x109244920, file "WeRobotCore/application/startup/workflow.py", line 45>:
+ 45           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('StartupAction')
+              6 STORE_NAME               2 (__qualname__)
+
+ 46           8 LOAD_CONST               1 ('launch')
+             10 STORE_NAME               3 (LAUNCH)
+
+ 47          12 LOAD_CONST               2 ('initialize')
+             14 STORE_NAME               4 (INITIALIZE)
+
+ 48          16 LOAD_CONST               3 ('configure_accessibility')
+             18 STORE_NAME               5 (CONFIGURE_ACCESSIBILITY)
+
+ 49          20 LOAD_CONST               4 ('request_permission')
+             22 STORE_NAME               6 (REQUEST_PERMISSION)
+             24 LOAD_CONST               5 (None)
+             26 RETURN_VALUE
+
+Disassembly of <code object StartupCompatibilityMode at 0x109244df0, file "WeRobotCore/application/startup/workflow.py", line 52>:
+ 52           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('StartupCompatibilityMode')
+              6 STORE_NAME               2 (__qualname__)
+
+ 53           8 LOAD_CONST               1 ('default')
+             10 STORE_NAME               3 (DEFAULT)
+
+ 54          12 LOAD_CONST               2 ('platform_fallback')
+             14 STORE_NAME               4 (PLATFORM_FALLBACK)
+             16 LOAD_CONST               3 (None)
+             18 RETURN_VALUE
+
+Disassembly of <code object StartupInstanceState at 0x109244450, file "WeRobotCore/application/startup/workflow.py", line 57>:
+ 57           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('StartupInstanceState')
+              6 STORE_NAME               2 (__qualname__)
+
+ 58           8 LOAD_CONST               1 ('discovered')
+             10 STORE_NAME               3 (DISCOVERED)
+
+ 59          12 LOAD_CONST               2 ('login_required')
+             14 STORE_NAME               4 (LOGIN_REQUIRED)
+
+ 60          16 LOAD_CONST               3 ('ready')
+             18 STORE_NAME               5 (READY)
+
+ 61          20 LOAD_CONST               4 ('action_required')
+             22 STORE_NAME               6 (ACTION_REQUIRED)
+
+ 62          24 LOAD_CONST               5 ('failed')
+             26 STORE_NAME               7 (FAILED)
+             28 LOAD_CONST               6 (None)
+             30 RETURN_VALUE
+
+Disassembly of <code object StartupGuidance at 0x1092447c0, file "WeRobotCore/application/startup/workflow.py", line 65>:
+ 65           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('StartupGuidance')
+              6 STORE_NAME               2 (__qualname__)
+              8 SETUP_ANNOTATIONS
+
+ 67          10 LOAD_CONST               1 (None)
+             12 STORE_NAME               3 (title)
+             14 LOAD_NAME                4 (Optional)
+             16 LOAD_NAME                5 (str)
+             18 BINARY_SUBSCR
+             20 LOAD_NAME                6 (__annotations__)
+             22 LOAD_CONST               2 ('title')
+             24 STORE_SUBSCR
+
+ 68          26 LOAD_CONST               1 (None)
+             28 STORE_NAME               7 (reason)
+             30 LOAD_NAME                4 (Optional)
+             32 LOAD_NAME                5 (str)
+             34 BINARY_SUBSCR
+             36 LOAD_NAME                6 (__annotations__)
+             38 LOAD_CONST               3 ('reason')
+             40 STORE_SUBSCR
+
+ 69          42 LOAD_NAME                8 (field)
+             44 LOAD_NAME                9 (tuple)
+             46 LOAD_CONST               4 (('default_factory',))
+             48 CALL_FUNCTION_KW         1
+             50 STORE_NAME              10 (steps)
+             52 LOAD_NAME               11 (Tuple)
+             54 LOAD_NAME                5 (str)
+             56 LOAD_CONST               5 (Ellipsis)
+             58 BUILD_TUPLE              2
+             60 BINARY_SUBSCR
+             62 LOAD_NAME                6 (__annotations__)
+             64 LOAD_CONST               6 ('steps')
+             66 STORE_SUBSCR
+
+ 70          68 LOAD_CONST               1 (None)
+             70 STORE_NAME              12 (action_url)
+             72 LOAD_NAME                4 (Optional)
+             74 LOAD_NAME                5 (str)
+             76 BINARY_SUBSCR
+             78 LOAD_NAME                6 (__annotations__)
+             80 LOAD_CONST               7 ('action_url')
+             82 STORE_SUBSCR
+
+ 71          84 LOAD_CONST               1 (None)
+             86 STORE_NAME              13 (action_label)
+             88 LOAD_NAME                4 (Optional)
+             90 LOAD_NAME                5 (str)
+             92 BINARY_SUBSCR
+             94 LOAD_NAME                6 (__annotations__)
+             96 LOAD_CONST               8 ('action_label')
+             98 STORE_SUBSCR
+
+ 73         100 LOAD_CONST               1 (None)
+            102 LOAD_CONST               9 (('return',))
+            104 BUILD_CONST_KEY_MAP      1
+            106 LOAD_CONST              10 (<code object __post_init__ at 0x109244c90, file "WeRobotCore/application/startup/workflow.py", line 73>)
+            108 LOAD_CONST              11 ('StartupGuidance.__post_init__')
+            110 MAKE_FUNCTION            4 (annotations)
+            112 STORE_NAME              14 (__post_init__)
+
+ 93         114 LOAD_NAME               15 (Mapping)
+            116 LOAD_NAME                5 (str)
+            118 LOAD_NAME               16 (Any)
+            120 BUILD_TUPLE              2
+            122 BINARY_SUBSCR
+            124 LOAD_CONST               9 (('return',))
+            126 BUILD_CONST_KEY_MAP      1
+            128 LOAD_CONST              12 (<code object to_normalized_dict at 0x109244a80, file "WeRobotCore/application/startup/workflow.py", line 93>)
+            130 LOAD_CONST              13 ('StartupGuidance.to_normalized_dict')
+            132 MAKE_FUNCTION            4 (annotations)
+            134 STORE_NAME              17 (to_normalized_dict)
+            136 LOAD_CONST               1 (None)
+            138 RETURN_VALUE
+
+Disassembly of <code object __post_init__ at 0x109244c90, file "WeRobotCore/application/startup/workflow.py", line 73>:
+ 74           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                0 (self)
+              4 LOAD_ATTR                1 (steps)
+              6 LOAD_GLOBAL              2 (tuple)
+              8 CALL_FUNCTION            2
+             10 POP_JUMP_IF_TRUE        20
+
+ 75          12 LOAD_GLOBAL              3 (TypeError)
+             14 LOAD_CONST               1 ('steps must be a tuple')
+             16 CALL_FUNCTION            1
+             18 RAISE_VARARGS            1
+
+ 76     >>   20 LOAD_GLOBAL              2 (tuple)
+             22 LOAD_CONST               2 (<code object <genexpr> at 0x109244710, file "WeRobotCore/application/startup/workflow.py", line 76>)
+             24 LOAD_CONST               3 ('StartupGuidance.__post_init__.<locals>.<genexpr>')
+             26 MAKE_FUNCTION            0
+             28 LOAD_FAST                0 (self)
+             30 LOAD_ATTR                1 (steps)
+             32 GET_ITER
+             34 CALL_FUNCTION            1
+             36 CALL_FUNCTION            1
+             38 STORE_FAST               1 (steps)
+
+ 77          40 LOAD_GLOBAL              4 (len)
+             42 LOAD_FAST                1 (steps)
+             44 CALL_FUNCTION            1
+             46 LOAD_GLOBAL              4 (len)
+             48 LOAD_GLOBAL              5 (set)
+             50 LOAD_FAST                1 (steps)
+             52 CALL_FUNCTION            1
+             54 CALL_FUNCTION            1
+             56 COMPARE_OP               3 (!=)
+             58 POP_JUMP_IF_FALSE       68
+
+ 78          60 LOAD_GLOBAL              6 (ValueError)
+             62 LOAD_CONST               4 ('guidance steps cannot contain duplicates')
+             64 CALL_FUNCTION            1
+             66 RAISE_VARARGS            1
+
+ 79     >>   68 LOAD_GLOBAL              7 (_optional_text)
+             70 LOAD_FAST                0 (self)
+             72 LOAD_ATTR                8 (title)
+             74 LOAD_CONST               5 ('title')
+             76 CALL_FUNCTION            2
+             78 STORE_FAST               2 (title)
+
+ 80          80 LOAD_GLOBAL              7 (_optional_text)
+             82 LOAD_FAST                0 (self)
+             84 LOAD_ATTR                9 (reason)
+             86 LOAD_CONST               6 ('reason')
+             88 CALL_FUNCTION            2
+             90 STORE_FAST               3 (reason)
+
+ 81          92 LOAD_GLOBAL              7 (_optional_text)
+             94 LOAD_FAST                0 (self)
+             96 LOAD_ATTR               10 (action_url)
+             98 LOAD_CONST               7 ('action_url')
+            100 CALL_FUNCTION            2
+            102 STORE_FAST               4 (action_url)
+
+ 82         104 LOAD_GLOBAL              7 (_optional_text)
+            106 LOAD_FAST                0 (self)
+            108 LOAD_ATTR               11 (action_label)
+            110 LOAD_CONST               8 ('action_label')
+            112 CALL_FUNCTION            2
+            114 STORE_FAST               5 (action_label)
+
+ 83         116 LOAD_GLOBAL             12 (bool)
+            118 LOAD_FAST                4 (action_url)
+            120 CALL_FUNCTION            1
+            122 LOAD_GLOBAL             12 (bool)
+            124 LOAD_FAST                5 (action_label)
+            126 CALL_FUNCTION            1
+            128 COMPARE_OP               3 (!=)
+            130 POP_JUMP_IF_FALSE      140
+
+ 84         132 LOAD_GLOBAL              6 (ValueError)
+            134 LOAD_CONST               9 ('guidance action_url and action_label must be paired')
+            136 CALL_FUNCTION            1
+            138 RAISE_VARARGS            1
+
+ 85     >>  140 LOAD_GLOBAL             13 (any)
+            142 LOAD_FAST                2 (title)
+            144 LOAD_FAST                3 (reason)
+            146 LOAD_FAST                1 (steps)
+            148 LOAD_FAST                4 (action_url)
+            150 BUILD_TUPLE              4
+            152 CALL_FUNCTION            1
+            154 POP_JUMP_IF_TRUE       164
+
+ 86         156 LOAD_GLOBAL              6 (ValueError)
+            158 LOAD_CONST              10 ('guidance must contain useful information')
+            160 CALL_FUNCTION            1
+            162 RAISE_VARARGS            1
+
+ 87     >>  164 LOAD_GLOBAL             14 (object)
+            166 LOAD_METHOD             15 (__setattr__)
+            168 LOAD_FAST                0 (self)
+            170 LOAD_CONST               5 ('title')
+            172 LOAD_FAST                2 (title)
+            174 CALL_METHOD              3
+            176 POP_TOP
+
+ 88         178 LOAD_GLOBAL             14 (object)
+            180 LOAD_METHOD             15 (__setattr__)
+            182 LOAD_FAST                0 (self)
+            184 LOAD_CONST               6 ('reason')
+            186 LOAD_FAST                3 (reason)
+            188 CALL_METHOD              3
+            190 POP_TOP
+
+ 89         192 LOAD_GLOBAL             14 (object)
+            194 LOAD_METHOD             15 (__setattr__)
+            196 LOAD_FAST                0 (self)
+            198 LOAD_CONST              11 ('steps')
+            200 LOAD_FAST                1 (steps)
+            202 CALL_METHOD              3
+            204 POP_TOP
+
+ 90         206 LOAD_GLOBAL             14 (object)
+            208 LOAD_METHOD             15 (__setattr__)
+            210 LOAD_FAST                0 (self)
+            212 LOAD_CONST               7 ('action_url')
+            214 LOAD_FAST                4 (action_url)
+            216 CALL_METHOD              3
+            218 POP_TOP
+
+ 91         220 LOAD_GLOBAL             14 (object)
+            222 LOAD_METHOD             15 (__setattr__)
+            224 LOAD_FAST                0 (self)
+            226 LOAD_CONST               8 ('action_label')
+            228 LOAD_FAST                5 (action_label)
+            230 CALL_METHOD              3
+            232 POP_TOP
+            234 LOAD_CONST               0 (None)
+            236 RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x109244710, file "WeRobotCore/application/startup/workflow.py", line 76>:
+ 76           0 LOAD_FAST                0 (.0)
+        >>    2 FOR_ITER                16 (to 20)
+              4 STORE_FAST               1 (item)
+              6 LOAD_GLOBAL              0 (_required_text)
+              8 LOAD_FAST                1 (item)
+             10 LOAD_CONST               0 ('guidance step')
+             12 CALL_FUNCTION            2
+             14 YIELD_VALUE
+             16 POP_TOP
+             18 JUMP_ABSOLUTE            2
+        >>   20 LOAD_CONST               1 (None)
+             22 RETURN_VALUE
+
+Disassembly of <code object to_normalized_dict at 0x109244a80, file "WeRobotCore/application/startup/workflow.py", line 93>:
+ 95           0 LOAD_FAST                0 (self)
+              2 LOAD_ATTR                0 (title)
+
+ 96           4 LOAD_FAST                0 (self)
+              6 LOAD_ATTR                1 (reason)
+
+ 97           8 LOAD_GLOBAL              2 (list)
+             10 LOAD_FAST                0 (self)
+             12 LOAD_ATTR                3 (steps)
+             14 CALL_FUNCTION            1
+
+ 98          16 LOAD_FAST                0 (self)
+             18 LOAD_ATTR                4 (action_url)
+
+ 99          20 LOAD_FAST                0 (self)
+             22 LOAD_ATTR                5 (action_label)
+
+ 94          24 LOAD_CONST               1 (('title', 'reason', 'steps', 'actionUrl', 'actionLabel'))
+             26 BUILD_CONST_KEY_MAP      5
+             28 RETURN_VALUE
+
+Disassembly of <code object StartupInstanceStatus at 0x10924c030, file "WeRobotCore/application/startup/workflow.py", line 103>:
+103           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('StartupInstanceStatus')
+              6 STORE_NAME               2 (__qualname__)
+              8 SETUP_ANNOTATIONS
+
+105          10 LOAD_NAME                3 (str)
+             12 LOAD_NAME                4 (__annotations__)
+             14 LOAD_CONST               1 ('instance_id')
+             16 STORE_SUBSCR
+
+106          18 LOAD_NAME                5 (StartupInstanceState)
+             20 LOAD_NAME                4 (__annotations__)
+             22 LOAD_CONST               2 ('state')
+             24 STORE_SUBSCR
+
+107          26 LOAD_CONST               3 (None)
+             28 STORE_NAME               6 (account_id)
+             30 LOAD_NAME                7 (Optional)
+             32 LOAD_NAME                3 (str)
+             34 BINARY_SUBSCR
+             36 LOAD_NAME                4 (__annotations__)
+             38 LOAD_CONST               4 ('account_id')
+             40 STORE_SUBSCR
+
+108          42 LOAD_CONST               3 (None)
+             44 STORE_NAME               8 (nickname)
+             46 LOAD_NAME                7 (Optional)
+             48 LOAD_NAME                3 (str)
+             50 BINARY_SUBSCR
+             52 LOAD_NAME                4 (__annotations__)
+             54 LOAD_CONST               5 ('nickname')
+             56 STORE_SUBSCR
+
+109          58 LOAD_CONST               3 (None)
+             60 STORE_NAME               9 (reason_code)
+             62 LOAD_NAME                7 (Optional)
+             64 LOAD_NAME                3 (str)
+             66 BINARY_SUBSCR
+             68 LOAD_NAME                4 (__annotations__)
+             70 LOAD_CONST               6 ('reason_code')
+             72 STORE_SUBSCR
+
+110          74 LOAD_CONST               3 (None)
+             76 STORE_NAME              10 (message)
+             78 LOAD_NAME                7 (Optional)
+             80 LOAD_NAME                3 (str)
+             82 BINARY_SUBSCR
+             84 LOAD_NAME                4 (__annotations__)
+             86 LOAD_CONST               7 ('message')
+             88 STORE_SUBSCR
+
+111          90 LOAD_CONST               8 (False)
+             92 STORE_NAME              11 (retryable)
+             94 LOAD_NAME               12 (bool)
+             96 LOAD_NAME                4 (__annotations__)
+             98 LOAD_CONST               9 ('retryable')
+            100 STORE_SUBSCR
+
+113         102 LOAD_CONST               3 (None)
+            104 LOAD_CONST              10 (('return',))
+            106 BUILD_CONST_KEY_MAP      1
+            108 LOAD_CONST              11 (<code object __post_init__ at 0x109244500, file "WeRobotCore/application/startup/workflow.py", line 113>)
+            110 LOAD_CONST              12 ('StartupInstanceStatus.__post_init__')
+            112 MAKE_FUNCTION            4 (annotations)
+            114 STORE_NAME              13 (__post_init__)
+
+143         116 LOAD_NAME               14 (Mapping)
+            118 LOAD_NAME                3 (str)
+            120 LOAD_NAME               15 (Any)
+            122 BUILD_TUPLE              2
+            124 BINARY_SUBSCR
+            126 LOAD_CONST              10 (('return',))
+            128 BUILD_CONST_KEY_MAP      1
+            130 LOAD_CONST              13 (<code object to_normalized_dict at 0x10924c3a0, file "WeRobotCore/application/startup/workflow.py", line 143>)
+            132 LOAD_CONST              14 ('StartupInstanceStatus.to_normalized_dict')
+            134 MAKE_FUNCTION            4 (annotations)
+            136 STORE_NAME              16 (to_normalized_dict)
+            138 LOAD_CONST               3 (None)
+            140 RETURN_VALUE
+
+Disassembly of <code object __post_init__ at 0x109244500, file "WeRobotCore/application/startup/workflow.py", line 113>:
+114           0 LOAD_GLOBAL              0 (object)
+              2 LOAD_METHOD              1 (__setattr__)
+
+115           4 LOAD_FAST                0 (self)
+
+116           6 LOAD_CONST               1 ('instance_id')
+
+117           8 LOAD_GLOBAL              2 (_required_text)
+             10 LOAD_FAST                0 (self)
+             12 LOAD_ATTR                3 (instance_id)
+             14 LOAD_CONST               1 ('instance_id')
+             16 CALL_FUNCTION            2
+
+114          18 CALL_METHOD              3
+             20 POP_TOP
+
+119          22 LOAD_GLOBAL              4 (isinstance)
+             24 LOAD_FAST                0 (self)
+             26 LOAD_ATTR                5 (state)
+             28 LOAD_GLOBAL              6 (StartupInstanceState)
+             30 CALL_FUNCTION            2
+             32 POP_JUMP_IF_TRUE        42
+
+120          34 LOAD_GLOBAL              7 (TypeError)
+             36 LOAD_CONST               2 ('state must be a StartupInstanceState')
+             38 CALL_FUNCTION            1
+             40 RAISE_VARARGS            1
+
+121     >>   42 LOAD_GLOBAL              4 (isinstance)
+             44 LOAD_FAST                0 (self)
+             46 LOAD_ATTR                8 (retryable)
+             48 LOAD_GLOBAL              9 (bool)
+             50 CALL_FUNCTION            2
+             52 POP_JUMP_IF_TRUE        62
+
+122          54 LOAD_GLOBAL              7 (TypeError)
+             56 LOAD_CONST               3 ('retryable must be a bool')
+             58 CALL_FUNCTION            1
+             60 RAISE_VARARGS            1
+
+123     >>   62 LOAD_GLOBAL             10 (_optional_text)
+             64 LOAD_FAST                0 (self)
+             66 LOAD_ATTR               11 (account_id)
+             68 LOAD_CONST               4 ('account_id')
+             70 CALL_FUNCTION            2
+             72 STORE_FAST               1 (account_id)
+
+124          74 LOAD_GLOBAL             10 (_optional_text)
+             76 LOAD_FAST                0 (self)
+             78 LOAD_ATTR               12 (nickname)
+             80 LOAD_CONST               5 ('nickname')
+             82 CALL_FUNCTION            2
+             84 STORE_FAST               2 (nickname)
+
+125          86 LOAD_GLOBAL             10 (_optional_text)
+             88 LOAD_FAST                0 (self)
+             90 LOAD_ATTR               13 (reason_code)
+             92 LOAD_CONST               6 ('reason_code')
+             94 CALL_FUNCTION            2
+             96 STORE_FAST               3 (reason_code)
+
+126          98 LOAD_GLOBAL             10 (_optional_text)
+            100 LOAD_FAST                0 (self)
+            102 LOAD_ATTR               14 (message)
+            104 LOAD_CONST               7 ('message')
+            106 CALL_FUNCTION            2
+            108 STORE_FAST               4 (message)
+
+127         110 LOAD_FAST                0 (self)
+            112 LOAD_ATTR                5 (state)
+            114 LOAD_GLOBAL              6 (StartupInstanceState)
+            116 LOAD_ATTR               15 (READY)
+            118 IS_OP                    0
+            120 POP_JUMP_IF_FALSE      138
+
+128         122 LOAD_FAST                1 (account_id)
+
+127         124 POP_JUMP_IF_FALSE      130
+
+128         126 LOAD_FAST                2 (nickname)
+
+127         128 POP_JUMP_IF_TRUE       138
+
+130     >>  130 LOAD_GLOBAL             16 (ValueError)
+            132 LOAD_CONST               8 ('ready startup instances require account identity')
+            134 CALL_FUNCTION            1
+            136 RAISE_VARARGS            1
+
+131     >>  138 LOAD_FAST                0 (self)
+            140 LOAD_ATTR                5 (state)
+
+132         142 LOAD_GLOBAL              6 (StartupInstanceState)
+            144 LOAD_ATTR               17 (ACTION_REQUIRED)
+
+133         146 LOAD_GLOBAL              6 (StartupInstanceState)
+            148 LOAD_ATTR               18 (FAILED)
+
+131         150 BUILD_TUPLE              2
+            152 CONTAINS_OP              0
+            154 POP_JUMP_IF_FALSE      168
+
+134         156 LOAD_FAST                3 (reason_code)
+
+131         158 POP_JUMP_IF_TRUE       168
+
+135         160 LOAD_GLOBAL             16 (ValueError)
+
+136         162 LOAD_CONST               9 ('action-required and failed instances require reason_code')
+
+135         164 CALL_FUNCTION            1
+            166 RAISE_VARARGS            1
+
+138     >>  168 LOAD_GLOBAL              0 (object)
+            170 LOAD_METHOD              1 (__setattr__)
+            172 LOAD_FAST                0 (self)
+            174 LOAD_CONST               4 ('account_id')
+            176 LOAD_FAST                1 (account_id)
+            178 CALL_METHOD              3
+            180 POP_TOP
+
+139         182 LOAD_GLOBAL              0 (object)
+            184 LOAD_METHOD              1 (__setattr__)
+            186 LOAD_FAST                0 (self)
+            188 LOAD_CONST               5 ('nickname')
+            190 LOAD_FAST                2 (nickname)
+            192 CALL_METHOD              3
+            194 POP_TOP
+
+140         196 LOAD_GLOBAL              0 (object)
+            198 LOAD_METHOD              1 (__setattr__)
+            200 LOAD_FAST                0 (self)
+            202 LOAD_CONST               6 ('reason_code')
+            204 LOAD_FAST                3 (reason_code)
+            206 CALL_METHOD              3
+            208 POP_TOP
+
+141         210 LOAD_GLOBAL              0 (object)
+            212 LOAD_METHOD              1 (__setattr__)
+            214 LOAD_FAST                0 (self)
+            216 LOAD_CONST               7 ('message')
+            218 LOAD_FAST                4 (message)
+            220 CALL_METHOD              3
+            222 POP_TOP
+            224 LOAD_CONST               0 (None)
+            226 RETURN_VALUE
+
+Disassembly of <code object to_normalized_dict at 0x10924c3a0, file "WeRobotCore/application/startup/workflow.py", line 143>:
+145           0 LOAD_FAST                0 (self)
+              2 LOAD_ATTR                0 (instance_id)
+
+146           4 LOAD_FAST                0 (self)
+              6 LOAD_ATTR                1 (state)
+              8 LOAD_ATTR                2 (value)
+
+147          10 LOAD_FAST                0 (self)
+             12 LOAD_ATTR                3 (account_id)
+
+148          14 LOAD_FAST                0 (self)
+             16 LOAD_ATTR                4 (nickname)
+
+149          18 LOAD_FAST                0 (self)
+             20 LOAD_ATTR                5 (reason_code)
+
+150          22 LOAD_FAST                0 (self)
+             24 LOAD_ATTR                6 (message)
+
+151          26 LOAD_FAST                0 (self)
+             28 LOAD_ATTR                7 (retryable)
+
+144          30 LOAD_CONST               1 (('instanceId', 'state', 'accountId', 'nickname', 'reasonCode', 'message', 'retryable'))
+             32 BUILD_CONST_KEY_MAP      7
+             34 RETURN_VALUE
+
+Disassembly of <code object StartupActionAvailability at 0x10924c7c0, file "WeRobotCore/application/startup/workflow.py", line 155>:
+155           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('StartupActionAvailability')
+              6 STORE_NAME               2 (__qualname__)
+              8 SETUP_ANNOTATIONS
+
+157          10 LOAD_NAME                3 (StartupAction)
+             12 LOAD_NAME                4 (__annotations__)
+             14 LOAD_CONST               1 ('action')
+             16 STORE_SUBSCR
+
+158          18 LOAD_NAME                5 (bool)
+             20 LOAD_NAME                4 (__annotations__)
+             22 LOAD_CONST               2 ('available')
+             24 STORE_SUBSCR
+
+159          26 LOAD_CONST               3 (False)
+             28 STORE_NAME               6 (destructive)
+             30 LOAD_NAME                5 (bool)
+             32 LOAD_NAME                4 (__annotations__)
+             34 LOAD_CONST               4 ('destructive')
+             36 STORE_SUBSCR
+
+160          38 LOAD_CONST               3 (False)
+             40 STORE_NAME               7 (confirmation_required)
+             42 LOAD_NAME                5 (bool)
+             44 LOAD_NAME                4 (__annotations__)
+             46 LOAD_CONST               5 ('confirmation_required')
+             48 STORE_SUBSCR
+
+161          50 LOAD_CONST               6 (None)
+             52 STORE_NAME               8 (reason_code)
+             54 LOAD_NAME                9 (Optional)
+             56 LOAD_NAME               10 (str)
+             58 BINARY_SUBSCR
+             60 LOAD_NAME                4 (__annotations__)
+             62 LOAD_CONST               7 ('reason_code')
+             64 STORE_SUBSCR
+
+162          66 LOAD_CONST               6 (None)
+             68 STORE_NAME              11 (hint)
+             70 LOAD_NAME                9 (Optional)
+             72 LOAD_NAME               10 (str)
+             74 BINARY_SUBSCR
+             76 LOAD_NAME                4 (__annotations__)
+             78 LOAD_CONST               8 ('hint')
+             80 STORE_SUBSCR
+
+163          82 LOAD_NAME               12 (field)
+             84 LOAD_NAME               13 (tuple)
+             86 LOAD_CONST               9 (('default_factory',))
+             88 CALL_FUNCTION_KW         1
+             90 STORE_NAME              14 (required_permissions)
+             92 LOAD_NAME               15 (Tuple)
+             94 LOAD_NAME               10 (str)
+             96 LOAD_CONST              10 (Ellipsis)
+             98 BUILD_TUPLE              2
+            100 BINARY_SUBSCR
+            102 LOAD_NAME                4 (__annotations__)
+            104 LOAD_CONST              11 ('required_permissions')
+            106 STORE_SUBSCR
+
+165         108 LOAD_CONST               6 (None)
+            110 LOAD_CONST              12 (('return',))
+            112 BUILD_CONST_KEY_MAP      1
+            114 LOAD_CONST              13 (<code object __post_init__ at 0x10924c9d0, file "WeRobotCore/application/startup/workflow.py", line 165>)
+            116 LOAD_CONST              14 ('StartupActionAvailability.__post_init__')
+            118 MAKE_FUNCTION            4 (annotations)
+            120 STORE_NAME              16 (__post_init__)
+
+193         122 LOAD_NAME               17 (Mapping)
+            124 LOAD_NAME               10 (str)
+            126 LOAD_NAME               18 (Any)
+            128 BUILD_TUPLE              2
+            130 BINARY_SUBSCR
+            132 LOAD_CONST              12 (('return',))
+            134 BUILD_CONST_KEY_MAP      1
+            136 LOAD_CONST              15 (<code object to_normalized_dict at 0x10924c450, file "WeRobotCore/application/startup/workflow.py", line 193>)
+            138 LOAD_CONST              16 ('StartupActionAvailability.to_normalized_dict')
+            140 MAKE_FUNCTION            4 (annotations)
+            142 STORE_NAME              19 (to_normalized_dict)
+            144 LOAD_CONST               6 (None)
+            146 RETURN_VALUE
+
+Disassembly of <code object __post_init__ at 0x10924c9d0, file "WeRobotCore/application/startup/workflow.py", line 165>:
+166           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                0 (self)
+              4 LOAD_ATTR                1 (action)
+              6 LOAD_GLOBAL              2 (StartupAction)
+              8 CALL_FUNCTION            2
+             10 POP_JUMP_IF_TRUE        20
+
+167          12 LOAD_GLOBAL              3 (TypeError)
+             14 LOAD_CONST               1 ('action must be a StartupAction')
+             16 CALL_FUNCTION            1
+             18 RAISE_VARARGS            1
+
+168     >>   20 LOAD_CONST               2 (('available', 'destructive', 'confirmation_required'))
+             22 GET_ITER
+        >>   24 FOR_ITER                34 (to 60)
+             26 STORE_FAST               1 (field_name)
+
+173          28 LOAD_GLOBAL              0 (isinstance)
+             30 LOAD_GLOBAL              4 (getattr)
+             32 LOAD_FAST                0 (self)
+             34 LOAD_FAST                1 (field_name)
+             36 CALL_FUNCTION            2
+             38 LOAD_GLOBAL              5 (bool)
+             40 CALL_FUNCTION            2
+             42 POP_JUMP_IF_TRUE        24
+
+174          44 LOAD_GLOBAL              3 (TypeError)
+             46 LOAD_CONST               3 ('{} must be a bool')
+             48 LOAD_METHOD              6 (format)
+             50 LOAD_FAST                1 (field_name)
+             52 CALL_METHOD              1
+             54 CALL_FUNCTION            1
+             56 RAISE_VARARGS            1
+             58 JUMP_ABSOLUTE           24
+
+175     >>   60 LOAD_GLOBAL              0 (isinstance)
+             62 LOAD_FAST                0 (self)
+             64 LOAD_ATTR                7 (required_permissions)
+             66 LOAD_GLOBAL              8 (tuple)
+             68 CALL_FUNCTION            2
+             70 POP_JUMP_IF_TRUE        80
+
+176          72 LOAD_GLOBAL              3 (TypeError)
+             74 LOAD_CONST               4 ('required_permissions must be a tuple')
+             76 CALL_FUNCTION            1
+             78 RAISE_VARARGS            1
+
+177     >>   80 LOAD_GLOBAL              8 (tuple)
+             82 LOAD_CONST               5 (<code object <genexpr> at 0x10924cbe0, file "WeRobotCore/application/startup/workflow.py", line 177>)
+             84 LOAD_CONST               6 ('StartupActionAvailability.__post_init__.<locals>.<genexpr>')
+             86 MAKE_FUNCTION            0
+
+179          88 LOAD_FAST                0 (self)
+             90 LOAD_ATTR                7 (required_permissions)
+
+177          92 GET_ITER
+             94 CALL_FUNCTION            1
+             96 CALL_FUNCTION            1
+             98 STORE_FAST               2 (permissions)
+
+181         100 LOAD_GLOBAL              9 (len)
+            102 LOAD_FAST                2 (permissions)
+            104 CALL_FUNCTION            1
+            106 LOAD_GLOBAL              9 (len)
+            108 LOAD_GLOBAL             10 (set)
+            110 LOAD_FAST                2 (permissions)
+            112 CALL_FUNCTION            1
+            114 CALL_FUNCTION            1
+            116 COMPARE_OP               3 (!=)
+            118 POP_JUMP_IF_FALSE      128
+
+182         120 LOAD_GLOBAL             11 (ValueError)
+            122 LOAD_CONST               7 ('required_permissions cannot contain duplicates')
+            124 CALL_FUNCTION            1
+            126 RAISE_VARARGS            1
+
+183     >>  128 LOAD_GLOBAL             12 (_optional_text)
+            130 LOAD_FAST                0 (self)
+            132 LOAD_ATTR               13 (reason_code)
+            134 LOAD_CONST               8 ('reason_code')
+            136 CALL_FUNCTION            2
+            138 STORE_FAST               3 (reason_code)
+
+184         140 LOAD_GLOBAL             12 (_optional_text)
+            142 LOAD_FAST                0 (self)
+            144 LOAD_ATTR               14 (hint)
+            146 LOAD_CONST               9 ('hint')
+            148 CALL_FUNCTION            2
+            150 STORE_FAST               4 (hint)
+
+185         152 LOAD_FAST                0 (self)
+            154 LOAD_ATTR               15 (destructive)
+            156 POP_JUMP_IF_FALSE      172
+            158 LOAD_FAST                0 (self)
+            160 LOAD_ATTR               16 (confirmation_required)
+            162 POP_JUMP_IF_TRUE       172
+
+186         164 LOAD_GLOBAL             11 (ValueError)
+            166 LOAD_CONST              10 ('destructive startup actions require confirmation')
+            168 CALL_FUNCTION            1
+            170 RAISE_VARARGS            1
+
+187     >>  172 LOAD_FAST                0 (self)
+            174 LOAD_ATTR               17 (available)
+            176 POP_JUMP_IF_TRUE       190
+            178 LOAD_FAST                3 (reason_code)
+            180 POP_JUMP_IF_TRUE       190
+
+188         182 LOAD_GLOBAL             11 (ValueError)
+            184 LOAD_CONST              11 ('unavailable startup actions require reason_code')
+            186 CALL_FUNCTION            1
+            188 RAISE_VARARGS            1
+
+189     >>  190 LOAD_GLOBAL             18 (object)
+            192 LOAD_METHOD             19 (__setattr__)
+            194 LOAD_FAST                0 (self)
+            196 LOAD_CONST              12 ('required_permissions')
+            198 LOAD_FAST                2 (permissions)
+            200 CALL_METHOD              3
+            202 POP_TOP
+
+190         204 LOAD_GLOBAL             18 (object)
+            206 LOAD_METHOD             19 (__setattr__)
+            208 LOAD_FAST                0 (self)
+            210 LOAD_CONST               8 ('reason_code')
+            212 LOAD_FAST                3 (reason_code)
+            214 CALL_METHOD              3
+            216 POP_TOP
+
+191         218 LOAD_GLOBAL             18 (object)
+            220 LOAD_METHOD             19 (__setattr__)
+            222 LOAD_FAST                0 (self)
+            224 LOAD_CONST               9 ('hint')
+            226 LOAD_FAST                4 (hint)
+            228 CALL_METHOD              3
+            230 POP_TOP
+            232 LOAD_CONST               0 (None)
+            234 RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x10924cbe0, file "WeRobotCore/application/startup/workflow.py", line 177>:
+177           0 LOAD_FAST                0 (.0)
+        >>    2 FOR_ITER                16 (to 20)
+
+179           4 STORE_FAST               1 (item)
+
+178           6 LOAD_GLOBAL              0 (_required_text)
+              8 LOAD_FAST                1 (item)
+             10 LOAD_CONST               0 ('required permission')
+             12 CALL_FUNCTION            2
+             14 YIELD_VALUE
+             16 POP_TOP
+             18 JUMP_ABSOLUTE            2
+        >>   20 LOAD_CONST               1 (None)
+             22 RETURN_VALUE
+
+Disassembly of <code object to_normalized_dict at 0x10924c450, file "WeRobotCore/application/startup/workflow.py", line 193>:
+195           0 LOAD_FAST                0 (self)
+              2 LOAD_ATTR                0 (action)
+              4 LOAD_ATTR                1 (value)
+
+196           6 LOAD_FAST                0 (self)
+              8 LOAD_ATTR                2 (available)
+
+197          10 LOAD_FAST                0 (self)
+             12 LOAD_ATTR                3 (destructive)
+
+198          14 LOAD_FAST                0 (self)
+             16 LOAD_ATTR                4 (confirmation_required)
+
+199          18 LOAD_FAST                0 (self)
+             20 LOAD_ATTR                5 (reason_code)
+
+200          22 LOAD_FAST                0 (self)
+             24 LOAD_ATTR                6 (hint)
+
+201          26 LOAD_GLOBAL              7 (list)
+             28 LOAD_FAST                0 (self)
+             30 LOAD_ATTR                8 (required_permissions)
+             32 CALL_FUNCTION            1
+
+194          34 LOAD_CONST               1 (('action', 'available', 'destructive', 'confirmationRequired', 'reasonCode', 'hint', 'requiredPermissions'))
+             36 BUILD_CONST_KEY_MAP      7
+             38 RETURN_VALUE
+
+Disassembly of <code object StartupWorkflowSnapshot at 0x10924cea0, file "WeRobotCore/application/startup/workflow.py", line 205>:
+205           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('StartupWorkflowSnapshot')
+              6 STORE_NAME               2 (__qualname__)
+              8 SETUP_ANNOTATIONS
+
+207          10 LOAD_NAME                3 (str)
+             12 LOAD_NAME                4 (__annotations__)
+             14 LOAD_CONST               1 ('platform')
+             16 STORE_SUBSCR
+
+208          18 LOAD_NAME                3 (str)
+             20 LOAD_NAME                4 (__annotations__)
+             22 LOAD_CONST               2 ('driver_id')
+             24 STORE_SUBSCR
+
+209          26 LOAD_NAME                5 (StartupPhase)
+             28 LOAD_NAME                4 (__annotations__)
+             30 LOAD_CONST               3 ('phase')
+             32 STORE_SUBSCR
+
+210          34 LOAD_NAME                6 (field)
+             36 LOAD_NAME                7 (tuple)
+             38 LOAD_CONST               4 (('default_factory',))
+             40 CALL_FUNCTION_KW         1
+             42 STORE_NAME               8 (instances)
+             44 LOAD_NAME                9 (Tuple)
+             46 LOAD_NAME               10 (StartupInstanceStatus)
+             48 LOAD_CONST               5 (Ellipsis)
+             50 BUILD_TUPLE              2
+             52 BINARY_SUBSCR
+             54 LOAD_NAME                4 (__annotations__)
+             56 LOAD_CONST               6 ('instances')
+             58 STORE_SUBSCR
+
+211          60 LOAD_NAME                6 (field)
+             62 LOAD_NAME                7 (tuple)
+             64 LOAD_CONST               4 (('default_factory',))
+             66 CALL_FUNCTION_KW         1
+             68 STORE_NAME              11 (actions)
+             70 LOAD_NAME                9 (Tuple)
+             72 LOAD_NAME               12 (StartupActionAvailability)
+             74 LOAD_CONST               5 (Ellipsis)
+             76 BUILD_TUPLE              2
+             78 BINARY_SUBSCR
+             80 LOAD_NAME                4 (__annotations__)
+             82 LOAD_CONST               7 ('actions')
+             84 STORE_SUBSCR
+
+212          86 LOAD_CONST               8 (None)
+             88 STORE_NAME              13 (next_action)
+             90 LOAD_NAME               14 (Optional)
+             92 LOAD_NAME               15 (StartupAction)
+             94 BINARY_SUBSCR
+             96 LOAD_NAME                4 (__annotations__)
+             98 LOAD_CONST               9 ('next_action')
+            100 STORE_SUBSCR
+
+213         102 LOAD_CONST               8 (None)
+            104 STORE_NAME              16 (reason_code)
+            106 LOAD_NAME               14 (Optional)
+            108 LOAD_NAME                3 (str)
+            110 BINARY_SUBSCR
+            112 LOAD_NAME                4 (__annotations__)
+            114 LOAD_CONST              10 ('reason_code')
+            116 STORE_SUBSCR
+
+214         118 LOAD_CONST               8 (None)
+            120 STORE_NAME              17 (message)
+            122 LOAD_NAME               14 (Optional)
+            124 LOAD_NAME                3 (str)
+            126 BINARY_SUBSCR
+            128 LOAD_NAME                4 (__annotations__)
+            130 LOAD_CONST              11 ('message')
+            132 STORE_SUBSCR
+
+215         134 LOAD_CONST               8 (None)
+            136 STORE_NAME              18 (guidance)
+            138 LOAD_NAME               14 (Optional)
+            140 LOAD_NAME               19 (StartupGuidance)
+            142 BINARY_SUBSCR
+            144 LOAD_NAME                4 (__annotations__)
+            146 LOAD_CONST              12 ('guidance')
+            148 STORE_SUBSCR
+
+216         150 LOAD_NAME                6 (field)
+
+217         152 LOAD_NAME               20 (dict)
+
+218         154 LOAD_CONST              13 (False)
+
+219         156 LOAD_CONST              13 (False)
+
+216         158 LOAD_CONST              14 (('default_factory', 'repr', 'compare'))
+            160 CALL_FUNCTION_KW         3
+            162 STORE_NAME              21 (compatibility_payload)
+            164 LOAD_NAME               22 (Mapping)
+            166 LOAD_NAME                3 (str)
+            168 LOAD_NAME               23 (Any)
+            170 BUILD_TUPLE              2
+            172 BINARY_SUBSCR
+            174 LOAD_NAME                4 (__annotations__)
+            176 LOAD_CONST              15 ('compatibility_payload')
+            178 STORE_SUBSCR
+
+222         180 LOAD_CONST               8 (None)
+            182 LOAD_CONST              16 (('return',))
+            184 BUILD_CONST_KEY_MAP      1
+            186 LOAD_CONST              17 (<code object __post_init__ at 0x10924c870, file "WeRobotCore/application/startup/workflow.py", line 222>)
+            188 LOAD_CONST              18 ('StartupWorkflowSnapshot.__post_init__')
+            190 MAKE_FUNCTION            4 (annotations)
+            192 STORE_NAME              24 (__post_init__)
+
+288         194 LOAD_NAME               25 (property)
+
+289         196 LOAD_NAME               26 (int)
+            198 LOAD_CONST              16 (('return',))
+            200 BUILD_CONST_KEY_MAP      1
+            202 LOAD_CONST              19 (<code object ready_count at 0x10924cb30, file "WeRobotCore/application/startup/workflow.py", line 288>)
+            204 LOAD_CONST              20 ('StartupWorkflowSnapshot.ready_count')
+            206 MAKE_FUNCTION            4 (annotations)
+            208 CALL_FUNCTION            1
+            210 STORE_NAME              27 (ready_count)
+
+294         212 LOAD_NAME               22 (Mapping)
+            214 LOAD_NAME                3 (str)
+            216 LOAD_NAME               23 (Any)
+            218 BUILD_TUPLE              2
+            220 BINARY_SUBSCR
+            222 LOAD_CONST              16 (('return',))
+            224 BUILD_CONST_KEY_MAP      1
+            226 LOAD_CONST              21 (<code object to_normalized_dict at 0x10924c710, file "WeRobotCore/application/startup/workflow.py", line 294>)
+            228 LOAD_CONST              22 ('StartupWorkflowSnapshot.to_normalized_dict')
+            230 MAKE_FUNCTION            4 (annotations)
+            232 STORE_NAME              28 (to_normalized_dict)
+            234 LOAD_CONST               8 (None)
+            236 RETURN_VALUE
+
+Disassembly of <code object __post_init__ at 0x10924c870, file "WeRobotCore/application/startup/workflow.py", line 222>:
+223           0 LOAD_GLOBAL              0 (object)
+              2 LOAD_METHOD              1 (__setattr__)
+              4 LOAD_DEREF               0 (self)
+              6 LOAD_CONST               1 ('platform')
+              8 LOAD_GLOBAL              2 (_required_text)
+             10 LOAD_DEREF               0 (self)
+             12 LOAD_ATTR                3 (platform)
+             14 LOAD_CONST               1 ('platform')
+             16 CALL_FUNCTION            2
+             18 CALL_METHOD              3
+             20 POP_TOP
+
+224          22 LOAD_GLOBAL              0 (object)
+             24 LOAD_METHOD              1 (__setattr__)
+
+225          26 LOAD_DEREF               0 (self)
+
+226          28 LOAD_CONST               2 ('driver_id')
+
+227          30 LOAD_GLOBAL              2 (_required_text)
+             32 LOAD_DEREF               0 (self)
+             34 LOAD_ATTR                4 (driver_id)
+             36 LOAD_CONST               2 ('driver_id')
+             38 CALL_FUNCTION            2
+
+224          40 CALL_METHOD              3
+             42 POP_TOP
+
+229          44 LOAD_GLOBAL              5 (isinstance)
+             46 LOAD_DEREF               0 (self)
+             48 LOAD_ATTR                6 (phase)
+             50 LOAD_GLOBAL              7 (StartupPhase)
+             52 CALL_FUNCTION            2
+             54 POP_JUMP_IF_TRUE        64
+
+230          56 LOAD_GLOBAL              8 (TypeError)
+             58 LOAD_CONST               3 ('phase must be a StartupPhase')
+             60 CALL_FUNCTION            1
+             62 RAISE_VARARGS            1
+
+231     >>   64 LOAD_GLOBAL              5 (isinstance)
+             66 LOAD_DEREF               0 (self)
+             68 LOAD_ATTR                9 (instances)
+             70 LOAD_GLOBAL             10 (tuple)
+             72 CALL_FUNCTION            2
+             74 POP_JUMP_IF_TRUE        84
+
+232          76 LOAD_GLOBAL              8 (TypeError)
+             78 LOAD_CONST               4 ('instances must be a tuple')
+             80 CALL_FUNCTION            1
+             82 RAISE_VARARGS            1
+
+233     >>   84 LOAD_GLOBAL             11 (any)
+             86 LOAD_CONST               5 (<code object <genexpr> at 0x10924ca80, file "WeRobotCore/application/startup/workflow.py", line 233>)
+             88 LOAD_CONST               6 ('StartupWorkflowSnapshot.__post_init__.<locals>.<genexpr>')
+             90 MAKE_FUNCTION            0
+             92 LOAD_DEREF               0 (self)
+             94 LOAD_ATTR                9 (instances)
+             96 GET_ITER
+             98 CALL_FUNCTION            1
+            100 CALL_FUNCTION            1
+            102 POP_JUMP_IF_FALSE      112
+
+234         104 LOAD_GLOBAL              8 (TypeError)
+            106 LOAD_CONST               7 ('instances must contain StartupInstanceStatus values')
+            108 CALL_FUNCTION            1
+            110 RAISE_VARARGS            1
+
+235     >>  112 LOAD_GLOBAL              5 (isinstance)
+            114 LOAD_DEREF               0 (self)
+            116 LOAD_ATTR               12 (actions)
+            118 LOAD_GLOBAL             10 (tuple)
+            120 CALL_FUNCTION            2
+            122 POP_JUMP_IF_TRUE       132
+
+236         124 LOAD_GLOBAL              8 (TypeError)
+            126 LOAD_CONST               8 ('actions must be a tuple')
+            128 CALL_FUNCTION            1
+            130 RAISE_VARARGS            1
+
+237     >>  132 LOAD_GLOBAL             11 (any)
+            134 LOAD_CONST               9 (<code object <genexpr> at 0x10924c0e0, file "WeRobotCore/application/startup/workflow.py", line 237>)
+            136 LOAD_CONST               6 ('StartupWorkflowSnapshot.__post_init__.<locals>.<genexpr>')
+            138 MAKE_FUNCTION            0
+            140 LOAD_DEREF               0 (self)
+            142 LOAD_ATTR               12 (actions)
+            144 GET_ITER
+            146 CALL_FUNCTION            1
+            148 CALL_FUNCTION            1
+            150 POP_JUMP_IF_FALSE      160
+
+238         152 LOAD_GLOBAL              8 (TypeError)
+            154 LOAD_CONST              10 ('actions must contain StartupActionAvailability values')
+            156 CALL_FUNCTION            1
+            158 RAISE_VARARGS            1
+
+239     >>  160 LOAD_DEREF               0 (self)
+            162 LOAD_ATTR               13 (next_action)
+            164 LOAD_CONST               0 (None)
+            166 IS_OP                    1
+            168 POP_JUMP_IF_FALSE      190
+            170 LOAD_GLOBAL              5 (isinstance)
+
+240         172 LOAD_DEREF               0 (self)
+            174 LOAD_ATTR               13 (next_action)
+
+241         176 LOAD_GLOBAL             14 (StartupAction)
+
+239         178 CALL_FUNCTION            2
+            180 POP_JUMP_IF_TRUE       190
+
+243         182 LOAD_GLOBAL              8 (TypeError)
+            184 LOAD_CONST              11 ('next_action must be a StartupAction when provided')
+            186 CALL_FUNCTION            1
+            188 RAISE_VARARGS            1
+
+244     >>  190 LOAD_DEREF               0 (self)
+            192 LOAD_ATTR               15 (guidance)
+            194 LOAD_CONST               0 (None)
+            196 IS_OP                    1
+            198 POP_JUMP_IF_FALSE      220
+            200 LOAD_GLOBAL              5 (isinstance)
+
+245         202 LOAD_DEREF               0 (self)
+            204 LOAD_ATTR               15 (guidance)
+
+246         206 LOAD_GLOBAL             16 (StartupGuidance)
+
+244         208 CALL_FUNCTION            2
+            210 POP_JUMP_IF_TRUE       220
+
+248         212 LOAD_GLOBAL              8 (TypeError)
+            214 LOAD_CONST              12 ('guidance must be StartupGuidance when provided')
+            216 CALL_FUNCTION            1
+            218 RAISE_VARARGS            1
+
+249     >>  220 LOAD_GLOBAL              5 (isinstance)
+            222 LOAD_DEREF               0 (self)
+            224 LOAD_ATTR               17 (compatibility_payload)
+            226 LOAD_GLOBAL             18 (Mapping)
+            228 CALL_FUNCTION            2
+            230 POP_JUMP_IF_TRUE       240
+
+250         232 LOAD_GLOBAL              8 (TypeError)
+            234 LOAD_CONST              13 ('compatibility_payload must be a mapping')
+            236 CALL_FUNCTION            1
+            238 RAISE_VARARGS            1
+
+252     >>  240 LOAD_GLOBAL             10 (tuple)
+            242 LOAD_CONST              14 (<code object <genexpr> at 0x10924c2f0, file "WeRobotCore/application/startup/workflow.py", line 252>)
+            244 LOAD_CONST               6 ('StartupWorkflowSnapshot.__post_init__.<locals>.<genexpr>')
+            246 MAKE_FUNCTION            0
+            248 LOAD_DEREF               0 (self)
+            250 LOAD_ATTR                9 (instances)
+            252 GET_ITER
+            254 CALL_FUNCTION            1
+            256 CALL_FUNCTION            1
+            258 STORE_FAST               1 (instance_ids)
+
+253         260 LOAD_GLOBAL             19 (len)
+            262 LOAD_FAST                1 (instance_ids)
+            264 CALL_FUNCTION            1
+            266 LOAD_GLOBAL             19 (len)
+            268 LOAD_GLOBAL             20 (set)
+            270 LOAD_FAST                1 (instance_ids)
+            272 CALL_FUNCTION            1
+            274 CALL_FUNCTION            1
+            276 COMPARE_OP               3 (!=)
+            278 EXTENDED_ARG             1
+            280 POP_JUMP_IF_FALSE      290
+
+254         282 LOAD_GLOBAL             21 (ValueError)
+            284 LOAD_CONST              15 ('startup instance ids must be unique')
+            286 CALL_FUNCTION            1
+            288 RAISE_VARARGS            1
+
+255     >>  290 LOAD_GLOBAL             10 (tuple)
+            292 LOAD_CONST              16 (<code object <genexpr> at 0x10924cc90, file "WeRobotCore/application/startup/workflow.py", line 255>)
+            294 LOAD_CONST               6 ('StartupWorkflowSnapshot.__post_init__.<locals>.<genexpr>')
+            296 MAKE_FUNCTION            0
+            298 LOAD_DEREF               0 (self)
+            300 LOAD_ATTR               12 (actions)
+            302 GET_ITER
+            304 CALL_FUNCTION            1
+            306 CALL_FUNCTION            1
+            308 STORE_FAST               2 (action_names)
+
+256         310 LOAD_GLOBAL             19 (len)
+            312 LOAD_FAST                2 (action_names)
+            314 CALL_FUNCTION            1
+            316 LOAD_GLOBAL             19 (len)
+            318 LOAD_GLOBAL             20 (set)
+            320 LOAD_FAST                2 (action_names)
+            322 CALL_FUNCTION            1
+            324 CALL_FUNCTION            1
+            326 COMPARE_OP               3 (!=)
+            328 EXTENDED_ARG             1
+            330 POP_JUMP_IF_FALSE      340
+
+257         332 LOAD_GLOBAL             21 (ValueError)
+            334 LOAD_CONST              17 ('startup actions must be unique')
+            336 CALL_FUNCTION            1
+            338 RAISE_VARARGS            1
+
+258     >>  340 LOAD_DEREF               0 (self)
+            342 LOAD_ATTR                6 (phase)
+            344 LOAD_GLOBAL              7 (StartupPhase)
+            346 LOAD_ATTR               22 (NO_INSTANCE)
+            348 IS_OP                    0
+            350 EXTENDED_ARG             1
+            352 POP_JUMP_IF_FALSE      370
+            354 LOAD_DEREF               0 (self)
+            356 LOAD_ATTR                9 (instances)
+            358 EXTENDED_ARG             1
+            360 POP_JUMP_IF_FALSE      370
+
+259         362 LOAD_GLOBAL             21 (ValueError)
+            364 LOAD_CONST              18 ('no_instance phase cannot contain instances')
+            366 CALL_FUNCTION            1
+            368 RAISE_VARARGS            1
+
+260     >>  370 LOAD_DEREF               0 (self)
+            372 LOAD_ATTR                6 (phase)
+            374 LOAD_GLOBAL              7 (StartupPhase)
+            376 LOAD_ATTR               23 (READY)
+            378 IS_OP                    0
+            380 EXTENDED_ARG             1
+            382 POP_JUMP_IF_FALSE      414
+            384 LOAD_GLOBAL             11 (any)
+            386 LOAD_CONST              19 (<code object <genexpr> at 0x10924c920, file "WeRobotCore/application/startup/workflow.py", line 260>)
+            388 LOAD_CONST               6 ('StartupWorkflowSnapshot.__post_init__.<locals>.<genexpr>')
+            390 MAKE_FUNCTION            0
+
+261         392 LOAD_DEREF               0 (self)
+            394 LOAD_ATTR                9 (instances)
+
+260         396 GET_ITER
+            398 CALL_FUNCTION            1
+            400 CALL_FUNCTION            1
+            402 EXTENDED_ARG             1
+            404 POP_JUMP_IF_TRUE       414
+
+263         406 LOAD_GLOBAL             21 (ValueError)
+            408 LOAD_CONST              20 ('ready phase requires at least one ready instance')
+            410 CALL_FUNCTION            1
+            412 RAISE_VARARGS            1
+
+264     >>  414 LOAD_DEREF               0 (self)
+            416 LOAD_ATTR               13 (next_action)
+            418 LOAD_CONST               0 (None)
+            420 IS_OP                    1
+            422 EXTENDED_ARG             1
+            424 POP_JUMP_IF_FALSE      478
+
+265         426 LOAD_GLOBAL             24 (next)
+
+266         428 LOAD_CLOSURE             0 (self)
+            430 BUILD_TUPLE              1
+            432 LOAD_CONST              21 (<code object <genexpr> at 0x10924c660, file "WeRobotCore/application/startup/workflow.py", line 266>)
+            434 LOAD_CONST               6 ('StartupWorkflowSnapshot.__post_init__.<locals>.<genexpr>')
+            436 MAKE_FUNCTION            8 (closure)
+            438 LOAD_DEREF               0 (self)
+            440 LOAD_ATTR               12 (actions)
+            442 GET_ITER
+            444 CALL_FUNCTION            1
+
+267         446 LOAD_CONST               0 (None)
+
+265         448 CALL_FUNCTION            2
+            450 STORE_FAST               3 (selected)
+
+269         452 LOAD_FAST                3 (selected)
+            454 LOAD_CONST               0 (None)
+            456 IS_OP                    0
+            458 EXTENDED_ARG             1
+            460 POP_JUMP_IF_TRUE       470
+            462 LOAD_FAST                3 (selected)
+            464 LOAD_ATTR               25 (available)
+            466 EXTENDED_ARG             1
+            468 POP_JUMP_IF_TRUE       478
+
+270     >>  470 LOAD_GLOBAL             21 (ValueError)
+            472 LOAD_CONST              22 ('next_action must reference an available action')
+            474 CALL_FUNCTION            1
+            476 RAISE_VARARGS            1
+
+272     >>  478 LOAD_GLOBAL              0 (object)
+            480 LOAD_METHOD              1 (__setattr__)
+
+273         482 LOAD_DEREF               0 (self)
+
+274         484 LOAD_CONST              23 ('reason_code')
+
+275         486 LOAD_GLOBAL             26 (_optional_text)
+            488 LOAD_DEREF               0 (self)
+            490 LOAD_ATTR               27 (reason_code)
+            492 LOAD_CONST              23 ('reason_code')
+            494 CALL_FUNCTION            2
+
+272         496 CALL_METHOD              3
+            498 POP_TOP
+
+277         500 LOAD_GLOBAL              0 (object)
+            502 LOAD_METHOD              1 (__setattr__)
+
+278         504 LOAD_DEREF               0 (self)
+
+279         506 LOAD_CONST              24 ('message')
+
+280         508 LOAD_GLOBAL             26 (_optional_text)
+            510 LOAD_DEREF               0 (self)
+            512 LOAD_ATTR               28 (message)
+            514 LOAD_CONST              24 ('message')
+            516 CALL_FUNCTION            2
+
+277         518 CALL_METHOD              3
+            520 POP_TOP
+
+282         522 LOAD_GLOBAL              0 (object)
+            524 LOAD_METHOD              1 (__setattr__)
+
+283         526 LOAD_DEREF               0 (self)
+
+284         528 LOAD_CONST              25 ('compatibility_payload')
+
+285         530 LOAD_GLOBAL             29 (freeze_compatibility_value)
+            532 LOAD_GLOBAL             30 (dict)
+            534 LOAD_DEREF               0 (self)
+            536 LOAD_ATTR               17 (compatibility_payload)
+            538 CALL_FUNCTION            1
+            540 CALL_FUNCTION            1
+
+282         542 CALL_METHOD              3
+            544 POP_TOP
+            546 LOAD_CONST               0 (None)
+            548 RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x10924ca80, file "WeRobotCore/application/startup/workflow.py", line 233>:
+233           0 LOAD_FAST                0 (.0)
+        >>    2 FOR_ITER                18 (to 22)
+              4 STORE_FAST               1 (item)
+              6 LOAD_GLOBAL              0 (isinstance)
+              8 LOAD_FAST                1 (item)
+             10 LOAD_GLOBAL              1 (StartupInstanceStatus)
+             12 CALL_FUNCTION            2
+             14 UNARY_NOT
+             16 YIELD_VALUE
+             18 POP_TOP
+             20 JUMP_ABSOLUTE            2
+        >>   22 LOAD_CONST               0 (None)
+             24 RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x10924c0e0, file "WeRobotCore/application/startup/workflow.py", line 237>:
+237           0 LOAD_FAST                0 (.0)
+        >>    2 FOR_ITER                18 (to 22)
+              4 STORE_FAST               1 (item)
+              6 LOAD_GLOBAL              0 (isinstance)
+              8 LOAD_FAST                1 (item)
+             10 LOAD_GLOBAL              1 (StartupActionAvailability)
+             12 CALL_FUNCTION            2
+             14 UNARY_NOT
+             16 YIELD_VALUE
+             18 POP_TOP
+             20 JUMP_ABSOLUTE            2
+        >>   22 LOAD_CONST               0 (None)
+             24 RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x10924c2f0, file "WeRobotCore/application/startup/workflow.py", line 252>:
+252           0 LOAD_FAST                0 (.0)
+        >>    2 FOR_ITER                12 (to 16)
+              4 STORE_FAST               1 (item)
+              6 LOAD_FAST                1 (item)
+              8 LOAD_ATTR                0 (instance_id)
+             10 YIELD_VALUE
+             12 POP_TOP
+             14 JUMP_ABSOLUTE            2
+        >>   16 LOAD_CONST               0 (None)
+             18 RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x10924cc90, file "WeRobotCore/application/startup/workflow.py", line 255>:
+255           0 LOAD_FAST                0 (.0)
+        >>    2 FOR_ITER                12 (to 16)
+              4 STORE_FAST               1 (item)
+              6 LOAD_FAST                1 (item)
+              8 LOAD_ATTR                0 (action)
+             10 YIELD_VALUE
+             12 POP_TOP
+             14 JUMP_ABSOLUTE            2
+        >>   16 LOAD_CONST               0 (None)
+             18 RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x10924c920, file "WeRobotCore/application/startup/workflow.py", line 260>:
+260           0 LOAD_FAST                0 (.0)
+        >>    2 FOR_ITER                18 (to 22)
+
+261           4 STORE_FAST               1 (item)
+              6 LOAD_FAST                1 (item)
+              8 LOAD_ATTR                0 (state)
+             10 LOAD_GLOBAL              1 (StartupInstanceState)
+             12 LOAD_ATTR                2 (READY)
+             14 IS_OP                    0
+             16 YIELD_VALUE
+             18 POP_TOP
+             20 JUMP_ABSOLUTE            2
+        >>   22 LOAD_CONST               0 (None)
+             24 RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x10924c660, file "WeRobotCore/application/startup/workflow.py", line 266>:
+266           0 LOAD_FAST                0 (.0)
+        >>    2 FOR_ITER                22 (to 26)
+              4 STORE_FAST               1 (item)
+              6 LOAD_FAST                1 (item)
+              8 LOAD_ATTR                0 (action)
+             10 LOAD_DEREF               0 (self)
+             12 LOAD_ATTR                1 (next_action)
+             14 IS_OP                    0
+             16 POP_JUMP_IF_FALSE        2
+             18 LOAD_FAST                1 (item)
+             20 YIELD_VALUE
+             22 POP_TOP
+             24 JUMP_ABSOLUTE            2
+        >>   26 LOAD_CONST               0 (None)
+             28 RETURN_VALUE
+
+Disassembly of <code object ready_count at 0x10924cb30, file "WeRobotCore/application/startup/workflow.py", line 288>:
+290           0 LOAD_GLOBAL              0 (sum)
+              2 LOAD_CONST               1 (<code object <genexpr> at 0x10924cf50, file "WeRobotCore/application/startup/workflow.py", line 290>)
+              4 LOAD_CONST               2 ('StartupWorkflowSnapshot.ready_count.<locals>.<genexpr>')
+              6 MAKE_FUNCTION            0
+
+291           8 LOAD_FAST                0 (self)
+             10 LOAD_ATTR                1 (instances)
+
+290          12 GET_ITER
+             14 CALL_FUNCTION            1
+             16 CALL_FUNCTION            1
+             18 RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x10924cf50, file "WeRobotCore/application/startup/workflow.py", line 290>:
+290           0 LOAD_FAST                0 (.0)
+        >>    2 FOR_ITER                22 (to 26)
+
+291           4 STORE_FAST               1 (item)
+              6 LOAD_FAST                1 (item)
+              8 LOAD_ATTR                0 (state)
+             10 LOAD_GLOBAL              1 (StartupInstanceState)
+             12 LOAD_ATTR                2 (READY)
+             14 IS_OP                    0
+             16 POP_JUMP_IF_FALSE        2
+             18 LOAD_CONST               0 (1)
+             20 YIELD_VALUE
+             22 POP_TOP
+             24 JUMP_ABSOLUTE            2
+        >>   26 LOAD_CONST               1 (None)
+             28 RETURN_VALUE
+
+Disassembly of <code object to_normalized_dict at 0x10924c710, file "WeRobotCore/application/startup/workflow.py", line 294>:
+296           0 LOAD_CONST               1 (1)
+
+297           2 LOAD_FAST                0 (self)
+              4 LOAD_ATTR                0 (platform)
+
+298           6 LOAD_FAST                0 (self)
+              8 LOAD_ATTR                1 (driver_id)
+
+299          10 LOAD_FAST                0 (self)
+             12 LOAD_ATTR                2 (phase)
+             14 LOAD_ATTR                3 (value)
+
+301          16 LOAD_GLOBAL              4 (len)
+             18 LOAD_FAST                0 (self)
+             20 LOAD_ATTR                5 (instances)
+             22 CALL_FUNCTION            1
+
+302          24 LOAD_FAST                0 (self)
+             26 LOAD_ATTR                6 (ready_count)
+
+303          28 LOAD_GLOBAL              4 (len)
+             30 LOAD_FAST                0 (self)
+             32 LOAD_ATTR                5 (instances)
+             34 CALL_FUNCTION            1
+             36 LOAD_FAST                0 (self)
+             38 LOAD_ATTR                6 (ready_count)
+             40 BINARY_SUBTRACT
+
+300          42 LOAD_CONST               2 (('total', 'ready', 'pending'))
+             44 BUILD_CONST_KEY_MAP      3
+
+305          46 LOAD_CONST               3 (<code object <listcomp> at 0x10924c5b0, file "WeRobotCore/application/startup/workflow.py", line 305>)
+             48 LOAD_CONST               4 ('StartupWorkflowSnapshot.to_normalized_dict.<locals>.<listcomp>')
+             50 MAKE_FUNCTION            0
+             52 LOAD_FAST                0 (self)
+             54 LOAD_ATTR                5 (instances)
+             56 GET_ITER
+             58 CALL_FUNCTION            1
+
+306          60 LOAD_CONST               5 (<code object <listcomp> at 0x10924c190, file "WeRobotCore/application/startup/workflow.py", line 306>)
+             62 LOAD_CONST               4 ('StartupWorkflowSnapshot.to_normalized_dict.<locals>.<listcomp>')
+             64 MAKE_FUNCTION            0
+             66 LOAD_FAST                0 (self)
+             68 LOAD_ATTR                7 (actions)
+             70 GET_ITER
+             72 CALL_FUNCTION            1
+
+307          74 LOAD_FAST                0 (self)
+             76 LOAD_ATTR                8 (next_action)
+             78 POP_JUMP_IF_FALSE       88
+             80 LOAD_FAST                0 (self)
+             82 LOAD_ATTR                8 (next_action)
+             84 LOAD_ATTR                3 (value)
+             86 JUMP_FORWARD             2 (to 90)
+        >>   88 LOAD_CONST               0 (None)
+
+308     >>   90 LOAD_FAST                0 (self)
+             92 LOAD_ATTR                9 (reason_code)
+
+309          94 LOAD_FAST                0 (self)
+             96 LOAD_ATTR               10 (message)
+
+311          98 LOAD_FAST                0 (self)
+            100 LOAD_ATTR               11 (guidance)
+            102 POP_JUMP_IF_FALSE      114
+            104 LOAD_FAST                0 (self)
+            106 LOAD_ATTR               11 (guidance)
+            108 LOAD_METHOD             12 (to_normalized_dict)
+            110 CALL_METHOD              0
+            112 JUMP_FORWARD             2 (to 116)
+        >>  114 LOAD_CONST               0 (None)
+
+295     >>  116 LOAD_CONST               6 (('schemaVersion', 'platform', 'driverId', 'phase', 'summary', 'instances', 'actions', 'nextAction', 'reasonCode', 'message', 'guidance'))
+            118 BUILD_CONST_KEY_MAP     11
+            120 RETURN_VALUE
+
+Disassembly of <code object <listcomp> at 0x10924c5b0, file "WeRobotCore/application/startup/workflow.py", line 305>:
+305           0 BUILD_LIST               0
+              2 LOAD_FAST                0 (.0)
+        >>    4 FOR_ITER                12 (to 18)
+              6 STORE_FAST               1 (item)
+              8 LOAD_FAST                1 (item)
+             10 LOAD_METHOD              0 (to_normalized_dict)
+             12 CALL_METHOD              0
+             14 LIST_APPEND              2
+             16 JUMP_ABSOLUTE            4
+        >>   18 RETURN_VALUE
+
+Disassembly of <code object <listcomp> at 0x10924c190, file "WeRobotCore/application/startup/workflow.py", line 306>:
+306           0 BUILD_LIST               0
+              2 LOAD_FAST                0 (.0)
+        >>    4 FOR_ITER                12 (to 18)
+              6 STORE_FAST               1 (item)
+              8 LOAD_FAST                1 (item)
+             10 LOAD_METHOD              0 (to_normalized_dict)
+             12 CALL_METHOD              0
+             14 LIST_APPEND              2
+             16 JUMP_ABSOLUTE            4
+        >>   18 RETURN_VALUE
+
+Disassembly of <code object StartupCommand at 0x10924b240, file "WeRobotCore/application/startup/workflow.py", line 316>:
+316           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('StartupCommand')
+              6 STORE_NAME               2 (__qualname__)
+              8 SETUP_ANNOTATIONS
+
+318          10 LOAD_NAME                3 (StartupAction)
+             12 LOAD_NAME                4 (__annotations__)
+             14 LOAD_CONST               1 ('action')
+             16 STORE_SUBSCR
+
+319          18 LOAD_CONST               2 (1)
+             20 STORE_NAME               5 (launch_count)
+             22 LOAD_NAME                6 (int)
+             24 LOAD_NAME                4 (__annotations__)
+             26 LOAD_CONST               3 ('launch_count')
+             28 STORE_SUBSCR
+
+320          30 LOAD_CONST               4 (False)
+             32 STORE_NAME               7 (close_existing)
+             34 LOAD_NAME                8 (bool)
+             36 LOAD_NAME                4 (__annotations__)
+             38 LOAD_CONST               5 ('close_existing')
+             40 STORE_SUBSCR
+
+321          42 LOAD_NAME                9 (StartupCompatibilityMode)
+             44 LOAD_ATTR               10 (DEFAULT)
+             46 STORE_NAME              11 (compatibility_mode)
+             48 LOAD_NAME                9 (StartupCompatibilityMode)
+             50 LOAD_NAME                4 (__annotations__)
+             52 LOAD_CONST               6 ('compatibility_mode')
+             54 STORE_SUBSCR
+
+322          56 LOAD_CONST               7 (None)
+             58 STORE_NAME              12 (permission_name)
+             60 LOAD_NAME               13 (Optional)
+             62 LOAD_NAME               14 (str)
+             64 BINARY_SUBSCR
+             66 LOAD_NAME                4 (__annotations__)
+             68 LOAD_CONST               8 ('permission_name')
+             70 STORE_SUBSCR
+
+323          72 LOAD_CONST               4 (False)
+             74 STORE_NAME              15 (confirmed)
+             76 LOAD_NAME                8 (bool)
+             78 LOAD_NAME                4 (__annotations__)
+             80 LOAD_CONST               9 ('confirmed')
+             82 STORE_SUBSCR
+
+325          84 LOAD_CONST               7 (None)
+             86 LOAD_CONST              10 (('return',))
+             88 BUILD_CONST_KEY_MAP      1
+             90 LOAD_CONST              11 (<code object __post_init__ at 0x10924c500, file "WeRobotCore/application/startup/workflow.py", line 325>)
+             92 LOAD_CONST              12 ('StartupCommand.__post_init__')
+             94 MAKE_FUNCTION            4 (annotations)
+             96 STORE_NAME              16 (__post_init__)
+
+356          98 LOAD_NAME               17 (property)
+
+357         100 LOAD_NAME                8 (bool)
+            102 LOAD_CONST              10 (('return',))
+            104 BUILD_CONST_KEY_MAP      1
+            106 LOAD_CONST              13 (<code object requires_confirmation at 0x10924cd40, file "WeRobotCore/application/startup/workflow.py", line 356>)
+            108 LOAD_CONST              14 ('StartupCommand.requires_confirmation')
+            110 MAKE_FUNCTION            4 (annotations)
+            112 CALL_FUNCTION            1
+            114 STORE_NAME              18 (requires_confirmation)
+
+366         116 LOAD_NAME               19 (Mapping)
+            118 LOAD_NAME               14 (str)
+            120 LOAD_NAME               20 (Any)
+            122 BUILD_TUPLE              2
+            124 BINARY_SUBSCR
+            126 LOAD_CONST              10 (('return',))
+            128 BUILD_CONST_KEY_MAP      1
+            130 LOAD_CONST              15 (<code object to_normalized_dict at 0x10924b660, file "WeRobotCore/application/startup/workflow.py", line 366>)
+            132 LOAD_CONST              16 ('StartupCommand.to_normalized_dict')
+            134 MAKE_FUNCTION            4 (annotations)
+            136 STORE_NAME              21 (to_normalized_dict)
+            138 LOAD_CONST               7 (None)
+            140 RETURN_VALUE
+
+Disassembly of <code object __post_init__ at 0x10924c500, file "WeRobotCore/application/startup/workflow.py", line 325>:
+326           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                0 (self)
+              4 LOAD_ATTR                1 (action)
+              6 LOAD_GLOBAL              2 (StartupAction)
+              8 CALL_FUNCTION            2
+             10 POP_JUMP_IF_TRUE        20
+
+327          12 LOAD_GLOBAL              3 (TypeError)
+             14 LOAD_CONST               1 ('action must be a StartupAction')
+             16 CALL_FUNCTION            1
+             18 RAISE_VARARGS            1
+
+328     >>   20 LOAD_GLOBAL              0 (isinstance)
+             22 LOAD_FAST                0 (self)
+             24 LOAD_ATTR                4 (launch_count)
+             26 LOAD_GLOBAL              5 (int)
+             28 CALL_FUNCTION            2
+             30 POP_JUMP_IF_FALSE       44
+             32 LOAD_GLOBAL              0 (isinstance)
+             34 LOAD_FAST                0 (self)
+             36 LOAD_ATTR                4 (launch_count)
+             38 LOAD_GLOBAL              6 (bool)
+             40 CALL_FUNCTION            2
+             42 POP_JUMP_IF_FALSE       52
+
+329     >>   44 LOAD_GLOBAL              3 (TypeError)
+             46 LOAD_CONST               2 ('launch_count must be an integer')
+             48 CALL_FUNCTION            1
+             50 RAISE_VARARGS            1
+
+330     >>   52 LOAD_FAST                0 (self)
+             54 LOAD_ATTR                4 (launch_count)
+             56 LOAD_CONST               3 (1)
+             58 COMPARE_OP               0 (<)
+             60 POP_JUMP_IF_TRUE        72
+             62 LOAD_FAST                0 (self)
+             64 LOAD_ATTR                4 (launch_count)
+             66 LOAD_CONST               4 (10)
+             68 COMPARE_OP               4 (>)
+             70 POP_JUMP_IF_FALSE       80
+
+331     >>   72 LOAD_GLOBAL              7 (ValueError)
+             74 LOAD_CONST               5 ('launch_count must be between 1 and 10')
+             76 CALL_FUNCTION            1
+             78 RAISE_VARARGS            1
+
+332     >>   80 LOAD_GLOBAL              0 (isinstance)
+             82 LOAD_FAST                0 (self)
+             84 LOAD_ATTR                8 (close_existing)
+             86 LOAD_GLOBAL              6 (bool)
+             88 CALL_FUNCTION            2
+             90 POP_JUMP_IF_TRUE       100
+
+333          92 LOAD_GLOBAL              3 (TypeError)
+             94 LOAD_CONST               6 ('close_existing must be a bool')
+             96 CALL_FUNCTION            1
+             98 RAISE_VARARGS            1
+
+334     >>  100 LOAD_GLOBAL              0 (isinstance)
+            102 LOAD_FAST                0 (self)
+            104 LOAD_ATTR                9 (compatibility_mode)
+            106 LOAD_GLOBAL             10 (StartupCompatibilityMode)
+            108 CALL_FUNCTION            2
+            110 POP_JUMP_IF_TRUE       120
+
+335         112 LOAD_GLOBAL              3 (TypeError)
+            114 LOAD_CONST               7 ('compatibility_mode must be a StartupCompatibilityMode')
+            116 CALL_FUNCTION            1
+            118 RAISE_VARARGS            1
+
+336     >>  120 LOAD_GLOBAL              0 (isinstance)
+            122 LOAD_FAST                0 (self)
+            124 LOAD_ATTR               11 (confirmed)
+            126 LOAD_GLOBAL              6 (bool)
+            128 CALL_FUNCTION            2
+            130 POP_JUMP_IF_TRUE       140
+
+337         132 LOAD_GLOBAL              3 (TypeError)
+            134 LOAD_CONST               8 ('confirmed must be a bool')
+            136 CALL_FUNCTION            1
+            138 RAISE_VARARGS            1
+
+338     >>  140 LOAD_GLOBAL             12 (_optional_text)
+            142 LOAD_FAST                0 (self)
+            144 LOAD_ATTR               13 (permission_name)
+            146 LOAD_CONST               9 ('permission_name')
+            148 CALL_FUNCTION            2
+            150 STORE_FAST               1 (permission_name)
+
+339         152 LOAD_FAST                0 (self)
+            154 LOAD_ATTR                1 (action)
+            156 LOAD_GLOBAL              2 (StartupAction)
+            158 LOAD_ATTR               14 (REQUEST_PERMISSION)
+            160 IS_OP                    0
+            162 POP_JUMP_IF_FALSE      178
+
+340         164 LOAD_FAST                1 (permission_name)
+            166 POP_JUMP_IF_TRUE       194
+
+341         168 LOAD_GLOBAL              7 (ValueError)
+            170 LOAD_CONST              10 ('request_permission requires permission_name')
+            172 CALL_FUNCTION            1
+            174 RAISE_VARARGS            1
+            176 JUMP_FORWARD            16 (to 194)
+
+342     >>  178 LOAD_FAST                1 (permission_name)
+            180 LOAD_CONST               0 (None)
+            182 IS_OP                    1
+            184 POP_JUMP_IF_FALSE      194
+
+343         186 LOAD_GLOBAL              7 (ValueError)
+            188 LOAD_CONST              11 ('permission_name is only valid for request_permission')
+            190 CALL_FUNCTION            1
+            192 RAISE_VARARGS            1
+
+344     >>  194 LOAD_FAST                0 (self)
+            196 LOAD_ATTR                1 (action)
+            198 LOAD_GLOBAL              2 (StartupAction)
+            200 LOAD_ATTR               15 (LAUNCH)
+            202 IS_OP                    1
+            204 POP_JUMP_IF_FALSE      230
+
+345         206 LOAD_FAST                0 (self)
+            208 LOAD_ATTR                4 (launch_count)
+            210 LOAD_CONST               3 (1)
+            212 COMPARE_OP               3 (!=)
+
+344         214 POP_JUMP_IF_TRUE       222
+
+345         216 LOAD_FAST                0 (self)
+            218 LOAD_ATTR                8 (close_existing)
+
+344         220 POP_JUMP_IF_FALSE      230
+
+347     >>  222 LOAD_GLOBAL              7 (ValueError)
+            224 LOAD_CONST              12 ('launch options are only valid for launch commands')
+            226 CALL_FUNCTION            1
+            228 RAISE_VARARGS            1
+
+348     >>  230 LOAD_FAST                0 (self)
+            232 LOAD_ATTR                1 (action)
+            234 LOAD_GLOBAL              2 (StartupAction)
+            236 LOAD_ATTR               16 (CONFIGURE_ACCESSIBILITY)
+            238 IS_OP                    1
+            240 EXTENDED_ARG             1
+            242 POP_JUMP_IF_FALSE      266
+
+349         244 LOAD_FAST                0 (self)
+            246 LOAD_ATTR                9 (compatibility_mode)
+            248 LOAD_GLOBAL             10 (StartupCompatibilityMode)
+            250 LOAD_ATTR               17 (DEFAULT)
+            252 IS_OP                    1
+
+348         254 EXTENDED_ARG             1
+            256 POP_JUMP_IF_FALSE      266
+
+351         258 LOAD_GLOBAL              7 (ValueError)
+
+352         260 LOAD_CONST              13 ('compatibility_mode is only valid for configure_accessibility')
+
+351         262 CALL_FUNCTION            1
+            264 RAISE_VARARGS            1
+
+354     >>  266 LOAD_GLOBAL             18 (object)
+            268 LOAD_METHOD             19 (__setattr__)
+            270 LOAD_FAST                0 (self)
+            272 LOAD_CONST               9 ('permission_name')
+            274 LOAD_FAST                1 (permission_name)
+            276 CALL_METHOD              3
+            278 POP_TOP
+            280 LOAD_CONST               0 (None)
+            282 RETURN_VALUE
+
+Disassembly of <code object requires_confirmation at 0x10924cd40, file "WeRobotCore/application/startup/workflow.py", line 356>:
+359           0 LOAD_FAST                0 (self)
+              2 LOAD_ATTR                0 (action)
+              4 LOAD_GLOBAL              1 (StartupAction)
+              6 LOAD_ATTR                2 (CONFIGURE_ACCESSIBILITY)
+              8 IS_OP                    0
+             10 JUMP_IF_TRUE_OR_POP     28
+
+361          12 LOAD_FAST                0 (self)
+             14 LOAD_ATTR                0 (action)
+             16 LOAD_GLOBAL              1 (StartupAction)
+             18 LOAD_ATTR                3 (LAUNCH)
+             20 IS_OP                    0
+             22 JUMP_IF_FALSE_OR_POP    28
+
+362          24 LOAD_FAST                0 (self)
+             26 LOAD_ATTR                4 (close_existing)
+
+358     >>   28 RETURN_VALUE
+
+Disassembly of <code object to_normalized_dict at 0x10924b660, file "WeRobotCore/application/startup/workflow.py", line 366>:
+367           0 BUILD_MAP                0
+              2 STORE_FAST               1 (parameters)
+
+368           4 LOAD_FAST                0 (self)
+              6 LOAD_ATTR                0 (action)
+              8 LOAD_GLOBAL              1 (StartupAction)
+             10 LOAD_ATTR                2 (LAUNCH)
+             12 IS_OP                    0
+             14 POP_JUMP_IF_FALSE       32
+
+370          16 LOAD_FAST                0 (self)
+             18 LOAD_ATTR                3 (launch_count)
+
+371          20 LOAD_FAST                0 (self)
+             22 LOAD_ATTR                4 (close_existing)
+
+369          24 LOAD_CONST               1 (('count', 'closeExisting'))
+             26 BUILD_CONST_KEY_MAP      2
+             28 STORE_FAST               1 (parameters)
+             30 JUMP_FORWARD            48 (to 80)
+
+373     >>   32 LOAD_FAST                0 (self)
+             34 LOAD_ATTR                0 (action)
+             36 LOAD_GLOBAL              1 (StartupAction)
+             38 LOAD_ATTR                5 (CONFIGURE_ACCESSIBILITY)
+             40 IS_OP                    0
+             42 POP_JUMP_IF_FALSE       58
+
+374          44 LOAD_CONST               2 ('compatibilityMode')
+             46 LOAD_FAST                0 (self)
+             48 LOAD_ATTR                6 (compatibility_mode)
+             50 LOAD_ATTR                7 (value)
+             52 BUILD_MAP                1
+             54 STORE_FAST               1 (parameters)
+             56 JUMP_FORWARD            22 (to 80)
+
+375     >>   58 LOAD_FAST                0 (self)
+             60 LOAD_ATTR                0 (action)
+             62 LOAD_GLOBAL              1 (StartupAction)
+             64 LOAD_ATTR                8 (REQUEST_PERMISSION)
+             66 IS_OP                    0
+             68 POP_JUMP_IF_FALSE       80
+
+376          70 LOAD_CONST               3 ('permissionName')
+             72 LOAD_FAST                0 (self)
+             74 LOAD_ATTR                9 (permission_name)
+             76 BUILD_MAP                1
+             78 STORE_FAST               1 (parameters)
+
+378     >>   80 LOAD_FAST                0 (self)
+             82 LOAD_ATTR                0 (action)
+             84 LOAD_ATTR                7 (value)
+
+379          86 LOAD_FAST                0 (self)
+             88 LOAD_ATTR               10 (confirmed)
+
+380          90 LOAD_FAST                1 (parameters)
+
+377          92 LOAD_CONST               4 (('action', 'confirmed', 'parameters'))
+             94 BUILD_CONST_KEY_MAP      3
+             96 RETURN_VALUE
+
+Disassembly of <code object StartupExecutionResult at 0x10924bd40, file "WeRobotCore/application/startup/workflow.py", line 384>:
+384           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('StartupExecutionResult')
+              6 STORE_NAME               2 (__qualname__)
+              8 SETUP_ANNOTATIONS
+
+386          10 LOAD_NAME                3 (StartupAction)
+             12 LOAD_NAME                4 (__annotations__)
+             14 LOAD_CONST               1 ('action')
+             16 STORE_SUBSCR
+
+387          18 LOAD_NAME                5 (bool)
+             20 LOAD_NAME                4 (__annotations__)
+             22 LOAD_CONST               2 ('success')
+             24 STORE_SUBSCR
+
+388          26 LOAD_NAME                6 (ErrorCode)
+             28 LOAD_NAME                4 (__annotations__)
+             30 LOAD_CONST               3 ('code')
+             32 STORE_SUBSCR
+
+389          34 LOAD_CONST               4 (None)
+             36 STORE_NAME               7 (reason_code)
+             38 LOAD_NAME                8 (Optional)
+             40 LOAD_NAME                9 (str)
+             42 BINARY_SUBSCR
+             44 LOAD_NAME                4 (__annotations__)
+             46 LOAD_CONST               5 ('reason_code')
+             48 STORE_SUBSCR
+
+390          50 LOAD_CONST               6 ('')
+             52 STORE_NAME              10 (message)
+             54 LOAD_NAME                9 (str)
+             56 LOAD_NAME                4 (__annotations__)
+             58 LOAD_CONST               7 ('message')
+             60 STORE_SUBSCR
+
+391          62 LOAD_CONST               8 (False)
+             64 STORE_NAME              11 (retryable)
+             66 LOAD_NAME                5 (bool)
+             68 LOAD_NAME                4 (__annotations__)
+             70 LOAD_CONST               9 ('retryable')
+             72 STORE_SUBSCR
+
+392          74 LOAD_CONST               4 (None)
+             76 STORE_NAME              12 (snapshot)
+             78 LOAD_NAME                8 (Optional)
+             80 LOAD_NAME               13 (StartupWorkflowSnapshot)
+             82 BINARY_SUBSCR
+             84 LOAD_NAME                4 (__annotations__)
+             86 LOAD_CONST              10 ('snapshot')
+             88 STORE_SUBSCR
+
+394          90 LOAD_CONST               4 (None)
+             92 LOAD_CONST              11 (('return',))
+             94 BUILD_CONST_KEY_MAP      1
+             96 LOAD_CONST              12 (<code object __post_init__ at 0x10924b190, file "WeRobotCore/application/startup/workflow.py", line 394>)
+             98 LOAD_CONST              13 ('StartupExecutionResult.__post_init__')
+            100 MAKE_FUNCTION            4 (annotations)
+            102 STORE_NAME              14 (__post_init__)
+
+419         104 LOAD_NAME               15 (Mapping)
+            106 LOAD_NAME                9 (str)
+            108 LOAD_NAME               16 (Any)
+            110 BUILD_TUPLE              2
+            112 BINARY_SUBSCR
+            114 LOAD_CONST              11 (('return',))
+            116 BUILD_CONST_KEY_MAP      1
+            118 LOAD_CONST              14 (<code object to_normalized_dict at 0x10924b870, file "WeRobotCore/application/startup/workflow.py", line 419>)
+            120 LOAD_CONST              15 ('StartupExecutionResult.to_normalized_dict')
+            122 MAKE_FUNCTION            4 (annotations)
+            124 STORE_NAME              17 (to_normalized_dict)
+            126 LOAD_CONST               4 (None)
+            128 RETURN_VALUE
+
+Disassembly of <code object __post_init__ at 0x10924b190, file "WeRobotCore/application/startup/workflow.py", line 394>:
+395           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                0 (self)
+              4 LOAD_ATTR                1 (action)
+              6 LOAD_GLOBAL              2 (StartupAction)
+              8 CALL_FUNCTION            2
+             10 POP_JUMP_IF_TRUE        20
+
+396          12 LOAD_GLOBAL              3 (TypeError)
+             14 LOAD_CONST               1 ('action must be a StartupAction')
+             16 CALL_FUNCTION            1
+             18 RAISE_VARARGS            1
+
+397     >>   20 LOAD_GLOBAL              0 (isinstance)
+             22 LOAD_FAST                0 (self)
+             24 LOAD_ATTR                4 (success)
+             26 LOAD_GLOBAL              5 (bool)
+             28 CALL_FUNCTION            2
+             30 POP_JUMP_IF_TRUE        40
+
+398          32 LOAD_GLOBAL              3 (TypeError)
+             34 LOAD_CONST               2 ('success must be a bool')
+             36 CALL_FUNCTION            1
+             38 RAISE_VARARGS            1
+
+399     >>   40 LOAD_GLOBAL              0 (isinstance)
+             42 LOAD_FAST                0 (self)
+             44 LOAD_ATTR                6 (code)
+             46 LOAD_GLOBAL              7 (ErrorCode)
+             48 CALL_FUNCTION            2
+             50 POP_JUMP_IF_TRUE        60
+
+400          52 LOAD_GLOBAL              3 (TypeError)
+             54 LOAD_CONST               3 ('code must be an ErrorCode')
+             56 CALL_FUNCTION            1
+             58 RAISE_VARARGS            1
+
+401     >>   60 LOAD_GLOBAL              8 (_optional_text)
+             62 LOAD_FAST                0 (self)
+             64 LOAD_ATTR                9 (reason_code)
+             66 LOAD_CONST               4 ('reason_code')
+             68 CALL_FUNCTION            2
+             70 STORE_FAST               1 (reason_code)
+
+402          72 LOAD_GLOBAL              0 (isinstance)
+             74 LOAD_FAST                0 (self)
+             76 LOAD_ATTR               10 (message)
+             78 LOAD_GLOBAL             11 (str)
+             80 CALL_FUNCTION            2
+             82 POP_JUMP_IF_TRUE        92
+
+403          84 LOAD_GLOBAL              3 (TypeError)
+             86 LOAD_CONST               5 ('message must be a string')
+             88 CALL_FUNCTION            1
+             90 RAISE_VARARGS            1
+
+404     >>   92 LOAD_GLOBAL              0 (isinstance)
+             94 LOAD_FAST                0 (self)
+             96 LOAD_ATTR               12 (retryable)
+             98 LOAD_GLOBAL              5 (bool)
+            100 CALL_FUNCTION            2
+            102 POP_JUMP_IF_TRUE       112
+
+405         104 LOAD_GLOBAL              3 (TypeError)
+            106 LOAD_CONST               6 ('retryable must be a bool')
+            108 CALL_FUNCTION            1
+            110 RAISE_VARARGS            1
+
+406     >>  112 LOAD_FAST                0 (self)
+            114 LOAD_ATTR               13 (snapshot)
+            116 LOAD_CONST               0 (None)
+            118 IS_OP                    1
+            120 POP_JUMP_IF_FALSE      142
+            122 LOAD_GLOBAL              0 (isinstance)
+
+407         124 LOAD_FAST                0 (self)
+            126 LOAD_ATTR               13 (snapshot)
+
+408         128 LOAD_GLOBAL             14 (StartupWorkflowSnapshot)
+
+406         130 CALL_FUNCTION            2
+            132 POP_JUMP_IF_TRUE       142
+
+410         134 LOAD_GLOBAL              3 (TypeError)
+            136 LOAD_CONST               7 ('snapshot must be a StartupWorkflowSnapshot')
+            138 CALL_FUNCTION            1
+            140 RAISE_VARARGS            1
+
+411     >>  142 LOAD_FAST                0 (self)
+            144 LOAD_ATTR                4 (success)
+            146 POP_JUMP_IF_FALSE      168
+            148 LOAD_FAST                0 (self)
+            150 LOAD_ATTR                6 (code)
+            152 LOAD_GLOBAL              7 (ErrorCode)
+            154 LOAD_ATTR               15 (OK)
+            156 IS_OP                    1
+            158 POP_JUMP_IF_FALSE      168
+
+412         160 LOAD_GLOBAL             16 (ValueError)
+            162 LOAD_CONST               8 ('successful startup results must use ErrorCode.OK')
+            164 CALL_FUNCTION            1
+            166 RAISE_VARARGS            1
+
+413     >>  168 LOAD_FAST                0 (self)
+            170 LOAD_ATTR                4 (success)
+            172 POP_JUMP_IF_TRUE       194
+            174 LOAD_FAST                0 (self)
+            176 LOAD_ATTR                6 (code)
+            178 LOAD_GLOBAL              7 (ErrorCode)
+            180 LOAD_ATTR               15 (OK)
+            182 IS_OP                    0
+            184 POP_JUMP_IF_FALSE      194
+
+414         186 LOAD_GLOBAL             16 (ValueError)
+            188 LOAD_CONST               9 ('failed startup results cannot use ErrorCode.OK')
+            190 CALL_FUNCTION            1
+            192 RAISE_VARARGS            1
+
+415     >>  194 LOAD_FAST                0 (self)
+            196 LOAD_ATTR                4 (success)
+            198 POP_JUMP_IF_FALSE      218
+            200 LOAD_FAST                0 (self)
+            202 LOAD_ATTR               13 (snapshot)
+            204 LOAD_CONST               0 (None)
+            206 IS_OP                    0
+            208 POP_JUMP_IF_FALSE      218
+
+416         210 LOAD_GLOBAL             16 (ValueError)
+            212 LOAD_CONST              10 ('successful startup results require a snapshot')
+            214 CALL_FUNCTION            1
+            216 RAISE_VARARGS            1
+
+417     >>  218 LOAD_GLOBAL             17 (object)
+            220 LOAD_METHOD             18 (__setattr__)
+            222 LOAD_FAST                0 (self)
+            224 LOAD_CONST               4 ('reason_code')
+            226 LOAD_FAST                1 (reason_code)
+            228 CALL_METHOD              3
+            230 POP_TOP
+            232 LOAD_CONST               0 (None)
+            234 RETURN_VALUE
+
+Disassembly of <code object to_normalized_dict at 0x10924b870, file "WeRobotCore/application/startup/workflow.py", line 419>:
+421           0 LOAD_FAST                0 (self)
+              2 LOAD_ATTR                0 (success)
+
+422           4 LOAD_FAST                0 (self)
+              6 LOAD_ATTR                1 (code)
+              8 LOAD_ATTR                2 (value)
+
+423          10 LOAD_FAST                0 (self)
+             12 LOAD_ATTR                3 (reason_code)
+
+424          14 LOAD_FAST                0 (self)
+             16 LOAD_ATTR                4 (message)
+
+425          18 LOAD_FAST                0 (self)
+             20 LOAD_ATTR                5 (retryable)
+
+426          22 LOAD_FAST                0 (self)
+             24 LOAD_ATTR                6 (action)
+             26 LOAD_ATTR                2 (value)
+
+428          28 LOAD_FAST                0 (self)
+             30 LOAD_ATTR                7 (snapshot)
+             32 POP_JUMP_IF_FALSE       44
+             34 LOAD_FAST                0 (self)
+             36 LOAD_ATTR                7 (snapshot)
+             38 LOAD_METHOD              8 (to_normalized_dict)
+             40 CALL_METHOD              0
+             42 JUMP_FORWARD             2 (to 46)
+        >>   44 LOAD_CONST               0 (None)
+
+420     >>   46 LOAD_CONST               1 (('success', 'code', 'reasonCode', 'message', 'retryable', 'action', 'snapshot'))
+             48 BUILD_CONST_KEY_MAP      7
+             50 RETURN_VALUE
+
+Disassembly of <code object StartupWorkflowBackend at 0x10924bf50, file "WeRobotCore/application/startup/workflow.py", line 433>:
+433           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('StartupWorkflowBackend')
+              6 STORE_NAME               2 (__qualname__)
+
+435           8 LOAD_NAME                3 (StartupWorkflowSnapshot)
+             10 LOAD_CONST               1 (('return',))
+             12 BUILD_CONST_KEY_MAP      1
+             14 LOAD_CONST               2 (<code object inspect at 0x10924b2f0, file "WeRobotCore/application/startup/workflow.py", line 435>)
+             16 LOAD_CONST               3 ('StartupWorkflowBackend.inspect')
+             18 MAKE_FUNCTION            4 (annotations)
+             20 STORE_NAME               4 (inspect)
+
+438          22 LOAD_NAME                5 (StartupCommand)
+             24 LOAD_NAME                6 (StartupExecutionResult)
+             26 LOAD_CONST               4 (('command', 'return'))
+             28 BUILD_CONST_KEY_MAP      2
+             30 LOAD_CONST               5 (<code object execute at 0x10924bdf0, file "WeRobotCore/application/startup/workflow.py", line 438>)
+             32 LOAD_CONST               6 ('StartupWorkflowBackend.execute')
+             34 MAKE_FUNCTION            4 (annotations)
+             36 STORE_NAME               7 (execute)
+             38 LOAD_CONST               7 (None)
+             40 RETURN_VALUE
+
+Disassembly of <code object inspect at 0x10924b2f0, file "WeRobotCore/application/startup/workflow.py", line 435>:
+436           0 LOAD_CONST               0 (None)
+              2 RETURN_VALUE
+
+Disassembly of <code object execute at 0x10924bdf0, file "WeRobotCore/application/startup/workflow.py", line 438>:
+439           0 LOAD_CONST               0 (None)
+              2 RETURN_VALUE
+
+Disassembly of <code object StartupWorkflowService at 0x10924ba80, file "WeRobotCore/application/startup/workflow.py", line 442>:
+442           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('StartupWorkflowService')
+              6 STORE_NAME               2 (__qualname__)
+
+443           8 LOAD_CONST               1 ('Validate one platform backend and enforce destructive confirmation.')
+             10 STORE_NAME               3 (__doc__)
+
+445          12 LOAD_NAME                4 (StartupWorkflowBackend)
+             14 LOAD_CONST               2 (None)
+             16 LOAD_CONST               3 (('backend', 'return'))
+             18 BUILD_CONST_KEY_MAP      2
+             20 LOAD_CONST               4 (<code object __init__ at 0x10924b3a0, file "WeRobotCore/application/startup/workflow.py", line 445>)
+             22 LOAD_CONST               5 ('StartupWorkflowService.__init__')
+             24 MAKE_FUNCTION            4 (annotations)
+             26 STORE_NAME               5 (__init__)
+
+450          28 LOAD_NAME                6 (StartupWorkflowSnapshot)
+             30 LOAD_CONST               6 (('return',))
+             32 BUILD_CONST_KEY_MAP      1
+             34 LOAD_CONST               7 (<code object inspect at 0x10924b5b0, file "WeRobotCore/application/startup/workflow.py", line 450>)
+             36 LOAD_CONST               8 ('StartupWorkflowService.inspect')
+             38 MAKE_FUNCTION            4 (annotations)
+             40 STORE_NAME               7 (inspect)
+
+456          42 LOAD_NAME                8 (StartupCommand)
+             44 LOAD_NAME                9 (StartupExecutionResult)
+             46 LOAD_CONST               9 (('command', 'return'))
+             48 BUILD_CONST_KEY_MAP      2
+             50 LOAD_CONST              10 (<code object execute at 0x10924b920, file "WeRobotCore/application/startup/workflow.py", line 456>)
+             52 LOAD_CONST              11 ('StartupWorkflowService.execute')
+             54 MAKE_FUNCTION            4 (annotations)
+             56 STORE_NAME              10 (execute)
+             58 LOAD_CONST               2 (None)
+             60 RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x10924b3a0, file "WeRobotCore/application/startup/workflow.py", line 445>:
+446           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                1 (backend)
+              4 LOAD_GLOBAL              1 (StartupWorkflowBackend)
+              6 CALL_FUNCTION            2
+              8 POP_JUMP_IF_TRUE        18
+
+447          10 LOAD_GLOBAL              2 (TypeError)
+             12 LOAD_CONST               1 ('backend must implement StartupWorkflowBackend')
+             14 CALL_FUNCTION            1
+             16 RAISE_VARARGS            1
+
+448     >>   18 LOAD_FAST                1 (backend)
+             20 LOAD_FAST                0 (self)
+             22 STORE_ATTR               3 (_backend)
+             24 LOAD_CONST               0 (None)
+             26 RETURN_VALUE
+
+Disassembly of <code object inspect at 0x10924b5b0, file "WeRobotCore/application/startup/workflow.py", line 450>:
+451           0 LOAD_FAST                0 (self)
+              2 LOAD_ATTR                0 (_backend)
+              4 LOAD_METHOD              1 (inspect)
+              6 CALL_METHOD              0
+              8 GET_AWAITABLE
+             10 LOAD_CONST               0 (None)
+             12 YIELD_FROM
+             14 STORE_FAST               1 (snapshot)
+
+452          16 LOAD_GLOBAL              2 (isinstance)
+             18 LOAD_FAST                1 (snapshot)
+             20 LOAD_GLOBAL              3 (StartupWorkflowSnapshot)
+             22 CALL_FUNCTION            2
+             24 POP_JUMP_IF_TRUE        34
+
+453          26 LOAD_GLOBAL              4 (TypeError)
+             28 LOAD_CONST               1 ('startup backend returned an invalid snapshot')
+             30 CALL_FUNCTION            1
+             32 RAISE_VARARGS            1
+
+454     >>   34 LOAD_FAST                1 (snapshot)
+             36 RETURN_VALUE
+
+Disassembly of <code object execute at 0x10924b920, file "WeRobotCore/application/startup/workflow.py", line 456>:
+457           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                1 (command)
+              4 LOAD_GLOBAL              1 (StartupCommand)
+              6 CALL_FUNCTION            2
+              8 POP_JUMP_IF_TRUE        18
+
+458          10 LOAD_GLOBAL              2 (TypeError)
+             12 LOAD_CONST               1 ('command must be a StartupCommand')
+             14 CALL_FUNCTION            1
+             16 RAISE_VARARGS            1
+
+459     >>   18 LOAD_FAST                1 (command)
+             20 LOAD_ATTR                3 (requires_confirmation)
+             22 POP_JUMP_IF_FALSE       50
+             24 LOAD_FAST                1 (command)
+             26 LOAD_ATTR                4 (confirmed)
+             28 POP_JUMP_IF_TRUE        50
+
+460          30 LOAD_GLOBAL              5 (StartupExecutionResult)
+
+461          32 LOAD_FAST                1 (command)
+             34 LOAD_ATTR                6 (action)
+
+462          36 LOAD_CONST               2 (False)
+
+463          38 LOAD_GLOBAL              7 (ErrorCode)
+             40 LOAD_ATTR                8 (CONFIRMATION_REQUIRED)
+
+464          42 LOAD_CONST               3 ('startup command requires explicit user confirmation')
+
+460          44 LOAD_CONST               4 (('action', 'success', 'code', 'message'))
+             46 CALL_FUNCTION_KW         4
+             48 RETURN_VALUE
+
+466     >>   50 LOAD_FAST                0 (self)
+             52 LOAD_ATTR                9 (_backend)
+             54 LOAD_METHOD             10 (execute)
+             56 LOAD_FAST                1 (command)
+             58 CALL_METHOD              1
+             60 GET_AWAITABLE
+             62 LOAD_CONST               0 (None)
+             64 YIELD_FROM
+             66 STORE_FAST               2 (result)
+
+467          68 LOAD_GLOBAL              0 (isinstance)
+             70 LOAD_FAST                2 (result)
+             72 LOAD_GLOBAL              5 (StartupExecutionResult)
+             74 CALL_FUNCTION            2
+             76 POP_JUMP_IF_TRUE        86
+
+468          78 LOAD_GLOBAL              2 (TypeError)
+             80 LOAD_CONST               5 ('startup backend returned an invalid execution result')
+             82 CALL_FUNCTION            1
+             84 RAISE_VARARGS            1
+
+469     >>   86 LOAD_FAST                2 (result)
+             88 LOAD_ATTR                6 (action)
+             90 LOAD_FAST                1 (command)
+             92 LOAD_ATTR                6 (action)
+             94 IS_OP                    1
+             96 POP_JUMP_IF_FALSE      106
+
+470          98 LOAD_GLOBAL             11 (ValueError)
+            100 LOAD_CONST               6 ('startup result action does not match command')
+            102 CALL_FUNCTION            1
+            104 RAISE_VARARGS            1
+
+471     >>  106 LOAD_FAST                2 (result)
+            108 RETURN_VALUE

@@ -1,0 +1,122 @@
+{
+  "checked_at": "2026-09-20T12:02:08.144007+00:00",
+  "connectionState": "ready",
+  "endpoint": "http://127.0.0.1:52737/mcp",
+  "profile": "local-compat",
+  "toolsetVersion": "1",
+  "initialize": {
+    "jsonrpc": "2.0",
+    "id": 1,
+    "result": {
+      "protocolVersion": "2025-03-26",
+      "capabilities": {
+        "tools": {
+          "listChanged": false
+        }
+      },
+      "serverInfo": {
+        "name": "yobot-local-compat",
+        "version": "1.0.0"
+      },
+      "instructions": "本机兼容接口。列表来自本地缓存；同步会操作桌面微信，并可能返回当前原生模块的兼容错误。"
+    }
+  },
+  "tools": {
+    "jsonrpc": "2.0",
+    "id": 2,
+    "result": {
+      "tools": [
+        {
+          "name": "wechat_status",
+          "description": "读取本机微信账号与 RPA 状态。",
+          "inputSchema": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": false
+          }
+        },
+        {
+          "name": "wechat_list_contacts",
+          "description": "读取已经同步到本机的好友列表。",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "account_id": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 128
+              }
+            },
+            "required": [
+              "account_id"
+            ],
+            "additionalProperties": false
+          }
+        },
+        {
+          "name": "wechat_list_groups",
+          "description": "读取已经同步到本机的群聊列表。",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "account_id": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 128
+              }
+            },
+            "required": [
+              "account_id"
+            ],
+            "additionalProperties": false
+          }
+        },
+        {
+          "name": "wechat_sync_contacts",
+          "description": "通过桌面微信同步通讯录，会操作微信界面；失败时返回真实错误，勿与其他桌面操作同时运行。",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "account_id": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 128
+              },
+              "type": {
+                "type": "string",
+                "enum": [
+                  "friend",
+                  "group"
+                ]
+              }
+            },
+            "required": [
+              "account_id",
+              "type"
+            ],
+            "additionalProperties": false
+          }
+        }
+      ]
+    }
+  },
+  "status_call": {
+    "rpc_error": null,
+    "isError": true,
+    "business_success": [
+      null
+    ],
+    "response_shapes": [
+      [
+        "error"
+      ]
+    ],
+    "business_error": "macOS instance discovery failed [ACCESSIBILITY_PERMISSION_REQUIRED]: Accessibility permission is not granted to the formal Helper identity"
+  },
+  "not_tested": [
+    "wechat_list_contacts",
+    "wechat_list_groups",
+    "wechat_sync_contacts",
+    "Codex client connection"
+  ]
+}

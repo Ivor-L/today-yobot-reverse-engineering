@@ -1,0 +1,83 @@
+  1           0 LOAD_CONST               0 ('macOS product projections owned specifically by the Control Host.')
+              2 STORE_NAME               0 (__doc__)
+
+  3           4 LOAD_CONST               1 (0)
+              6 LOAD_CONST               2 (('create_macos_instance_version_facts', 'project_macos_legacy_active_instances_response', 'project_macos_legacy_agent_instances_status', 'project_macos_legacy_all_instances_response'))
+              8 IMPORT_NAME              1 (WeRobotCore.adapters.wechat.macos_ax)
+             10 IMPORT_FROM              2 (create_macos_instance_version_facts)
+             12 STORE_NAME               2 (create_macos_instance_version_facts)
+             14 IMPORT_FROM              3 (project_macos_legacy_active_instances_response)
+             16 STORE_NAME               3 (project_macos_legacy_active_instances_response)
+             18 IMPORT_FROM              4 (project_macos_legacy_agent_instances_status)
+             20 STORE_NAME               4 (project_macos_legacy_agent_instances_status)
+             22 IMPORT_FROM              5 (project_macos_legacy_all_instances_response)
+             24 STORE_NAME               5 (project_macos_legacy_all_instances_response)
+             26 POP_TOP
+
+  9          28 LOAD_CONST               1 (0)
+             30 LOAD_CONST               3 (('MacOSRuntimeBundle',))
+             32 IMPORT_NAME              6 (WeRobotCore.bootstrap.macos)
+             34 IMPORT_FROM              7 (MacOSRuntimeBundle)
+             36 STORE_NAME               7 (MacOSRuntimeBundle)
+             38 POP_TOP
+
+ 10          40 LOAD_CONST               1 (0)
+             42 LOAD_CONST               4 (('InstanceInventoryRouteBindings',))
+             44 IMPORT_NAME              8 (WeRobotCore.route_packs.instance_inventory)
+             46 IMPORT_FROM              9 (InstanceInventoryRouteBindings)
+             48 STORE_NAME               9 (InstanceInventoryRouteBindings)
+             50 POP_TOP
+
+ 16          52 LOAD_NAME                7 (MacOSRuntimeBundle)
+
+ 17          54 LOAD_NAME                9 (InstanceInventoryRouteBindings)
+
+ 15          56 LOAD_CONST               5 (('bundle', 'return'))
+             58 BUILD_CONST_KEY_MAP      2
+             60 LOAD_CONST               6 (<code object create_macos_instance_inventory_route_bindings at 0x1073aab30, file "WeRobotCore/host/macos.py", line 15>)
+             62 LOAD_CONST               7 ('create_macos_instance_inventory_route_bindings')
+             64 MAKE_FUNCTION            4 (annotations)
+             66 STORE_NAME              10 (create_macos_instance_inventory_route_bindings)
+
+ 33          68 LOAD_CONST               7 ('create_macos_instance_inventory_route_bindings')
+             70 BUILD_LIST               1
+             72 STORE_NAME              11 (__all__)
+             74 LOAD_CONST               8 (None)
+             76 RETURN_VALUE
+
+Disassembly of <code object create_macos_instance_inventory_route_bindings at 0x1073aab30, file "WeRobotCore/host/macos.py", line 15>:
+ 20           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_DEREF               0 (bundle)
+              4 LOAD_GLOBAL              1 (MacOSRuntimeBundle)
+              6 CALL_FUNCTION            2
+              8 POP_JUMP_IF_TRUE        18
+
+ 21          10 LOAD_GLOBAL              2 (TypeError)
+             12 LOAD_CONST               1 ('bundle must be MacOSRuntimeBundle')
+             14 CALL_FUNCTION            1
+             16 RAISE_VARARGS            1
+
+ 22     >>   18 LOAD_GLOBAL              3 (InstanceInventoryRouteBindings)
+
+ 23          20 LOAD_CLOSURE             0 (bundle)
+             22 BUILD_TUPLE              1
+             24 LOAD_CONST               2 (<code object <lambda> at 0x1073aa2f0, file "WeRobotCore/host/macos.py", line 23>)
+             26 LOAD_CONST               3 ('create_macos_instance_inventory_route_bindings.<locals>.<lambda>')
+             28 MAKE_FUNCTION            8 (closure)
+
+ 24          30 LOAD_GLOBAL              4 (create_macos_instance_version_facts)
+
+ 25          32 LOAD_GLOBAL              5 (project_macos_legacy_agent_instances_status)
+
+ 26          34 LOAD_GLOBAL              6 (project_macos_legacy_all_instances_response)
+
+ 28          36 LOAD_GLOBAL              7 (project_macos_legacy_active_instances_response)
+
+ 22          38 LOAD_CONST               4 (('source_provider', 'version_facts_provider', 'agent_status_projector', 'all_instances_projector', 'active_instances_projector'))
+             40 CALL_FUNCTION_KW         5
+             42 RETURN_VALUE
+
+Disassembly of <code object <lambda> at 0x1073aa2f0, file "WeRobotCore/host/macos.py", line 23>:
+ 23           0 LOAD_DEREF               0 (bundle)
+              2 LOAD_ATTR                0 (inventory)
+              4 RETURN_VALUE

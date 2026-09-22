@@ -1,0 +1,46 @@
+  1           0 LOAD_CONST               0 ('\n语音服务模块：声音复刻 + TTS 合成。\n\n入口：voice_service.get_voice_service() 返回当前配置 provider 的实例。\n扩展：新增 provider 实现 VoiceProvider 接口并在 voice_service.PROVIDER_REGISTRY 注册。\n')
+              2 STORE_NAME               0 (__doc__)
+
+  7           4 LOAD_CONST               1 (1)
+              6 LOAD_CONST               2 (('get_voice_service', 'reload_voice_service'))
+              8 IMPORT_NAME              1 (voice_service)
+             10 IMPORT_FROM              2 (get_voice_service)
+             12 STORE_NAME               2 (get_voice_service)
+             14 IMPORT_FROM              3 (reload_voice_service)
+             16 STORE_NAME               3 (reload_voice_service)
+             18 POP_TOP
+
+  8          20 LOAD_CONST               1 (1)
+             22 LOAD_CONST               3 (('VoiceProvider', 'VoiceInfo', 'CloneJob', 'CloneStatus', 'SynthResult', 'HealthCheckResult'))
+             24 IMPORT_NAME              4 (provider_base)
+             26 IMPORT_FROM              5 (VoiceProvider)
+             28 STORE_NAME               5 (VoiceProvider)
+             30 IMPORT_FROM              6 (VoiceInfo)
+             32 STORE_NAME               6 (VoiceInfo)
+             34 IMPORT_FROM              7 (CloneJob)
+             36 STORE_NAME               7 (CloneJob)
+             38 IMPORT_FROM              8 (CloneStatus)
+             40 STORE_NAME               8 (CloneStatus)
+             42 IMPORT_FROM              9 (SynthResult)
+             44 STORE_NAME               9 (SynthResult)
+             46 IMPORT_FROM             10 (HealthCheckResult)
+             48 STORE_NAME              10 (HealthCheckResult)
+             50 POP_TOP
+
+ 16          52 LOAD_CONST               1 (1)
+             54 LOAD_CONST               4 (('voice_library', 'voice_greetings_store', 'preview_store'))
+             56 IMPORT_NAME             11
+             58 IMPORT_FROM             12 (voice_library)
+             60 STORE_NAME              12 (voice_library)
+             62 IMPORT_FROM             13 (voice_greetings_store)
+             64 STORE_NAME              13 (voice_greetings_store)
+             66 IMPORT_FROM             14 (preview_store)
+             68 STORE_NAME              14 (preview_store)
+             70 POP_TOP
+
+ 18          72 BUILD_LIST               0
+             74 LOAD_CONST               5 (('get_voice_service', 'reload_voice_service', 'VoiceProvider', 'VoiceInfo', 'CloneJob', 'CloneStatus', 'SynthResult', 'HealthCheckResult', 'voice_library', 'voice_greetings_store', 'preview_store'))
+             76 LIST_EXTEND              1
+             78 STORE_NAME              15 (__all__)
+             80 LOAD_CONST               6 (None)
+             82 RETURN_VALUE

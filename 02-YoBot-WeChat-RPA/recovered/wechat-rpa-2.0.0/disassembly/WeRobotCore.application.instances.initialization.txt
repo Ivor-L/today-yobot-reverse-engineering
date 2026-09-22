@@ -1,0 +1,1676 @@
+  1           0 LOAD_CONST               0 ('Shared instance initialization orchestration without native automation.\n\nPlatform backends own version checks, permissions, UI operations and native\naccount binding.  This module owns only result integrity, deterministic\naggregation, the once-per-successful-batch post-init hook, and normalized\nreporting.  It intentionally has no FastAPI or HTTP response knowledge.\n')
+              2 STORE_NAME               0 (__doc__)
+
+  9           4 LOAD_CONST               1 (0)
+              6 LOAD_CONST               2 (('dataclass', 'field'))
+              8 IMPORT_NAME              1 (dataclasses)
+             10 IMPORT_FROM              2 (dataclass)
+             12 STORE_NAME               2 (dataclass)
+             14 IMPORT_FROM              3 (field)
+             16 STORE_NAME               3 (field)
+             18 POP_TOP
+
+ 10          20 LOAD_CONST               1 (0)
+             22 LOAD_CONST               3 (('Any', 'Mapping', 'Optional', 'Protocol', 'Tuple', 'runtime_checkable'))
+             24 IMPORT_NAME              4 (typing)
+             26 IMPORT_FROM              5 (Any)
+             28 STORE_NAME               5 (Any)
+             30 IMPORT_FROM              6 (Mapping)
+             32 STORE_NAME               6 (Mapping)
+             34 IMPORT_FROM              7 (Optional)
+             36 STORE_NAME               7 (Optional)
+             38 IMPORT_FROM              8 (Protocol)
+             40 STORE_NAME               8 (Protocol)
+             42 IMPORT_FROM              9 (Tuple)
+             44 STORE_NAME               9 (Tuple)
+             46 IMPORT_FROM             10 (runtime_checkable)
+             48 STORE_NAME              10 (runtime_checkable)
+             50 POP_TOP
+
+ 12          52 LOAD_CONST               1 (0)
+             54 LOAD_CONST               4 (('InstanceId',))
+             56 IMPORT_NAME             11 (WeRobotCore.domain)
+             58 IMPORT_FROM             12 (InstanceId)
+             60 STORE_NAME              12 (InstanceId)
+             62 POP_TOP
+
+ 14          64 LOAD_CONST               5 (1)
+             66 LOAD_CONST               6 (('InstanceInventorySnapshot', 'InstanceInventorySource', 'freeze_compatibility_value'))
+             68 IMPORT_NAME             13 (inventory)
+             70 IMPORT_FROM             14 (InstanceInventorySnapshot)
+             72 STORE_NAME              14 (InstanceInventorySnapshot)
+             74 IMPORT_FROM             15 (InstanceInventorySource)
+             76 STORE_NAME              15 (InstanceInventorySource)
+             78 IMPORT_FROM             16 (freeze_compatibility_value)
+             80 STORE_NAME              16 (freeze_compatibility_value)
+             82 POP_TOP
+
+ 21          84 LOAD_NAME                7 (Optional)
+             86 LOAD_NAME               17 (str)
+             88 BINARY_SUBSCR
+             90 LOAD_NAME               17 (str)
+             92 LOAD_NAME                7 (Optional)
+             94 LOAD_NAME               17 (str)
+             96 BINARY_SUBSCR
+             98 LOAD_CONST               7 (('value', 'field_name', 'return'))
+            100 BUILD_CONST_KEY_MAP      3
+            102 LOAD_CONST               8 (<code object _optional_text at 0x1072cfbe0, file "WeRobotCore/application/instances/initialization.py", line 21>)
+            104 LOAD_CONST               9 ('_optional_text')
+            106 MAKE_FUNCTION            4 (annotations)
+            108 STORE_NAME              18 (_optional_text)
+
+ 30         110 LOAD_NAME                5 (Any)
+            112 LOAD_NAME               17 (str)
+            114 LOAD_NAME               17 (str)
+            116 LOAD_CONST               7 (('value', 'field_name', 'return'))
+            118 BUILD_CONST_KEY_MAP      3
+            120 LOAD_CONST              10 (<code object _required_text at 0x1072e0be0, file "WeRobotCore/application/instances/initialization.py", line 30>)
+            122 LOAD_CONST              11 ('_required_text')
+            124 MAKE_FUNCTION            4 (annotations)
+            126 STORE_NAME              19 (_required_text)
+
+ 36         128 LOAD_NAME                2 (dataclass)
+            130 LOAD_CONST              12 (True)
+            132 LOAD_CONST              13 (('frozen',))
+            134 CALL_FUNCTION_KW         1
+
+ 37         136 LOAD_BUILD_CLASS
+            138 LOAD_CONST              14 (<code object InstanceInitializationResult at 0x1073ab0e0, file "WeRobotCore/application/instances/initialization.py", line 36>)
+            140 LOAD_CONST              15 ('InstanceInitializationResult')
+            142 MAKE_FUNCTION            0
+            144 LOAD_CONST              15 ('InstanceInitializationResult')
+            146 CALL_FUNCTION            2
+            148 CALL_FUNCTION            1
+            150 STORE_NAME              20 (InstanceInitializationResult)
+
+118         152 LOAD_NAME                2 (dataclass)
+            154 LOAD_CONST              12 (True)
+            156 LOAD_CONST              13 (('frozen',))
+            158 CALL_FUNCTION_KW         1
+
+119         160 LOAD_BUILD_CLASS
+            162 LOAD_CONST              16 (<code object InstanceInitializationBatch at 0x1073abbe0, file "WeRobotCore/application/instances/initialization.py", line 118>)
+            164 LOAD_CONST              17 ('InstanceInitializationBatch')
+            166 MAKE_FUNCTION            0
+            168 LOAD_CONST              17 ('InstanceInitializationBatch')
+            170 CALL_FUNCTION            2
+            172 CALL_FUNCTION            1
+            174 STORE_NAME              21 (InstanceInitializationBatch)
+
+163         176 LOAD_NAME                2 (dataclass)
+            178 LOAD_CONST              12 (True)
+            180 LOAD_CONST              13 (('frozen',))
+            182 CALL_FUNCTION_KW         1
+
+164         184 LOAD_BUILD_CLASS
+            186 LOAD_CONST              18 (<code object InstanceInitializationOutcome at 0x1073aa450, file "WeRobotCore/application/instances/initialization.py", line 163>)
+            188 LOAD_CONST              19 ('InstanceInitializationOutcome')
+            190 MAKE_FUNCTION            0
+            192 LOAD_CONST              19 ('InstanceInitializationOutcome')
+            194 CALL_FUNCTION            2
+            196 CALL_FUNCTION            1
+            198 STORE_NAME              22 (InstanceInitializationOutcome)
+
+226         200 LOAD_NAME               10 (runtime_checkable)
+
+227         202 LOAD_BUILD_CLASS
+            204 LOAD_CONST              20 (<code object InstanceInitializationBackend at 0x1073aaea0, file "WeRobotCore/application/instances/initialization.py", line 226>)
+            206 LOAD_CONST              21 ('InstanceInitializationBackend')
+            208 MAKE_FUNCTION            0
+            210 LOAD_CONST              21 ('InstanceInitializationBackend')
+            212 LOAD_NAME                8 (Protocol)
+            214 CALL_FUNCTION            3
+            216 CALL_FUNCTION            1
+            218 STORE_NAME              23 (InstanceInitializationBackend)
+
+237         220 LOAD_NAME               10 (runtime_checkable)
+
+238         222 LOAD_BUILD_CLASS
+            224 LOAD_CONST              22 (<code object InstanceInitializationPostHook at 0x1073aa0e0, file "WeRobotCore/application/instances/initialization.py", line 237>)
+            226 LOAD_CONST              23 ('InstanceInitializationPostHook')
+            228 MAKE_FUNCTION            0
+            230 LOAD_CONST              23 ('InstanceInitializationPostHook')
+            232 LOAD_NAME                8 (Protocol)
+            234 CALL_FUNCTION            3
+            236 CALL_FUNCTION            1
+            238 STORE_NAME              24 (InstanceInitializationPostHook)
+
+245         240 LOAD_NAME               10 (runtime_checkable)
+
+246         242 LOAD_BUILD_CLASS
+            244 LOAD_CONST              24 (<code object InstanceInitializationReporter at 0x1073aa870, file "WeRobotCore/application/instances/initialization.py", line 245>)
+            246 LOAD_CONST              25 ('InstanceInitializationReporter')
+            248 MAKE_FUNCTION            0
+            250 LOAD_CONST              25 ('InstanceInitializationReporter')
+            252 LOAD_NAME                8 (Protocol)
+            254 CALL_FUNCTION            3
+            256 CALL_FUNCTION            1
+            258 STORE_NAME              25 (InstanceInitializationReporter)
+
+259         260 LOAD_BUILD_CLASS
+            262 LOAD_CONST              26 (<code object InstanceInitializationService at 0x1073aaa80, file "WeRobotCore/application/instances/initialization.py", line 259>)
+            264 LOAD_CONST              27 ('InstanceInitializationService')
+            266 MAKE_FUNCTION            0
+            268 LOAD_CONST              27 ('InstanceInitializationService')
+            270 CALL_FUNCTION            2
+            272 STORE_NAME              26 (InstanceInitializationService)
+            274 LOAD_CONST              28 (None)
+            276 RETURN_VALUE
+
+Disassembly of <code object _optional_text at 0x1072cfbe0, file "WeRobotCore/application/instances/initialization.py", line 21>:
+ 22           0 LOAD_FAST                0 (value)
+              2 LOAD_CONST               0 (None)
+              4 IS_OP                    0
+              6 POP_JUMP_IF_FALSE       12
+
+ 23           8 LOAD_CONST               0 (None)
+             10 RETURN_VALUE
+
+ 24     >>   12 LOAD_GLOBAL              0 (isinstance)
+             14 LOAD_FAST                0 (value)
+             16 LOAD_GLOBAL              1 (str)
+             18 CALL_FUNCTION            2
+             20 POP_JUMP_IF_TRUE        36
+
+ 25          22 LOAD_GLOBAL              2 (TypeError)
+             24 LOAD_CONST               1 ('{} must be a string when provided')
+             26 LOAD_METHOD              3 (format)
+             28 LOAD_FAST                1 (field_name)
+             30 CALL_METHOD              1
+             32 CALL_FUNCTION            1
+             34 RAISE_VARARGS            1
+
+ 26     >>   36 LOAD_FAST                0 (value)
+             38 LOAD_METHOD              4 (strip)
+             40 CALL_METHOD              0
+             42 STORE_FAST               2 (normalized)
+
+ 27          44 LOAD_FAST                2 (normalized)
+             46 JUMP_IF_TRUE_OR_POP     50
+             48 LOAD_CONST               0 (None)
+        >>   50 RETURN_VALUE
+
+Disassembly of <code object _required_text at 0x1072e0be0, file "WeRobotCore/application/instances/initialization.py", line 30>:
+ 31           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                0 (value)
+              4 LOAD_GLOBAL              1 (str)
+              6 CALL_FUNCTION            2
+              8 POP_JUMP_IF_FALSE       18
+             10 LOAD_FAST                0 (value)
+             12 LOAD_METHOD              2 (strip)
+             14 CALL_METHOD              0
+             16 POP_JUMP_IF_TRUE        32
+
+ 32     >>   18 LOAD_GLOBAL              3 (ValueError)
+             20 LOAD_CONST               1 ('{} must be a non-empty string')
+             22 LOAD_METHOD              4 (format)
+             24 LOAD_FAST                1 (field_name)
+             26 CALL_METHOD              1
+             28 CALL_FUNCTION            1
+             30 RAISE_VARARGS            1
+
+ 33     >>   32 LOAD_FAST                0 (value)
+             34 LOAD_METHOD              2 (strip)
+             36 CALL_METHOD              0
+             38 RETURN_VALUE
+
+Disassembly of <code object InstanceInitializationResult at 0x1073ab0e0, file "WeRobotCore/application/instances/initialization.py", line 36>:
+ 36           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('InstanceInitializationResult')
+              6 STORE_NAME               2 (__qualname__)
+              8 SETUP_ANNOTATIONS
+
+ 38          10 LOAD_CONST               1 ('Normalized outcome for exactly one inventory instance.')
+             12 STORE_NAME               3 (__doc__)
+
+ 40          14 LOAD_NAME                4 (InstanceId)
+             16 LOAD_NAME                5 (__annotations__)
+             18 LOAD_CONST               2 ('instance_id')
+             20 STORE_SUBSCR
+
+ 41          22 LOAD_NAME                6 (bool)
+             24 LOAD_NAME                5 (__annotations__)
+             26 LOAD_CONST               3 ('success')
+             28 STORE_SUBSCR
+
+ 42          30 LOAD_CONST               4 (None)
+             32 STORE_NAME               7 (account_id)
+             34 LOAD_NAME                8 (Optional)
+             36 LOAD_NAME                9 (str)
+             38 BINARY_SUBSCR
+             40 LOAD_NAME                5 (__annotations__)
+             42 LOAD_CONST               5 ('account_id')
+             44 STORE_SUBSCR
+
+ 43          46 LOAD_CONST               4 (None)
+             48 STORE_NAME              10 (nickname)
+             50 LOAD_NAME                8 (Optional)
+             52 LOAD_NAME                9 (str)
+             54 BINARY_SUBSCR
+             56 LOAD_NAME                5 (__annotations__)
+             58 LOAD_CONST               6 ('nickname')
+             60 STORE_SUBSCR
+
+ 44          62 LOAD_CONST               4 (None)
+             64 STORE_NAME              11 (failure_code)
+             66 LOAD_NAME                8 (Optional)
+             68 LOAD_NAME                9 (str)
+             70 BINARY_SUBSCR
+             72 LOAD_NAME                5 (__annotations__)
+             74 LOAD_CONST               7 ('failure_code')
+             76 STORE_SUBSCR
+
+ 45          78 LOAD_CONST               4 (None)
+             80 STORE_NAME              12 (message)
+             82 LOAD_NAME                8 (Optional)
+             84 LOAD_NAME                9 (str)
+             86 BINARY_SUBSCR
+             88 LOAD_NAME                5 (__annotations__)
+             90 LOAD_CONST               8 ('message')
+             92 STORE_SUBSCR
+
+ 46          94 LOAD_CONST               9 (False)
+             96 STORE_NAME              13 (retryable)
+             98 LOAD_NAME                6 (bool)
+            100 LOAD_NAME                5 (__annotations__)
+            102 LOAD_CONST              10 ('retryable')
+            104 STORE_SUBSCR
+
+ 47         106 LOAD_NAME               14 (field)
+            108 LOAD_NAME               15 (tuple)
+            110 LOAD_CONST              11 (('default_factory',))
+            112 CALL_FUNCTION_KW         1
+            114 STORE_NAME              16 (required_actions)
+            116 LOAD_NAME               17 (Tuple)
+            118 LOAD_NAME                9 (str)
+            120 LOAD_CONST              12 (Ellipsis)
+            122 BUILD_TUPLE              2
+            124 BINARY_SUBSCR
+            126 LOAD_NAME                5 (__annotations__)
+            128 LOAD_CONST              13 ('required_actions')
+            130 STORE_SUBSCR
+
+ 48         132 LOAD_NAME               14 (field)
+
+ 49         134 LOAD_NAME               18 (dict)
+
+ 50         136 LOAD_CONST               9 (False)
+
+ 51         138 LOAD_CONST               9 (False)
+
+ 48         140 LOAD_CONST              14 (('default_factory', 'repr', 'compare'))
+            142 CALL_FUNCTION_KW         3
+            144 STORE_NAME              19 (compatibility_payload)
+            146 LOAD_NAME               20 (Mapping)
+            148 LOAD_NAME                9 (str)
+            150 LOAD_NAME               21 (Any)
+            152 BUILD_TUPLE              2
+            154 BINARY_SUBSCR
+            156 LOAD_NAME                5 (__annotations__)
+            158 LOAD_CONST              15 ('compatibility_payload')
+            160 STORE_SUBSCR
+
+ 54         162 LOAD_CONST               4 (None)
+            164 LOAD_CONST              16 (('return',))
+            166 BUILD_CONST_KEY_MAP      1
+            168 LOAD_CONST              17 (<code object __post_init__ at 0x1073abea0, file "WeRobotCore/application/instances/initialization.py", line 54>)
+            170 LOAD_CONST              18 ('InstanceInitializationResult.__post_init__')
+            172 MAKE_FUNCTION            4 (annotations)
+            174 STORE_NAME              22 (__post_init__)
+
+105         176 LOAD_NAME               20 (Mapping)
+            178 LOAD_NAME                9 (str)
+            180 LOAD_NAME               21 (Any)
+            182 BUILD_TUPLE              2
+            184 BINARY_SUBSCR
+            186 LOAD_CONST              16 (('return',))
+            188 BUILD_CONST_KEY_MAP      1
+            190 LOAD_CONST              19 (<code object to_normalized_dict at 0x1073abf50, file "WeRobotCore/application/instances/initialization.py", line 105>)
+            192 LOAD_CONST              20 ('InstanceInitializationResult.to_normalized_dict')
+            194 MAKE_FUNCTION            4 (annotations)
+            196 STORE_NAME              23 (to_normalized_dict)
+            198 LOAD_CONST               4 (None)
+            200 RETURN_VALUE
+
+Disassembly of <code object __post_init__ at 0x1073abea0, file "WeRobotCore/application/instances/initialization.py", line 54>:
+ 55           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                0 (self)
+              4 LOAD_ATTR                1 (instance_id)
+              6 LOAD_GLOBAL              2 (InstanceId)
+              8 CALL_FUNCTION            2
+             10 POP_JUMP_IF_TRUE        20
+
+ 56          12 LOAD_GLOBAL              3 (TypeError)
+             14 LOAD_CONST               1 ('instance_id must be an InstanceId')
+             16 CALL_FUNCTION            1
+             18 RAISE_VARARGS            1
+
+ 57     >>   20 LOAD_GLOBAL              0 (isinstance)
+             22 LOAD_FAST                0 (self)
+             24 LOAD_ATTR                4 (success)
+             26 LOAD_GLOBAL              5 (bool)
+             28 CALL_FUNCTION            2
+             30 POP_JUMP_IF_TRUE        40
+
+ 58          32 LOAD_GLOBAL              3 (TypeError)
+             34 LOAD_CONST               2 ('success must be a bool')
+             36 CALL_FUNCTION            1
+             38 RAISE_VARARGS            1
+
+ 59     >>   40 LOAD_GLOBAL              0 (isinstance)
+             42 LOAD_FAST                0 (self)
+             44 LOAD_ATTR                6 (retryable)
+             46 LOAD_GLOBAL              5 (bool)
+             48 CALL_FUNCTION            2
+             50 POP_JUMP_IF_TRUE        60
+
+ 60          52 LOAD_GLOBAL              3 (TypeError)
+             54 LOAD_CONST               3 ('retryable must be a bool')
+             56 CALL_FUNCTION            1
+             58 RAISE_VARARGS            1
+
+ 61     >>   60 LOAD_GLOBAL              0 (isinstance)
+             62 LOAD_FAST                0 (self)
+             64 LOAD_ATTR                7 (required_actions)
+             66 LOAD_GLOBAL              8 (tuple)
+             68 CALL_FUNCTION            2
+             70 POP_JUMP_IF_TRUE        80
+
+ 62          72 LOAD_GLOBAL              3 (TypeError)
+             74 LOAD_CONST               4 ('required_actions must be a tuple')
+             76 CALL_FUNCTION            1
+             78 RAISE_VARARGS            1
+
+ 63     >>   80 LOAD_GLOBAL              0 (isinstance)
+             82 LOAD_FAST                0 (self)
+             84 LOAD_ATTR                9 (compatibility_payload)
+             86 LOAD_GLOBAL             10 (Mapping)
+             88 CALL_FUNCTION            2
+             90 POP_JUMP_IF_TRUE       100
+
+ 64          92 LOAD_GLOBAL              3 (TypeError)
+             94 LOAD_CONST               5 ('compatibility_payload must be a mapping')
+             96 CALL_FUNCTION            1
+             98 RAISE_VARARGS            1
+
+ 66     >>  100 LOAD_GLOBAL             11 (_optional_text)
+            102 LOAD_FAST                0 (self)
+            104 LOAD_ATTR               12 (account_id)
+            106 LOAD_CONST               6 ('account_id')
+            108 CALL_FUNCTION            2
+            110 STORE_FAST               1 (account_id)
+
+ 67         112 LOAD_GLOBAL             11 (_optional_text)
+            114 LOAD_FAST                0 (self)
+            116 LOAD_ATTR               13 (nickname)
+            118 LOAD_CONST               7 ('nickname')
+            120 CALL_FUNCTION            2
+            122 STORE_FAST               2 (nickname)
+
+ 68         124 LOAD_GLOBAL             11 (_optional_text)
+            126 LOAD_FAST                0 (self)
+            128 LOAD_ATTR               14 (failure_code)
+            130 LOAD_CONST               8 ('failure_code')
+            132 CALL_FUNCTION            2
+            134 STORE_FAST               3 (failure_code)
+
+ 69         136 LOAD_GLOBAL             11 (_optional_text)
+            138 LOAD_FAST                0 (self)
+            140 LOAD_ATTR               15 (message)
+            142 LOAD_CONST               9 ('message')
+            144 CALL_FUNCTION            2
+            146 STORE_FAST               4 (message)
+
+ 71         148 LOAD_GLOBAL              8 (tuple)
+            150 LOAD_CONST              10 (<code object <genexpr> at 0x1073abb30, file "WeRobotCore/application/instances/initialization.py", line 71>)
+            152 LOAD_CONST              11 ('InstanceInitializationResult.__post_init__.<locals>.<genexpr>')
+            154 MAKE_FUNCTION            0
+
+ 73         156 LOAD_FAST                0 (self)
+            158 LOAD_ATTR                7 (required_actions)
+
+ 71         160 GET_ITER
+            162 CALL_FUNCTION            1
+            164 CALL_FUNCTION            1
+            166 STORE_FAST               5 (actions)
+
+ 75         168 LOAD_GLOBAL             16 (len)
+            170 LOAD_FAST                5 (actions)
+            172 CALL_FUNCTION            1
+            174 LOAD_GLOBAL             16 (len)
+            176 LOAD_GLOBAL             17 (set)
+            178 LOAD_FAST                5 (actions)
+            180 CALL_FUNCTION            1
+            182 CALL_FUNCTION            1
+            184 COMPARE_OP               3 (!=)
+            186 POP_JUMP_IF_FALSE      196
+
+ 76         188 LOAD_GLOBAL             18 (ValueError)
+            190 LOAD_CONST              12 ('required_actions cannot contain duplicates')
+            192 CALL_FUNCTION            1
+            194 RAISE_VARARGS            1
+
+ 77     >>  196 LOAD_FAST                0 (self)
+            198 LOAD_ATTR                4 (success)
+            200 POP_JUMP_IF_FALSE      236
+
+ 78         202 LOAD_FAST                1 (account_id)
+            204 POP_JUMP_IF_FALSE      210
+            206 LOAD_FAST                2 (nickname)
+            208 POP_JUMP_IF_TRUE       218
+
+ 79     >>  210 LOAD_GLOBAL             18 (ValueError)
+
+ 80         212 LOAD_CONST              13 ('successful initialization requires account_id and nickname')
+
+ 79         214 CALL_FUNCTION            1
+            216 RAISE_VARARGS            1
+
+ 82     >>  218 LOAD_FAST                3 (failure_code)
+            220 LOAD_CONST               0 (None)
+            222 IS_OP                    1
+            224 POP_JUMP_IF_FALSE      252
+
+ 83         226 LOAD_GLOBAL             18 (ValueError)
+            228 LOAD_CONST              14 ('successful initialization cannot have failure_code')
+            230 CALL_FUNCTION            1
+            232 RAISE_VARARGS            1
+            234 JUMP_FORWARD            16 (to 252)
+
+ 84     >>  236 LOAD_FAST                3 (failure_code)
+            238 LOAD_CONST               0 (None)
+            240 IS_OP                    0
+            242 POP_JUMP_IF_FALSE      252
+
+ 85         244 LOAD_GLOBAL             18 (ValueError)
+            246 LOAD_CONST              15 ('failed initialization requires failure_code')
+            248 CALL_FUNCTION            1
+            250 RAISE_VARARGS            1
+
+ 87     >>  252 LOAD_GLOBAL             19 (freeze_compatibility_value)
+
+ 88         254 LOAD_GLOBAL             20 (dict)
+            256 LOAD_FAST                0 (self)
+            258 LOAD_ATTR                9 (compatibility_payload)
+            260 CALL_FUNCTION            1
+
+ 87         262 CALL_FUNCTION            1
+            264 STORE_FAST               6 (compatibility)
+
+ 90         266 LOAD_FAST                6 (compatibility)
+            268 LOAD_METHOD             21 (get)
+            270 LOAD_CONST              16 ('instance_id')
+            272 CALL_METHOD              1
+            274 STORE_FAST               7 (compatibility_id)
+
+ 91         276 LOAD_FAST                7 (compatibility_id)
+            278 LOAD_CONST               0 (None)
+            280 IS_OP                    1
+            282 EXTENDED_ARG             1
+            284 POP_JUMP_IF_FALSE      316
+
+ 92         286 LOAD_GLOBAL             22 (str)
+            288 LOAD_FAST                7 (compatibility_id)
+            290 CALL_FUNCTION            1
+            292 LOAD_METHOD             23 (strip)
+            294 CALL_METHOD              0
+            296 LOAD_FAST                0 (self)
+            298 LOAD_ATTR                1 (instance_id)
+            300 LOAD_ATTR               24 (value)
+            302 COMPARE_OP               3 (!=)
+
+ 91         304 EXTENDED_ARG             1
+            306 POP_JUMP_IF_FALSE      316
+
+ 94         308 LOAD_GLOBAL             18 (ValueError)
+
+ 95         310 LOAD_CONST              17 ('compatibility payload instance_id must match initialization result')
+
+ 94         312 CALL_FUNCTION            1
+            314 RAISE_VARARGS            1
+
+ 98     >>  316 LOAD_GLOBAL             25 (object)
+            318 LOAD_METHOD             26 (__setattr__)
+            320 LOAD_FAST                0 (self)
+            322 LOAD_CONST               6 ('account_id')
+            324 LOAD_FAST                1 (account_id)
+            326 CALL_METHOD              3
+            328 POP_TOP
+
+ 99         330 LOAD_GLOBAL             25 (object)
+            332 LOAD_METHOD             26 (__setattr__)
+            334 LOAD_FAST                0 (self)
+            336 LOAD_CONST               7 ('nickname')
+            338 LOAD_FAST                2 (nickname)
+            340 CALL_METHOD              3
+            342 POP_TOP
+
+100         344 LOAD_GLOBAL             25 (object)
+            346 LOAD_METHOD             26 (__setattr__)
+            348 LOAD_FAST                0 (self)
+            350 LOAD_CONST               8 ('failure_code')
+            352 LOAD_FAST                3 (failure_code)
+            354 CALL_METHOD              3
+            356 POP_TOP
+
+101         358 LOAD_GLOBAL             25 (object)
+            360 LOAD_METHOD             26 (__setattr__)
+            362 LOAD_FAST                0 (self)
+            364 LOAD_CONST               9 ('message')
+            366 LOAD_FAST                4 (message)
+            368 CALL_METHOD              3
+            370 POP_TOP
+
+102         372 LOAD_GLOBAL             25 (object)
+            374 LOAD_METHOD             26 (__setattr__)
+            376 LOAD_FAST                0 (self)
+            378 LOAD_CONST              18 ('required_actions')
+            380 LOAD_FAST                5 (actions)
+            382 CALL_METHOD              3
+            384 POP_TOP
+
+103         386 LOAD_GLOBAL             25 (object)
+            388 LOAD_METHOD             26 (__setattr__)
+            390 LOAD_FAST                0 (self)
+            392 LOAD_CONST              19 ('compatibility_payload')
+            394 LOAD_FAST                6 (compatibility)
+            396 CALL_METHOD              3
+            398 POP_TOP
+            400 LOAD_CONST               0 (None)
+            402 RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x1073abb30, file "WeRobotCore/application/instances/initialization.py", line 71>:
+ 71           0 LOAD_FAST                0 (.0)
+        >>    2 FOR_ITER                16 (to 20)
+
+ 73           4 STORE_FAST               1 (action)
+
+ 72           6 LOAD_GLOBAL              0 (_required_text)
+              8 LOAD_FAST                1 (action)
+             10 LOAD_CONST               0 ('required action')
+             12 CALL_FUNCTION            2
+             14 YIELD_VALUE
+             16 POP_TOP
+             18 JUMP_ABSOLUTE            2
+        >>   20 LOAD_CONST               1 (None)
+             22 RETURN_VALUE
+
+Disassembly of <code object to_normalized_dict at 0x1073abf50, file "WeRobotCore/application/instances/initialization.py", line 105>:
+107           0 LOAD_FAST                0 (self)
+              2 LOAD_ATTR                0 (instance_id)
+              4 LOAD_ATTR                1 (value)
+
+108           6 LOAD_FAST                0 (self)
+              8 LOAD_ATTR                2 (success)
+
+109          10 LOAD_FAST                0 (self)
+             12 LOAD_ATTR                3 (account_id)
+
+110          14 LOAD_FAST                0 (self)
+             16 LOAD_ATTR                4 (nickname)
+
+111          18 LOAD_FAST                0 (self)
+             20 LOAD_ATTR                5 (failure_code)
+
+112          22 LOAD_FAST                0 (self)
+             24 LOAD_ATTR                6 (message)
+
+113          26 LOAD_FAST                0 (self)
+             28 LOAD_ATTR                7 (retryable)
+
+114          30 LOAD_GLOBAL              8 (list)
+             32 LOAD_FAST                0 (self)
+             34 LOAD_ATTR                9 (required_actions)
+             36 CALL_FUNCTION            1
+
+106          38 LOAD_CONST               1 (('instanceId', 'success', 'accountId', 'nickname', 'failureCode', 'message', 'retryable', 'requiredActions'))
+             40 BUILD_CONST_KEY_MAP      8
+             42 RETURN_VALUE
+
+Disassembly of <code object InstanceInitializationBatch at 0x1073abbe0, file "WeRobotCore/application/instances/initialization.py", line 118>:
+118           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('InstanceInitializationBatch')
+              6 STORE_NAME               2 (__qualname__)
+              8 SETUP_ANNOTATIONS
+
+120          10 LOAD_CONST               1 ('Driver result for one complete, ordered inventory snapshot.')
+             12 STORE_NAME               3 (__doc__)
+
+122          14 LOAD_NAME                4 (str)
+             16 LOAD_NAME                5 (__annotations__)
+             18 LOAD_CONST               2 ('driver_id')
+             20 STORE_SUBSCR
+
+123          22 LOAD_NAME                6 (field)
+             24 LOAD_NAME                7 (tuple)
+             26 LOAD_CONST               3 (('default_factory',))
+             28 CALL_FUNCTION_KW         1
+             30 STORE_NAME               8 (results)
+             32 LOAD_NAME                9 (Tuple)
+             34 LOAD_NAME               10 (InstanceInitializationResult)
+             36 LOAD_CONST               4 (Ellipsis)
+             38 BUILD_TUPLE              2
+             40 BINARY_SUBSCR
+             42 LOAD_NAME                5 (__annotations__)
+             44 LOAD_CONST               5 ('results')
+             46 STORE_SUBSCR
+
+124          48 LOAD_NAME                6 (field)
+
+125          50 LOAD_NAME               11 (dict)
+
+126          52 LOAD_CONST               6 (False)
+
+127          54 LOAD_CONST               6 (False)
+
+124          56 LOAD_CONST               7 (('default_factory', 'repr', 'compare'))
+             58 CALL_FUNCTION_KW         3
+             60 STORE_NAME              12 (compatibility_payload)
+             62 LOAD_NAME               13 (Mapping)
+             64 LOAD_NAME                4 (str)
+             66 LOAD_NAME               14 (Any)
+             68 BUILD_TUPLE              2
+             70 BINARY_SUBSCR
+             72 LOAD_NAME                5 (__annotations__)
+             74 LOAD_CONST               8 ('compatibility_payload')
+             76 STORE_SUBSCR
+
+130          78 LOAD_CONST               9 (None)
+             80 LOAD_CONST              10 (('return',))
+             82 BUILD_CONST_KEY_MAP      1
+             84 LOAD_CONST              11 (<code object __post_init__ at 0x1073ab710, file "WeRobotCore/application/instances/initialization.py", line 130>)
+             86 LOAD_CONST              12 ('InstanceInitializationBatch.__post_init__')
+             88 MAKE_FUNCTION            4 (annotations)
+             90 STORE_NAME              15 (__post_init__)
+
+154          92 LOAD_NAME               16 (property)
+
+155          94 LOAD_NAME                9 (Tuple)
+             96 LOAD_NAME               10 (InstanceInitializationResult)
+             98 LOAD_CONST               4 (Ellipsis)
+            100 BUILD_TUPLE              2
+            102 BINARY_SUBSCR
+            104 LOAD_CONST              10 (('return',))
+            106 BUILD_CONST_KEY_MAP      1
+            108 LOAD_CONST              13 (<code object successes at 0x1073ab450, file "WeRobotCore/application/instances/initialization.py", line 154>)
+            110 LOAD_CONST              14 ('InstanceInitializationBatch.successes')
+            112 MAKE_FUNCTION            4 (annotations)
+            114 CALL_FUNCTION            1
+            116 STORE_NAME              17 (successes)
+
+158         118 LOAD_NAME               16 (property)
+
+159         120 LOAD_NAME                9 (Tuple)
+            122 LOAD_NAME               10 (InstanceInitializationResult)
+            124 LOAD_CONST               4 (Ellipsis)
+            126 BUILD_TUPLE              2
+            128 BINARY_SUBSCR
+            130 LOAD_CONST              10 (('return',))
+            132 BUILD_CONST_KEY_MAP      1
+            134 LOAD_CONST              15 (<code object failures at 0x1073ab240, file "WeRobotCore/application/instances/initialization.py", line 158>)
+            136 LOAD_CONST              16 ('InstanceInitializationBatch.failures')
+            138 MAKE_FUNCTION            4 (annotations)
+            140 CALL_FUNCTION            1
+            142 STORE_NAME              18 (failures)
+            144 LOAD_CONST               9 (None)
+            146 RETURN_VALUE
+
+Disassembly of <code object __post_init__ at 0x1073ab710, file "WeRobotCore/application/instances/initialization.py", line 130>:
+131           0 LOAD_GLOBAL              0 (_required_text)
+              2 LOAD_FAST                0 (self)
+              4 LOAD_ATTR                1 (driver_id)
+              6 LOAD_CONST               1 ('driver_id')
+              8 CALL_FUNCTION            2
+             10 STORE_FAST               1 (driver_id)
+
+132          12 LOAD_GLOBAL              2 (isinstance)
+             14 LOAD_FAST                0 (self)
+             16 LOAD_ATTR                3 (results)
+             18 LOAD_GLOBAL              4 (tuple)
+             20 CALL_FUNCTION            2
+             22 POP_JUMP_IF_TRUE        32
+
+133          24 LOAD_GLOBAL              5 (TypeError)
+             26 LOAD_CONST               2 ('results must be a tuple')
+             28 CALL_FUNCTION            1
+             30 RAISE_VARARGS            1
+
+134     >>   32 LOAD_GLOBAL              6 (any)
+             34 LOAD_CONST               3 (<code object <genexpr> at 0x1073ab920, file "WeRobotCore/application/instances/initialization.py", line 134>)
+             36 LOAD_CONST               4 ('InstanceInitializationBatch.__post_init__.<locals>.<genexpr>')
+             38 MAKE_FUNCTION            0
+
+136          40 LOAD_FAST                0 (self)
+             42 LOAD_ATTR                3 (results)
+
+134          44 GET_ITER
+             46 CALL_FUNCTION            1
+             48 CALL_FUNCTION            1
+             50 POP_JUMP_IF_FALSE       60
+
+138          52 LOAD_GLOBAL              5 (TypeError)
+
+139          54 LOAD_CONST               5 ('results must contain InstanceInitializationResult values')
+
+138          56 CALL_FUNCTION            1
+             58 RAISE_VARARGS            1
+
+141     >>   60 LOAD_GLOBAL              2 (isinstance)
+             62 LOAD_FAST                0 (self)
+             64 LOAD_ATTR                7 (compatibility_payload)
+             66 LOAD_GLOBAL              8 (Mapping)
+             68 CALL_FUNCTION            2
+             70 POP_JUMP_IF_TRUE        80
+
+142          72 LOAD_GLOBAL              5 (TypeError)
+             74 LOAD_CONST               6 ('compatibility_payload must be a mapping')
+             76 CALL_FUNCTION            1
+             78 RAISE_VARARGS            1
+
+143     >>   80 LOAD_GLOBAL              4 (tuple)
+             82 LOAD_CONST               7 (<code object <genexpr> at 0x1073abc90, file "WeRobotCore/application/instances/initialization.py", line 143>)
+             84 LOAD_CONST               4 ('InstanceInitializationBatch.__post_init__.<locals>.<genexpr>')
+             86 MAKE_FUNCTION            0
+             88 LOAD_FAST                0 (self)
+             90 LOAD_ATTR                3 (results)
+             92 GET_ITER
+             94 CALL_FUNCTION            1
+             96 CALL_FUNCTION            1
+             98 STORE_FAST               2 (instance_ids)
+
+144         100 LOAD_GLOBAL              9 (len)
+            102 LOAD_FAST                2 (instance_ids)
+            104 CALL_FUNCTION            1
+            106 LOAD_GLOBAL              9 (len)
+            108 LOAD_GLOBAL             10 (set)
+            110 LOAD_FAST                2 (instance_ids)
+            112 CALL_FUNCTION            1
+            114 CALL_FUNCTION            1
+            116 COMPARE_OP               3 (!=)
+            118 POP_JUMP_IF_FALSE      128
+
+145         120 LOAD_GLOBAL             11 (ValueError)
+            122 LOAD_CONST               8 ('initialization result instance ids must be unique')
+            124 CALL_FUNCTION            1
+            126 RAISE_VARARGS            1
+
+147     >>  128 LOAD_GLOBAL             12 (object)
+            130 LOAD_METHOD             13 (__setattr__)
+            132 LOAD_FAST                0 (self)
+            134 LOAD_CONST               1 ('driver_id')
+            136 LOAD_FAST                1 (driver_id)
+            138 CALL_METHOD              3
+            140 POP_TOP
+
+148         142 LOAD_GLOBAL             12 (object)
+            144 LOAD_METHOD             13 (__setattr__)
+
+149         146 LOAD_FAST                0 (self)
+
+150         148 LOAD_CONST               9 ('compatibility_payload')
+
+151         150 LOAD_GLOBAL             14 (freeze_compatibility_value)
+            152 LOAD_GLOBAL             15 (dict)
+            154 LOAD_FAST                0 (self)
+            156 LOAD_ATTR                7 (compatibility_payload)
+            158 CALL_FUNCTION            1
+            160 CALL_FUNCTION            1
+
+148         162 CALL_METHOD              3
+            164 POP_TOP
+            166 LOAD_CONST               0 (None)
+            168 RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x1073ab920, file "WeRobotCore/application/instances/initialization.py", line 134>:
+134           0 LOAD_FAST                0 (.0)
+        >>    2 FOR_ITER                18 (to 22)
+
+136           4 STORE_FAST               1 (item)
+
+135           6 LOAD_GLOBAL              0 (isinstance)
+              8 LOAD_FAST                1 (item)
+             10 LOAD_GLOBAL              1 (InstanceInitializationResult)
+             12 CALL_FUNCTION            2
+             14 UNARY_NOT
+             16 YIELD_VALUE
+             18 POP_TOP
+             20 JUMP_ABSOLUTE            2
+        >>   22 LOAD_CONST               0 (None)
+             24 RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x1073abc90, file "WeRobotCore/application/instances/initialization.py", line 143>:
+143           0 LOAD_FAST                0 (.0)
+        >>    2 FOR_ITER                14 (to 18)
+              4 STORE_FAST               1 (item)
+              6 LOAD_FAST                1 (item)
+              8 LOAD_ATTR                0 (instance_id)
+             10 LOAD_ATTR                1 (value)
+             12 YIELD_VALUE
+             14 POP_TOP
+             16 JUMP_ABSOLUTE            2
+        >>   18 LOAD_CONST               0 (None)
+             20 RETURN_VALUE
+
+Disassembly of <code object successes at 0x1073ab450, file "WeRobotCore/application/instances/initialization.py", line 154>:
+156           0 LOAD_GLOBAL              0 (tuple)
+              2 LOAD_CONST               1 (<code object <genexpr> at 0x1073abdf0, file "WeRobotCore/application/instances/initialization.py", line 156>)
+              4 LOAD_CONST               2 ('InstanceInitializationBatch.successes.<locals>.<genexpr>')
+              6 MAKE_FUNCTION            0
+              8 LOAD_FAST                0 (self)
+             10 LOAD_ATTR                1 (results)
+             12 GET_ITER
+             14 CALL_FUNCTION            1
+             16 CALL_FUNCTION            1
+             18 RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x1073abdf0, file "WeRobotCore/application/instances/initialization.py", line 156>:
+156           0 LOAD_FAST                0 (.0)
+        >>    2 FOR_ITER                16 (to 20)
+              4 STORE_FAST               1 (item)
+              6 LOAD_FAST                1 (item)
+              8 LOAD_ATTR                0 (success)
+             10 POP_JUMP_IF_FALSE        2
+             12 LOAD_FAST                1 (item)
+             14 YIELD_VALUE
+             16 POP_TOP
+             18 JUMP_ABSOLUTE            2
+        >>   20 LOAD_CONST               0 (None)
+             22 RETURN_VALUE
+
+Disassembly of <code object failures at 0x1073ab240, file "WeRobotCore/application/instances/initialization.py", line 158>:
+160           0 LOAD_GLOBAL              0 (tuple)
+              2 LOAD_CONST               1 (<code object <genexpr> at 0x1073ab030, file "WeRobotCore/application/instances/initialization.py", line 160>)
+              4 LOAD_CONST               2 ('InstanceInitializationBatch.failures.<locals>.<genexpr>')
+              6 MAKE_FUNCTION            0
+              8 LOAD_FAST                0 (self)
+             10 LOAD_ATTR                1 (results)
+             12 GET_ITER
+             14 CALL_FUNCTION            1
+             16 CALL_FUNCTION            1
+             18 RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x1073ab030, file "WeRobotCore/application/instances/initialization.py", line 160>:
+160           0 LOAD_FAST                0 (.0)
+        >>    2 FOR_ITER                16 (to 20)
+              4 STORE_FAST               1 (item)
+              6 LOAD_FAST                1 (item)
+              8 LOAD_ATTR                0 (success)
+             10 POP_JUMP_IF_TRUE         2
+             12 LOAD_FAST                1 (item)
+             14 YIELD_VALUE
+             16 POP_TOP
+             18 JUMP_ABSOLUTE            2
+        >>   20 LOAD_CONST               0 (None)
+             22 RETURN_VALUE
+
+Disassembly of <code object InstanceInitializationOutcome at 0x1073aa450, file "WeRobotCore/application/instances/initialization.py", line 163>:
+163           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('InstanceInitializationOutcome')
+              6 STORE_NAME               2 (__qualname__)
+              8 SETUP_ANNOTATIONS
+
+165          10 LOAD_CONST               1 ('Shared aggregate; a post-init failure never rewrites Driver results.')
+             12 STORE_NAME               3 (__doc__)
+
+167          14 LOAD_NAME                4 (InstanceInventorySnapshot)
+             16 LOAD_NAME                5 (__annotations__)
+             18 LOAD_CONST               2 ('inventory')
+             20 STORE_SUBSCR
+
+168          22 LOAD_NAME                6 (InstanceInitializationBatch)
+             24 LOAD_NAME                5 (__annotations__)
+             26 LOAD_CONST               3 ('batch')
+             28 STORE_SUBSCR
+
+169          30 LOAD_CONST               4 (False)
+             32 STORE_NAME               7 (post_init_attempted)
+             34 LOAD_NAME                8 (bool)
+             36 LOAD_NAME                5 (__annotations__)
+             38 LOAD_CONST               5 ('post_init_attempted')
+             40 STORE_SUBSCR
+
+170          42 LOAD_CONST               6 (None)
+             44 STORE_NAME               9 (post_init_succeeded)
+             46 LOAD_NAME               10 (Optional)
+             48 LOAD_NAME                8 (bool)
+             50 BINARY_SUBSCR
+             52 LOAD_NAME                5 (__annotations__)
+             54 LOAD_CONST               7 ('post_init_succeeded')
+             56 STORE_SUBSCR
+
+172          58 LOAD_CONST               6 (None)
+             60 LOAD_CONST               8 (('return',))
+             62 BUILD_CONST_KEY_MAP      1
+             64 LOAD_CONST               9 (<code object __post_init__ at 0x1073ab500, file "WeRobotCore/application/instances/initialization.py", line 172>)
+             66 LOAD_CONST              10 ('InstanceInitializationOutcome.__post_init__')
+             68 MAKE_FUNCTION            4 (annotations)
+             70 STORE_NAME              11 (__post_init__)
+
+209          72 LOAD_NAME               12 (property)
+
+210          74 LOAD_NAME               13 (int)
+             76 LOAD_CONST               8 (('return',))
+             78 BUILD_CONST_KEY_MAP      1
+             80 LOAD_CONST              11 (<code object total at 0x1073ab190, file "WeRobotCore/application/instances/initialization.py", line 209>)
+             82 LOAD_CONST              12 ('InstanceInitializationOutcome.total')
+             84 MAKE_FUNCTION            4 (annotations)
+             86 CALL_FUNCTION            1
+             88 STORE_NAME              14 (total)
+
+213          90 LOAD_NAME               12 (property)
+
+214          92 LOAD_NAME               13 (int)
+             94 LOAD_CONST               8 (('return',))
+             96 BUILD_CONST_KEY_MAP      1
+             98 LOAD_CONST              13 (<code object success_count at 0x1073ab870, file "WeRobotCore/application/instances/initialization.py", line 213>)
+            100 LOAD_CONST              14 ('InstanceInitializationOutcome.success_count')
+            102 MAKE_FUNCTION            4 (annotations)
+            104 CALL_FUNCTION            1
+            106 STORE_NAME              15 (success_count)
+
+217         108 LOAD_NAME               12 (property)
+
+218         110 LOAD_NAME               13 (int)
+            112 LOAD_CONST               8 (('return',))
+            114 BUILD_CONST_KEY_MAP      1
+            116 LOAD_CONST              15 (<code object failure_count at 0x1073abd40, file "WeRobotCore/application/instances/initialization.py", line 217>)
+            118 LOAD_CONST              16 ('InstanceInitializationOutcome.failure_count')
+            120 MAKE_FUNCTION            4 (annotations)
+            122 CALL_FUNCTION            1
+            124 STORE_NAME              16 (failure_count)
+
+221         126 LOAD_NAME               12 (property)
+
+222         128 LOAD_NAME                8 (bool)
+            130 LOAD_CONST               8 (('return',))
+            132 BUILD_CONST_KEY_MAP      1
+            134 LOAD_CONST              17 (<code object any_succeeded at 0x1073ab660, file "WeRobotCore/application/instances/initialization.py", line 221>)
+            136 LOAD_CONST              18 ('InstanceInitializationOutcome.any_succeeded')
+            138 MAKE_FUNCTION            4 (annotations)
+            140 CALL_FUNCTION            1
+            142 STORE_NAME              17 (any_succeeded)
+            144 LOAD_CONST               6 (None)
+            146 RETURN_VALUE
+
+Disassembly of <code object __post_init__ at 0x1073ab500, file "WeRobotCore/application/instances/initialization.py", line 172>:
+173           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                0 (self)
+              4 LOAD_ATTR                1 (inventory)
+              6 LOAD_GLOBAL              2 (InstanceInventorySnapshot)
+              8 CALL_FUNCTION            2
+             10 POP_JUMP_IF_TRUE        20
+
+174          12 LOAD_GLOBAL              3 (TypeError)
+             14 LOAD_CONST               1 ('inventory must be an InstanceInventorySnapshot')
+             16 CALL_FUNCTION            1
+             18 RAISE_VARARGS            1
+
+175     >>   20 LOAD_GLOBAL              0 (isinstance)
+             22 LOAD_FAST                0 (self)
+             24 LOAD_ATTR                4 (batch)
+             26 LOAD_GLOBAL              5 (InstanceInitializationBatch)
+             28 CALL_FUNCTION            2
+             30 POP_JUMP_IF_TRUE        40
+
+176          32 LOAD_GLOBAL              3 (TypeError)
+             34 LOAD_CONST               2 ('batch must be an InstanceInitializationBatch')
+             36 CALL_FUNCTION            1
+             38 RAISE_VARARGS            1
+
+177     >>   40 LOAD_GLOBAL              0 (isinstance)
+             42 LOAD_FAST                0 (self)
+             44 LOAD_ATTR                6 (post_init_attempted)
+             46 LOAD_GLOBAL              7 (bool)
+             48 CALL_FUNCTION            2
+             50 POP_JUMP_IF_TRUE        60
+
+178          52 LOAD_GLOBAL              3 (TypeError)
+             54 LOAD_CONST               3 ('post_init_attempted must be a bool')
+             56 CALL_FUNCTION            1
+             58 RAISE_VARARGS            1
+
+179     >>   60 LOAD_FAST                0 (self)
+             62 LOAD_ATTR                8 (post_init_succeeded)
+             64 LOAD_CONST               0 (None)
+             66 IS_OP                    1
+             68 POP_JUMP_IF_FALSE       90
+             70 LOAD_GLOBAL              0 (isinstance)
+
+180          72 LOAD_FAST                0 (self)
+             74 LOAD_ATTR                8 (post_init_succeeded)
+
+181          76 LOAD_GLOBAL              7 (bool)
+
+179          78 CALL_FUNCTION            2
+             80 POP_JUMP_IF_TRUE        90
+
+183          82 LOAD_GLOBAL              3 (TypeError)
+             84 LOAD_CONST               4 ('post_init_succeeded must be a bool when provided')
+             86 CALL_FUNCTION            1
+             88 RAISE_VARARGS            1
+
+184     >>   90 LOAD_FAST                0 (self)
+             92 LOAD_ATTR                1 (inventory)
+             94 LOAD_ATTR                9 (driver_id)
+             96 LOAD_FAST                0 (self)
+             98 LOAD_ATTR                4 (batch)
+            100 LOAD_ATTR                9 (driver_id)
+            102 COMPARE_OP               3 (!=)
+            104 POP_JUMP_IF_FALSE      114
+
+185         106 LOAD_GLOBAL             10 (ValueError)
+            108 LOAD_CONST               5 ('initialization batch driver must match inventory')
+            110 CALL_FUNCTION            1
+            112 RAISE_VARARGS            1
+
+187     >>  114 LOAD_GLOBAL             11 (tuple)
+            116 LOAD_CONST               6 (<code object <genexpr> at 0x1073ab2f0, file "WeRobotCore/application/instances/initialization.py", line 187>)
+            118 LOAD_CONST               7 ('InstanceInitializationOutcome.__post_init__.<locals>.<genexpr>')
+            120 MAKE_FUNCTION            0
+
+188         122 LOAD_FAST                0 (self)
+            124 LOAD_ATTR                1 (inventory)
+            126 LOAD_ATTR               12 (items)
+
+187         128 GET_ITER
+            130 CALL_FUNCTION            1
+            132 CALL_FUNCTION            1
+            134 STORE_FAST               1 (expected_ids)
+
+190         136 LOAD_GLOBAL             11 (tuple)
+            138 LOAD_CONST               8 (<code object <genexpr> at 0x1073aba80, file "WeRobotCore/application/instances/initialization.py", line 190>)
+            140 LOAD_CONST               7 ('InstanceInitializationOutcome.__post_init__.<locals>.<genexpr>')
+            142 MAKE_FUNCTION            0
+            144 LOAD_FAST                0 (self)
+            146 LOAD_ATTR                4 (batch)
+            148 LOAD_ATTR               13 (results)
+            150 GET_ITER
+            152 CALL_FUNCTION            1
+            154 CALL_FUNCTION            1
+            156 STORE_FAST               2 (result_ids)
+
+191         158 LOAD_FAST                2 (result_ids)
+            160 LOAD_FAST                1 (expected_ids)
+            162 COMPARE_OP               3 (!=)
+            164 POP_JUMP_IF_FALSE      174
+
+192         166 LOAD_GLOBAL             10 (ValueError)
+
+193         168 LOAD_CONST               9 ('initialization results must match inventory order and identity')
+
+192         170 CALL_FUNCTION            1
+            172 RAISE_VARARGS            1
+
+195     >>  174 LOAD_GLOBAL              7 (bool)
+            176 LOAD_FAST                0 (self)
+            178 LOAD_ATTR                4 (batch)
+            180 LOAD_ATTR               14 (successes)
+            182 CALL_FUNCTION            1
+            184 STORE_FAST               3 (should_attempt)
+
+196         186 LOAD_FAST                0 (self)
+            188 LOAD_ATTR                6 (post_init_attempted)
+            190 LOAD_FAST                3 (should_attempt)
+            192 COMPARE_OP               3 (!=)
+            194 POP_JUMP_IF_FALSE      204
+
+197         196 LOAD_GLOBAL             10 (ValueError)
+
+198         198 LOAD_CONST              10 ('post_init_attempted must reflect whether any instance succeeded')
+
+197         200 CALL_FUNCTION            1
+            202 RAISE_VARARGS            1
+
+200     >>  204 LOAD_FAST                0 (self)
+            206 LOAD_ATTR                6 (post_init_attempted)
+            208 POP_JUMP_IF_TRUE       228
+            210 LOAD_FAST                0 (self)
+            212 LOAD_ATTR                8 (post_init_succeeded)
+            214 LOAD_CONST               0 (None)
+            216 IS_OP                    1
+            218 POP_JUMP_IF_FALSE      228
+
+201         220 LOAD_GLOBAL             10 (ValueError)
+
+202         222 LOAD_CONST              11 ('post_init_succeeded must be None when post-init was not attempted')
+
+201         224 CALL_FUNCTION            1
+            226 RAISE_VARARGS            1
+
+204     >>  228 LOAD_FAST                0 (self)
+            230 LOAD_ATTR                6 (post_init_attempted)
+            232 POP_JUMP_IF_FALSE      252
+            234 LOAD_FAST                0 (self)
+            236 LOAD_ATTR                8 (post_init_succeeded)
+            238 LOAD_CONST               0 (None)
+            240 IS_OP                    0
+            242 POP_JUMP_IF_FALSE      252
+
+205         244 LOAD_GLOBAL             10 (ValueError)
+
+206         246 LOAD_CONST              12 ('post_init_succeeded must be recorded after a successful batch')
+
+205         248 CALL_FUNCTION            1
+            250 RAISE_VARARGS            1
+        >>  252 LOAD_CONST               0 (None)
+            254 RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x1073ab2f0, file "WeRobotCore/application/instances/initialization.py", line 187>:
+187           0 LOAD_FAST                0 (.0)
+        >>    2 FOR_ITER                16 (to 20)
+
+188           4 STORE_FAST               1 (item)
+              6 LOAD_FAST                1 (item)
+              8 LOAD_ATTR                0 (instance)
+             10 LOAD_ATTR                1 (instance_id)
+             12 LOAD_ATTR                2 (value)
+             14 YIELD_VALUE
+             16 POP_TOP
+             18 JUMP_ABSOLUTE            2
+        >>   20 LOAD_CONST               0 (None)
+             22 RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x1073aba80, file "WeRobotCore/application/instances/initialization.py", line 190>:
+190           0 LOAD_FAST                0 (.0)
+        >>    2 FOR_ITER                14 (to 18)
+              4 STORE_FAST               1 (item)
+              6 LOAD_FAST                1 (item)
+              8 LOAD_ATTR                0 (instance_id)
+             10 LOAD_ATTR                1 (value)
+             12 YIELD_VALUE
+             14 POP_TOP
+             16 JUMP_ABSOLUTE            2
+        >>   18 LOAD_CONST               0 (None)
+             20 RETURN_VALUE
+
+Disassembly of <code object total at 0x1073ab190, file "WeRobotCore/application/instances/initialization.py", line 209>:
+211           0 LOAD_GLOBAL              0 (len)
+              2 LOAD_FAST                0 (self)
+              4 LOAD_ATTR                1 (batch)
+              6 LOAD_ATTR                2 (results)
+              8 CALL_FUNCTION            1
+             10 RETURN_VALUE
+
+Disassembly of <code object success_count at 0x1073ab870, file "WeRobotCore/application/instances/initialization.py", line 213>:
+215           0 LOAD_GLOBAL              0 (len)
+              2 LOAD_FAST                0 (self)
+              4 LOAD_ATTR                1 (batch)
+              6 LOAD_ATTR                2 (successes)
+              8 CALL_FUNCTION            1
+             10 RETURN_VALUE
+
+Disassembly of <code object failure_count at 0x1073abd40, file "WeRobotCore/application/instances/initialization.py", line 217>:
+219           0 LOAD_GLOBAL              0 (len)
+              2 LOAD_FAST                0 (self)
+              4 LOAD_ATTR                1 (batch)
+              6 LOAD_ATTR                2 (failures)
+              8 CALL_FUNCTION            1
+             10 RETURN_VALUE
+
+Disassembly of <code object any_succeeded at 0x1073ab660, file "WeRobotCore/application/instances/initialization.py", line 221>:
+223           0 LOAD_GLOBAL              0 (bool)
+              2 LOAD_FAST                0 (self)
+              4 LOAD_ATTR                1 (batch)
+              6 LOAD_ATTR                2 (successes)
+              8 CALL_FUNCTION            1
+             10 RETURN_VALUE
+
+Disassembly of <code object InstanceInitializationBackend at 0x1073aaea0, file "WeRobotCore/application/instances/initialization.py", line 226>:
+226           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('InstanceInitializationBackend')
+              6 STORE_NAME               2 (__qualname__)
+
+228           8 LOAD_CONST               1 ('Perform platform preflight and native initialization for one snapshot.')
+             10 STORE_NAME               3 (__doc__)
+
+232          12 LOAD_NAME                4 (InstanceInventorySnapshot)
+
+233          14 LOAD_NAME                5 (InstanceInitializationBatch)
+
+230          16 LOAD_CONST               2 (('inventory', 'return'))
+             18 BUILD_CONST_KEY_MAP      2
+             20 LOAD_CONST               3 (<code object initialize at 0x1073aa240, file "WeRobotCore/application/instances/initialization.py", line 230>)
+             22 LOAD_CONST               4 ('InstanceInitializationBackend.initialize')
+             24 MAKE_FUNCTION            4 (annotations)
+             26 STORE_NAME               6 (initialize)
+             28 LOAD_CONST               5 (None)
+             30 RETURN_VALUE
+
+Disassembly of <code object initialize at 0x1073aa240, file "WeRobotCore/application/instances/initialization.py", line 230>:
+234           0 LOAD_CONST               0 (None)
+              2 RETURN_VALUE
+
+Disassembly of <code object InstanceInitializationPostHook at 0x1073aa0e0, file "WeRobotCore/application/instances/initialization.py", line 237>:
+237           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('InstanceInitializationPostHook')
+              6 STORE_NAME               2 (__qualname__)
+
+239           8 LOAD_CONST               1 ('Run shared work once after at least one initialized account exists.')
+             10 STORE_NAME               3 (__doc__)
+
+241          12 LOAD_NAME                4 (InstanceInitializationBatch)
+             14 LOAD_NAME                5 (bool)
+             16 LOAD_CONST               2 (('batch', 'return'))
+             18 BUILD_CONST_KEY_MAP      2
+             20 LOAD_CONST               3 (<code object run at 0x1073aa190, file "WeRobotCore/application/instances/initialization.py", line 241>)
+             22 LOAD_CONST               4 ('InstanceInitializationPostHook.run')
+             24 MAKE_FUNCTION            4 (annotations)
+             26 STORE_NAME               6 (run)
+             28 LOAD_CONST               5 (None)
+             30 RETURN_VALUE
+
+Disassembly of <code object run at 0x1073aa190, file "WeRobotCore/application/instances/initialization.py", line 241>:
+242           0 LOAD_CONST               0 (None)
+              2 RETURN_VALUE
+
+Disassembly of <code object InstanceInitializationReporter at 0x1073aa870, file "WeRobotCore/application/instances/initialization.py", line 245>:
+245           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('InstanceInitializationReporter')
+              6 STORE_NAME               2 (__qualname__)
+
+247           8 LOAD_CONST               1 ('Receive normalized lifecycle facts without native references.')
+             10 STORE_NAME               3 (__doc__)
+
+249          12 LOAD_NAME                4 (InstanceInventorySnapshot)
+             14 LOAD_CONST               2 (None)
+             16 LOAD_CONST               3 (('inventory', 'return'))
+             18 BUILD_CONST_KEY_MAP      2
+             20 LOAD_CONST               4 (<code object requested at 0x1073aa5b0, file "WeRobotCore/application/instances/initialization.py", line 249>)
+             22 LOAD_CONST               5 ('InstanceInitializationReporter.requested')
+             24 MAKE_FUNCTION            4 (annotations)
+             26 STORE_NAME               5 (requested)
+
+252          28 LOAD_NAME                6 (InstanceInitializationOutcome)
+             30 LOAD_CONST               2 (None)
+             32 LOAD_CONST               6 (('outcome', 'return'))
+             34 BUILD_CONST_KEY_MAP      2
+             36 LOAD_CONST               7 (<code object completed at 0x1073aa660, file "WeRobotCore/application/instances/initialization.py", line 252>)
+             38 LOAD_CONST               8 ('InstanceInitializationReporter.completed')
+             40 MAKE_FUNCTION            4 (annotations)
+             42 STORE_NAME               7 (completed)
+
+255          44 LOAD_NAME                8 (Exception)
+             46 LOAD_CONST               2 (None)
+             48 LOAD_CONST               9 (('error', 'return'))
+             50 BUILD_CONST_KEY_MAP      2
+             52 LOAD_CONST              10 (<code object failed at 0x1073aa710, file "WeRobotCore/application/instances/initialization.py", line 255>)
+             54 LOAD_CONST              11 ('InstanceInitializationReporter.failed')
+             56 MAKE_FUNCTION            4 (annotations)
+             58 STORE_NAME               9 (failed)
+             60 LOAD_CONST               2 (None)
+             62 RETURN_VALUE
+
+Disassembly of <code object requested at 0x1073aa5b0, file "WeRobotCore/application/instances/initialization.py", line 249>:
+250           0 LOAD_CONST               0 (None)
+              2 RETURN_VALUE
+
+Disassembly of <code object completed at 0x1073aa660, file "WeRobotCore/application/instances/initialization.py", line 252>:
+253           0 LOAD_CONST               0 (None)
+              2 RETURN_VALUE
+
+Disassembly of <code object failed at 0x1073aa710, file "WeRobotCore/application/instances/initialization.py", line 255>:
+256           0 LOAD_CONST               0 (None)
+              2 RETURN_VALUE
+
+Disassembly of <code object InstanceInitializationService at 0x1073aaa80, file "WeRobotCore/application/instances/initialization.py", line 259>:
+259           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('InstanceInitializationService')
+              6 STORE_NAME               2 (__qualname__)
+
+260           8 LOAD_CONST               1 ('Validate and aggregate one initialization request deterministically.')
+             10 STORE_NAME               3 (__doc__)
+
+265          12 LOAD_NAME                4 (InstanceInventorySource)
+
+266          14 LOAD_NAME                5 (InstanceInitializationBackend)
+
+267          16 LOAD_NAME                6 (InstanceInitializationPostHook)
+
+268          18 LOAD_NAME                7 (InstanceInitializationReporter)
+
+269          20 LOAD_CONST               2 (None)
+
+262          22 LOAD_CONST               3 (('inventory', 'backend', 'post_init', 'reporter', 'return'))
+             24 BUILD_CONST_KEY_MAP      5
+             26 LOAD_CONST               4 (<code object __init__ at 0x1073aa2f0, file "WeRobotCore/application/instances/initialization.py", line 262>)
+             28 LOAD_CONST               5 ('InstanceInitializationService.__init__')
+             30 MAKE_FUNCTION            4 (annotations)
+             32 STORE_NAME               8 (__init__)
+
+284          34 LOAD_NAME                9 (InstanceInitializationOutcome)
+             36 LOAD_CONST               6 (('return',))
+             38 BUILD_CONST_KEY_MAP      1
+             40 LOAD_CONST               7 (<code object initialize at 0x1073aac90, file "WeRobotCore/application/instances/initialization.py", line 284>)
+             42 LOAD_CONST               8 ('InstanceInitializationService.initialize')
+             44 MAKE_FUNCTION            4 (annotations)
+             46 STORE_NAME              10 (initialize)
+
+318          48 LOAD_NAME               11 (staticmethod)
+
+320          50 LOAD_NAME               12 (InstanceInventorySnapshot)
+
+321          52 LOAD_NAME               13 (InstanceInitializationBatch)
+
+322          54 LOAD_CONST               2 (None)
+
+319          56 LOAD_CONST               9 (('inventory', 'batch', 'return'))
+             58 BUILD_CONST_KEY_MAP      3
+             60 LOAD_CONST              10 (<code object _validate_batch at 0x1073aaf50, file "WeRobotCore/application/instances/initialization.py", line 318>)
+             62 LOAD_CONST              11 ('InstanceInitializationService._validate_batch')
+             64 MAKE_FUNCTION            4 (annotations)
+             66 CALL_FUNCTION            1
+             68 STORE_NAME              14 (_validate_batch)
+             70 LOAD_CONST               2 (None)
+             72 RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x1073aa2f0, file "WeRobotCore/application/instances/initialization.py", line 262>:
+271           0 LOAD_CONST               1 ('inventory')
+              2 LOAD_FAST                1 (inventory)
+              4 LOAD_GLOBAL              0 (InstanceInventorySource)
+              6 BUILD_TUPLE              3
+
+272           8 LOAD_CONST               2 ('backend')
+             10 LOAD_FAST                2 (backend)
+             12 LOAD_GLOBAL              1 (InstanceInitializationBackend)
+             14 BUILD_TUPLE              3
+
+273          16 LOAD_CONST               3 ('post_init')
+             18 LOAD_FAST                3 (post_init)
+             20 LOAD_GLOBAL              2 (InstanceInitializationPostHook)
+             22 BUILD_TUPLE              3
+
+274          24 LOAD_CONST               4 ('reporter')
+             26 LOAD_FAST                4 (reporter)
+             28 LOAD_GLOBAL              3 (InstanceInitializationReporter)
+             30 BUILD_TUPLE              3
+
+270          32 BUILD_TUPLE              4
+             34 STORE_FAST               5 (dependencies)
+
+276          36 LOAD_FAST                5 (dependencies)
+             38 GET_ITER
+        >>   40 FOR_ITER                38 (to 80)
+             42 UNPACK_SEQUENCE          3
+             44 STORE_FAST               6 (name)
+             46 STORE_FAST               7 (dependency)
+             48 STORE_FAST               8 (protocol)
+
+277          50 LOAD_GLOBAL              4 (isinstance)
+             52 LOAD_FAST                7 (dependency)
+             54 LOAD_FAST                8 (protocol)
+             56 CALL_FUNCTION            2
+             58 POP_JUMP_IF_TRUE        40
+
+278          60 LOAD_GLOBAL              5 (TypeError)
+             62 LOAD_CONST               5 ('{} must implement {}')
+             64 LOAD_METHOD              6 (format)
+             66 LOAD_FAST                6 (name)
+             68 LOAD_FAST                8 (protocol)
+             70 LOAD_ATTR                7 (__name__)
+             72 CALL_METHOD              2
+             74 CALL_FUNCTION            1
+             76 RAISE_VARARGS            1
+             78 JUMP_ABSOLUTE           40
+
+279     >>   80 LOAD_FAST                1 (inventory)
+             82 LOAD_FAST                0 (self)
+             84 STORE_ATTR               8 (_inventory)
+
+280          86 LOAD_FAST                2 (backend)
+             88 LOAD_FAST                0 (self)
+             90 STORE_ATTR               9 (_backend)
+
+281          92 LOAD_FAST                3 (post_init)
+             94 LOAD_FAST                0 (self)
+             96 STORE_ATTR              10 (_post_init)
+
+282          98 LOAD_FAST                4 (reporter)
+            100 LOAD_FAST                0 (self)
+            102 STORE_ATTR              11 (_reporter)
+            104 LOAD_CONST               0 (None)
+            106 RETURN_VALUE
+
+Disassembly of <code object initialize at 0x1073aac90, file "WeRobotCore/application/instances/initialization.py", line 284>:
+285           0 SETUP_FINALLY          202 (to 204)
+
+286           2 LOAD_FAST                0 (self)
+              4 LOAD_ATTR                0 (_inventory)
+              6 LOAD_METHOD              1 (snapshot)
+              8 CALL_METHOD              0
+             10 GET_AWAITABLE
+             12 LOAD_CONST               0 (None)
+             14 YIELD_FROM
+             16 STORE_FAST               1 (inventory)
+
+287          18 LOAD_GLOBAL              2 (isinstance)
+             20 LOAD_FAST                1 (inventory)
+             22 LOAD_GLOBAL              3 (InstanceInventorySnapshot)
+             24 CALL_FUNCTION            2
+             26 POP_JUMP_IF_TRUE        36
+
+288          28 LOAD_GLOBAL              4 (TypeError)
+             30 LOAD_CONST               1 ('inventory source returned an invalid snapshot')
+             32 CALL_FUNCTION            1
+             34 RAISE_VARARGS            1
+
+289     >>   36 LOAD_FAST                0 (self)
+             38 LOAD_ATTR                5 (_reporter)
+             40 LOAD_METHOD              6 (requested)
+             42 LOAD_FAST                1 (inventory)
+             44 CALL_METHOD              1
+             46 POP_TOP
+
+291          48 LOAD_FAST                1 (inventory)
+             50 LOAD_ATTR                7 (items)
+             52 POP_JUMP_IF_FALSE       92
+
+292          54 LOAD_FAST                0 (self)
+             56 LOAD_ATTR                8 (_backend)
+             58 LOAD_METHOD              9 (initialize)
+             60 LOAD_FAST                1 (inventory)
+             62 CALL_METHOD              1
+             64 GET_AWAITABLE
+             66 LOAD_CONST               0 (None)
+             68 YIELD_FROM
+             70 STORE_FAST               2 (batch)
+
+293          72 LOAD_GLOBAL              2 (isinstance)
+             74 LOAD_FAST                2 (batch)
+             76 LOAD_GLOBAL             10 (InstanceInitializationBatch)
+             78 CALL_FUNCTION            2
+             80 POP_JUMP_IF_TRUE       104
+
+294          82 LOAD_GLOBAL              4 (TypeError)
+             84 LOAD_CONST               2 ('initialization backend returned an invalid batch')
+             86 CALL_FUNCTION            1
+             88 RAISE_VARARGS            1
+             90 JUMP_FORWARD            12 (to 104)
+
+296     >>   92 LOAD_GLOBAL             10 (InstanceInitializationBatch)
+             94 LOAD_FAST                1 (inventory)
+             96 LOAD_ATTR               11 (driver_id)
+             98 LOAD_CONST               3 (('driver_id',))
+            100 CALL_FUNCTION_KW         1
+            102 STORE_FAST               2 (batch)
+
+298     >>  104 LOAD_FAST                0 (self)
+            106 LOAD_METHOD             12 (_validate_batch)
+            108 LOAD_FAST                1 (inventory)
+            110 LOAD_FAST                2 (batch)
+            112 CALL_METHOD              2
+            114 POP_TOP
+
+299         116 LOAD_GLOBAL             13 (bool)
+            118 LOAD_FAST                2 (batch)
+            120 LOAD_ATTR               14 (successes)
+            122 CALL_FUNCTION            1
+            124 STORE_FAST               3 (attempted)
+
+300         126 LOAD_CONST               0 (None)
+            128 STORE_FAST               4 (post_init_succeeded)
+
+301         130 LOAD_FAST                3 (attempted)
+            132 POP_JUMP_IF_FALSE      170
+
+302         134 LOAD_FAST                0 (self)
+            136 LOAD_ATTR               15 (_post_init)
+            138 LOAD_METHOD             16 (run)
+            140 LOAD_FAST                2 (batch)
+            142 CALL_METHOD              1
+            144 GET_AWAITABLE
+            146 LOAD_CONST               0 (None)
+            148 YIELD_FROM
+            150 STORE_FAST               4 (post_init_succeeded)
+
+303         152 LOAD_GLOBAL              2 (isinstance)
+            154 LOAD_FAST                4 (post_init_succeeded)
+            156 LOAD_GLOBAL             13 (bool)
+            158 CALL_FUNCTION            2
+            160 POP_JUMP_IF_TRUE       170
+
+304         162 LOAD_GLOBAL              4 (TypeError)
+            164 LOAD_CONST               4 ('post-init hook must return a bool')
+            166 CALL_FUNCTION            1
+            168 RAISE_VARARGS            1
+
+306     >>  170 LOAD_GLOBAL             17 (InstanceInitializationOutcome)
+
+307         172 LOAD_FAST                1 (inventory)
+
+308         174 LOAD_FAST                2 (batch)
+
+309         176 LOAD_FAST                3 (attempted)
+
+310         178 LOAD_FAST                4 (post_init_succeeded)
+
+306         180 LOAD_CONST               5 (('inventory', 'batch', 'post_init_attempted', 'post_init_succeeded'))
+            182 CALL_FUNCTION_KW         4
+            184 STORE_FAST               5 (outcome)
+
+312         186 LOAD_FAST                0 (self)
+            188 LOAD_ATTR                5 (_reporter)
+            190 LOAD_METHOD             18 (completed)
+            192 LOAD_FAST                5 (outcome)
+            194 CALL_METHOD              1
+            196 POP_TOP
+
+313         198 LOAD_FAST                5 (outcome)
+            200 POP_BLOCK
+            202 RETURN_VALUE
+
+314     >>  204 DUP_TOP
+            206 LOAD_GLOBAL             19 (Exception)
+            208 EXTENDED_ARG             0
+            210 JUMP_IF_NOT_EXC_MATCH   254
+            212 POP_TOP
+            214 STORE_FAST               6 (exc)
+            216 POP_TOP
+            218 SETUP_FINALLY           26 (to 246)
+
+315         220 LOAD_FAST                0 (self)
+            222 LOAD_ATTR                5 (_reporter)
+            224 LOAD_METHOD             20 (failed)
+            226 LOAD_FAST                6 (exc)
+            228 CALL_METHOD              1
+            230 POP_TOP
+
+316         232 RAISE_VARARGS            0
+            234 POP_BLOCK
+            236 POP_EXCEPT
+            238 LOAD_CONST               0 (None)
+            240 STORE_FAST               6 (exc)
+            242 DELETE_FAST              6 (exc)
+            244 JUMP_FORWARD            10 (to 256)
+        >>  246 LOAD_CONST               0 (None)
+            248 STORE_FAST               6 (exc)
+            250 DELETE_FAST              6 (exc)
+            252 RERAISE
+        >>  254 RERAISE
+        >>  256 LOAD_CONST               0 (None)
+            258 RETURN_VALUE
+
+Disassembly of <code object _validate_batch at 0x1073aaf50, file "WeRobotCore/application/instances/initialization.py", line 318>:
+323           0 LOAD_FAST                0 (inventory)
+              2 LOAD_ATTR                0 (driver_id)
+              4 LOAD_FAST                1 (batch)
+              6 LOAD_ATTR                0 (driver_id)
+              8 COMPARE_OP               3 (!=)
+             10 POP_JUMP_IF_FALSE       20
+
+324          12 LOAD_GLOBAL              1 (ValueError)
+             14 LOAD_CONST               1 ('initialization batch driver must match inventory')
+             16 CALL_FUNCTION            1
+             18 RAISE_VARARGS            1
+
+325     >>   20 LOAD_GLOBAL              2 (tuple)
+             22 LOAD_CONST               2 (<code object <genexpr> at 0x1073aab30, file "WeRobotCore/application/instances/initialization.py", line 325>)
+             24 LOAD_CONST               3 ('InstanceInitializationService._validate_batch.<locals>.<genexpr>')
+             26 MAKE_FUNCTION            0
+
+326          28 LOAD_FAST                0 (inventory)
+             30 LOAD_ATTR                3 (items)
+
+325          32 GET_ITER
+             34 CALL_FUNCTION            1
+             36 CALL_FUNCTION            1
+             38 STORE_FAST               2 (expected_ids)
+
+328          40 LOAD_GLOBAL              2 (tuple)
+             42 LOAD_CONST               4 (<code object <genexpr> at 0x1073aa920, file "WeRobotCore/application/instances/initialization.py", line 328>)
+             44 LOAD_CONST               3 ('InstanceInitializationService._validate_batch.<locals>.<genexpr>')
+             46 MAKE_FUNCTION            0
+             48 LOAD_FAST                1 (batch)
+             50 LOAD_ATTR                4 (results)
+             52 GET_ITER
+             54 CALL_FUNCTION            1
+             56 CALL_FUNCTION            1
+             58 STORE_FAST               3 (result_ids)
+
+329          60 LOAD_FAST                3 (result_ids)
+             62 LOAD_FAST                2 (expected_ids)
+             64 COMPARE_OP               3 (!=)
+             66 POP_JUMP_IF_FALSE       76
+
+330          68 LOAD_GLOBAL              1 (ValueError)
+
+331          70 LOAD_CONST               5 ('initialization results must match inventory order and identity')
+
+330          72 CALL_FUNCTION            1
+             74 RAISE_VARARGS            1
+        >>   76 LOAD_CONST               0 (None)
+             78 RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x1073aab30, file "WeRobotCore/application/instances/initialization.py", line 325>:
+325           0 LOAD_FAST                0 (.0)
+        >>    2 FOR_ITER                16 (to 20)
+
+326           4 STORE_FAST               1 (item)
+              6 LOAD_FAST                1 (item)
+              8 LOAD_ATTR                0 (instance)
+             10 LOAD_ATTR                1 (instance_id)
+             12 LOAD_ATTR                2 (value)
+             14 YIELD_VALUE
+             16 POP_TOP
+             18 JUMP_ABSOLUTE            2
+        >>   20 LOAD_CONST               0 (None)
+             22 RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x1073aa920, file "WeRobotCore/application/instances/initialization.py", line 328>:
+328           0 LOAD_FAST                0 (.0)
+        >>    2 FOR_ITER                14 (to 18)
+              4 STORE_FAST               1 (item)
+              6 LOAD_FAST                1 (item)
+              8 LOAD_ATTR                0 (instance_id)
+             10 LOAD_ATTR                1 (value)
+             12 YIELD_VALUE
+             14 POP_TOP
+             16 JUMP_ABSOLUTE            2
+        >>   18 LOAD_CONST               0 (None)
+             20 RETURN_VALUE

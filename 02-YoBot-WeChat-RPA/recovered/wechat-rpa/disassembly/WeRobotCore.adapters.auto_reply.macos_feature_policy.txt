@@ -1,0 +1,625 @@
+  1           0 LOAD_CONST               0 ('Pre-start compatibility checks for the macOS AutoReply MVP.')
+              2 STORE_NAME               0 (__doc__)
+
+  3           4 LOAD_CONST               1 (0)
+              6 LOAD_CONST               2 (('Mapping', 'Sequence'))
+              8 IMPORT_NAME              1 (typing)
+             10 IMPORT_FROM              2 (Mapping)
+             12 STORE_NAME               2 (Mapping)
+             14 IMPORT_FROM              3 (Sequence)
+             16 STORE_NAME               3 (Sequence)
+             18 POP_TOP
+
+  5          20 LOAD_CONST               1 (0)
+             22 LOAD_CONST               3 (('AutoReplyConfigurationFacade',))
+             24 IMPORT_NAME              4 (WeRobotCore.application.auto_reply.config_readiness)
+             26 IMPORT_FROM              5 (AutoReplyConfigurationFacade)
+             28 STORE_NAME               5 (AutoReplyConfigurationFacade)
+             30 POP_TOP
+
+  8          32 LOAD_CONST               1 (0)
+             34 LOAD_CONST               4 (('RuntimeCapabilityCatalog',))
+             36 IMPORT_NAME              6 (WeRobotCore.application.runtime)
+             38 IMPORT_FROM              7 (RuntimeCapabilityCatalog)
+             40 STORE_NAME               7 (RuntimeCapabilityCatalog)
+             42 POP_TOP
+
+  9          44 LOAD_CONST               1 (0)
+             46 LOAD_CONST               5 (('CapabilityName',))
+             48 IMPORT_NAME              8 (WeRobotCore.domain)
+             50 IMPORT_FROM              9 (CapabilityName)
+             52 STORE_NAME               9 (CapabilityName)
+             54 POP_TOP
+
+ 12          56 LOAD_BUILD_CLASS
+             58 LOAD_CONST               6 (<code object MacOSTextAutoReplyFeatureValidator at 0x109244c90, file "WeRobotCore/adapters/auto_reply/macos_feature_policy.py", line 12>)
+             60 LOAD_CONST               7 ('MacOSTextAutoReplyFeatureValidator')
+             62 MAKE_FUNCTION            0
+             64 LOAD_CONST               7 ('MacOSTextAutoReplyFeatureValidator')
+             66 CALL_FUNCTION            2
+             68 STORE_NAME              10 (MacOSTextAutoReplyFeatureValidator)
+
+151          70 LOAD_CONST               7 ('MacOSTextAutoReplyFeatureValidator')
+             72 BUILD_LIST               1
+             74 STORE_NAME              11 (__all__)
+             76 LOAD_CONST               8 (None)
+             78 RETURN_VALUE
+
+Disassembly of <code object MacOSTextAutoReplyFeatureValidator at 0x109244c90, file "WeRobotCore/adapters/auto_reply/macos_feature_policy.py", line 12>:
+ 12           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('MacOSTextAutoReplyFeatureValidator')
+              6 STORE_NAME               2 (__qualname__)
+
+ 13           8 LOAD_CONST               1 ('Reject configured features that still require Windows native actions.')
+             10 STORE_NAME               3 (__doc__)
+
+ 15          12 LOAD_CONST               2 ((('voiceEnabled', '语音回复'),))
+             14 STORE_NAME               4 (_STAFF_FLAGS)
+
+ 20          16 LOAD_CONST               3 ('autoJoinGroup')
+
+ 21          18 LOAD_CONST               4 ('群邀请自动加入')
+
+ 22          20 LOAD_NAME                5 (CapabilityName)
+             22 LOAD_ATTR                6 (GROUP_INVITE_JOIN)
+             24 LOAD_ATTR                7 (value)
+
+ 19          26 BUILD_TUPLE              3
+
+ 25          28 LOAD_CONST               5 ('mentionReply')
+
+ 26          30 LOAD_CONST               6 ('@群成员回复')
+
+ 27          32 LOAD_NAME                5 (CapabilityName)
+             34 LOAD_ATTR                8 (GROUP_MEMBER_MENTION_REPLY)
+             36 LOAD_ATTR                7 (value)
+
+ 24          38 BUILD_TUPLE              3
+
+ 18          40 BUILD_TUPLE              2
+             42 STORE_NAME               9 (_CAPABILITY_STAFF_FLAGS)
+
+ 31          44 LOAD_NAME                5 (CapabilityName)
+             46 LOAD_ATTR               10 (MESSAGE_SEND_GREETING_GROUP)
+             48 LOAD_ATTR                7 (value)
+
+ 32          50 LOAD_NAME                5 (CapabilityName)
+             52 LOAD_ATTR               11 (GROUP_MEMBER_INVITE)
+             54 LOAD_ATTR                7 (value)
+
+ 33          56 LOAD_NAME                5 (CapabilityName)
+             58 LOAD_ATTR               12 (CONTACT_AUTO_FOLLOW)
+             60 LOAD_ATTR                7 (value)
+
+ 30          62 LOAD_CONST               7 (('greeting', 'pull_into_group', 'create_follow'))
+             64 BUILD_CONST_KEY_MAP      3
+             66 STORE_NAME              13 (_SOP_ACTION_CAPABILITIES)
+
+ 36          68 LOAD_NAME               14 (frozenset)
+             70 LOAD_CONST               8 (('single', 'group'))
+             72 CALL_FUNCTION            1
+
+ 37          74 LOAD_NAME               14 (frozenset)
+             76 LOAD_CONST               9 (('single',))
+             78 CALL_FUNCTION            1
+
+ 38          80 LOAD_NAME               14 (frozenset)
+             82 LOAD_CONST               8 (('single', 'group'))
+             84 CALL_FUNCTION            1
+
+ 35          86 LOAD_CONST               7 (('greeting', 'pull_into_group', 'create_follow'))
+             88 BUILD_CONST_KEY_MAP      3
+             90 STORE_NAME              15 (_SOP_ACTION_TARGETS)
+
+ 41          92 LOAD_NAME               16 (RuntimeCapabilityCatalog)
+             94 LOAD_CONST              10 (None)
+             96 LOAD_CONST              11 (('capability_catalog', 'return'))
+             98 BUILD_CONST_KEY_MAP      2
+            100 LOAD_CONST              12 (<code object __init__ at 0x1090bd710, file "WeRobotCore/adapters/auto_reply/macos_feature_policy.py", line 41>)
+            102 LOAD_CONST              13 ('MacOSTextAutoReplyFeatureValidator.__init__')
+            104 MAKE_FUNCTION            4 (annotations)
+            106 STORE_NAME              17 (__init__)
+
+ 46         108 LOAD_NAME               18 (str)
+            110 LOAD_NAME               19 (bool)
+            112 LOAD_CONST              14 (('name', 'return'))
+            114 BUILD_CONST_KEY_MAP      2
+            116 LOAD_CONST              15 (<code object _capability_available at 0x109244a80, file "WeRobotCore/adapters/auto_reply/macos_feature_policy.py", line 46>)
+            118 LOAD_CONST              16 ('MacOSTextAutoReplyFeatureValidator._capability_available')
+            120 MAKE_FUNCTION            4 (annotations)
+            122 STORE_NAME              20 (_capability_available)
+
+ 52         124 LOAD_NAME               21 (AutoReplyConfigurationFacade)
+
+ 53         126 LOAD_NAME               18 (str)
+
+ 54         128 LOAD_NAME               18 (str)
+
+ 55         130 LOAD_NAME               19 (bool)
+
+ 50         132 LOAD_CONST              17 (('global_config', 'sop_id', 'target_type', 'return'))
+            134 BUILD_CONST_KEY_MAP      4
+            136 LOAD_CONST              18 (<code object _sop_supported at 0x109244b30, file "WeRobotCore/adapters/auto_reply/macos_feature_policy.py", line 50>)
+            138 LOAD_CONST              19 ('MacOSTextAutoReplyFeatureValidator._sop_supported')
+            140 MAKE_FUNCTION            4 (annotations)
+            142 STORE_NAME              22 (_sop_supported)
+
+ 81         144 LOAD_NAME               21 (AutoReplyConfigurationFacade)
+
+ 82         146 LOAD_NAME               21 (AutoReplyConfigurationFacade)
+
+ 83         148 LOAD_NAME               23 (Sequence)
+            150 LOAD_NAME               18 (str)
+            152 BINARY_SUBSCR
+
+ 79         154 LOAD_CONST              20 (('account_config', 'global_config', 'return'))
+            156 BUILD_CONST_KEY_MAP      3
+            158 LOAD_CONST              21 (<code object __call__ at 0x109244be0, file "WeRobotCore/adapters/auto_reply/macos_feature_policy.py", line 79>)
+            160 LOAD_CONST              22 ('MacOSTextAutoReplyFeatureValidator.__call__')
+            162 MAKE_FUNCTION            4 (annotations)
+            164 STORE_NAME              24 (__call__)
+            166 LOAD_CONST              10 (None)
+            168 RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x1090bd710, file "WeRobotCore/adapters/auto_reply/macos_feature_policy.py", line 41>:
+ 42           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                1 (capability_catalog)
+              4 LOAD_GLOBAL              1 (RuntimeCapabilityCatalog)
+              6 CALL_FUNCTION            2
+              8 POP_JUMP_IF_TRUE        18
+
+ 43          10 LOAD_GLOBAL              2 (TypeError)
+             12 LOAD_CONST               1 ('capability_catalog must be RuntimeCapabilityCatalog')
+             14 CALL_FUNCTION            1
+             16 RAISE_VARARGS            1
+
+ 44     >>   18 LOAD_FAST                1 (capability_catalog)
+             20 LOAD_METHOD              3 (snapshot_capabilities)
+             22 CALL_METHOD              0
+             24 LOAD_FAST                0 (self)
+             26 STORE_ATTR               4 (_capabilities)
+             28 LOAD_CONST               0 (None)
+             30 RETURN_VALUE
+
+Disassembly of <code object _capability_available at 0x109244a80, file "WeRobotCore/adapters/auto_reply/macos_feature_policy.py", line 46>:
+ 47           0 LOAD_FAST                0 (self)
+              2 LOAD_ATTR                0 (_capabilities)
+              4 LOAD_METHOD              1 (get)
+              6 LOAD_FAST                1 (name)
+              8 CALL_METHOD              1
+             10 STORE_FAST               2 (state)
+
+ 48          12 LOAD_FAST                2 (state)
+             14 LOAD_CONST               0 (None)
+             16 IS_OP                    1
+             18 JUMP_IF_FALSE_OR_POP    24
+             20 LOAD_FAST                2 (state)
+             22 LOAD_ATTR                2 (available)
+        >>   24 RETURN_VALUE
+
+Disassembly of <code object _sop_supported at 0x109244b30, file "WeRobotCore/adapters/auto_reply/macos_feature_policy.py", line 50>:
+ 56           0 LOAD_GLOBAL              0 (getattr)
+              2 LOAD_FAST                1 (global_config)
+              4 LOAD_CONST               1 ('get_sop_by_id')
+              6 LOAD_CONST               0 (None)
+              8 CALL_FUNCTION            3
+             10 STORE_FAST               4 (lookup)
+
+ 57          12 LOAD_GLOBAL              1 (callable)
+             14 LOAD_FAST                4 (lookup)
+             16 CALL_FUNCTION            1
+             18 POP_JUMP_IF_TRUE        24
+
+ 58          20 LOAD_CONST               2 (False)
+             22 RETURN_VALUE
+
+ 59     >>   24 LOAD_FAST                4 (lookup)
+             26 LOAD_FAST                2 (sop_id)
+             28 CALL_FUNCTION            1
+             30 STORE_FAST               5 (sop)
+
+ 60          32 LOAD_GLOBAL              2 (isinstance)
+             34 LOAD_FAST                5 (sop)
+             36 LOAD_GLOBAL              3 (Mapping)
+             38 CALL_FUNCTION            2
+             40 POP_JUMP_IF_TRUE        46
+
+ 61          42 LOAD_CONST               2 (False)
+             44 RETURN_VALUE
+
+ 62     >>   46 LOAD_FAST                5 (sop)
+             48 LOAD_METHOD              4 (get)
+             50 LOAD_CONST               3 ('actions')
+             52 CALL_METHOD              1
+             54 JUMP_IF_TRUE_OR_POP     58
+             56 BUILD_LIST               0
+        >>   58 STORE_FAST               6 (actions)
+
+ 63          60 LOAD_GLOBAL              2 (isinstance)
+             62 LOAD_FAST                6 (actions)
+             64 LOAD_GLOBAL              5 (str)
+             66 LOAD_GLOBAL              6 (bytes)
+             68 BUILD_TUPLE              2
+             70 CALL_FUNCTION            2
+             72 POP_JUMP_IF_TRUE        84
+             74 LOAD_GLOBAL              2 (isinstance)
+             76 LOAD_FAST                6 (actions)
+             78 LOAD_GLOBAL              7 (Sequence)
+             80 CALL_FUNCTION            2
+             82 POP_JUMP_IF_TRUE        88
+
+ 64     >>   84 LOAD_CONST               2 (False)
+             86 RETURN_VALUE
+
+ 65     >>   88 LOAD_FAST                6 (actions)
+             90 GET_ITER
+        >>   92 FOR_ITER               100 (to 194)
+             94 STORE_FAST               7 (action)
+
+ 66          96 LOAD_GLOBAL              2 (isinstance)
+             98 LOAD_FAST                7 (action)
+            100 LOAD_GLOBAL              3 (Mapping)
+            102 CALL_FUNCTION            2
+            104 POP_JUMP_IF_TRUE       112
+
+ 67         106 POP_TOP
+            108 LOAD_CONST               2 (False)
+            110 RETURN_VALUE
+
+ 68     >>  112 LOAD_FAST                7 (action)
+            114 LOAD_METHOD              4 (get)
+            116 LOAD_CONST               4 ('type')
+            118 CALL_METHOD              1
+            120 STORE_FAST               8 (action_type)
+
+ 69         122 LOAD_FAST                0 (self)
+            124 LOAD_ATTR                8 (_SOP_ACTION_TARGETS)
+            126 LOAD_METHOD              4 (get)
+            128 LOAD_FAST                8 (action_type)
+            130 CALL_METHOD              1
+            132 STORE_FAST               9 (applicable)
+
+ 70         134 LOAD_FAST                0 (self)
+            136 LOAD_ATTR                9 (_SOP_ACTION_CAPABILITIES)
+            138 LOAD_METHOD              4 (get)
+            140 LOAD_FAST                8 (action_type)
+            142 CALL_METHOD              1
+            144 STORE_FAST              10 (capability)
+
+ 71         146 LOAD_FAST                9 (applicable)
+            148 LOAD_CONST               0 (None)
+            150 IS_OP                    0
+            152 POP_JUMP_IF_TRUE       162
+            154 LOAD_FAST               10 (capability)
+            156 LOAD_CONST               0 (None)
+            158 IS_OP                    0
+            160 POP_JUMP_IF_FALSE      168
+
+ 72     >>  162 POP_TOP
+            164 LOAD_CONST               2 (False)
+            166 RETURN_VALUE
+
+ 73     >>  168 LOAD_FAST                3 (target_type)
+            170 LOAD_FAST                9 (applicable)
+            172 CONTAINS_OP              0
+            174 POP_JUMP_IF_FALSE       92
+            176 LOAD_FAST                0 (self)
+            178 LOAD_METHOD             10 (_capability_available)
+
+ 74         180 LOAD_FAST               10 (capability)
+
+ 73         182 CALL_METHOD              1
+            184 POP_JUMP_IF_TRUE        92
+
+ 76         186 POP_TOP
+            188 LOAD_CONST               2 (False)
+            190 RETURN_VALUE
+            192 JUMP_ABSOLUTE           92
+
+ 77     >>  194 LOAD_CONST               5 (True)
+            196 RETURN_VALUE
+
+Disassembly of <code object __call__ at 0x109244be0, file "WeRobotCore/adapters/auto_reply/macos_feature_policy.py", line 79>:
+ 87           0 LOAD_FAST                1 (account_config)
+              2 LOAD_METHOD              0 (load_config)
+              4 LOAD_CONST               1 ('reply_strategy_v2')
+              6 CALL_METHOD              1
+              8 JUMP_IF_TRUE_OR_POP     12
+             10 BUILD_MAP                0
+        >>   12 STORE_FAST               3 (reply_config)
+
+ 88          14 LOAD_GLOBAL              1 (isinstance)
+             16 LOAD_FAST                3 (reply_config)
+             18 LOAD_GLOBAL              2 (Mapping)
+             20 CALL_FUNCTION            2
+             22 POP_JUMP_IF_TRUE        32
+
+ 89          24 LOAD_GLOBAL              3 (TypeError)
+             26 LOAD_CONST               2 ('reply_strategy_v2 must be a mapping')
+             28 CALL_FUNCTION            1
+             30 RAISE_VARARGS            1
+
+ 90     >>   32 BUILD_LIST               0
+             34 STORE_FAST               4 (unsupported)
+
+ 91          36 LOAD_FAST                3 (reply_config)
+             38 LOAD_METHOD              4 (get)
+             40 LOAD_CONST               3 ('staffList')
+             42 BUILD_LIST               0
+             44 CALL_METHOD              2
+             46 JUMP_IF_TRUE_OR_POP     50
+             48 BUILD_LIST               0
+        >>   50 GET_ITER
+        >>   52 FOR_ITER               116 (to 170)
+             54 STORE_FAST               5 (staff)
+
+ 92          56 LOAD_GLOBAL              1 (isinstance)
+             58 LOAD_FAST                5 (staff)
+             60 LOAD_GLOBAL              2 (Mapping)
+             62 CALL_FUNCTION            2
+             64 POP_JUMP_IF_FALSE       52
+             66 LOAD_FAST                5 (staff)
+             68 LOAD_METHOD              4 (get)
+             70 LOAD_CONST               4 ('enabled')
+             72 LOAD_CONST               5 (False)
+             74 CALL_METHOD              2
+             76 POP_JUMP_IF_TRUE        80
+
+ 93          78 JUMP_ABSOLUTE           52
+
+ 94     >>   80 LOAD_FAST                0 (self)
+             82 LOAD_ATTR                5 (_STAFF_FLAGS)
+             84 GET_ITER
+        >>   86 FOR_ITER                30 (to 118)
+             88 UNPACK_SEQUENCE          2
+             90 STORE_FAST               6 (key)
+             92 STORE_FAST               7 (label)
+
+ 95          94 LOAD_FAST                5 (staff)
+             96 LOAD_METHOD              4 (get)
+             98 LOAD_FAST                6 (key)
+            100 LOAD_CONST               5 (False)
+            102 CALL_METHOD              2
+            104 POP_JUMP_IF_FALSE       86
+
+ 96         106 LOAD_FAST                4 (unsupported)
+            108 LOAD_METHOD              6 (append)
+            110 LOAD_FAST                7 (label)
+            112 CALL_METHOD              1
+            114 POP_TOP
+            116 JUMP_ABSOLUTE           86
+
+ 97     >>  118 LOAD_FAST                0 (self)
+            120 LOAD_ATTR                7 (_CAPABILITY_STAFF_FLAGS)
+            122 GET_ITER
+        >>  124 FOR_ITER                42 (to 168)
+            126 UNPACK_SEQUENCE          3
+            128 STORE_FAST               6 (key)
+            130 STORE_FAST               7 (label)
+            132 STORE_FAST               8 (capability_name)
+
+ 98         134 LOAD_FAST                5 (staff)
+            136 LOAD_METHOD              4 (get)
+            138 LOAD_FAST                6 (key)
+            140 LOAD_CONST               5 (False)
+            142 CALL_METHOD              2
+            144 POP_JUMP_IF_FALSE      124
+            146 LOAD_FAST                0 (self)
+            148 LOAD_METHOD              8 (_capability_available)
+
+ 99         150 LOAD_FAST                8 (capability_name)
+
+ 98         152 CALL_METHOD              1
+            154 POP_JUMP_IF_TRUE       124
+
+101         156 LOAD_FAST                4 (unsupported)
+            158 LOAD_METHOD              6 (append)
+            160 LOAD_FAST                7 (label)
+            162 CALL_METHOD              1
+            164 POP_TOP
+            166 JUMP_ABSOLUTE          124
+        >>  168 JUMP_ABSOLUTE           52
+
+103     >>  170 LOAD_FAST                3 (reply_config)
+            172 LOAD_METHOD              4 (get)
+            174 LOAD_CONST               6 ('commonConfig')
+            176 CALL_METHOD              1
+            178 JUMP_IF_TRUE_OR_POP    182
+            180 BUILD_MAP                0
+        >>  182 STORE_FAST               9 (common)
+
+104         184 LOAD_GLOBAL              1 (isinstance)
+            186 LOAD_FAST                9 (common)
+            188 LOAD_GLOBAL              2 (Mapping)
+            190 CALL_FUNCTION            2
+            192 POP_JUMP_IF_TRUE       202
+
+105         194 LOAD_GLOBAL              3 (TypeError)
+            196 LOAD_CONST               7 ('reply_strategy_v2.commonConfig must be a mapping')
+            198 CALL_FUNCTION            1
+            200 RAISE_VARARGS            1
+
+106     >>  202 LOAD_FAST                9 (common)
+            204 LOAD_METHOD              4 (get)
+            206 LOAD_CONST               8 ('groupJoinSopId')
+            208 CALL_METHOD              1
+            210 STORE_FAST              10 (group_join_sop_id)
+
+107         212 LOAD_FAST               10 (group_join_sop_id)
+            214 POP_JUMP_IF_FALSE      240
+            216 LOAD_FAST                0 (self)
+            218 LOAD_METHOD              9 (_sop_supported)
+
+108         220 LOAD_FAST                2 (global_config)
+
+109         222 LOAD_FAST               10 (group_join_sop_id)
+
+110         224 LOAD_CONST               9 ('group')
+
+107         226 CALL_METHOD              3
+            228 POP_JUMP_IF_TRUE       240
+
+112         230 LOAD_FAST                4 (unsupported)
+            232 LOAD_METHOD              6 (append)
+            234 LOAD_CONST              10 ('进群运营SOP')
+            236 CALL_METHOD              1
+            238 POP_TOP
+
+113     >>  240 LOAD_FAST                9 (common)
+            242 LOAD_METHOD              4 (get)
+            244 LOAD_CONST              11 ('friendPassSopId')
+            246 CALL_METHOD              1
+            248 STORE_FAST              11 (friend_pass_sop_id)
+
+114         250 LOAD_FAST               11 (friend_pass_sop_id)
+            252 EXTENDED_ARG             1
+            254 POP_JUMP_IF_FALSE      282
+            256 LOAD_FAST                0 (self)
+            258 LOAD_METHOD              9 (_sop_supported)
+
+115         260 LOAD_FAST                2 (global_config)
+
+116         262 LOAD_FAST               11 (friend_pass_sop_id)
+
+117         264 LOAD_CONST              12 ('single')
+
+114         266 CALL_METHOD              3
+            268 EXTENDED_ARG             1
+            270 POP_JUMP_IF_TRUE       282
+
+119         272 LOAD_FAST                4 (unsupported)
+            274 LOAD_METHOD              6 (append)
+            276 LOAD_CONST              13 ('新好友运营SOP')
+            278 CALL_METHOD              1
+            280 POP_TOP
+
+120     >>  282 LOAD_FAST                9 (common)
+            284 LOAD_METHOD              4 (get)
+            286 LOAD_CONST              14 ('autoGreeting')
+            288 CALL_METHOD              1
+            290 EXTENDED_ARG             1
+            292 JUMP_IF_TRUE_OR_POP    296
+            294 BUILD_MAP                0
+        >>  296 STORE_FAST              12 (auto_greeting)
+
+122         298 LOAD_GLOBAL              1 (isinstance)
+            300 LOAD_FAST               12 (auto_greeting)
+            302 LOAD_GLOBAL              2 (Mapping)
+            304 CALL_FUNCTION            2
+
+121         306 EXTENDED_ARG             1
+            308 POP_JUMP_IF_FALSE      350
+
+123         310 LOAD_FAST               12 (auto_greeting)
+            312 LOAD_METHOD              4 (get)
+            314 LOAD_CONST               4 ('enabled')
+            316 LOAD_CONST               5 (False)
+            318 CALL_METHOD              2
+
+121         320 EXTENDED_ARG             1
+            322 POP_JUMP_IF_FALSE      350
+
+124         324 LOAD_FAST                0 (self)
+            326 LOAD_METHOD              8 (_capability_available)
+
+125         328 LOAD_GLOBAL             10 (CapabilityName)
+            330 LOAD_ATTR               11 (MESSAGE_SEND_GREETING_GROUP)
+            332 LOAD_ATTR               12 (value)
+
+124         334 CALL_METHOD              1
+
+121         336 EXTENDED_ARG             1
+            338 POP_JUMP_IF_TRUE       350
+
+128         340 LOAD_FAST                4 (unsupported)
+            342 LOAD_METHOD              6 (append)
+            344 LOAD_CONST              15 ('新好友话术组')
+            346 CALL_METHOD              1
+            348 POP_TOP
+
+130     >>  350 LOAD_FAST                1 (account_config)
+            352 LOAD_METHOD              0 (load_config)
+            354 LOAD_CONST              16 ('chat_history_settings')
+            356 CALL_METHOD              1
+            358 EXTENDED_ARG             1
+            360 JUMP_IF_TRUE_OR_POP    364
+            362 BUILD_MAP                0
+        >>  364 STORE_FAST              13 (history)
+
+131         366 LOAD_GLOBAL              1 (isinstance)
+            368 LOAD_FAST               13 (history)
+            370 LOAD_GLOBAL              2 (Mapping)
+            372 CALL_FUNCTION            2
+            374 EXTENDED_ARG             1
+            376 POP_JUMP_IF_FALSE      470
+
+132         378 LOAD_FAST               13 (history)
+            380 LOAD_METHOD              4 (get)
+            382 LOAD_CONST              16 ('chat_history_settings')
+            384 CALL_METHOD              1
+            386 EXTENDED_ARG             1
+            388 JUMP_IF_TRUE_OR_POP    392
+            390 BUILD_MAP                0
+        >>  392 STORE_FAST              14 (settings)
+
+133         394 LOAD_GLOBAL              1 (isinstance)
+
+134         396 LOAD_FAST               14 (settings)
+
+135         398 LOAD_GLOBAL              2 (Mapping)
+
+133         400 CALL_FUNCTION            2
+            402 EXTENDED_ARG             1
+            404 POP_JUMP_IF_FALSE      416
+            406 LOAD_FAST               14 (settings)
+            408 LOAD_METHOD              4 (get)
+            410 LOAD_CONST              17 ('transferConfig')
+            412 CALL_METHOD              1
+            414 JUMP_FORWARD             2 (to 418)
+
+136     >>  416 LOAD_CONST               0 (None)
+
+133     >>  418 STORE_FAST              15 (transfer)
+
+138         420 LOAD_GLOBAL              1 (isinstance)
+            422 LOAD_FAST               15 (transfer)
+            424 LOAD_GLOBAL              2 (Mapping)
+            426 CALL_FUNCTION            2
+
+137         428 EXTENDED_ARG             1
+            430 POP_JUMP_IF_FALSE      470
+
+139         432 LOAD_FAST               15 (transfer)
+            434 LOAD_METHOD              4 (get)
+            436 LOAD_CONST              18 ('notifyWechat')
+            438 CALL_METHOD              1
+
+137         440 EXTENDED_ARG             1
+            442 POP_JUMP_IF_FALSE      470
+
+140         444 LOAD_FAST                0 (self)
+            446 LOAD_METHOD              8 (_capability_available)
+
+141         448 LOAD_GLOBAL             10 (CapabilityName)
+            450 LOAD_ATTR               13 (MESSAGE_SEND_TEXT)
+            452 LOAD_ATTR               12 (value)
+
+140         454 CALL_METHOD              1
+
+137         456 EXTENDED_ARG             1
+            458 POP_JUMP_IF_TRUE       470
+
+144         460 LOAD_FAST                4 (unsupported)
+            462 LOAD_METHOD              6 (append)
+            464 LOAD_CONST              19 ('转人工微信通知')
+            466 CALL_METHOD              1
+            468 POP_TOP
+
+148     >>  470 LOAD_GLOBAL             14 (tuple)
+            472 LOAD_GLOBAL             15 (dict)
+            474 LOAD_METHOD             16 (fromkeys)
+            476 LOAD_FAST                4 (unsupported)
+            478 CALL_METHOD              1
+            480 CALL_FUNCTION            1
+            482 RETURN_VALUE

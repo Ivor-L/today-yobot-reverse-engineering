@@ -1,0 +1,154 @@
+  1           0 LOAD_CONST               0 ('Side-effect-free composition of the real Windows platform services.')
+              2 STORE_NAME               0 (__doc__)
+
+  3           4 LOAD_CONST               1 (0)
+              6 LOAD_CONST               2 (('Path',))
+              8 IMPORT_NAME              1 (pathlib)
+             10 IMPORT_FROM              2 (Path)
+             12 STORE_NAME               2 (Path)
+             14 POP_TOP
+
+  4          16 LOAD_CONST               1 (0)
+             18 LOAD_CONST               3 (('Any', 'Callable', 'Mapping', 'Optional'))
+             20 IMPORT_NAME              3 (typing)
+             22 IMPORT_FROM              4 (Any)
+             24 STORE_NAME               4 (Any)
+             26 IMPORT_FROM              5 (Callable)
+             28 STORE_NAME               5 (Callable)
+             30 IMPORT_FROM              6 (Mapping)
+             32 STORE_NAME               6 (Mapping)
+             34 IMPORT_FROM              7 (Optional)
+             36 STORE_NAME               7 (Optional)
+             38 POP_TOP
+
+  6          40 LOAD_CONST               1 (0)
+             42 LOAD_CONST               4 (('LegacySecretValueBackend', 'SecretProtector', 'WindowsDesktopPermissionService', 'WindowsDpapiSecretStore', 'WindowsExecutableApplicationLauncher', 'WindowsLegacyAppPaths', 'WindowsProcessFacade', 'WindowsProcessManagerAdapter'))
+             44 IMPORT_NAME              8 (WeRobotCore.adapters.platform)
+             46 IMPORT_FROM              9 (LegacySecretValueBackend)
+             48 STORE_NAME               9 (LegacySecretValueBackend)
+             50 IMPORT_FROM             10 (SecretProtector)
+             52 STORE_NAME              10 (SecretProtector)
+             54 IMPORT_FROM             11 (WindowsDesktopPermissionService)
+             56 STORE_NAME              11 (WindowsDesktopPermissionService)
+             58 IMPORT_FROM             12 (WindowsDpapiSecretStore)
+             60 STORE_NAME              12 (WindowsDpapiSecretStore)
+             62 IMPORT_FROM             13 (WindowsExecutableApplicationLauncher)
+             64 STORE_NAME              13 (WindowsExecutableApplicationLauncher)
+             66 IMPORT_FROM             14 (WindowsLegacyAppPaths)
+             68 STORE_NAME              14 (WindowsLegacyAppPaths)
+             70 IMPORT_FROM             15 (WindowsProcessFacade)
+             72 STORE_NAME              15 (WindowsProcessFacade)
+             74 IMPORT_FROM             16 (WindowsProcessManagerAdapter)
+             76 STORE_NAME              16 (WindowsProcessManagerAdapter)
+             78 POP_TOP
+
+ 16          80 LOAD_CONST               1 (0)
+             82 LOAD_CONST               5 (('PlatformServices',))
+             84 IMPORT_NAME             17 (WeRobotCore.application.runtime)
+             86 IMPORT_FROM             18 (PlatformServices)
+             88 STORE_NAME              18 (PlatformServices)
+             90 POP_TOP
+
+ 23          92 LOAD_CONST               6 (None)
+
+ 24          94 LOAD_CONST               6 (None)
+
+ 25          96 LOAD_CONST               6 (None)
+
+ 26          98 LOAD_CONST               6 (None)
+
+ 27         100 LOAD_CONST               6 (None)
+
+ 19         102 LOAD_CONST               7 (('home_dir', 'secret_protector', 'desktop_probe', 'process_facade', 'process_factory'))
+            104 BUILD_CONST_KEY_MAP      5
+
+ 21         106 LOAD_NAME                9 (LegacySecretValueBackend)
+
+ 22         108 LOAD_NAME                6 (Mapping)
+            110 LOAD_NAME               19 (str)
+            112 LOAD_NAME                2 (Path)
+            114 BUILD_TUPLE              2
+            116 BINARY_SUBSCR
+
+ 23         118 LOAD_NAME                7 (Optional)
+            120 LOAD_NAME                2 (Path)
+            122 BINARY_SUBSCR
+
+ 24         124 LOAD_NAME                7 (Optional)
+            126 LOAD_NAME               10 (SecretProtector)
+            128 BINARY_SUBSCR
+
+ 25         130 LOAD_NAME                7 (Optional)
+            132 LOAD_NAME                5 (Callable)
+            134 BUILD_LIST               0
+            136 LOAD_NAME                6 (Mapping)
+            138 LOAD_NAME               19 (str)
+            140 LOAD_NAME                4 (Any)
+            142 BUILD_TUPLE              2
+            144 BINARY_SUBSCR
+            146 BUILD_TUPLE              2
+            148 BINARY_SUBSCR
+            150 BINARY_SUBSCR
+
+ 26         152 LOAD_NAME                7 (Optional)
+            154 LOAD_NAME               15 (WindowsProcessFacade)
+            156 BINARY_SUBSCR
+
+ 27         158 LOAD_NAME                7 (Optional)
+            160 LOAD_NAME                5 (Callable)
+            162 LOAD_CONST               8 (Ellipsis)
+            164 LOAD_NAME                4 (Any)
+            166 BUILD_TUPLE              2
+            168 BINARY_SUBSCR
+            170 BINARY_SUBSCR
+
+ 28         172 LOAD_NAME               18 (PlatformServices)
+
+ 19         174 LOAD_CONST               9 (('secret_backend', 'application_paths', 'home_dir', 'secret_protector', 'desktop_probe', 'process_facade', 'process_factory', 'return'))
+            176 BUILD_CONST_KEY_MAP      8
+            178 LOAD_CONST              10 (<code object create_windows_legacy_platform_services at 0x10924ca80, file "WeRobotCore/bootstrap/windows_platform.py", line 19>)
+            180 LOAD_CONST              11 ('create_windows_legacy_platform_services')
+            182 MAKE_FUNCTION            6 (kwdefaults, annotations)
+            184 STORE_NAME              20 (create_windows_legacy_platform_services)
+            186 LOAD_CONST               6 (None)
+            188 RETURN_VALUE
+
+Disassembly of <code object create_windows_legacy_platform_services at 0x10924ca80, file "WeRobotCore/bootstrap/windows_platform.py", line 19>:
+ 36           0 LOAD_GLOBAL              0 (WindowsLegacyAppPaths)
+              2 LOAD_METHOD              1 (from_home)
+              4 LOAD_FAST                2 (home_dir)
+              6 JUMP_IF_TRUE_OR_POP     14
+              8 LOAD_GLOBAL              2 (Path)
+             10 LOAD_METHOD              3 (home)
+             12 CALL_METHOD              0
+        >>   14 CALL_METHOD              1
+             16 STORE_FAST               7 (paths)
+
+ 37          18 LOAD_GLOBAL              4 (PlatformServices)
+
+ 38          20 LOAD_FAST                7 (paths)
+
+ 39          22 LOAD_GLOBAL              5 (WindowsDpapiSecretStore)
+             24 LOAD_FAST                0 (secret_backend)
+             26 LOAD_FAST                3 (secret_protector)
+             28 CALL_FUNCTION            2
+
+ 40          30 LOAD_GLOBAL              6 (WindowsDesktopPermissionService)
+             32 LOAD_FAST                4 (desktop_probe)
+             34 CALL_FUNCTION            1
+
+ 41          36 LOAD_GLOBAL              7 (WindowsProcessManagerAdapter)
+             38 LOAD_FAST                5 (process_facade)
+             40 CALL_FUNCTION            1
+
+ 42          42 LOAD_GLOBAL              8 (WindowsExecutableApplicationLauncher)
+
+ 43          44 LOAD_FAST                1 (application_paths)
+
+ 44          46 LOAD_FAST                6 (process_factory)
+
+ 42          48 CALL_FUNCTION            2
+
+ 37          50 LOAD_CONST               1 (('paths', 'secrets', 'permissions', 'processes', 'launcher'))
+             52 CALL_FUNCTION_KW         5
+             54 RETURN_VALUE

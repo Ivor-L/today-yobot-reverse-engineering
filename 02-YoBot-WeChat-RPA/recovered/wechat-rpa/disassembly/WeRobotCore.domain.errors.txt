@@ -1,0 +1,152 @@
+  1           0 LOAD_CONST               0 ('Stable cross-platform error codes for driver and application boundaries.')
+              2 STORE_NAME               0 (__doc__)
+
+  3           4 LOAD_CONST               1 (0)
+              6 LOAD_CONST               2 (('Enum',))
+              8 IMPORT_NAME              1 (enum)
+             10 IMPORT_FROM              2 (Enum)
+             12 STORE_NAME               2 (Enum)
+             14 POP_TOP
+
+  6          16 LOAD_BUILD_CLASS
+             18 LOAD_CONST               3 (<code object ErrorCode at 0x10924b9d0, file "WeRobotCore/domain/errors.py", line 6>)
+             20 LOAD_CONST               4 ('ErrorCode')
+             22 MAKE_FUNCTION            0
+             24 LOAD_CONST               4 ('ErrorCode')
+             26 LOAD_NAME                3 (str)
+             28 LOAD_NAME                2 (Enum)
+             30 CALL_FUNCTION            4
+             32 STORE_NAME               4 (ErrorCode)
+
+ 27          34 LOAD_BUILD_CLASS
+             36 LOAD_CONST               5 (<code object AutomationError at 0x10924b030, file "WeRobotCore/domain/errors.py", line 27>)
+             38 LOAD_CONST               6 ('AutomationError')
+             40 MAKE_FUNCTION            0
+             42 LOAD_CONST               6 ('AutomationError')
+             44 LOAD_NAME                5 (RuntimeError)
+             46 CALL_FUNCTION            3
+             48 STORE_NAME               6 (AutomationError)
+             50 LOAD_CONST               7 (None)
+             52 RETURN_VALUE
+
+Disassembly of <code object ErrorCode at 0x10924b9d0, file "WeRobotCore/domain/errors.py", line 6>:
+  6           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('ErrorCode')
+              6 STORE_NAME               2 (__qualname__)
+
+  7           8 LOAD_CONST               1 ('Errors that application services may handle without inspecting a driver.')
+             10 STORE_NAME               3 (__doc__)
+
+  9          12 LOAD_CONST               2 ('OK')
+             14 STORE_NAME               4 (OK)
+
+ 10          16 LOAD_CONST               3 ('INVALID_ARGUMENT')
+             18 STORE_NAME               5 (INVALID_ARGUMENT)
+
+ 11          20 LOAD_CONST               4 ('INSTANCE_NOT_FOUND')
+             22 STORE_NAME               6 (INSTANCE_NOT_FOUND)
+
+ 12          24 LOAD_CONST               5 ('INSTANCE_NOT_READY')
+             26 STORE_NAME               7 (INSTANCE_NOT_READY)
+
+ 13          28 LOAD_CONST               6 ('ACCOUNT_NOT_INITIALIZED')
+             30 STORE_NAME               8 (ACCOUNT_NOT_INITIALIZED)
+
+ 14          32 LOAD_CONST               7 ('CAPABILITY_UNAVAILABLE')
+             34 STORE_NAME               9 (CAPABILITY_UNAVAILABLE)
+
+ 15          36 LOAD_CONST               8 ('PERMISSION_REQUIRED')
+             38 STORE_NAME              10 (PERMISSION_REQUIRED)
+
+ 16          40 LOAD_CONST               9 ('CONFIRMATION_REQUIRED')
+             42 STORE_NAME              11 (CONFIRMATION_REQUIRED)
+
+ 17          44 LOAD_CONST              10 ('CLIENT_VERSION_UNSUPPORTED')
+             46 STORE_NAME              12 (CLIENT_VERSION_UNSUPPORTED)
+
+ 18          48 LOAD_CONST              11 ('ELEMENT_NOT_FOUND')
+             50 STORE_NAME              13 (ELEMENT_NOT_FOUND)
+
+ 19          52 LOAD_CONST              12 ('WINDOW_OCCLUDED')
+             54 STORE_NAME              14 (WINDOW_OCCLUDED)
+
+ 20          56 LOAD_CONST              13 ('CONVERSATION_CHANGED')
+             58 STORE_NAME              15 (CONVERSATION_CHANGED)
+
+ 21          60 LOAD_CONST              14 ('ACTION_NOT_VERIFIED')
+             62 STORE_NAME              16 (ACTION_NOT_VERIFIED)
+
+ 22          64 LOAD_CONST              15 ('OPERATION_TIMEOUT')
+             66 STORE_NAME              17 (OPERATION_TIMEOUT)
+
+ 23          68 LOAD_CONST              16 ('RATE_LIMITED')
+             70 STORE_NAME              18 (RATE_LIMITED)
+
+ 24          72 LOAD_CONST              17 ('OPERATION_FAILED')
+             74 STORE_NAME              19 (OPERATION_FAILED)
+             76 LOAD_CONST              18 (None)
+             78 RETURN_VALUE
+
+Disassembly of <code object AutomationError at 0x10924b030, file "WeRobotCore/domain/errors.py", line 27>:
+ 27           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('AutomationError')
+              6 STORE_NAME               2 (__qualname__)
+
+ 28           8 LOAD_CONST               1 ('Typed failure for read/lookup operations that cannot return a value.')
+             10 STORE_NAME               3 (__doc__)
+
+ 30          12 LOAD_CONST               7 ((False,))
+
+ 32          14 LOAD_NAME                4 (ErrorCode)
+
+ 33          16 LOAD_NAME                5 (str)
+
+ 34          18 LOAD_NAME                6 (bool)
+
+ 35          20 LOAD_CONST               3 (None)
+
+ 30          22 LOAD_CONST               4 (('code', 'message', 'retryable', 'return'))
+             24 BUILD_CONST_KEY_MAP      4
+             26 LOAD_CLOSURE             0 (__class__)
+             28 BUILD_TUPLE              1
+             30 LOAD_CONST               5 (<code object __init__ at 0x10924b870, file "WeRobotCore/domain/errors.py", line 30>)
+             32 LOAD_CONST               6 ('AutomationError.__init__')
+             34 MAKE_FUNCTION           13 (defaults, annotations, closure)
+             36 STORE_NAME               7 (__init__)
+             38 LOAD_CLOSURE             0 (__class__)
+             40 DUP_TOP
+             42 STORE_NAME               8 (__classcell__)
+             44 RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x10924b870, file "WeRobotCore/domain/errors.py", line 30>:
+ 36           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                1 (code)
+              4 LOAD_GLOBAL              1 (ErrorCode)
+              6 CALL_FUNCTION            2
+              8 POP_JUMP_IF_TRUE        18
+
+ 37          10 LOAD_GLOBAL              2 (TypeError)
+             12 LOAD_CONST               1 ('code must be an ErrorCode')
+             14 CALL_FUNCTION            1
+             16 RAISE_VARARGS            1
+
+ 38     >>   18 LOAD_GLOBAL              3 (super)
+             20 CALL_FUNCTION            0
+             22 LOAD_METHOD              4 (__init__)
+             24 LOAD_FAST                2 (message)
+             26 CALL_METHOD              1
+             28 POP_TOP
+
+ 39          30 LOAD_FAST                1 (code)
+             32 LOAD_FAST                0 (self)
+             34 STORE_ATTR               5 (code)
+
+ 40          36 LOAD_GLOBAL              6 (bool)
+             38 LOAD_FAST                3 (retryable)
+             40 CALL_FUNCTION            1
+             42 LOAD_FAST                0 (self)
+             44 STORE_ATTR               7 (retryable)
+             46 LOAD_CONST               0 (None)
+             48 RETURN_VALUE

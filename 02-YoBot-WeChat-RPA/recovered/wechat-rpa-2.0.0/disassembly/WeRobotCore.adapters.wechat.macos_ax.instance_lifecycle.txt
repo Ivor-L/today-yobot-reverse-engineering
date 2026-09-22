@@ -1,0 +1,902 @@
+  1           0 LOAD_CONST               0 ('macOS instance inventory and initialization adapters for shared startup.')
+              2 STORE_NAME               0 (__doc__)
+
+  3           4 LOAD_CONST               1 (0)
+              6 LOAD_CONST               2 (None)
+              8 IMPORT_NAME              1 (asyncio)
+             10 STORE_NAME               1 (asyncio)
+
+  4          12 LOAD_CONST               1 (0)
+             14 LOAD_CONST               2 (None)
+             16 IMPORT_NAME              2 (logging)
+             18 STORE_NAME               2 (logging)
+
+  5          20 LOAD_CONST               1 (0)
+             22 LOAD_CONST               3 (('Optional',))
+             24 IMPORT_NAME              3 (typing)
+             26 IMPORT_FROM              4 (Optional)
+             28 STORE_NAME               4 (Optional)
+             30 POP_TOP
+
+  7          32 LOAD_CONST               1 (0)
+             34 LOAD_CONST               4 (('InstanceInitializationBackend', 'InstanceInitializationBatch', 'InstanceInitializationResult', 'InstanceInventoryItem', 'InstanceInventorySnapshot', 'InstanceInventorySource'))
+             36 IMPORT_NAME              5 (WeRobotCore.application.instances)
+             38 IMPORT_FROM              6 (InstanceInitializationBackend)
+             40 STORE_NAME               6 (InstanceInitializationBackend)
+             42 IMPORT_FROM              7 (InstanceInitializationBatch)
+             44 STORE_NAME               7 (InstanceInitializationBatch)
+             46 IMPORT_FROM              8 (InstanceInitializationResult)
+             48 STORE_NAME               8 (InstanceInitializationResult)
+             50 IMPORT_FROM              9 (InstanceInventoryItem)
+             52 STORE_NAME               9 (InstanceInventoryItem)
+             54 IMPORT_FROM             10 (InstanceInventorySnapshot)
+             56 STORE_NAME              10 (InstanceInventorySnapshot)
+             58 IMPORT_FROM             11 (InstanceInventorySource)
+             60 STORE_NAME              11 (InstanceInventorySource)
+             62 POP_TOP
+
+ 15          64 LOAD_CONST               1 (0)
+             66 LOAD_CONST               5 (('AccountInstance', 'AutomationError', 'ErrorCode', 'InstanceId', 'InstanceState'))
+             68 IMPORT_NAME             12 (WeRobotCore.domain)
+             70 IMPORT_FROM             13 (AccountInstance)
+             72 STORE_NAME              13 (AccountInstance)
+             74 IMPORT_FROM             14 (AutomationError)
+             76 STORE_NAME              14 (AutomationError)
+             78 IMPORT_FROM             15 (ErrorCode)
+             80 STORE_NAME              15 (ErrorCode)
+             82 IMPORT_FROM             16 (InstanceId)
+             84 STORE_NAME              16 (InstanceId)
+             86 IMPORT_FROM             17 (InstanceState)
+             88 STORE_NAME              17 (InstanceState)
+             90 POP_TOP
+
+ 22          92 LOAD_CONST               1 (0)
+             94 LOAD_CONST               6 (('NativeInstanceRef',))
+             96 IMPORT_NAME             18 (WeRobotCore.ports)
+             98 IMPORT_FROM             19 (NativeInstanceRef)
+            100 STORE_NAME              19 (NativeInstanceRef)
+            102 POP_TOP
+
+ 24         104 LOAD_CONST               7 (1)
+            106 LOAD_CONST               8 (('MacOSAxDriver',))
+            108 IMPORT_NAME             20 (driver)
+            110 IMPORT_FROM             21 (MacOSAxDriver)
+            112 STORE_NAME              21 (MacOSAxDriver)
+            114 POP_TOP
+
+ 25         116 LOAD_CONST               7 (1)
+            118 LOAD_CONST               9 (('MacOSInstanceBindingStore', 'MacOSPersistedInstanceBinding'))
+            120 IMPORT_NAME             22 (instance_binding)
+            122 IMPORT_FROM             23 (MacOSInstanceBindingStore)
+            124 STORE_NAME              23 (MacOSInstanceBindingStore)
+            126 IMPORT_FROM             24 (MacOSPersistedInstanceBinding)
+            128 STORE_NAME              24 (MacOSPersistedInstanceBinding)
+            130 POP_TOP
+
+ 29         132 LOAD_CONST               7 (1)
+            134 LOAD_CONST              10 (('MacOSHelperCallError',))
+            136 IMPORT_NAME             25 (ipc)
+            138 IMPORT_FROM             26 (MacOSHelperCallError)
+            140 STORE_NAME              26 (MacOSHelperCallError)
+            142 POP_TOP
+
+ 32         144 LOAD_NAME                2 (logging)
+            146 LOAD_METHOD             27 (getLogger)
+            148 LOAD_NAME               28 (__name__)
+            150 CALL_METHOD              1
+            152 STORE_NAME              29 (_logger)
+
+ 35         154 LOAD_NAME               30 (frozenset)
+
+ 37         156 LOAD_CONST              11 ('WECHAT_MAIN_WINDOW_NOT_FOUND')
+
+ 38         158 LOAD_CONST              12 ('WECHAT_ANCHOR_INVALID')
+
+ 36         160 BUILD_SET                2
+
+ 35         162 CALL_FUNCTION            1
+            164 STORE_NAME              31 (_TRANSIENT_DISCOVERY_HELPER_CODES)
+
+ 41         166 LOAD_CONST              13 (0.3)
+            168 STORE_NAME              32 (_TRANSIENT_DISCOVERY_RETRY_SECONDS)
+
+ 45         170 LOAD_NAME               15 (ErrorCode)
+            172 LOAD_ATTR               33 (PERMISSION_REQUIRED)
+            174 LOAD_CONST              14 (('request_permission',))
+
+ 46         176 LOAD_NAME               15 (ErrorCode)
+            178 LOAD_ATTR               34 (ACCOUNT_NOT_INITIALIZED)
+            180 LOAD_CONST              15 (('verify_wechat_login', 'retry'))
+
+ 50         182 LOAD_NAME               15 (ErrorCode)
+            184 LOAD_ATTR               35 (CLIENT_VERSION_UNSUPPORTED)
+            186 LOAD_CONST              16 (('install_supported_wechat_version',))
+
+ 53         188 LOAD_NAME               15 (ErrorCode)
+            190 LOAD_ATTR               36 (INSTANCE_NOT_FOUND)
+            192 LOAD_CONST              17 (('open_wechat', 'retry'))
+
+ 54         194 LOAD_NAME               15 (ErrorCode)
+            196 LOAD_ATTR               37 (INSTANCE_NOT_READY)
+            198 LOAD_CONST              15 (('verify_wechat_login', 'retry'))
+
+ 44         200 BUILD_MAP                5
+            202 STORE_NAME              38 (_REQUIRED_ACTIONS)
+
+ 58         204 LOAD_BUILD_CLASS
+            206 LOAD_CONST              18 (<code object MacOSInstanceInventorySource at 0x1073b9710, file "WeRobotCore/adapters/wechat/macos_ax/instance_lifecycle.py", line 58>)
+            208 LOAD_CONST              19 ('MacOSInstanceInventorySource')
+            210 MAKE_FUNCTION            0
+            212 LOAD_CONST              19 ('MacOSInstanceInventorySource')
+            214 LOAD_NAME               11 (InstanceInventorySource)
+            216 CALL_FUNCTION            3
+            218 STORE_NAME              39 (MacOSInstanceInventorySource)
+
+146         220 LOAD_BUILD_CLASS
+            222 LOAD_CONST              20 (<code object MacOSInstanceInitializationBackend at 0x1073b9500, file "WeRobotCore/adapters/wechat/macos_ax/instance_lifecycle.py", line 146>)
+            224 LOAD_CONST              21 ('MacOSInstanceInitializationBackend')
+            226 MAKE_FUNCTION            0
+            228 LOAD_CONST              21 ('MacOSInstanceInitializationBackend')
+            230 LOAD_NAME                6 (InstanceInitializationBackend)
+            232 CALL_FUNCTION            3
+            234 STORE_NAME              40 (MacOSInstanceInitializationBackend)
+            236 LOAD_CONST               2 (None)
+            238 RETURN_VALUE
+
+Disassembly of <code object MacOSInstanceInventorySource at 0x1073b9710, file "WeRobotCore/adapters/wechat/macos_ax/instance_lifecycle.py", line 58>:
+ 58           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('MacOSInstanceInventorySource')
+              6 STORE_NAME               2 (__qualname__)
+
+ 59           8 LOAD_CONST               1 ('Project one passive Helper discovery into the shared inventory DTO.')
+             10 STORE_NAME               3 (__doc__)
+
+ 61          12 LOAD_CONST               9 ((None,))
+
+ 63          14 LOAD_NAME                4 (MacOSAxDriver)
+
+ 64          16 LOAD_NAME                5 (Optional)
+             18 LOAD_NAME                6 (MacOSInstanceBindingStore)
+             20 BINARY_SUBSCR
+
+ 65          22 LOAD_CONST               2 (None)
+
+ 61          24 LOAD_CONST               3 (('driver', 'binding_store', 'return'))
+             26 BUILD_CONST_KEY_MAP      3
+             28 LOAD_CONST               4 (<code object __init__ at 0x1072e0d40, file "WeRobotCore/adapters/wechat/macos_ax/instance_lifecycle.py", line 61>)
+             30 LOAD_CONST               5 ('MacOSInstanceInventorySource.__init__')
+             32 MAKE_FUNCTION            5 (defaults, annotations)
+             34 STORE_NAME               7 (__init__)
+
+ 76          36 LOAD_NAME                8 (InstanceInventorySnapshot)
+             38 LOAD_CONST               6 (('return',))
+             40 BUILD_CONST_KEY_MAP      1
+             42 LOAD_CONST               7 (<code object snapshot at 0x1073b9ea0, file "WeRobotCore/adapters/wechat/macos_ax/instance_lifecycle.py", line 76>)
+             44 LOAD_CONST               8 ('MacOSInstanceInventorySource.snapshot')
+             46 MAKE_FUNCTION            4 (annotations)
+             48 STORE_NAME               9 (snapshot)
+             50 LOAD_CONST               2 (None)
+             52 RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x1072e0d40, file "WeRobotCore/adapters/wechat/macos_ax/instance_lifecycle.py", line 61>:
+ 66           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                1 (driver)
+              4 LOAD_GLOBAL              1 (MacOSAxDriver)
+              6 CALL_FUNCTION            2
+              8 POP_JUMP_IF_TRUE        18
+
+ 67          10 LOAD_GLOBAL              2 (TypeError)
+             12 LOAD_CONST               1 ('driver must be a MacOSAxDriver')
+             14 CALL_FUNCTION            1
+             16 RAISE_VARARGS            1
+
+ 68     >>   18 LOAD_FAST                2 (binding_store)
+             20 LOAD_CONST               0 (None)
+             22 IS_OP                    1
+             24 POP_JUMP_IF_FALSE       44
+             26 LOAD_GLOBAL              0 (isinstance)
+
+ 69          28 LOAD_FAST                2 (binding_store)
+
+ 70          30 LOAD_GLOBAL              3 (MacOSInstanceBindingStore)
+
+ 68          32 CALL_FUNCTION            2
+             34 POP_JUMP_IF_TRUE        44
+
+ 72          36 LOAD_GLOBAL              2 (TypeError)
+             38 LOAD_CONST               2 ('binding_store must be a MacOSInstanceBindingStore')
+             40 CALL_FUNCTION            1
+             42 RAISE_VARARGS            1
+
+ 73     >>   44 LOAD_FAST                1 (driver)
+             46 LOAD_FAST                0 (self)
+             48 STORE_ATTR               4 (_driver)
+
+ 74          50 LOAD_FAST                2 (binding_store)
+             52 LOAD_FAST                0 (self)
+             54 STORE_ATTR               5 (_binding_store)
+             56 LOAD_CONST               0 (None)
+             58 RETURN_VALUE
+
+Disassembly of <code object snapshot at 0x1073b9ea0, file "WeRobotCore/adapters/wechat/macos_ax/instance_lifecycle.py", line 76>:
+ 77           0 LOAD_GLOBAL              0 (range)
+              2 LOAD_CONST               1 (2)
+              4 CALL_FUNCTION            1
+              6 GET_ITER
+        >>    8 FOR_ITER               152 (to 162)
+             10 STORE_FAST               1 (attempt)
+
+ 78          12 SETUP_FINALLY           30 (to 44)
+
+ 79          14 LOAD_GLOBAL              1 (tuple)
+             16 LOAD_FAST                0 (self)
+             18 LOAD_ATTR                2 (_driver)
+             20 LOAD_METHOD              3 (discover)
+             22 CALL_METHOD              0
+             24 GET_AWAITABLE
+             26 LOAD_CONST               0 (None)
+             28 YIELD_FROM
+             30 CALL_FUNCTION            1
+             32 STORE_FAST               2 (refs)
+
+ 80          34 POP_BLOCK
+             36 POP_TOP
+             38 JUMP_ABSOLUTE          162
+             40 POP_BLOCK
+             42 JUMP_ABSOLUTE            8
+
+ 81     >>   44 DUP_TOP
+             46 LOAD_GLOBAL              4 (MacOSHelperCallError)
+             48 JUMP_IF_NOT_EXC_MATCH   158
+             50 POP_TOP
+             52 STORE_FAST               3 (exc)
+             54 POP_TOP
+             56 SETUP_FINALLY           92 (to 150)
+
+ 87          58 LOAD_FAST                1 (attempt)
+             60 LOAD_CONST               2 (0)
+             62 COMPARE_OP               2 (==)
+
+ 86          64 POP_JUMP_IF_FALSE      104
+
+ 88          66 LOAD_FAST                3 (exc)
+             68 LOAD_ATTR                5 (helper_code)
+             70 LOAD_GLOBAL              6 (_TRANSIENT_DISCOVERY_HELPER_CODES)
+             72 CONTAINS_OP              0
+
+ 86          74 POP_JUMP_IF_FALSE      104
+
+ 90          76 LOAD_GLOBAL              7 (asyncio)
+             78 LOAD_METHOD              8 (sleep)
+             80 LOAD_GLOBAL              9 (_TRANSIENT_DISCOVERY_RETRY_SECONDS)
+             82 CALL_METHOD              1
+             84 GET_AWAITABLE
+             86 LOAD_CONST               0 (None)
+             88 YIELD_FROM
+             90 POP_TOP
+
+ 91          92 POP_BLOCK
+             94 POP_EXCEPT
+             96 LOAD_CONST               0 (None)
+             98 STORE_FAST               3 (exc)
+            100 DELETE_FAST              3 (exc)
+            102 JUMP_ABSOLUTE            8
+
+ 96     >>  104 LOAD_GLOBAL             10 (AutomationError)
+
+ 97         106 LOAD_FAST                3 (exc)
+            108 LOAD_ATTR               11 (code)
+
+ 98         110 LOAD_CONST               3 ('macOS instance discovery failed [{}]: {}')
+            112 LOAD_METHOD             12 (format)
+
+ 99         114 LOAD_FAST                3 (exc)
+            116 LOAD_ATTR                5 (helper_code)
+
+100         118 LOAD_GLOBAL             13 (str)
+            120 LOAD_FAST                3 (exc)
+            122 CALL_FUNCTION            1
+
+ 98         124 CALL_METHOD              2
+
+102         126 LOAD_FAST                3 (exc)
+            128 LOAD_ATTR               14 (retryable)
+
+ 96         130 LOAD_CONST               4 (('retryable',))
+            132 CALL_FUNCTION_KW         3
+
+103         134 LOAD_FAST                3 (exc)
+
+ 96         136 RAISE_VARARGS            2
+            138 POP_BLOCK
+            140 POP_EXCEPT
+            142 LOAD_CONST               0 (None)
+            144 STORE_FAST               3 (exc)
+            146 DELETE_FAST              3 (exc)
+            148 JUMP_ABSOLUTE            8
+        >>  150 LOAD_CONST               0 (None)
+            152 STORE_FAST               3 (exc)
+            154 DELETE_FAST              3 (exc)
+            156 RERAISE
+        >>  158 RERAISE
+            160 JUMP_ABSOLUTE            8
+
+106     >>  162 LOAD_FAST                0 (self)
+            164 LOAD_ATTR               15 (_binding_store)
+            166 LOAD_CONST               0 (None)
+            168 IS_OP                    1
+
+105         170 POP_JUMP_IF_FALSE      182
+            172 LOAD_FAST                0 (self)
+            174 LOAD_ATTR               15 (_binding_store)
+            176 LOAD_METHOD             16 (load)
+            178 CALL_METHOD              0
+            180 JUMP_FORWARD             2 (to 184)
+
+107     >>  182 LOAD_CONST               0 (None)
+
+104     >>  184 STORE_FAST               4 (persisted)
+
+109         186 LOAD_FAST                0 (self)
+            188 LOAD_ATTR                2 (_driver)
+            190 LOAD_METHOD             17 (reconcile_discovered_bindings)
+            192 LOAD_FAST                2 (refs)
+            194 LOAD_FAST                4 (persisted)
+            196 CALL_METHOD              2
+            198 GET_AWAITABLE
+            200 LOAD_CONST               0 (None)
+            202 YIELD_FROM
+            204 POP_TOP
+
+110         206 LOAD_CONST               5 (<code object <dictcomp> at 0x1073b9450, file "WeRobotCore/adapters/wechat/macos_ax/instance_lifecycle.py", line 110>)
+            208 LOAD_CONST               6 ('MacOSInstanceInventorySource.snapshot.<locals>.<dictcomp>')
+            210 MAKE_FUNCTION            0
+
+112         212 LOAD_FAST                0 (self)
+            214 LOAD_ATTR                2 (_driver)
+            216 LOAD_METHOD             18 (list_attached)
+            218 CALL_METHOD              0
+            220 GET_AWAITABLE
+            222 LOAD_CONST               0 (None)
+            224 YIELD_FROM
+
+110         226 GET_ITER
+            228 CALL_FUNCTION            1
+            230 STORE_FAST               5 (attached_by_id)
+
+114         232 BUILD_LIST               0
+            234 STORE_FAST               6 (items)
+
+115         236 LOAD_FAST                2 (refs)
+            238 GET_ITER
+        >>  240 FOR_ITER               110 (to 352)
+            242 STORE_FAST               7 (ref)
+
+119         244 LOAD_GLOBAL             19 (InstanceId)
+            246 LOAD_FAST                7 (ref)
+            248 LOAD_ATTR               20 (native_key)
+            250 CALL_FUNCTION            1
+            252 STORE_FAST               8 (instance_id)
+
+120         254 LOAD_FAST                5 (attached_by_id)
+            256 LOAD_METHOD             21 (get)
+            258 LOAD_FAST                8 (instance_id)
+            260 CALL_METHOD              1
+            262 STORE_FAST               9 (instance)
+
+121         264 LOAD_FAST                9 (instance)
+            266 LOAD_CONST               0 (None)
+            268 IS_OP                    0
+            270 EXTENDED_ARG             1
+            272 POP_JUMP_IF_FALSE      300
+
+122         274 LOAD_GLOBAL             22 (AccountInstance)
+
+123         276 LOAD_FAST                8 (instance_id)
+
+124         278 LOAD_GLOBAL             23 (InstanceState)
+            280 LOAD_ATTR               24 (DISCOVERED)
+
+125         282 LOAD_FAST                0 (self)
+            284 LOAD_ATTR                2 (_driver)
+            286 LOAD_ATTR               25 (driver_id)
+
+126         288 LOAD_FAST                0 (self)
+            290 LOAD_ATTR                2 (_driver)
+            292 LOAD_ATTR               26 (capabilities)
+
+122         294 LOAD_CONST               7 (('instance_id', 'state', 'driver_id', 'capabilities'))
+            296 CALL_FUNCTION_KW         4
+            298 STORE_FAST               9 (instance)
+
+128     >>  300 LOAD_FAST                6 (items)
+            302 LOAD_METHOD             27 (append)
+
+129         304 LOAD_GLOBAL             28 (InstanceInventoryItem)
+
+130         306 LOAD_FAST                9 (instance)
+
+131         308 LOAD_GLOBAL             29 (len)
+            310 LOAD_FAST                2 (refs)
+            312 CALL_FUNCTION            1
+            314 LOAD_CONST               8 (1)
+            316 COMPARE_OP               2 (==)
+
+133         318 LOAD_FAST                7 (ref)
+            320 LOAD_ATTR               20 (native_key)
+
+134         322 LOAD_GLOBAL             29 (len)
+            324 LOAD_FAST                2 (refs)
+            326 CALL_FUNCTION            1
+            328 LOAD_CONST               8 (1)
+            330 COMPARE_OP               2 (==)
+
+135         332 LOAD_CONST               9 ('darwin')
+
+136         334 LOAD_FAST                7 (ref)
+            336 LOAD_ATTR               30 (process_id)
+
+132         338 LOAD_CONST              10 (('instance_id', 'is_active', 'platform', 'process_id'))
+            340 BUILD_CONST_KEY_MAP      4
+
+129         342 LOAD_CONST              11 (('instance', 'is_active', 'compatibility_payload'))
+            344 CALL_FUNCTION_KW         3
+
+128         346 CALL_METHOD              1
+            348 POP_TOP
+            350 JUMP_ABSOLUTE          240
+
+140     >>  352 LOAD_GLOBAL             31 (InstanceInventorySnapshot)
+
+141         354 LOAD_FAST                0 (self)
+            356 LOAD_ATTR                2 (_driver)
+            358 LOAD_ATTR               25 (driver_id)
+
+142         360 LOAD_GLOBAL              1 (tuple)
+            362 LOAD_FAST                6 (items)
+            364 CALL_FUNCTION            1
+
+140         366 LOAD_CONST              12 (('driver_id', 'items'))
+            368 CALL_FUNCTION_KW         2
+            370 RETURN_VALUE
+
+Disassembly of <code object <dictcomp> at 0x1073b9450, file "WeRobotCore/adapters/wechat/macos_ax/instance_lifecycle.py", line 110>:
+110           0 BUILD_MAP                0
+              2 LOAD_FAST                0 (.0)
+        >>    4 FOR_ITER                12 (to 18)
+
+112           6 STORE_FAST               1 (instance)
+
+111           8 LOAD_FAST                1 (instance)
+             10 LOAD_ATTR                0 (instance_id)
+             12 LOAD_FAST                1 (instance)
+             14 MAP_ADD                  2
+             16 JUMP_ABSOLUTE            4
+        >>   18 RETURN_VALUE
+
+Disassembly of <code object MacOSInstanceInitializationBackend at 0x1073b9500, file "WeRobotCore/adapters/wechat/macos_ax/instance_lifecycle.py", line 146>:
+146           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('MacOSInstanceInitializationBackend')
+              6 STORE_NAME               2 (__qualname__)
+
+147           8 LOAD_CONST               1 ('Attach each ordered inventory item and preserve shared result rules.')
+             10 STORE_NAME               3 (__doc__)
+
+149          12 LOAD_CONST              18 ((None,))
+
+151          14 LOAD_NAME                4 (MacOSAxDriver)
+
+152          16 LOAD_NAME                5 (Optional)
+             18 LOAD_NAME                6 (MacOSInstanceBindingStore)
+             20 BINARY_SUBSCR
+
+153          22 LOAD_CONST               2 (None)
+
+149          24 LOAD_CONST               3 (('driver', 'binding_store', 'return'))
+             26 BUILD_CONST_KEY_MAP      3
+             28 LOAD_CONST               4 (<code object __init__ at 0x1073b9f50, file "WeRobotCore/adapters/wechat/macos_ax/instance_lifecycle.py", line 149>)
+             30 LOAD_CONST               5 ('MacOSInstanceInitializationBackend.__init__')
+             32 MAKE_FUNCTION            5 (defaults, annotations)
+             34 STORE_NAME               7 (__init__)
+
+164          36 LOAD_NAME                8 (str)
+             38 LOAD_CONST               2 (None)
+             40 LOAD_CONST               6 (('confirmation', 'return'))
+             42 BUILD_CONST_KEY_MAP      2
+             44 LOAD_CONST               7 (<code object confirm_visible_current_account_once at 0x1073b9870, file "WeRobotCore/adapters/wechat/macos_ax/instance_lifecycle.py", line 164>)
+             46 LOAD_CONST               8 ('MacOSInstanceInitializationBackend.confirm_visible_current_account_once')
+             48 MAKE_FUNCTION            4 (annotations)
+             50 STORE_NAME               9 (confirm_visible_current_account_once)
+
+169          52 LOAD_NAME               10 (staticmethod)
+
+170          54 LOAD_NAME               11 (InstanceInventoryItem)
+             56 LOAD_NAME               12 (NativeInstanceRef)
+             58 LOAD_CONST               9 (('item', 'return'))
+             60 BUILD_CONST_KEY_MAP      2
+             62 LOAD_CONST              10 (<code object _native_ref at 0x1073b97c0, file "WeRobotCore/adapters/wechat/macos_ax/instance_lifecycle.py", line 169>)
+             64 LOAD_CONST              11 ('MacOSInstanceInitializationBackend._native_ref')
+             66 MAKE_FUNCTION            4 (annotations)
+             68 CALL_FUNCTION            1
+             70 STORE_NAME              13 (_native_ref)
+
+193          72 LOAD_NAME               10 (staticmethod)
+
+195          74 LOAD_NAME               14 (InstanceId)
+
+196          76 LOAD_NAME               15 (AutomationError)
+
+197          78 LOAD_NAME               16 (InstanceInitializationResult)
+
+194          80 LOAD_CONST              12 (('instance_id', 'exc', 'return'))
+             82 BUILD_CONST_KEY_MAP      3
+             84 LOAD_CONST              13 (<code object _failure at 0x1073b9c90, file "WeRobotCore/adapters/wechat/macos_ax/instance_lifecycle.py", line 193>)
+             86 LOAD_CONST              14 ('MacOSInstanceInitializationBackend._failure')
+             88 MAKE_FUNCTION            4 (annotations)
+             90 CALL_FUNCTION            1
+             92 STORE_NAME              17 (_failure)
+
+210          94 LOAD_NAME               18 (InstanceInventorySnapshot)
+
+211          96 LOAD_NAME               19 (InstanceInitializationBatch)
+
+208          98 LOAD_CONST              15 (('inventory', 'return'))
+            100 BUILD_CONST_KEY_MAP      2
+            102 LOAD_CONST              16 (<code object initialize at 0x1073b9df0, file "WeRobotCore/adapters/wechat/macos_ax/instance_lifecycle.py", line 208>)
+            104 LOAD_CONST              17 ('MacOSInstanceInitializationBackend.initialize')
+            106 MAKE_FUNCTION            4 (annotations)
+            108 STORE_NAME              20 (initialize)
+            110 LOAD_CONST               2 (None)
+            112 RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x1073b9f50, file "WeRobotCore/adapters/wechat/macos_ax/instance_lifecycle.py", line 149>:
+154           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                1 (driver)
+              4 LOAD_GLOBAL              1 (MacOSAxDriver)
+              6 CALL_FUNCTION            2
+              8 POP_JUMP_IF_TRUE        18
+
+155          10 LOAD_GLOBAL              2 (TypeError)
+             12 LOAD_CONST               1 ('driver must be a MacOSAxDriver')
+             14 CALL_FUNCTION            1
+             16 RAISE_VARARGS            1
+
+156     >>   18 LOAD_FAST                2 (binding_store)
+             20 LOAD_CONST               0 (None)
+             22 IS_OP                    1
+             24 POP_JUMP_IF_FALSE       44
+             26 LOAD_GLOBAL              0 (isinstance)
+
+157          28 LOAD_FAST                2 (binding_store)
+
+158          30 LOAD_GLOBAL              3 (MacOSInstanceBindingStore)
+
+156          32 CALL_FUNCTION            2
+             34 POP_JUMP_IF_TRUE        44
+
+160          36 LOAD_GLOBAL              2 (TypeError)
+             38 LOAD_CONST               2 ('binding_store must be a MacOSInstanceBindingStore')
+             40 CALL_FUNCTION            1
+             42 RAISE_VARARGS            1
+
+161     >>   44 LOAD_FAST                1 (driver)
+             46 LOAD_FAST                0 (self)
+             48 STORE_ATTR               4 (_driver)
+
+162          50 LOAD_FAST                2 (binding_store)
+             52 LOAD_FAST                0 (self)
+             54 STORE_ATTR               5 (_binding_store)
+             56 LOAD_CONST               0 (None)
+             58 RETURN_VALUE
+
+Disassembly of <code object confirm_visible_current_account_once at 0x1073b9870, file "WeRobotCore/adapters/wechat/macos_ax/instance_lifecycle.py", line 164>:
+167           0 LOAD_FAST                0 (self)
+              2 LOAD_ATTR                0 (_driver)
+              4 LOAD_METHOD              1 (confirm_visible_current_account_once)
+              6 LOAD_FAST                1 (confirmation)
+              8 CALL_METHOD              1
+             10 POP_TOP
+             12 LOAD_CONST               1 (None)
+             14 RETURN_VALUE
+
+Disassembly of <code object _native_ref at 0x1073b97c0, file "WeRobotCore/adapters/wechat/macos_ax/instance_lifecycle.py", line 169>:
+171           0 LOAD_FAST                0 (item)
+              2 LOAD_ATTR                0 (compatibility_payload)
+              4 STORE_FAST               1 (payload)
+
+172           6 LOAD_FAST                1 (payload)
+              8 LOAD_METHOD              1 (get)
+             10 LOAD_CONST               1 ('platform')
+             12 CALL_METHOD              1
+             14 LOAD_CONST               2 ('darwin')
+             16 COMPARE_OP               3 (!=)
+             18 POP_JUMP_IF_FALSE       32
+
+173          20 LOAD_GLOBAL              2 (AutomationError)
+
+174          22 LOAD_GLOBAL              3 (ErrorCode)
+             24 LOAD_ATTR                4 (INVALID_ARGUMENT)
+
+175          26 LOAD_CONST               3 ('macOS inventory item has an invalid platform')
+
+173          28 CALL_FUNCTION            2
+             30 RAISE_VARARGS            1
+
+177     >>   32 LOAD_FAST                1 (payload)
+             34 LOAD_METHOD              1 (get)
+             36 LOAD_CONST               4 ('process_id')
+             38 CALL_METHOD              1
+             40 STORE_FAST               2 (process_id)
+
+179          42 LOAD_GLOBAL              5 (isinstance)
+             44 LOAD_FAST                2 (process_id)
+             46 LOAD_GLOBAL              6 (int)
+             48 CALL_FUNCTION            2
+
+178          50 POP_JUMP_IF_FALSE       70
+
+180          52 LOAD_GLOBAL              5 (isinstance)
+             54 LOAD_FAST                2 (process_id)
+             56 LOAD_GLOBAL              7 (bool)
+             58 CALL_FUNCTION            2
+
+178          60 POP_JUMP_IF_TRUE        70
+
+181          62 LOAD_FAST                2 (process_id)
+             64 LOAD_CONST               5 (0)
+             66 COMPARE_OP               1 (<=)
+
+178          68 POP_JUMP_IF_FALSE       82
+
+183     >>   70 LOAD_GLOBAL              2 (AutomationError)
+
+184          72 LOAD_GLOBAL              3 (ErrorCode)
+             74 LOAD_ATTR                4 (INVALID_ARGUMENT)
+
+185          76 LOAD_CONST               6 ('macOS inventory item has an invalid process_id')
+
+183          78 CALL_FUNCTION            2
+             80 RAISE_VARARGS            1
+
+187     >>   82 LOAD_GLOBAL              8 (NativeInstanceRef)
+
+188          84 LOAD_CONST               2 ('darwin')
+
+189          86 LOAD_FAST                0 (item)
+             88 LOAD_ATTR                9 (instance)
+             90 LOAD_ATTR               10 (instance_id)
+             92 LOAD_ATTR               11 (value)
+
+190          94 LOAD_FAST                2 (process_id)
+
+187          96 LOAD_CONST               7 (('platform', 'native_key', 'process_id'))
+             98 CALL_FUNCTION_KW         3
+            100 RETURN_VALUE
+
+Disassembly of <code object _failure at 0x1073b9c90, file "WeRobotCore/adapters/wechat/macos_ax/instance_lifecycle.py", line 193>:
+198           0 LOAD_GLOBAL              0 (InstanceInitializationResult)
+
+199           2 LOAD_FAST                0 (instance_id)
+
+200           4 LOAD_CONST               1 (False)
+
+201           6 LOAD_FAST                1 (exc)
+              8 LOAD_ATTR                1 (code)
+             10 LOAD_ATTR                2 (value)
+
+202          12 LOAD_GLOBAL              3 (str)
+             14 LOAD_FAST                1 (exc)
+             16 CALL_FUNCTION            1
+
+203          18 LOAD_FAST                1 (exc)
+             20 LOAD_ATTR                4 (retryable)
+
+204          22 LOAD_GLOBAL              5 (_REQUIRED_ACTIONS)
+             24 LOAD_METHOD              6 (get)
+             26 LOAD_FAST                1 (exc)
+             28 LOAD_ATTR                1 (code)
+             30 LOAD_CONST               2 (('retry',))
+             32 CALL_METHOD              2
+
+205          34 LOAD_CONST               3 ('instance_id')
+             36 LOAD_FAST                0 (instance_id)
+             38 LOAD_ATTR                2 (value)
+             40 BUILD_MAP                1
+
+198          42 LOAD_CONST               4 (('instance_id', 'success', 'failure_code', 'message', 'retryable', 'required_actions', 'compatibility_payload'))
+             44 CALL_FUNCTION_KW         7
+             46 RETURN_VALUE
+
+Disassembly of <code object initialize at 0x1073b9df0, file "WeRobotCore/adapters/wechat/macos_ax/instance_lifecycle.py", line 208>:
+212           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                1 (inventory)
+              4 LOAD_GLOBAL              1 (InstanceInventorySnapshot)
+              6 CALL_FUNCTION            2
+              8 POP_JUMP_IF_TRUE        18
+
+213          10 LOAD_GLOBAL              2 (TypeError)
+             12 LOAD_CONST               1 ('inventory must be an InstanceInventorySnapshot')
+             14 CALL_FUNCTION            1
+             16 RAISE_VARARGS            1
+
+214     >>   18 LOAD_FAST                1 (inventory)
+             20 LOAD_ATTR                3 (driver_id)
+             22 LOAD_FAST                0 (self)
+             24 LOAD_ATTR                4 (_driver)
+             26 LOAD_ATTR                3 (driver_id)
+             28 COMPARE_OP               3 (!=)
+             30 POP_JUMP_IF_FALSE       40
+
+215          32 LOAD_GLOBAL              5 (ValueError)
+             34 LOAD_CONST               2 ('inventory belongs to another driver')
+             36 CALL_FUNCTION            1
+             38 RAISE_VARARGS            1
+
+216     >>   40 BUILD_LIST               0
+             42 STORE_FAST               2 (results)
+
+217          44 LOAD_FAST                1 (inventory)
+             46 LOAD_ATTR                6 (items)
+             48 GET_ITER
+        >>   50 FOR_ITER               222 (to 274)
+             52 STORE_FAST               3 (item)
+
+218          54 LOAD_FAST                3 (item)
+             56 LOAD_ATTR                7 (instance)
+             58 LOAD_ATTR                8 (instance_id)
+             60 STORE_FAST               4 (instance_id)
+
+219          62 SETUP_FINALLY          152 (to 216)
+
+220          64 LOAD_FAST                0 (self)
+             66 LOAD_METHOD              9 (_native_ref)
+             68 LOAD_FAST                3 (item)
+             70 CALL_METHOD              1
+             72 STORE_FAST               5 (ref)
+
+221          74 LOAD_FAST                0 (self)
+             76 LOAD_ATTR                4 (_driver)
+             78 LOAD_METHOD             10 (attach)
+             80 LOAD_FAST                5 (ref)
+             82 CALL_METHOD              1
+             84 GET_AWAITABLE
+             86 LOAD_CONST               0 (None)
+             88 YIELD_FROM
+             90 STORE_FAST               6 (attached)
+
+222          92 LOAD_FAST                6 (attached)
+             94 LOAD_ATTR                8 (instance_id)
+             96 LOAD_FAST                4 (instance_id)
+             98 COMPARE_OP               3 (!=)
+            100 POP_JUMP_IF_FALSE      114
+
+223         102 LOAD_GLOBAL             11 (AutomationError)
+
+224         104 LOAD_GLOBAL             12 (ErrorCode)
+            106 LOAD_ATTR               13 (ACTION_NOT_VERIFIED)
+
+225         108 LOAD_CONST               3 ('macOS initialization returned another instance')
+
+223         110 CALL_FUNCTION            2
+            112 RAISE_VARARGS            1
+
+227     >>  114 LOAD_FAST                0 (self)
+            116 LOAD_ATTR               14 (_binding_store)
+            118 LOAD_CONST               0 (None)
+            120 IS_OP                    1
+            122 POP_JUMP_IF_FALSE      178
+
+228         124 LOAD_FAST                0 (self)
+            126 LOAD_ATTR               14 (_binding_store)
+            128 LOAD_METHOD             15 (save)
+
+229         130 LOAD_GLOBAL             16 (MacOSPersistedInstanceBinding)
+
+230         132 LOAD_FAST                5 (ref)
+            134 LOAD_ATTR               17 (native_key)
+
+231         136 LOAD_GLOBAL             18 (int)
+            138 LOAD_FAST                5 (ref)
+            140 LOAD_ATTR               19 (process_id)
+            142 JUMP_IF_TRUE_OR_POP    146
+            144 LOAD_CONST               4 (0)
+        >>  146 CALL_FUNCTION            1
+
+232         148 LOAD_FAST                6 (attached)
+            150 LOAD_ATTR               20 (account_id)
+
+233         152 LOAD_FAST                6 (attached)
+            154 LOAD_ATTR               21 (nickname)
+
+229         156 LOAD_CONST               5 (('native_key', 'process_id', 'account_id', 'nickname'))
+            158 CALL_FUNCTION_KW         4
+
+228         160 CALL_METHOD              1
+            162 STORE_FAST               7 (persisted)
+
+236         164 LOAD_FAST                7 (persisted)
+            166 POP_JUMP_IF_TRUE       178
+
+237         168 LOAD_GLOBAL             22 (_logger)
+            170 LOAD_METHOD             23 (warning)
+
+238         172 LOAD_CONST               6 ('macOS instance binding could not be persisted; the current initialization remains valid')
+
+237         174 CALL_METHOD              1
+            176 POP_TOP
+
+241     >>  178 LOAD_FAST                2 (results)
+            180 LOAD_METHOD             24 (append)
+
+242         182 LOAD_GLOBAL             25 (InstanceInitializationResult)
+
+243         184 LOAD_FAST                4 (instance_id)
+
+244         186 LOAD_CONST               7 (True)
+
+245         188 LOAD_FAST                6 (attached)
+            190 LOAD_ATTR               20 (account_id)
+
+246         192 LOAD_FAST                6 (attached)
+            194 LOAD_ATTR               21 (nickname)
+
+248         196 LOAD_CONST               8 ('instance_id')
+            198 LOAD_FAST                4 (instance_id)
+            200 LOAD_ATTR               26 (value)
+
+247         202 BUILD_MAP                1
+
+242         204 LOAD_CONST               9 (('instance_id', 'success', 'account_id', 'nickname', 'compatibility_payload'))
+            206 CALL_FUNCTION_KW         5
+
+241         208 CALL_METHOD              1
+            210 POP_TOP
+            212 POP_BLOCK
+            214 JUMP_ABSOLUTE           50
+
+252     >>  216 DUP_TOP
+            218 LOAD_GLOBAL             11 (AutomationError)
+            220 EXTENDED_ARG             1
+            222 JUMP_IF_NOT_EXC_MATCH   270
+            224 POP_TOP
+            226 STORE_FAST               8 (exc)
+            228 POP_TOP
+            230 SETUP_FINALLY           30 (to 262)
+
+253         232 LOAD_FAST                2 (results)
+            234 LOAD_METHOD             24 (append)
+            236 LOAD_FAST                0 (self)
+            238 LOAD_METHOD             27 (_failure)
+            240 LOAD_FAST                4 (instance_id)
+            242 LOAD_FAST                8 (exc)
+            244 CALL_METHOD              2
+            246 CALL_METHOD              1
+            248 POP_TOP
+            250 POP_BLOCK
+            252 POP_EXCEPT
+            254 LOAD_CONST               0 (None)
+            256 STORE_FAST               8 (exc)
+            258 DELETE_FAST              8 (exc)
+            260 JUMP_ABSOLUTE           50
+        >>  262 LOAD_CONST               0 (None)
+            264 STORE_FAST               8 (exc)
+            266 DELETE_FAST              8 (exc)
+            268 RERAISE
+        >>  270 RERAISE
+            272 JUMP_ABSOLUTE           50
+
+254     >>  274 LOAD_GLOBAL             28 (InstanceInitializationBatch)
+
+255         276 LOAD_FAST                0 (self)
+            278 LOAD_ATTR                4 (_driver)
+            280 LOAD_ATTR                3 (driver_id)
+
+256         282 LOAD_GLOBAL             29 (tuple)
+            284 LOAD_FAST                2 (results)
+            286 CALL_FUNCTION            1
+
+254         288 LOAD_CONST              10 (('driver_id', 'results'))
+            290 CALL_FUNCTION_KW         2
+            292 RETURN_VALUE

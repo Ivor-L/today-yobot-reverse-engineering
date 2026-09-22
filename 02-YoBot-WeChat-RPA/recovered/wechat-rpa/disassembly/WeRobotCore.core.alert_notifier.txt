@@ -1,0 +1,603 @@
+  1           0 LOAD_CONST               0 (0)
+              2 LOAD_CONST               1 (None)
+              4 IMPORT_NAME              0 (smtplib)
+              6 STORE_NAME               0 (smtplib)
+
+  2           8 LOAD_CONST               0 (0)
+             10 LOAD_CONST               2 (('MIMEText',))
+             12 IMPORT_NAME              1 (email.mime.text)
+             14 IMPORT_FROM              2 (MIMEText)
+             16 STORE_NAME               2 (MIMEText)
+             18 POP_TOP
+
+  3          20 LOAD_CONST               0 (0)
+             22 LOAD_CONST               3 (('Header',))
+             24 IMPORT_NAME              3 (email.header)
+             26 IMPORT_FROM              4 (Header)
+             28 STORE_NAME               4 (Header)
+             30 POP_TOP
+
+  4          32 LOAD_CONST               0 (0)
+             34 LOAD_CONST               4 (('Optional',))
+             36 IMPORT_NAME              5 (typing)
+             38 IMPORT_FROM              6 (Optional)
+             40 STORE_NAME               6 (Optional)
+             42 POP_TOP
+
+  5          44 LOAD_CONST               0 (0)
+             46 LOAD_CONST               1 (None)
+             48 IMPORT_NAME              7 (time)
+             50 STORE_NAME               7 (time)
+
+  6          52 LOAD_CONST               0 (0)
+             54 LOAD_CONST               5 (('dataclass',))
+             56 IMPORT_NAME              8 (dataclasses)
+             58 IMPORT_FROM              9 (dataclass)
+             60 STORE_NAME               9 (dataclass)
+             62 POP_TOP
+
+  7          64 LOAD_CONST               6 (1)
+             66 LOAD_CONST               7 (('UiaLogger',))
+             68 IMPORT_NAME             10 (uia_logger)
+             70 IMPORT_FROM             11 (UiaLogger)
+             72 STORE_NAME              11 (UiaLogger)
+             74 POP_TOP
+
+  9          76 LOAD_NAME               11 (UiaLogger)
+             78 CALL_FUNCTION            0
+             80 LOAD_METHOD             12 (get_logger)
+             82 CALL_METHOD              0
+             84 STORE_NAME              13 (logger)
+
+ 11          86 LOAD_NAME                9 (dataclass)
+
+ 12          88 LOAD_BUILD_CLASS
+             90 LOAD_CONST               8 (<code object EmailConfig at 0x10924ca80, file "WeRobotCore/core/alert_notifier.py", line 11>)
+             92 LOAD_CONST               9 ('EmailConfig')
+             94 MAKE_FUNCTION            0
+             96 LOAD_CONST               9 ('EmailConfig')
+             98 CALL_FUNCTION            2
+            100 CALL_FUNCTION            1
+            102 STORE_NAME              14 (EmailConfig)
+
+ 19         104 LOAD_NAME               14 (EmailConfig)
+
+ 20         106 LOAD_CONST              10 ('aibot001@qq.com')
+
+ 21         108 LOAD_CONST              11 ('teupnhixxeerbhbf')
+
+ 22         110 LOAD_CONST              12 ('smtp.qq.com')
+
+ 23         112 LOAD_CONST              13 (465)
+
+ 24         114 LOAD_CONST              14 ('')
+
+ 19         116 LOAD_CONST              15 (('sender', 'password', 'smtp_server', 'smtp_port', 'receiver'))
+            118 CALL_FUNCTION_KW         5
+            120 STORE_NAME              15 (email_config)
+
+ 26         122 LOAD_BUILD_CLASS
+            124 LOAD_CONST              16 (<code object AlertNotifier at 0x10924cbe0, file "WeRobotCore/core/alert_notifier.py", line 26>)
+            126 LOAD_CONST              17 ('AlertNotifier')
+            128 MAKE_FUNCTION            0
+            130 LOAD_CONST              17 ('AlertNotifier')
+            132 CALL_FUNCTION            2
+            134 STORE_NAME              16 (AlertNotifier)
+            136 LOAD_CONST               1 (None)
+            138 RETURN_VALUE
+
+Disassembly of <code object EmailConfig at 0x10924ca80, file "WeRobotCore/core/alert_notifier.py", line 11>:
+ 11           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('EmailConfig')
+              6 STORE_NAME               2 (__qualname__)
+              8 SETUP_ANNOTATIONS
+
+ 13          10 LOAD_CONST               1 ('邮件配置类')
+             12 STORE_NAME               3 (__doc__)
+
+ 14          14 LOAD_NAME                4 (str)
+             16 LOAD_NAME                5 (__annotations__)
+             18 LOAD_CONST               2 ('sender')
+             20 STORE_SUBSCR
+
+ 15          22 LOAD_NAME                4 (str)
+             24 LOAD_NAME                5 (__annotations__)
+             26 LOAD_CONST               3 ('password')
+             28 STORE_SUBSCR
+
+ 16          30 LOAD_NAME                4 (str)
+             32 LOAD_NAME                5 (__annotations__)
+             34 LOAD_CONST               4 ('smtp_server')
+             36 STORE_SUBSCR
+
+ 17          38 LOAD_NAME                6 (int)
+             40 LOAD_NAME                5 (__annotations__)
+             42 LOAD_CONST               5 ('smtp_port')
+             44 STORE_SUBSCR
+
+ 18          46 LOAD_NAME                4 (str)
+             48 LOAD_NAME                5 (__annotations__)
+             50 LOAD_CONST               6 ('receiver')
+             52 STORE_SUBSCR
+             54 LOAD_CONST               7 (None)
+             56 RETURN_VALUE
+
+Disassembly of <code object AlertNotifier at 0x10924cbe0, file "WeRobotCore/core/alert_notifier.py", line 26>:
+ 26           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('AlertNotifier')
+              6 STORE_NAME               2 (__qualname__)
+
+ 27           8 LOAD_CONST               1 ('预警通知管理器')
+             10 STORE_NAME               3 (__doc__)
+
+ 28          12 LOAD_CONST               2 (None)
+             14 STORE_NAME               4 (_instance)
+
+ 30          16 LOAD_CONST              18 ((None,))
+             18 LOAD_NAME                5 (EmailConfig)
+             20 LOAD_CONST               3 (('email_config',))
+             22 BUILD_CONST_KEY_MAP      1
+             24 LOAD_CLOSURE             0 (__class__)
+             26 BUILD_TUPLE              1
+             28 LOAD_CONST               4 (<code object __new__ at 0x10924c030, file "WeRobotCore/core/alert_notifier.py", line 30>)
+             30 LOAD_CONST               5 ('AlertNotifier.__new__')
+             32 MAKE_FUNCTION           13 (defaults, annotations, closure)
+             34 STORE_NAME               6 (__new__)
+
+ 43          36 LOAD_CONST              19 ((None,))
+             38 LOAD_NAME                5 (EmailConfig)
+             40 LOAD_CONST               3 (('email_config',))
+             42 BUILD_CONST_KEY_MAP      1
+             44 LOAD_CONST               6 (<code object __init__ at 0x10924cb30, file "WeRobotCore/core/alert_notifier.py", line 43>)
+             46 LOAD_CONST               7 ('AlertNotifier.__init__')
+             48 MAKE_FUNCTION            5 (defaults, annotations)
+             50 STORE_NAME               7 (__init__)
+
+ 46          52 LOAD_CONST               8 (<code object schedule_connection_check at 0x10924cf50, file "WeRobotCore/core/alert_notifier.py", line 46>)
+             54 LOAD_CONST               9 ('AlertNotifier.schedule_connection_check')
+             56 MAKE_FUNCTION            0
+             58 STORE_NAME               8 (schedule_connection_check)
+
+ 75          60 LOAD_NAME                9 (Exception)
+             62 LOAD_CONST               2 (None)
+             64 LOAD_CONST              10 (('error', 'return'))
+             66 BUILD_CONST_KEY_MAP      2
+             68 LOAD_CONST              11 (<code object check_error at 0x10924c9d0, file "WeRobotCore/core/alert_notifier.py", line 75>)
+             70 LOAD_CONST              12 ('AlertNotifier.check_error')
+             72 MAKE_FUNCTION            4 (annotations)
+             74 STORE_NAME              10 (check_error)
+
+118          76 LOAD_CONST               2 (None)
+             78 LOAD_CONST              13 (('return',))
+             80 BUILD_CONST_KEY_MAP      1
+             82 LOAD_CONST              14 (<code object reset_monitor at 0x10924c2f0, file "WeRobotCore/core/alert_notifier.py", line 118>)
+             84 LOAD_CONST              15 ('AlertNotifier.reset_monitor')
+             86 MAKE_FUNCTION            4 (annotations)
+             88 STORE_NAME              11 (reset_monitor)
+
+125          90 LOAD_CONST               2 (None)
+             92 LOAD_CONST              13 (('return',))
+             94 BUILD_CONST_KEY_MAP      1
+             96 LOAD_CONST              16 (<code object send_alert_email at 0x10924c3a0, file "WeRobotCore/core/alert_notifier.py", line 125>)
+             98 LOAD_CONST              17 ('AlertNotifier.send_alert_email')
+            100 MAKE_FUNCTION            4 (annotations)
+            102 STORE_NAME              12 (send_alert_email)
+            104 LOAD_CLOSURE             0 (__class__)
+            106 DUP_TOP
+            108 STORE_NAME              13 (__classcell__)
+            110 RETURN_VALUE
+
+Disassembly of <code object __new__ at 0x10924c030, file "WeRobotCore/core/alert_notifier.py", line 30>:
+ 31           0 LOAD_FAST                0 (cls)
+              2 LOAD_ATTR                0 (_instance)
+              4 LOAD_CONST               0 (None)
+              6 IS_OP                    0
+              8 POP_JUMP_IF_FALSE       84
+
+ 32          10 LOAD_GLOBAL              1 (super)
+             12 LOAD_GLOBAL              2 (AlertNotifier)
+             14 LOAD_FAST                0 (cls)
+             16 CALL_FUNCTION            2
+             18 LOAD_METHOD              3 (__new__)
+             20 LOAD_FAST                0 (cls)
+             22 CALL_METHOD              1
+             24 LOAD_FAST                0 (cls)
+             26 STORE_ATTR               0 (_instance)
+
+ 34          28 LOAD_FAST                1 (email_config)
+             30 LOAD_FAST                0 (cls)
+             32 LOAD_ATTR                0 (_instance)
+             34 STORE_ATTR               4 (email_config)
+
+ 35          36 LOAD_CONST               0 (None)
+             38 LOAD_FAST                0 (cls)
+             40 LOAD_ATTR                0 (_instance)
+             42 STORE_ATTR               5 (error_start_time)
+
+ 36          44 LOAD_CONST               0 (None)
+             46 LOAD_FAST                0 (cls)
+             48 LOAD_ATTR                0 (_instance)
+             50 STORE_ATTR               6 (last_error_time)
+
+ 37          52 LOAD_CONST               1 (0)
+             54 LOAD_FAST                0 (cls)
+             56 LOAD_ATTR                0 (_instance)
+             58 STORE_ATTR               7 (error_count)
+
+ 38          60 LOAD_CONST               2 (False)
+             62 LOAD_FAST                0 (cls)
+             64 LOAD_ATTR                0 (_instance)
+             66 STORE_ATTR               8 (alert_sent)
+
+ 39          68 LOAD_CONST               1 (0)
+             70 LOAD_FAST                0 (cls)
+             72 LOAD_ATTR                0 (_instance)
+             74 STORE_ATTR               9 (last_alert_time)
+
+ 40          76 LOAD_CONST               2 (False)
+             78 LOAD_FAST                0 (cls)
+             80 LOAD_ATTR                0 (_instance)
+             82 STORE_ATTR              10 (check_task_running)
+
+ 41     >>   84 LOAD_FAST                0 (cls)
+             86 LOAD_ATTR                0 (_instance)
+             88 RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x10924cb30, file "WeRobotCore/core/alert_notifier.py", line 43>:
+ 45           0 LOAD_CONST               0 (None)
+              2 RETURN_VALUE
+
+Disassembly of <code object schedule_connection_check at 0x10924cf50, file "WeRobotCore/core/alert_notifier.py", line 46>:
+ 54           0 LOAD_DEREF               0 (self)
+              2 LOAD_ATTR                0 (check_task_running)
+              4 POP_JUMP_IF_FALSE       10
+
+ 56           6 LOAD_CONST               1 (None)
+              8 RETURN_VALUE
+
+ 57     >>   10 LOAD_CONST               2 (0)
+             12 LOAD_CONST               1 (None)
+             14 IMPORT_NAME              1 (threading)
+             16 STORE_FAST               2 (threading)
+
+ 58          18 LOAD_CONST               2 (0)
+             20 LOAD_CONST               1 (None)
+             22 IMPORT_NAME              2 (time)
+             24 STORE_DEREF              1 (time)
+
+ 59          26 LOAD_GLOBAL              3 (logger)
+             28 LOAD_METHOD              4 (info)
+             30 LOAD_CONST               3 ('微信窗口不存在,启动定时预警任务，倒计时60秒...')
+             32 CALL_METHOD              1
+             34 POP_TOP
+
+ 60          36 LOAD_CLOSURE             0 (self)
+             38 LOAD_CLOSURE             1 (time)
+             40 LOAD_CLOSURE             2 (wechat_instance)
+             42 BUILD_TUPLE              3
+             44 LOAD_CONST               4 (<code object delayed_check at 0x10924c7c0, file "WeRobotCore/core/alert_notifier.py", line 60>)
+             46 LOAD_CONST               5 ('AlertNotifier.schedule_connection_check.<locals>.delayed_check')
+             48 MAKE_FUNCTION            8 (closure)
+             50 STORE_FAST               3 (delayed_check)
+
+ 72          52 LOAD_FAST                2 (threading)
+             54 LOAD_ATTR                5 (Thread)
+             56 LOAD_FAST                3 (delayed_check)
+             58 LOAD_CONST               6 (('target',))
+             60 CALL_FUNCTION_KW         1
+             62 STORE_FAST               4 (check_thread)
+
+ 73          64 LOAD_CONST               7 (True)
+             66 LOAD_FAST                4 (check_thread)
+             68 STORE_ATTR               6 (daemon)
+
+ 74          70 LOAD_FAST                4 (check_thread)
+             72 LOAD_METHOD              7 (start)
+             74 CALL_METHOD              0
+             76 POP_TOP
+             78 LOAD_CONST               1 (None)
+             80 RETURN_VALUE
+
+Disassembly of <code object delayed_check at 0x10924c7c0, file "WeRobotCore/core/alert_notifier.py", line 60>:
+ 62           0 LOAD_CONST               1 (True)
+              2 LOAD_DEREF               0 (self)
+              4 STORE_ATTR               0 (check_task_running)
+
+ 63           6 LOAD_DEREF               1 (time)
+              8 LOAD_METHOD              1 (sleep)
+             10 LOAD_CONST               2 (60)
+             12 CALL_METHOD              1
+             14 POP_TOP
+
+ 65          16 LOAD_DEREF               2 (wechat_instance)
+             18 LOAD_METHOD              2 (check_connection_status)
+             20 CALL_METHOD              0
+             22 STORE_FAST               0 (status)
+
+ 66          24 LOAD_FAST                0 (status)
+             26 LOAD_METHOD              3 (get)
+             28 LOAD_CONST               3 ('connected')
+             30 LOAD_CONST               4 (False)
+             32 CALL_METHOD              2
+             34 POP_JUMP_IF_TRUE        54
+
+ 68          36 LOAD_GLOBAL              4 (logger)
+             38 LOAD_METHOD              5 (warning)
+             40 LOAD_CONST               5 ('未探测到WeChat窗口，发送预警邮件')
+             42 CALL_METHOD              1
+             44 POP_TOP
+
+ 69          46 LOAD_DEREF               0 (self)
+             48 LOAD_METHOD              6 (send_alert_email)
+             50 CALL_METHOD              0
+             52 POP_TOP
+        >>   54 LOAD_CONST               0 (None)
+             56 RETURN_VALUE
+
+Disassembly of <code object check_error at 0x10924c9d0, file "WeRobotCore/core/alert_notifier.py", line 75>:
+ 82           0 LOAD_GLOBAL              0 (time)
+              2 LOAD_METHOD              0 (time)
+              4 CALL_METHOD              0
+              6 STORE_FAST               2 (current_time)
+
+ 85           8 LOAD_FAST                0 (self)
+             10 LOAD_ATTR                1 (error_start_time)
+             12 LOAD_CONST               1 (None)
+             14 IS_OP                    0
+             16 POP_JUMP_IF_FALSE       50
+
+ 86          18 LOAD_FAST                2 (current_time)
+             20 LOAD_FAST                0 (self)
+             22 STORE_ATTR               1 (error_start_time)
+
+ 87          24 LOAD_FAST                2 (current_time)
+             26 LOAD_FAST                0 (self)
+             28 STORE_ATTR               2 (last_error_time)
+
+ 88          30 LOAD_CONST               2 (1)
+             32 LOAD_FAST                0 (self)
+             34 STORE_ATTR               3 (error_count)
+
+ 89          36 LOAD_GLOBAL              4 (logger)
+             38 LOAD_METHOD              5 (warning)
+             40 LOAD_CONST               3 ('检测到UIA断开连接错误，开始监控...')
+             42 CALL_METHOD              1
+             44 POP_TOP
+
+ 90          46 LOAD_CONST               1 (None)
+             48 RETURN_VALUE
+
+ 93     >>   50 LOAD_FAST                2 (current_time)
+             52 LOAD_FAST                0 (self)
+             54 LOAD_ATTR                2 (last_error_time)
+             56 BINARY_SUBTRACT
+             58 STORE_FAST               3 (time_since_last_error)
+
+ 96          60 LOAD_FAST                3 (time_since_last_error)
+             62 LOAD_CONST               4 (60)
+             64 COMPARE_OP               5 (>=)
+             66 POP_JUMP_IF_FALSE       98
+
+ 97          68 LOAD_FAST                2 (current_time)
+             70 LOAD_FAST                0 (self)
+             72 STORE_ATTR               1 (error_start_time)
+
+ 98          74 LOAD_CONST               2 (1)
+             76 LOAD_FAST                0 (self)
+             78 STORE_ATTR               3 (error_count)
+
+ 99          80 LOAD_CONST               5 (False)
+             82 LOAD_FAST                0 (self)
+             84 STORE_ATTR               6 (alert_sent)
+
+100          86 LOAD_GLOBAL              4 (logger)
+             88 LOAD_METHOD              5 (warning)
+             90 LOAD_CONST               6 ('距离上次错误超过1分钟，重新开始监控...')
+             92 CALL_METHOD              1
+             94 POP_TOP
+             96 JUMP_FORWARD            86 (to 184)
+
+103     >>   98 LOAD_FAST                0 (self)
+            100 DUP_TOP
+            102 LOAD_ATTR                3 (error_count)
+            104 LOAD_CONST               2 (1)
+            106 INPLACE_ADD
+            108 ROT_TWO
+            110 STORE_ATTR               3 (error_count)
+
+106         112 LOAD_FAST                2 (current_time)
+            114 LOAD_FAST                0 (self)
+            116 LOAD_ATTR                1 (error_start_time)
+            118 BINARY_SUBTRACT
+            120 STORE_FAST               4 (time_since_start)
+
+107         122 LOAD_FAST                2 (current_time)
+            124 LOAD_FAST                0 (self)
+            126 LOAD_ATTR                7 (last_alert_time)
+            128 BINARY_SUBTRACT
+            130 STORE_FAST               5 (time_since_last_alert)
+
+108         132 LOAD_GLOBAL              8 (print)
+            134 LOAD_CONST               7 ('累计错误时长:')
+            136 LOAD_FAST                4 (time_since_start)
+            138 LOAD_FAST                5 (time_since_last_alert)
+            140 CALL_FUNCTION            3
+            142 POP_TOP
+
+109         144 LOAD_FAST                4 (time_since_start)
+            146 LOAD_CONST               4 (60)
+            148 COMPARE_OP               5 (>=)
+            150 POP_JUMP_IF_FALSE      184
+
+110         152 LOAD_FAST                0 (self)
+            154 LOAD_ATTR                3 (error_count)
+            156 LOAD_CONST               8 (5)
+            158 COMPARE_OP               5 (>=)
+
+109         160 POP_JUMP_IF_FALSE      184
+
+111         162 LOAD_FAST                5 (time_since_last_alert)
+            164 LOAD_CONST               9 (300)
+            166 COMPARE_OP               5 (>=)
+
+109         168 POP_JUMP_IF_FALSE      184
+
+112         170 LOAD_FAST                0 (self)
+            172 LOAD_METHOD              9 (send_alert_email)
+            174 CALL_METHOD              0
+            176 POP_TOP
+
+113         178 LOAD_FAST                2 (current_time)
+            180 LOAD_FAST                0 (self)
+            182 STORE_ATTR               7 (last_alert_time)
+
+116     >>  184 LOAD_FAST                2 (current_time)
+            186 LOAD_FAST                0 (self)
+            188 STORE_ATTR               2 (last_error_time)
+            190 LOAD_CONST               1 (None)
+            192 RETURN_VALUE
+
+Disassembly of <code object reset_monitor at 0x10924c2f0, file "WeRobotCore/core/alert_notifier.py", line 118>:
+120           0 LOAD_CONST               1 (None)
+              2 LOAD_FAST                0 (self)
+              4 STORE_ATTR               0 (error_start_time)
+
+121           6 LOAD_CONST               1 (None)
+              8 LOAD_FAST                0 (self)
+             10 STORE_ATTR               1 (last_error_time)
+
+122          12 LOAD_CONST               2 (0)
+             14 LOAD_FAST                0 (self)
+             16 STORE_ATTR               2 (error_count)
+
+123          18 LOAD_CONST               3 (False)
+             20 LOAD_FAST                0 (self)
+             22 STORE_ATTR               3 (alert_sent)
+             24 LOAD_CONST               1 (None)
+             26 RETURN_VALUE
+
+Disassembly of <code object send_alert_email at 0x10924c3a0, file "WeRobotCore/core/alert_notifier.py", line 125>:
+127           0 SETUP_FINALLY          146 (to 148)
+
+128           2 LOAD_CONST               1 (2)
+              4 LOAD_CONST               2 (('FeishuNotifier',))
+              6 IMPORT_NAME              0 (utils.feishu_notifier)
+              8 IMPORT_FROM              1 (FeishuNotifier)
+             10 STORE_FAST               1 (FeishuNotifier)
+             12 POP_TOP
+
+129          14 LOAD_FAST                1 (FeishuNotifier)
+             16 CALL_FUNCTION            0
+             18 STORE_FAST               2 (notifier)
+
+130          20 LOAD_FAST                2 (notifier)
+             22 LOAD_METHOD              2 (is_configured)
+             24 CALL_METHOD              0
+             26 POP_JUMP_IF_TRUE        44
+
+131          28 LOAD_GLOBAL              3 (logger)
+             30 LOAD_METHOD              4 (warning)
+             32 LOAD_CONST               3 ('飞书未配置，跳过预警通知')
+             34 CALL_METHOD              1
+             36 POP_TOP
+
+132          38 POP_BLOCK
+             40 LOAD_CONST               4 (None)
+             42 RETURN_VALUE
+
+134     >>   44 LOAD_CONST               5 ('机器人提示您，您的微信长时间无法监测：\n\n1. 错误描述：无法获取微信窗口\n2. 持续时间：超过1分钟\n3. 错误次数：5次\n\n请及时检查微信客户端状态，并在机器人欢迎页点击[重新连接]')
+
+133          46 STORE_FAST               3 (content)
+
+140          48 LOAD_FAST                2 (notifier)
+             50 LOAD_METHOD              5 (send_notification)
+             52 LOAD_FAST                3 (content)
+             54 LOAD_CONST               6 ('异常预警通知')
+             56 CALL_METHOD              2
+             58 STORE_FAST               4 (result)
+
+141          60 LOAD_FAST                4 (result)
+             62 LOAD_METHOD              6 (get)
+             64 LOAD_CONST               7 ('success')
+             66 CALL_METHOD              1
+             68 POP_JUMP_IF_FALSE       90
+
+142          70 LOAD_FAST                0 (self)
+             72 LOAD_METHOD              7 (reset_monitor)
+             74 CALL_METHOD              0
+             76 POP_TOP
+
+143          78 LOAD_GLOBAL              3 (logger)
+             80 LOAD_METHOD              8 (info)
+             82 LOAD_CONST               8 ('飞书预警通知发送成功')
+             84 CALL_METHOD              1
+             86 POP_TOP
+             88 JUMP_FORWARD            54 (to 144)
+
+145     >>   90 LOAD_FAST                4 (result)
+             92 LOAD_METHOD              6 (get)
+             94 LOAD_CONST               9 ('detail')
+             96 CALL_METHOD              1
+             98 STORE_FAST               5 (detail)
+
+146         100 LOAD_FAST                4 (result)
+            102 LOAD_METHOD              6 (get)
+            104 LOAD_CONST              10 ('id_type')
+            106 CALL_METHOD              1
+            108 STORE_FAST               6 (id_type)
+
+147         110 LOAD_GLOBAL              3 (logger)
+            112 LOAD_METHOD              4 (warning)
+            114 LOAD_CONST              11 ('飞书预警通知发送失败: ')
+            116 LOAD_FAST                4 (result)
+            118 LOAD_METHOD              6 (get)
+            120 LOAD_CONST              12 ('reason')
+            122 CALL_METHOD              1
+            124 FORMAT_VALUE             0
+            126 LOAD_CONST              13 (', id_type=')
+            128 LOAD_FAST                6 (id_type)
+            130 FORMAT_VALUE             0
+            132 LOAD_CONST              14 (', detail=')
+            134 LOAD_FAST                5 (detail)
+            136 FORMAT_VALUE             0
+            138 BUILD_STRING             6
+            140 CALL_METHOD              1
+            142 POP_TOP
+        >>  144 POP_BLOCK
+            146 JUMP_FORWARD            58 (to 206)
+
+148     >>  148 DUP_TOP
+            150 LOAD_GLOBAL              9 (Exception)
+            152 JUMP_IF_NOT_EXC_MATCH   204
+            154 POP_TOP
+            156 STORE_FAST               7 (e)
+            158 POP_TOP
+            160 SETUP_FINALLY           34 (to 196)
+
+149         162 LOAD_GLOBAL              3 (logger)
+            164 LOAD_METHOD             10 (error)
+            166 LOAD_CONST              15 ('发送飞书预警失败: ')
+            168 LOAD_GLOBAL             11 (str)
+            170 LOAD_FAST                7 (e)
+            172 CALL_FUNCTION            1
+            174 FORMAT_VALUE             0
+            176 BUILD_STRING             2
+            178 CALL_METHOD              1
+            180 POP_TOP
+
+150         182 RAISE_VARARGS            0
+            184 POP_BLOCK
+            186 POP_EXCEPT
+            188 LOAD_CONST               4 (None)
+            190 STORE_FAST               7 (e)
+            192 DELETE_FAST              7 (e)
+            194 JUMP_FORWARD            10 (to 206)
+        >>  196 LOAD_CONST               4 (None)
+            198 STORE_FAST               7 (e)
+            200 DELETE_FAST              7 (e)
+            202 RERAISE
+        >>  204 RERAISE
+        >>  206 LOAD_CONST               4 (None)
+            208 RETURN_VALUE

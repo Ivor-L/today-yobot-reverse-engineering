@@ -1,0 +1,7 @@
+// set .name for anonymous default exports per ES spec
+// skipped when the property is non-configurable (pre-ES2015 engines),
+// where Object.defineProperty would throw
+__webpack_require__.dn = (x) => {
+	var descriptor = Object.getOwnPropertyDescriptor(x, "name");
+	if (!descriptor || (!descriptor.writable && descriptor.configurable)) Object.defineProperty(x, "name", { value: "default", configurable: true });
+};

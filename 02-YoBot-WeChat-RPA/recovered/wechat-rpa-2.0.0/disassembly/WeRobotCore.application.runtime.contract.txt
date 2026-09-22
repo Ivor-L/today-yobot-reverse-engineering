@@ -1,0 +1,659 @@
+  1           0 LOAD_CONST               0 ('Platform-neutral projections for the versioned runtime contract.\n\nThis module deliberately does not infer product capability from the currently\nmigrated Driver ports. Windows still owns mature features that have not yet\ncrossed those ports, while macOS may expose a smaller explicit catalog. A\ncomposition root must therefore provide the product capability snapshot.\n')
+              2 STORE_NAME               0 (__doc__)
+
+  9           4 LOAD_CONST               1 (0)
+              6 LOAD_CONST               2 (('dataclass',))
+              8 IMPORT_NAME              1 (dataclasses)
+             10 IMPORT_FROM              2 (dataclass)
+             12 STORE_NAME               2 (dataclass)
+             14 POP_TOP
+
+ 10          16 LOAD_CONST               1 (0)
+             18 LOAD_CONST               3 (('MappingProxyType',))
+             20 IMPORT_NAME              3 (types)
+             22 IMPORT_FROM              4 (MappingProxyType)
+             24 STORE_NAME               4 (MappingProxyType)
+             26 POP_TOP
+
+ 11          28 LOAD_CONST               1 (0)
+             30 LOAD_CONST               4 (('Any', 'Mapping', 'Protocol', 'Tuple', 'runtime_checkable'))
+             32 IMPORT_NAME              5 (typing)
+             34 IMPORT_FROM              6 (Any)
+             36 STORE_NAME               6 (Any)
+             38 IMPORT_FROM              7 (Mapping)
+             40 STORE_NAME               7 (Mapping)
+             42 IMPORT_FROM              8 (Protocol)
+             44 STORE_NAME               8 (Protocol)
+             46 IMPORT_FROM              9 (Tuple)
+             48 STORE_NAME               9 (Tuple)
+             50 IMPORT_FROM             10 (runtime_checkable)
+             52 STORE_NAME              10 (runtime_checkable)
+             54 POP_TOP
+
+ 13          56 LOAD_CONST               1 (0)
+             58 LOAD_CONST               5 (('CapabilityState',))
+             60 IMPORT_NAME             11 (WeRobotCore.domain)
+             62 IMPORT_FROM             12 (CapabilityState)
+             64 STORE_NAME              12 (CapabilityState)
+             66 POP_TOP
+
+ 15          68 LOAD_CONST               6 (1)
+             70 LOAD_CONST               7 (('RuntimeDescriptor',))
+             72 IMPORT_NAME             13 (container)
+             74 IMPORT_FROM             14 (RuntimeDescriptor)
+             76 STORE_NAME              14 (RuntimeDescriptor)
+             78 POP_TOP
+
+ 18          80 LOAD_NAME               15 (str)
+             82 LOAD_NAME               15 (str)
+             84 LOAD_NAME               15 (str)
+             86 LOAD_CONST               8 (('value', 'field_name', 'return'))
+             88 BUILD_CONST_KEY_MAP      3
+             90 LOAD_CONST               9 (<code object _required_text at 0x1072e0b30, file "WeRobotCore/application/runtime/contract.py", line 18>)
+             92 LOAD_CONST              10 ('_required_text')
+             94 MAKE_FUNCTION            4 (annotations)
+             96 STORE_NAME              16 (_required_text)
+
+ 24          98 LOAD_NAME               10 (runtime_checkable)
+
+ 25         100 LOAD_BUILD_CLASS
+            102 LOAD_CONST              11 (<code object RuntimeCapabilityProvider at 0x1072e0f50, file "WeRobotCore/application/runtime/contract.py", line 24>)
+            104 LOAD_CONST              12 ('RuntimeCapabilityProvider')
+            106 MAKE_FUNCTION            0
+            108 LOAD_CONST              12 ('RuntimeCapabilityProvider')
+            110 LOAD_NAME                8 (Protocol)
+            112 CALL_FUNCTION            3
+            114 CALL_FUNCTION            1
+            116 STORE_NAME              17 (RuntimeCapabilityProvider)
+
+ 32         118 LOAD_NAME                2 (dataclass)
+            120 LOAD_CONST              13 (True)
+            122 LOAD_CONST              14 (('frozen',))
+            124 CALL_FUNCTION_KW         1
+
+ 33         126 LOAD_BUILD_CLASS
+            128 LOAD_CONST              15 (<code object RuntimeContractSnapshot at 0x1073abd40, file "WeRobotCore/application/runtime/contract.py", line 32>)
+            130 LOAD_CONST              16 ('RuntimeContractSnapshot')
+            132 MAKE_FUNCTION            0
+            134 LOAD_CONST              16 ('RuntimeContractSnapshot')
+            136 CALL_FUNCTION            2
+            138 CALL_FUNCTION            1
+            140 STORE_NAME              18 (RuntimeContractSnapshot)
+
+118         142 LOAD_BUILD_CLASS
+            144 LOAD_CONST              17 (<code object RuntimeContractService at 0x1073ab030, file "WeRobotCore/application/runtime/contract.py", line 118>)
+            146 LOAD_CONST              18 ('RuntimeContractService')
+            148 MAKE_FUNCTION            0
+            150 LOAD_CONST              18 ('RuntimeContractService')
+            152 CALL_FUNCTION            2
+            154 STORE_NAME              19 (RuntimeContractService)
+            156 LOAD_CONST              19 (None)
+            158 RETURN_VALUE
+
+Disassembly of <code object _required_text at 0x1072e0b30, file "WeRobotCore/application/runtime/contract.py", line 18>:
+ 19           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                0 (value)
+              4 LOAD_GLOBAL              1 (str)
+              6 CALL_FUNCTION            2
+              8 POP_JUMP_IF_FALSE       18
+             10 LOAD_FAST                0 (value)
+             12 LOAD_METHOD              2 (strip)
+             14 CALL_METHOD              0
+             16 POP_JUMP_IF_TRUE        32
+
+ 20     >>   18 LOAD_GLOBAL              3 (ValueError)
+             20 LOAD_CONST               1 ('{} must be a non-empty string')
+             22 LOAD_METHOD              4 (format)
+             24 LOAD_FAST                1 (field_name)
+             26 CALL_METHOD              1
+             28 CALL_FUNCTION            1
+             30 RAISE_VARARGS            1
+
+ 21     >>   32 LOAD_FAST                0 (value)
+             34 RETURN_VALUE
+
+Disassembly of <code object RuntimeCapabilityProvider at 0x1072e0f50, file "WeRobotCore/application/runtime/contract.py", line 24>:
+ 24           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('RuntimeCapabilityProvider')
+              6 STORE_NAME               2 (__qualname__)
+
+ 26           8 LOAD_CONST               1 ('Return product capabilities without probing UI or changing state.')
+             10 STORE_NAME               3 (__doc__)
+
+ 28          12 LOAD_NAME                4 (Mapping)
+             14 LOAD_NAME                5 (str)
+             16 LOAD_NAME                6 (CapabilityState)
+             18 BUILD_TUPLE              2
+             20 BINARY_SUBSCR
+             22 LOAD_CONST               2 (('return',))
+             24 BUILD_CONST_KEY_MAP      1
+             26 LOAD_CONST               3 (<code object snapshot_capabilities at 0x1072e0870, file "WeRobotCore/application/runtime/contract.py", line 28>)
+             28 LOAD_CONST               4 ('RuntimeCapabilityProvider.snapshot_capabilities')
+             30 MAKE_FUNCTION            4 (annotations)
+             32 STORE_NAME               7 (snapshot_capabilities)
+             34 LOAD_CONST               5 (None)
+             36 RETURN_VALUE
+
+Disassembly of <code object snapshot_capabilities at 0x1072e0870, file "WeRobotCore/application/runtime/contract.py", line 28>:
+ 29           0 LOAD_CONST               0 (None)
+              2 RETURN_VALUE
+
+Disassembly of <code object RuntimeContractSnapshot at 0x1073abd40, file "WeRobotCore/application/runtime/contract.py", line 32>:
+ 32           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('RuntimeContractSnapshot')
+              6 STORE_NAME               2 (__qualname__)
+              8 SETUP_ANNOTATIONS
+
+ 34          10 LOAD_CONST               1 ('One immutable source for contract and capability endpoint DTOs.')
+             12 STORE_NAME               3 (__doc__)
+
+ 36          14 LOAD_NAME                4 (str)
+             16 LOAD_NAME                5 (__annotations__)
+             18 LOAD_CONST               2 ('app_version')
+             20 STORE_SUBSCR
+
+ 37          22 LOAD_NAME                4 (str)
+             24 LOAD_NAME                5 (__annotations__)
+             26 LOAD_CONST               3 ('contract_version')
+             28 STORE_SUBSCR
+
+ 38          30 LOAD_NAME                6 (Tuple)
+             32 LOAD_NAME                4 (str)
+             34 LOAD_CONST               4 (Ellipsis)
+             36 BUILD_TUPLE              2
+             38 BINARY_SUBSCR
+             40 LOAD_NAME                5 (__annotations__)
+             42 LOAD_CONST               5 ('supported_contract_versions')
+             44 STORE_SUBSCR
+
+ 39          46 LOAD_NAME                4 (str)
+             48 LOAD_NAME                5 (__annotations__)
+             50 LOAD_CONST               6 ('platform')
+             52 STORE_SUBSCR
+
+ 40          54 LOAD_NAME                4 (str)
+             56 LOAD_NAME                5 (__annotations__)
+             58 LOAD_CONST               7 ('architecture')
+             60 STORE_SUBSCR
+
+ 41          62 LOAD_NAME                4 (str)
+             64 LOAD_NAME                5 (__annotations__)
+             66 LOAD_CONST               8 ('driver_id')
+             68 STORE_SUBSCR
+
+ 42          70 LOAD_NAME                4 (str)
+             72 LOAD_NAME                5 (__annotations__)
+             74 LOAD_CONST               9 ('driver_api_version')
+             76 STORE_SUBSCR
+
+ 43          78 LOAD_NAME                7 (Mapping)
+             80 LOAD_NAME                4 (str)
+             82 LOAD_NAME                8 (CapabilityState)
+             84 BUILD_TUPLE              2
+             86 BINARY_SUBSCR
+             88 LOAD_NAME                5 (__annotations__)
+             90 LOAD_CONST              10 ('capabilities')
+             92 STORE_SUBSCR
+
+ 45          94 LOAD_CONST              11 (None)
+             96 LOAD_CONST              12 (('return',))
+             98 BUILD_CONST_KEY_MAP      1
+            100 LOAD_CONST              13 (<code object __post_init__ at 0x1072e0d40, file "WeRobotCore/application/runtime/contract.py", line 45>)
+            102 LOAD_CONST              14 ('RuntimeContractSnapshot.__post_init__')
+            104 MAKE_FUNCTION            4 (annotations)
+            106 STORE_NAME               9 (__post_init__)
+
+ 88         108 LOAD_NAME                7 (Mapping)
+            110 LOAD_NAME                4 (str)
+            112 LOAD_NAME               10 (Any)
+            114 BUILD_TUPLE              2
+            116 BINARY_SUBSCR
+            118 LOAD_CONST              12 (('return',))
+            120 BUILD_CONST_KEY_MAP      1
+            122 LOAD_CONST              15 (<code object to_agent_contract_dict at 0x1072e0710, file "WeRobotCore/application/runtime/contract.py", line 88>)
+            124 LOAD_CONST              16 ('RuntimeContractSnapshot.to_agent_contract_dict')
+            126 MAKE_FUNCTION            4 (annotations)
+            128 STORE_NAME              11 (to_agent_contract_dict)
+
+ 98         130 LOAD_NAME                7 (Mapping)
+            132 LOAD_NAME                4 (str)
+            134 LOAD_NAME               10 (Any)
+            136 BUILD_TUPLE              2
+            138 BINARY_SUBSCR
+            140 LOAD_CONST              12 (('return',))
+            142 BUILD_CONST_KEY_MAP      1
+            144 LOAD_CONST              17 (<code object to_runtime_capabilities_dict at 0x1072e0be0, file "WeRobotCore/application/runtime/contract.py", line 98>)
+            146 LOAD_CONST              18 ('RuntimeContractSnapshot.to_runtime_capabilities_dict')
+            148 MAKE_FUNCTION            4 (annotations)
+            150 STORE_NAME              12 (to_runtime_capabilities_dict)
+            152 LOAD_CONST              11 (None)
+            154 RETURN_VALUE
+
+Disassembly of <code object __post_init__ at 0x1072e0d40, file "WeRobotCore/application/runtime/contract.py", line 45>:
+ 46           0 LOAD_CONST               1 (('app_version', 'contract_version', 'platform', 'architecture', 'driver_id', 'driver_api_version'))
+              2 GET_ITER
+        >>    4 FOR_ITER                30 (to 36)
+              6 STORE_FAST               1 (field_name)
+
+ 54           8 LOAD_GLOBAL              0 (object)
+             10 LOAD_METHOD              1 (__setattr__)
+
+ 55          12 LOAD_FAST                0 (self)
+
+ 56          14 LOAD_FAST                1 (field_name)
+
+ 57          16 LOAD_GLOBAL              2 (_required_text)
+             18 LOAD_GLOBAL              3 (getattr)
+             20 LOAD_FAST                0 (self)
+             22 LOAD_FAST                1 (field_name)
+             24 CALL_FUNCTION            2
+             26 LOAD_FAST                1 (field_name)
+             28 CALL_FUNCTION            2
+
+ 54          30 CALL_METHOD              3
+             32 POP_TOP
+             34 JUMP_ABSOLUTE            4
+
+ 59     >>   36 LOAD_GLOBAL              4 (isinstance)
+             38 LOAD_FAST                0 (self)
+             40 LOAD_ATTR                5 (supported_contract_versions)
+             42 LOAD_GLOBAL              6 (tuple)
+             44 CALL_FUNCTION            2
+             46 POP_JUMP_IF_TRUE        56
+
+ 60          48 LOAD_GLOBAL              7 (TypeError)
+             50 LOAD_CONST               2 ('supported_contract_versions must be a tuple')
+             52 CALL_FUNCTION            1
+             54 RAISE_VARARGS            1
+
+ 61     >>   56 LOAD_FAST                0 (self)
+             58 LOAD_ATTR                5 (supported_contract_versions)
+             60 POP_JUMP_IF_TRUE        70
+
+ 62          62 LOAD_GLOBAL              8 (ValueError)
+             64 LOAD_CONST               3 ('supported_contract_versions cannot be empty')
+             66 CALL_FUNCTION            1
+             68 RAISE_VARARGS            1
+
+ 63     >>   70 LOAD_FAST                0 (self)
+             72 LOAD_ATTR                5 (supported_contract_versions)
+             74 GET_ITER
+        >>   76 FOR_ITER                14 (to 92)
+             78 STORE_FAST               2 (version)
+
+ 64          80 LOAD_GLOBAL              2 (_required_text)
+             82 LOAD_FAST                2 (version)
+             84 LOAD_CONST               4 ('supported contract version')
+             86 CALL_FUNCTION            2
+             88 POP_TOP
+             90 JUMP_ABSOLUTE           76
+
+ 65     >>   92 LOAD_GLOBAL              9 (len)
+             94 LOAD_GLOBAL             10 (set)
+             96 LOAD_FAST                0 (self)
+             98 LOAD_ATTR                5 (supported_contract_versions)
+            100 CALL_FUNCTION            1
+            102 CALL_FUNCTION            1
+            104 LOAD_GLOBAL              9 (len)
+
+ 66         106 LOAD_FAST                0 (self)
+            108 LOAD_ATTR                5 (supported_contract_versions)
+
+ 65         110 CALL_FUNCTION            1
+            112 COMPARE_OP               3 (!=)
+            114 POP_JUMP_IF_FALSE      124
+
+ 68         116 LOAD_GLOBAL              8 (ValueError)
+            118 LOAD_CONST               5 ('supported_contract_versions cannot contain duplicates')
+            120 CALL_FUNCTION            1
+            122 RAISE_VARARGS            1
+
+ 69     >>  124 LOAD_FAST                0 (self)
+            126 LOAD_ATTR               11 (contract_version)
+            128 LOAD_FAST                0 (self)
+            130 LOAD_ATTR                5 (supported_contract_versions)
+            132 CONTAINS_OP              1
+            134 POP_JUMP_IF_FALSE      144
+
+ 70         136 LOAD_GLOBAL              8 (ValueError)
+            138 LOAD_CONST               6 ('contract_version must be supported')
+            140 CALL_FUNCTION            1
+            142 RAISE_VARARGS            1
+
+ 71     >>  144 LOAD_GLOBAL              4 (isinstance)
+            146 LOAD_FAST                0 (self)
+            148 LOAD_ATTR               12 (capabilities)
+            150 LOAD_GLOBAL             13 (Mapping)
+            152 CALL_FUNCTION            2
+            154 POP_JUMP_IF_TRUE       164
+
+ 72         156 LOAD_GLOBAL              7 (TypeError)
+            158 LOAD_CONST               7 ('capabilities must be a mapping')
+            160 CALL_FUNCTION            1
+            162 RAISE_VARARGS            1
+
+ 74     >>  164 BUILD_MAP                0
+            166 STORE_FAST               3 (frozen)
+
+ 75         168 LOAD_FAST                0 (self)
+            170 LOAD_ATTR               12 (capabilities)
+            172 LOAD_METHOD             14 (items)
+            174 CALL_METHOD              0
+            176 GET_ITER
+        >>  178 FOR_ITER                62 (to 242)
+            180 UNPACK_SEQUENCE          2
+            182 STORE_FAST               4 (capability_name)
+            184 STORE_FAST               5 (state)
+
+ 76         186 LOAD_GLOBAL              2 (_required_text)
+            188 LOAD_FAST                4 (capability_name)
+            190 LOAD_CONST               8 ('capability name')
+            192 CALL_FUNCTION            2
+            194 STORE_FAST               6 (normalized_name)
+
+ 77         196 LOAD_GLOBAL              4 (isinstance)
+            198 LOAD_FAST                5 (state)
+            200 LOAD_GLOBAL             15 (CapabilityState)
+            202 CALL_FUNCTION            2
+            204 POP_JUMP_IF_TRUE       214
+
+ 78         206 LOAD_GLOBAL              7 (TypeError)
+            208 LOAD_CONST               9 ('capabilities must contain CapabilityState values')
+            210 CALL_FUNCTION            1
+            212 RAISE_VARARGS            1
+
+ 79     >>  214 LOAD_FAST                5 (state)
+            216 LOAD_ATTR               16 (name)
+            218 LOAD_FAST                6 (normalized_name)
+            220 COMPARE_OP               3 (!=)
+            222 POP_JUMP_IF_FALSE      232
+
+ 80         224 LOAD_GLOBAL              8 (ValueError)
+            226 LOAD_CONST              10 ('capability key must match CapabilityState.name')
+            228 CALL_FUNCTION            1
+            230 RAISE_VARARGS            1
+
+ 81     >>  232 LOAD_FAST                5 (state)
+            234 LOAD_FAST                3 (frozen)
+            236 LOAD_FAST                6 (normalized_name)
+            238 STORE_SUBSCR
+            240 JUMP_ABSOLUTE          178
+
+ 82     >>  242 LOAD_GLOBAL              0 (object)
+            244 LOAD_METHOD              1 (__setattr__)
+
+ 83         246 LOAD_FAST                0 (self)
+
+ 84         248 LOAD_CONST              11 ('capabilities')
+
+ 85         250 LOAD_GLOBAL             17 (MappingProxyType)
+            252 LOAD_GLOBAL             18 (dict)
+            254 LOAD_GLOBAL             19 (sorted)
+            256 LOAD_FAST                3 (frozen)
+            258 LOAD_METHOD             14 (items)
+            260 CALL_METHOD              0
+            262 CALL_FUNCTION            1
+            264 CALL_FUNCTION            1
+            266 CALL_FUNCTION            1
+
+ 82         268 CALL_METHOD              3
+            270 POP_TOP
+            272 LOAD_CONST               0 (None)
+            274 RETURN_VALUE
+
+Disassembly of <code object to_agent_contract_dict at 0x1072e0710, file "WeRobotCore/application/runtime/contract.py", line 88>:
+ 92           0 LOAD_FAST                0 (self)
+              2 LOAD_ATTR                0 (app_version)
+
+ 93           4 LOAD_FAST                0 (self)
+              6 LOAD_ATTR                1 (contract_version)
+
+ 94           8 LOAD_GLOBAL              2 (list)
+             10 LOAD_FAST                0 (self)
+             12 LOAD_ATTR                3 (supported_contract_versions)
+             14 CALL_FUNCTION            1
+
+ 95          16 LOAD_FAST                0 (self)
+             18 LOAD_ATTR                4 (driver_api_version)
+
+ 91          20 LOAD_CONST               1 (('appVersion', 'contractVersion', 'supportedContractVersions', 'driverApiVersion'))
+             22 BUILD_CONST_KEY_MAP      4
+             24 RETURN_VALUE
+
+Disassembly of <code object to_runtime_capabilities_dict at 0x1072e0be0, file "WeRobotCore/application/runtime/contract.py", line 98>:
+102           0 LOAD_FAST                0 (self)
+              2 LOAD_ATTR                0 (contract_version)
+
+103           4 LOAD_FAST                0 (self)
+              6 LOAD_ATTR                1 (platform)
+
+104           8 LOAD_FAST                0 (self)
+             10 LOAD_ATTR                2 (architecture)
+
+105          12 LOAD_FAST                0 (self)
+             14 LOAD_ATTR                3 (driver_id)
+
+106          16 LOAD_FAST                0 (self)
+             18 LOAD_ATTR                4 (driver_api_version)
+
+107          20 LOAD_CONST               1 (<code object <dictcomp> at 0x1072e0a80, file "WeRobotCore/application/runtime/contract.py", line 107>)
+             22 LOAD_CONST               2 ('RuntimeContractSnapshot.to_runtime_capabilities_dict.<locals>.<dictcomp>')
+             24 MAKE_FUNCTION            0
+
+113          26 LOAD_FAST                0 (self)
+             28 LOAD_ATTR                5 (capabilities)
+             30 LOAD_METHOD              6 (items)
+             32 CALL_METHOD              0
+
+107          34 GET_ITER
+             36 CALL_FUNCTION            1
+
+101          38 LOAD_CONST               3 (('contractVersion', 'platform', 'arch', 'driverId', 'driverApiVersion', 'capabilities'))
+             40 BUILD_CONST_KEY_MAP      6
+             42 RETURN_VALUE
+
+Disassembly of <code object <dictcomp> at 0x1072e0a80, file "WeRobotCore/application/runtime/contract.py", line 107>:
+107           0 BUILD_MAP                0
+              2 LOAD_FAST                0 (.0)
+        >>    4 FOR_ITER                34 (to 40)
+
+113           6 UNPACK_SEQUENCE          2
+              8 STORE_FAST               1 (name)
+             10 STORE_FAST               2 (state)
+
+108          12 LOAD_FAST                1 (name)
+
+109          14 LOAD_FAST                2 (state)
+             16 LOAD_ATTR                0 (status)
+             18 LOAD_ATTR                1 (value)
+
+110          20 LOAD_FAST                2 (state)
+             22 LOAD_ATTR                2 (reason_code)
+
+111          24 LOAD_GLOBAL              3 (list)
+             26 LOAD_FAST                2 (state)
+             28 LOAD_ATTR                4 (required_permissions)
+             30 CALL_FUNCTION            1
+
+108          32 LOAD_CONST               0 (('status', 'reasonCode', 'requiredPermissions'))
+             34 BUILD_CONST_KEY_MAP      3
+             36 MAP_ADD                  2
+             38 JUMP_ABSOLUTE            4
+        >>   40 RETURN_VALUE
+
+Disassembly of <code object RuntimeContractService at 0x1073ab030, file "WeRobotCore/application/runtime/contract.py", line 118>:
+118           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('RuntimeContractService')
+              6 STORE_NAME               2 (__qualname__)
+
+119           8 LOAD_CONST               1 ('Build read-only DTOs from an explicit descriptor and capability owner.')
+             10 STORE_NAME               3 (__doc__)
+
+128          12 LOAD_CONST               2 ('1.0')
+
+129          14 LOAD_CONST               3 (('1.0',))
+
+121          16 LOAD_CONST               4 (('contract_version', 'supported_contract_versions'))
+             18 BUILD_CONST_KEY_MAP      2
+
+124          20 LOAD_NAME                4 (RuntimeDescriptor)
+
+125          22 LOAD_NAME                5 (RuntimeCapabilityProvider)
+
+126          24 LOAD_NAME                6 (str)
+
+127          26 LOAD_NAME                6 (str)
+
+128          28 LOAD_NAME                6 (str)
+
+129          30 LOAD_NAME                7 (Tuple)
+             32 LOAD_NAME                6 (str)
+             34 LOAD_CONST               5 (Ellipsis)
+             36 BUILD_TUPLE              2
+             38 BINARY_SUBSCR
+
+130          40 LOAD_CONST               6 (None)
+
+121          42 LOAD_CONST               7 (('descriptor', 'capability_provider', 'app_version', 'architecture', 'contract_version', 'supported_contract_versions', 'return'))
+             44 BUILD_CONST_KEY_MAP      7
+             46 LOAD_CONST               8 (<code object __init__ at 0x1073abb30, file "WeRobotCore/application/runtime/contract.py", line 121>)
+             48 LOAD_CONST               9 ('RuntimeContractService.__init__')
+             50 MAKE_FUNCTION            6 (kwdefaults, annotations)
+             52 STORE_NAME               8 (__init__)
+
+149          54 LOAD_NAME                9 (RuntimeContractSnapshot)
+             56 LOAD_CONST              10 (('return',))
+             58 BUILD_CONST_KEY_MAP      1
+             60 LOAD_CONST              11 (<code object snapshot at 0x1073ab450, file "WeRobotCore/application/runtime/contract.py", line 149>)
+             62 LOAD_CONST              12 ('RuntimeContractService.snapshot')
+             64 MAKE_FUNCTION            4 (annotations)
+             66 STORE_NAME              10 (snapshot)
+             68 LOAD_CONST               6 (None)
+             70 RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x1073abb30, file "WeRobotCore/application/runtime/contract.py", line 121>:
+131           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                1 (descriptor)
+              4 LOAD_GLOBAL              1 (RuntimeDescriptor)
+              6 CALL_FUNCTION            2
+              8 POP_JUMP_IF_TRUE        18
+
+132          10 LOAD_GLOBAL              2 (TypeError)
+             12 LOAD_CONST               1 ('descriptor must be RuntimeDescriptor')
+             14 CALL_FUNCTION            1
+             16 RAISE_VARARGS            1
+
+133     >>   18 LOAD_GLOBAL              0 (isinstance)
+             20 LOAD_FAST                2 (capability_provider)
+             22 LOAD_GLOBAL              3 (RuntimeCapabilityProvider)
+             24 CALL_FUNCTION            2
+             26 POP_JUMP_IF_TRUE        36
+
+134          28 LOAD_GLOBAL              2 (TypeError)
+
+135          30 LOAD_CONST               2 ('capability_provider must implement RuntimeCapabilityProvider')
+
+134          32 CALL_FUNCTION            1
+             34 RAISE_VARARGS            1
+
+137     >>   36 LOAD_FAST                1 (descriptor)
+             38 LOAD_FAST                0 (self)
+             40 STORE_ATTR               4 (_descriptor)
+
+138          42 LOAD_FAST                2 (capability_provider)
+             44 LOAD_FAST                0 (self)
+             46 STORE_ATTR               5 (_capability_provider)
+
+139          48 LOAD_GLOBAL              6 (_required_text)
+             50 LOAD_FAST                3 (app_version)
+             52 LOAD_CONST               3 ('app_version')
+             54 CALL_FUNCTION            2
+             56 LOAD_FAST                0 (self)
+             58 STORE_ATTR               7 (_app_version)
+
+140          60 LOAD_GLOBAL              6 (_required_text)
+             62 LOAD_FAST                4 (architecture)
+             64 LOAD_CONST               4 ('architecture')
+             66 CALL_FUNCTION            2
+             68 LOAD_FAST                0 (self)
+             70 STORE_ATTR               8 (_architecture)
+
+141          72 LOAD_GLOBAL              6 (_required_text)
+
+142          74 LOAD_FAST                5 (contract_version)
+
+143          76 LOAD_CONST               5 ('contract_version')
+
+141          78 CALL_FUNCTION            2
+             80 LOAD_FAST                0 (self)
+             82 STORE_ATTR               9 (_contract_version)
+
+145          84 LOAD_GLOBAL              0 (isinstance)
+             86 LOAD_FAST                6 (supported_contract_versions)
+             88 LOAD_GLOBAL             10 (tuple)
+             90 CALL_FUNCTION            2
+             92 POP_JUMP_IF_TRUE       102
+
+146          94 LOAD_GLOBAL              2 (TypeError)
+             96 LOAD_CONST               6 ('supported_contract_versions must be a tuple')
+             98 CALL_FUNCTION            1
+            100 RAISE_VARARGS            1
+
+147     >>  102 LOAD_FAST                6 (supported_contract_versions)
+            104 LOAD_FAST                0 (self)
+            106 STORE_ATTR              11 (_supported_contract_versions)
+            108 LOAD_CONST               0 (None)
+            110 RETURN_VALUE
+
+Disassembly of <code object snapshot at 0x1073ab450, file "WeRobotCore/application/runtime/contract.py", line 149>:
+150           0 LOAD_FAST                0 (self)
+              2 LOAD_ATTR                0 (_capability_provider)
+              4 LOAD_METHOD              1 (snapshot_capabilities)
+              6 CALL_METHOD              0
+              8 STORE_FAST               1 (capabilities)
+
+151          10 LOAD_GLOBAL              2 (isinstance)
+             12 LOAD_FAST                1 (capabilities)
+             14 LOAD_GLOBAL              3 (Mapping)
+             16 CALL_FUNCTION            2
+             18 POP_JUMP_IF_TRUE        28
+
+152          20 LOAD_GLOBAL              4 (TypeError)
+             22 LOAD_CONST               1 ('capability provider must return a mapping')
+             24 CALL_FUNCTION            1
+             26 RAISE_VARARGS            1
+
+153     >>   28 LOAD_GLOBAL              5 (RuntimeContractSnapshot)
+
+154          30 LOAD_FAST                0 (self)
+             32 LOAD_ATTR                6 (_app_version)
+
+155          34 LOAD_FAST                0 (self)
+             36 LOAD_ATTR                7 (_contract_version)
+
+156          38 LOAD_FAST                0 (self)
+             40 LOAD_ATTR                8 (_supported_contract_versions)
+
+157          42 LOAD_FAST                0 (self)
+             44 LOAD_ATTR                9 (_descriptor)
+             46 LOAD_ATTR               10 (platform)
+
+158          48 LOAD_FAST                0 (self)
+             50 LOAD_ATTR               11 (_architecture)
+
+159          52 LOAD_FAST                0 (self)
+             54 LOAD_ATTR                9 (_descriptor)
+             56 LOAD_ATTR               12 (driver_id)
+
+160          58 LOAD_FAST                0 (self)
+             60 LOAD_ATTR                9 (_descriptor)
+             62 LOAD_ATTR               13 (driver_api_version)
+
+161          64 LOAD_FAST                1 (capabilities)
+
+153          66 LOAD_CONST               2 (('app_version', 'contract_version', 'supported_contract_versions', 'platform', 'architecture', 'driver_id', 'driver_api_version', 'capabilities'))
+             68 CALL_FUNCTION_KW         8
+             70 RETURN_VALUE

@@ -1,0 +1,480 @@
+ 67           0 LOAD_CONST               0 (0)
+              2 LOAD_CONST               1 (None)
+              4 IMPORT_NAME              0 (openpyxl)
+              6 STORE_NAME               0 (openpyxl)
+
+ 68           8 LOAD_CONST               0 (0)
+             10 LOAD_CONST               1 (None)
+             12 IMPORT_NAME              1 (csv)
+             14 STORE_NAME               1 (csv)
+
+ 69          16 LOAD_CONST               0 (0)
+             18 LOAD_CONST               1 (None)
+             20 IMPORT_NAME              2 (os)
+             22 STORE_NAME               2 (os)
+
+ 71          24 LOAD_NAME                3 (str)
+             26 LOAD_NAME                4 (list)
+             28 LOAD_CONST               2 (('file_path', 'return'))
+             30 BUILD_CONST_KEY_MAP      2
+             32 LOAD_CONST               3 (<code object parse_friend_list at 0x1072e0a80, file "WeRobotCore/utils/excel_parser.py", line 71>)
+             34 LOAD_CONST               4 ('parse_friend_list')
+             36 MAKE_FUNCTION            4 (annotations)
+             38 STORE_NAME               5 (parse_friend_list)
+             40 LOAD_CONST               1 (None)
+             42 RETURN_VALUE
+
+Disassembly of <code object parse_friend_list at 0x1072e0a80, file "WeRobotCore/utils/excel_parser.py", line 71>:
+ 84           0 EXTENDED_ARG             2
+              2 SETUP_FINALLY          704 (to 708)
+              4 EXTENDED_ARG             2
+              6 SETUP_FINALLY          584 (to 592)
+
+ 86           8 LOAD_GLOBAL              0 (os)
+             10 LOAD_ATTR                1 (path)
+             12 LOAD_METHOD              2 (splitext)
+             14 LOAD_FAST                0 (file_path)
+             16 CALL_METHOD              1
+             18 LOAD_CONST               1 (1)
+             20 BINARY_SUBSCR
+             22 LOAD_METHOD              3 (lower)
+             24 CALL_METHOD              0
+             26 STORE_FAST               1 (file_ext)
+
+ 89          28 BUILD_LIST               0
+             30 STORE_FAST               2 (headers)
+
+ 90          32 BUILD_LIST               0
+             34 STORE_FAST               3 (data)
+
+ 92          36 LOAD_FAST                1 (file_ext)
+             38 LOAD_CONST               2 (('.xlsx', '.xls'))
+             40 CONTAINS_OP              0
+             42 POP_JUMP_IF_FALSE      146
+
+ 94          44 LOAD_GLOBAL              4 (openpyxl)
+             46 LOAD_ATTR                5 (load_workbook)
+             48 LOAD_FAST                0 (file_path)
+             50 LOAD_CONST               3 (True)
+             52 LOAD_CONST               4 (('read_only',))
+             54 CALL_FUNCTION_KW         2
+             56 STORE_FAST               4 (wb)
+
+ 95          58 LOAD_FAST                4 (wb)
+             60 LOAD_ATTR                6 (active)
+             62 STORE_FAST               5 (ws)
+
+ 98          64 LOAD_GLOBAL              7 (next)
+             66 LOAD_FAST                5 (ws)
+             68 LOAD_ATTR                8 (rows)
+             70 CALL_FUNCTION            1
+             72 GET_ITER
+        >>   74 FOR_ITER                16 (to 92)
+             76 STORE_FAST               6 (cell)
+
+ 99          78 LOAD_FAST                2 (headers)
+             80 LOAD_METHOD              9 (append)
+             82 LOAD_FAST                6 (cell)
+             84 LOAD_ATTR               10 (value)
+             86 CALL_METHOD              1
+             88 POP_TOP
+             90 JUMP_ABSOLUTE           74
+
+102     >>   92 LOAD_FAST                5 (ws)
+             94 LOAD_ATTR                8 (rows)
+             96 GET_ITER
+        >>   98 FOR_ITER                24 (to 124)
+            100 STORE_FAST               7 (row)
+
+103         102 LOAD_FAST                3 (data)
+            104 LOAD_METHOD              9 (append)
+            106 LOAD_CONST               5 (<code object <listcomp> at 0x1072e0df0, file "WeRobotCore/utils/excel_parser.py", line 103>)
+            108 LOAD_CONST               6 ('parse_friend_list.<locals>.<listcomp>')
+            110 MAKE_FUNCTION            0
+            112 LOAD_FAST                7 (row)
+            114 GET_ITER
+            116 CALL_FUNCTION            1
+            118 CALL_METHOD              1
+            120 POP_TOP
+            122 JUMP_ABSOLUTE           98
+
+106     >>  124 LOAD_FAST                3 (data)
+            126 LOAD_CONST               1 (1)
+            128 LOAD_CONST               7 (None)
+            130 BUILD_SLICE              2
+            132 BINARY_SUBSCR
+            134 STORE_FAST               3 (data)
+
+107         136 LOAD_FAST                4 (wb)
+            138 LOAD_METHOD             11 (close)
+            140 CALL_METHOD              0
+            142 POP_TOP
+            144 JUMP_FORWARD            90 (to 236)
+
+109     >>  146 LOAD_FAST                1 (file_ext)
+            148 LOAD_CONST               8 ('.csv')
+            150 COMPARE_OP               2 (==)
+            152 POP_JUMP_IF_FALSE      228
+
+111         154 LOAD_GLOBAL             12 (open)
+            156 LOAD_FAST                0 (file_path)
+            158 LOAD_CONST               9 ('r')
+            160 LOAD_CONST              10 ('utf-8')
+            162 LOAD_CONST              11 (('encoding',))
+            164 CALL_FUNCTION_KW         3
+            166 SETUP_WITH              42 (to 210)
+            168 STORE_FAST               8 (f)
+
+112         170 LOAD_GLOBAL             13 (csv)
+            172 LOAD_METHOD             14 (reader)
+            174 LOAD_FAST                8 (f)
+            176 CALL_METHOD              1
+            178 STORE_FAST               9 (csv_reader)
+
+113         180 LOAD_GLOBAL              7 (next)
+            182 LOAD_FAST                9 (csv_reader)
+            184 CALL_FUNCTION            1
+            186 STORE_FAST               2 (headers)
+
+114         188 LOAD_GLOBAL             15 (list)
+            190 LOAD_FAST                9 (csv_reader)
+            192 CALL_FUNCTION            1
+            194 STORE_FAST               3 (data)
+            196 POP_BLOCK
+            198 LOAD_CONST               7 (None)
+            200 DUP_TOP
+            202 DUP_TOP
+            204 CALL_FUNCTION            3
+            206 POP_TOP
+            208 JUMP_ABSOLUTE          236
+        >>  210 WITH_EXCEPT_START
+            212 POP_JUMP_IF_TRUE       216
+            214 RERAISE
+        >>  216 POP_TOP
+            218 POP_TOP
+            220 POP_TOP
+            222 POP_EXCEPT
+            224 POP_TOP
+            226 JUMP_FORWARD             8 (to 236)
+
+116     >>  228 LOAD_GLOBAL             16 (ValueError)
+            230 LOAD_CONST              12 ('不支持的文件格式，仅支持 Excel 或 CSV 文件')
+            232 CALL_FUNCTION            1
+            234 RAISE_VARARGS            1
+
+119     >>  236 LOAD_CONST              13 ('微信号/手机号')
+            238 STORE_FAST              10 (required_field)
+
+120         240 LOAD_FAST               10 (required_field)
+            242 LOAD_FAST                2 (headers)
+            244 CONTAINS_OP              1
+            246 EXTENDED_ARG             1
+            248 POP_JUMP_IF_FALSE      264
+
+121         250 LOAD_GLOBAL             16 (ValueError)
+            252 LOAD_CONST              14 ('缺少必填字段: ')
+            254 LOAD_FAST               10 (required_field)
+            256 FORMAT_VALUE             0
+            258 BUILD_STRING             2
+            260 CALL_FUNCTION            1
+            262 RAISE_VARARGS            1
+
+124     >>  264 LOAD_FAST                2 (headers)
+            266 LOAD_METHOD             17 (index)
+            268 LOAD_CONST              13 ('微信号/手机号')
+            270 CALL_METHOD              1
+            272 STORE_FAST              11 (wxid_index)
+
+125         274 LOAD_CONST              15 ('备注')
+            276 LOAD_FAST                2 (headers)
+            278 CONTAINS_OP              0
+            280 EXTENDED_ARG             1
+            282 POP_JUMP_IF_FALSE      294
+            284 LOAD_FAST                2 (headers)
+            286 LOAD_METHOD             17 (index)
+            288 LOAD_CONST              15 ('备注')
+            290 CALL_METHOD              1
+            292 JUMP_FORWARD             2 (to 296)
+        >>  294 LOAD_CONST              16 (-1)
+        >>  296 STORE_FAST              12 (remark_index)
+
+126         298 LOAD_CONST              17 ('标签')
+            300 LOAD_FAST                2 (headers)
+            302 CONTAINS_OP              0
+            304 EXTENDED_ARG             1
+            306 POP_JUMP_IF_FALSE      318
+            308 LOAD_FAST                2 (headers)
+            310 LOAD_METHOD             17 (index)
+            312 LOAD_CONST              17 ('标签')
+            314 CALL_METHOD              1
+            316 JUMP_FORWARD             2 (to 320)
+        >>  318 LOAD_CONST              16 (-1)
+        >>  320 STORE_FAST              13 (tags_index)
+
+129         322 BUILD_LIST               0
+            324 STORE_FAST              14 (friend_list)
+
+132         326 LOAD_FAST                3 (data)
+            328 GET_ITER
+        >>  330 FOR_ITER               182 (to 514)
+            332 STORE_FAST               7 (row)
+
+134         334 LOAD_FAST                7 (row)
+            336 LOAD_FAST               11 (wxid_index)
+            338 BINARY_SUBSCR
+            340 LOAD_CONST               7 (None)
+            342 IS_OP                    1
+            344 EXTENDED_ARG             1
+            346 POP_JUMP_IF_FALSE      364
+            348 LOAD_GLOBAL             18 (str)
+            350 LOAD_FAST                7 (row)
+            352 LOAD_FAST               11 (wxid_index)
+            354 BINARY_SUBSCR
+            356 CALL_FUNCTION            1
+            358 LOAD_METHOD             19 (strip)
+            360 CALL_METHOD              0
+            362 JUMP_FORWARD             2 (to 366)
+        >>  364 LOAD_CONST              18 ('')
+        >>  366 STORE_FAST              15 (wxid)
+
+135         368 LOAD_FAST               15 (wxid)
+            370 EXTENDED_ARG             1
+            372 POP_JUMP_IF_FALSE      398
+            374 LOAD_CONST              19 ('.')
+            376 LOAD_FAST               15 (wxid)
+            378 CONTAINS_OP              0
+            380 EXTENDED_ARG             1
+            382 POP_JUMP_IF_FALSE      398
+
+136         384 LOAD_FAST               15 (wxid)
+            386 LOAD_METHOD             20 (split)
+            388 LOAD_CONST              19 ('.')
+            390 CALL_METHOD              1
+            392 LOAD_CONST              20 (0)
+            394 BINARY_SUBSCR
+            396 STORE_FAST              15 (wxid)
+
+137     >>  398 LOAD_FAST               15 (wxid)
+            400 EXTENDED_ARG             1
+            402 POP_JUMP_IF_TRUE       408
+
+138         404 EXTENDED_ARG             1
+            406 JUMP_ABSOLUTE          330
+
+142     >>  408 LOAD_FAST               15 (wxid)
+
+143         410 LOAD_FAST               12 (remark_index)
+            412 LOAD_CONST              20 (0)
+            414 COMPARE_OP               5 (>=)
+            416 EXTENDED_ARG             1
+            418 POP_JUMP_IF_FALSE      450
+            420 LOAD_FAST                7 (row)
+            422 LOAD_FAST               12 (remark_index)
+            424 BINARY_SUBSCR
+            426 LOAD_CONST               7 (None)
+            428 IS_OP                    1
+            430 EXTENDED_ARG             1
+            432 POP_JUMP_IF_FALSE      450
+            434 LOAD_GLOBAL             18 (str)
+            436 LOAD_FAST                7 (row)
+            438 LOAD_FAST               12 (remark_index)
+            440 BINARY_SUBSCR
+            442 CALL_FUNCTION            1
+            444 LOAD_METHOD             19 (strip)
+            446 CALL_METHOD              0
+            448 JUMP_FORWARD             2 (to 452)
+        >>  450 LOAD_CONST               7 (None)
+
+144     >>  452 LOAD_FAST               13 (tags_index)
+            454 LOAD_CONST              20 (0)
+            456 COMPARE_OP               5 (>=)
+            458 EXTENDED_ARG             1
+            460 POP_JUMP_IF_FALSE      492
+            462 LOAD_FAST                7 (row)
+            464 LOAD_FAST               13 (tags_index)
+            466 BINARY_SUBSCR
+            468 LOAD_CONST               7 (None)
+            470 IS_OP                    1
+            472 EXTENDED_ARG             1
+            474 POP_JUMP_IF_FALSE      492
+            476 LOAD_GLOBAL             18 (str)
+            478 LOAD_FAST                7 (row)
+            480 LOAD_FAST               13 (tags_index)
+            482 BINARY_SUBSCR
+            484 CALL_FUNCTION            1
+            486 LOAD_METHOD             19 (strip)
+            488 CALL_METHOD              0
+            490 JUMP_FORWARD             2 (to 494)
+        >>  492 LOAD_CONST               7 (None)
+
+141     >>  494 LOAD_CONST              21 (('wxid', 'remark', 'tags'))
+            496 BUILD_CONST_KEY_MAP      3
+            498 STORE_FAST              16 (friend_info)
+
+146         500 LOAD_FAST               14 (friend_list)
+            502 LOAD_METHOD              9 (append)
+            504 LOAD_FAST               16 (friend_info)
+            506 CALL_METHOD              1
+            508 POP_TOP
+            510 EXTENDED_ARG             1
+            512 JUMP_ABSOLUTE          330
+
+149     >>  514 LOAD_FAST               14 (friend_list)
+            516 EXTENDED_ARG             2
+            518 POP_JUMP_IF_TRUE       528
+
+150         520 LOAD_GLOBAL             16 (ValueError)
+            522 LOAD_CONST              22 ('文件中没有有效的好友数据')
+            524 CALL_FUNCTION            1
+            526 RAISE_VARARGS            1
+
+152     >>  528 LOAD_FAST               14 (friend_list)
+            530 POP_BLOCK
+            532 POP_BLOCK
+
+158         534 LOAD_GLOBAL              0 (os)
+            536 LOAD_ATTR                1 (path)
+            538 LOAD_METHOD             21 (exists)
+            540 LOAD_FAST                0 (file_path)
+            542 CALL_METHOD              1
+            544 EXTENDED_ARG             2
+            546 POP_JUMP_IF_FALSE      590
+            548 LOAD_CONST              23 ('tmp')
+            550 LOAD_FAST                0 (file_path)
+            552 LOAD_METHOD              3 (lower)
+            554 CALL_METHOD              0
+            556 CONTAINS_OP              0
+            558 EXTENDED_ARG             2
+            560 POP_JUMP_IF_FALSE      590
+
+159         562 SETUP_FINALLY           14 (to 578)
+
+160         564 LOAD_GLOBAL              0 (os)
+            566 LOAD_METHOD             22 (remove)
+            568 LOAD_FAST                0 (file_path)
+            570 CALL_METHOD              1
+            572 POP_TOP
+            574 POP_BLOCK
+            576 RETURN_VALUE
+
+161     >>  578 POP_TOP
+            580 POP_TOP
+            582 POP_TOP
+
+162         584 POP_EXCEPT
+            586 RETURN_VALUE
+            588 RERAISE
+
+152     >>  590 RETURN_VALUE
+
+154     >>  592 DUP_TOP
+            594 LOAD_GLOBAL             23 (Exception)
+            596 EXTENDED_ARG             2
+            598 JUMP_IF_NOT_EXC_MATCH   646
+            600 POP_TOP
+            602 STORE_FAST              17 (e)
+            604 POP_TOP
+            606 SETUP_FINALLY           30 (to 638)
+
+155         608 LOAD_GLOBAL             16 (ValueError)
+            610 LOAD_CONST              24 ('解析文件失败: ')
+            612 LOAD_GLOBAL             18 (str)
+            614 LOAD_FAST               17 (e)
+            616 CALL_FUNCTION            1
+            618 FORMAT_VALUE             0
+            620 BUILD_STRING             2
+            622 CALL_FUNCTION            1
+            624 RAISE_VARARGS            1
+            626 POP_BLOCK
+            628 POP_EXCEPT
+            630 LOAD_CONST               7 (None)
+            632 STORE_FAST              17 (e)
+            634 DELETE_FAST             17 (e)
+            636 JUMP_FORWARD            10 (to 648)
+        >>  638 LOAD_CONST               7 (None)
+            640 STORE_FAST              17 (e)
+            642 DELETE_FAST             17 (e)
+            644 RERAISE
+        >>  646 RERAISE
+        >>  648 POP_BLOCK
+
+158         650 LOAD_GLOBAL              0 (os)
+            652 LOAD_ATTR                1 (path)
+            654 LOAD_METHOD             21 (exists)
+            656 LOAD_FAST                0 (file_path)
+            658 CALL_METHOD              1
+            660 EXTENDED_ARG             2
+            662 POP_JUMP_IF_FALSE      766
+            664 LOAD_CONST              23 ('tmp')
+            666 LOAD_FAST                0 (file_path)
+            668 LOAD_METHOD              3 (lower)
+            670 CALL_METHOD              0
+            672 CONTAINS_OP              0
+            674 EXTENDED_ARG             2
+            676 POP_JUMP_IF_FALSE      766
+
+159         678 SETUP_FINALLY           14 (to 694)
+
+160         680 LOAD_GLOBAL              0 (os)
+            682 LOAD_METHOD             22 (remove)
+            684 LOAD_FAST                0 (file_path)
+            686 CALL_METHOD              1
+            688 POP_TOP
+            690 POP_BLOCK
+            692 JUMP_FORWARD            12 (to 706)
+
+161     >>  694 POP_TOP
+            696 POP_TOP
+            698 POP_TOP
+
+162         700 POP_EXCEPT
+            702 JUMP_FORWARD             2 (to 706)
+            704 RERAISE
+        >>  706 JUMP_FORWARD            58 (to 766)
+
+158     >>  708 LOAD_GLOBAL              0 (os)
+            710 LOAD_ATTR                1 (path)
+            712 LOAD_METHOD             21 (exists)
+            714 LOAD_FAST                0 (file_path)
+            716 CALL_METHOD              1
+            718 EXTENDED_ARG             2
+            720 POP_JUMP_IF_FALSE      764
+            722 LOAD_CONST              23 ('tmp')
+            724 LOAD_FAST                0 (file_path)
+            726 LOAD_METHOD              3 (lower)
+            728 CALL_METHOD              0
+            730 CONTAINS_OP              0
+            732 EXTENDED_ARG             2
+            734 POP_JUMP_IF_FALSE      764
+
+159         736 SETUP_FINALLY           14 (to 752)
+
+160         738 LOAD_GLOBAL              0 (os)
+            740 LOAD_METHOD             22 (remove)
+            742 LOAD_FAST                0 (file_path)
+            744 CALL_METHOD              1
+            746 POP_TOP
+            748 POP_BLOCK
+            750 JUMP_FORWARD            12 (to 764)
+
+161     >>  752 POP_TOP
+            754 POP_TOP
+            756 POP_TOP
+
+162         758 POP_EXCEPT
+            760 JUMP_FORWARD             2 (to 764)
+            762 RERAISE
+        >>  764 RERAISE
+        >>  766 LOAD_CONST               7 (None)
+            768 RETURN_VALUE
+
+Disassembly of <code object <listcomp> at 0x1072e0df0, file "WeRobotCore/utils/excel_parser.py", line 103>:
+103           0 BUILD_LIST               0
+              2 LOAD_FAST                0 (.0)
+        >>    4 FOR_ITER                10 (to 16)
+              6 STORE_FAST               1 (cell)
+              8 LOAD_FAST                1 (cell)
+             10 LOAD_ATTR                0 (value)
+             12 LIST_APPEND              2
+             14 JUMP_ABSOLUTE            4
+        >>   16 RETURN_VALUE

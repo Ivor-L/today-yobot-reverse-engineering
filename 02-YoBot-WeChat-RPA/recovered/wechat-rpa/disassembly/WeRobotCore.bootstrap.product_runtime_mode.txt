@@ -1,0 +1,124 @@
+  1           0 LOAD_CONST               0 ('Explicit process policy for publishing a Product Runtime candidate.')
+              2 STORE_NAME               0 (__doc__)
+
+  3           4 LOAD_CONST               1 (0)
+              6 LOAD_CONST               2 (('Enum',))
+              8 IMPORT_NAME              1 (enum)
+             10 IMPORT_FROM              2 (Enum)
+             12 STORE_NAME               2 (Enum)
+             14 POP_TOP
+
+  4          16 LOAD_CONST               1 (0)
+             18 LOAD_CONST               3 (('Optional',))
+             20 IMPORT_NAME              3 (typing)
+             22 IMPORT_FROM              4 (Optional)
+             24 STORE_NAME               4 (Optional)
+             26 POP_TOP
+
+  7          28 LOAD_CONST               4 ('WEBOT_PRODUCT_RUNTIME_MODE')
+             30 STORE_NAME               5 (PRODUCT_RUNTIME_MODE_ENV)
+
+ 10          32 LOAD_BUILD_CLASS
+             34 LOAD_CONST               5 (<code object ProductRuntimeMode at 0x10924cea0, file "WeRobotCore/bootstrap/product_runtime_mode.py", line 10>)
+             36 LOAD_CONST               6 ('ProductRuntimeMode')
+             38 MAKE_FUNCTION            0
+             40 LOAD_CONST               6 ('ProductRuntimeMode')
+             42 LOAD_NAME                6 (str)
+             44 LOAD_NAME                2 (Enum)
+             46 CALL_FUNCTION            4
+             48 STORE_NAME               7 (ProductRuntimeMode)
+
+ 22          50 LOAD_NAME                4 (Optional)
+             52 LOAD_NAME                6 (str)
+             54 BINARY_SUBSCR
+             56 LOAD_NAME                7 (ProductRuntimeMode)
+             58 LOAD_CONST               7 (('raw_value', 'return'))
+             60 BUILD_CONST_KEY_MAP      2
+             62 LOAD_CONST               8 (<code object resolve_product_runtime_mode at 0x10924cc90, file "WeRobotCore/bootstrap/product_runtime_mode.py", line 22>)
+             64 LOAD_CONST               9 ('resolve_product_runtime_mode')
+             66 MAKE_FUNCTION            4 (annotations)
+             68 STORE_NAME               8 (resolve_product_runtime_mode)
+
+ 42          70 BUILD_LIST               0
+             72 LOAD_CONST              10 (('PRODUCT_RUNTIME_MODE_ENV', 'ProductRuntimeMode', 'resolve_product_runtime_mode'))
+             74 LIST_EXTEND              1
+             76 STORE_NAME               9 (__all__)
+             78 LOAD_CONST              11 (None)
+             80 RETURN_VALUE
+
+Disassembly of <code object ProductRuntimeMode at 0x10924cea0, file "WeRobotCore/bootstrap/product_runtime_mode.py", line 10>:
+ 10           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('ProductRuntimeMode')
+              6 STORE_NAME               2 (__qualname__)
+
+ 11           8 LOAD_CONST               1 ('Versionable modes accepted by the production composition root.\n\n    Platform selection must never be inferred from the host operating system.\n    The Windows candidate remains an opt-in integration-test mode until the\n    later production migration gate is closed.\n    ')
+             10 STORE_NAME               3 (__doc__)
+
+ 18          12 LOAD_CONST               2 ('disabled')
+             14 STORE_NAME               4 (DISABLED)
+
+ 19          16 LOAD_CONST               3 ('windows_legacy_candidate')
+             18 STORE_NAME               5 (WINDOWS_LEGACY_CANDIDATE)
+             20 LOAD_CONST               4 (None)
+             22 RETURN_VALUE
+
+Disassembly of <code object resolve_product_runtime_mode at 0x10924cc90, file "WeRobotCore/bootstrap/product_runtime_mode.py", line 22>:
+ 29           0 LOAD_FAST                0 (raw_value)
+              2 LOAD_CONST               1 (None)
+              4 IS_OP                    0
+              6 POP_JUMP_IF_FALSE       14
+
+ 30           8 LOAD_GLOBAL              0 (ProductRuntimeMode)
+             10 LOAD_ATTR                1 (DISABLED)
+             12 RETURN_VALUE
+
+ 31     >>   14 LOAD_GLOBAL              2 (isinstance)
+             16 LOAD_FAST                0 (raw_value)
+             18 LOAD_GLOBAL              3 (str)
+             20 CALL_FUNCTION            2
+             22 POP_JUMP_IF_TRUE        32
+
+ 32          24 LOAD_GLOBAL              4 (TypeError)
+             26 LOAD_CONST               2 ('product runtime mode must be a string or None')
+             28 CALL_FUNCTION            1
+             30 RAISE_VARARGS            1
+
+ 34     >>   32 LOAD_FAST                0 (raw_value)
+             34 LOAD_METHOD              5 (strip)
+             36 CALL_METHOD              0
+             38 STORE_FAST               1 (normalized)
+
+ 35          40 LOAD_FAST                1 (normalized)
+             42 POP_JUMP_IF_FALSE       56
+             44 LOAD_FAST                1 (normalized)
+             46 LOAD_GLOBAL              0 (ProductRuntimeMode)
+             48 LOAD_ATTR                1 (DISABLED)
+             50 LOAD_ATTR                6 (value)
+             52 COMPARE_OP               2 (==)
+             54 POP_JUMP_IF_FALSE       62
+
+ 36     >>   56 LOAD_GLOBAL              0 (ProductRuntimeMode)
+             58 LOAD_ATTR                1 (DISABLED)
+             60 RETURN_VALUE
+
+ 37     >>   62 LOAD_FAST                1 (normalized)
+             64 LOAD_GLOBAL              0 (ProductRuntimeMode)
+             66 LOAD_ATTR                7 (WINDOWS_LEGACY_CANDIDATE)
+             68 LOAD_ATTR                6 (value)
+             70 COMPARE_OP               2 (==)
+             72 POP_JUMP_IF_FALSE       80
+
+ 38          74 LOAD_GLOBAL              0 (ProductRuntimeMode)
+             76 LOAD_ATTR                7 (WINDOWS_LEGACY_CANDIDATE)
+             78 RETURN_VALUE
+
+ 39     >>   80 LOAD_GLOBAL              8 (ValueError)
+             82 LOAD_CONST               3 ('unsupported product runtime mode: {}')
+             84 LOAD_METHOD              9 (format)
+             86 LOAD_FAST                1 (normalized)
+             88 CALL_METHOD              1
+             90 CALL_FUNCTION            1
+             92 RAISE_VARARGS            1
+             94 LOAD_CONST               1 (None)
+             96 RETURN_VALUE

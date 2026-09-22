@@ -1,0 +1,1714 @@
+  1           0 SETUP_ANNOTATIONS
+              2 LOAD_CONST               0 ('\nSOP 编排执行器 - Task System V3\n\n把"运营SOP"（一个有序动作序列）对某个目标按序执行：\n\n设计要点：\n- 复用统一调度器 + PermissionManager(EXCLUSIVE)：SOP 作为 TaskType.SOP_FLOW 接入同一个调度器，\n  与自动回复 / 群发 / 跟单等共用同一把"RPA 独占锁"，保证同一时刻只有一个 RPA 在操作微信窗口，\n  绝不另起调度器，避免两套调度器抢同一个 UI。本模块只负责"拿到锁之后按顺序跑动作"。\n- 线性顺序执行；每个动作类型声明"适用的目标类型"作为前置条件，不满足则【跳过并记日志】，\n  不中断整个 SOP（例如"拉群"只适用单聊好友，遇到群目标自动跳过）。\n- 每次运行落一条运行记录到本地（前端展示二期再做）。\n\nMVP 动作类型：\n- pull_into_group  拉群（把单聊好友拉入指定群）—— 仅单聊好友，RPA\n- greeting         发打招呼（发送话术组）       —— 单聊/群，RPA\n- create_follow    创建跟单任务                 —— 单聊/群，非RPA（仅登记未来定时任务，不占用本次持锁的窗口操作）\n')
+              4 STORE_NAME               0 (__doc__)
+
+ 20           6 LOAD_CONST               1 (0)
+              8 LOAD_CONST               2 (None)
+             10 IMPORT_NAME              1 (os)
+             12 STORE_NAME               1 (os)
+
+ 21          14 LOAD_CONST               1 (0)
+             16 LOAD_CONST               2 (None)
+             18 IMPORT_NAME              2 (json)
+             20 STORE_NAME               2 (json)
+
+ 22          22 LOAD_CONST               1 (0)
+             24 LOAD_CONST               2 (None)
+             26 IMPORT_NAME              3 (inspect)
+             28 STORE_NAME               3 (inspect)
+
+ 23          30 LOAD_CONST               1 (0)
+             32 LOAD_CONST               3 (('datetime', 'timedelta'))
+             34 IMPORT_NAME              4 (datetime)
+             36 IMPORT_FROM              4 (datetime)
+             38 STORE_NAME               4 (datetime)
+             40 IMPORT_FROM              5 (timedelta)
+             42 STORE_NAME               5 (timedelta)
+             44 POP_TOP
+
+ 24          46 LOAD_CONST               1 (0)
+             48 LOAD_CONST               4 (('Dict', 'Any', 'Mapping', 'Optional', 'Tuple'))
+             50 IMPORT_NAME              6 (typing)
+             52 IMPORT_FROM              7 (Dict)
+             54 STORE_NAME               7 (Dict)
+             56 IMPORT_FROM              8 (Any)
+             58 STORE_NAME               8 (Any)
+             60 IMPORT_FROM              9 (Mapping)
+             62 STORE_NAME               9 (Mapping)
+             64 IMPORT_FROM             10 (Optional)
+             66 STORE_NAME              10 (Optional)
+             68 IMPORT_FROM             11 (Tuple)
+             70 STORE_NAME              11 (Tuple)
+             72 POP_TOP
+
+ 26          74 LOAD_CONST               1 (0)
+             76 LOAD_CONST               5 (('DataManager',))
+             78 IMPORT_NAME             12 (WeRobotCore.utils.data_manager)
+             80 IMPORT_FROM             13 (DataManager)
+             82 STORE_NAME              13 (DataManager)
+             84 POP_TOP
+
+ 28          86 SETUP_FINALLY           24 (to 112)
+
+ 29          88 LOAD_CONST               6 (2)
+             90 LOAD_CONST               7 (('get_logger',))
+             92 IMPORT_NAME             14 (utils.logger)
+             94 IMPORT_FROM             15 (get_logger)
+             96 STORE_NAME              15 (get_logger)
+             98 POP_TOP
+
+ 30         100 LOAD_NAME               15 (get_logger)
+            102 LOAD_CONST               8 ('sop_runner')
+            104 CALL_FUNCTION            1
+            106 STORE_NAME              16 (logger)
+            108 POP_BLOCK
+            110 JUMP_FORWARD            36 (to 148)
+
+ 31     >>  112 DUP_TOP
+            114 LOAD_NAME               17 (Exception)
+            116 JUMP_IF_NOT_EXC_MATCH   146
+            118 POP_TOP
+            120 POP_TOP
+            122 POP_TOP
+
+ 32         124 LOAD_CONST               1 (0)
+            126 LOAD_CONST               2 (None)
+            128 IMPORT_NAME             18 (logging)
+            130 STORE_NAME              18 (logging)
+
+ 33         132 LOAD_NAME               18 (logging)
+            134 LOAD_METHOD             19 (getLogger)
+            136 LOAD_CONST               8 ('sop_runner')
+            138 CALL_METHOD              1
+            140 STORE_NAME              16 (logger)
+            142 POP_EXCEPT
+            144 JUMP_FORWARD             2 (to 148)
+        >>  146 RERAISE
+
+ 38     >>  148 LOAD_CONST               9 ('single')
+            150 BUILD_SET                1
+
+ 39         152 LOAD_CONST               9 ('single')
+            154 LOAD_CONST              10 ('group')
+            156 BUILD_SET                2
+
+ 40         158 LOAD_CONST               9 ('single')
+            160 LOAD_CONST              10 ('group')
+            162 BUILD_SET                2
+
+ 37         164 LOAD_CONST              11 (('pull_into_group', 'greeting', 'create_follow'))
+            166 BUILD_CONST_KEY_MAP      3
+            168 STORE_NAME              20 (ACTION_TARGET_TYPES)
+            170 LOAD_NAME                7 (Dict)
+            172 LOAD_NAME               21 (str)
+            174 LOAD_NAME               10 (Optional)
+            176 LOAD_NAME               22 (set)
+            178 BINARY_SUBSCR
+            180 BUILD_TUPLE              2
+            182 BINARY_SUBSCR
+            184 LOAD_NAME               23 (__annotations__)
+            186 LOAD_CONST              12 ('ACTION_TARGET_TYPES')
+            188 STORE_SUBSCR
+
+ 45         190 LOAD_CONST              13 (True)
+
+ 46         192 LOAD_CONST              13 (True)
+
+ 47         194 LOAD_CONST              14 (False)
+
+ 44         196 LOAD_CONST              11 (('pull_into_group', 'greeting', 'create_follow'))
+            198 BUILD_CONST_KEY_MAP      3
+            200 STORE_NAME              24 (ACTION_IS_RPA)
+            202 LOAD_NAME                7 (Dict)
+            204 LOAD_NAME               21 (str)
+            206 LOAD_NAME               25 (bool)
+            208 BUILD_TUPLE              2
+            210 BINARY_SUBSCR
+            212 LOAD_NAME               23 (__annotations__)
+            214 LOAD_CONST              15 ('ACTION_IS_RPA')
+            216 STORE_SUBSCR
+
+ 51         218 LOAD_BUILD_CLASS
+            220 LOAD_CONST              16 (<code object SopRunner at 0x1073aab30, file "WeRobotCore/task_system_v3/sop_runner.py", line 51>)
+            222 LOAD_CONST              17 ('SopRunner')
+            224 MAKE_FUNCTION            0
+            226 LOAD_CONST              17 ('SopRunner')
+            228 CALL_FUNCTION            2
+            230 STORE_NAME              26 (SopRunner)
+            232 LOAD_CONST               2 (None)
+            234 RETURN_VALUE
+
+Disassembly of <code object SopRunner at 0x1073aab30, file "WeRobotCore/task_system_v3/sop_runner.py", line 51>:
+ 51           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('SopRunner')
+              6 STORE_NAME               2 (__qualname__)
+
+ 52           8 LOAD_CONST               1 ('SOP 序列执行器。一次 run() = 对一个目标按序跑完一个 SOP。')
+             10 STORE_NAME               3 (__doc__)
+
+ 60          12 LOAD_CONST               2 (None)
+
+ 61          14 LOAD_CONST               2 (None)
+
+ 54          16 LOAD_CONST               3 (('greeting_sender', 'history_recorder'))
+             18 BUILD_CONST_KEY_MAP      2
+
+ 58          20 LOAD_NAME                4 (Optional)
+             22 LOAD_NAME                5 (str)
+             24 BINARY_SUBSCR
+
+ 54          26 LOAD_CONST               4 (('account_id',))
+             28 BUILD_CONST_KEY_MAP      1
+             30 LOAD_CONST               5 (<code object __init__ at 0x1072e0ea0, file "WeRobotCore/task_system_v3/sop_runner.py", line 54>)
+             32 LOAD_CONST               6 ('SopRunner.__init__')
+             34 MAKE_FUNCTION            6 (kwdefaults, annotations)
+             36 STORE_NAME               6 (__init__)
+
+ 72          38 LOAD_CONST              28 (('',))
+             40 LOAD_NAME                7 (Dict)
+             42 LOAD_NAME                5 (str)
+             44 LOAD_NAME                8 (Any)
+             46 BUILD_TUPLE              2
+             48 BINARY_SUBSCR
+             50 LOAD_NAME                7 (Dict)
+             52 LOAD_NAME                5 (str)
+             54 LOAD_NAME                8 (Any)
+             56 BUILD_TUPLE              2
+             58 BINARY_SUBSCR
+             60 LOAD_NAME                5 (str)
+             62 LOAD_NAME                7 (Dict)
+             64 LOAD_NAME                5 (str)
+             66 LOAD_NAME                8 (Any)
+             68 BUILD_TUPLE              2
+             70 BINARY_SUBSCR
+             72 LOAD_CONST               8 (('sop', 'target', 'source', 'return'))
+             74 BUILD_CONST_KEY_MAP      4
+             76 LOAD_CONST               9 (<code object run at 0x1072e0df0, file "WeRobotCore/task_system_v3/sop_runner.py", line 72>)
+             78 LOAD_CONST              10 ('SopRunner.run')
+             80 MAKE_FUNCTION            5 (defaults, annotations)
+             82 STORE_NAME               9 (run)
+
+149          84 LOAD_CONST              29 ((None,))
+
+151          86 LOAD_NAME                5 (str)
+
+152          88 LOAD_NAME                7 (Dict)
+             90 LOAD_NAME                5 (str)
+             92 LOAD_NAME                8 (Any)
+             94 BUILD_TUPLE              2
+             96 BINARY_SUBSCR
+
+153          98 LOAD_NAME                7 (Dict)
+            100 LOAD_NAME                5 (str)
+            102 LOAD_NAME                8 (Any)
+            104 BUILD_TUPLE              2
+            106 BINARY_SUBSCR
+
+154         108 LOAD_NAME                5 (str)
+
+155         110 LOAD_NAME                4 (Optional)
+            112 LOAD_NAME                7 (Dict)
+            114 LOAD_NAME                5 (str)
+            116 LOAD_NAME                8 (Any)
+            118 BUILD_TUPLE              2
+            120 BINARY_SUBSCR
+            122 BINARY_SUBSCR
+
+156         124 LOAD_NAME               10 (Tuple)
+            126 LOAD_NAME               11 (bool)
+            128 LOAD_NAME                5 (str)
+            130 BUILD_TUPLE              2
+            132 BINARY_SUBSCR
+
+149         134 LOAD_CONST              11 (('atype', 'params', 'target', 'source', 'event_context', 'return'))
+            136 BUILD_CONST_KEY_MAP      6
+            138 LOAD_CONST              12 (<code object _dispatch at 0x1072e0be0, file "WeRobotCore/task_system_v3/sop_runner.py", line 149>)
+            140 LOAD_CONST              13 ('SopRunner._dispatch')
+            142 MAKE_FUNCTION            5 (defaults, annotations)
+            144 STORE_NAME              12 (_dispatch)
+
+168         146 LOAD_CONST              30 ((None,))
+
+170         148 LOAD_NAME                7 (Dict)
+            150 LOAD_NAME                5 (str)
+            152 LOAD_NAME                8 (Any)
+            154 BUILD_TUPLE              2
+            156 BINARY_SUBSCR
+
+171         158 LOAD_NAME                7 (Dict)
+            160 LOAD_NAME                5 (str)
+            162 LOAD_NAME                8 (Any)
+            164 BUILD_TUPLE              2
+            166 BINARY_SUBSCR
+
+172         168 LOAD_NAME                4 (Optional)
+            170 LOAD_NAME                7 (Dict)
+            172 LOAD_NAME                5 (str)
+            174 LOAD_NAME                8 (Any)
+            176 BUILD_TUPLE              2
+            178 BINARY_SUBSCR
+            180 BINARY_SUBSCR
+
+173         182 LOAD_NAME               10 (Tuple)
+            184 LOAD_NAME               11 (bool)
+            186 LOAD_NAME                5 (str)
+            188 BUILD_TUPLE              2
+            190 BINARY_SUBSCR
+
+168         192 LOAD_CONST              14 (('params', 'target', 'event_context', 'return'))
+            194 BUILD_CONST_KEY_MAP      4
+            196 LOAD_CONST              15 (<code object _action_greeting at 0x1072e0d40, file "WeRobotCore/task_system_v3/sop_runner.py", line 168>)
+            198 LOAD_CONST              16 ('SopRunner._action_greeting')
+            200 MAKE_FUNCTION            5 (defaults, annotations)
+            202 STORE_NAME              13 (_action_greeting)
+
+227         204 LOAD_CONST              31 ((None,))
+
+229         206 LOAD_NAME                7 (Dict)
+            208 LOAD_NAME                5 (str)
+            210 LOAD_NAME                8 (Any)
+            212 BUILD_TUPLE              2
+            214 BINARY_SUBSCR
+
+230         216 LOAD_NAME                7 (Dict)
+            218 LOAD_NAME                5 (str)
+            220 LOAD_NAME                8 (Any)
+            222 BUILD_TUPLE              2
+            224 BINARY_SUBSCR
+
+231         226 LOAD_NAME                4 (Optional)
+            228 LOAD_NAME                7 (Dict)
+            230 LOAD_NAME                5 (str)
+            232 LOAD_NAME                8 (Any)
+            234 BUILD_TUPLE              2
+            236 BINARY_SUBSCR
+            238 BINARY_SUBSCR
+
+232         240 LOAD_NAME               10 (Tuple)
+            242 LOAD_NAME               11 (bool)
+            244 LOAD_NAME                5 (str)
+            246 BUILD_TUPLE              2
+            248 BINARY_SUBSCR
+
+227         250 LOAD_CONST              14 (('params', 'target', 'event_context', 'return'))
+            252 BUILD_CONST_KEY_MAP      4
+            254 LOAD_CONST              17 (<code object _action_pull_into_group at 0x1072e0710, file "WeRobotCore/task_system_v3/sop_runner.py", line 227>)
+            256 LOAD_CONST              18 ('SopRunner._action_pull_into_group')
+            258 MAKE_FUNCTION            5 (defaults, annotations)
+            260 STORE_NAME              14 (_action_pull_into_group)
+
+263         262 LOAD_NAME                7 (Dict)
+            264 LOAD_NAME                5 (str)
+            266 LOAD_NAME                8 (Any)
+            268 BUILD_TUPLE              2
+            270 BINARY_SUBSCR
+
+264         272 LOAD_NAME                5 (str)
+
+265         274 LOAD_NAME                7 (Dict)
+            276 LOAD_NAME                5 (str)
+            278 LOAD_NAME                8 (Any)
+            280 BUILD_TUPLE              2
+            282 BINARY_SUBSCR
+
+266         284 LOAD_NAME                4 (Optional)
+            286 LOAD_NAME                7 (Dict)
+            288 LOAD_NAME                5 (str)
+            290 LOAD_NAME                8 (Any)
+            292 BUILD_TUPLE              2
+            294 BINARY_SUBSCR
+            296 BINARY_SUBSCR
+
+267         298 LOAD_CONST               2 (None)
+
+261         300 LOAD_CONST              19 (('target', 'group_name', 'operation_result', 'event_context', 'return'))
+            302 BUILD_CONST_KEY_MAP      5
+            304 LOAD_CONST              20 (<code object _record_group_invitation at 0x1072e0870, file "WeRobotCore/task_system_v3/sop_runner.py", line 261>)
+            306 LOAD_CONST              21 ('SopRunner._record_group_invitation')
+            308 MAKE_FUNCTION            4 (annotations)
+            310 STORE_NAME              15 (_record_group_invitation)
+
+299         312 LOAD_NAME                7 (Dict)
+            314 LOAD_NAME                5 (str)
+            316 LOAD_NAME                8 (Any)
+            318 BUILD_TUPLE              2
+            320 BINARY_SUBSCR
+            322 LOAD_NAME                7 (Dict)
+            324 LOAD_NAME                5 (str)
+            326 LOAD_NAME                8 (Any)
+            328 BUILD_TUPLE              2
+            330 BINARY_SUBSCR
+            332 LOAD_NAME               10 (Tuple)
+            334 LOAD_NAME               11 (bool)
+            336 LOAD_NAME                5 (str)
+            338 BUILD_TUPLE              2
+            340 BINARY_SUBSCR
+            342 LOAD_CONST              22 (('params', 'target', 'return'))
+            344 BUILD_CONST_KEY_MAP      3
+            346 LOAD_CONST              23 (<code object _action_create_follow at 0x1072e0a80, file "WeRobotCore/task_system_v3/sop_runner.py", line 299>)
+            348 LOAD_CONST              24 ('SopRunner._action_create_follow')
+            350 MAKE_FUNCTION            4 (annotations)
+            352 STORE_NAME              16 (_action_create_follow)
+
+334         354 LOAD_NAME                7 (Dict)
+            356 LOAD_NAME                5 (str)
+            358 LOAD_NAME                8 (Any)
+            360 BUILD_TUPLE              2
+            362 BINARY_SUBSCR
+            364 LOAD_CONST               2 (None)
+            366 LOAD_CONST              25 (('run_record', 'return'))
+            368 BUILD_CONST_KEY_MAP      2
+            370 LOAD_CONST              26 (<code object _persist at 0x1072e0f50, file "WeRobotCore/task_system_v3/sop_runner.py", line 334>)
+            372 LOAD_CONST              27 ('SopRunner._persist')
+            374 MAKE_FUNCTION            4 (annotations)
+            376 STORE_NAME              17 (_persist)
+            378 LOAD_CONST               2 (None)
+            380 RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x1072e0ea0, file "WeRobotCore/task_system_v3/sop_runner.py", line 54>:
+ 63           0 LOAD_FAST                1 (config_manager)
+              2 LOAD_FAST                0 (self)
+              4 STORE_ATTR               0 (config_manager)
+
+ 64           6 LOAD_FAST                2 (wechat_instance)
+              8 LOAD_FAST                0 (self)
+             10 STORE_ATTR               1 (wechat)
+
+ 65          12 LOAD_FAST                3 (account_id)
+             14 LOAD_FAST                0 (self)
+             16 STORE_ATTR               2 (account_id)
+
+ 66          18 LOAD_FAST                4 (greeting_sender)
+             20 LOAD_FAST                0 (self)
+             22 STORE_ATTR               3 (greeting_sender)
+
+ 67          24 LOAD_FAST                5 (history_recorder)
+             26 LOAD_FAST                0 (self)
+             28 STORE_ATTR               4 (history_recorder)
+
+ 68          30 LOAD_GLOBAL              5 (os)
+             32 LOAD_ATTR                6 (path)
+             34 LOAD_METHOD              7 (join)
+
+ 69          36 LOAD_GLOBAL              8 (DataManager)
+             38 LOAD_METHOD              9 (get_data_dir_str)
+             40 CALL_METHOD              0
+             42 LOAD_CONST               1 ('sop_runs')
+             44 LOAD_FAST                3 (account_id)
+             46 JUMP_IF_TRUE_OR_POP     50
+             48 LOAD_CONST               2 ('unknown')
+
+ 68     >>   50 CALL_METHOD              3
+             52 LOAD_FAST                0 (self)
+             54 STORE_ATTR              10 (_log_dir)
+             56 LOAD_CONST               0 (None)
+             58 RETURN_VALUE
+
+Disassembly of <code object run at 0x1072e0df0, file "WeRobotCore/task_system_v3/sop_runner.py", line 72>:
+ 79           0 LOAD_FAST                2 (target)
+              2 LOAD_METHOD              0 (get)
+              4 LOAD_CONST               1 ('chat_type')
+              6 LOAD_CONST               2 ('single')
+              8 CALL_METHOD              2
+             10 STORE_FAST               4 (target_type)
+
+ 80          12 LOAD_FAST                1 (sop)
+             14 LOAD_METHOD              0 (get)
+             16 LOAD_CONST               3 ('actions')
+             18 BUILD_LIST               0
+             20 CALL_METHOD              2
+             22 JUMP_IF_TRUE_OR_POP     26
+             24 BUILD_LIST               0
+        >>   26 STORE_FAST               5 (actions)
+
+ 82          28 LOAD_CONST               4 ('sop_')
+             30 LOAD_GLOBAL              1 (datetime)
+             32 LOAD_METHOD              2 (now)
+             34 CALL_METHOD              0
+             36 LOAD_METHOD              3 (strftime)
+             38 LOAD_CONST               5 ('%Y%m%d_%H%M%S_%f')
+             40 CALL_METHOD              1
+             42 FORMAT_VALUE             0
+             44 BUILD_STRING             2
+
+ 83          46 LOAD_FAST                1 (sop)
+             48 LOAD_METHOD              0 (get)
+             50 LOAD_CONST               6 ('id')
+             52 CALL_METHOD              1
+
+ 84          54 LOAD_FAST                1 (sop)
+             56 LOAD_METHOD              0 (get)
+             58 LOAD_CONST               7 ('name')
+             60 LOAD_CONST               8 ('')
+             62 CALL_METHOD              2
+
+ 85          64 LOAD_FAST                0 (self)
+             66 LOAD_ATTR                4 (account_id)
+
+ 86          68 LOAD_FAST                2 (target)
+
+ 87          70 LOAD_FAST                3 (source)
+
+ 88          72 LOAD_GLOBAL              1 (datetime)
+             74 LOAD_METHOD              2 (now)
+             76 CALL_METHOD              0
+             78 LOAD_METHOD              5 (isoformat)
+             80 CALL_METHOD              0
+
+ 89          82 LOAD_CONST               9 (None)
+
+ 90          84 LOAD_CONST              10 ('running')
+
+ 91          86 BUILD_LIST               0
+
+ 81          88 LOAD_CONST              11 (('run_id', 'sop_id', 'sop_name', 'account_id', 'target', 'source', 'started_at', 'finished_at', 'status', 'steps'))
+             90 BUILD_CONST_KEY_MAP     10
+             92 STORE_FAST               6 (run_record)
+
+ 93          94 LOAD_GLOBAL              6 (logger)
+             96 LOAD_METHOD              7 (info)
+
+ 94          98 LOAD_CONST              12 ('[SOP] 开始执行『')
+            100 LOAD_FAST                1 (sop)
+            102 LOAD_METHOD              0 (get)
+            104 LOAD_CONST               7 ('name')
+            106 LOAD_CONST               8 ('')
+            108 CALL_METHOD              2
+            110 FORMAT_VALUE             0
+            112 LOAD_CONST              13 ('』-> 目标=')
+            114 LOAD_FAST                2 (target)
+            116 LOAD_METHOD              0 (get)
+            118 LOAD_CONST               7 ('name')
+            120 CALL_METHOD              1
+            122 FORMAT_VALUE             0
+            124 LOAD_CONST              14 ('(')
+            126 LOAD_FAST                4 (target_type)
+            128 FORMAT_VALUE             0
+            130 LOAD_CONST              15 (') 共')
+            132 LOAD_GLOBAL              8 (len)
+            134 LOAD_FAST                5 (actions)
+            136 CALL_FUNCTION            1
+            138 FORMAT_VALUE             0
+            140 LOAD_CONST              16 ('步')
+            142 BUILD_STRING             9
+
+ 93         144 CALL_METHOD              1
+            146 POP_TOP
+
+ 96         148 EXTENDED_ARG             2
+            150 SETUP_FINALLY          584 (to 736)
+            152 EXTENDED_ARG             1
+            154 SETUP_FINALLY          476 (to 632)
+
+ 97         156 LOAD_GLOBAL              9 (enumerate)
+            158 LOAD_FAST                5 (actions)
+            160 LOAD_CONST              17 (1)
+            162 LOAD_CONST              18 (('start',))
+            164 CALL_FUNCTION_KW         2
+            166 GET_ITER
+        >>  168 EXTENDED_ARG             1
+            170 FOR_ITER               448 (to 620)
+            172 UNPACK_SEQUENCE          2
+            174 STORE_FAST               7 (idx)
+            176 STORE_FAST               8 (action)
+
+ 98         178 LOAD_FAST                8 (action)
+            180 LOAD_METHOD              0 (get)
+            182 LOAD_CONST              19 ('type')
+            184 CALL_METHOD              1
+            186 STORE_FAST               9 (atype)
+
+ 99         188 LOAD_FAST                8 (action)
+            190 LOAD_METHOD              0 (get)
+            192 LOAD_CONST              20 ('params')
+            194 BUILD_MAP                0
+            196 CALL_METHOD              2
+            198 JUMP_IF_TRUE_OR_POP    202
+            200 BUILD_MAP                0
+        >>  202 STORE_FAST              10 (params)
+
+101         204 LOAD_FAST                7 (idx)
+
+102         206 LOAD_FAST                9 (atype)
+
+103         208 LOAD_CONST               8 ('')
+
+104         210 LOAD_CONST               8 ('')
+
+105         212 LOAD_GLOBAL              1 (datetime)
+            214 LOAD_METHOD              2 (now)
+            216 CALL_METHOD              0
+            218 LOAD_METHOD              5 (isoformat)
+            220 CALL_METHOD              0
+
+100         222 LOAD_CONST              21 (('index', 'type', 'status', 'reason', 'ts'))
+            224 BUILD_CONST_KEY_MAP      5
+            226 STORE_FAST              11 (step)
+
+109         228 LOAD_GLOBAL             10 (ACTION_TARGET_TYPES)
+            230 LOAD_METHOD              0 (get)
+            232 LOAD_FAST                9 (atype)
+            234 CALL_METHOD              1
+            236 STORE_FAST              12 (applicable)
+
+110         238 LOAD_FAST               12 (applicable)
+            240 LOAD_CONST               9 (None)
+            242 IS_OP                    1
+            244 EXTENDED_ARG             1
+            246 POP_JUMP_IF_FALSE      334
+            248 LOAD_FAST                4 (target_type)
+            250 LOAD_FAST               12 (applicable)
+            252 CONTAINS_OP              1
+            254 EXTENDED_ARG             1
+            256 POP_JUMP_IF_FALSE      334
+
+111         258 LOAD_CONST              22 ('skipped')
+            260 LOAD_FAST               11 (step)
+            262 LOAD_CONST              23 ('status')
+            264 STORE_SUBSCR
+
+112         266 LOAD_CONST              24 ('目标类型 ')
+            268 LOAD_FAST                4 (target_type)
+            270 FORMAT_VALUE             0
+            272 LOAD_CONST              25 (' 不适用于动作 ')
+            274 LOAD_FAST                9 (atype)
+            276 FORMAT_VALUE             0
+            278 BUILD_STRING             4
+            280 LOAD_FAST               11 (step)
+            282 LOAD_CONST              26 ('reason')
+            284 STORE_SUBSCR
+
+113         286 LOAD_GLOBAL              6 (logger)
+            288 LOAD_METHOD              7 (info)
+            290 LOAD_CONST              27 ('[SOP] 步骤')
+            292 LOAD_FAST                7 (idx)
+            294 FORMAT_VALUE             0
+            296 LOAD_CONST              28 (' ')
+            298 LOAD_FAST                9 (atype)
+            300 FORMAT_VALUE             0
+            302 LOAD_CONST              29 (' 跳过：')
+            304 LOAD_FAST               11 (step)
+            306 LOAD_CONST              26 ('reason')
+            308 BINARY_SUBSCR
+            310 FORMAT_VALUE             0
+            312 BUILD_STRING             6
+            314 CALL_METHOD              1
+            316 POP_TOP
+
+114         318 LOAD_FAST                6 (run_record)
+            320 LOAD_CONST              30 ('steps')
+            322 BINARY_SUBSCR
+            324 LOAD_METHOD             11 (append)
+            326 LOAD_FAST               11 (step)
+            328 CALL_METHOD              1
+            330 POP_TOP
+
+115         332 JUMP_ABSOLUTE          168
+
+117     >>  334 SETUP_FINALLY          182 (to 518)
+
+119         336 LOAD_FAST                6 (run_record)
+            338 LOAD_CONST              31 ('run_id')
+            340 BINARY_SUBSCR
+
+120         342 LOAD_GLOBAL             12 (str)
+            344 LOAD_FAST                1 (sop)
+            346 LOAD_METHOD              0 (get)
+            348 LOAD_CONST               6 ('id')
+            350 CALL_METHOD              1
+            352 EXTENDED_ARG             1
+            354 JUMP_IF_TRUE_OR_POP    358
+            356 LOAD_CONST               8 ('')
+        >>  358 CALL_FUNCTION            1
+
+121         360 LOAD_GLOBAL             12 (str)
+            362 LOAD_FAST                1 (sop)
+            364 LOAD_METHOD              0 (get)
+            366 LOAD_CONST               7 ('name')
+            368 CALL_METHOD              1
+            370 EXTENDED_ARG             1
+            372 JUMP_IF_TRUE_OR_POP    376
+            374 LOAD_CONST               8 ('')
+        >>  376 CALL_FUNCTION            1
+
+122         378 LOAD_FAST                7 (idx)
+
+123         380 LOAD_GLOBAL             12 (str)
+            382 LOAD_FAST                9 (atype)
+            384 EXTENDED_ARG             1
+            386 JUMP_IF_TRUE_OR_POP    390
+            388 LOAD_CONST               8 ('')
+        >>  390 CALL_FUNCTION            1
+
+124         392 LOAD_GLOBAL             12 (str)
+            394 LOAD_FAST                3 (source)
+            396 EXTENDED_ARG             1
+            398 JUMP_IF_TRUE_OR_POP    402
+            400 LOAD_CONST               8 ('')
+        >>  402 CALL_FUNCTION            1
+
+118         404 LOAD_CONST              32 (('run_id', 'sop_id', 'sop_name', 'action_index', 'action_type', 'source'))
+            406 BUILD_CONST_KEY_MAP      6
+            408 STORE_FAST              13 (event_context)
+
+126         410 LOAD_FAST                0 (self)
+            412 LOAD_METHOD             13 (_dispatch)
+
+127         414 LOAD_FAST                9 (atype)
+            416 LOAD_FAST               10 (params)
+            418 LOAD_FAST                2 (target)
+            420 LOAD_FAST                3 (source)
+            422 LOAD_FAST               13 (event_context)
+
+126         424 CALL_METHOD              5
+            426 GET_AWAITABLE
+            428 LOAD_CONST               9 (None)
+            430 YIELD_FROM
+            432 UNPACK_SEQUENCE          2
+            434 STORE_FAST              14 (ok)
+            436 STORE_FAST              15 (msg)
+
+129         438 LOAD_FAST               14 (ok)
+            440 EXTENDED_ARG             1
+            442 POP_JUMP_IF_FALSE      448
+            444 LOAD_CONST              33 ('done')
+            446 JUMP_FORWARD             2 (to 450)
+        >>  448 LOAD_CONST              34 ('failed')
+        >>  450 LOAD_FAST               11 (step)
+            452 LOAD_CONST              23 ('status')
+            454 STORE_SUBSCR
+
+130         456 LOAD_FAST               15 (msg)
+            458 EXTENDED_ARG             1
+            460 JUMP_IF_TRUE_OR_POP    464
+            462 LOAD_CONST               8 ('')
+        >>  464 LOAD_FAST               11 (step)
+            466 LOAD_CONST              26 ('reason')
+            468 STORE_SUBSCR
+
+131         470 LOAD_GLOBAL              6 (logger)
+            472 LOAD_METHOD              7 (info)
+            474 LOAD_CONST              27 ('[SOP] 步骤')
+            476 LOAD_FAST                7 (idx)
+            478 FORMAT_VALUE             0
+            480 LOAD_CONST              28 (' ')
+            482 LOAD_FAST                9 (atype)
+            484 FORMAT_VALUE             0
+            486 LOAD_CONST              28 (' ')
+            488 LOAD_FAST               14 (ok)
+            490 EXTENDED_ARG             1
+            492 POP_JUMP_IF_FALSE      498
+            494 LOAD_CONST              35 ('完成')
+            496 JUMP_FORWARD             2 (to 500)
+        >>  498 LOAD_CONST              36 ('失败')
+        >>  500 FORMAT_VALUE             0
+            502 LOAD_CONST              37 ('：')
+            504 LOAD_FAST               15 (msg)
+            506 FORMAT_VALUE             0
+            508 BUILD_STRING             8
+            510 CALL_METHOD              1
+            512 POP_TOP
+            514 POP_BLOCK
+            516 JUMP_FORWARD            86 (to 604)
+
+132     >>  518 DUP_TOP
+            520 LOAD_GLOBAL             14 (Exception)
+            522 EXTENDED_ARG             2
+            524 JUMP_IF_NOT_EXC_MATCH   602
+            526 POP_TOP
+            528 STORE_FAST              16 (e)
+            530 POP_TOP
+            532 SETUP_FINALLY           60 (to 594)
+
+133         534 LOAD_CONST              34 ('failed')
+            536 LOAD_FAST               11 (step)
+            538 LOAD_CONST              23 ('status')
+            540 STORE_SUBSCR
+
+134         542 LOAD_GLOBAL             12 (str)
+            544 LOAD_FAST               16 (e)
+            546 CALL_FUNCTION            1
+            548 LOAD_FAST               11 (step)
+            550 LOAD_CONST              26 ('reason')
+            552 STORE_SUBSCR
+
+135         554 LOAD_GLOBAL              6 (logger)
+            556 LOAD_METHOD             15 (error)
+            558 LOAD_CONST              27 ('[SOP] 步骤')
+            560 LOAD_FAST                7 (idx)
+            562 FORMAT_VALUE             0
+            564 LOAD_CONST              28 (' ')
+            566 LOAD_FAST                9 (atype)
+            568 FORMAT_VALUE             0
+            570 LOAD_CONST              38 (' 异常：')
+            572 LOAD_FAST               16 (e)
+            574 FORMAT_VALUE             0
+            576 BUILD_STRING             6
+            578 CALL_METHOD              1
+            580 POP_TOP
+            582 POP_BLOCK
+            584 POP_EXCEPT
+            586 LOAD_CONST               9 (None)
+            588 STORE_FAST              16 (e)
+            590 DELETE_FAST             16 (e)
+            592 JUMP_FORWARD            10 (to 604)
+        >>  594 LOAD_CONST               9 (None)
+            596 STORE_FAST              16 (e)
+            598 DELETE_FAST             16 (e)
+            600 RERAISE
+        >>  602 RERAISE
+
+137     >>  604 LOAD_FAST                6 (run_record)
+            606 LOAD_CONST              30 ('steps')
+            608 BINARY_SUBSCR
+            610 LOAD_METHOD             11 (append)
+            612 LOAD_FAST               11 (step)
+            614 CALL_METHOD              1
+            616 POP_TOP
+            618 JUMP_ABSOLUTE          168
+
+139     >>  620 LOAD_CONST              39 ('completed')
+            622 LOAD_FAST                6 (run_record)
+            624 LOAD_CONST              23 ('status')
+            626 STORE_SUBSCR
+            628 POP_BLOCK
+            630 JUMP_FORWARD            74 (to 706)
+
+140     >>  632 DUP_TOP
+            634 LOAD_GLOBAL             14 (Exception)
+            636 EXTENDED_ARG             2
+            638 JUMP_IF_NOT_EXC_MATCH   704
+            640 POP_TOP
+            642 STORE_FAST              16 (e)
+            644 POP_TOP
+            646 SETUP_FINALLY           48 (to 696)
+
+141         648 LOAD_CONST              34 ('failed')
+            650 LOAD_FAST                6 (run_record)
+            652 LOAD_CONST              23 ('status')
+            654 STORE_SUBSCR
+
+142         656 LOAD_GLOBAL             12 (str)
+            658 LOAD_FAST               16 (e)
+            660 CALL_FUNCTION            1
+            662 LOAD_FAST                6 (run_record)
+            664 LOAD_CONST              40 ('error')
+            666 STORE_SUBSCR
+
+143         668 LOAD_GLOBAL              6 (logger)
+            670 LOAD_METHOD             15 (error)
+            672 LOAD_CONST              41 ('[SOP] 执行异常：')
+            674 LOAD_FAST               16 (e)
+            676 FORMAT_VALUE             0
+            678 BUILD_STRING             2
+            680 CALL_METHOD              1
+            682 POP_TOP
+            684 POP_BLOCK
+            686 POP_EXCEPT
+            688 LOAD_CONST               9 (None)
+            690 STORE_FAST              16 (e)
+            692 DELETE_FAST             16 (e)
+            694 JUMP_FORWARD            10 (to 706)
+        >>  696 LOAD_CONST               9 (None)
+            698 STORE_FAST              16 (e)
+            700 DELETE_FAST             16 (e)
+            702 RERAISE
+        >>  704 RERAISE
+        >>  706 POP_BLOCK
+
+145         708 LOAD_GLOBAL              1 (datetime)
+            710 LOAD_METHOD              2 (now)
+            712 CALL_METHOD              0
+            714 LOAD_METHOD              5 (isoformat)
+            716 CALL_METHOD              0
+            718 LOAD_FAST                6 (run_record)
+            720 LOAD_CONST              42 ('finished_at')
+            722 STORE_SUBSCR
+
+146         724 LOAD_FAST                0 (self)
+            726 LOAD_METHOD             16 (_persist)
+            728 LOAD_FAST                6 (run_record)
+            730 CALL_METHOD              1
+            732 POP_TOP
+            734 JUMP_FORWARD            28 (to 764)
+
+145     >>  736 LOAD_GLOBAL              1 (datetime)
+            738 LOAD_METHOD              2 (now)
+            740 CALL_METHOD              0
+            742 LOAD_METHOD              5 (isoformat)
+            744 CALL_METHOD              0
+            746 LOAD_FAST                6 (run_record)
+            748 LOAD_CONST              42 ('finished_at')
+            750 STORE_SUBSCR
+
+146         752 LOAD_FAST                0 (self)
+            754 LOAD_METHOD             16 (_persist)
+            756 LOAD_FAST                6 (run_record)
+            758 CALL_METHOD              1
+            760 POP_TOP
+            762 RERAISE
+
+147     >>  764 LOAD_FAST                6 (run_record)
+            766 RETURN_VALUE
+
+Disassembly of <code object _dispatch at 0x1072e0be0, file "WeRobotCore/task_system_v3/sop_runner.py", line 149>:
+158           0 LOAD_FAST                1 (atype)
+              2 LOAD_CONST               1 ('greeting')
+              4 COMPARE_OP               2 (==)
+              6 POP_JUMP_IF_FALSE       28
+
+159           8 LOAD_FAST                0 (self)
+             10 LOAD_METHOD              0 (_action_greeting)
+             12 LOAD_FAST                2 (params)
+             14 LOAD_FAST                3 (target)
+             16 LOAD_FAST                5 (event_context)
+             18 CALL_METHOD              3
+             20 GET_AWAITABLE
+             22 LOAD_CONST               2 (None)
+             24 YIELD_FROM
+             26 RETURN_VALUE
+
+160     >>   28 LOAD_FAST                1 (atype)
+             30 LOAD_CONST               3 ('create_follow')
+             32 COMPARE_OP               2 (==)
+             34 POP_JUMP_IF_FALSE       54
+
+161          36 LOAD_FAST                0 (self)
+             38 LOAD_METHOD              1 (_action_create_follow)
+             40 LOAD_FAST                2 (params)
+             42 LOAD_FAST                3 (target)
+             44 CALL_METHOD              2
+             46 GET_AWAITABLE
+             48 LOAD_CONST               2 (None)
+             50 YIELD_FROM
+             52 RETURN_VALUE
+
+162     >>   54 LOAD_FAST                1 (atype)
+             56 LOAD_CONST               4 ('pull_into_group')
+             58 COMPARE_OP               2 (==)
+             60 POP_JUMP_IF_FALSE       82
+
+163          62 LOAD_FAST                0 (self)
+             64 LOAD_METHOD              2 (_action_pull_into_group)
+             66 LOAD_FAST                2 (params)
+             68 LOAD_FAST                3 (target)
+             70 LOAD_FAST                5 (event_context)
+             72 CALL_METHOD              3
+             74 GET_AWAITABLE
+             76 LOAD_CONST               2 (None)
+             78 YIELD_FROM
+             80 RETURN_VALUE
+
+164     >>   82 LOAD_CONST               5 (False)
+             84 LOAD_CONST               6 ('未知动作类型: ')
+             86 LOAD_FAST                1 (atype)
+             88 FORMAT_VALUE             0
+             90 BUILD_STRING             2
+             92 BUILD_TUPLE              2
+             94 RETURN_VALUE
+
+Disassembly of <code object _action_greeting at 0x1072e0d40, file "WeRobotCore/task_system_v3/sop_runner.py", line 168>:
+174           0 LOAD_FAST                1 (params)
+              2 LOAD_METHOD              0 (get)
+              4 LOAD_CONST               1 ('greetingGroupId')
+              6 CALL_METHOD              1
+              8 STORE_FAST               4 (greeting_group_id)
+
+175          10 LOAD_FAST                4 (greeting_group_id)
+             12 POP_JUMP_IF_TRUE        18
+
+176          14 LOAD_CONST               2 ((False, '未配置话术组'))
+             16 RETURN_VALUE
+
+177     >>   18 LOAD_FAST                0 (self)
+             20 LOAD_ATTR                1 (wechat)
+             22 POP_JUMP_IF_TRUE        38
+             24 LOAD_FAST                0 (self)
+             26 LOAD_ATTR                2 (greeting_sender)
+             28 LOAD_CONST               0 (None)
+             30 IS_OP                    0
+             32 POP_JUMP_IF_FALSE       38
+
+178          34 LOAD_CONST               3 ((False, '无可用微信实例'))
+             36 RETURN_VALUE
+
+179     >>   38 LOAD_CONST               4 (0)
+             40 LOAD_CONST               5 (('GreetingManager',))
+             42 IMPORT_NAME              3 (WeRobotCore.utils.greeting_manager)
+             44 IMPORT_FROM              4 (GreetingManager)
+             46 STORE_FAST               5 (GreetingManager)
+             48 POP_TOP
+
+180          50 LOAD_FAST                5 (GreetingManager)
+
+181          52 LOAD_FAST                0 (self)
+             54 LOAD_ATTR                5 (config_manager)
+
+182          56 LOAD_FAST                0 (self)
+             58 LOAD_ATTR                2 (greeting_sender)
+
+180          60 LOAD_CONST               6 (('message_sender',))
+             62 CALL_FUNCTION_KW         2
+             64 STORE_FAST               6 (gm)
+
+184          66 LOAD_GLOBAL              6 (getattr)
+             68 LOAD_FAST                0 (self)
+             70 LOAD_ATTR                1 (wechat)
+             72 LOAD_CONST               7 ('account_info')
+             74 LOAD_CONST               0 (None)
+             76 CALL_FUNCTION            3
+             78 STORE_FAST               7 (account_info)
+
+185          80 LOAD_GLOBAL              7 (isinstance)
+             82 LOAD_FAST                7 (account_info)
+             84 LOAD_GLOBAL              8 (Mapping)
+             86 CALL_FUNCTION            2
+             88 POP_JUMP_IF_FALSE       98
+             90 LOAD_GLOBAL              9 (dict)
+             92 LOAD_FAST                7 (account_info)
+             94 CALL_FUNCTION            1
+             96 JUMP_FORWARD             2 (to 100)
+        >>   98 BUILD_MAP                0
+        >>  100 STORE_FAST               7 (account_info)
+
+186         102 LOAD_GLOBAL              9 (dict)
+            104 LOAD_FAST                3 (event_context)
+            106 JUMP_IF_TRUE_OR_POP    110
+            108 BUILD_MAP                0
+        >>  110 CALL_FUNCTION            1
+            112 STORE_FAST               8 (event_details)
+
+187         114 LOAD_FAST                6 (gm)
+            116 LOAD_ATTR               10 (execute_greeting_group)
+
+188         118 LOAD_FAST                4 (greeting_group_id)
+
+189         120 LOAD_FAST                2 (target)
+            122 LOAD_METHOD              0 (get)
+            124 LOAD_CONST               8 ('name')
+            126 CALL_METHOD              1
+
+190         128 LOAD_FAST                2 (target)
+            130 LOAD_METHOD              0 (get)
+            132 LOAD_CONST               9 ('session_id')
+            134 CALL_METHOD              1
+
+191         136 LOAD_FAST                0 (self)
+            138 LOAD_ATTR                1 (wechat)
+
+192         140 LOAD_FAST                0 (self)
+            142 LOAD_ATTR               11 (account_id)
+
+194         144 LOAD_GLOBAL             12 (str)
+
+195         146 LOAD_FAST                7 (account_info)
+            148 LOAD_METHOD              0 (get)
+            150 LOAD_CONST              10 ('account_id')
+            152 CALL_METHOD              1
+            154 JUMP_IF_TRUE_OR_POP    164
+            156 LOAD_FAST                0 (self)
+            158 LOAD_ATTR               11 (account_id)
+            160 JUMP_IF_TRUE_OR_POP    164
+            162 LOAD_CONST              11 ('')
+
+194     >>  164 CALL_FUNCTION            1
+
+197         166 LOAD_GLOBAL             12 (str)
+            168 LOAD_FAST                7 (account_info)
+            170 LOAD_METHOD              0 (get)
+            172 LOAD_CONST              12 ('nickname')
+            174 CALL_METHOD              1
+            176 JUMP_IF_TRUE_OR_POP    180
+            178 LOAD_CONST              11 ('')
+        >>  180 CALL_FUNCTION            1
+
+198         182 LOAD_CONST              13 ('sop')
+
+199         184 LOAD_GLOBAL             12 (str)
+            186 LOAD_FAST                8 (event_details)
+            188 LOAD_METHOD              0 (get)
+            190 LOAD_CONST              14 ('run_id')
+            192 CALL_METHOD              1
+            194 JUMP_IF_TRUE_OR_POP    198
+            196 LOAD_CONST              11 ('')
+        >>  198 CALL_FUNCTION            1
+
+200         200 LOAD_FAST                2 (target)
+            202 LOAD_METHOD              0 (get)
+            204 LOAD_CONST              15 ('chat_type')
+            206 LOAD_CONST              16 ('single')
+            208 CALL_METHOD              2
+            210 LOAD_CONST              17 ('group')
+            212 COMPARE_OP               2 (==)
+
+201         214 LOAD_FAST                8 (event_details)
+
+193         216 LOAD_CONST              18 (('account_id', 'account_nickname', 'origin', 'task_id', 'is_group', 'details'))
+            218 BUILD_CONST_KEY_MAP      6
+
+187         220 LOAD_CONST              19 (('greeting_group_id', 'target_user', 'session_id', 'wechat', 'account_id', 'event_context'))
+            222 CALL_FUNCTION_KW         6
+            224 GET_AWAITABLE
+            226 LOAD_CONST               0 (None)
+            228 YIELD_FROM
+            230 STORE_FAST               9 (ok)
+
+207         232 LOAD_FAST                9 (ok)
+            234 EXTENDED_ARG             1
+            236 POP_JUMP_IF_FALSE      400
+
+208         238 SETUP_FINALLY          106 (to 346)
+
+209         240 LOAD_FAST                0 (self)
+            242 LOAD_ATTR               13 (history_recorder)
+            244 LOAD_CONST               0 (None)
+            246 IS_OP                    1
+            248 EXTENDED_ARG             1
+            250 POP_JUMP_IF_FALSE      296
+
+210         252 LOAD_FAST                0 (self)
+            254 LOAD_ATTR               13 (history_recorder)
+            256 LOAD_ATTR               14 (record_after_reply)
+
+211         258 LOAD_FAST                0 (self)
+            260 LOAD_ATTR               11 (account_id)
+
+212         262 LOAD_FAST                2 (target)
+            264 LOAD_METHOD              0 (get)
+            266 LOAD_CONST               9 ('session_id')
+            268 CALL_METHOD              1
+
+213         270 LOAD_FAST                2 (target)
+            272 LOAD_METHOD              0 (get)
+            274 LOAD_CONST               8 ('name')
+            276 CALL_METHOD              1
+
+214         278 LOAD_CONST              20 (15)
+
+215         280 LOAD_CONST              21 (True)
+
+210         282 LOAD_CONST              22 (('limit', 'parse_files'))
+            284 CALL_FUNCTION_KW         5
+            286 GET_AWAITABLE
+            288 LOAD_CONST               0 (None)
+            290 YIELD_FROM
+            292 POP_TOP
+            294 JUMP_FORWARD            46 (to 342)
+
+218     >>  296 LOAD_CONST               4 (0)
+            298 LOAD_CONST              23 (('chat',))
+            300 IMPORT_NAME             15 (WeRobotCore.api)
+            302 IMPORT_FROM             16 (chat)
+            304 STORE_FAST              10 (chat)
+            306 POP_TOP
+
+219         308 LOAD_FAST               10 (chat)
+            310 LOAD_ATTR               17 (async_get_chat_messages)
+
+220         312 LOAD_FAST                2 (target)
+            314 LOAD_METHOD              0 (get)
+            316 LOAD_CONST               8 ('name')
+            318 CALL_METHOD              1
+            320 LOAD_CONST              21 (True)
+            322 LOAD_CONST              20 (15)
+
+221         324 LOAD_CONST              21 (True)
+            326 LOAD_FAST                0 (self)
+            328 LOAD_ATTR               11 (account_id)
+
+219         330 LOAD_CONST              24 (('context_count', 'save_msg', 'account_id'))
+            332 CALL_FUNCTION_KW         5
+            334 GET_AWAITABLE
+            336 LOAD_CONST               0 (None)
+            338 YIELD_FROM
+            340 POP_TOP
+        >>  342 POP_BLOCK
+            344 JUMP_FORWARD            54 (to 400)
+
+223     >>  346 DUP_TOP
+            348 LOAD_GLOBAL             18 (Exception)
+            350 EXTENDED_ARG             1
+            352 JUMP_IF_NOT_EXC_MATCH   398
+            354 POP_TOP
+            356 STORE_FAST              11 (e)
+            358 POP_TOP
+            360 SETUP_FINALLY           28 (to 390)
+
+224         362 LOAD_GLOBAL             19 (logger)
+            364 LOAD_METHOD             20 (debug)
+            366 LOAD_CONST              25 ('[SOP] 打招呼后回存历史失败: ')
+            368 LOAD_FAST               11 (e)
+            370 FORMAT_VALUE             0
+            372 BUILD_STRING             2
+            374 CALL_METHOD              1
+            376 POP_TOP
+            378 POP_BLOCK
+            380 POP_EXCEPT
+            382 LOAD_CONST               0 (None)
+            384 STORE_FAST              11 (e)
+            386 DELETE_FAST             11 (e)
+            388 JUMP_FORWARD            10 (to 400)
+        >>  390 LOAD_CONST               0 (None)
+            392 STORE_FAST              11 (e)
+            394 DELETE_FAST             11 (e)
+            396 RERAISE
+        >>  398 RERAISE
+
+225     >>  400 LOAD_GLOBAL             21 (bool)
+            402 LOAD_FAST                9 (ok)
+            404 CALL_FUNCTION            1
+            406 LOAD_FAST                9 (ok)
+            408 EXTENDED_ARG             1
+            410 POP_JUMP_IF_FALSE      416
+            412 LOAD_CONST              26 ('话术组已发送')
+            414 JUMP_FORWARD             2 (to 418)
+        >>  416 LOAD_CONST              27 ('话术组发送失败')
+        >>  418 BUILD_TUPLE              2
+            420 RETURN_VALUE
+
+Disassembly of <code object _action_pull_into_group at 0x1072e0710, file "WeRobotCore/task_system_v3/sop_runner.py", line 227>:
+234           0 LOAD_FAST                1 (params)
+              2 LOAD_METHOD              0 (get)
+              4 LOAD_CONST               1 ('targetGroupName')
+              6 CALL_METHOD              1
+              8 JUMP_IF_TRUE_OR_POP     18
+             10 LOAD_FAST                1 (params)
+             12 LOAD_METHOD              0 (get)
+             14 LOAD_CONST               2 ('targetGroupId')
+             16 CALL_METHOD              1
+        >>   18 STORE_FAST               4 (group_name)
+
+235          20 LOAD_FAST                4 (group_name)
+             22 POP_JUMP_IF_TRUE        28
+
+236          24 LOAD_CONST               3 ((False, '未配置目标群'))
+             26 RETURN_VALUE
+
+237     >>   28 LOAD_FAST                0 (self)
+             30 LOAD_ATTR                1 (wechat)
+             32 POP_JUMP_IF_TRUE        38
+
+238          34 LOAD_CONST               4 ((False, '无可用微信实例'))
+             36 RETURN_VALUE
+
+240     >>   38 SETUP_FINALLY           46 (to 86)
+
+241          40 LOAD_FAST                0 (self)
+             42 LOAD_ATTR                1 (wechat)
+             44 LOAD_METHOD              2 (invite_friends_to_group)
+
+242          46 LOAD_FAST                2 (target)
+             48 LOAD_METHOD              0 (get)
+             50 LOAD_CONST               5 ('name')
+             52 CALL_METHOD              1
+             54 BUILD_LIST               1
+             56 LOAD_FAST                4 (group_name)
+
+241          58 CALL_METHOD              2
+             60 STORE_FAST               5 (res)
+
+244          62 LOAD_GLOBAL              3 (inspect)
+             64 LOAD_METHOD              4 (isawaitable)
+             66 LOAD_FAST                5 (res)
+             68 CALL_METHOD              1
+             70 POP_JUMP_IF_FALSE       82
+
+245          72 LOAD_FAST                5 (res)
+             74 GET_AWAITABLE
+             76 LOAD_CONST               0 (None)
+             78 YIELD_FROM
+             80 STORE_FAST               5 (res)
+        >>   82 POP_BLOCK
+             84 JUMP_FORWARD            72 (to 158)
+
+246     >>   86 DUP_TOP
+             88 LOAD_GLOBAL              5 (Exception)
+             90 JUMP_IF_NOT_EXC_MATCH   156
+             92 POP_TOP
+             94 STORE_FAST               6 (exc)
+             96 POP_TOP
+             98 SETUP_FINALLY           48 (to 148)
+
+248         100 LOAD_CONST               6 (False)
+
+249         102 LOAD_GLOBAL              6 (str)
+            104 LOAD_FAST                6 (exc)
+            106 CALL_FUNCTION            1
+
+250         108 LOAD_CONST               7 (0)
+
+251         110 BUILD_LIST               0
+
+247         112 LOAD_CONST               8 (('success', 'message', 'invited_count', 'invited_users'))
+            114 BUILD_CONST_KEY_MAP      4
+            116 STORE_FAST               5 (res)
+
+253         118 LOAD_FAST                0 (self)
+            120 LOAD_METHOD              7 (_record_group_invitation)
+
+254         122 LOAD_FAST                2 (target)
+            124 LOAD_FAST                4 (group_name)
+            126 LOAD_FAST                5 (res)
+            128 LOAD_FAST                3 (event_context)
+
+253         130 CALL_METHOD              4
+            132 POP_TOP
+
+256         134 RAISE_VARARGS            0
+            136 POP_BLOCK
+            138 POP_EXCEPT
+            140 LOAD_CONST               0 (None)
+            142 STORE_FAST               6 (exc)
+            144 DELETE_FAST              6 (exc)
+            146 JUMP_FORWARD            10 (to 158)
+        >>  148 LOAD_CONST               0 (None)
+            150 STORE_FAST               6 (exc)
+            152 DELETE_FAST              6 (exc)
+            154 RERAISE
+        >>  156 RERAISE
+
+257     >>  158 LOAD_FAST                0 (self)
+            160 LOAD_METHOD              7 (_record_group_invitation)
+            162 LOAD_FAST                2 (target)
+            164 LOAD_FAST                4 (group_name)
+            166 LOAD_FAST                5 (res)
+            168 LOAD_FAST                3 (event_context)
+            170 CALL_METHOD              4
+            172 POP_TOP
+
+258         174 LOAD_GLOBAL              8 (bool)
+            176 LOAD_FAST                5 (res)
+            178 JUMP_IF_FALSE_OR_POP   188
+            180 LOAD_FAST                5 (res)
+            182 LOAD_METHOD              0 (get)
+            184 LOAD_CONST               9 ('success')
+            186 CALL_METHOD              1
+        >>  188 CALL_FUNCTION            1
+            190 STORE_FAST               7 (ok)
+
+259         192 LOAD_FAST                7 (ok)
+            194 LOAD_FAST                5 (res)
+            196 JUMP_IF_TRUE_OR_POP    200
+            198 BUILD_MAP                0
+        >>  200 LOAD_METHOD              0 (get)
+            202 LOAD_CONST              10 ('message')
+            204 LOAD_CONST              11 ('')
+            206 CALL_METHOD              2
+            208 BUILD_TUPLE              2
+            210 RETURN_VALUE
+
+Disassembly of <code object _record_group_invitation at 0x1072e0870, file "WeRobotCore/task_system_v3/sop_runner.py", line 261>:
+268           0 SETUP_FINALLY          174 (to 176)
+
+269           2 LOAD_GLOBAL              0 (getattr)
+              4 LOAD_FAST                0 (self)
+              6 LOAD_ATTR                1 (wechat)
+              8 LOAD_CONST               1 ('account_info')
+             10 LOAD_CONST               0 (None)
+             12 CALL_FUNCTION            3
+             14 STORE_FAST               5 (account_info)
+
+271          16 LOAD_GLOBAL              2 (isinstance)
+             18 LOAD_FAST                5 (account_info)
+             20 LOAD_GLOBAL              3 (Mapping)
+             22 CALL_FUNCTION            2
+             24 POP_JUMP_IF_FALSE       34
+             26 LOAD_GLOBAL              4 (dict)
+             28 LOAD_FAST                5 (account_info)
+             30 CALL_FUNCTION            1
+             32 JUMP_FORWARD             2 (to 36)
+        >>   34 BUILD_MAP                0
+
+270     >>   36 STORE_FAST               5 (account_info)
+
+273          38 LOAD_GLOBAL              4 (dict)
+             40 LOAD_FAST                4 (event_context)
+             42 JUMP_IF_TRUE_OR_POP     46
+             44 BUILD_MAP                0
+        >>   46 CALL_FUNCTION            1
+             48 STORE_FAST               6 (details)
+
+274          50 LOAD_CONST               2 (0)
+             52 LOAD_CONST               3 (('record_group_invitation_results',))
+             54 IMPORT_NAME              5 (WeRobotCore.services.customer_event_recorder)
+             56 IMPORT_FROM              6 (record_group_invitation_results)
+             58 STORE_FAST               7 (record_group_invitation_results)
+             60 POP_TOP
+
+277          62 LOAD_FAST                7 (record_group_invitation_results)
+
+278          64 LOAD_GLOBAL              7 (str)
+
+279          66 LOAD_FAST                5 (account_info)
+             68 LOAD_METHOD              8 (get)
+             70 LOAD_CONST               4 ('account_id')
+             72 CALL_METHOD              1
+             74 JUMP_IF_TRUE_OR_POP     84
+             76 LOAD_FAST                0 (self)
+             78 LOAD_ATTR                9 (account_id)
+             80 JUMP_IF_TRUE_OR_POP     84
+             82 LOAD_CONST               5 ('')
+
+278     >>   84 CALL_FUNCTION            1
+
+281          86 LOAD_GLOBAL              7 (str)
+             88 LOAD_FAST                5 (account_info)
+             90 LOAD_METHOD              8 (get)
+             92 LOAD_CONST               6 ('nickname')
+             94 CALL_METHOD              1
+             96 JUMP_IF_TRUE_OR_POP    100
+             98 LOAD_CONST               5 ('')
+        >>  100 CALL_FUNCTION            1
+
+282         102 LOAD_FAST                1 (target)
+            104 LOAD_METHOD              8 (get)
+            106 LOAD_CONST               7 ('name')
+            108 CALL_METHOD              1
+            110 BUILD_LIST               1
+
+283         112 LOAD_FAST                2 (group_name)
+
+284         114 LOAD_FAST                3 (operation_result)
+
+285         116 LOAD_CONST               8 ('sop_group_invite')
+
+286         118 LOAD_GLOBAL              7 (str)
+            120 LOAD_FAST                6 (details)
+            122 LOAD_METHOD              8 (get)
+            124 LOAD_CONST               9 ('run_id')
+            126 CALL_METHOD              1
+            128 JUMP_IF_TRUE_OR_POP    132
+            130 LOAD_CONST               5 ('')
+        >>  132 CALL_FUNCTION            1
+
+287         134 LOAD_FAST                6 (details)
+
+277         136 LOAD_CONST              10 (('account_id', 'account_nickname', 'target_names', 'group_name', 'operation_result', 'origin', 'task_id', 'details'))
+            138 CALL_FUNCTION_KW         8
+            140 STORE_FAST               8 (result)
+
+289         142 LOAD_FAST                8 (result)
+            144 LOAD_METHOD              8 (get)
+            146 LOAD_CONST              11 ('success')
+            148 CALL_METHOD              1
+            150 POP_JUMP_IF_TRUE       172
+
+290         152 LOAD_GLOBAL             10 (logger)
+            154 LOAD_METHOD             11 (warning)
+
+291         156 LOAD_CONST              12 ('[SOP] 记录拉群事件失败（不影响步骤）: %s')
+
+292         158 LOAD_FAST                8 (result)
+            160 LOAD_METHOD              8 (get)
+            162 LOAD_CONST              13 ('error')
+            164 LOAD_CONST               5 ('')
+            166 CALL_METHOD              2
+
+290         168 CALL_METHOD              2
+            170 POP_TOP
+        >>  172 POP_BLOCK
+            174 JUMP_FORWARD            48 (to 224)
+
+294     >>  176 DUP_TOP
+            178 LOAD_GLOBAL             12 (Exception)
+            180 JUMP_IF_NOT_EXC_MATCH   222
+            182 POP_TOP
+            184 STORE_FAST               9 (event_error)
+            186 POP_TOP
+            188 SETUP_FINALLY           24 (to 214)
+
+295         190 LOAD_GLOBAL             10 (logger)
+            192 LOAD_METHOD             11 (warning)
+
+296         194 LOAD_CONST              14 ('[SOP] 记录拉群事件异常（不影响步骤）: %s')
+            196 LOAD_FAST                9 (event_error)
+
+295         198 CALL_METHOD              2
+            200 POP_TOP
+            202 POP_BLOCK
+            204 POP_EXCEPT
+            206 LOAD_CONST               0 (None)
+            208 STORE_FAST               9 (event_error)
+            210 DELETE_FAST              9 (event_error)
+            212 JUMP_FORWARD            10 (to 224)
+        >>  214 LOAD_CONST               0 (None)
+            216 STORE_FAST               9 (event_error)
+            218 DELETE_FAST              9 (event_error)
+            220 RERAISE
+        >>  222 RERAISE
+        >>  224 LOAD_CONST               0 (None)
+            226 RETURN_VALUE
+
+Disassembly of <code object _action_create_follow at 0x1072e0a80, file "WeRobotCore/task_system_v3/sop_runner.py", line 299>:
+300           0 LOAD_CONST               1 (0)
+              2 LOAD_CONST               2 (('get_auto_follow_manager',))
+              4 IMPORT_NAME              0 (WeRobotCore.task_system_v3.unified_manager_pattern)
+              6 IMPORT_FROM              1 (get_auto_follow_manager)
+              8 STORE_FAST               3 (get_auto_follow_manager)
+             10 POP_TOP
+
+301          12 LOAD_FAST                3 (get_auto_follow_manager)
+             14 CALL_FUNCTION            0
+             16 STORE_FAST               4 (mgr)
+
+302          18 LOAD_FAST                4 (mgr)
+             20 POP_JUMP_IF_TRUE        26
+
+303          22 LOAD_CONST               3 ((False, '跟单管理器不可用'))
+             24 RETURN_VALUE
+
+306     >>   26 LOAD_FAST                1 (params)
+             28 LOAD_METHOD              2 (get)
+             30 LOAD_CONST               4 ('timeMode')
+             32 CALL_METHOD              1
+             34 LOAD_CONST               5 ('dynamic')
+             36 COMPARE_OP               2 (==)
+             38 POP_JUMP_IF_FALSE      104
+
+307          40 LOAD_GLOBAL              3 (datetime)
+             42 LOAD_METHOD              4 (now)
+             44 CALL_METHOD              0
+             46 STORE_FAST               5 (now)
+
+308          48 LOAD_FAST                5 (now)
+             50 LOAD_GLOBAL              5 (timedelta)
+             52 LOAD_CONST               6 (1)
+             54 LOAD_CONST               7 (('hours',))
+             56 CALL_FUNCTION_KW         1
+             58 BINARY_ADD
+             60 STORE_FAST               6 (end)
+
+309          62 LOAD_FAST                5 (now)
+             64 LOAD_METHOD              6 (strftime)
+             66 LOAD_CONST               8 ('%H:%M')
+             68 CALL_METHOD              1
+             70 STORE_FAST               7 (time_start)
+
+311          72 LOAD_FAST                6 (end)
+             74 LOAD_METHOD              7 (date)
+             76 CALL_METHOD              0
+             78 LOAD_FAST                5 (now)
+             80 LOAD_METHOD              7 (date)
+             82 CALL_METHOD              0
+             84 COMPARE_OP               3 (!=)
+             86 POP_JUMP_IF_FALSE       92
+             88 LOAD_CONST               9 ('23:59')
+             90 JUMP_FORWARD             8 (to 100)
+        >>   92 LOAD_FAST                6 (end)
+             94 LOAD_METHOD              6 (strftime)
+             96 LOAD_CONST               8 ('%H:%M')
+             98 CALL_METHOD              1
+        >>  100 STORE_FAST               8 (time_end)
+            102 JUMP_FORWARD            24 (to 128)
+
+313     >>  104 LOAD_FAST                1 (params)
+            106 LOAD_METHOD              2 (get)
+            108 LOAD_CONST              10 ('timeStart')
+            110 LOAD_CONST              11 ('09:00')
+            112 CALL_METHOD              2
+            114 STORE_FAST               7 (time_start)
+
+314         116 LOAD_FAST                1 (params)
+            118 LOAD_METHOD              2 (get)
+            120 LOAD_CONST              12 ('timeEnd')
+            122 LOAD_CONST              13 ('12:00')
+            124 CALL_METHOD              2
+            126 STORE_FAST               8 (time_end)
+
+317     >>  128 LOAD_FAST                0 (self)
+            130 LOAD_ATTR                8 (account_id)
+
+318         132 LOAD_FAST                2 (target)
+            134 LOAD_METHOD              2 (get)
+            136 LOAD_CONST              14 ('wxid')
+            138 CALL_METHOD              1
+            140 JUMP_IF_TRUE_OR_POP    150
+            142 LOAD_FAST                2 (target)
+            144 LOAD_METHOD              2 (get)
+            146 LOAD_CONST              15 ('name')
+            148 CALL_METHOD              1
+
+319     >>  150 LOAD_FAST                2 (target)
+            152 LOAD_METHOD              2 (get)
+            154 LOAD_CONST              15 ('name')
+            156 CALL_METHOD              1
+
+320         158 LOAD_FAST                2 (target)
+            160 LOAD_METHOD              2 (get)
+            162 LOAD_CONST              16 ('chat_type')
+            164 LOAD_CONST              17 ('single')
+            166 CALL_METHOD              2
+
+321         168 LOAD_FAST                1 (params)
+            170 LOAD_METHOD              2 (get)
+            172 LOAD_CONST              18 ('agentId')
+            174 CALL_METHOD              1
+
+322         176 LOAD_FAST                1 (params)
+            178 LOAD_METHOD              2 (get)
+            180 LOAD_CONST              19 ('followScenario')
+            182 LOAD_CONST              20 ('新好友')
+            184 CALL_METHOD              2
+
+323         186 LOAD_FAST                1 (params)
+            188 LOAD_METHOD              2 (get)
+            190 LOAD_CONST              21 ('followDays')
+            192 LOAD_CONST              22 (2)
+            194 CALL_METHOD              2
+
+324         196 LOAD_FAST                1 (params)
+            198 LOAD_METHOD              2 (get)
+            200 LOAD_CONST              23 ('frequency')
+            202 LOAD_CONST               1 (0)
+            204 CALL_METHOD              2
+
+325         206 LOAD_FAST                7 (time_start)
+
+326         208 LOAD_FAST                8 (time_end)
+
+328         210 LOAD_FAST                1 (params)
+            212 LOAD_METHOD              2 (get)
+            214 LOAD_CONST              24 ('firstRun')
+            216 CALL_METHOD              1
+            218 LOAD_CONST              25 ('next_day')
+            220 COMPARE_OP               2 (==)
+
+316         222 LOAD_CONST              26 (('account_id', 'friend_wxid', 'friend_name', 'chat_type', 'agent_id', 'follow_scenario', 'follow_days', 'follow_frequency', 'time_range_start', 'time_range_end', 'first_run_next_day'))
+            224 BUILD_CONST_KEY_MAP     11
+            226 STORE_FAST               9 (task_request)
+
+330         228 LOAD_FAST                4 (mgr)
+            230 LOAD_METHOD              9 (create_auto_follow_task)
+            232 LOAD_FAST                9 (task_request)
+            234 CALL_METHOD              1
+            236 GET_AWAITABLE
+            238 LOAD_CONST               0 (None)
+            240 YIELD_FROM
+            242 STORE_FAST              10 (result)
+
+331         244 LOAD_GLOBAL             10 (bool)
+            246 LOAD_FAST               10 (result)
+            248 EXTENDED_ARG             1
+            250 JUMP_IF_FALSE_OR_POP   260
+            252 LOAD_FAST               10 (result)
+            254 LOAD_METHOD              2 (get)
+            256 LOAD_CONST              27 ('success')
+            258 CALL_METHOD              1
+        >>  260 CALL_FUNCTION            1
+            262 STORE_FAST              11 (ok)
+
+332         264 LOAD_FAST               11 (ok)
+            266 LOAD_FAST               10 (result)
+            268 EXTENDED_ARG             1
+            270 JUMP_IF_TRUE_OR_POP    274
+            272 BUILD_MAP                0
+        >>  274 LOAD_METHOD              2 (get)
+            276 LOAD_CONST              28 ('message')
+            278 CALL_METHOD              1
+            280 EXTENDED_ARG             1
+            282 JUMP_IF_TRUE_OR_POP    304
+            284 LOAD_FAST               10 (result)
+            286 EXTENDED_ARG             1
+            288 JUMP_IF_TRUE_OR_POP    292
+            290 BUILD_MAP                0
+        >>  292 LOAD_METHOD              2 (get)
+            294 LOAD_CONST              29 ('error')
+            296 CALL_METHOD              1
+            298 EXTENDED_ARG             1
+            300 JUMP_IF_TRUE_OR_POP    304
+            302 LOAD_CONST              30 ('')
+        >>  304 BUILD_TUPLE              2
+            306 RETURN_VALUE
+
+Disassembly of <code object _persist at 0x1072e0f50, file "WeRobotCore/task_system_v3/sop_runner.py", line 334>:
+335           0 SETUP_FINALLY          110 (to 112)
+
+336           2 LOAD_GLOBAL              0 (os)
+              4 LOAD_ATTR                1 (makedirs)
+              6 LOAD_FAST                0 (self)
+              8 LOAD_ATTR                2 (_log_dir)
+             10 LOAD_CONST               1 (True)
+             12 LOAD_CONST               2 (('exist_ok',))
+             14 CALL_FUNCTION_KW         2
+             16 POP_TOP
+
+337          18 LOAD_GLOBAL              0 (os)
+             20 LOAD_ATTR                3 (path)
+             22 LOAD_METHOD              4 (join)
+             24 LOAD_FAST                0 (self)
+             26 LOAD_ATTR                2 (_log_dir)
+             28 LOAD_FAST                1 (run_record)
+             30 LOAD_CONST               3 ('run_id')
+             32 BINARY_SUBSCR
+             34 FORMAT_VALUE             0
+             36 LOAD_CONST               4 ('.json')
+             38 BUILD_STRING             2
+             40 CALL_METHOD              2
+             42 STORE_FAST               2 (fpath)
+
+338          44 LOAD_GLOBAL              5 (open)
+             46 LOAD_FAST                2 (fpath)
+             48 LOAD_CONST               5 ('w')
+             50 LOAD_CONST               6 ('utf-8')
+             52 LOAD_CONST               7 (('encoding',))
+             54 CALL_FUNCTION_KW         3
+             56 SETUP_WITH              34 (to 92)
+             58 STORE_FAST               3 (f)
+
+339          60 LOAD_GLOBAL              6 (json)
+             62 LOAD_ATTR                7 (dump)
+             64 LOAD_FAST                1 (run_record)
+             66 LOAD_FAST                3 (f)
+             68 LOAD_CONST               8 (False)
+             70 LOAD_CONST               9 (2)
+             72 LOAD_CONST              10 (('ensure_ascii', 'indent'))
+             74 CALL_FUNCTION_KW         4
+             76 POP_TOP
+             78 POP_BLOCK
+             80 LOAD_CONST               0 (None)
+             82 DUP_TOP
+             84 DUP_TOP
+             86 CALL_FUNCTION            3
+             88 POP_TOP
+             90 JUMP_FORWARD            16 (to 108)
+        >>   92 WITH_EXCEPT_START
+             94 POP_JUMP_IF_TRUE        98
+             96 RERAISE
+        >>   98 POP_TOP
+            100 POP_TOP
+            102 POP_TOP
+            104 POP_EXCEPT
+            106 POP_TOP
+        >>  108 POP_BLOCK
+            110 JUMP_FORWARD            52 (to 164)
+
+340     >>  112 DUP_TOP
+            114 LOAD_GLOBAL              8 (Exception)
+            116 JUMP_IF_NOT_EXC_MATCH   162
+            118 POP_TOP
+            120 STORE_FAST               4 (e)
+            122 POP_TOP
+            124 SETUP_FINALLY           28 (to 154)
+
+341         126 LOAD_GLOBAL              9 (logger)
+            128 LOAD_METHOD             10 (error)
+            130 LOAD_CONST              11 ('[SOP] 运行记录落盘失败: ')
+            132 LOAD_FAST                4 (e)
+            134 FORMAT_VALUE             0
+            136 BUILD_STRING             2
+            138 CALL_METHOD              1
+            140 POP_TOP
+            142 POP_BLOCK
+            144 POP_EXCEPT
+            146 LOAD_CONST               0 (None)
+            148 STORE_FAST               4 (e)
+            150 DELETE_FAST              4 (e)
+            152 JUMP_FORWARD            10 (to 164)
+        >>  154 LOAD_CONST               0 (None)
+            156 STORE_FAST               4 (e)
+            158 DELETE_FAST              4 (e)
+            160 RERAISE
+        >>  162 RERAISE
+        >>  164 LOAD_CONST               0 (None)
+            166 RETURN_VALUE

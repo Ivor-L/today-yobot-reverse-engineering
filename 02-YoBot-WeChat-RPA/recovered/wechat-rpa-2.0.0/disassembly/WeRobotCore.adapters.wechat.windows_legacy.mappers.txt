@@ -1,0 +1,2710 @@
+  1           0 LOAD_CONST               0 ('Map mature Windows Legacy results into platform-neutral domain facts.\n\nThis module performs data-shape normalization only.  It must not import UIA,\nInstanceManager, ``api.chat`` or reproduce monitor/auto-reply decisions.\n')
+              2 STORE_NAME               0 (__doc__)
+
+  7           4 LOAD_CONST               1 (0)
+              6 LOAD_CONST               2 (None)
+              8 IMPORT_NAME              1 (hashlib)
+             10 STORE_NAME               1 (hashlib)
+
+  8          12 LOAD_CONST               1 (0)
+             14 LOAD_CONST               2 (None)
+             16 IMPORT_NAME              2 (ntpath)
+             18 STORE_NAME               2 (ntpath)
+
+  9          20 LOAD_CONST               1 (0)
+             22 LOAD_CONST               3 (('datetime', 'timezone'))
+             24 IMPORT_NAME              3 (datetime)
+             26 IMPORT_FROM              3 (datetime)
+             28 STORE_NAME               3 (datetime)
+             30 IMPORT_FROM              4 (timezone)
+             32 STORE_NAME               4 (timezone)
+             34 POP_TOP
+
+ 10          36 LOAD_CONST               1 (0)
+             38 LOAD_CONST               4 (('Any', 'Iterable', 'Mapping', 'Optional', 'Sequence', 'Tuple'))
+             40 IMPORT_NAME              5 (typing)
+             42 IMPORT_FROM              6 (Any)
+             44 STORE_NAME               6 (Any)
+             46 IMPORT_FROM              7 (Iterable)
+             48 STORE_NAME               7 (Iterable)
+             50 IMPORT_FROM              8 (Mapping)
+             52 STORE_NAME               8 (Mapping)
+             54 IMPORT_FROM              9 (Optional)
+             56 STORE_NAME               9 (Optional)
+             58 IMPORT_FROM             10 (Sequence)
+             60 STORE_NAME              10 (Sequence)
+             62 IMPORT_FROM             11 (Tuple)
+             64 STORE_NAME              11 (Tuple)
+             66 POP_TOP
+
+ 12          68 LOAD_CONST               1 (0)
+             70 LOAD_CONST               5 (('AccountInstance', 'AttachmentRef', 'CapabilityState', 'ChatType', 'ContactRecord', 'ConversationReadResult', 'ErrorCode', 'GroupRecord', 'InstanceId', 'InstanceState', 'MentionState', 'MessageContentType', 'MessageDirection', 'MessageRecord', 'OperationResult', 'SessionSummary'))
+             72 IMPORT_NAME             12 (WeRobotCore.domain)
+             74 IMPORT_FROM             13 (AccountInstance)
+             76 STORE_NAME              13 (AccountInstance)
+             78 IMPORT_FROM             14 (AttachmentRef)
+             80 STORE_NAME              14 (AttachmentRef)
+             82 IMPORT_FROM             15 (CapabilityState)
+             84 STORE_NAME              15 (CapabilityState)
+             86 IMPORT_FROM             16 (ChatType)
+             88 STORE_NAME              16 (ChatType)
+             90 IMPORT_FROM             17 (ContactRecord)
+             92 STORE_NAME              17 (ContactRecord)
+             94 IMPORT_FROM             18 (ConversationReadResult)
+             96 STORE_NAME              18 (ConversationReadResult)
+             98 IMPORT_FROM             19 (ErrorCode)
+            100 STORE_NAME              19 (ErrorCode)
+            102 IMPORT_FROM             20 (GroupRecord)
+            104 STORE_NAME              20 (GroupRecord)
+            106 IMPORT_FROM             21 (InstanceId)
+            108 STORE_NAME              21 (InstanceId)
+            110 IMPORT_FROM             22 (InstanceState)
+            112 STORE_NAME              22 (InstanceState)
+            114 IMPORT_FROM             23 (MentionState)
+            116 STORE_NAME              23 (MentionState)
+            118 IMPORT_FROM             24 (MessageContentType)
+            120 STORE_NAME              24 (MessageContentType)
+            122 IMPORT_FROM             25 (MessageDirection)
+            124 STORE_NAME              25 (MessageDirection)
+            126 IMPORT_FROM             26 (MessageRecord)
+            128 STORE_NAME              26 (MessageRecord)
+            130 IMPORT_FROM             27 (OperationResult)
+            132 STORE_NAME              27 (OperationResult)
+            134 IMPORT_FROM             28 (SessionSummary)
+            136 STORE_NAME              28 (SessionSummary)
+            138 POP_TOP
+
+ 32         140 LOAD_CONST               6 ('windows.legacy.facade.v1')
+            142 STORE_NAME              29 (WINDOWS_LEGACY_DRIVER_ID)
+
+ 35         144 LOAD_NAME                6 (Any)
+            146 LOAD_NAME               30 (str)
+            148 LOAD_NAME               30 (str)
+            150 LOAD_CONST               7 (('value', 'field_name', 'return'))
+            152 BUILD_CONST_KEY_MAP      3
+            154 LOAD_CONST               8 (<code object _required_text at 0x1072cfbe0, file "WeRobotCore/adapters/wechat/windows_legacy/mappers.py", line 35>)
+            156 LOAD_CONST               9 ('_required_text')
+            158 MAKE_FUNCTION            4 (annotations)
+            160 STORE_NAME              31 (_required_text)
+
+ 42         162 LOAD_NAME                6 (Any)
+            164 LOAD_NAME                9 (Optional)
+            166 LOAD_NAME               30 (str)
+            168 BINARY_SUBSCR
+            170 LOAD_CONST              10 (('value', 'return'))
+            172 BUILD_CONST_KEY_MAP      2
+            174 LOAD_CONST              11 (<code object _optional_text at 0x1072e0870, file "WeRobotCore/adapters/wechat/windows_legacy/mappers.py", line 42>)
+            176 LOAD_CONST              12 ('_optional_text')
+            178 MAKE_FUNCTION            4 (annotations)
+            180 STORE_NAME              32 (_optional_text)
+
+ 49         182 LOAD_NAME                6 (Any)
+            184 LOAD_NAME               30 (str)
+            186 LOAD_CONST              10 (('value', 'return'))
+            188 BUILD_CONST_KEY_MAP      2
+            190 LOAD_CONST              13 (<code object _text_or_empty at 0x1072e0d40, file "WeRobotCore/adapters/wechat/windows_legacy/mappers.py", line 49>)
+            192 LOAD_CONST              14 ('_text_or_empty')
+            194 MAKE_FUNCTION            4 (annotations)
+            196 STORE_NAME              33 (_text_or_empty)
+
+ 53         198 LOAD_NAME                8 (Mapping)
+            200 LOAD_NAME               30 (str)
+            202 LOAD_NAME                6 (Any)
+            204 BUILD_TUPLE              2
+            206 BINARY_SUBSCR
+            208 LOAD_NAME               30 (str)
+            210 LOAD_NAME                9 (Optional)
+            212 LOAD_NAME               34 (bool)
+            214 BINARY_SUBSCR
+            216 LOAD_CONST              15 (('raw', 'keys', 'return'))
+            218 BUILD_CONST_KEY_MAP      3
+            220 LOAD_CONST              16 (<code object _explicit_bool at 0x1073b9c90, file "WeRobotCore/adapters/wechat/windows_legacy/mappers.py", line 53>)
+            222 LOAD_CONST              17 ('_explicit_bool')
+            224 MAKE_FUNCTION            4 (annotations)
+            226 STORE_NAME              35 (_explicit_bool)
+
+ 61         228 LOAD_NAME                6 (Any)
+            230 LOAD_NAME                9 (Optional)
+            232 LOAD_NAME               36 (int)
+            234 BINARY_SUBSCR
+            236 LOAD_CONST              10 (('value', 'return'))
+            238 BUILD_CONST_KEY_MAP      2
+            240 LOAD_CONST              18 (<code object _nonnegative_int at 0x1073b99d0, file "WeRobotCore/adapters/wechat/windows_legacy/mappers.py", line 61>)
+            242 LOAD_CONST              19 ('_nonnegative_int')
+            244 MAKE_FUNCTION            4 (annotations)
+            246 STORE_NAME              37 (_nonnegative_int)
+
+ 71         248 LOAD_NAME                6 (Any)
+            250 LOAD_NAME                9 (Optional)
+            252 LOAD_NAME                3 (datetime)
+            254 BINARY_SUBSCR
+            256 LOAD_CONST              10 (('value', 'return'))
+            258 BUILD_CONST_KEY_MAP      2
+            260 LOAD_CONST              20 (<code object _utc_datetime at 0x1073b9920, file "WeRobotCore/adapters/wechat/windows_legacy/mappers.py", line 71>)
+            262 LOAD_CONST              21 ('_utc_datetime')
+            264 MAKE_FUNCTION            4 (annotations)
+            266 STORE_NAME              38 (_utc_datetime)
+
+ 84         268 LOAD_CONST              78 ((None, None))
+            270 LOAD_NAME                6 (Any)
+            272 LOAD_NAME                6 (Any)
+            274 LOAD_NAME               16 (ChatType)
+            276 LOAD_CONST              22 (('value', 'is_group', 'return'))
+            278 BUILD_CONST_KEY_MAP      3
+            280 LOAD_CONST              23 (<code object _chat_type at 0x1073b9ea0, file "WeRobotCore/adapters/wechat/windows_legacy/mappers.py", line 84>)
+            282 LOAD_CONST              24 ('_chat_type')
+            284 MAKE_FUNCTION            5 (defaults, annotations)
+            286 STORE_NAME              39 (_chat_type)
+
+104         288 LOAD_NAME                8 (Mapping)
+            290 LOAD_NAME               30 (str)
+            292 LOAD_NAME                6 (Any)
+            294 BUILD_TUPLE              2
+            296 BINARY_SUBSCR
+            298 LOAD_NAME                9 (Optional)
+            300 LOAD_NAME               23 (MentionState)
+            302 BINARY_SUBSCR
+            304 LOAD_CONST              25 (('raw', 'return'))
+            306 BUILD_CONST_KEY_MAP      2
+            308 LOAD_CONST              26 (<code object _mention_state at 0x1073b9be0, file "WeRobotCore/adapters/wechat/windows_legacy/mappers.py", line 104>)
+            310 LOAD_CONST              27 ('_mention_state')
+            312 MAKE_FUNCTION            4 (annotations)
+            314 STORE_NAME              40 (_mention_state)
+
+125         316 LOAD_NAME               29 (WINDOWS_LEGACY_DRIVER_ID)
+
+126         318 LOAD_CONST               2 (None)
+
+123         320 BUILD_TUPLE              2
+
+124         322 LOAD_NAME                8 (Mapping)
+            324 LOAD_NAME               30 (str)
+            326 LOAD_NAME                6 (Any)
+            328 BUILD_TUPLE              2
+            330 BINARY_SUBSCR
+
+125         332 LOAD_NAME               30 (str)
+
+126         334 LOAD_NAME                9 (Optional)
+            336 LOAD_NAME                8 (Mapping)
+            338 LOAD_NAME               30 (str)
+            340 LOAD_NAME               15 (CapabilityState)
+            342 BUILD_TUPLE              2
+            344 BINARY_SUBSCR
+            346 BINARY_SUBSCR
+
+127         348 LOAD_NAME               13 (AccountInstance)
+
+123         350 LOAD_CONST              28 (('raw', 'driver_id', 'capabilities', 'return'))
+            352 BUILD_CONST_KEY_MAP      4
+            354 LOAD_CONST              29 (<code object map_legacy_instance at 0x1073aa660, file "WeRobotCore/adapters/wechat/windows_legacy/mappers.py", line 123>)
+            356 LOAD_CONST              30 ('map_legacy_instance')
+            358 MAKE_FUNCTION            5 (defaults, annotations)
+            360 STORE_NAME              41 (map_legacy_instance)
+
+167         362 LOAD_NAME                8 (Mapping)
+            364 LOAD_NAME               30 (str)
+            366 LOAD_NAME                6 (Any)
+            368 BUILD_TUPLE              2
+            370 BINARY_SUBSCR
+            372 LOAD_NAME               30 (str)
+            374 LOAD_NAME               28 (SessionSummary)
+            376 LOAD_CONST              31 (('raw', 'account_id', 'return'))
+            378 BUILD_CONST_KEY_MAP      3
+            380 LOAD_CONST              32 (<code object map_legacy_session at 0x1073aa710, file "WeRobotCore/adapters/wechat/windows_legacy/mappers.py", line 167>)
+            382 LOAD_CONST              33 ('map_legacy_session')
+            384 MAKE_FUNCTION            4 (annotations)
+            386 STORE_NAME              42 (map_legacy_session)
+
+197         388 LOAD_NAME                7 (Iterable)
+            390 LOAD_NAME                8 (Mapping)
+            392 LOAD_NAME               30 (str)
+            394 LOAD_NAME                6 (Any)
+            396 BUILD_TUPLE              2
+            398 BINARY_SUBSCR
+            400 BINARY_SUBSCR
+
+198         402 LOAD_NAME               30 (str)
+
+199         404 LOAD_NAME               11 (Tuple)
+            406 LOAD_NAME               28 (SessionSummary)
+            408 LOAD_CONST              34 (Ellipsis)
+            410 BUILD_TUPLE              2
+            412 BINARY_SUBSCR
+
+196         414 LOAD_CONST              35 (('raw_sessions', 'account_id', 'return'))
+            416 BUILD_CONST_KEY_MAP      3
+            418 LOAD_CONST              36 (<code object map_legacy_sessions at 0x1073aa870, file "WeRobotCore/adapters/wechat/windows_legacy/mappers.py", line 196>)
+            420 LOAD_CONST              37 ('map_legacy_sessions')
+            422 MAKE_FUNCTION            4 (annotations)
+            424 STORE_NAME              43 (map_legacy_sessions)
+
+203         426 LOAD_NAME                6 (Any)
+            428 LOAD_NAME               11 (Tuple)
+            430 LOAD_NAME               30 (str)
+            432 LOAD_CONST              34 (Ellipsis)
+            434 BUILD_TUPLE              2
+            436 BINARY_SUBSCR
+            438 LOAD_CONST              10 (('value', 'return'))
+            440 BUILD_CONST_KEY_MAP      2
+            442 LOAD_CONST              38 (<code object _normalized_tags at 0x1073aa2f0, file "WeRobotCore/adapters/wechat/windows_legacy/mappers.py", line 203>)
+            444 LOAD_CONST              39 ('_normalized_tags')
+            446 MAKE_FUNCTION            4 (annotations)
+            448 STORE_NAME              44 (_normalized_tags)
+
+222         450 LOAD_NAME                8 (Mapping)
+            452 LOAD_NAME               30 (str)
+            454 LOAD_NAME                6 (Any)
+            456 BUILD_TUPLE              2
+            458 BINARY_SUBSCR
+            460 LOAD_NAME               30 (str)
+            462 LOAD_NAME               17 (ContactRecord)
+            464 LOAD_CONST              31 (('raw', 'account_id', 'return'))
+            466 BUILD_CONST_KEY_MAP      3
+            468 LOAD_CONST              40 (<code object map_legacy_contact at 0x1073aa190, file "WeRobotCore/adapters/wechat/windows_legacy/mappers.py", line 222>)
+            470 LOAD_CONST              41 ('map_legacy_contact')
+            472 MAKE_FUNCTION            4 (annotations)
+            474 STORE_NAME              45 (map_legacy_contact)
+
+261         476 LOAD_NAME                7 (Iterable)
+            478 LOAD_NAME                8 (Mapping)
+            480 LOAD_NAME               30 (str)
+            482 LOAD_NAME                6 (Any)
+            484 BUILD_TUPLE              2
+            486 BINARY_SUBSCR
+            488 BINARY_SUBSCR
+
+262         490 LOAD_NAME               30 (str)
+
+263         492 LOAD_NAME               11 (Tuple)
+            494 LOAD_NAME               17 (ContactRecord)
+            496 LOAD_CONST              34 (Ellipsis)
+            498 BUILD_TUPLE              2
+            500 BINARY_SUBSCR
+
+260         502 LOAD_CONST              42 (('raw_contacts', 'account_id', 'return'))
+            504 BUILD_CONST_KEY_MAP      3
+            506 LOAD_CONST              43 (<code object map_legacy_contacts at 0x1073aa240, file "WeRobotCore/adapters/wechat/windows_legacy/mappers.py", line 260>)
+            508 LOAD_CONST              44 ('map_legacy_contacts')
+            510 MAKE_FUNCTION            4 (annotations)
+            512 STORE_NAME              46 (map_legacy_contacts)
+
+267         514 LOAD_NAME                8 (Mapping)
+            516 LOAD_NAME               30 (str)
+            518 LOAD_NAME                6 (Any)
+            520 BUILD_TUPLE              2
+            522 BINARY_SUBSCR
+            524 LOAD_NAME               30 (str)
+            526 LOAD_NAME               20 (GroupRecord)
+            528 LOAD_CONST              31 (('raw', 'account_id', 'return'))
+            530 BUILD_CONST_KEY_MAP      3
+            532 LOAD_CONST              45 (<code object map_legacy_group at 0x1073aaa80, file "WeRobotCore/adapters/wechat/windows_legacy/mappers.py", line 267>)
+            534 LOAD_CONST              46 ('map_legacy_group')
+            536 MAKE_FUNCTION            4 (annotations)
+            538 STORE_NAME              47 (map_legacy_group)
+
+299         540 LOAD_NAME                7 (Iterable)
+            542 LOAD_NAME                8 (Mapping)
+            544 LOAD_NAME               30 (str)
+            546 LOAD_NAME                6 (Any)
+            548 BUILD_TUPLE              2
+            550 BINARY_SUBSCR
+            552 BINARY_SUBSCR
+
+300         554 LOAD_NAME               30 (str)
+
+301         556 LOAD_NAME               11 (Tuple)
+            558 LOAD_NAME               20 (GroupRecord)
+            560 LOAD_CONST              34 (Ellipsis)
+            562 BUILD_TUPLE              2
+            564 BINARY_SUBSCR
+
+298         566 LOAD_CONST              47 (('raw_groups', 'account_id', 'return'))
+            568 BUILD_CONST_KEY_MAP      3
+            570 LOAD_CONST              48 (<code object map_legacy_groups at 0x1073aa9d0, file "WeRobotCore/adapters/wechat/windows_legacy/mappers.py", line 298>)
+            572 LOAD_CONST              49 ('map_legacy_groups')
+            574 MAKE_FUNCTION            4 (annotations)
+            576 STORE_NAME              48 (map_legacy_groups)
+
+305         578 LOAD_NAME                8 (Mapping)
+            580 LOAD_NAME               30 (str)
+            582 LOAD_NAME                6 (Any)
+            584 BUILD_TUPLE              2
+            586 BINARY_SUBSCR
+            588 LOAD_NAME               30 (str)
+            590 LOAD_NAME               24 (MessageContentType)
+            592 LOAD_CONST              50 (('raw', 'content', 'return'))
+            594 BUILD_CONST_KEY_MAP      3
+            596 LOAD_CONST              51 (<code object _message_content_type at 0x1073aab30, file "WeRobotCore/adapters/wechat/windows_legacy/mappers.py", line 305>)
+            598 LOAD_CONST              52 ('_message_content_type')
+            600 MAKE_FUNCTION            4 (annotations)
+            602 STORE_NAME              49 (_message_content_type)
+
+326         604 LOAD_NAME                8 (Mapping)
+            606 LOAD_NAME               30 (str)
+            608 LOAD_NAME                6 (Any)
+            610 BUILD_TUPLE              2
+            612 BINARY_SUBSCR
+            614 LOAD_NAME               25 (MessageDirection)
+            616 LOAD_CONST              25 (('raw', 'return'))
+            618 BUILD_CONST_KEY_MAP      2
+            620 LOAD_CONST              53 (<code object _direction at 0x1073aaea0, file "WeRobotCore/adapters/wechat/windows_legacy/mappers.py", line 326>)
+            622 LOAD_CONST              54 ('_direction')
+            624 MAKE_FUNCTION            4 (annotations)
+            626 STORE_NAME              50 (_direction)
+
+335         628 LOAD_NAME                8 (Mapping)
+            630 LOAD_NAME               30 (str)
+            632 LOAD_NAME                6 (Any)
+            634 BUILD_TUPLE              2
+            636 BINARY_SUBSCR
+            638 LOAD_NAME                9 (Optional)
+            640 LOAD_NAME               30 (str)
+            642 BINARY_SUBSCR
+            644 LOAD_CONST              25 (('raw', 'return'))
+            646 BUILD_CONST_KEY_MAP      2
+            648 LOAD_CONST              55 (<code object _sender_name at 0x1073aa5b0, file "WeRobotCore/adapters/wechat/windows_legacy/mappers.py", line 335>)
+            650 LOAD_CONST              56 ('_sender_name')
+            652 MAKE_FUNCTION            4 (annotations)
+            654 STORE_NAME              51 (_sender_name)
+
+342         656 LOAD_NAME                8 (Mapping)
+            658 LOAD_NAME               30 (str)
+            660 LOAD_NAME                6 (Any)
+            662 BUILD_TUPLE              2
+            664 BINARY_SUBSCR
+            666 LOAD_NAME               11 (Tuple)
+            668 LOAD_NAME               30 (str)
+            670 LOAD_CONST              34 (Ellipsis)
+            672 BUILD_TUPLE              2
+            674 BINARY_SUBSCR
+            676 LOAD_CONST              25 (('raw', 'return'))
+            678 BUILD_CONST_KEY_MAP      2
+            680 LOAD_CONST              57 (<code object _image_paths at 0x1073aa0e0, file "WeRobotCore/adapters/wechat/windows_legacy/mappers.py", line 342>)
+            682 LOAD_CONST              58 ('_image_paths')
+            684 MAKE_FUNCTION            4 (annotations)
+            686 STORE_NAME              52 (_image_paths)
+
+360         688 LOAD_NAME                8 (Mapping)
+            690 LOAD_NAME               30 (str)
+            692 LOAD_NAME                6 (Any)
+            694 BUILD_TUPLE              2
+            696 BINARY_SUBSCR
+
+361         698 LOAD_NAME               24 (MessageContentType)
+
+362         700 LOAD_NAME               11 (Tuple)
+            702 LOAD_NAME               14 (AttachmentRef)
+            704 LOAD_CONST              34 (Ellipsis)
+            706 BUILD_TUPLE              2
+            708 BINARY_SUBSCR
+
+359         710 LOAD_CONST              59 (('raw', 'content_type', 'return'))
+            712 BUILD_CONST_KEY_MAP      3
+            714 LOAD_CONST              60 (<code object _attachments at 0x1073aa500, file "WeRobotCore/adapters/wechat/windows_legacy/mappers.py", line 359>)
+            716 LOAD_CONST              61 ('_attachments')
+            718 MAKE_FUNCTION            4 (annotations)
+            720 STORE_NAME              53 (_attachments)
+
+407         722 LOAD_NAME                8 (Mapping)
+            724 LOAD_NAME               30 (str)
+            726 LOAD_NAME                6 (Any)
+            728 BUILD_TUPLE              2
+            730 BINARY_SUBSCR
+
+408         732 LOAD_NAME               30 (str)
+
+409         734 LOAD_NAME               30 (str)
+
+410         736 LOAD_NAME               30 (str)
+
+411         738 LOAD_NAME               36 (int)
+
+412         740 LOAD_NAME               30 (str)
+
+406         742 LOAD_CONST              62 (('raw', 'account_id', 'session_id', 'content', 'ordinal', 'return'))
+            744 BUILD_CONST_KEY_MAP      6
+            746 LOAD_CONST              63 (<code object _fallback_fingerprint at 0x1073aaf50, file "WeRobotCore/adapters/wechat/windows_legacy/mappers.py", line 406>)
+            748 LOAD_CONST              64 ('_fallback_fingerprint')
+            750 MAKE_FUNCTION            4 (annotations)
+            752 STORE_NAME              54 (_fallback_fingerprint)
+
+427         754 LOAD_NAME               16 (ChatType)
+            756 LOAD_ATTR               55 (UNKNOWN)
+
+428         758 LOAD_CONST               1 (0)
+
+423         760 BUILD_TUPLE              2
+
+424         762 LOAD_NAME                8 (Mapping)
+            764 LOAD_NAME               30 (str)
+            766 LOAD_NAME                6 (Any)
+            768 BUILD_TUPLE              2
+            770 BINARY_SUBSCR
+
+425         772 LOAD_NAME               30 (str)
+
+426         774 LOAD_NAME               30 (str)
+
+427         776 LOAD_NAME               16 (ChatType)
+
+428         778 LOAD_NAME               36 (int)
+
+429         780 LOAD_NAME               26 (MessageRecord)
+
+423         782 LOAD_CONST              65 (('raw', 'account_id', 'session_id', 'chat_type', 'ordinal', 'return'))
+            784 BUILD_CONST_KEY_MAP      6
+            786 LOAD_CONST              66 (<code object map_legacy_message at 0x1073ab7c0, file "WeRobotCore/adapters/wechat/windows_legacy/mappers.py", line 423>)
+            788 LOAD_CONST              67 ('map_legacy_message')
+            790 MAKE_FUNCTION            5 (defaults, annotations)
+            792 STORE_NAME              56 (map_legacy_message)
+
+465         794 LOAD_NAME                8 (Mapping)
+            796 LOAD_NAME               30 (str)
+            798 LOAD_NAME                6 (Any)
+            800 BUILD_TUPLE              2
+            802 BINARY_SUBSCR
+
+466         804 LOAD_NAME               30 (str)
+
+467         806 LOAD_NAME               30 (str)
+
+468         808 LOAD_NAME               18 (ConversationReadResult)
+
+464         810 LOAD_CONST              68 (('raw', 'account_id', 'session_id', 'return'))
+            812 BUILD_CONST_KEY_MAP      4
+            814 LOAD_CONST              69 (<code object map_legacy_conversation at 0x1073ab190, file "WeRobotCore/adapters/wechat/windows_legacy/mappers.py", line 464>)
+            816 LOAD_CONST              70 ('map_legacy_conversation')
+            818 MAKE_FUNCTION            4 (annotations)
+            820 STORE_NAME              57 (map_legacy_conversation)
+
+508         822 LOAD_NAME               30 (str)
+            824 LOAD_NAME               11 (Tuple)
+            826 LOAD_NAME               19 (ErrorCode)
+            828 LOAD_NAME               34 (bool)
+            830 BUILD_TUPLE              2
+            832 BINARY_SUBSCR
+            834 LOAD_CONST              71 (('message', 'return'))
+            836 BUILD_CONST_KEY_MAP      2
+            838 LOAD_CONST              72 (<code object _operation_error at 0x1073abea0, file "WeRobotCore/adapters/wechat/windows_legacy/mappers.py", line 508>)
+            840 LOAD_CONST              73 ('_operation_error')
+            842 MAKE_FUNCTION            4 (annotations)
+            844 STORE_NAME              58 (_operation_error)
+
+544         846 LOAD_CONST              79 ((False,))
+
+545         848 LOAD_NAME                6 (Any)
+
+546         850 LOAD_NAME               30 (str)
+
+547         852 LOAD_NAME               34 (bool)
+
+548         854 LOAD_NAME               27 (OperationResult)
+
+544         856 LOAD_CONST              75 (('raw', 'operation', 'verified', 'return'))
+            858 BUILD_CONST_KEY_MAP      4
+            860 LOAD_CONST              76 (<code object map_legacy_operation at 0x1073ab450, file "WeRobotCore/adapters/wechat/windows_legacy/mappers.py", line 544>)
+            862 LOAD_CONST              77 ('map_legacy_operation')
+            864 MAKE_FUNCTION            5 (defaults, annotations)
+            866 STORE_NAME              59 (map_legacy_operation)
+            868 LOAD_CONST               2 (None)
+            870 RETURN_VALUE
+
+Disassembly of <code object _required_text at 0x1072cfbe0, file "WeRobotCore/adapters/wechat/windows_legacy/mappers.py", line 35>:
+ 36           0 LOAD_FAST                0 (value)
+              2 LOAD_CONST               0 (None)
+              4 IS_OP                    0
+              6 POP_JUMP_IF_FALSE       12
+              8 LOAD_CONST               1 ('')
+             10 JUMP_FORWARD            10 (to 22)
+        >>   12 LOAD_GLOBAL              0 (str)
+             14 LOAD_FAST                0 (value)
+             16 CALL_FUNCTION            1
+             18 LOAD_METHOD              1 (strip)
+             20 CALL_METHOD              0
+        >>   22 STORE_FAST               2 (text)
+
+ 37          24 LOAD_FAST                2 (text)
+             26 POP_JUMP_IF_TRUE        42
+
+ 38          28 LOAD_GLOBAL              2 (ValueError)
+             30 LOAD_CONST               2 ('{} must be present in the Legacy result')
+             32 LOAD_METHOD              3 (format)
+             34 LOAD_FAST                1 (field_name)
+             36 CALL_METHOD              1
+             38 CALL_FUNCTION            1
+             40 RAISE_VARARGS            1
+
+ 39     >>   42 LOAD_FAST                2 (text)
+             44 RETURN_VALUE
+
+Disassembly of <code object _optional_text at 0x1072e0870, file "WeRobotCore/adapters/wechat/windows_legacy/mappers.py", line 42>:
+ 43           0 LOAD_FAST                0 (value)
+              2 LOAD_CONST               0 (None)
+              4 IS_OP                    0
+              6 POP_JUMP_IF_FALSE       12
+
+ 44           8 LOAD_CONST               0 (None)
+             10 RETURN_VALUE
+
+ 45     >>   12 LOAD_GLOBAL              0 (str)
+             14 LOAD_FAST                0 (value)
+             16 CALL_FUNCTION            1
+             18 LOAD_METHOD              1 (strip)
+             20 CALL_METHOD              0
+             22 STORE_FAST               1 (text)
+
+ 46          24 LOAD_FAST                1 (text)
+             26 JUMP_IF_TRUE_OR_POP     30
+             28 LOAD_CONST               0 (None)
+        >>   30 RETURN_VALUE
+
+Disassembly of <code object _text_or_empty at 0x1072e0d40, file "WeRobotCore/adapters/wechat/windows_legacy/mappers.py", line 49>:
+ 50           0 LOAD_FAST                0 (value)
+              2 LOAD_CONST               0 (None)
+              4 IS_OP                    0
+              6 POP_JUMP_IF_FALSE       12
+              8 LOAD_CONST               1 ('')
+             10 RETURN_VALUE
+        >>   12 LOAD_GLOBAL              0 (str)
+             14 LOAD_FAST                0 (value)
+             16 CALL_FUNCTION            1
+             18 RETURN_VALUE
+
+Disassembly of <code object _explicit_bool at 0x1073b9c90, file "WeRobotCore/adapters/wechat/windows_legacy/mappers.py", line 53>:
+ 54           0 LOAD_FAST                1 (keys)
+              2 GET_ITER
+        >>    4 FOR_ITER                32 (to 38)
+              6 STORE_FAST               2 (key)
+
+ 55           8 LOAD_FAST                0 (raw)
+             10 LOAD_METHOD              0 (get)
+             12 LOAD_FAST                2 (key)
+             14 CALL_METHOD              1
+             16 STORE_FAST               3 (value)
+
+ 56          18 LOAD_GLOBAL              1 (isinstance)
+             20 LOAD_FAST                3 (value)
+             22 LOAD_GLOBAL              2 (bool)
+             24 CALL_FUNCTION            2
+             26 POP_JUMP_IF_FALSE        4
+
+ 57          28 LOAD_FAST                3 (value)
+             30 ROT_TWO
+             32 POP_TOP
+             34 RETURN_VALUE
+             36 JUMP_ABSOLUTE            4
+
+ 58     >>   38 LOAD_CONST               0 (None)
+             40 RETURN_VALUE
+
+Disassembly of <code object _nonnegative_int at 0x1073b99d0, file "WeRobotCore/adapters/wechat/windows_legacy/mappers.py", line 61>:
+ 62           0 LOAD_FAST                0 (value)
+              2 LOAD_CONST               0 (None)
+              4 IS_OP                    0
+              6 POP_JUMP_IF_TRUE        18
+              8 LOAD_GLOBAL              0 (isinstance)
+             10 LOAD_FAST                0 (value)
+             12 LOAD_GLOBAL              1 (bool)
+             14 CALL_FUNCTION            2
+             16 POP_JUMP_IF_FALSE       22
+
+ 63     >>   18 LOAD_CONST               0 (None)
+             20 RETURN_VALUE
+
+ 64     >>   22 SETUP_FINALLY           12 (to 36)
+
+ 65          24 LOAD_GLOBAL              2 (int)
+             26 LOAD_FAST                0 (value)
+             28 CALL_FUNCTION            1
+             30 STORE_FAST               1 (result)
+             32 POP_BLOCK
+             34 JUMP_FORWARD            24 (to 60)
+
+ 66     >>   36 DUP_TOP
+             38 LOAD_GLOBAL              3 (TypeError)
+             40 LOAD_GLOBAL              4 (ValueError)
+             42 BUILD_TUPLE              2
+             44 JUMP_IF_NOT_EXC_MATCH    58
+             46 POP_TOP
+             48 POP_TOP
+             50 POP_TOP
+
+ 67          52 POP_EXCEPT
+             54 LOAD_CONST               0 (None)
+             56 RETURN_VALUE
+        >>   58 RERAISE
+
+ 68     >>   60 LOAD_FAST                1 (result)
+             62 LOAD_CONST               1 (0)
+             64 COMPARE_OP               5 (>=)
+             66 POP_JUMP_IF_FALSE       72
+             68 LOAD_FAST                1 (result)
+             70 RETURN_VALUE
+        >>   72 LOAD_CONST               0 (None)
+             74 RETURN_VALUE
+
+Disassembly of <code object _utc_datetime at 0x1073b9920, file "WeRobotCore/adapters/wechat/windows_legacy/mappers.py", line 71>:
+ 72           0 LOAD_FAST                0 (value)
+              2 LOAD_CONST               0 (None)
+              4 IS_OP                    0
+              6 POP_JUMP_IF_TRUE        18
+              8 LOAD_GLOBAL              0 (isinstance)
+             10 LOAD_FAST                0 (value)
+             12 LOAD_GLOBAL              1 (bool)
+             14 CALL_FUNCTION            2
+             16 POP_JUMP_IF_FALSE       22
+
+ 73     >>   18 LOAD_CONST               0 (None)
+             20 RETURN_VALUE
+
+ 74     >>   22 LOAD_GLOBAL              0 (isinstance)
+             24 LOAD_FAST                0 (value)
+             26 LOAD_GLOBAL              2 (datetime)
+             28 CALL_FUNCTION            2
+             30 POP_JUMP_IF_FALSE       68
+
+ 75          32 LOAD_FAST                0 (value)
+             34 LOAD_ATTR                3 (tzinfo)
+             36 LOAD_CONST               0 (None)
+             38 IS_OP                    0
+             40 POP_JUMP_IF_FALSE       56
+
+ 76          42 LOAD_FAST                0 (value)
+             44 LOAD_ATTR                4 (replace)
+             46 LOAD_GLOBAL              5 (timezone)
+             48 LOAD_ATTR                6 (utc)
+             50 LOAD_CONST               1 (('tzinfo',))
+             52 CALL_FUNCTION_KW         1
+             54 RETURN_VALUE
+
+ 77     >>   56 LOAD_FAST                0 (value)
+             58 LOAD_METHOD              7 (astimezone)
+             60 LOAD_GLOBAL              5 (timezone)
+             62 LOAD_ATTR                6 (utc)
+             64 CALL_METHOD              1
+             66 RETURN_VALUE
+
+ 78     >>   68 SETUP_FINALLY           22 (to 92)
+
+ 79          70 LOAD_GLOBAL              2 (datetime)
+             72 LOAD_ATTR                8 (fromtimestamp)
+             74 LOAD_GLOBAL              9 (float)
+             76 LOAD_FAST                0 (value)
+             78 CALL_FUNCTION            1
+             80 LOAD_GLOBAL              5 (timezone)
+             82 LOAD_ATTR                6 (utc)
+             84 LOAD_CONST               2 (('tz',))
+             86 CALL_FUNCTION_KW         2
+             88 POP_BLOCK
+             90 RETURN_VALUE
+
+ 80     >>   92 DUP_TOP
+             94 LOAD_GLOBAL             10 (TypeError)
+             96 LOAD_GLOBAL             11 (ValueError)
+             98 LOAD_GLOBAL             12 (OverflowError)
+            100 LOAD_GLOBAL             13 (OSError)
+            102 BUILD_TUPLE              4
+            104 JUMP_IF_NOT_EXC_MATCH   118
+            106 POP_TOP
+            108 POP_TOP
+            110 POP_TOP
+
+ 81         112 POP_EXCEPT
+            114 LOAD_CONST               0 (None)
+            116 RETURN_VALUE
+        >>  118 RERAISE
+            120 LOAD_CONST               0 (None)
+            122 RETURN_VALUE
+
+Disassembly of <code object _chat_type at 0x1073b9ea0, file "WeRobotCore/adapters/wechat/windows_legacy/mappers.py", line 84>:
+ 85           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                0 (value)
+              4 LOAD_GLOBAL              1 (ChatType)
+              6 CALL_FUNCTION            2
+              8 POP_JUMP_IF_FALSE       14
+
+ 86          10 LOAD_FAST                0 (value)
+             12 RETURN_VALUE
+
+ 87     >>   14 LOAD_GLOBAL              2 (str)
+             16 LOAD_FAST                0 (value)
+             18 JUMP_IF_TRUE_OR_POP     22
+             20 LOAD_CONST               1 ('')
+        >>   22 CALL_FUNCTION            1
+             24 LOAD_METHOD              3 (strip)
+             26 CALL_METHOD              0
+             28 LOAD_METHOD              4 (lower)
+             30 CALL_METHOD              0
+             32 STORE_FAST               2 (normalized)
+
+ 89          34 LOAD_GLOBAL              1 (ChatType)
+             36 LOAD_ATTR                5 (PRIVATE)
+
+ 90          38 LOAD_GLOBAL              1 (ChatType)
+             40 LOAD_ATTR                5 (PRIVATE)
+
+ 91          42 LOAD_GLOBAL              1 (ChatType)
+             44 LOAD_ATTR                5 (PRIVATE)
+
+ 92          46 LOAD_GLOBAL              1 (ChatType)
+             48 LOAD_ATTR                6 (GROUP)
+
+ 93          50 LOAD_GLOBAL              1 (ChatType)
+             52 LOAD_ATTR                7 (OFFICIAL)
+
+ 94          54 LOAD_GLOBAL              1 (ChatType)
+             56 LOAD_ATTR                7 (OFFICIAL)
+
+ 95          58 LOAD_GLOBAL              1 (ChatType)
+             60 LOAD_ATTR                8 (UNKNOWN)
+
+ 88          62 LOAD_CONST               2 (('private', 'single', 'friend', 'group', 'official', 'official_account', 'unknown'))
+             64 BUILD_CONST_KEY_MAP      7
+             66 STORE_FAST               3 (aliases)
+
+ 97          68 LOAD_FAST                2 (normalized)
+             70 LOAD_FAST                3 (aliases)
+             72 CONTAINS_OP              0
+             74 POP_JUMP_IF_FALSE       84
+
+ 98          76 LOAD_FAST                3 (aliases)
+             78 LOAD_FAST                2 (normalized)
+             80 BINARY_SUBSCR
+             82 RETURN_VALUE
+
+ 99     >>   84 LOAD_GLOBAL              0 (isinstance)
+             86 LOAD_FAST                1 (is_group)
+             88 LOAD_GLOBAL              9 (bool)
+             90 CALL_FUNCTION            2
+             92 POP_JUMP_IF_FALSE      110
+
+100          94 LOAD_FAST                1 (is_group)
+             96 POP_JUMP_IF_FALSE      104
+             98 LOAD_GLOBAL              1 (ChatType)
+            100 LOAD_ATTR                6 (GROUP)
+            102 RETURN_VALUE
+        >>  104 LOAD_GLOBAL              1 (ChatType)
+            106 LOAD_ATTR                5 (PRIVATE)
+            108 RETURN_VALUE
+
+101     >>  110 LOAD_GLOBAL              1 (ChatType)
+            112 LOAD_ATTR                8 (UNKNOWN)
+            114 RETURN_VALUE
+
+Disassembly of <code object _mention_state at 0x1073b9be0, file "WeRobotCore/adapters/wechat/windows_legacy/mappers.py", line 104>:
+105           0 LOAD_FAST                0 (raw)
+              2 LOAD_METHOD              0 (get)
+              4 LOAD_CONST               1 ('mentionState')
+              6 LOAD_FAST                0 (raw)
+              8 LOAD_METHOD              0 (get)
+             10 LOAD_CONST               2 ('mention_state')
+             12 CALL_METHOD              1
+             14 CALL_METHOD              2
+             16 STORE_FAST               1 (value)
+
+106          18 LOAD_GLOBAL              1 (isinstance)
+             20 LOAD_FAST                1 (value)
+             22 LOAD_GLOBAL              2 (MentionState)
+             24 CALL_FUNCTION            2
+             26 POP_JUMP_IF_FALSE       32
+
+107          28 LOAD_FAST                1 (value)
+             30 RETURN_VALUE
+
+108     >>   32 LOAD_GLOBAL              3 (str)
+             34 LOAD_FAST                1 (value)
+             36 JUMP_IF_TRUE_OR_POP     40
+             38 LOAD_CONST               3 ('')
+        >>   40 CALL_FUNCTION            1
+             42 LOAD_METHOD              4 (strip)
+             44 CALL_METHOD              0
+             46 LOAD_METHOD              5 (lower)
+             48 CALL_METHOD              0
+             50 STORE_FAST               2 (normalized)
+
+110          52 LOAD_GLOBAL              2 (MentionState)
+             54 LOAD_ATTR                6 (NONE)
+
+111          56 LOAD_GLOBAL              2 (MentionState)
+             58 LOAD_ATTR                7 (DIRECT)
+
+112          60 LOAD_GLOBAL              2 (MentionState)
+             62 LOAD_ATTR                8 (ALL)
+
+113          64 LOAD_GLOBAL              2 (MentionState)
+             66 LOAD_ATTR                9 (UNKNOWN)
+
+109          68 LOAD_CONST               4 (('none', 'direct', 'all', 'unknown'))
+             70 BUILD_CONST_KEY_MAP      4
+             72 STORE_FAST               3 (aliases)
+
+115          74 LOAD_FAST                2 (normalized)
+             76 LOAD_FAST                3 (aliases)
+             78 CONTAINS_OP              0
+             80 POP_JUMP_IF_FALSE       90
+
+116          82 LOAD_FAST                3 (aliases)
+             84 LOAD_FAST                2 (normalized)
+             86 BINARY_SUBSCR
+             88 RETURN_VALUE
+
+117     >>   90 LOAD_GLOBAL             10 (_explicit_bool)
+             92 LOAD_FAST                0 (raw)
+             94 LOAD_CONST               5 ('is_at')
+             96 LOAD_CONST               6 ('isAt')
+             98 CALL_FUNCTION            3
+            100 STORE_FAST               4 (is_at)
+
+118         102 LOAD_FAST                4 (is_at)
+            104 LOAD_CONST               0 (None)
+            106 IS_OP                    0
+            108 POP_JUMP_IF_FALSE      114
+
+119         110 LOAD_CONST               0 (None)
+            112 RETURN_VALUE
+
+120     >>  114 LOAD_FAST                4 (is_at)
+            116 POP_JUMP_IF_FALSE      124
+            118 LOAD_GLOBAL              2 (MentionState)
+            120 LOAD_ATTR                7 (DIRECT)
+            122 RETURN_VALUE
+        >>  124 LOAD_GLOBAL              2 (MentionState)
+            126 LOAD_ATTR                6 (NONE)
+            128 RETURN_VALUE
+
+Disassembly of <code object map_legacy_instance at 0x1073aa660, file "WeRobotCore/adapters/wechat/windows_legacy/mappers.py", line 123>:
+130           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                0 (raw)
+              4 LOAD_GLOBAL              1 (Mapping)
+              6 CALL_FUNCTION            2
+              8 POP_JUMP_IF_TRUE        18
+
+131          10 LOAD_GLOBAL              2 (TypeError)
+             12 LOAD_CONST               1 ('raw instance must be a mapping')
+             14 CALL_FUNCTION            1
+             16 RAISE_VARARGS            1
+
+132     >>   18 LOAD_GLOBAL              3 (InstanceId)
+             20 LOAD_GLOBAL              4 (_required_text)
+             22 LOAD_FAST                0 (raw)
+             24 LOAD_METHOD              5 (get)
+             26 LOAD_CONST               2 ('instance_id')
+             28 CALL_METHOD              1
+             30 LOAD_CONST               2 ('instance_id')
+             32 CALL_FUNCTION            2
+             34 CALL_FUNCTION            1
+             36 STORE_FAST               3 (instance_id)
+
+133          38 LOAD_FAST                0 (raw)
+             40 LOAD_METHOD              5 (get)
+             42 LOAD_CONST               3 ('account_info')
+             44 CALL_METHOD              1
+             46 STORE_FAST               4 (account_info)
+
+134          48 LOAD_GLOBAL              0 (isinstance)
+             50 LOAD_FAST                4 (account_info)
+             52 LOAD_GLOBAL              1 (Mapping)
+             54 CALL_FUNCTION            2
+             56 POP_JUMP_IF_FALSE       62
+             58 LOAD_FAST                4 (account_info)
+             60 JUMP_FORWARD             2 (to 64)
+        >>   62 BUILD_MAP                0
+        >>   64 STORE_FAST               4 (account_info)
+
+135          66 LOAD_GLOBAL              6 (_optional_text)
+             68 LOAD_FAST                4 (account_info)
+             70 LOAD_METHOD              5 (get)
+             72 LOAD_CONST               4 ('account_id')
+             74 CALL_METHOD              1
+             76 CALL_FUNCTION            1
+             78 STORE_FAST               5 (account_id)
+
+136          80 LOAD_GLOBAL              6 (_optional_text)
+             82 LOAD_FAST                4 (account_info)
+             84 LOAD_METHOD              5 (get)
+             86 LOAD_CONST               5 ('nickname')
+             88 CALL_METHOD              1
+             90 CALL_FUNCTION            1
+             92 STORE_FAST               6 (nickname)
+
+137          94 LOAD_GLOBAL              7 (_explicit_bool)
+             96 LOAD_FAST                0 (raw)
+             98 LOAD_CONST               6 ('initialized')
+            100 CALL_FUNCTION            2
+            102 STORE_FAST               7 (initialized)
+
+138         104 LOAD_GLOBAL              7 (_explicit_bool)
+            106 LOAD_FAST                0 (raw)
+            108 LOAD_CONST               7 ('is_connected')
+            110 CALL_FUNCTION            2
+            112 STORE_FAST               8 (connected)
+
+139         114 LOAD_GLOBAL              7 (_explicit_bool)
+            116 LOAD_FAST                0 (raw)
+            118 LOAD_CONST               8 ('manually_exited')
+            120 CALL_FUNCTION            2
+            122 LOAD_CONST               9 (True)
+            124 IS_OP                    0
+            126 STORE_FAST               9 (manually_exited)
+
+141         128 LOAD_FAST                9 (manually_exited)
+            130 POP_JUMP_IF_FALSE      140
+
+142         132 LOAD_GLOBAL              8 (InstanceState)
+            134 LOAD_ATTR                9 (OFFLINE)
+            136 STORE_FAST              10 (state)
+            138 JUMP_FORWARD           102 (to 242)
+
+143     >>  140 LOAD_FAST                8 (connected)
+            142 LOAD_CONST               9 (True)
+            144 IS_OP                    0
+            146 POP_JUMP_IF_FALSE      166
+
+144         148 LOAD_FAST                5 (account_id)
+            150 POP_JUMP_IF_FALSE      158
+            152 LOAD_GLOBAL              8 (InstanceState)
+            154 LOAD_ATTR               10 (READY)
+            156 JUMP_FORWARD             4 (to 162)
+        >>  158 LOAD_GLOBAL              8 (InstanceState)
+            160 LOAD_ATTR               11 (ERROR)
+        >>  162 STORE_FAST              10 (state)
+            164 JUMP_FORWARD            76 (to 242)
+
+145     >>  166 LOAD_FAST                7 (initialized)
+            168 LOAD_CONST               9 (True)
+            170 IS_OP                    0
+            172 POP_JUMP_IF_FALSE      210
+
+146         174 LOAD_FAST                5 (account_id)
+            176 POP_JUMP_IF_TRUE       186
+
+147         178 LOAD_GLOBAL              8 (InstanceState)
+            180 LOAD_ATTR               11 (ERROR)
+            182 STORE_FAST              10 (state)
+            184 JUMP_ABSOLUTE          242
+
+148     >>  186 LOAD_FAST                8 (connected)
+            188 LOAD_CONST              10 (False)
+            190 IS_OP                    0
+            192 POP_JUMP_IF_FALSE      202
+
+149         194 LOAD_GLOBAL              8 (InstanceState)
+            196 LOAD_ATTR                9 (OFFLINE)
+            198 STORE_FAST              10 (state)
+            200 JUMP_ABSOLUTE          242
+
+151     >>  202 LOAD_GLOBAL              8 (InstanceState)
+            204 LOAD_ATTR               10 (READY)
+            206 STORE_FAST              10 (state)
+            208 JUMP_FORWARD            32 (to 242)
+
+152     >>  210 LOAD_FAST                5 (account_id)
+            212 POP_JUMP_IF_FALSE      236
+
+153         214 LOAD_FAST                7 (initialized)
+            216 LOAD_CONST              10 (False)
+            218 IS_OP                    0
+            220 POP_JUMP_IF_FALSE      228
+            222 LOAD_GLOBAL              8 (InstanceState)
+            224 LOAD_ATTR               11 (ERROR)
+            226 JUMP_FORWARD             4 (to 232)
+        >>  228 LOAD_GLOBAL              8 (InstanceState)
+            230 LOAD_ATTR               12 (ATTACHED)
+        >>  232 STORE_FAST              10 (state)
+            234 JUMP_FORWARD             6 (to 242)
+
+155     >>  236 LOAD_GLOBAL              8 (InstanceState)
+            238 LOAD_ATTR               13 (DISCOVERED)
+            240 STORE_FAST              10 (state)
+
+157     >>  242 LOAD_GLOBAL             14 (AccountInstance)
+
+158         244 LOAD_FAST                3 (instance_id)
+
+159         246 LOAD_FAST                5 (account_id)
+
+160         248 LOAD_FAST                6 (nickname)
+
+161         250 LOAD_FAST               10 (state)
+
+162         252 LOAD_GLOBAL              4 (_required_text)
+            254 LOAD_FAST                1 (driver_id)
+            256 LOAD_CONST              11 ('driver_id')
+            258 CALL_FUNCTION            2
+
+163         260 LOAD_GLOBAL             15 (dict)
+            262 LOAD_FAST                2 (capabilities)
+            264 EXTENDED_ARG             1
+            266 JUMP_IF_TRUE_OR_POP    270
+            268 BUILD_MAP                0
+        >>  270 CALL_FUNCTION            1
+
+157         272 LOAD_CONST              12 (('instance_id', 'account_id', 'nickname', 'state', 'driver_id', 'capabilities'))
+            274 CALL_FUNCTION_KW         6
+            276 RETURN_VALUE
+
+Disassembly of <code object map_legacy_session at 0x1073aa710, file "WeRobotCore/adapters/wechat/windows_legacy/mappers.py", line 167>:
+175           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                0 (raw)
+              4 LOAD_GLOBAL              1 (Mapping)
+              6 CALL_FUNCTION            2
+              8 POP_JUMP_IF_TRUE        18
+
+176          10 LOAD_GLOBAL              2 (TypeError)
+             12 LOAD_CONST               1 ('raw session must be a mapping')
+             14 CALL_FUNCTION            1
+             16 RAISE_VARARGS            1
+
+177     >>   18 LOAD_GLOBAL              3 (_required_text)
+             20 LOAD_FAST                1 (account_id)
+             22 LOAD_CONST               2 ('account_id')
+             24 CALL_FUNCTION            2
+             26 STORE_FAST               2 (normalized_account_id)
+
+178          28 LOAD_GLOBAL              4 (_utc_datetime)
+
+179          30 LOAD_FAST                0 (raw)
+             32 LOAD_METHOD              5 (get)
+             34 LOAD_CONST               3 ('lastTimestamp')
+             36 LOAD_FAST                0 (raw)
+             38 LOAD_METHOD              5 (get)
+             40 LOAD_CONST               4 ('last_event_at')
+             42 CALL_METHOD              1
+             44 CALL_METHOD              2
+
+178          46 CALL_FUNCTION            1
+             48 STORE_FAST               3 (last_event_at)
+
+181          50 LOAD_GLOBAL              6 (SessionSummary)
+
+182          52 LOAD_FAST                2 (normalized_account_id)
+
+183          54 LOAD_GLOBAL              3 (_required_text)
+             56 LOAD_FAST                0 (raw)
+             58 LOAD_METHOD              5 (get)
+             60 LOAD_CONST               5 ('id')
+             62 CALL_METHOD              1
+             64 LOAD_CONST               5 ('id')
+             66 CALL_FUNCTION            2
+
+184          68 LOAD_GLOBAL              3 (_required_text)
+             70 LOAD_FAST                0 (raw)
+             72 LOAD_METHOD              5 (get)
+             74 LOAD_CONST               6 ('name')
+             76 CALL_METHOD              1
+             78 LOAD_CONST               6 ('name')
+             80 CALL_FUNCTION            2
+
+185          82 LOAD_GLOBAL              7 (_chat_type)
+             84 LOAD_FAST                0 (raw)
+             86 LOAD_METHOD              5 (get)
+             88 LOAD_CONST               7 ('chatType')
+             90 CALL_METHOD              1
+             92 LOAD_FAST                0 (raw)
+             94 LOAD_METHOD              5 (get)
+             96 LOAD_CONST               8 ('isGroup')
+             98 CALL_METHOD              1
+            100 CALL_FUNCTION            2
+
+186         102 LOAD_GLOBAL              8 (_text_or_empty)
+            104 LOAD_FAST                0 (raw)
+            106 LOAD_METHOD              5 (get)
+            108 LOAD_CONST               9 ('lastMessage')
+            110 CALL_METHOD              1
+            112 CALL_FUNCTION            1
+
+187         114 LOAD_GLOBAL              8 (_text_or_empty)
+            116 LOAD_FAST                0 (raw)
+            118 LOAD_METHOD              5 (get)
+            120 LOAD_CONST              10 ('lastTime')
+            122 CALL_METHOD              1
+            124 CALL_FUNCTION            1
+
+188         126 LOAD_FAST                3 (last_event_at)
+
+189         128 LOAD_GLOBAL              9 (_nonnegative_int)
+            130 LOAD_FAST                0 (raw)
+            132 LOAD_METHOD              5 (get)
+            134 LOAD_CONST              11 ('unread')
+            136 CALL_METHOD              1
+            138 CALL_FUNCTION            1
+
+190         140 LOAD_GLOBAL             10 (_mention_state)
+            142 LOAD_FAST                0 (raw)
+            144 CALL_FUNCTION            1
+
+191         146 LOAD_GLOBAL             11 (_explicit_bool)
+            148 LOAD_FAST                0 (raw)
+            150 LOAD_CONST              12 ('isSelf')
+            152 LOAD_CONST              13 ('is_self')
+            154 CALL_FUNCTION            3
+
+192         156 LOAD_GLOBAL             11 (_explicit_bool)
+            158 LOAD_FAST                0 (raw)
+            160 LOAD_CONST              14 ('muted')
+            162 LOAD_CONST              15 ('isMuted')
+            164 LOAD_CONST              16 ('is_muted')
+            166 CALL_FUNCTION            4
+
+181         168 LOAD_CONST              17 (('account_id', 'session_id', 'name', 'chat_type', 'preview', 'last_event_text', 'last_event_at', 'unread_count', 'mention_state', 'is_self', 'muted'))
+            170 CALL_FUNCTION_KW        11
+            172 RETURN_VALUE
+
+Disassembly of <code object map_legacy_sessions at 0x1073aa870, file "WeRobotCore/adapters/wechat/windows_legacy/mappers.py", line 196>:
+200           0 LOAD_GLOBAL              0 (tuple)
+              2 LOAD_CLOSURE             0 (account_id)
+              4 BUILD_TUPLE              1
+              6 LOAD_CONST               1 (<code object <genexpr> at 0x1073aabe0, file "WeRobotCore/adapters/wechat/windows_legacy/mappers.py", line 200>)
+              8 LOAD_CONST               2 ('map_legacy_sessions.<locals>.<genexpr>')
+             10 MAKE_FUNCTION            8 (closure)
+             12 LOAD_FAST                0 (raw_sessions)
+             14 GET_ITER
+             16 CALL_FUNCTION            1
+             18 CALL_FUNCTION            1
+             20 RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x1073aabe0, file "WeRobotCore/adapters/wechat/windows_legacy/mappers.py", line 200>:
+200           0 LOAD_FAST                0 (.0)
+        >>    2 FOR_ITER                16 (to 20)
+              4 STORE_FAST               1 (item)
+              6 LOAD_GLOBAL              0 (map_legacy_session)
+              8 LOAD_FAST                1 (item)
+             10 LOAD_DEREF               0 (account_id)
+             12 CALL_FUNCTION            2
+             14 YIELD_VALUE
+             16 POP_TOP
+             18 JUMP_ABSOLUTE            2
+        >>   20 LOAD_CONST               0 (None)
+             22 RETURN_VALUE
+
+Disassembly of <code object _normalized_tags at 0x1073aa2f0, file "WeRobotCore/adapters/wechat/windows_legacy/mappers.py", line 203>:
+204           0 LOAD_FAST                0 (value)
+              2 LOAD_CONST               0 (None)
+              4 IS_OP                    0
+              6 POP_JUMP_IF_FALSE       12
+
+205           8 LOAD_CONST               1 (())
+             10 RETURN_VALUE
+
+206     >>   12 LOAD_GLOBAL              0 (isinstance)
+             14 LOAD_FAST                0 (value)
+             16 LOAD_GLOBAL              1 (str)
+             18 CALL_FUNCTION            2
+             20 POP_JUMP_IF_FALSE       34
+
+207          22 LOAD_FAST                0 (value)
+             24 LOAD_METHOD              2 (split)
+             26 LOAD_CONST               2 (',')
+             28 CALL_METHOD              1
+             30 STORE_FAST               1 (candidates)
+             32 JUMP_FORWARD            36 (to 70)
+
+208     >>   34 LOAD_GLOBAL              0 (isinstance)
+             36 LOAD_FAST                0 (value)
+             38 LOAD_GLOBAL              3 (Sequence)
+             40 CALL_FUNCTION            2
+             42 POP_JUMP_IF_FALSE       64
+             44 LOAD_GLOBAL              0 (isinstance)
+             46 LOAD_FAST                0 (value)
+             48 LOAD_GLOBAL              1 (str)
+             50 LOAD_GLOBAL              4 (bytes)
+             52 BUILD_TUPLE              2
+             54 CALL_FUNCTION            2
+             56 POP_JUMP_IF_TRUE        64
+
+209          58 LOAD_FAST                0 (value)
+             60 STORE_FAST               1 (candidates)
+             62 JUMP_FORWARD             6 (to 70)
+
+211     >>   64 LOAD_FAST                0 (value)
+             66 BUILD_TUPLE              1
+             68 STORE_FAST               1 (candidates)
+
+212     >>   70 BUILD_LIST               0
+             72 STORE_FAST               2 (result)
+
+213          74 LOAD_GLOBAL              5 (set)
+             76 CALL_FUNCTION            0
+             78 STORE_FAST               3 (seen)
+
+214          80 LOAD_FAST                1 (candidates)
+             82 GET_ITER
+        >>   84 FOR_ITER                44 (to 130)
+             86 STORE_FAST               4 (candidate)
+
+215          88 LOAD_GLOBAL              6 (_optional_text)
+             90 LOAD_FAST                4 (candidate)
+             92 CALL_FUNCTION            1
+             94 STORE_FAST               5 (tag)
+
+216          96 LOAD_FAST                5 (tag)
+             98 POP_JUMP_IF_FALSE       84
+            100 LOAD_FAST                5 (tag)
+            102 LOAD_FAST                3 (seen)
+            104 CONTAINS_OP              1
+            106 POP_JUMP_IF_FALSE       84
+
+217         108 LOAD_FAST                3 (seen)
+            110 LOAD_METHOD              7 (add)
+            112 LOAD_FAST                5 (tag)
+            114 CALL_METHOD              1
+            116 POP_TOP
+
+218         118 LOAD_FAST                2 (result)
+            120 LOAD_METHOD              8 (append)
+            122 LOAD_FAST                5 (tag)
+            124 CALL_METHOD              1
+            126 POP_TOP
+            128 JUMP_ABSOLUTE           84
+
+219     >>  130 LOAD_GLOBAL              9 (tuple)
+            132 LOAD_FAST                2 (result)
+            134 CALL_FUNCTION            1
+            136 RETURN_VALUE
+
+Disassembly of <code object map_legacy_contact at 0x1073aa190, file "WeRobotCore/adapters/wechat/windows_legacy/mappers.py", line 222>:
+230           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                0 (raw)
+              4 LOAD_GLOBAL              1 (Mapping)
+              6 CALL_FUNCTION            2
+              8 POP_JUMP_IF_TRUE        18
+
+231          10 LOAD_GLOBAL              2 (TypeError)
+             12 LOAD_CONST               1 ('raw contact must be a mapping')
+             14 CALL_FUNCTION            1
+             16 RAISE_VARARGS            1
+
+232     >>   18 LOAD_GLOBAL              3 (_required_text)
+             20 LOAD_FAST                1 (account_id)
+             22 LOAD_CONST               2 ('account_id')
+             24 CALL_FUNCTION            2
+             26 STORE_FAST               2 (normalized_account_id)
+
+233          28 LOAD_GLOBAL              3 (_required_text)
+             30 LOAD_FAST                0 (raw)
+             32 LOAD_METHOD              4 (get)
+             34 LOAD_CONST               3 ('name')
+             36 CALL_METHOD              1
+             38 LOAD_CONST               3 ('name')
+             40 CALL_FUNCTION            2
+             42 STORE_FAST               3 (name)
+
+235          44 LOAD_GLOBAL              5 (_optional_text)
+             46 LOAD_FAST                0 (raw)
+             48 LOAD_METHOD              4 (get)
+             50 LOAD_CONST               4 ('wxid')
+             52 CALL_METHOD              1
+             54 CALL_FUNCTION            1
+             56 JUMP_IF_TRUE_OR_POP     88
+
+236          58 LOAD_GLOBAL              5 (_optional_text)
+             60 LOAD_FAST                0 (raw)
+             62 LOAD_METHOD              4 (get)
+             64 LOAD_CONST               5 ('contact_id')
+             66 CALL_METHOD              1
+             68 CALL_FUNCTION            1
+
+235          70 JUMP_IF_TRUE_OR_POP     88
+
+237          72 LOAD_GLOBAL              5 (_optional_text)
+             74 LOAD_FAST                0 (raw)
+             76 LOAD_METHOD              4 (get)
+             78 LOAD_CONST               6 ('id')
+             80 CALL_METHOD              1
+             82 CALL_FUNCTION            1
+
+235          84 JUMP_IF_TRUE_OR_POP     88
+
+238          86 LOAD_FAST                3 (name)
+
+234     >>   88 STORE_FAST               4 (contact_id)
+
+240          90 BUILD_MAP                0
+             92 STORE_FAST               5 (metadata)
+
+241          94 LOAD_FAST                0 (raw)
+             96 LOAD_METHOD              4 (get)
+             98 LOAD_CONST               7 ('is_new')
+            100 CALL_METHOD              1
+            102 STORE_FAST               6 (is_new)
+
+242         104 LOAD_GLOBAL              0 (isinstance)
+            106 LOAD_FAST                6 (is_new)
+            108 LOAD_GLOBAL              6 (bool)
+            110 CALL_FUNCTION            2
+            112 POP_JUMP_IF_FALSE      122
+
+243         114 LOAD_FAST                6 (is_new)
+            116 LOAD_FAST                5 (metadata)
+            118 LOAD_CONST               7 ('is_new')
+            120 STORE_SUBSCR
+
+244     >>  122 LOAD_CONST               8 (('nickname', 'last_updated', 'created_at'))
+            124 GET_ITER
+        >>  126 FOR_ITER                30 (to 158)
+            128 STORE_FAST               7 (key)
+
+245         130 LOAD_FAST                0 (raw)
+            132 LOAD_METHOD              4 (get)
+            134 LOAD_FAST                7 (key)
+            136 CALL_METHOD              1
+            138 STORE_FAST               8 (value)
+
+246         140 LOAD_FAST                8 (value)
+            142 LOAD_CONST               9 (None)
+            144 IS_OP                    1
+            146 POP_JUMP_IF_FALSE      126
+
+247         148 LOAD_FAST                8 (value)
+            150 LOAD_FAST                5 (metadata)
+            152 LOAD_FAST                7 (key)
+            154 STORE_SUBSCR
+            156 JUMP_ABSOLUTE          126
+
+248     >>  158 LOAD_GLOBAL              7 (ContactRecord)
+
+249         160 LOAD_FAST                2 (normalized_account_id)
+
+250         162 LOAD_FAST                4 (contact_id)
+
+251         164 LOAD_FAST                3 (name)
+
+252         166 LOAD_GLOBAL              5 (_optional_text)
+            168 LOAD_FAST                0 (raw)
+            170 LOAD_METHOD              4 (get)
+            172 LOAD_CONST              10 ('remark')
+            174 CALL_METHOD              1
+            176 CALL_FUNCTION            1
+
+253         178 LOAD_GLOBAL              8 (_normalized_tags)
+
+254         180 LOAD_FAST                0 (raw)
+            182 LOAD_METHOD              4 (get)
+            184 LOAD_CONST              11 ('tags')
+            186 CALL_METHOD              1
+            188 LOAD_CONST               9 (None)
+            190 IS_OP                    1
+            192 POP_JUMP_IF_FALSE      204
+            194 LOAD_FAST                0 (raw)
+            196 LOAD_METHOD              4 (get)
+            198 LOAD_CONST              11 ('tags')
+            200 CALL_METHOD              1
+            202 JUMP_FORWARD             8 (to 212)
+        >>  204 LOAD_FAST                0 (raw)
+            206 LOAD_METHOD              4 (get)
+            208 LOAD_CONST              12 ('tag')
+            210 CALL_METHOD              1
+
+253     >>  212 CALL_FUNCTION            1
+
+256         214 LOAD_FAST                5 (metadata)
+
+248         216 LOAD_CONST              13 (('account_id', 'contact_id', 'name', 'remark', 'tags', 'metadata'))
+            218 CALL_FUNCTION_KW         6
+            220 RETURN_VALUE
+
+Disassembly of <code object map_legacy_contacts at 0x1073aa240, file "WeRobotCore/adapters/wechat/windows_legacy/mappers.py", line 260>:
+264           0 LOAD_GLOBAL              0 (tuple)
+              2 LOAD_CLOSURE             0 (account_id)
+              4 BUILD_TUPLE              1
+              6 LOAD_CONST               1 (<code object <genexpr> at 0x1073aac90, file "WeRobotCore/adapters/wechat/windows_legacy/mappers.py", line 264>)
+              8 LOAD_CONST               2 ('map_legacy_contacts.<locals>.<genexpr>')
+             10 MAKE_FUNCTION            8 (closure)
+             12 LOAD_FAST                0 (raw_contacts)
+             14 GET_ITER
+             16 CALL_FUNCTION            1
+             18 CALL_FUNCTION            1
+             20 RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x1073aac90, file "WeRobotCore/adapters/wechat/windows_legacy/mappers.py", line 264>:
+264           0 LOAD_FAST                0 (.0)
+        >>    2 FOR_ITER                16 (to 20)
+              4 STORE_FAST               1 (item)
+              6 LOAD_GLOBAL              0 (map_legacy_contact)
+              8 LOAD_FAST                1 (item)
+             10 LOAD_DEREF               0 (account_id)
+             12 CALL_FUNCTION            2
+             14 YIELD_VALUE
+             16 POP_TOP
+             18 JUMP_ABSOLUTE            2
+        >>   20 LOAD_CONST               0 (None)
+             22 RETURN_VALUE
+
+Disassembly of <code object map_legacy_group at 0x1073aaa80, file "WeRobotCore/adapters/wechat/windows_legacy/mappers.py", line 267>:
+270           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                0 (raw)
+              4 LOAD_GLOBAL              1 (Mapping)
+              6 CALL_FUNCTION            2
+              8 POP_JUMP_IF_TRUE        18
+
+271          10 LOAD_GLOBAL              2 (TypeError)
+             12 LOAD_CONST               1 ('raw group must be a mapping')
+             14 CALL_FUNCTION            1
+             16 RAISE_VARARGS            1
+
+272     >>   18 LOAD_GLOBAL              3 (_required_text)
+             20 LOAD_FAST                1 (account_id)
+             22 LOAD_CONST               2 ('account_id')
+             24 CALL_FUNCTION            2
+             26 STORE_FAST               2 (normalized_account_id)
+
+273          28 LOAD_GLOBAL              3 (_required_text)
+             30 LOAD_FAST                0 (raw)
+             32 LOAD_METHOD              4 (get)
+             34 LOAD_CONST               3 ('name')
+             36 CALL_METHOD              1
+             38 LOAD_CONST               3 ('name')
+             40 CALL_FUNCTION            2
+             42 STORE_FAST               3 (name)
+
+275          44 LOAD_GLOBAL              5 (_optional_text)
+             46 LOAD_FAST                0 (raw)
+             48 LOAD_METHOD              4 (get)
+             50 LOAD_CONST               4 ('group_id')
+             52 CALL_METHOD              1
+             54 CALL_FUNCTION            1
+             56 JUMP_IF_TRUE_OR_POP     74
+
+276          58 LOAD_GLOBAL              5 (_optional_text)
+             60 LOAD_FAST                0 (raw)
+             62 LOAD_METHOD              4 (get)
+             64 LOAD_CONST               5 ('id')
+             66 CALL_METHOD              1
+             68 CALL_FUNCTION            1
+
+275          70 JUMP_IF_TRUE_OR_POP     74
+
+277          72 LOAD_FAST                3 (name)
+
+274     >>   74 STORE_FAST               4 (group_id)
+
+279          76 BUILD_MAP                0
+             78 STORE_FAST               5 (metadata)
+
+280          80 LOAD_CONST               6 (('type', 'last_updated'))
+             82 GET_ITER
+        >>   84 FOR_ITER                30 (to 116)
+             86 STORE_FAST               6 (key)
+
+281          88 LOAD_FAST                0 (raw)
+             90 LOAD_METHOD              4 (get)
+             92 LOAD_FAST                6 (key)
+             94 CALL_METHOD              1
+             96 STORE_FAST               7 (value)
+
+282          98 LOAD_FAST                7 (value)
+            100 LOAD_CONST               7 (None)
+            102 IS_OP                    1
+            104 POP_JUMP_IF_FALSE       84
+
+283         106 LOAD_FAST                7 (value)
+            108 LOAD_FAST                5 (metadata)
+            110 LOAD_FAST                6 (key)
+            112 STORE_SUBSCR
+            114 JUMP_ABSOLUTE           84
+
+284     >>  116 LOAD_GLOBAL              6 (GroupRecord)
+
+285         118 LOAD_FAST                2 (normalized_account_id)
+
+286         120 LOAD_FAST                4 (group_id)
+
+287         122 LOAD_FAST                3 (name)
+
+288         124 LOAD_GLOBAL              7 (_nonnegative_int)
+
+289         126 LOAD_FAST                0 (raw)
+            128 LOAD_METHOD              4 (get)
+            130 LOAD_CONST               8 ('member_count')
+            132 LOAD_FAST                0 (raw)
+            134 LOAD_METHOD              4 (get)
+            136 LOAD_CONST               9 ('memberCount')
+            138 CALL_METHOD              1
+            140 CALL_METHOD              2
+
+288         142 CALL_FUNCTION            1
+
+291         144 LOAD_GLOBAL              8 (_normalized_tags)
+
+292         146 LOAD_FAST                0 (raw)
+            148 LOAD_METHOD              4 (get)
+            150 LOAD_CONST              10 ('tags')
+            152 CALL_METHOD              1
+            154 LOAD_CONST               7 (None)
+            156 IS_OP                    1
+            158 POP_JUMP_IF_FALSE      170
+            160 LOAD_FAST                0 (raw)
+            162 LOAD_METHOD              4 (get)
+            164 LOAD_CONST              10 ('tags')
+            166 CALL_METHOD              1
+            168 JUMP_FORWARD             8 (to 178)
+        >>  170 LOAD_FAST                0 (raw)
+            172 LOAD_METHOD              4 (get)
+            174 LOAD_CONST              11 ('tag')
+            176 CALL_METHOD              1
+
+291     >>  178 CALL_FUNCTION            1
+
+294         180 LOAD_FAST                5 (metadata)
+
+284         182 LOAD_CONST              12 (('account_id', 'group_id', 'name', 'member_count', 'tags', 'metadata'))
+            184 CALL_FUNCTION_KW         6
+            186 RETURN_VALUE
+
+Disassembly of <code object map_legacy_groups at 0x1073aa9d0, file "WeRobotCore/adapters/wechat/windows_legacy/mappers.py", line 298>:
+302           0 LOAD_GLOBAL              0 (tuple)
+              2 LOAD_CLOSURE             0 (account_id)
+              4 BUILD_TUPLE              1
+              6 LOAD_CONST               1 (<code object <genexpr> at 0x1073aa7c0, file "WeRobotCore/adapters/wechat/windows_legacy/mappers.py", line 302>)
+              8 LOAD_CONST               2 ('map_legacy_groups.<locals>.<genexpr>')
+             10 MAKE_FUNCTION            8 (closure)
+             12 LOAD_FAST                0 (raw_groups)
+             14 GET_ITER
+             16 CALL_FUNCTION            1
+             18 CALL_FUNCTION            1
+             20 RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x1073aa7c0, file "WeRobotCore/adapters/wechat/windows_legacy/mappers.py", line 302>:
+302           0 LOAD_FAST                0 (.0)
+        >>    2 FOR_ITER                16 (to 20)
+              4 STORE_FAST               1 (item)
+              6 LOAD_GLOBAL              0 (map_legacy_group)
+              8 LOAD_FAST                1 (item)
+             10 LOAD_DEREF               0 (account_id)
+             12 CALL_FUNCTION            2
+             14 YIELD_VALUE
+             16 POP_TOP
+             18 JUMP_ABSOLUTE            2
+        >>   20 LOAD_CONST               0 (None)
+             22 RETURN_VALUE
+
+Disassembly of <code object _message_content_type at 0x1073aab30, file "WeRobotCore/adapters/wechat/windows_legacy/mappers.py", line 305>:
+306           0 LOAD_FAST                0 (raw)
+              2 LOAD_METHOD              0 (get)
+              4 LOAD_CONST               1 ('contentType')
+              6 LOAD_FAST                0 (raw)
+              8 LOAD_METHOD              0 (get)
+             10 LOAD_CONST               2 ('content_type')
+             12 CALL_METHOD              1
+             14 CALL_METHOD              2
+             16 STORE_FAST               2 (explicit)
+
+307          18 LOAD_GLOBAL              1 (isinstance)
+             20 LOAD_FAST                2 (explicit)
+             22 LOAD_GLOBAL              2 (MessageContentType)
+             24 CALL_FUNCTION            2
+             26 POP_JUMP_IF_FALSE       32
+
+308          28 LOAD_FAST                2 (explicit)
+             30 RETURN_VALUE
+
+309     >>   32 LOAD_GLOBAL              3 (str)
+             34 LOAD_FAST                2 (explicit)
+             36 JUMP_IF_TRUE_OR_POP     40
+             38 LOAD_CONST               3 ('')
+        >>   40 CALL_FUNCTION            1
+             42 LOAD_METHOD              4 (strip)
+             44 CALL_METHOD              0
+             46 LOAD_METHOD              5 (lower)
+             48 CALL_METHOD              0
+             50 STORE_FAST               3 (normalized)
+
+310          52 LOAD_CONST               4 (<code object <dictcomp> at 0x1073aa450, file "WeRobotCore/adapters/wechat/windows_legacy/mappers.py", line 310>)
+             54 LOAD_CONST               5 ('_message_content_type.<locals>.<dictcomp>')
+             56 MAKE_FUNCTION            0
+             58 LOAD_GLOBAL              2 (MessageContentType)
+             60 GET_ITER
+             62 CALL_FUNCTION            1
+             64 STORE_FAST               4 (aliases)
+
+311          66 LOAD_FAST                3 (normalized)
+             68 LOAD_FAST                4 (aliases)
+             70 CONTAINS_OP              0
+             72 POP_JUMP_IF_FALSE       82
+
+312          74 LOAD_FAST                4 (aliases)
+             76 LOAD_FAST                3 (normalized)
+             78 BINARY_SUBSCR
+             80 RETURN_VALUE
+
+313     >>   82 LOAD_GLOBAL              6 (_explicit_bool)
+             84 LOAD_FAST                0 (raw)
+             86 LOAD_CONST               6 ('isTimeMessage')
+             88 CALL_FUNCTION            2
+             90 LOAD_CONST               7 (True)
+             92 IS_OP                    0
+             94 POP_JUMP_IF_FALSE      102
+
+314          96 LOAD_GLOBAL              2 (MessageContentType)
+             98 LOAD_ATTR                7 (SYSTEM)
+            100 RETURN_VALUE
+
+315     >>  102 LOAD_GLOBAL              1 (isinstance)
+            104 LOAD_FAST                0 (raw)
+            106 LOAD_METHOD              0 (get)
+            108 LOAD_CONST               8 ('file_info')
+            110 CALL_METHOD              1
+            112 LOAD_GLOBAL              8 (Mapping)
+            114 CALL_FUNCTION            2
+            116 POP_JUMP_IF_TRUE       128
+            118 LOAD_FAST                1 (content)
+            120 LOAD_METHOD              9 (startswith)
+            122 LOAD_CONST               9 ('[文件]')
+            124 CALL_METHOD              1
+            126 POP_JUMP_IF_FALSE      134
+
+316     >>  128 LOAD_GLOBAL              2 (MessageContentType)
+            130 LOAD_ATTR               10 (FILE)
+            132 RETURN_VALUE
+
+317     >>  134 LOAD_FAST                0 (raw)
+            136 LOAD_METHOD              0 (get)
+            138 LOAD_CONST              10 ('voice_text')
+            140 CALL_METHOD              1
+            142 POP_JUMP_IF_TRUE       154
+            144 LOAD_FAST                1 (content)
+            146 LOAD_METHOD              9 (startswith)
+            148 LOAD_CONST              11 ('[语音]')
+            150 CALL_METHOD              1
+            152 POP_JUMP_IF_FALSE      160
+
+318     >>  154 LOAD_GLOBAL              2 (MessageContentType)
+            156 LOAD_ATTR               11 (VOICE)
+            158 RETURN_VALUE
+
+319     >>  160 LOAD_FAST                0 (raw)
+            162 LOAD_METHOD              0 (get)
+            164 LOAD_CONST              12 ('image_path')
+            166 CALL_METHOD              1
+            168 POP_JUMP_IF_TRUE       180
+            170 LOAD_FAST                0 (raw)
+            172 LOAD_METHOD              0 (get)
+            174 LOAD_CONST              13 ('image_paths')
+            176 CALL_METHOD              1
+            178 POP_JUMP_IF_FALSE      186
+
+320     >>  180 LOAD_GLOBAL              2 (MessageContentType)
+            182 LOAD_ATTR               12 (IMAGE)
+            184 RETURN_VALUE
+
+321     >>  186 LOAD_FAST                1 (content)
+            188 LOAD_METHOD              4 (strip)
+            190 CALL_METHOD              0
+            192 LOAD_METHOD              5 (lower)
+            194 CALL_METHOD              0
+            196 LOAD_CONST              14 (frozenset({'[image]', '[图片]'}))
+            198 CONTAINS_OP              0
+            200 POP_JUMP_IF_FALSE      208
+
+322         202 LOAD_GLOBAL              2 (MessageContentType)
+            204 LOAD_ATTR               12 (IMAGE)
+            206 RETURN_VALUE
+
+323     >>  208 LOAD_FAST                1 (content)
+            210 POP_JUMP_IF_FALSE      218
+            212 LOAD_GLOBAL              2 (MessageContentType)
+            214 LOAD_ATTR               13 (TEXT)
+            216 RETURN_VALUE
+        >>  218 LOAD_GLOBAL              2 (MessageContentType)
+            220 LOAD_ATTR               14 (UNKNOWN)
+            222 RETURN_VALUE
+
+Disassembly of <code object <dictcomp> at 0x1073aa450, file "WeRobotCore/adapters/wechat/windows_legacy/mappers.py", line 310>:
+310           0 BUILD_MAP                0
+              2 LOAD_FAST                0 (.0)
+        >>    4 FOR_ITER                12 (to 18)
+              6 STORE_FAST               1 (item)
+              8 LOAD_FAST                1 (item)
+             10 LOAD_ATTR                0 (value)
+             12 LOAD_FAST                1 (item)
+             14 MAP_ADD                  2
+             16 JUMP_ABSOLUTE            4
+        >>   18 RETURN_VALUE
+
+Disassembly of <code object _direction at 0x1073aaea0, file "WeRobotCore/adapters/wechat/windows_legacy/mappers.py", line 326>:
+327           0 LOAD_GLOBAL              0 (_explicit_bool)
+              2 LOAD_FAST                0 (raw)
+              4 LOAD_CONST               1 ('isSelf')
+              6 LOAD_CONST               2 ('is_self')
+              8 CALL_FUNCTION            3
+             10 STORE_FAST               1 (is_self)
+
+328          12 LOAD_FAST                1 (is_self)
+             14 LOAD_CONST               3 (True)
+             16 IS_OP                    0
+             18 POP_JUMP_IF_FALSE       26
+
+329          20 LOAD_GLOBAL              1 (MessageDirection)
+             22 LOAD_ATTR                2 (OUTGOING)
+             24 RETURN_VALUE
+
+330     >>   26 LOAD_FAST                1 (is_self)
+             28 LOAD_CONST               4 (False)
+             30 IS_OP                    0
+             32 POP_JUMP_IF_FALSE       40
+
+331          34 LOAD_GLOBAL              1 (MessageDirection)
+             36 LOAD_ATTR                3 (INCOMING)
+             38 RETURN_VALUE
+
+332     >>   40 LOAD_GLOBAL              1 (MessageDirection)
+             42 LOAD_ATTR                4 (UNKNOWN)
+             44 RETURN_VALUE
+
+Disassembly of <code object _sender_name at 0x1073aa5b0, file "WeRobotCore/adapters/wechat/windows_legacy/mappers.py", line 335>:
+336           0 LOAD_FAST                0 (raw)
+              2 LOAD_METHOD              0 (get)
+              4 LOAD_CONST               1 ('sender')
+              6 CALL_METHOD              1
+              8 STORE_FAST               1 (sender)
+
+337          10 LOAD_GLOBAL              1 (isinstance)
+             12 LOAD_FAST                1 (sender)
+             14 LOAD_GLOBAL              2 (Mapping)
+             16 CALL_FUNCTION            2
+             18 POP_JUMP_IF_FALSE       34
+
+338          20 LOAD_GLOBAL              3 (_optional_text)
+             22 LOAD_FAST                1 (sender)
+             24 LOAD_METHOD              0 (get)
+             26 LOAD_CONST               2 ('name')
+             28 CALL_METHOD              1
+             30 CALL_FUNCTION            1
+             32 RETURN_VALUE
+
+339     >>   34 LOAD_GLOBAL              3 (_optional_text)
+             36 LOAD_FAST                0 (raw)
+             38 LOAD_METHOD              0 (get)
+             40 LOAD_CONST               3 ('sender_name')
+             42 CALL_METHOD              1
+             44 CALL_FUNCTION            1
+             46 RETURN_VALUE
+
+Disassembly of <code object _image_paths at 0x1073aa0e0, file "WeRobotCore/adapters/wechat/windows_legacy/mappers.py", line 342>:
+343           0 LOAD_FAST                0 (raw)
+              2 LOAD_METHOD              0 (get)
+              4 LOAD_CONST               1 ('image_paths')
+              6 CALL_METHOD              1
+              8 STORE_FAST               1 (candidates)
+
+344          10 BUILD_LIST               0
+             12 STORE_FAST               2 (values)
+
+345          14 LOAD_GLOBAL              1 (isinstance)
+             16 LOAD_FAST                1 (candidates)
+             18 LOAD_GLOBAL              2 (Sequence)
+             20 CALL_FUNCTION            2
+             22 POP_JUMP_IF_FALSE       48
+             24 LOAD_GLOBAL              1 (isinstance)
+             26 LOAD_FAST                1 (candidates)
+             28 LOAD_GLOBAL              3 (str)
+             30 LOAD_GLOBAL              4 (bytes)
+             32 BUILD_TUPLE              2
+             34 CALL_FUNCTION            2
+             36 POP_JUMP_IF_TRUE        48
+
+346          38 LOAD_FAST                2 (values)
+             40 LOAD_METHOD              5 (extend)
+             42 LOAD_FAST                1 (candidates)
+             44 CALL_METHOD              1
+             46 POP_TOP
+
+347     >>   48 LOAD_FAST                0 (raw)
+             50 LOAD_METHOD              0 (get)
+             52 LOAD_CONST               2 ('image_path')
+             54 CALL_METHOD              1
+             56 POP_JUMP_IF_FALSE       74
+
+348          58 LOAD_FAST                2 (values)
+             60 LOAD_METHOD              6 (append)
+             62 LOAD_FAST                0 (raw)
+             64 LOAD_METHOD              0 (get)
+             66 LOAD_CONST               2 ('image_path')
+             68 CALL_METHOD              1
+             70 CALL_METHOD              1
+             72 POP_TOP
+
+349     >>   74 LOAD_GLOBAL              7 (set)
+             76 CALL_FUNCTION            0
+             78 STORE_FAST               3 (seen)
+
+350          80 BUILD_LIST               0
+             82 STORE_FAST               4 (result)
+
+351          84 LOAD_FAST                2 (values)
+             86 GET_ITER
+        >>   88 FOR_ITER                44 (to 134)
+             90 STORE_FAST               5 (value)
+
+352          92 LOAD_GLOBAL              8 (_optional_text)
+             94 LOAD_FAST                5 (value)
+             96 CALL_FUNCTION            1
+             98 STORE_FAST               6 (path)
+
+353         100 LOAD_FAST                6 (path)
+            102 POP_JUMP_IF_FALSE       88
+            104 LOAD_FAST                6 (path)
+            106 LOAD_FAST                3 (seen)
+            108 CONTAINS_OP              1
+            110 POP_JUMP_IF_FALSE       88
+
+354         112 LOAD_FAST                3 (seen)
+            114 LOAD_METHOD              9 (add)
+            116 LOAD_FAST                6 (path)
+            118 CALL_METHOD              1
+            120 POP_TOP
+
+355         122 LOAD_FAST                4 (result)
+            124 LOAD_METHOD              6 (append)
+            126 LOAD_FAST                6 (path)
+            128 CALL_METHOD              1
+            130 POP_TOP
+            132 JUMP_ABSOLUTE           88
+
+356     >>  134 LOAD_GLOBAL             10 (tuple)
+            136 LOAD_FAST                4 (result)
+            138 CALL_FUNCTION            1
+            140 RETURN_VALUE
+
+Disassembly of <code object _attachments at 0x1073aa500, file "WeRobotCore/adapters/wechat/windows_legacy/mappers.py", line 359>:
+363           0 BUILD_LIST               0
+              2 STORE_FAST               2 (result)
+
+364           4 LOAD_FAST                0 (raw)
+              6 LOAD_METHOD              0 (get)
+              8 LOAD_CONST               1 ('file_info')
+             10 CALL_METHOD              1
+             12 STORE_FAST               3 (file_info)
+
+365          14 LOAD_GLOBAL              1 (isinstance)
+             16 LOAD_FAST                3 (file_info)
+             18 LOAD_GLOBAL              2 (Mapping)
+             20 CALL_FUNCTION            2
+             22 POP_JUMP_IF_FALSE       92
+
+366          24 LOAD_GLOBAL              3 (dict)
+             26 LOAD_FAST                3 (file_info)
+             28 CALL_FUNCTION            1
+             30 STORE_FAST               4 (metadata)
+
+367          32 LOAD_FAST                2 (result)
+             34 LOAD_METHOD              4 (append)
+
+368          36 LOAD_GLOBAL              5 (AttachmentRef)
+
+369          38 LOAD_GLOBAL              6 (MessageContentType)
+             40 LOAD_ATTR                7 (FILE)
+
+370          42 LOAD_GLOBAL              8 (_optional_text)
+
+371          44 LOAD_FAST                3 (file_info)
+             46 LOAD_METHOD              0 (get)
+             48 LOAD_CONST               2 ('path')
+             50 LOAD_FAST                3 (file_info)
+             52 LOAD_METHOD              0 (get)
+             54 LOAD_CONST               3 ('asset_id')
+             56 LOAD_FAST                3 (file_info)
+             58 LOAD_METHOD              0 (get)
+             60 LOAD_CONST               4 ('id')
+             62 CALL_METHOD              1
+             64 CALL_METHOD              2
+             66 CALL_METHOD              2
+
+370          68 CALL_FUNCTION            1
+
+373          70 LOAD_GLOBAL              8 (_optional_text)
+             72 LOAD_FAST                3 (file_info)
+             74 LOAD_METHOD              0 (get)
+             76 LOAD_CONST               5 ('name')
+             78 CALL_METHOD              1
+             80 CALL_FUNCTION            1
+
+374          82 LOAD_FAST                4 (metadata)
+
+368          84 LOAD_CONST               6 (('content_type', 'asset_id', 'name', 'metadata'))
+             86 CALL_FUNCTION_KW         4
+
+367          88 CALL_METHOD              1
+             90 POP_TOP
+
+378     >>   92 LOAD_GLOBAL              9 (_image_paths)
+             94 LOAD_FAST                0 (raw)
+             96 CALL_FUNCTION            1
+             98 GET_ITER
+        >>  100 FOR_ITER                42 (to 144)
+            102 STORE_FAST               5 (path)
+
+379         104 LOAD_FAST                2 (result)
+            106 LOAD_METHOD              4 (append)
+
+380         108 LOAD_GLOBAL              5 (AttachmentRef)
+
+381         110 LOAD_GLOBAL              6 (MessageContentType)
+            112 LOAD_ATTR               10 (IMAGE)
+
+382         114 LOAD_FAST                5 (path)
+
+383         116 LOAD_GLOBAL             11 (ntpath)
+            118 LOAD_METHOD             12 (basename)
+            120 LOAD_FAST                5 (path)
+            122 CALL_METHOD              1
+            124 JUMP_IF_TRUE_OR_POP    128
+            126 LOAD_CONST               0 (None)
+
+384     >>  128 LOAD_CONST               2 ('path')
+            130 LOAD_FAST                5 (path)
+            132 BUILD_MAP                1
+
+380         134 LOAD_CONST               6 (('content_type', 'asset_id', 'name', 'metadata'))
+            136 CALL_FUNCTION_KW         4
+
+379         138 CALL_METHOD              1
+            140 POP_TOP
+            142 JUMP_ABSOLUTE          100
+
+388     >>  144 LOAD_GLOBAL              8 (_optional_text)
+            146 LOAD_FAST                0 (raw)
+            148 LOAD_METHOD              0 (get)
+            150 LOAD_CONST               7 ('voice_text')
+            152 CALL_METHOD              1
+            154 CALL_FUNCTION            1
+            156 STORE_FAST               6 (voice_text)
+
+389         158 LOAD_FAST                6 (voice_text)
+            160 POP_JUMP_IF_FALSE      186
+
+390         162 LOAD_FAST                2 (result)
+            164 LOAD_METHOD              4 (append)
+
+391         166 LOAD_GLOBAL              5 (AttachmentRef)
+
+392         168 LOAD_GLOBAL              6 (MessageContentType)
+            170 LOAD_ATTR               13 (VOICE)
+
+393         172 LOAD_CONST               8 ('transcript')
+            174 LOAD_FAST                6 (voice_text)
+            176 BUILD_MAP                1
+
+391         178 LOAD_CONST               9 (('content_type', 'metadata'))
+            180 CALL_FUNCTION_KW         2
+
+390         182 CALL_METHOD              1
+            184 POP_TOP
+
+397     >>  186 LOAD_FAST                2 (result)
+            188 POP_JUMP_IF_TRUE       226
+            190 LOAD_FAST                1 (content_type)
+
+398         192 LOAD_GLOBAL              6 (MessageContentType)
+            194 LOAD_ATTR                7 (FILE)
+
+399         196 LOAD_GLOBAL              6 (MessageContentType)
+            198 LOAD_ATTR               10 (IMAGE)
+
+400         200 LOAD_GLOBAL              6 (MessageContentType)
+            202 LOAD_ATTR               13 (VOICE)
+
+397         204 BUILD_SET                3
+            206 CONTAINS_OP              0
+            208 POP_JUMP_IF_FALSE      226
+
+402         210 LOAD_FAST                2 (result)
+            212 LOAD_METHOD              4 (append)
+            214 LOAD_GLOBAL              5 (AttachmentRef)
+            216 LOAD_FAST                1 (content_type)
+            218 LOAD_CONST              10 (('content_type',))
+            220 CALL_FUNCTION_KW         1
+            222 CALL_METHOD              1
+            224 POP_TOP
+
+403     >>  226 LOAD_GLOBAL             14 (tuple)
+            228 LOAD_FAST                2 (result)
+            230 CALL_FUNCTION            1
+            232 RETURN_VALUE
+
+Disassembly of <code object _fallback_fingerprint at 0x1073aaf50, file "WeRobotCore/adapters/wechat/windows_legacy/mappers.py", line 406>:
+413           0 LOAD_GLOBAL              0 (_sender_name)
+              2 LOAD_FAST                0 (raw)
+              4 CALL_FUNCTION            1
+              6 JUMP_IF_TRUE_OR_POP     10
+              8 LOAD_CONST               1 ('')
+        >>   10 STORE_FAST               5 (sender_name)
+
+414          12 LOAD_GLOBAL              1 (_optional_text)
+             14 LOAD_FAST                0 (raw)
+             16 LOAD_METHOD              2 (get)
+             18 LOAD_CONST               2 ('id')
+             20 CALL_METHOD              1
+             22 CALL_FUNCTION            1
+             24 JUMP_IF_TRUE_OR_POP     28
+             26 LOAD_CONST               1 ('')
+        >>   28 STORE_FAST               6 (message_id)
+
+415          30 LOAD_CONST               3 ('\x1f')
+             32 LOAD_METHOD              3 (join)
+
+416          34 LOAD_FAST                1 (account_id)
+             36 LOAD_FAST                2 (session_id)
+             38 LOAD_FAST                6 (message_id)
+             40 LOAD_FAST                5 (sender_name)
+             42 LOAD_FAST                3 (content)
+             44 LOAD_GLOBAL              4 (str)
+             46 LOAD_FAST                4 (ordinal)
+             48 CALL_FUNCTION            1
+             50 BUILD_TUPLE              6
+
+415          52 CALL_METHOD              1
+             54 STORE_FAST               7 (seed)
+
+418          56 LOAD_CONST               4 ('legacy-fallback-{}')
+             58 LOAD_METHOD              5 (format)
+
+419          60 LOAD_GLOBAL              6 (hashlib)
+             62 LOAD_METHOD              7 (sha256)
+             64 LOAD_FAST                7 (seed)
+             66 LOAD_METHOD              8 (encode)
+             68 LOAD_CONST               5 ('utf-8')
+             70 CALL_METHOD              1
+             72 CALL_METHOD              1
+             74 LOAD_METHOD              9 (hexdigest)
+             76 CALL_METHOD              0
+             78 LOAD_CONST               0 (None)
+             80 LOAD_CONST               6 (32)
+             82 BUILD_SLICE              2
+             84 BINARY_SUBSCR
+
+418          86 CALL_METHOD              1
+             88 RETURN_VALUE
+
+Disassembly of <code object map_legacy_message at 0x1073ab7c0, file "WeRobotCore/adapters/wechat/windows_legacy/mappers.py", line 423>:
+432           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                0 (raw)
+              4 LOAD_GLOBAL              1 (Mapping)
+              6 CALL_FUNCTION            2
+              8 POP_JUMP_IF_TRUE        18
+
+433          10 LOAD_GLOBAL              2 (TypeError)
+             12 LOAD_CONST               1 ('raw message must be a mapping')
+             14 CALL_FUNCTION            1
+             16 RAISE_VARARGS            1
+
+434     >>   18 LOAD_GLOBAL              3 (_required_text)
+             20 LOAD_FAST                1 (account_id)
+             22 LOAD_CONST               2 ('account_id')
+             24 CALL_FUNCTION            2
+             26 STORE_FAST               5 (normalized_account_id)
+
+435          28 LOAD_GLOBAL              3 (_required_text)
+             30 LOAD_FAST                2 (session_id)
+             32 LOAD_CONST               3 ('session_id')
+             34 CALL_FUNCTION            2
+             36 STORE_FAST               6 (normalized_session_id)
+
+436          38 LOAD_GLOBAL              4 (_chat_type)
+             40 LOAD_FAST                3 (chat_type)
+             42 LOAD_FAST                0 (raw)
+             44 LOAD_METHOD              5 (get)
+             46 LOAD_CONST               4 ('isGroup')
+             48 CALL_METHOD              1
+             50 CALL_FUNCTION            2
+             52 STORE_FAST               7 (normalized_chat_type)
+
+437          54 LOAD_GLOBAL              6 (_text_or_empty)
+             56 LOAD_FAST                0 (raw)
+             58 LOAD_METHOD              5 (get)
+             60 LOAD_CONST               5 ('content')
+             62 CALL_METHOD              1
+             64 CALL_FUNCTION            1
+             66 STORE_FAST               8 (content)
+
+438          68 LOAD_GLOBAL              7 (_optional_text)
+             70 LOAD_FAST                0 (raw)
+             72 LOAD_METHOD              5 (get)
+             74 LOAD_CONST               6 ('fingerprint')
+             76 CALL_METHOD              1
+             78 CALL_FUNCTION            1
+             80 JUMP_IF_TRUE_OR_POP     96
+             82 LOAD_GLOBAL              8 (_fallback_fingerprint)
+
+439          84 LOAD_FAST                0 (raw)
+
+440          86 LOAD_FAST                5 (normalized_account_id)
+
+441          88 LOAD_FAST                6 (normalized_session_id)
+
+442          90 LOAD_FAST                8 (content)
+
+443          92 LOAD_FAST                4 (ordinal)
+
+438          94 CALL_FUNCTION            5
+        >>   96 STORE_FAST               9 (fingerprint)
+
+445          98 LOAD_GLOBAL              9 (_message_content_type)
+            100 LOAD_FAST                0 (raw)
+            102 LOAD_FAST                8 (content)
+            104 CALL_FUNCTION            2
+            106 STORE_FAST              10 (content_type)
+
+446         108 LOAD_GLOBAL             10 (_explicit_bool)
+            110 LOAD_FAST                0 (raw)
+            112 LOAD_CONST               7 ('isMention')
+            114 LOAD_CONST               8 ('is_mention')
+            116 LOAD_CONST               9 ('is_at')
+            118 CALL_FUNCTION            4
+            120 STORE_FAST              11 (mention)
+
+447         122 LOAD_GLOBAL             11 (MessageRecord)
+
+448         124 LOAD_GLOBAL              7 (_optional_text)
+            126 LOAD_FAST                0 (raw)
+            128 LOAD_METHOD              5 (get)
+            130 LOAD_CONST              10 ('id')
+            132 CALL_METHOD              1
+            134 CALL_FUNCTION            1
+
+449         136 LOAD_FAST                9 (fingerprint)
+
+450         138 LOAD_FAST                5 (normalized_account_id)
+
+451         140 LOAD_FAST                6 (normalized_session_id)
+
+452         142 LOAD_FAST                7 (normalized_chat_type)
+
+453         144 LOAD_GLOBAL             12 (_sender_name)
+            146 LOAD_FAST                0 (raw)
+            148 CALL_FUNCTION            1
+
+454         150 LOAD_GLOBAL             13 (_direction)
+            152 LOAD_FAST                0 (raw)
+            154 CALL_FUNCTION            1
+
+455         156 LOAD_FAST               10 (content_type)
+
+456         158 LOAD_FAST                8 (content)
+
+457         160 LOAD_GLOBAL             14 (_utc_datetime)
+            162 LOAD_FAST                0 (raw)
+            164 LOAD_METHOD              5 (get)
+            166 LOAD_CONST              11 ('timestamp')
+            168 CALL_METHOD              1
+            170 CALL_FUNCTION            1
+
+458         172 LOAD_GLOBAL             10 (_explicit_bool)
+            174 LOAD_FAST                0 (raw)
+            176 LOAD_CONST              12 ('isTimeMessage')
+            178 CALL_FUNCTION            2
+            180 LOAD_CONST              13 (True)
+            182 IS_OP                    0
+
+459         184 LOAD_FAST               11 (mention)
+            186 LOAD_CONST              13 (True)
+            188 IS_OP                    0
+
+460         190 LOAD_GLOBAL             15 (_attachments)
+            192 LOAD_FAST                0 (raw)
+            194 LOAD_FAST               10 (content_type)
+            196 CALL_FUNCTION            2
+
+447         198 LOAD_CONST              14 (('message_id', 'fingerprint', 'account_id', 'session_id', 'chat_type', 'sender_name', 'direction', 'content_type', 'content', 'timestamp', 'is_time_message', 'is_mention', 'attachments'))
+            200 CALL_FUNCTION_KW        13
+            202 RETURN_VALUE
+
+Disassembly of <code object map_legacy_conversation at 0x1073ab190, file "WeRobotCore/adapters/wechat/windows_legacy/mappers.py", line 464>:
+471           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                0 (raw)
+              4 LOAD_GLOBAL              1 (Mapping)
+              6 CALL_FUNCTION            2
+              8 POP_JUMP_IF_TRUE        18
+
+472          10 LOAD_GLOBAL              2 (TypeError)
+             12 LOAD_CONST               1 ('raw conversation must be a mapping')
+             14 CALL_FUNCTION            1
+             16 RAISE_VARARGS            1
+
+473     >>   18 LOAD_FAST                0 (raw)
+             20 LOAD_METHOD              3 (get)
+             22 LOAD_CONST               2 ('messages')
+             24 CALL_METHOD              1
+             26 STORE_FAST               3 (raw_messages)
+
+474          28 LOAD_FAST                3 (raw_messages)
+             30 LOAD_CONST               3 (None)
+             32 IS_OP                    0
+             34 POP_JUMP_IF_FALSE       40
+
+475          36 LOAD_CONST               4 (())
+             38 STORE_FAST               3 (raw_messages)
+
+476     >>   40 LOAD_GLOBAL              0 (isinstance)
+             42 LOAD_FAST                3 (raw_messages)
+             44 LOAD_GLOBAL              4 (Sequence)
+             46 CALL_FUNCTION            2
+             48 POP_JUMP_IF_FALSE       64
+             50 LOAD_GLOBAL              0 (isinstance)
+             52 LOAD_FAST                3 (raw_messages)
+             54 LOAD_GLOBAL              5 (str)
+             56 LOAD_GLOBAL              6 (bytes)
+             58 BUILD_TUPLE              2
+             60 CALL_FUNCTION            2
+             62 POP_JUMP_IF_FALSE       72
+
+477     >>   64 LOAD_GLOBAL              2 (TypeError)
+             66 LOAD_CONST               5 ('Legacy messages must be a sequence')
+             68 CALL_FUNCTION            1
+             70 RAISE_VARARGS            1
+
+479     >>   72 LOAD_CONST               3 (None)
+             74 STORE_FAST               4 (first_is_group)
+
+480          76 LOAD_FAST                3 (raw_messages)
+             78 GET_ITER
+        >>   80 FOR_ITER                36 (to 118)
+             82 STORE_FAST               5 (item)
+
+481          84 LOAD_GLOBAL              0 (isinstance)
+             86 LOAD_FAST                5 (item)
+             88 LOAD_GLOBAL              1 (Mapping)
+             90 CALL_FUNCTION            2
+             92 POP_JUMP_IF_FALSE       80
+
+482          94 LOAD_GLOBAL              7 (_explicit_bool)
+             96 LOAD_FAST                5 (item)
+             98 LOAD_CONST               6 ('isGroup')
+            100 CALL_FUNCTION            2
+            102 STORE_FAST               4 (first_is_group)
+
+483         104 LOAD_FAST                4 (first_is_group)
+            106 LOAD_CONST               3 (None)
+            108 IS_OP                    1
+            110 POP_JUMP_IF_FALSE       80
+
+484         112 POP_TOP
+            114 JUMP_ABSOLUTE          118
+            116 JUMP_ABSOLUTE           80
+
+485     >>  118 LOAD_GLOBAL              8 (_chat_type)
+            120 LOAD_FAST                0 (raw)
+            122 LOAD_METHOD              3 (get)
+            124 LOAD_CONST               7 ('chatType')
+            126 CALL_METHOD              1
+            128 LOAD_FAST                4 (first_is_group)
+            130 CALL_FUNCTION            2
+            132 STORE_DEREF              0 (chat_type)
+
+486         134 LOAD_GLOBAL              9 (_required_text)
+            136 LOAD_FAST                1 (account_id)
+            138 LOAD_CONST               8 ('account_id')
+            140 CALL_FUNCTION            2
+            142 STORE_DEREF              1 (normalized_account_id)
+
+487         144 LOAD_GLOBAL              9 (_required_text)
+            146 LOAD_FAST                2 (session_id)
+            148 LOAD_CONST               9 ('session_id')
+            150 CALL_FUNCTION            2
+            152 STORE_DEREF              2 (normalized_session_id)
+
+488         154 LOAD_GLOBAL             10 (tuple)
+            156 LOAD_CLOSURE             0 (chat_type)
+            158 LOAD_CLOSURE             1 (normalized_account_id)
+            160 LOAD_CLOSURE             2 (normalized_session_id)
+            162 BUILD_TUPLE              3
+            164 LOAD_CONST              10 (<code object <genexpr> at 0x1073ab660, file "WeRobotCore/adapters/wechat/windows_legacy/mappers.py", line 488>)
+            166 LOAD_CONST              11 ('map_legacy_conversation.<locals>.<genexpr>')
+            168 MAKE_FUNCTION            8 (closure)
+
+496         170 LOAD_GLOBAL             11 (enumerate)
+            172 LOAD_FAST                3 (raw_messages)
+            174 CALL_FUNCTION            1
+
+488         176 GET_ITER
+            178 CALL_FUNCTION            1
+            180 CALL_FUNCTION            1
+            182 STORE_FAST               6 (messages)
+
+498         184 LOAD_GLOBAL             12 (ConversationReadResult)
+
+499         186 LOAD_DEREF               1 (normalized_account_id)
+
+500         188 LOAD_DEREF               2 (normalized_session_id)
+
+501         190 LOAD_DEREF               0 (chat_type)
+
+502         192 LOAD_FAST                6 (messages)
+
+503         194 LOAD_GLOBAL              7 (_explicit_bool)
+            196 LOAD_FAST                0 (raw)
+            198 LOAD_CONST              12 ('is_first_join')
+            200 CALL_FUNCTION            2
+            202 LOAD_CONST              13 (True)
+            204 IS_OP                    0
+
+504         206 LOAD_GLOBAL              7 (_explicit_bool)
+            208 LOAD_FAST                0 (raw)
+            210 LOAD_CONST              14 ('is_friend_pass')
+            212 CALL_FUNCTION            2
+            214 LOAD_CONST              13 (True)
+            216 IS_OP                    0
+
+498         218 LOAD_CONST              15 (('account_id', 'session_id', 'chat_type', 'messages', 'is_first_join', 'is_friend_pass'))
+            220 CALL_FUNCTION_KW         6
+            222 RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x1073ab660, file "WeRobotCore/adapters/wechat/windows_legacy/mappers.py", line 488>:
+488           0 LOAD_FAST                0 (.0)
+        >>    2 FOR_ITER                28 (to 32)
+
+496           4 UNPACK_SEQUENCE          2
+              6 STORE_FAST               1 (index)
+              8 STORE_FAST               2 (item)
+
+489          10 LOAD_GLOBAL              0 (map_legacy_message)
+
+490          12 LOAD_FAST                2 (item)
+
+491          14 LOAD_DEREF               1 (normalized_account_id)
+
+492          16 LOAD_DEREF               2 (normalized_session_id)
+
+493          18 LOAD_DEREF               0 (chat_type)
+
+494          20 LOAD_FAST                1 (index)
+
+489          22 LOAD_CONST               0 (('chat_type', 'ordinal'))
+             24 CALL_FUNCTION_KW         5
+             26 YIELD_VALUE
+             28 POP_TOP
+             30 JUMP_ABSOLUTE            2
+        >>   32 LOAD_CONST               1 (None)
+             34 RETURN_VALUE
+
+Disassembly of <code object _operation_error at 0x1073abea0, file "WeRobotCore/adapters/wechat/windows_legacy/mappers.py", line 508>:
+509           0 LOAD_FAST                0 (message)
+              2 LOAD_METHOD              0 (strip)
+              4 CALL_METHOD              0
+              6 LOAD_METHOD              1 (lower)
+              8 CALL_METHOD              0
+             10 STORE_DEREF              0 (normalized)
+
+510          12 LOAD_CONST               1 ('超时')
+             14 LOAD_DEREF               0 (normalized)
+             16 CONTAINS_OP              0
+             18 POP_JUMP_IF_TRUE        28
+             20 LOAD_CONST               2 ('timeout')
+             22 LOAD_DEREF               0 (normalized)
+             24 CONTAINS_OP              0
+             26 POP_JUMP_IF_FALSE       38
+
+511     >>   28 LOAD_GLOBAL              2 (ErrorCode)
+             30 LOAD_ATTR                3 (OPERATION_TIMEOUT)
+             32 LOAD_CONST               3 (True)
+             34 BUILD_TUPLE              2
+             36 RETURN_VALUE
+
+512     >>   38 LOAD_CONST               4 ('实例不存在')
+             40 LOAD_DEREF               0 (normalized)
+             42 CONTAINS_OP              0
+             44 POP_JUMP_IF_TRUE        54
+             46 LOAD_CONST               5 ('instance not found')
+             48 LOAD_DEREF               0 (normalized)
+             50 CONTAINS_OP              0
+             52 POP_JUMP_IF_FALSE       64
+
+513     >>   54 LOAD_GLOBAL              2 (ErrorCode)
+             56 LOAD_ATTR                4 (INSTANCE_NOT_FOUND)
+             58 LOAD_CONST               6 (False)
+             60 BUILD_TUPLE              2
+             62 RETURN_VALUE
+
+514     >>   64 LOAD_GLOBAL              5 (any)
+             66 LOAD_CLOSURE             0 (normalized)
+             68 BUILD_TUPLE              1
+             70 LOAD_CONST               7 (<code object <genexpr> at 0x1073abb30, file "WeRobotCore/adapters/wechat/windows_legacy/mappers.py", line 514>)
+             72 LOAD_CONST               8 ('_operation_error.<locals>.<genexpr>')
+             74 MAKE_FUNCTION            8 (closure)
+
+516          76 LOAD_CONST               9 (('未初始化', '尚未初始化', 'account_id 必填', 'account_id is required', 'no window_handle', '微信实例不存在'))
+
+514          78 GET_ITER
+             80 CALL_FUNCTION            1
+             82 CALL_FUNCTION            1
+             84 POP_JUMP_IF_FALSE       96
+
+525          86 LOAD_GLOBAL              2 (ErrorCode)
+             88 LOAD_ATTR                6 (ACCOUNT_NOT_INITIALIZED)
+             90 LOAD_CONST               3 (True)
+             92 BUILD_TUPLE              2
+             94 RETURN_VALUE
+
+526     >>   96 LOAD_GLOBAL              5 (any)
+             98 LOAD_CLOSURE             0 (normalized)
+            100 BUILD_TUPLE              1
+            102 LOAD_CONST              10 (<code object <genexpr> at 0x1073abc90, file "WeRobotCore/adapters/wechat/windows_legacy/mappers.py", line 526>)
+            104 LOAD_CONST               8 ('_operation_error.<locals>.<genexpr>')
+            106 MAKE_FUNCTION            8 (closure)
+
+528         108 LOAD_CONST              11 (('同步期间', '执行权限', 'busy', '繁忙', '稍后重试'))
+
+526         110 GET_ITER
+            112 CALL_FUNCTION            1
+            114 CALL_FUNCTION            1
+            116 POP_JUMP_IF_FALSE      128
+
+530         118 LOAD_GLOBAL              2 (ErrorCode)
+            120 LOAD_ATTR                7 (RATE_LIMITED)
+            122 LOAD_CONST               3 (True)
+            124 BUILD_TUPLE              2
+            126 RETURN_VALUE
+
+531     >>  128 LOAD_CONST              12 ('权限')
+            130 LOAD_DEREF               0 (normalized)
+            132 CONTAINS_OP              0
+            134 POP_JUMP_IF_TRUE       152
+            136 LOAD_CONST              13 ('permission')
+            138 LOAD_DEREF               0 (normalized)
+            140 CONTAINS_OP              0
+            142 POP_JUMP_IF_TRUE       152
+            144 LOAD_CONST              14 ('accessibility')
+            146 LOAD_DEREF               0 (normalized)
+            148 CONTAINS_OP              0
+            150 POP_JUMP_IF_FALSE      162
+
+532     >>  152 LOAD_GLOBAL              2 (ErrorCode)
+            154 LOAD_ATTR                8 (PERMISSION_REQUIRED)
+            156 LOAD_CONST               3 (True)
+            158 BUILD_TUPLE              2
+            160 RETURN_VALUE
+
+533     >>  162 LOAD_GLOBAL              5 (any)
+            164 LOAD_CLOSURE             0 (normalized)
+            166 BUILD_TUPLE              1
+            168 LOAD_CONST              15 (<code object <genexpr> at 0x1073abdf0, file "WeRobotCore/adapters/wechat/windows_legacy/mappers.py", line 533>)
+            170 LOAD_CONST               8 ('_operation_error.<locals>.<genexpr>')
+            172 MAKE_FUNCTION            8 (closure)
+            174 LOAD_CONST              16 (('无法找到', '未找到', 'element not found'))
+            176 GET_ITER
+            178 CALL_FUNCTION            1
+            180 CALL_FUNCTION            1
+            182 POP_JUMP_IF_FALSE      194
+
+534         184 LOAD_GLOBAL              2 (ErrorCode)
+            186 LOAD_ATTR                9 (ELEMENT_NOT_FOUND)
+            188 LOAD_CONST               6 (False)
+            190 BUILD_TUPLE              2
+            192 RETURN_VALUE
+
+535     >>  194 LOAD_CONST              17 ('版本不支持')
+            196 LOAD_DEREF               0 (normalized)
+            198 CONTAINS_OP              0
+            200 POP_JUMP_IF_TRUE       210
+            202 LOAD_CONST              18 ('unsupported version')
+            204 LOAD_DEREF               0 (normalized)
+            206 CONTAINS_OP              0
+            208 POP_JUMP_IF_FALSE      220
+
+536     >>  210 LOAD_GLOBAL              2 (ErrorCode)
+            212 LOAD_ATTR               10 (CLIENT_VERSION_UNSUPPORTED)
+            214 LOAD_CONST               6 (False)
+            216 BUILD_TUPLE              2
+            218 RETURN_VALUE
+
+537     >>  220 LOAD_CONST              19 ('遮挡')
+            222 LOAD_DEREF               0 (normalized)
+            224 CONTAINS_OP              0
+            226 POP_JUMP_IF_TRUE       236
+            228 LOAD_CONST              20 ('occluded')
+            230 LOAD_DEREF               0 (normalized)
+            232 CONTAINS_OP              0
+            234 POP_JUMP_IF_FALSE      246
+
+538     >>  236 LOAD_GLOBAL              2 (ErrorCode)
+            238 LOAD_ATTR               11 (WINDOW_OCCLUDED)
+            240 LOAD_CONST               3 (True)
+            242 BUILD_TUPLE              2
+            244 RETURN_VALUE
+
+539     >>  246 LOAD_CONST              21 ('会话已变化')
+            248 LOAD_DEREF               0 (normalized)
+            250 CONTAINS_OP              0
+            252 EXTENDED_ARG             1
+            254 POP_JUMP_IF_TRUE       266
+            256 LOAD_CONST              22 ('conversation changed')
+            258 LOAD_DEREF               0 (normalized)
+            260 CONTAINS_OP              0
+            262 EXTENDED_ARG             1
+            264 POP_JUMP_IF_FALSE      276
+
+540     >>  266 LOAD_GLOBAL              2 (ErrorCode)
+            268 LOAD_ATTR               12 (CONVERSATION_CHANGED)
+            270 LOAD_CONST               6 (False)
+            272 BUILD_TUPLE              2
+            274 RETURN_VALUE
+
+541     >>  276 LOAD_GLOBAL              2 (ErrorCode)
+            278 LOAD_ATTR               13 (OPERATION_FAILED)
+            280 LOAD_CONST               6 (False)
+            282 BUILD_TUPLE              2
+            284 RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x1073abb30, file "WeRobotCore/adapters/wechat/windows_legacy/mappers.py", line 514>:
+514           0 LOAD_FAST                0 (.0)
+        >>    2 FOR_ITER                14 (to 18)
+
+516           4 STORE_FAST               1 (marker)
+
+515           6 LOAD_FAST                1 (marker)
+              8 LOAD_DEREF               0 (normalized)
+             10 CONTAINS_OP              0
+             12 YIELD_VALUE
+             14 POP_TOP
+             16 JUMP_ABSOLUTE            2
+        >>   18 LOAD_CONST               0 (None)
+             20 RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x1073abc90, file "WeRobotCore/adapters/wechat/windows_legacy/mappers.py", line 526>:
+526           0 LOAD_FAST                0 (.0)
+        >>    2 FOR_ITER                14 (to 18)
+
+528           4 STORE_FAST               1 (marker)
+
+527           6 LOAD_FAST                1 (marker)
+              8 LOAD_DEREF               0 (normalized)
+             10 CONTAINS_OP              0
+             12 YIELD_VALUE
+             14 POP_TOP
+             16 JUMP_ABSOLUTE            2
+        >>   18 LOAD_CONST               0 (None)
+             20 RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x1073abdf0, file "WeRobotCore/adapters/wechat/windows_legacy/mappers.py", line 533>:
+533           0 LOAD_FAST                0 (.0)
+        >>    2 FOR_ITER                14 (to 18)
+              4 STORE_FAST               1 (marker)
+              6 LOAD_FAST                1 (marker)
+              8 LOAD_DEREF               0 (normalized)
+             10 CONTAINS_OP              0
+             12 YIELD_VALUE
+             14 POP_TOP
+             16 JUMP_ABSOLUTE            2
+        >>   18 LOAD_CONST               0 (None)
+             20 RETURN_VALUE
+
+Disassembly of <code object map_legacy_operation at 0x1073ab450, file "WeRobotCore/adapters/wechat/windows_legacy/mappers.py", line 544>:
+556           0 LOAD_GLOBAL              0 (_required_text)
+              2 LOAD_FAST                1 (operation)
+              4 LOAD_CONST               1 ('operation')
+              6 CALL_FUNCTION            2
+              8 STORE_FAST               3 (operation_name)
+
+557          10 LOAD_GLOBAL              1 (isinstance)
+             12 LOAD_FAST                0 (raw)
+             14 LOAD_GLOBAL              2 (Mapping)
+             16 CALL_FUNCTION            2
+             18 POP_JUMP_IF_FALSE       58
+
+558          20 LOAD_FAST                0 (raw)
+             22 LOAD_METHOD              3 (get)
+             24 LOAD_CONST               2 ('success')
+             26 CALL_METHOD              1
+             28 LOAD_CONST               3 (True)
+             30 IS_OP                    0
+             32 STORE_FAST               4 (success)
+
+559          34 LOAD_GLOBAL              4 (_text_or_empty)
+             36 LOAD_FAST                0 (raw)
+             38 LOAD_METHOD              3 (get)
+             40 LOAD_CONST               4 ('message')
+             42 LOAD_FAST                0 (raw)
+             44 LOAD_METHOD              3 (get)
+             46 LOAD_CONST               5 ('error')
+             48 CALL_METHOD              1
+             50 CALL_METHOD              2
+             52 CALL_FUNCTION            1
+             54 STORE_FAST               5 (message)
+             56 JUMP_FORWARD            56 (to 114)
+
+560     >>   58 LOAD_GLOBAL              1 (isinstance)
+             60 LOAD_FAST                0 (raw)
+             62 LOAD_GLOBAL              5 (BaseException)
+             64 CALL_FUNCTION            2
+             66 POP_JUMP_IF_FALSE       82
+
+561          68 LOAD_CONST               6 (False)
+             70 STORE_FAST               4 (success)
+
+562          72 LOAD_GLOBAL              6 (str)
+             74 LOAD_FAST                0 (raw)
+             76 CALL_FUNCTION            1
+             78 STORE_FAST               5 (message)
+             80 JUMP_FORWARD            32 (to 114)
+
+563     >>   82 LOAD_GLOBAL              1 (isinstance)
+             84 LOAD_FAST                0 (raw)
+             86 LOAD_GLOBAL              7 (bool)
+             88 CALL_FUNCTION            2
+             90 POP_JUMP_IF_FALSE      102
+
+564          92 LOAD_FAST                0 (raw)
+             94 STORE_FAST               4 (success)
+
+565          96 LOAD_CONST               7 ('')
+             98 STORE_FAST               5 (message)
+            100 JUMP_FORWARD            12 (to 114)
+
+567     >>  102 LOAD_CONST               6 (False)
+            104 STORE_FAST               4 (success)
+
+568         106 LOAD_GLOBAL              4 (_text_or_empty)
+            108 LOAD_FAST                0 (raw)
+            110 CALL_FUNCTION            1
+            112 STORE_FAST               5 (message)
+
+570     >>  114 LOAD_CONST               1 ('operation')
+            116 LOAD_FAST                3 (operation_name)
+            118 BUILD_MAP                1
+            120 STORE_FAST               6 (data)
+
+571         122 LOAD_FAST                4 (success)
+            124 POP_JUMP_IF_FALSE      146
+
+572         126 LOAD_GLOBAL              8 (OperationResult)
+            128 LOAD_ATTR                9 (succeeded)
+
+573         130 LOAD_FAST                5 (message)
+
+574         132 LOAD_GLOBAL              7 (bool)
+            134 LOAD_FAST                2 (verified)
+            136 CALL_FUNCTION            1
+
+575         138 LOAD_FAST                6 (data)
+
+572         140 LOAD_CONST               8 (('message', 'verified', 'data'))
+            142 CALL_FUNCTION_KW         3
+            144 RETURN_VALUE
+
+577     >>  146 LOAD_GLOBAL             10 (_operation_error)
+            148 LOAD_FAST                5 (message)
+            150 CALL_FUNCTION            1
+            152 UNPACK_SEQUENCE          2
+            154 STORE_FAST               7 (code)
+            156 STORE_FAST               8 (retryable)
+
+578         158 LOAD_GLOBAL              8 (OperationResult)
+            160 LOAD_ATTR               11 (failed)
+
+579         162 LOAD_FAST                7 (code)
+
+580         164 LOAD_FAST                5 (message)
+            166 JUMP_IF_TRUE_OR_POP    176
+            168 LOAD_CONST               9 ('Legacy operation failed: {}')
+            170 LOAD_METHOD             12 (format)
+            172 LOAD_FAST                3 (operation_name)
+            174 CALL_METHOD              1
+
+581     >>  176 LOAD_FAST                8 (retryable)
+
+582         178 LOAD_FAST                6 (data)
+
+578         180 LOAD_CONST              10 (('code', 'message', 'retryable', 'data'))
+            182 CALL_FUNCTION_KW         4
+            184 RETURN_VALUE

@@ -1,0 +1,853 @@
+  1           0 LOAD_CONST               0 (0)
+              2 LOAD_CONST               1 (('datetime', 'timedelta'))
+              4 IMPORT_NAME              0 (datetime)
+              6 IMPORT_FROM              0 (datetime)
+              8 STORE_NAME               0 (datetime)
+             10 IMPORT_FROM              1 (timedelta)
+             12 STORE_NAME               1 (timedelta)
+             14 POP_TOP
+
+  2          16 LOAD_CONST               0 (0)
+             18 LOAD_CONST               2 (None)
+             20 IMPORT_NAME              2 (re)
+             22 STORE_NAME               2 (re)
+
+  3          24 LOAD_CONST               0 (0)
+             26 LOAD_CONST               3 (('Optional', 'Tuple'))
+             28 IMPORT_NAME              3 (typing)
+             30 IMPORT_FROM              4 (Optional)
+             32 STORE_NAME               4 (Optional)
+             34 IMPORT_FROM              5 (Tuple)
+             36 STORE_NAME               5 (Tuple)
+             38 POP_TOP
+
+  5          40 LOAD_BUILD_CLASS
+             42 LOAD_CONST               4 (<code object TimeParser at 0x1073b97c0, file "WeRobotCore/utils/time_utils.py", line 5>)
+             44 LOAD_CONST               5 ('TimeParser')
+             46 MAKE_FUNCTION            0
+             48 LOAD_CONST               5 ('TimeParser')
+             50 CALL_FUNCTION            2
+             52 STORE_NAME               6 (TimeParser)
+             54 LOAD_CONST               2 (None)
+             56 RETURN_VALUE
+
+Disassembly of <code object TimeParser at 0x1073b97c0, file "WeRobotCore/utils/time_utils.py", line 5>:
+  5           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('TimeParser')
+              6 STORE_NAME               2 (__qualname__)
+
+  6           8 LOAD_NAME                3 (staticmethod)
+
+  7          10 LOAD_NAME                4 (str)
+             12 LOAD_NAME                5 (Optional)
+             14 LOAD_NAME                6 (datetime)
+             16 BINARY_SUBSCR
+             18 LOAD_CONST               1 (('time_str', 'return'))
+             20 BUILD_CONST_KEY_MAP      2
+             22 LOAD_CONST               2 (<code object parse_time_period at 0x1072e0710, file "WeRobotCore/utils/time_utils.py", line 6>)
+             24 LOAD_CONST               3 ('TimeParser.parse_time_period')
+             26 MAKE_FUNCTION            4 (annotations)
+             28 CALL_FUNCTION            1
+             30 STORE_NAME               7 (parse_time_period)
+
+ 56          32 LOAD_NAME                3 (staticmethod)
+
+ 57          34 LOAD_NAME                4 (str)
+             36 LOAD_NAME                5 (Optional)
+             38 LOAD_NAME                6 (datetime)
+             40 BINARY_SUBSCR
+             42 LOAD_CONST               1 (('time_str', 'return'))
+             44 BUILD_CONST_KEY_MAP      2
+             46 LOAD_CONST               4 (<code object parse_relative_time at 0x1072e0b30, file "WeRobotCore/utils/time_utils.py", line 56>)
+             48 LOAD_CONST               5 ('TimeParser.parse_relative_time')
+             50 MAKE_FUNCTION            4 (annotations)
+             52 CALL_FUNCTION            1
+             54 STORE_NAME               8 (parse_relative_time)
+
+ 87          56 LOAD_NAME                3 (staticmethod)
+
+ 88          58 LOAD_NAME                4 (str)
+             60 LOAD_NAME                5 (Optional)
+             62 LOAD_NAME                6 (datetime)
+             64 BINARY_SUBSCR
+             66 LOAD_CONST               1 (('time_str', 'return'))
+             68 BUILD_CONST_KEY_MAP      2
+             70 LOAD_CONST               6 (<code object parse_weekday_time at 0x1072e0ea0, file "WeRobotCore/utils/time_utils.py", line 87>)
+             72 LOAD_CONST               7 ('TimeParser.parse_weekday_time')
+             74 MAKE_FUNCTION            4 (annotations)
+             76 CALL_FUNCTION            1
+             78 STORE_NAME               9 (parse_weekday_time)
+
+123          80 LOAD_NAME                3 (staticmethod)
+
+124          82 LOAD_NAME                4 (str)
+             84 LOAD_NAME                5 (Optional)
+             86 LOAD_NAME                6 (datetime)
+             88 BINARY_SUBSCR
+             90 LOAD_CONST               1 (('time_str', 'return'))
+             92 BUILD_CONST_KEY_MAP      2
+             94 LOAD_CONST               8 (<code object parse_absolute_time at 0x1072e0d40, file "WeRobotCore/utils/time_utils.py", line 123>)
+             96 LOAD_CONST               9 ('TimeParser.parse_absolute_time')
+             98 MAKE_FUNCTION            4 (annotations)
+            100 CALL_FUNCTION            1
+            102 STORE_NAME              10 (parse_absolute_time)
+
+149         104 LOAD_NAME                3 (staticmethod)
+
+150         106 LOAD_NAME                4 (str)
+            108 LOAD_NAME                5 (Optional)
+            110 LOAD_NAME                6 (datetime)
+            112 BINARY_SUBSCR
+            114 LOAD_CONST               1 (('time_str', 'return'))
+            116 BUILD_CONST_KEY_MAP      2
+            118 LOAD_CONST              10 (<code object parse_time at 0x1073b9500, file "WeRobotCore/utils/time_utils.py", line 149>)
+            120 LOAD_CONST              11 ('TimeParser.parse_time')
+            122 MAKE_FUNCTION            4 (annotations)
+            124 CALL_FUNCTION            1
+            126 STORE_NAME              11 (parse_time)
+            128 LOAD_CONST              12 (None)
+            130 RETURN_VALUE
+
+Disassembly of <code object parse_time_period at 0x1072e0710, file "WeRobotCore/utils/time_utils.py", line 6>:
+ 17           0 EXTENDED_ARG             1
+              2 SETUP_FINALLY          364 (to 368)
+
+ 19           4 LOAD_FAST                0 (time_str)
+              6 LOAD_METHOD              0 (strip)
+              8 CALL_METHOD              0
+             10 LOAD_METHOD              1 (split)
+             12 CALL_METHOD              0
+             14 STORE_FAST               1 (parts)
+
+ 20          16 LOAD_GLOBAL              2 (len)
+             18 LOAD_FAST                1 (parts)
+             20 CALL_FUNCTION            1
+             22 LOAD_CONST               1 (2)
+             24 COMPARE_OP               3 (!=)
+             26 POP_JUMP_IF_FALSE       34
+
+ 21          28 POP_BLOCK
+             30 LOAD_CONST               2 (None)
+             32 RETURN_VALUE
+
+ 23     >>   34 LOAD_FAST                1 (parts)
+             36 LOAD_CONST               3 (0)
+             38 BINARY_SUBSCR
+             40 STORE_FAST               2 (period)
+
+ 24          42 LOAD_FAST                1 (parts)
+             44 LOAD_CONST               4 (1)
+             46 BINARY_SUBSCR
+             48 STORE_FAST               3 (time_part)
+
+ 27          50 LOAD_CONST               5 (':')
+             52 LOAD_FAST                3 (time_part)
+             54 CONTAINS_OP              0
+             56 POP_JUMP_IF_FALSE       80
+
+ 28          58 LOAD_GLOBAL              3 (map)
+             60 LOAD_GLOBAL              4 (int)
+             62 LOAD_FAST                3 (time_part)
+             64 LOAD_METHOD              1 (split)
+             66 LOAD_CONST               5 (':')
+             68 CALL_METHOD              1
+             70 CALL_FUNCTION            2
+             72 UNPACK_SEQUENCE          2
+             74 STORE_FAST               4 (hour)
+             76 STORE_FAST               5 (minute)
+             78 JUMP_FORWARD            12 (to 92)
+
+ 30     >>   80 LOAD_GLOBAL              4 (int)
+             82 LOAD_FAST                3 (time_part)
+             84 CALL_FUNCTION            1
+             86 STORE_FAST               4 (hour)
+
+ 31          88 LOAD_CONST               3 (0)
+             90 STORE_FAST               5 (minute)
+
+ 34     >>   92 LOAD_CONST               3 (0)
+             94 LOAD_FAST                4 (hour)
+             96 DUP_TOP
+             98 ROT_THREE
+            100 COMPARE_OP               1 (<=)
+            102 POP_JUMP_IF_FALSE      112
+            104 LOAD_CONST               6 (23)
+            106 COMPARE_OP               1 (<=)
+            108 POP_JUMP_IF_FALSE      138
+            110 JUMP_FORWARD             4 (to 116)
+        >>  112 POP_TOP
+            114 JUMP_FORWARD            22 (to 138)
+        >>  116 LOAD_CONST               3 (0)
+            118 LOAD_FAST                5 (minute)
+            120 DUP_TOP
+            122 ROT_THREE
+            124 COMPARE_OP               1 (<=)
+            126 POP_JUMP_IF_FALSE      136
+            128 LOAD_CONST               7 (59)
+            130 COMPARE_OP               1 (<=)
+            132 POP_JUMP_IF_TRUE       144
+            134 JUMP_FORWARD             2 (to 138)
+        >>  136 POP_TOP
+
+ 35     >>  138 POP_BLOCK
+            140 LOAD_CONST               2 (None)
+            142 RETURN_VALUE
+
+ 38     >>  144 LOAD_FAST                2 (period)
+            146 LOAD_CONST               8 ('凌晨')
+            148 COMPARE_OP               2 (==)
+            150 POP_JUMP_IF_FALSE      180
+            152 LOAD_CONST               3 (0)
+            154 LOAD_FAST                4 (hour)
+            156 DUP_TOP
+            158 ROT_THREE
+            160 COMPARE_OP               1 (<=)
+            162 POP_JUMP_IF_FALSE      172
+            164 LOAD_CONST               9 (6)
+            166 COMPARE_OP               0 (<)
+            168 POP_JUMP_IF_TRUE       180
+            170 JUMP_FORWARD             2 (to 174)
+        >>  172 POP_TOP
+
+ 39     >>  174 POP_BLOCK
+            176 LOAD_CONST               2 (None)
+            178 RETURN_VALUE
+
+ 40     >>  180 LOAD_FAST                2 (period)
+            182 LOAD_CONST              10 ('上午')
+            184 COMPARE_OP               2 (==)
+            186 POP_JUMP_IF_FALSE      216
+            188 LOAD_CONST               9 (6)
+            190 LOAD_FAST                4 (hour)
+            192 DUP_TOP
+            194 ROT_THREE
+            196 COMPARE_OP               1 (<=)
+            198 POP_JUMP_IF_FALSE      208
+            200 LOAD_CONST              11 (12)
+            202 COMPARE_OP               0 (<)
+            204 POP_JUMP_IF_TRUE       216
+            206 JUMP_FORWARD             2 (to 210)
+        >>  208 POP_TOP
+
+ 41     >>  210 POP_BLOCK
+            212 LOAD_CONST               2 (None)
+            214 RETURN_VALUE
+
+ 42     >>  216 LOAD_FAST                2 (period)
+            218 LOAD_CONST              12 ('中午')
+            220 COMPARE_OP               2 (==)
+            222 EXTENDED_ARG             1
+            224 POP_JUMP_IF_FALSE      256
+            226 LOAD_CONST              11 (12)
+            228 LOAD_FAST                4 (hour)
+            230 DUP_TOP
+            232 ROT_THREE
+            234 COMPARE_OP               1 (<=)
+            236 POP_JUMP_IF_FALSE      248
+            238 LOAD_CONST              13 (14)
+            240 COMPARE_OP               0 (<)
+            242 EXTENDED_ARG             1
+            244 POP_JUMP_IF_TRUE       256
+            246 JUMP_FORWARD             2 (to 250)
+        >>  248 POP_TOP
+
+ 43     >>  250 POP_BLOCK
+            252 LOAD_CONST               2 (None)
+            254 RETURN_VALUE
+
+ 44     >>  256 LOAD_FAST                2 (period)
+            258 LOAD_CONST              14 ('下午')
+            260 COMPARE_OP               2 (==)
+            262 EXTENDED_ARG             1
+            264 POP_JUMP_IF_FALSE      298
+            266 LOAD_CONST              13 (14)
+            268 LOAD_FAST                4 (hour)
+            270 DUP_TOP
+            272 ROT_THREE
+            274 COMPARE_OP               1 (<=)
+            276 EXTENDED_ARG             1
+            278 POP_JUMP_IF_FALSE      290
+            280 LOAD_CONST              15 (18)
+            282 COMPARE_OP               0 (<)
+            284 EXTENDED_ARG             1
+            286 POP_JUMP_IF_TRUE       298
+            288 JUMP_FORWARD             2 (to 292)
+        >>  290 POP_TOP
+
+ 45     >>  292 POP_BLOCK
+            294 LOAD_CONST               2 (None)
+            296 RETURN_VALUE
+
+ 46     >>  298 LOAD_FAST                2 (period)
+            300 LOAD_CONST              16 ('晚上')
+            302 COMPARE_OP               2 (==)
+            304 EXTENDED_ARG             1
+            306 POP_JUMP_IF_FALSE      340
+            308 LOAD_CONST              15 (18)
+            310 LOAD_FAST                4 (hour)
+            312 DUP_TOP
+            314 ROT_THREE
+            316 COMPARE_OP               1 (<=)
+            318 EXTENDED_ARG             1
+            320 POP_JUMP_IF_FALSE      332
+            322 LOAD_CONST              17 (24)
+            324 COMPARE_OP               0 (<)
+            326 EXTENDED_ARG             1
+            328 POP_JUMP_IF_TRUE       340
+            330 JUMP_FORWARD             2 (to 334)
+        >>  332 POP_TOP
+
+ 47     >>  334 POP_BLOCK
+            336 LOAD_CONST               2 (None)
+            338 RETURN_VALUE
+
+ 50     >>  340 LOAD_GLOBAL              5 (datetime)
+            342 LOAD_METHOD              6 (now)
+            344 CALL_METHOD              0
+            346 STORE_FAST               6 (current_date)
+
+ 51         348 LOAD_FAST                6 (current_date)
+            350 LOAD_ATTR                7 (replace)
+            352 LOAD_FAST                4 (hour)
+            354 LOAD_FAST                5 (minute)
+            356 LOAD_CONST               3 (0)
+            358 LOAD_CONST               3 (0)
+            360 LOAD_CONST              18 (('hour', 'minute', 'second', 'microsecond'))
+            362 CALL_FUNCTION_KW         4
+            364 POP_BLOCK
+            366 RETURN_VALUE
+
+ 53     >>  368 DUP_TOP
+            370 LOAD_GLOBAL              8 (ValueError)
+            372 LOAD_GLOBAL              9 (IndexError)
+            374 BUILD_TUPLE              2
+            376 EXTENDED_ARG             1
+            378 JUMP_IF_NOT_EXC_MATCH   392
+            380 POP_TOP
+            382 POP_TOP
+            384 POP_TOP
+
+ 54         386 POP_EXCEPT
+            388 LOAD_CONST               2 (None)
+            390 RETURN_VALUE
+        >>  392 RERAISE
+            394 LOAD_CONST               2 (None)
+            396 RETURN_VALUE
+
+Disassembly of <code object parse_relative_time at 0x1072e0b30, file "WeRobotCore/utils/time_utils.py", line 56>:
+ 67           0 SETUP_FINALLY          186 (to 188)
+
+ 68           2 LOAD_CONST               1 ('昨天')
+              4 LOAD_FAST                0 (time_str)
+              6 CONTAINS_OP              0
+              8 POP_JUMP_IF_FALSE       46
+
+ 69          10 LOAD_GLOBAL              0 (datetime)
+             12 LOAD_METHOD              1 (now)
+             14 CALL_METHOD              0
+             16 LOAD_GLOBAL              2 (timedelta)
+             18 LOAD_CONST               2 (1)
+             20 LOAD_CONST               3 (('days',))
+             22 CALL_FUNCTION_KW         1
+             24 BINARY_SUBTRACT
+             26 STORE_FAST               1 (base_time)
+
+ 70          28 LOAD_FAST                0 (time_str)
+             30 LOAD_METHOD              3 (replace)
+             32 LOAD_CONST               1 ('昨天')
+             34 LOAD_CONST               4 ('')
+             36 CALL_METHOD              2
+             38 LOAD_METHOD              4 (strip)
+             40 CALL_METHOD              0
+             42 STORE_FAST               0 (time_str)
+             44 JUMP_FORWARD            50 (to 96)
+
+ 71     >>   46 LOAD_CONST               5 ('前天')
+             48 LOAD_FAST                0 (time_str)
+             50 CONTAINS_OP              0
+             52 POP_JUMP_IF_FALSE       90
+
+ 72          54 LOAD_GLOBAL              0 (datetime)
+             56 LOAD_METHOD              1 (now)
+             58 CALL_METHOD              0
+             60 LOAD_GLOBAL              2 (timedelta)
+             62 LOAD_CONST               6 (2)
+             64 LOAD_CONST               3 (('days',))
+             66 CALL_FUNCTION_KW         1
+             68 BINARY_SUBTRACT
+             70 STORE_FAST               1 (base_time)
+
+ 73          72 LOAD_FAST                0 (time_str)
+             74 LOAD_METHOD              3 (replace)
+             76 LOAD_CONST               5 ('前天')
+             78 LOAD_CONST               4 ('')
+             80 CALL_METHOD              2
+             82 LOAD_METHOD              4 (strip)
+             84 CALL_METHOD              0
+             86 STORE_FAST               0 (time_str)
+             88 JUMP_FORWARD             6 (to 96)
+
+ 75     >>   90 POP_BLOCK
+             92 LOAD_CONST               7 (None)
+             94 RETURN_VALUE
+
+ 78     >>   96 LOAD_GLOBAL              5 (map)
+             98 LOAD_GLOBAL              6 (int)
+            100 LOAD_FAST                0 (time_str)
+            102 LOAD_METHOD              7 (split)
+            104 LOAD_CONST               8 (':')
+            106 CALL_METHOD              1
+            108 CALL_FUNCTION            2
+            110 UNPACK_SEQUENCE          2
+            112 STORE_FAST               2 (hour)
+            114 STORE_FAST               3 (minute)
+
+ 79         116 LOAD_CONST               9 (0)
+            118 LOAD_FAST                2 (hour)
+            120 DUP_TOP
+            122 ROT_THREE
+            124 COMPARE_OP               1 (<=)
+            126 POP_JUMP_IF_FALSE      136
+            128 LOAD_CONST              10 (23)
+            130 COMPARE_OP               1 (<=)
+            132 POP_JUMP_IF_FALSE      162
+            134 JUMP_FORWARD             4 (to 140)
+        >>  136 POP_TOP
+            138 JUMP_FORWARD            22 (to 162)
+        >>  140 LOAD_CONST               9 (0)
+            142 LOAD_FAST                3 (minute)
+            144 DUP_TOP
+            146 ROT_THREE
+            148 COMPARE_OP               1 (<=)
+            150 POP_JUMP_IF_FALSE      160
+            152 LOAD_CONST              11 (59)
+            154 COMPARE_OP               1 (<=)
+            156 POP_JUMP_IF_TRUE       168
+            158 JUMP_FORWARD             2 (to 162)
+        >>  160 POP_TOP
+
+ 80     >>  162 POP_BLOCK
+            164 LOAD_CONST               7 (None)
+            166 RETURN_VALUE
+
+ 82     >>  168 LOAD_FAST                1 (base_time)
+            170 LOAD_ATTR                3 (replace)
+            172 LOAD_FAST                2 (hour)
+            174 LOAD_FAST                3 (minute)
+            176 LOAD_CONST               9 (0)
+            178 LOAD_CONST               9 (0)
+            180 LOAD_CONST              12 (('hour', 'minute', 'second', 'microsecond'))
+            182 CALL_FUNCTION_KW         4
+            184 POP_BLOCK
+            186 RETURN_VALUE
+
+ 84     >>  188 DUP_TOP
+            190 LOAD_GLOBAL              8 (ValueError)
+            192 LOAD_GLOBAL              9 (IndexError)
+            194 BUILD_TUPLE              2
+            196 JUMP_IF_NOT_EXC_MATCH   210
+            198 POP_TOP
+            200 POP_TOP
+            202 POP_TOP
+
+ 85         204 POP_EXCEPT
+            206 LOAD_CONST               7 (None)
+            208 RETURN_VALUE
+        >>  210 RERAISE
+            212 LOAD_CONST               7 (None)
+            214 RETURN_VALUE
+
+Disassembly of <code object parse_weekday_time at 0x1072e0ea0, file "WeRobotCore/utils/time_utils.py", line 87>:
+ 98           0 SETUP_FINALLY          224 (to 226)
+
+ 99           2 LOAD_CONST               1 (1)
+              4 LOAD_CONST               2 (2)
+              6 LOAD_CONST               3 (3)
+              8 LOAD_CONST               4 (4)
+             10 LOAD_CONST               5 (5)
+             12 LOAD_CONST               6 (6)
+             14 LOAD_CONST               7 (7)
+             16 LOAD_CONST               7 (7)
+             18 LOAD_CONST               8 (('一', '二', '三', '四', '五', '六', '日', '天'))
+             20 BUILD_CONST_KEY_MAP      8
+             22 STORE_FAST               1 (week_map)
+
+100          24 LOAD_FAST                0 (time_str)
+             26 LOAD_METHOD              0 (startswith)
+             28 LOAD_CONST               9 ('星期')
+             30 CALL_METHOD              1
+             32 POP_JUMP_IF_TRUE        40
+
+101          34 POP_BLOCK
+             36 LOAD_CONST              10 (None)
+             38 RETURN_VALUE
+
+103     >>   40 LOAD_FAST                1 (week_map)
+             42 LOAD_METHOD              1 (get)
+             44 LOAD_FAST                0 (time_str)
+             46 LOAD_CONST               2 (2)
+             48 BINARY_SUBSCR
+             50 CALL_METHOD              1
+             52 STORE_FAST               2 (target_weekday)
+
+104          54 LOAD_FAST                2 (target_weekday)
+             56 LOAD_CONST              10 (None)
+             58 IS_OP                    0
+             60 POP_JUMP_IF_FALSE       68
+
+105          62 POP_BLOCK
+             64 LOAD_CONST              10 (None)
+             66 RETURN_VALUE
+
+107     >>   68 LOAD_FAST                0 (time_str)
+             70 LOAD_METHOD              2 (split)
+             72 CALL_METHOD              0
+             74 LOAD_CONST              11 (-1)
+             76 BINARY_SUBSCR
+             78 STORE_FAST               3 (time_part)
+
+108          80 LOAD_GLOBAL              3 (map)
+             82 LOAD_GLOBAL              4 (int)
+             84 LOAD_FAST                3 (time_part)
+             86 LOAD_METHOD              2 (split)
+             88 LOAD_CONST              12 (':')
+             90 CALL_METHOD              1
+             92 CALL_FUNCTION            2
+             94 UNPACK_SEQUENCE          2
+             96 STORE_FAST               4 (hour)
+             98 STORE_FAST               5 (minute)
+
+109         100 LOAD_CONST              13 (0)
+            102 LOAD_FAST                4 (hour)
+            104 DUP_TOP
+            106 ROT_THREE
+            108 COMPARE_OP               1 (<=)
+            110 POP_JUMP_IF_FALSE      120
+            112 LOAD_CONST              14 (23)
+            114 COMPARE_OP               1 (<=)
+            116 POP_JUMP_IF_FALSE      146
+            118 JUMP_FORWARD             4 (to 124)
+        >>  120 POP_TOP
+            122 JUMP_FORWARD            22 (to 146)
+        >>  124 LOAD_CONST              13 (0)
+            126 LOAD_FAST                5 (minute)
+            128 DUP_TOP
+            130 ROT_THREE
+            132 COMPARE_OP               1 (<=)
+            134 POP_JUMP_IF_FALSE      144
+            136 LOAD_CONST              15 (59)
+            138 COMPARE_OP               1 (<=)
+            140 POP_JUMP_IF_TRUE       152
+            142 JUMP_FORWARD             2 (to 146)
+        >>  144 POP_TOP
+
+110     >>  146 POP_BLOCK
+            148 LOAD_CONST              10 (None)
+            150 RETURN_VALUE
+
+112     >>  152 LOAD_GLOBAL              5 (datetime)
+            154 LOAD_METHOD              6 (now)
+            156 CALL_METHOD              0
+            158 LOAD_METHOD              7 (isoweekday)
+            160 CALL_METHOD              0
+            162 STORE_FAST               6 (current_weekday)
+
+113         164 LOAD_FAST                2 (target_weekday)
+            166 LOAD_FAST                6 (current_weekday)
+            168 BINARY_SUBTRACT
+            170 LOAD_CONST               7 (7)
+            172 BINARY_MODULO
+            174 STORE_FAST               7 (days_diff)
+
+114         176 LOAD_FAST                7 (days_diff)
+            178 LOAD_CONST              13 (0)
+            180 COMPARE_OP               2 (==)
+            182 POP_JUMP_IF_FALSE      188
+
+115         184 LOAD_CONST               7 (7)
+            186 STORE_FAST               7 (days_diff)
+
+117     >>  188 LOAD_GLOBAL              5 (datetime)
+            190 LOAD_METHOD              6 (now)
+            192 CALL_METHOD              0
+            194 LOAD_GLOBAL              8 (timedelta)
+            196 LOAD_FAST                7 (days_diff)
+            198 LOAD_CONST              16 (('days',))
+            200 CALL_FUNCTION_KW         1
+            202 BINARY_SUBTRACT
+            204 STORE_FAST               8 (target_date)
+
+118         206 LOAD_FAST                8 (target_date)
+            208 LOAD_ATTR                9 (replace)
+            210 LOAD_FAST                4 (hour)
+            212 LOAD_FAST                5 (minute)
+            214 LOAD_CONST              13 (0)
+            216 LOAD_CONST              13 (0)
+            218 LOAD_CONST              17 (('hour', 'minute', 'second', 'microsecond'))
+            220 CALL_FUNCTION_KW         4
+            222 POP_BLOCK
+            224 RETURN_VALUE
+
+120     >>  226 DUP_TOP
+            228 LOAD_GLOBAL             10 (ValueError)
+            230 LOAD_GLOBAL             11 (IndexError)
+            232 BUILD_TUPLE              2
+            234 EXTENDED_ARG             0
+            236 JUMP_IF_NOT_EXC_MATCH   250
+            238 POP_TOP
+            240 POP_TOP
+            242 POP_TOP
+
+121         244 POP_EXCEPT
+            246 LOAD_CONST              10 (None)
+            248 RETURN_VALUE
+        >>  250 RERAISE
+            252 LOAD_CONST              10 (None)
+            254 RETURN_VALUE
+
+Disassembly of <code object parse_absolute_time at 0x1072e0d40, file "WeRobotCore/utils/time_utils.py", line 123>:
+134           0 SETUP_FINALLY          102 (to 104)
+
+136           2 LOAD_CONST               1 ('^(?:(\\d{4})年)?(\\d{1,2})月(\\d{1,2})日\\s+(?:星期[一二三四五六日天]\\s+)?(\\d{1,2}):(\\d{2})$')
+              4 STORE_FAST               1 (pattern)
+
+137           6 LOAD_GLOBAL              0 (re)
+              8 LOAD_METHOD              1 (match)
+             10 LOAD_FAST                1 (pattern)
+             12 LOAD_FAST                0 (time_str)
+             14 CALL_METHOD              2
+             16 STORE_FAST               2 (match)
+
+138          18 LOAD_FAST                2 (match)
+             20 POP_JUMP_IF_TRUE        28
+
+139          22 POP_BLOCK
+             24 LOAD_CONST               2 (None)
+             26 RETURN_VALUE
+
+141     >>   28 LOAD_FAST                2 (match)
+             30 LOAD_METHOD              2 (groups)
+             32 CALL_METHOD              0
+             34 UNPACK_SEQUENCE          5
+             36 STORE_FAST               3 (year_str)
+             38 STORE_FAST               4 (month)
+             40 STORE_FAST               5 (day)
+             42 STORE_FAST               6 (hour)
+             44 STORE_FAST               7 (minute)
+
+142          46 LOAD_FAST                3 (year_str)
+             48 POP_JUMP_IF_FALSE       58
+             50 LOAD_GLOBAL              3 (int)
+             52 LOAD_FAST                3 (year_str)
+             54 CALL_FUNCTION            1
+             56 JUMP_FORWARD             8 (to 66)
+        >>   58 LOAD_GLOBAL              4 (datetime)
+             60 LOAD_METHOD              5 (now)
+             62 CALL_METHOD              0
+             64 LOAD_ATTR                6 (year)
+        >>   66 STORE_FAST               8 (year)
+
+144          68 LOAD_GLOBAL              4 (datetime)
+             70 LOAD_FAST                8 (year)
+             72 LOAD_GLOBAL              3 (int)
+             74 LOAD_FAST                4 (month)
+             76 CALL_FUNCTION            1
+             78 LOAD_GLOBAL              3 (int)
+             80 LOAD_FAST                5 (day)
+             82 CALL_FUNCTION            1
+             84 LOAD_GLOBAL              3 (int)
+             86 LOAD_FAST                6 (hour)
+             88 CALL_FUNCTION            1
+             90 LOAD_GLOBAL              3 (int)
+             92 LOAD_FAST                7 (minute)
+             94 CALL_FUNCTION            1
+             96 LOAD_CONST               3 (0)
+             98 CALL_FUNCTION            6
+            100 POP_BLOCK
+            102 RETURN_VALUE
+
+146     >>  104 DUP_TOP
+            106 LOAD_GLOBAL              7 (ValueError)
+            108 LOAD_GLOBAL              8 (IndexError)
+            110 BUILD_TUPLE              2
+            112 JUMP_IF_NOT_EXC_MATCH   126
+            114 POP_TOP
+            116 POP_TOP
+            118 POP_TOP
+
+147         120 POP_EXCEPT
+            122 LOAD_CONST               2 (None)
+            124 RETURN_VALUE
+        >>  126 RERAISE
+            128 LOAD_CONST               2 (None)
+            130 RETURN_VALUE
+
+Disassembly of <code object parse_time at 0x1073b9500, file "WeRobotCore/utils/time_utils.py", line 149>:
+161           0 LOAD_GLOBAL              0 (any)
+              2 LOAD_CLOSURE             0 (time_str)
+              4 BUILD_TUPLE              1
+              6 LOAD_CONST               1 (<code object <genexpr> at 0x1073b9ea0, file "WeRobotCore/utils/time_utils.py", line 161>)
+              8 LOAD_CONST               2 ('TimeParser.parse_time.<locals>.<genexpr>')
+             10 MAKE_FUNCTION            8 (closure)
+             12 LOAD_CONST               3 (('凌晨', '上午', '中午', '下午', '晚上'))
+             14 GET_ITER
+             16 CALL_FUNCTION            1
+             18 CALL_FUNCTION            1
+             20 POP_JUMP_IF_FALSE       32
+
+162          22 LOAD_GLOBAL              1 (TimeParser)
+             24 LOAD_METHOD              2 (parse_time_period)
+             26 LOAD_DEREF               0 (time_str)
+             28 CALL_METHOD              1
+             30 RETURN_VALUE
+
+165     >>   32 LOAD_GLOBAL              0 (any)
+             34 LOAD_CLOSURE             0 (time_str)
+             36 BUILD_TUPLE              1
+             38 LOAD_CONST               4 (<code object <genexpr> at 0x1073b9d40, file "WeRobotCore/utils/time_utils.py", line 165>)
+             40 LOAD_CONST               2 ('TimeParser.parse_time.<locals>.<genexpr>')
+             42 MAKE_FUNCTION            8 (closure)
+             44 LOAD_CONST               5 (('昨天', '前天'))
+             46 GET_ITER
+             48 CALL_FUNCTION            1
+             50 CALL_FUNCTION            1
+             52 POP_JUMP_IF_FALSE       64
+
+166          54 LOAD_GLOBAL              1 (TimeParser)
+             56 LOAD_METHOD              3 (parse_relative_time)
+             58 LOAD_DEREF               0 (time_str)
+             60 CALL_METHOD              1
+             62 RETURN_VALUE
+
+169     >>   64 LOAD_DEREF               0 (time_str)
+             66 LOAD_METHOD              4 (startswith)
+             68 LOAD_CONST               6 ('星期')
+             70 CALL_METHOD              1
+             72 POP_JUMP_IF_FALSE       84
+
+170          74 LOAD_GLOBAL              1 (TimeParser)
+             76 LOAD_METHOD              5 (parse_weekday_time)
+             78 LOAD_DEREF               0 (time_str)
+             80 CALL_METHOD              1
+             82 RETURN_VALUE
+
+173     >>   84 LOAD_CONST               7 ('月')
+             86 LOAD_DEREF               0 (time_str)
+             88 CONTAINS_OP              0
+             90 POP_JUMP_IF_FALSE      110
+             92 LOAD_CONST               8 ('日')
+             94 LOAD_DEREF               0 (time_str)
+             96 CONTAINS_OP              0
+             98 POP_JUMP_IF_FALSE      110
+
+174         100 LOAD_GLOBAL              1 (TimeParser)
+            102 LOAD_METHOD              6 (parse_absolute_time)
+            104 LOAD_DEREF               0 (time_str)
+            106 CALL_METHOD              1
+            108 RETURN_VALUE
+
+177     >>  110 LOAD_GLOBAL              7 (re)
+            112 LOAD_METHOD              8 (match)
+            114 LOAD_CONST               9 ('^\\d{1,2}:\\d{2}$')
+            116 LOAD_DEREF               0 (time_str)
+            118 CALL_METHOD              2
+            120 POP_JUMP_IF_FALSE      246
+
+178         122 SETUP_FINALLY          100 (to 224)
+
+179         124 LOAD_GLOBAL              9 (map)
+            126 LOAD_GLOBAL             10 (int)
+            128 LOAD_DEREF               0 (time_str)
+            130 LOAD_METHOD             11 (split)
+            132 LOAD_CONST              10 (':')
+            134 CALL_METHOD              1
+            136 CALL_FUNCTION            2
+            138 UNPACK_SEQUENCE          2
+            140 STORE_FAST               1 (hour)
+            142 STORE_FAST               2 (minute)
+
+180         144 LOAD_CONST              11 (0)
+            146 LOAD_FAST                1 (hour)
+            148 DUP_TOP
+            150 ROT_THREE
+            152 COMPARE_OP               1 (<=)
+            154 POP_JUMP_IF_FALSE      164
+            156 LOAD_CONST              12 (23)
+            158 COMPARE_OP               1 (<=)
+            160 POP_JUMP_IF_FALSE      220
+            162 JUMP_FORWARD             4 (to 168)
+        >>  164 POP_TOP
+            166 JUMP_FORWARD            52 (to 220)
+        >>  168 LOAD_CONST              11 (0)
+            170 LOAD_FAST                2 (minute)
+            172 DUP_TOP
+            174 ROT_THREE
+            176 COMPARE_OP               1 (<=)
+            178 POP_JUMP_IF_FALSE      188
+            180 LOAD_CONST              13 (59)
+            182 COMPARE_OP               1 (<=)
+            184 POP_JUMP_IF_FALSE      220
+            186 JUMP_FORWARD             4 (to 192)
+        >>  188 POP_TOP
+            190 JUMP_FORWARD            28 (to 220)
+
+181     >>  192 LOAD_GLOBAL             12 (datetime)
+            194 LOAD_METHOD             13 (now)
+            196 CALL_METHOD              0
+            198 STORE_FAST               3 (current_date)
+
+182         200 LOAD_FAST                3 (current_date)
+            202 LOAD_ATTR               14 (replace)
+            204 LOAD_FAST                1 (hour)
+            206 LOAD_FAST                2 (minute)
+            208 LOAD_CONST              11 (0)
+            210 LOAD_CONST              11 (0)
+            212 LOAD_CONST              14 (('hour', 'minute', 'second', 'microsecond'))
+            214 CALL_FUNCTION_KW         4
+            216 POP_BLOCK
+            218 RETURN_VALUE
+        >>  220 POP_BLOCK
+            222 JUMP_FORWARD            22 (to 246)
+
+183     >>  224 DUP_TOP
+            226 LOAD_GLOBAL             15 (ValueError)
+            228 LOAD_GLOBAL             16 (IndexError)
+            230 BUILD_TUPLE              2
+            232 JUMP_IF_NOT_EXC_MATCH   244
+            234 POP_TOP
+            236 POP_TOP
+            238 POP_TOP
+
+184         240 POP_EXCEPT
+            242 JUMP_FORWARD             2 (to 246)
+        >>  244 RERAISE
+
+186     >>  246 LOAD_CONST              15 (None)
+            248 RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x1073b9ea0, file "WeRobotCore/utils/time_utils.py", line 161>:
+161           0 LOAD_FAST                0 (.0)
+        >>    2 FOR_ITER                14 (to 18)
+              4 STORE_FAST               1 (period)
+              6 LOAD_FAST                1 (period)
+              8 LOAD_DEREF               0 (time_str)
+             10 CONTAINS_OP              0
+             12 YIELD_VALUE
+             14 POP_TOP
+             16 JUMP_ABSOLUTE            2
+        >>   18 LOAD_CONST               0 (None)
+             20 RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x1073b9d40, file "WeRobotCore/utils/time_utils.py", line 165>:
+165           0 LOAD_FAST                0 (.0)
+        >>    2 FOR_ITER                14 (to 18)
+              4 STORE_FAST               1 (word)
+              6 LOAD_FAST                1 (word)
+              8 LOAD_DEREF               0 (time_str)
+             10 CONTAINS_OP              0
+             12 YIELD_VALUE
+             14 POP_TOP
+             16 JUMP_ABSOLUTE            2
+        >>   18 LOAD_CONST               0 (None)
+             20 RETURN_VALUE

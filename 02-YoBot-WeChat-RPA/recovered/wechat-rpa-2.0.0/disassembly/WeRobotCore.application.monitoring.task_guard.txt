@@ -1,0 +1,71 @@
+  1           0 LOAD_CONST               0 ('Platform-neutral safety decisions before a monitor change creates a task.')
+              2 STORE_NAME               0 (__doc__)
+
+  3           4 LOAD_CONST               1 (0)
+              6 LOAD_CONST               2 (('Optional',))
+              8 IMPORT_NAME              1 (typing)
+             10 IMPORT_FROM              2 (Optional)
+             12 STORE_NAME               2 (Optional)
+             14 POP_TOP
+
+  5          16 LOAD_CONST               1 (0)
+             18 LOAD_CONST               3 (('ChatType', 'SessionSummary'))
+             20 IMPORT_NAME              3 (WeRobotCore.domain)
+             22 IMPORT_FROM              4 (ChatType)
+             24 STORE_NAME               4 (ChatType)
+             26 IMPORT_FROM              5 (SessionSummary)
+             28 STORE_NAME               5 (SessionSummary)
+             30 POP_TOP
+
+  8          32 LOAD_CONST               4 ('CHAT_TYPE_UNKNOWN')
+             34 STORE_NAME               6 (CHAT_TYPE_UNKNOWN)
+
+  9          36 LOAD_CONST               5 ('SESSION_PREVIEW_SELF')
+             38 STORE_NAME               7 (SESSION_PREVIEW_SELF)
+
+ 12          40 LOAD_NAME                5 (SessionSummary)
+             42 LOAD_NAME                2 (Optional)
+             44 LOAD_NAME                8 (str)
+             46 BINARY_SUBSCR
+             48 LOAD_CONST               6 (('summary', 'return'))
+             50 BUILD_CONST_KEY_MAP      2
+             52 LOAD_CONST               7 (<code object monitor_task_skip_reason at 0x1072cfbe0, file "WeRobotCore/application/monitoring/task_guard.py", line 12>)
+             54 LOAD_CONST               8 ('monitor_task_skip_reason')
+             56 MAKE_FUNCTION            4 (annotations)
+             58 STORE_NAME               9 (monitor_task_skip_reason)
+             60 LOAD_CONST               9 (None)
+             62 RETURN_VALUE
+
+Disassembly of <code object monitor_task_skip_reason at 0x1072cfbe0, file "WeRobotCore/application/monitoring/task_guard.py", line 12>:
+ 21           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                0 (summary)
+              4 LOAD_GLOBAL              1 (SessionSummary)
+              6 CALL_FUNCTION            2
+              8 POP_JUMP_IF_TRUE        18
+
+ 22          10 LOAD_GLOBAL              2 (TypeError)
+             12 LOAD_CONST               1 ('summary must be a SessionSummary')
+             14 CALL_FUNCTION            1
+             16 RAISE_VARARGS            1
+
+ 23     >>   18 LOAD_FAST                0 (summary)
+             20 LOAD_ATTR                3 (chat_type)
+             22 LOAD_GLOBAL              4 (ChatType)
+             24 LOAD_ATTR                5 (UNKNOWN)
+             26 IS_OP                    0
+             28 POP_JUMP_IF_FALSE       34
+
+ 24          30 LOAD_GLOBAL              6 (CHAT_TYPE_UNKNOWN)
+             32 RETURN_VALUE
+
+ 25     >>   34 LOAD_FAST                0 (summary)
+             36 LOAD_ATTR                7 (is_self)
+             38 LOAD_CONST               2 (True)
+             40 IS_OP                    0
+             42 POP_JUMP_IF_FALSE       48
+
+ 26          44 LOAD_GLOBAL              8 (SESSION_PREVIEW_SELF)
+             46 RETURN_VALUE
+
+ 27     >>   48 LOAD_CONST               3 (None)
+             50 RETURN_VALUE

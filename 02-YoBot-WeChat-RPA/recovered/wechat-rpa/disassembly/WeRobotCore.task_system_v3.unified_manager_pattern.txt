@@ -1,0 +1,1633 @@
+  1           0 LOAD_CONST               0 ('\nV3框架统一管理器模式规范\n======================\n\n本文件定义了V3框架中所有Manager的统一创建和管理规范，\n解决当前单例和全局混用的架构不一致问题。\n\n核心设计原则：\n1. 统一使用改进的全局管理器模式\n2. 保证缓存数据共享和持久性\n3. 简化代码复杂度，提高可测试性\n4. 渐进式改造，保持向后兼容\n')
+              2 STORE_NAME               0 (__doc__)
+
+ 15           4 LOAD_CONST               1 (0)
+              6 LOAD_CONST               2 (None)
+              8 IMPORT_NAME              1 (asyncio)
+             10 STORE_NAME               1 (asyncio)
+
+ 16          12 LOAD_CONST               1 (0)
+             14 LOAD_CONST               2 (None)
+             16 IMPORT_NAME              2 (logging)
+             18 STORE_NAME               2 (logging)
+
+ 17          20 LOAD_CONST               1 (0)
+             22 LOAD_CONST               3 (('Dict', 'Any', 'Optional', 'TypeVar', 'Type', 'Callable'))
+             24 IMPORT_NAME              3 (typing)
+             26 IMPORT_FROM              4 (Dict)
+             28 STORE_NAME               4 (Dict)
+             30 IMPORT_FROM              5 (Any)
+             32 STORE_NAME               5 (Any)
+             34 IMPORT_FROM              6 (Optional)
+             36 STORE_NAME               6 (Optional)
+             38 IMPORT_FROM              7 (TypeVar)
+             40 STORE_NAME               7 (TypeVar)
+             42 IMPORT_FROM              8 (Type)
+             44 STORE_NAME               8 (Type)
+             46 IMPORT_FROM              9 (Callable)
+             48 STORE_NAME               9 (Callable)
+             50 POP_TOP
+
+ 18          52 LOAD_CONST               1 (0)
+             54 LOAD_CONST               4 (('datetime',))
+             56 IMPORT_NAME             10 (datetime)
+             58 IMPORT_FROM             10 (datetime)
+             60 STORE_NAME              10 (datetime)
+             62 POP_TOP
+
+ 19          64 LOAD_CONST               1 (0)
+             66 LOAD_CONST               2 (None)
+             68 IMPORT_NAME             11 (threading)
+             70 STORE_NAME              11 (threading)
+
+ 20          72 LOAD_CONST               1 (0)
+             74 LOAD_CONST               5 (('ABC', 'abstractmethod'))
+             76 IMPORT_NAME             12 (abc)
+             78 IMPORT_FROM             13 (ABC)
+             80 STORE_NAME              13 (ABC)
+             82 IMPORT_FROM             14 (abstractmethod)
+             84 STORE_NAME              14 (abstractmethod)
+             86 POP_TOP
+
+ 23          88 LOAD_NAME                7 (TypeVar)
+             90 LOAD_CONST               6 ('ManagerType')
+             92 CALL_FUNCTION            1
+             94 STORE_NAME              15 (ManagerType)
+
+ 27          96 LOAD_BUILD_CLASS
+             98 LOAD_CONST               7 (<code object GlobalManagerRegistry at 0x1090bddf0, file "WeRobotCore/task_system_v3/unified_manager_pattern.py", line 27>)
+            100 LOAD_CONST               8 ('GlobalManagerRegistry')
+            102 MAKE_FUNCTION            0
+            104 LOAD_CONST               8 ('GlobalManagerRegistry')
+            106 CALL_FUNCTION            2
+            108 STORE_NAME              16 (GlobalManagerRegistry)
+
+159         110 LOAD_BUILD_CLASS
+            112 LOAD_CONST               9 (<code object BaseManagerV3 at 0x10924bdf0, file "WeRobotCore/task_system_v3/unified_manager_pattern.py", line 159>)
+            114 LOAD_CONST              10 ('BaseManagerV3')
+            116 MAKE_FUNCTION            0
+            118 LOAD_CONST              10 ('BaseManagerV3')
+            120 LOAD_NAME               13 (ABC)
+            122 CALL_FUNCTION            3
+            124 STORE_NAME              17 (BaseManagerV3)
+
+212         126 LOAD_CONST              11 (<code object _start_manager at 0x10924b450, file "WeRobotCore/task_system_v3/unified_manager_pattern.py", line 212>)
+            128 LOAD_CONST              12 ('_start_manager')
+            130 MAKE_FUNCTION            0
+            132 STORE_NAME              18 (_start_manager)
+
+237         134 LOAD_CONST              55 ((None, None))
+            136 LOAD_CONST              13 (<code object create_auto_reply_manager at 0x10924b030, file "WeRobotCore/task_system_v3/unified_manager_pattern.py", line 237>)
+            138 LOAD_CONST              14 ('create_auto_reply_manager')
+            140 MAKE_FUNCTION            1 (defaults)
+            142 STORE_NAME              19 (create_auto_reply_manager)
+
+253         144 LOAD_CONST              56 ((None, None))
+            146 LOAD_CONST              15 (<code object create_friend_request_manager at 0x10924b7c0, file "WeRobotCore/task_system_v3/unified_manager_pattern.py", line 253>)
+            148 LOAD_CONST              16 ('create_friend_request_manager')
+            150 MAKE_FUNCTION            1 (defaults)
+            152 STORE_NAME              20 (create_friend_request_manager)
+
+269         154 LOAD_CONST              57 ((None, None))
+            156 LOAD_CONST              17 (<code object create_mass_sending_manager at 0x10924bbe0, file "WeRobotCore/task_system_v3/unified_manager_pattern.py", line 269>)
+            158 LOAD_CONST              18 ('create_mass_sending_manager')
+            160 MAKE_FUNCTION            1 (defaults)
+            162 STORE_NAME              21 (create_mass_sending_manager)
+
+285         164 LOAD_CONST              58 ((None, None))
+            166 LOAD_CONST              19 (<code object create_moment_comment_manager at 0x10924b710, file "WeRobotCore/task_system_v3/unified_manager_pattern.py", line 285>)
+            168 LOAD_CONST              20 ('create_moment_comment_manager')
+            170 MAKE_FUNCTION            1 (defaults)
+            172 STORE_NAME              22 (create_moment_comment_manager)
+
+301         174 LOAD_CONST              59 ((None, None))
+            176 LOAD_CONST              21 (<code object create_moment_post_manager at 0x10924b190, file "WeRobotCore/task_system_v3/unified_manager_pattern.py", line 301>)
+            178 LOAD_CONST              22 ('create_moment_post_manager')
+            180 MAKE_FUNCTION            1 (defaults)
+            182 STORE_NAME              23 (create_moment_post_manager)
+
+317         184 LOAD_CONST              60 ((None, None))
+            186 LOAD_CONST              23 (<code object create_add_friend_manager at 0x10924b500, file "WeRobotCore/task_system_v3/unified_manager_pattern.py", line 317>)
+            188 LOAD_CONST              24 ('create_add_friend_manager')
+            190 MAKE_FUNCTION            1 (defaults)
+            192 STORE_NAME              24 (create_add_friend_manager)
+
+333         194 LOAD_CONST              61 ((None, None))
+            196 LOAD_CONST              25 (<code object create_auto_follow_manager at 0x10924b3a0, file "WeRobotCore/task_system_v3/unified_manager_pattern.py", line 333>)
+            198 LOAD_CONST              26 ('create_auto_follow_manager')
+            200 MAKE_FUNCTION            1 (defaults)
+            202 STORE_NAME              25 (create_auto_follow_manager)
+
+350         204 LOAD_CONST              62 ((None, None))
+            206 LOAD_CONST              27 (<code object create_sync_contacts_manager at 0x10924bb30, file "WeRobotCore/task_system_v3/unified_manager_pattern.py", line 350>)
+            208 LOAD_CONST              28 ('create_sync_contacts_manager')
+            210 MAKE_FUNCTION            1 (defaults)
+            212 STORE_NAME              26 (create_sync_contacts_manager)
+
+369         214 LOAD_CONST              29 (<code object create_unified_scheduler at 0x10924b2f0, file "WeRobotCore/task_system_v3/unified_manager_pattern.py", line 369>)
+            216 LOAD_CONST              30 ('create_unified_scheduler')
+            218 MAKE_FUNCTION            0
+            220 STORE_NAME              27 (create_unified_scheduler)
+
+378         222 LOAD_CONST              31 (<code object register_all_managers at 0x10924bf50, file "WeRobotCore/task_system_v3/unified_manager_pattern.py", line 378>)
+            224 LOAD_CONST              32 ('register_all_managers')
+            226 MAKE_FUNCTION            0
+            228 STORE_NAME              28 (register_all_managers)
+
+410         230 LOAD_CONST              63 ((None, None))
+            232 LOAD_CONST              33 (<code object get_auto_reply_manager at 0x10925d3a0, file "WeRobotCore/task_system_v3/unified_manager_pattern.py", line 410>)
+            234 LOAD_CONST              34 ('get_auto_reply_manager')
+            236 MAKE_FUNCTION            1 (defaults)
+            238 STORE_NAME              29 (get_auto_reply_manager)
+
+416         240 LOAD_CONST              64 ((None, None))
+            242 LOAD_CONST              35 (<code object get_friend_request_manager at 0x10925d710, file "WeRobotCore/task_system_v3/unified_manager_pattern.py", line 416>)
+            244 LOAD_CONST              36 ('get_friend_request_manager')
+            246 MAKE_FUNCTION            1 (defaults)
+            248 STORE_NAME              30 (get_friend_request_manager)
+
+422         250 LOAD_CONST              37 (<code object get_mass_sending_manager at 0x10925d190, file "WeRobotCore/task_system_v3/unified_manager_pattern.py", line 422>)
+            252 LOAD_CONST              38 ('get_mass_sending_manager')
+            254 MAKE_FUNCTION            0
+            256 STORE_NAME              31 (get_mass_sending_manager)
+
+426         258 LOAD_CONST              65 ((None, None))
+            260 LOAD_CONST              39 (<code object get_moment_comment_manager at 0x10925d450, file "WeRobotCore/task_system_v3/unified_manager_pattern.py", line 426>)
+            262 LOAD_CONST              40 ('get_moment_comment_manager')
+            264 MAKE_FUNCTION            1 (defaults)
+            266 STORE_NAME              32 (get_moment_comment_manager)
+
+431         268 LOAD_CONST              66 ((None, None))
+            270 LOAD_CONST              41 (<code object get_moment_post_manager at 0x10925dbe0, file "WeRobotCore/task_system_v3/unified_manager_pattern.py", line 431>)
+            272 LOAD_CONST              42 ('get_moment_post_manager')
+            274 MAKE_FUNCTION            1 (defaults)
+            276 STORE_NAME              33 (get_moment_post_manager)
+
+437         278 LOAD_CONST              67 ((None, None))
+            280 LOAD_CONST              43 (<code object get_add_friend_manager at 0x10925d9d0, file "WeRobotCore/task_system_v3/unified_manager_pattern.py", line 437>)
+            282 LOAD_CONST              44 ('get_add_friend_manager')
+            284 MAKE_FUNCTION            1 (defaults)
+            286 STORE_NAME              34 (get_add_friend_manager)
+
+443         288 LOAD_CONST              68 ((None,))
+            290 LOAD_CONST              45 (<code object get_auto_follow_manager at 0x10925dea0, file "WeRobotCore/task_system_v3/unified_manager_pattern.py", line 443>)
+            292 LOAD_CONST              46 ('get_auto_follow_manager')
+            294 MAKE_FUNCTION            1 (defaults)
+            296 STORE_NAME              35 (get_auto_follow_manager)
+
+449         298 LOAD_CONST              69 ((None, None))
+            300 LOAD_CONST              47 (<code object get_sync_contacts_manager at 0x10925df50, file "WeRobotCore/task_system_v3/unified_manager_pattern.py", line 449>)
+            302 LOAD_CONST              48 ('get_sync_contacts_manager')
+            304 MAKE_FUNCTION            1 (defaults)
+            306 STORE_NAME              36 (get_sync_contacts_manager)
+
+459         308 LOAD_CONST              49 (<code object get_scheduler at 0x10925d660, file "WeRobotCore/task_system_v3/unified_manager_pattern.py", line 459>)
+            310 LOAD_CONST              50 ('get_scheduler')
+            312 MAKE_FUNCTION            0
+            314 STORE_NAME              37 (get_scheduler)
+
+470         316 LOAD_CONST              51 (<code object initialize_all_managers_and_process_tasks at 0x10925ddf0, file "WeRobotCore/task_system_v3/unified_manager_pattern.py", line 470>)
+            318 LOAD_CONST              52 ('initialize_all_managers_and_process_tasks')
+            320 MAKE_FUNCTION            0
+            322 STORE_NAME              38 (initialize_all_managers_and_process_tasks)
+
+502         324 LOAD_NAME               39 (__name__)
+            326 LOAD_CONST              53 ('__main__')
+            328 COMPARE_OP               2 (==)
+            330 EXTENDED_ARG             1
+            332 POP_JUMP_IF_FALSE      352
+
+504         334 LOAD_NAME               40 (print)
+            336 LOAD_CONST              54 ('所有管理器: ')
+            338 LOAD_NAME               16 (GlobalManagerRegistry)
+            340 LOAD_METHOD             41 (get_all_managers)
+            342 CALL_METHOD              0
+            344 FORMAT_VALUE             0
+            346 BUILD_STRING             2
+            348 CALL_FUNCTION            1
+            350 POP_TOP
+        >>  352 LOAD_CONST               2 (None)
+            354 RETURN_VALUE
+
+Disassembly of <code object GlobalManagerRegistry at 0x1090bddf0, file "WeRobotCore/task_system_v3/unified_manager_pattern.py", line 27>:
+ 27           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('GlobalManagerRegistry')
+              6 STORE_NAME               2 (__qualname__)
+              8 SETUP_ANNOTATIONS
+
+ 28          10 LOAD_CONST               1 ('全局管理器注册表\n    \n    统一管理所有Manager实例，确保：\n    1. 每种Manager类型只有一个全局实例\n    2. 线程安全的实例创建和访问\n    3. 统一的生命周期管理\n    4. 支持测试时的实例重置\n    ')
+             12 STORE_NAME               3 (__doc__)
+
+ 37          14 BUILD_MAP                0
+             16 STORE_NAME               4 (_instances)
+             18 LOAD_NAME                5 (Dict)
+             20 LOAD_NAME                6 (str)
+             22 LOAD_NAME                7 (Any)
+             24 BUILD_TUPLE              2
+             26 BINARY_SUBSCR
+             28 LOAD_NAME                8 (__annotations__)
+             30 LOAD_CONST               2 ('_instances')
+             32 STORE_SUBSCR
+
+ 38          34 BUILD_MAP                0
+             36 STORE_NAME               9 (_locks)
+             38 LOAD_NAME                5 (Dict)
+             40 LOAD_NAME                6 (str)
+             42 LOAD_NAME               10 (threading)
+             44 LOAD_ATTR               11 (Lock)
+             46 BUILD_TUPLE              2
+             48 BINARY_SUBSCR
+             50 LOAD_NAME                8 (__annotations__)
+             52 LOAD_CONST               3 ('_locks')
+             54 STORE_SUBSCR
+
+ 39          56 BUILD_MAP                0
+             58 STORE_NAME              12 (_creation_callbacks)
+             60 LOAD_NAME                5 (Dict)
+             62 LOAD_NAME                6 (str)
+             64 LOAD_NAME               13 (Callable)
+             66 BUILD_TUPLE              2
+             68 BINARY_SUBSCR
+             70 LOAD_NAME                8 (__annotations__)
+             72 LOAD_CONST               4 ('_creation_callbacks')
+             74 STORE_SUBSCR
+
+ 40          76 LOAD_NAME               10 (threading)
+             78 LOAD_METHOD             11 (Lock)
+             80 CALL_METHOD              0
+             82 STORE_NAME              14 (_main_lock)
+
+ 42          84 LOAD_NAME               15 (classmethod)
+
+ 43          86 LOAD_NAME                6 (str)
+             88 LOAD_NAME               13 (Callable)
+             90 LOAD_CONST               5 (('manager_name', 'creation_callback'))
+             92 BUILD_CONST_KEY_MAP      2
+             94 LOAD_CONST               6 (<code object register_manager_type at 0x109244c90, file "WeRobotCore/task_system_v3/unified_manager_pattern.py", line 42>)
+             96 LOAD_CONST               7 ('GlobalManagerRegistry.register_manager_type')
+             98 MAKE_FUNCTION            4 (annotations)
+            100 CALL_FUNCTION            1
+            102 STORE_NAME              16 (register_manager_type)
+
+ 55         104 LOAD_NAME               15 (classmethod)
+
+ 56         106 LOAD_NAME                6 (str)
+            108 LOAD_NAME                7 (Any)
+            110 LOAD_CONST               8 (('manager_name', 'return'))
+            112 BUILD_CONST_KEY_MAP      2
+            114 LOAD_CONST               9 (<code object get_or_create_manager at 0x1090bd9d0, file "WeRobotCore/task_system_v3/unified_manager_pattern.py", line 55>)
+            116 LOAD_CONST              10 ('GlobalManagerRegistry.get_or_create_manager')
+            118 MAKE_FUNCTION            4 (annotations)
+            120 CALL_FUNCTION            1
+            122 STORE_NAME              17 (get_or_create_manager)
+
+ 96         124 LOAD_NAME               15 (classmethod)
+
+ 97         126 LOAD_NAME                6 (str)
+            128 LOAD_NAME               18 (Optional)
+            130 LOAD_NAME                7 (Any)
+            132 BINARY_SUBSCR
+            134 LOAD_CONST               8 (('manager_name', 'return'))
+            136 BUILD_CONST_KEY_MAP      2
+            138 LOAD_CONST              11 (<code object get_manager at 0x1090bda80, file "WeRobotCore/task_system_v3/unified_manager_pattern.py", line 96>)
+            140 LOAD_CONST              12 ('GlobalManagerRegistry.get_manager')
+            142 MAKE_FUNCTION            4 (annotations)
+            144 CALL_FUNCTION            1
+            146 STORE_NAME              19 (get_manager)
+
+108         148 LOAD_NAME               15 (classmethod)
+
+109         150 LOAD_NAME                6 (str)
+            152 LOAD_NAME               20 (bool)
+            154 LOAD_CONST               8 (('manager_name', 'return'))
+            156 BUILD_CONST_KEY_MAP      2
+            158 LOAD_CONST              13 (<code object remove_manager at 0x1090bdd40, file "WeRobotCore/task_system_v3/unified_manager_pattern.py", line 108>)
+            160 LOAD_CONST              14 ('GlobalManagerRegistry.remove_manager')
+            162 MAKE_FUNCTION            4 (annotations)
+            164 CALL_FUNCTION            1
+            166 STORE_NAME              21 (remove_manager)
+
+127         168 LOAD_NAME               15 (classmethod)
+
+128         170 LOAD_CONST              15 (<code object shutdown_all_managers at 0x1090bdf50, file "WeRobotCore/task_system_v3/unified_manager_pattern.py", line 127>)
+            172 LOAD_CONST              16 ('GlobalManagerRegistry.shutdown_all_managers')
+            174 MAKE_FUNCTION            0
+            176 CALL_FUNCTION            1
+            178 STORE_NAME              22 (shutdown_all_managers)
+
+146         180 LOAD_NAME               15 (classmethod)
+
+147         182 LOAD_CONST              17 (<code object reset_for_testing at 0x1090bdea0, file "WeRobotCore/task_system_v3/unified_manager_pattern.py", line 146>)
+            184 LOAD_CONST              18 ('GlobalManagerRegistry.reset_for_testing')
+            186 MAKE_FUNCTION            0
+            188 CALL_FUNCTION            1
+            190 STORE_NAME              23 (reset_for_testing)
+
+152         192 LOAD_NAME               15 (classmethod)
+
+153         194 LOAD_NAME                5 (Dict)
+            196 LOAD_NAME                6 (str)
+            198 LOAD_NAME                7 (Any)
+            200 BUILD_TUPLE              2
+            202 BINARY_SUBSCR
+            204 LOAD_CONST              19 (('return',))
+            206 BUILD_CONST_KEY_MAP      1
+            208 LOAD_CONST              20 (<code object get_all_managers at 0x1090bd920, file "WeRobotCore/task_system_v3/unified_manager_pattern.py", line 152>)
+            210 LOAD_CONST              21 ('GlobalManagerRegistry.get_all_managers')
+            212 MAKE_FUNCTION            4 (annotations)
+            214 CALL_FUNCTION            1
+            216 STORE_NAME              24 (get_all_managers)
+            218 LOAD_CONST              22 (None)
+            220 RETURN_VALUE
+
+Disassembly of <code object register_manager_type at 0x109244c90, file "WeRobotCore/task_system_v3/unified_manager_pattern.py", line 42>:
+ 50           0 LOAD_FAST                0 (cls)
+              2 LOAD_ATTR                0 (_main_lock)
+              4 SETUP_WITH              50 (to 56)
+              6 POP_TOP
+
+ 51           8 LOAD_FAST                2 (creation_callback)
+             10 LOAD_FAST                0 (cls)
+             12 LOAD_ATTR                1 (_creation_callbacks)
+             14 LOAD_FAST                1 (manager_name)
+             16 STORE_SUBSCR
+
+ 52          18 LOAD_FAST                1 (manager_name)
+             20 LOAD_FAST                0 (cls)
+             22 LOAD_ATTR                2 (_locks)
+             24 CONTAINS_OP              1
+             26 POP_JUMP_IF_FALSE       42
+
+ 53          28 LOAD_GLOBAL              3 (threading)
+             30 LOAD_METHOD              4 (Lock)
+             32 CALL_METHOD              0
+             34 LOAD_FAST                0 (cls)
+             36 LOAD_ATTR                2 (_locks)
+             38 LOAD_FAST                1 (manager_name)
+             40 STORE_SUBSCR
+        >>   42 POP_BLOCK
+             44 LOAD_CONST               1 (None)
+             46 DUP_TOP
+             48 DUP_TOP
+             50 CALL_FUNCTION            3
+             52 POP_TOP
+             54 JUMP_FORWARD            16 (to 72)
+        >>   56 WITH_EXCEPT_START
+             58 POP_JUMP_IF_TRUE        62
+             60 RERAISE
+        >>   62 POP_TOP
+             64 POP_TOP
+             66 POP_TOP
+             68 POP_EXCEPT
+             70 POP_TOP
+        >>   72 LOAD_CONST               1 (None)
+             74 RETURN_VALUE
+
+Disassembly of <code object get_or_create_manager at 0x1090bd9d0, file "WeRobotCore/task_system_v3/unified_manager_pattern.py", line 55>:
+ 67           0 LOAD_FAST                1 (manager_name)
+              2 LOAD_FAST                0 (cls)
+              4 LOAD_ATTR                0 (_instances)
+              6 CONTAINS_OP              0
+              8 POP_JUMP_IF_FALSE       20
+
+ 68          10 LOAD_FAST                0 (cls)
+             12 LOAD_ATTR                0 (_instances)
+             14 LOAD_FAST                1 (manager_name)
+             16 BINARY_SUBSCR
+             18 RETURN_VALUE
+
+ 71     >>   20 LOAD_FAST                1 (manager_name)
+             22 LOAD_FAST                0 (cls)
+             24 LOAD_ATTR                1 (_locks)
+             26 CONTAINS_OP              1
+             28 POP_JUMP_IF_FALSE       92
+
+ 72          30 LOAD_FAST                0 (cls)
+             32 LOAD_ATTR                2 (_main_lock)
+             34 SETUP_WITH              40 (to 76)
+             36 POP_TOP
+
+ 73          38 LOAD_FAST                1 (manager_name)
+             40 LOAD_FAST                0 (cls)
+             42 LOAD_ATTR                1 (_locks)
+             44 CONTAINS_OP              1
+             46 POP_JUMP_IF_FALSE       62
+
+ 74          48 LOAD_GLOBAL              3 (threading)
+             50 LOAD_METHOD              4 (Lock)
+             52 CALL_METHOD              0
+             54 LOAD_FAST                0 (cls)
+             56 LOAD_ATTR                1 (_locks)
+             58 LOAD_FAST                1 (manager_name)
+             60 STORE_SUBSCR
+        >>   62 POP_BLOCK
+             64 LOAD_CONST               1 (None)
+             66 DUP_TOP
+             68 DUP_TOP
+             70 CALL_FUNCTION            3
+             72 POP_TOP
+             74 JUMP_FORWARD            16 (to 92)
+        >>   76 WITH_EXCEPT_START
+             78 POP_JUMP_IF_TRUE        82
+             80 RERAISE
+        >>   82 POP_TOP
+             84 POP_TOP
+             86 POP_TOP
+             88 POP_EXCEPT
+             90 POP_TOP
+
+ 77     >>   92 LOAD_FAST                0 (cls)
+             94 LOAD_ATTR                1 (_locks)
+             96 LOAD_FAST                1 (manager_name)
+             98 BINARY_SUBSCR
+            100 SETUP_WITH             112 (to 214)
+            102 POP_TOP
+
+ 79         104 LOAD_FAST                1 (manager_name)
+            106 LOAD_FAST                0 (cls)
+            108 LOAD_ATTR                0 (_instances)
+            110 CONTAINS_OP              0
+            112 POP_JUMP_IF_FALSE      138
+
+ 80         114 LOAD_FAST                0 (cls)
+            116 LOAD_ATTR                0 (_instances)
+            118 LOAD_FAST                1 (manager_name)
+            120 BINARY_SUBSCR
+            122 POP_BLOCK
+            124 ROT_TWO
+            126 LOAD_CONST               1 (None)
+            128 DUP_TOP
+            130 DUP_TOP
+            132 CALL_FUNCTION            3
+            134 POP_TOP
+            136 RETURN_VALUE
+
+ 83     >>  138 LOAD_FAST                1 (manager_name)
+            140 LOAD_FAST                0 (cls)
+            142 LOAD_ATTR                5 (_creation_callbacks)
+            144 CONTAINS_OP              1
+            146 POP_JUMP_IF_FALSE      162
+
+ 84         148 LOAD_GLOBAL              6 (ValueError)
+            150 LOAD_CONST               2 ('未注册的管理器类型: ')
+            152 LOAD_FAST                1 (manager_name)
+            154 FORMAT_VALUE             0
+            156 BUILD_STRING             2
+            158 CALL_FUNCTION            1
+            160 RAISE_VARARGS            1
+
+ 86     >>  162 LOAD_FAST                0 (cls)
+            164 LOAD_ATTR                5 (_creation_callbacks)
+            166 LOAD_FAST                1 (manager_name)
+            168 BINARY_SUBSCR
+            170 STORE_FAST               4 (creation_callback)
+
+ 87         172 LOAD_FAST                4 (creation_callback)
+            174 LOAD_FAST                2 (args)
+            176 BUILD_MAP                0
+            178 LOAD_FAST                3 (kwargs)
+            180 DICT_MERGE               1
+            182 CALL_FUNCTION_EX         1
+            184 STORE_FAST               5 (instance)
+
+ 92         186 LOAD_FAST                5 (instance)
+            188 LOAD_FAST                0 (cls)
+            190 LOAD_ATTR                0 (_instances)
+            192 LOAD_FAST                1 (manager_name)
+            194 STORE_SUBSCR
+
+ 94         196 LOAD_FAST                5 (instance)
+            198 POP_BLOCK
+            200 ROT_TWO
+            202 LOAD_CONST               1 (None)
+            204 DUP_TOP
+            206 DUP_TOP
+            208 CALL_FUNCTION            3
+            210 POP_TOP
+            212 RETURN_VALUE
+        >>  214 WITH_EXCEPT_START
+            216 POP_JUMP_IF_TRUE       220
+            218 RERAISE
+        >>  220 POP_TOP
+            222 POP_TOP
+            224 POP_TOP
+            226 POP_EXCEPT
+            228 POP_TOP
+            230 LOAD_CONST               1 (None)
+            232 RETURN_VALUE
+
+Disassembly of <code object get_manager at 0x1090bda80, file "WeRobotCore/task_system_v3/unified_manager_pattern.py", line 96>:
+106           0 LOAD_FAST                0 (cls)
+              2 LOAD_ATTR                0 (_instances)
+              4 LOAD_METHOD              1 (get)
+              6 LOAD_FAST                1 (manager_name)
+              8 CALL_METHOD              1
+             10 RETURN_VALUE
+
+Disassembly of <code object remove_manager at 0x1090bdd40, file "WeRobotCore/task_system_v3/unified_manager_pattern.py", line 108>:
+118           0 LOAD_FAST                1 (manager_name)
+              2 LOAD_FAST                0 (cls)
+              4 LOAD_ATTR                0 (_locks)
+              6 CONTAINS_OP              1
+              8 POP_JUMP_IF_FALSE       14
+
+119          10 LOAD_CONST               1 (False)
+             12 RETURN_VALUE
+
+121     >>   14 LOAD_FAST                0 (cls)
+             16 LOAD_ATTR                0 (_locks)
+             18 LOAD_FAST                1 (manager_name)
+             20 BINARY_SUBSCR
+             22 SETUP_WITH              52 (to 76)
+             24 POP_TOP
+
+122          26 LOAD_FAST                1 (manager_name)
+             28 LOAD_FAST                0 (cls)
+             30 LOAD_ATTR                1 (_instances)
+             32 CONTAINS_OP              0
+             34 POP_JUMP_IF_FALSE       60
+
+123          36 LOAD_FAST                0 (cls)
+             38 LOAD_ATTR                1 (_instances)
+             40 LOAD_FAST                1 (manager_name)
+             42 DELETE_SUBSCR
+
+124          44 POP_BLOCK
+             46 LOAD_CONST               2 (None)
+             48 DUP_TOP
+             50 DUP_TOP
+             52 CALL_FUNCTION            3
+             54 POP_TOP
+             56 LOAD_CONST               3 (True)
+             58 RETURN_VALUE
+
+125     >>   60 POP_BLOCK
+             62 LOAD_CONST               2 (None)
+             64 DUP_TOP
+             66 DUP_TOP
+             68 CALL_FUNCTION            3
+             70 POP_TOP
+             72 LOAD_CONST               1 (False)
+             74 RETURN_VALUE
+        >>   76 WITH_EXCEPT_START
+             78 POP_JUMP_IF_TRUE        82
+             80 RERAISE
+        >>   82 POP_TOP
+             84 POP_TOP
+             86 POP_TOP
+             88 POP_EXCEPT
+             90 POP_TOP
+             92 LOAD_CONST               2 (None)
+             94 RETURN_VALUE
+
+Disassembly of <code object shutdown_all_managers at 0x1090bdf50, file "WeRobotCore/task_system_v3/unified_manager_pattern.py", line 127>:
+130           0 LOAD_GLOBAL              0 (list)
+              2 LOAD_FAST                0 (cls)
+              4 LOAD_ATTR                1 (_instances)
+              6 LOAD_METHOD              2 (items)
+              8 CALL_METHOD              0
+             10 CALL_FUNCTION            1
+             12 STORE_FAST               1 (managers_to_shutdown)
+
+132          14 LOAD_FAST                1 (managers_to_shutdown)
+             16 GET_ITER
+        >>   18 FOR_ITER               126 (to 146)
+             20 UNPACK_SEQUENCE          2
+             22 STORE_FAST               2 (manager_name)
+             24 STORE_FAST               3 (manager)
+
+133          26 SETUP_FINALLY           60 (to 88)
+
+134          28 LOAD_GLOBAL              3 (hasattr)
+             30 LOAD_FAST                3 (manager)
+             32 LOAD_CONST               1 ('stop')
+             34 CALL_FUNCTION            2
+             36 POP_JUMP_IF_FALSE       84
+             38 LOAD_GLOBAL              4 (callable)
+             40 LOAD_FAST                3 (manager)
+             42 LOAD_ATTR                5 (stop)
+             44 CALL_FUNCTION            1
+             46 POP_JUMP_IF_FALSE       84
+
+135          48 LOAD_GLOBAL              6 (asyncio)
+             50 LOAD_METHOD              7 (iscoroutinefunction)
+             52 LOAD_FAST                3 (manager)
+             54 LOAD_ATTR                5 (stop)
+             56 CALL_METHOD              1
+             58 POP_JUMP_IF_FALSE       76
+
+136          60 LOAD_FAST                3 (manager)
+             62 LOAD_METHOD              5 (stop)
+             64 CALL_METHOD              0
+             66 GET_AWAITABLE
+             68 LOAD_CONST               2 (None)
+             70 YIELD_FROM
+             72 POP_TOP
+             74 JUMP_FORWARD             8 (to 84)
+
+138     >>   76 LOAD_FAST                3 (manager)
+             78 LOAD_METHOD              5 (stop)
+             80 CALL_METHOD              0
+             82 POP_TOP
+        >>   84 POP_BLOCK
+             86 JUMP_ABSOLUTE           18
+
+139     >>   88 DUP_TOP
+             90 LOAD_GLOBAL              8 (Exception)
+             92 JUMP_IF_NOT_EXC_MATCH   142
+             94 POP_TOP
+             96 STORE_FAST               4 (e)
+             98 POP_TOP
+            100 SETUP_FINALLY           32 (to 134)
+
+140         102 LOAD_GLOBAL              9 (print)
+            104 LOAD_CONST               3 ('关闭管理器 ')
+            106 LOAD_FAST                2 (manager_name)
+            108 FORMAT_VALUE             0
+            110 LOAD_CONST               4 (' 时出错: ')
+            112 LOAD_FAST                4 (e)
+            114 FORMAT_VALUE             0
+            116 BUILD_STRING             4
+            118 CALL_FUNCTION            1
+            120 POP_TOP
+            122 POP_BLOCK
+            124 POP_EXCEPT
+            126 LOAD_CONST               2 (None)
+            128 STORE_FAST               4 (e)
+            130 DELETE_FAST              4 (e)
+            132 JUMP_ABSOLUTE           18
+        >>  134 LOAD_CONST               2 (None)
+            136 STORE_FAST               4 (e)
+            138 DELETE_FAST              4 (e)
+            140 RERAISE
+        >>  142 RERAISE
+            144 JUMP_ABSOLUTE           18
+
+143     >>  146 LOAD_FAST                0 (cls)
+            148 LOAD_ATTR               10 (_main_lock)
+            150 SETUP_WITH              26 (to 178)
+            152 POP_TOP
+
+144         154 LOAD_FAST                0 (cls)
+            156 LOAD_ATTR                1 (_instances)
+            158 LOAD_METHOD             11 (clear)
+            160 CALL_METHOD              0
+            162 POP_TOP
+            164 POP_BLOCK
+            166 LOAD_CONST               2 (None)
+            168 DUP_TOP
+            170 DUP_TOP
+            172 CALL_FUNCTION            3
+            174 POP_TOP
+            176 JUMP_FORWARD            16 (to 194)
+        >>  178 WITH_EXCEPT_START
+            180 POP_JUMP_IF_TRUE       184
+            182 RERAISE
+        >>  184 POP_TOP
+            186 POP_TOP
+            188 POP_TOP
+            190 POP_EXCEPT
+            192 POP_TOP
+        >>  194 LOAD_CONST               2 (None)
+            196 RETURN_VALUE
+
+Disassembly of <code object reset_for_testing at 0x1090bdea0, file "WeRobotCore/task_system_v3/unified_manager_pattern.py", line 146>:
+149           0 LOAD_FAST                0 (cls)
+              2 LOAD_ATTR                0 (_main_lock)
+              4 SETUP_WITH              26 (to 32)
+              6 POP_TOP
+
+150           8 LOAD_FAST                0 (cls)
+             10 LOAD_ATTR                1 (_instances)
+             12 LOAD_METHOD              2 (clear)
+             14 CALL_METHOD              0
+             16 POP_TOP
+             18 POP_BLOCK
+             20 LOAD_CONST               1 (None)
+             22 DUP_TOP
+             24 DUP_TOP
+             26 CALL_FUNCTION            3
+             28 POP_TOP
+             30 JUMP_FORWARD            16 (to 48)
+        >>   32 WITH_EXCEPT_START
+             34 POP_JUMP_IF_TRUE        38
+             36 RERAISE
+        >>   38 POP_TOP
+             40 POP_TOP
+             42 POP_TOP
+             44 POP_EXCEPT
+             46 POP_TOP
+        >>   48 LOAD_CONST               1 (None)
+             50 RETURN_VALUE
+
+Disassembly of <code object get_all_managers at 0x1090bd920, file "WeRobotCore/task_system_v3/unified_manager_pattern.py", line 152>:
+155           0 LOAD_FAST                0 (cls)
+              2 LOAD_ATTR                0 (_instances)
+              4 LOAD_METHOD              1 (copy)
+              6 CALL_METHOD              0
+              8 RETURN_VALUE
+
+Disassembly of <code object BaseManagerV3 at 0x10924bdf0, file "WeRobotCore/task_system_v3/unified_manager_pattern.py", line 159>:
+159           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('BaseManagerV3')
+              6 STORE_NAME               2 (__qualname__)
+
+160           8 LOAD_CONST               1 ('V3管理器基类\n    \n    定义了所有Manager应该实现的标准接口\n    ')
+             10 STORE_NAME               3 (__doc__)
+
+165          12 LOAD_CONST               2 (<code object __init__ at 0x1090bd5b0, file "WeRobotCore/task_system_v3/unified_manager_pattern.py", line 165>)
+             14 LOAD_CONST               3 ('BaseManagerV3.__init__')
+             16 MAKE_FUNCTION            0
+             18 STORE_NAME               4 (__init__)
+
+171          20 LOAD_NAME                5 (abstractmethod)
+
+172          22 LOAD_NAME                6 (bool)
+             24 LOAD_CONST               4 (('return',))
+             26 BUILD_CONST_KEY_MAP      1
+             28 LOAD_CONST               5 (<code object start at 0x10924b5b0, file "WeRobotCore/task_system_v3/unified_manager_pattern.py", line 171>)
+             30 LOAD_CONST               6 ('BaseManagerV3.start')
+             32 MAKE_FUNCTION            4 (annotations)
+             34 CALL_FUNCTION            1
+             36 STORE_NAME               7 (start)
+
+176          38 LOAD_NAME                5 (abstractmethod)
+
+177          40 LOAD_NAME                6 (bool)
+             42 LOAD_CONST               4 (('return',))
+             44 BUILD_CONST_KEY_MAP      1
+             46 LOAD_CONST               7 (<code object stop at 0x10924bd40, file "WeRobotCore/task_system_v3/unified_manager_pattern.py", line 176>)
+             48 LOAD_CONST               8 ('BaseManagerV3.stop')
+             50 MAKE_FUNCTION            4 (annotations)
+             52 CALL_FUNCTION            1
+             54 STORE_NAME               8 (stop)
+
+181          56 LOAD_NAME                5 (abstractmethod)
+
+182          58 LOAD_NAME                6 (bool)
+             60 LOAD_CONST               4 (('return',))
+             62 BUILD_CONST_KEY_MAP      1
+             64 LOAD_CONST               9 (<code object pause at 0x10924b9d0, file "WeRobotCore/task_system_v3/unified_manager_pattern.py", line 181>)
+             66 LOAD_CONST              10 ('BaseManagerV3.pause')
+             68 MAKE_FUNCTION            4 (annotations)
+             70 CALL_FUNCTION            1
+             72 STORE_NAME               9 (pause)
+
+186          74 LOAD_NAME                5 (abstractmethod)
+
+187          76 LOAD_NAME                6 (bool)
+             78 LOAD_CONST               4 (('return',))
+             80 BUILD_CONST_KEY_MAP      1
+             82 LOAD_CONST              11 (<code object resume at 0x10924b870, file "WeRobotCore/task_system_v3/unified_manager_pattern.py", line 186>)
+             84 LOAD_CONST              12 ('BaseManagerV3.resume')
+             86 MAKE_FUNCTION            4 (annotations)
+             88 CALL_FUNCTION            1
+             90 STORE_NAME              10 (resume)
+
+191          92 LOAD_NAME                5 (abstractmethod)
+
+192          94 LOAD_NAME               11 (Dict)
+             96 LOAD_NAME               12 (str)
+             98 LOAD_NAME               13 (Any)
+            100 BUILD_TUPLE              2
+            102 BINARY_SUBSCR
+            104 LOAD_CONST               4 (('return',))
+            106 BUILD_CONST_KEY_MAP      1
+            108 LOAD_CONST              13 (<code object get_status at 0x10924ba80, file "WeRobotCore/task_system_v3/unified_manager_pattern.py", line 191>)
+            110 LOAD_CONST              14 ('BaseManagerV3.get_status')
+            112 MAKE_FUNCTION            4 (annotations)
+            114 CALL_FUNCTION            1
+            116 STORE_NAME              14 (get_status)
+
+197         118 LOAD_CONST              24 ((None,))
+            120 LOAD_NAME               11 (Dict)
+            122 LOAD_NAME               12 (str)
+            124 LOAD_NAME               13 (Any)
+            126 BUILD_TUPLE              2
+            128 BINARY_SUBSCR
+
+198         130 LOAD_NAME               15 (Optional)
+            132 LOAD_NAME               16 (datetime)
+            134 BINARY_SUBSCR
+            136 LOAD_NAME               15 (Optional)
+            138 LOAD_NAME               12 (str)
+            140 BINARY_SUBSCR
+
+197         142 LOAD_CONST              16 (('params', 'schedule_time', 'return'))
+            144 BUILD_CONST_KEY_MAP      3
+            146 LOAD_CONST              17 (<code object add_task at 0x10924b660, file "WeRobotCore/task_system_v3/unified_manager_pattern.py", line 197>)
+            148 LOAD_CONST              18 ('BaseManagerV3.add_task')
+            150 MAKE_FUNCTION            5 (defaults, annotations)
+            152 STORE_NAME              17 (add_task)
+
+202         154 LOAD_NAME               12 (str)
+            156 LOAD_NAME                6 (bool)
+            158 LOAD_CONST              19 (('task_id', 'return'))
+            160 BUILD_CONST_KEY_MAP      2
+            162 LOAD_CONST              20 (<code object cancel_task at 0x10924bc90, file "WeRobotCore/task_system_v3/unified_manager_pattern.py", line 202>)
+            164 LOAD_CONST              21 ('BaseManagerV3.cancel_task')
+            166 MAKE_FUNCTION            4 (annotations)
+            168 STORE_NAME              18 (cancel_task)
+
+206         170 LOAD_NAME               12 (str)
+            172 LOAD_NAME               15 (Optional)
+            174 LOAD_NAME               11 (Dict)
+            176 LOAD_NAME               12 (str)
+            178 LOAD_NAME               13 (Any)
+            180 BUILD_TUPLE              2
+            182 BINARY_SUBSCR
+            184 BINARY_SUBSCR
+            186 LOAD_CONST              19 (('task_id', 'return'))
+            188 BUILD_CONST_KEY_MAP      2
+            190 LOAD_CONST              22 (<code object get_task at 0x10924b920, file "WeRobotCore/task_system_v3/unified_manager_pattern.py", line 206>)
+            192 LOAD_CONST              23 ('BaseManagerV3.get_task')
+            194 MAKE_FUNCTION            4 (annotations)
+            196 STORE_NAME              19 (get_task)
+            198 LOAD_CONST              15 (None)
+            200 RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x1090bd5b0, file "WeRobotCore/task_system_v3/unified_manager_pattern.py", line 165>:
+166           0 LOAD_FAST                1 (scheduler)
+              2 LOAD_FAST                0 (self)
+              4 STORE_ATTR               0 (scheduler)
+
+167           6 LOAD_FAST                2 (permission_manager)
+              8 LOAD_FAST                0 (self)
+             10 STORE_ATTR               1 (permission_manager)
+
+168          12 LOAD_CONST               1 (False)
+             14 LOAD_FAST                0 (self)
+             16 STORE_ATTR               2 (_is_running)
+
+169          18 LOAD_CONST               0 (None)
+             20 LOAD_FAST                0 (self)
+             22 STORE_ATTR               3 (_startup_time)
+             24 LOAD_CONST               0 (None)
+             26 RETURN_VALUE
+
+Disassembly of <code object start at 0x10924b5b0, file "WeRobotCore/task_system_v3/unified_manager_pattern.py", line 171>:
+174           0 LOAD_CONST               1 (None)
+              2 RETURN_VALUE
+
+Disassembly of <code object stop at 0x10924bd40, file "WeRobotCore/task_system_v3/unified_manager_pattern.py", line 176>:
+179           0 LOAD_CONST               1 (None)
+              2 RETURN_VALUE
+
+Disassembly of <code object pause at 0x10924b9d0, file "WeRobotCore/task_system_v3/unified_manager_pattern.py", line 181>:
+184           0 LOAD_CONST               1 (None)
+              2 RETURN_VALUE
+
+Disassembly of <code object resume at 0x10924b870, file "WeRobotCore/task_system_v3/unified_manager_pattern.py", line 186>:
+189           0 LOAD_CONST               1 (None)
+              2 RETURN_VALUE
+
+Disassembly of <code object get_status at 0x10924ba80, file "WeRobotCore/task_system_v3/unified_manager_pattern.py", line 191>:
+194           0 LOAD_CONST               1 (None)
+              2 RETURN_VALUE
+
+Disassembly of <code object add_task at 0x10924b660, file "WeRobotCore/task_system_v3/unified_manager_pattern.py", line 197>:
+200           0 LOAD_GLOBAL              0 (NotImplementedError)
+              2 LOAD_CONST               1 ('子类必须实现add_task方法')
+              4 CALL_FUNCTION            1
+              6 RAISE_VARARGS            1
+              8 LOAD_CONST               2 (None)
+             10 RETURN_VALUE
+
+Disassembly of <code object cancel_task at 0x10924bc90, file "WeRobotCore/task_system_v3/unified_manager_pattern.py", line 202>:
+204           0 LOAD_GLOBAL              0 (NotImplementedError)
+              2 LOAD_CONST               1 ('子类必须实现cancel_task方法')
+              4 CALL_FUNCTION            1
+              6 RAISE_VARARGS            1
+              8 LOAD_CONST               2 (None)
+             10 RETURN_VALUE
+
+Disassembly of <code object get_task at 0x10924b920, file "WeRobotCore/task_system_v3/unified_manager_pattern.py", line 206>:
+208           0 LOAD_GLOBAL              0 (NotImplementedError)
+              2 LOAD_CONST               1 ('子类必须实现get_task方法')
+              4 CALL_FUNCTION            1
+              6 RAISE_VARARGS            1
+              8 LOAD_CONST               2 (None)
+             10 RETURN_VALUE
+
+Disassembly of <code object _start_manager at 0x10924b450, file "WeRobotCore/task_system_v3/unified_manager_pattern.py", line 212>:
+214           0 LOAD_GLOBAL              0 (hasattr)
+              2 LOAD_FAST                0 (manager)
+              4 LOAD_CONST               1 ('start')
+              6 CALL_FUNCTION            2
+              8 POP_JUMP_IF_FALSE      232
+             10 LOAD_GLOBAL              1 (callable)
+             12 LOAD_FAST                0 (manager)
+             14 LOAD_ATTR                2 (start)
+             16 CALL_FUNCTION            1
+             18 POP_JUMP_IF_FALSE      232
+
+215          20 SETUP_FINALLY          152 (to 174)
+
+216          22 LOAD_GLOBAL              3 (asyncio)
+             24 LOAD_METHOD              4 (iscoroutinefunction)
+             26 LOAD_FAST                0 (manager)
+             28 LOAD_ATTR                2 (start)
+             30 CALL_METHOD              1
+             32 POP_JUMP_IF_FALSE      146
+
+218          34 SETUP_FINALLY           42 (to 78)
+
+219          36 LOAD_GLOBAL              3 (asyncio)
+             38 LOAD_METHOD              5 (get_running_loop)
+             40 CALL_METHOD              0
+             42 STORE_FAST               2 (loop)
+
+221          44 LOAD_GLOBAL              3 (asyncio)
+             46 LOAD_METHOD              6 (create_task)
+             48 LOAD_FAST                0 (manager)
+             50 LOAD_METHOD              2 (start)
+             52 CALL_METHOD              0
+             54 CALL_METHOD              1
+             56 POP_TOP
+
+222          58 LOAD_GLOBAL              7 (logging)
+             60 LOAD_METHOD              8 (info)
+             62 LOAD_FAST                1 (manager_name)
+             64 FORMAT_VALUE             0
+             66 LOAD_CONST               2 ('异步启动任务已创建')
+             68 BUILD_STRING             2
+             70 CALL_METHOD              1
+             72 POP_TOP
+             74 POP_BLOCK
+             76 JUMP_ABSOLUTE          170
+
+223     >>   78 DUP_TOP
+             80 LOAD_GLOBAL              9 (RuntimeError)
+             82 JUMP_IF_NOT_EXC_MATCH   142
+             84 POP_TOP
+             86 POP_TOP
+             88 POP_TOP
+
+225          90 LOAD_GLOBAL              3 (asyncio)
+             92 LOAD_METHOD             10 (new_event_loop)
+             94 CALL_METHOD              0
+             96 STORE_FAST               2 (loop)
+
+226          98 LOAD_GLOBAL              3 (asyncio)
+            100 LOAD_METHOD             11 (set_event_loop)
+            102 LOAD_FAST                2 (loop)
+            104 CALL_METHOD              1
+            106 POP_TOP
+
+227         108 LOAD_FAST                2 (loop)
+            110 LOAD_METHOD             12 (run_until_complete)
+            112 LOAD_FAST                0 (manager)
+            114 LOAD_METHOD              2 (start)
+            116 CALL_METHOD              0
+            118 CALL_METHOD              1
+            120 POP_TOP
+
+228         122 LOAD_GLOBAL              7 (logging)
+            124 LOAD_METHOD              8 (info)
+            126 LOAD_FAST                1 (manager_name)
+            128 FORMAT_VALUE             0
+            130 LOAD_CONST               3 ('启动成功')
+            132 BUILD_STRING             2
+            134 CALL_METHOD              1
+            136 POP_TOP
+            138 POP_EXCEPT
+            140 JUMP_ABSOLUTE          170
+        >>  142 RERAISE
+            144 JUMP_FORWARD            24 (to 170)
+
+231     >>  146 LOAD_FAST                0 (manager)
+            148 LOAD_METHOD              2 (start)
+            150 CALL_METHOD              0
+            152 POP_TOP
+
+232         154 LOAD_GLOBAL              7 (logging)
+            156 LOAD_METHOD              8 (info)
+            158 LOAD_FAST                1 (manager_name)
+            160 FORMAT_VALUE             0
+            162 LOAD_CONST               3 ('启动成功')
+            164 BUILD_STRING             2
+            166 CALL_METHOD              1
+            168 POP_TOP
+        >>  170 POP_BLOCK
+            172 JUMP_FORWARD            58 (to 232)
+
+233     >>  174 DUP_TOP
+            176 LOAD_GLOBAL             13 (Exception)
+            178 JUMP_IF_NOT_EXC_MATCH   230
+            180 POP_TOP
+            182 STORE_FAST               3 (e)
+            184 POP_TOP
+            186 SETUP_FINALLY           34 (to 222)
+
+234         188 LOAD_GLOBAL              7 (logging)
+            190 LOAD_METHOD             14 (error)
+            192 LOAD_CONST               4 ('启动')
+            194 LOAD_FAST                1 (manager_name)
+            196 FORMAT_VALUE             0
+            198 LOAD_CONST               5 ('失败: ')
+            200 LOAD_FAST                3 (e)
+            202 FORMAT_VALUE             0
+            204 BUILD_STRING             4
+            206 CALL_METHOD              1
+            208 POP_TOP
+            210 POP_BLOCK
+            212 POP_EXCEPT
+            214 LOAD_CONST               6 (None)
+            216 STORE_FAST               3 (e)
+            218 DELETE_FAST              3 (e)
+            220 JUMP_FORWARD            10 (to 232)
+        >>  222 LOAD_CONST               6 (None)
+            224 STORE_FAST               3 (e)
+            226 DELETE_FAST              3 (e)
+            228 RERAISE
+        >>  230 RERAISE
+        >>  232 LOAD_CONST               6 (None)
+            234 RETURN_VALUE
+
+Disassembly of <code object create_auto_reply_manager at 0x10924b030, file "WeRobotCore/task_system_v3/unified_manager_pattern.py", line 237>:
+239           0 LOAD_CONST               1 (0)
+              2 LOAD_CONST               2 (('AutoReplyManager',))
+              4 IMPORT_NAME              0 (WeRobotCore.task_system_v3.auto_reply_manager)
+              6 IMPORT_FROM              1 (AutoReplyManager)
+              8 STORE_FAST               2 (AutoReplyManager)
+             10 POP_TOP
+
+240          12 LOAD_CONST               1 (0)
+             14 LOAD_CONST               3 (('get_permission_manager',))
+             16 IMPORT_NAME              2 (WeRobotCore.task_system_v3.permission_manager)
+             18 IMPORT_FROM              3 (get_permission_manager)
+             20 STORE_FAST               3 (get_permission_manager)
+             22 POP_TOP
+
+242          24 LOAD_FAST                0 (scheduler)
+             26 LOAD_CONST               4 (None)
+             28 IS_OP                    0
+             30 POP_JUMP_IF_FALSE       38
+
+244          32 LOAD_GLOBAL              4 (get_scheduler)
+             34 CALL_FUNCTION            0
+             36 STORE_FAST               0 (scheduler)
+
+245     >>   38 LOAD_FAST                1 (permission_manager)
+             40 LOAD_CONST               4 (None)
+             42 IS_OP                    0
+             44 POP_JUMP_IF_FALSE       52
+
+247          46 LOAD_FAST                3 (get_permission_manager)
+             48 CALL_FUNCTION            0
+             50 STORE_FAST               1 (permission_manager)
+
+249     >>   52 LOAD_FAST                2 (AutoReplyManager)
+             54 LOAD_FAST                0 (scheduler)
+             56 LOAD_FAST                1 (permission_manager)
+             58 CALL_FUNCTION            2
+             60 STORE_FAST               4 (manager)
+
+251          62 LOAD_FAST                4 (manager)
+             64 RETURN_VALUE
+
+Disassembly of <code object create_friend_request_manager at 0x10924b7c0, file "WeRobotCore/task_system_v3/unified_manager_pattern.py", line 253>:
+255           0 LOAD_CONST               1 (0)
+              2 LOAD_CONST               2 (('FriendRequestManager',))
+              4 IMPORT_NAME              0 (WeRobotCore.task_system_v3.friend_request_manager)
+              6 IMPORT_FROM              1 (FriendRequestManager)
+              8 STORE_FAST               2 (FriendRequestManager)
+             10 POP_TOP
+
+256          12 LOAD_CONST               1 (0)
+             14 LOAD_CONST               3 (('get_permission_manager',))
+             16 IMPORT_NAME              2 (WeRobotCore.task_system_v3.permission_manager)
+             18 IMPORT_FROM              3 (get_permission_manager)
+             20 STORE_FAST               3 (get_permission_manager)
+             22 POP_TOP
+
+258          24 LOAD_FAST                0 (scheduler)
+             26 LOAD_CONST               4 (None)
+             28 IS_OP                    0
+             30 POP_JUMP_IF_FALSE       38
+
+260          32 LOAD_GLOBAL              4 (get_scheduler)
+             34 CALL_FUNCTION            0
+             36 STORE_FAST               0 (scheduler)
+
+261     >>   38 LOAD_FAST                1 (permission_manager)
+             40 LOAD_CONST               4 (None)
+             42 IS_OP                    0
+             44 POP_JUMP_IF_FALSE       52
+
+263          46 LOAD_FAST                3 (get_permission_manager)
+             48 CALL_FUNCTION            0
+             50 STORE_FAST               1 (permission_manager)
+
+265     >>   52 LOAD_FAST                2 (FriendRequestManager)
+             54 LOAD_FAST                0 (scheduler)
+             56 LOAD_FAST                1 (permission_manager)
+             58 CALL_FUNCTION            2
+             60 STORE_FAST               4 (manager)
+
+267          62 LOAD_FAST                4 (manager)
+             64 RETURN_VALUE
+
+Disassembly of <code object create_mass_sending_manager at 0x10924bbe0, file "WeRobotCore/task_system_v3/unified_manager_pattern.py", line 269>:
+271           0 LOAD_CONST               1 (0)
+              2 LOAD_CONST               2 (('MassSendingManager',))
+              4 IMPORT_NAME              0 (WeRobotCore.task_system_v3.mass_sending_manager)
+              6 IMPORT_FROM              1 (MassSendingManager)
+              8 STORE_FAST               2 (MassSendingManager)
+             10 POP_TOP
+
+272          12 LOAD_CONST               1 (0)
+             14 LOAD_CONST               3 (('get_permission_manager',))
+             16 IMPORT_NAME              2 (WeRobotCore.task_system_v3.permission_manager)
+             18 IMPORT_FROM              3 (get_permission_manager)
+             20 STORE_FAST               3 (get_permission_manager)
+             22 POP_TOP
+
+274          24 LOAD_FAST                0 (scheduler)
+             26 LOAD_CONST               4 (None)
+             28 IS_OP                    0
+             30 POP_JUMP_IF_FALSE       38
+
+276          32 LOAD_GLOBAL              4 (get_scheduler)
+             34 CALL_FUNCTION            0
+             36 STORE_FAST               0 (scheduler)
+
+277     >>   38 LOAD_FAST                1 (permission_manager)
+             40 LOAD_CONST               4 (None)
+             42 IS_OP                    0
+             44 POP_JUMP_IF_FALSE       52
+
+279          46 LOAD_FAST                3 (get_permission_manager)
+             48 CALL_FUNCTION            0
+             50 STORE_FAST               1 (permission_manager)
+
+281     >>   52 LOAD_FAST                2 (MassSendingManager)
+             54 LOAD_FAST                0 (scheduler)
+             56 LOAD_FAST                1 (permission_manager)
+             58 CALL_FUNCTION            2
+             60 STORE_FAST               4 (manager)
+
+282          62 LOAD_GLOBAL              5 (_start_manager)
+             64 LOAD_FAST                4 (manager)
+             66 LOAD_CONST               5 ('群发管理器')
+             68 CALL_FUNCTION            2
+             70 POP_TOP
+
+283          72 LOAD_FAST                4 (manager)
+             74 RETURN_VALUE
+
+Disassembly of <code object create_moment_comment_manager at 0x10924b710, file "WeRobotCore/task_system_v3/unified_manager_pattern.py", line 285>:
+287           0 LOAD_CONST               1 (0)
+              2 LOAD_CONST               2 (('MomentCommentManager',))
+              4 IMPORT_NAME              0 (WeRobotCore.task_system_v3.moment_comment_manager)
+              6 IMPORT_FROM              1 (MomentCommentManager)
+              8 STORE_FAST               2 (MomentCommentManager)
+             10 POP_TOP
+
+288          12 LOAD_CONST               1 (0)
+             14 LOAD_CONST               3 (('get_permission_manager',))
+             16 IMPORT_NAME              2 (WeRobotCore.task_system_v3.permission_manager)
+             18 IMPORT_FROM              3 (get_permission_manager)
+             20 STORE_FAST               3 (get_permission_manager)
+             22 POP_TOP
+
+290          24 LOAD_FAST                0 (scheduler)
+             26 LOAD_CONST               4 (None)
+             28 IS_OP                    0
+             30 POP_JUMP_IF_FALSE       38
+
+292          32 LOAD_GLOBAL              4 (get_scheduler)
+             34 CALL_FUNCTION            0
+             36 STORE_FAST               0 (scheduler)
+
+293     >>   38 LOAD_FAST                1 (permission_manager)
+             40 LOAD_CONST               4 (None)
+             42 IS_OP                    0
+             44 POP_JUMP_IF_FALSE       52
+
+295          46 LOAD_FAST                3 (get_permission_manager)
+             48 CALL_FUNCTION            0
+             50 STORE_FAST               1 (permission_manager)
+
+297     >>   52 LOAD_FAST                2 (MomentCommentManager)
+             54 LOAD_FAST                0 (scheduler)
+             56 LOAD_FAST                1 (permission_manager)
+             58 CALL_FUNCTION            2
+             60 STORE_FAST               4 (manager)
+
+299          62 LOAD_FAST                4 (manager)
+             64 RETURN_VALUE
+
+Disassembly of <code object create_moment_post_manager at 0x10924b190, file "WeRobotCore/task_system_v3/unified_manager_pattern.py", line 301>:
+303           0 LOAD_CONST               1 (0)
+              2 LOAD_CONST               2 (('MomentPostManager',))
+              4 IMPORT_NAME              0 (WeRobotCore.task_system_v3.moment_post_manager)
+              6 IMPORT_FROM              1 (MomentPostManager)
+              8 STORE_FAST               2 (MomentPostManager)
+             10 POP_TOP
+
+304          12 LOAD_CONST               1 (0)
+             14 LOAD_CONST               3 (('get_permission_manager',))
+             16 IMPORT_NAME              2 (WeRobotCore.task_system_v3.permission_manager)
+             18 IMPORT_FROM              3 (get_permission_manager)
+             20 STORE_FAST               3 (get_permission_manager)
+             22 POP_TOP
+
+306          24 LOAD_FAST                0 (scheduler)
+             26 LOAD_CONST               4 (None)
+             28 IS_OP                    0
+             30 POP_JUMP_IF_FALSE       38
+
+308          32 LOAD_GLOBAL              4 (get_scheduler)
+             34 CALL_FUNCTION            0
+             36 STORE_FAST               0 (scheduler)
+
+309     >>   38 LOAD_FAST                1 (permission_manager)
+             40 LOAD_CONST               4 (None)
+             42 IS_OP                    0
+             44 POP_JUMP_IF_FALSE       52
+
+311          46 LOAD_FAST                3 (get_permission_manager)
+             48 CALL_FUNCTION            0
+             50 STORE_FAST               1 (permission_manager)
+
+313     >>   52 LOAD_FAST                2 (MomentPostManager)
+             54 LOAD_FAST                0 (scheduler)
+             56 LOAD_FAST                1 (permission_manager)
+             58 CALL_FUNCTION            2
+             60 STORE_FAST               4 (manager)
+
+315          62 LOAD_FAST                4 (manager)
+             64 RETURN_VALUE
+
+Disassembly of <code object create_add_friend_manager at 0x10924b500, file "WeRobotCore/task_system_v3/unified_manager_pattern.py", line 317>:
+319           0 LOAD_CONST               1 (0)
+              2 LOAD_CONST               2 (('AddFriendManager',))
+              4 IMPORT_NAME              0 (WeRobotCore.task_system_v3.add_friend_manager)
+              6 IMPORT_FROM              1 (AddFriendManager)
+              8 STORE_FAST               2 (AddFriendManager)
+             10 POP_TOP
+
+320          12 LOAD_CONST               1 (0)
+             14 LOAD_CONST               3 (('get_permission_manager',))
+             16 IMPORT_NAME              2 (WeRobotCore.task_system_v3.permission_manager)
+             18 IMPORT_FROM              3 (get_permission_manager)
+             20 STORE_FAST               3 (get_permission_manager)
+             22 POP_TOP
+
+322          24 LOAD_FAST                0 (scheduler)
+             26 LOAD_CONST               4 (None)
+             28 IS_OP                    0
+             30 POP_JUMP_IF_FALSE       38
+
+324          32 LOAD_GLOBAL              4 (get_scheduler)
+             34 CALL_FUNCTION            0
+             36 STORE_FAST               0 (scheduler)
+
+325     >>   38 LOAD_FAST                1 (permission_manager)
+             40 LOAD_CONST               4 (None)
+             42 IS_OP                    0
+             44 POP_JUMP_IF_FALSE       52
+
+327          46 LOAD_FAST                3 (get_permission_manager)
+             48 CALL_FUNCTION            0
+             50 STORE_FAST               1 (permission_manager)
+
+329     >>   52 LOAD_FAST                2 (AddFriendManager)
+             54 LOAD_FAST                0 (scheduler)
+             56 LOAD_FAST                1 (permission_manager)
+             58 CALL_FUNCTION            2
+             60 STORE_FAST               4 (manager)
+
+331          62 LOAD_FAST                4 (manager)
+             64 RETURN_VALUE
+
+Disassembly of <code object create_auto_follow_manager at 0x10924b3a0, file "WeRobotCore/task_system_v3/unified_manager_pattern.py", line 333>:
+335           0 LOAD_CONST               1 (0)
+              2 LOAD_CONST               2 (('AutoFollowManager',))
+              4 IMPORT_NAME              0 (WeRobotCore.task_system_v3.auto_follow_manager)
+              6 IMPORT_FROM              1 (AutoFollowManager)
+              8 STORE_FAST               2 (AutoFollowManager)
+             10 POP_TOP
+
+336          12 LOAD_CONST               1 (0)
+             14 LOAD_CONST               3 (('get_permission_manager',))
+             16 IMPORT_NAME              2 (WeRobotCore.task_system_v3.permission_manager)
+             18 IMPORT_FROM              3 (get_permission_manager)
+             20 STORE_FAST               3 (get_permission_manager)
+             22 POP_TOP
+
+338          24 LOAD_FAST                0 (scheduler)
+             26 LOAD_CONST               4 (None)
+             28 IS_OP                    0
+             30 POP_JUMP_IF_FALSE       38
+
+340          32 LOAD_GLOBAL              4 (get_scheduler)
+             34 CALL_FUNCTION            0
+             36 STORE_FAST               0 (scheduler)
+
+342     >>   38 LOAD_FAST                1 (permission_manager)
+             40 LOAD_CONST               4 (None)
+             42 IS_OP                    0
+             44 POP_JUMP_IF_FALSE       52
+
+344          46 LOAD_FAST                3 (get_permission_manager)
+             48 CALL_FUNCTION            0
+             50 STORE_FAST               1 (permission_manager)
+
+346     >>   52 LOAD_FAST                2 (AutoFollowManager)
+             54 LOAD_FAST                0 (scheduler)
+             56 LOAD_FAST                1 (permission_manager)
+             58 CALL_FUNCTION            2
+             60 STORE_FAST               4 (manager)
+
+348          62 LOAD_FAST                4 (manager)
+             64 RETURN_VALUE
+
+Disassembly of <code object create_sync_contacts_manager at 0x10924bb30, file "WeRobotCore/task_system_v3/unified_manager_pattern.py", line 350>:
+352           0 LOAD_CONST               1 (0)
+              2 LOAD_CONST               2 (('SyncContactsManager',))
+              4 IMPORT_NAME              0 (WeRobotCore.task_system_v3.sync_contacts_manager)
+              6 IMPORT_FROM              1 (SyncContactsManager)
+              8 STORE_FAST               2 (SyncContactsManager)
+             10 POP_TOP
+
+353          12 LOAD_CONST               1 (0)
+             14 LOAD_CONST               3 (('get_permission_manager',))
+             16 IMPORT_NAME              2 (WeRobotCore.task_system_v3.permission_manager)
+             18 IMPORT_FROM              3 (get_permission_manager)
+             20 STORE_FAST               3 (get_permission_manager)
+             22 POP_TOP
+
+355          24 LOAD_FAST                0 (scheduler)
+             26 LOAD_CONST               4 (None)
+             28 IS_OP                    0
+             30 POP_JUMP_IF_FALSE       38
+
+357          32 LOAD_GLOBAL              4 (get_scheduler)
+             34 CALL_FUNCTION            0
+             36 STORE_FAST               0 (scheduler)
+
+359     >>   38 LOAD_FAST                1 (permission_manager)
+             40 LOAD_CONST               4 (None)
+             42 IS_OP                    0
+             44 POP_JUMP_IF_FALSE       52
+
+361          46 LOAD_FAST                3 (get_permission_manager)
+             48 CALL_FUNCTION            0
+             50 STORE_FAST               1 (permission_manager)
+
+363     >>   52 LOAD_FAST                2 (SyncContactsManager)
+             54 LOAD_FAST                0 (scheduler)
+             56 LOAD_FAST                1 (permission_manager)
+             58 CALL_FUNCTION            2
+             60 STORE_FAST               4 (manager)
+
+365          62 LOAD_FAST                4 (manager)
+             64 RETURN_VALUE
+
+Disassembly of <code object create_unified_scheduler at 0x10924b2f0, file "WeRobotCore/task_system_v3/unified_manager_pattern.py", line 369>:
+371           0 LOAD_CONST               1 (0)
+              2 LOAD_CONST               2 (('UnifiedScheduler',))
+              4 IMPORT_NAME              0 (WeRobotCore.task_system_v3.unified_scheduler)
+              6 IMPORT_FROM              1 (UnifiedScheduler)
+              8 STORE_FAST               0 (UnifiedScheduler)
+             10 POP_TOP
+
+373          12 LOAD_FAST                0 (UnifiedScheduler)
+             14 CALL_FUNCTION            0
+             16 STORE_FAST               1 (scheduler)
+
+374          18 LOAD_FAST                1 (scheduler)
+             20 RETURN_VALUE
+
+Disassembly of <code object register_all_managers at 0x10924bf50, file "WeRobotCore/task_system_v3/unified_manager_pattern.py", line 378>:
+380           0 LOAD_GLOBAL              0 (GlobalManagerRegistry)
+              2 LOAD_METHOD              1 (register_manager_type)
+
+381           4 LOAD_CONST               1 ('auto_reply_manager')
+              6 LOAD_GLOBAL              2 (create_auto_reply_manager)
+
+380           8 CALL_METHOD              2
+             10 POP_TOP
+
+383          12 LOAD_GLOBAL              0 (GlobalManagerRegistry)
+             14 LOAD_METHOD              1 (register_manager_type)
+
+384          16 LOAD_CONST               2 ('friend_request_manager')
+             18 LOAD_GLOBAL              3 (create_friend_request_manager)
+
+383          20 CALL_METHOD              2
+             22 POP_TOP
+
+386          24 LOAD_GLOBAL              0 (GlobalManagerRegistry)
+             26 LOAD_METHOD              1 (register_manager_type)
+
+387          28 LOAD_CONST               3 ('mass_sending_manager')
+             30 LOAD_GLOBAL              4 (create_mass_sending_manager)
+
+386          32 CALL_METHOD              2
+             34 POP_TOP
+
+389          36 LOAD_GLOBAL              0 (GlobalManagerRegistry)
+             38 LOAD_METHOD              1 (register_manager_type)
+
+390          40 LOAD_CONST               4 ('moment_comment_manager')
+             42 LOAD_GLOBAL              5 (create_moment_comment_manager)
+
+389          44 CALL_METHOD              2
+             46 POP_TOP
+
+392          48 LOAD_GLOBAL              0 (GlobalManagerRegistry)
+             50 LOAD_METHOD              1 (register_manager_type)
+
+393          52 LOAD_CONST               5 ('moment_post_manager')
+             54 LOAD_GLOBAL              6 (create_moment_post_manager)
+
+392          56 CALL_METHOD              2
+             58 POP_TOP
+
+395          60 LOAD_GLOBAL              0 (GlobalManagerRegistry)
+             62 LOAD_METHOD              1 (register_manager_type)
+
+396          64 LOAD_CONST               6 ('add_friend_manager')
+             66 LOAD_GLOBAL              7 (create_add_friend_manager)
+
+395          68 CALL_METHOD              2
+             70 POP_TOP
+
+398          72 LOAD_GLOBAL              0 (GlobalManagerRegistry)
+             74 LOAD_METHOD              1 (register_manager_type)
+
+399          76 LOAD_CONST               7 ('auto_follow_manager')
+             78 LOAD_GLOBAL              8 (create_auto_follow_manager)
+
+398          80 CALL_METHOD              2
+             82 POP_TOP
+
+401          84 LOAD_GLOBAL              0 (GlobalManagerRegistry)
+             86 LOAD_METHOD              1 (register_manager_type)
+
+402          88 LOAD_CONST               8 ('sync_contacts_manager')
+             90 LOAD_GLOBAL              9 (create_sync_contacts_manager)
+
+401          92 CALL_METHOD              2
+             94 POP_TOP
+
+404          96 LOAD_GLOBAL              0 (GlobalManagerRegistry)
+             98 LOAD_METHOD              1 (register_manager_type)
+
+405         100 LOAD_CONST               9 ('unified_scheduler')
+            102 LOAD_GLOBAL             10 (create_unified_scheduler)
+
+404         104 CALL_METHOD              2
+            106 POP_TOP
+            108 LOAD_CONST              10 (None)
+            110 RETURN_VALUE
+
+Disassembly of <code object get_auto_reply_manager at 0x10925d3a0, file "WeRobotCore/task_system_v3/unified_manager_pattern.py", line 410>:
+412           0 LOAD_GLOBAL              0 (GlobalManagerRegistry)
+              2 LOAD_METHOD              1 (get_or_create_manager)
+
+413           4 LOAD_CONST               1 ('auto_reply_manager')
+              6 LOAD_FAST                0 (scheduler)
+              8 LOAD_FAST                1 (permission_manager)
+
+412          10 CALL_METHOD              3
+             12 RETURN_VALUE
+
+Disassembly of <code object get_friend_request_manager at 0x10925d710, file "WeRobotCore/task_system_v3/unified_manager_pattern.py", line 416>:
+418           0 LOAD_GLOBAL              0 (GlobalManagerRegistry)
+              2 LOAD_METHOD              1 (get_or_create_manager)
+
+419           4 LOAD_CONST               1 ('friend_request_manager')
+              6 LOAD_FAST                0 (scheduler)
+              8 LOAD_FAST                1 (permission_manager)
+
+418          10 CALL_METHOD              3
+             12 RETURN_VALUE
+
+Disassembly of <code object get_mass_sending_manager at 0x10925d190, file "WeRobotCore/task_system_v3/unified_manager_pattern.py", line 422>:
+424           0 LOAD_GLOBAL              0 (GlobalManagerRegistry)
+              2 LOAD_METHOD              1 (get_or_create_manager)
+              4 LOAD_CONST               1 ('mass_sending_manager')
+              6 CALL_METHOD              1
+              8 RETURN_VALUE
+
+Disassembly of <code object get_moment_comment_manager at 0x10925d450, file "WeRobotCore/task_system_v3/unified_manager_pattern.py", line 426>:
+428           0 LOAD_GLOBAL              0 (GlobalManagerRegistry)
+              2 LOAD_METHOD              1 (get_or_create_manager)
+
+429           4 LOAD_CONST               1 ('moment_comment_manager')
+              6 LOAD_FAST                0 (scheduler)
+              8 LOAD_FAST                1 (permission_manager)
+
+428          10 CALL_METHOD              3
+             12 RETURN_VALUE
+
+Disassembly of <code object get_moment_post_manager at 0x10925dbe0, file "WeRobotCore/task_system_v3/unified_manager_pattern.py", line 431>:
+433           0 LOAD_GLOBAL              0 (GlobalManagerRegistry)
+              2 LOAD_METHOD              1 (get_or_create_manager)
+
+434           4 LOAD_CONST               1 ('moment_post_manager')
+              6 LOAD_FAST                0 (scheduler)
+              8 LOAD_FAST                1 (permission_manager)
+
+433          10 CALL_METHOD              3
+             12 RETURN_VALUE
+
+Disassembly of <code object get_add_friend_manager at 0x10925d9d0, file "WeRobotCore/task_system_v3/unified_manager_pattern.py", line 437>:
+439           0 LOAD_GLOBAL              0 (GlobalManagerRegistry)
+              2 LOAD_METHOD              1 (get_or_create_manager)
+
+440           4 LOAD_CONST               1 ('add_friend_manager')
+              6 LOAD_FAST                0 (scheduler)
+              8 LOAD_FAST                1 (permission_manager)
+
+439          10 CALL_METHOD              3
+             12 RETURN_VALUE
+
+Disassembly of <code object get_auto_follow_manager at 0x10925dea0, file "WeRobotCore/task_system_v3/unified_manager_pattern.py", line 443>:
+445           0 LOAD_GLOBAL              0 (GlobalManagerRegistry)
+              2 LOAD_METHOD              1 (get_or_create_manager)
+
+446           4 LOAD_CONST               1 ('auto_follow_manager')
+              6 LOAD_FAST                0 (scheduler)
+
+445           8 CALL_METHOD              2
+             10 RETURN_VALUE
+
+Disassembly of <code object get_sync_contacts_manager at 0x10925df50, file "WeRobotCore/task_system_v3/unified_manager_pattern.py", line 449>:
+451           0 LOAD_GLOBAL              0 (GlobalManagerRegistry)
+              2 LOAD_METHOD              1 (get_or_create_manager)
+
+452           4 LOAD_CONST               1 ('sync_contacts_manager')
+              6 LOAD_FAST                0 (scheduler)
+              8 LOAD_FAST                1 (permission_manager)
+
+451          10 CALL_METHOD              3
+             12 RETURN_VALUE
+
+Disassembly of <code object get_scheduler at 0x10925d660, file "WeRobotCore/task_system_v3/unified_manager_pattern.py", line 459>:
+461           0 LOAD_GLOBAL              0 (GlobalManagerRegistry)
+              2 LOAD_METHOD              1 (get_or_create_manager)
+              4 LOAD_CONST               1 ('unified_scheduler')
+              6 CALL_METHOD              1
+              8 RETURN_VALUE
+
+Disassembly of <code object initialize_all_managers_and_process_tasks at 0x10925ddf0, file "WeRobotCore/task_system_v3/unified_manager_pattern.py", line 470>:
+476           0 LOAD_GLOBAL              0 (register_all_managers)
+              2 CALL_FUNCTION            0
+              4 POP_TOP
+
+479           6 LOAD_GLOBAL              1 (get_scheduler)
+              8 CALL_FUNCTION            0
+             10 STORE_FAST               0 (scheduler)
+
+483          12 LOAD_GLOBAL              2 (get_auto_reply_manager)
+             14 CALL_FUNCTION            0
+
+484          16 LOAD_GLOBAL              3 (get_friend_request_manager)
+             18 CALL_FUNCTION            0
+
+485          20 LOAD_GLOBAL              4 (get_mass_sending_manager)
+             22 CALL_FUNCTION            0
+
+486          24 LOAD_GLOBAL              5 (get_moment_comment_manager)
+             26 CALL_FUNCTION            0
+
+487          28 LOAD_GLOBAL              6 (get_moment_post_manager)
+             30 CALL_FUNCTION            0
+
+488          32 LOAD_GLOBAL              7 (get_add_friend_manager)
+             34 CALL_FUNCTION            0
+
+489          36 LOAD_GLOBAL              8 (get_auto_follow_manager)
+             38 CALL_FUNCTION            0
+
+490          40 LOAD_GLOBAL              9 (get_sync_contacts_manager)
+             42 CALL_FUNCTION            0
+
+482          44 BUILD_LIST               8
+             46 STORE_FAST               1 (managers)
+
+494          48 LOAD_GLOBAL             10 (asyncio)
+             50 LOAD_METHOD             11 (sleep)
+             52 LOAD_CONST               1 (0.1)
+             54 CALL_METHOD              1
+             56 GET_AWAITABLE
+             58 LOAD_CONST               2 (None)
+             60 YIELD_FROM
+             62 POP_TOP
+
+497          64 LOAD_FAST                0 (scheduler)
+             66 LOAD_METHOD             12 (process_existing_tasks)
+             68 CALL_METHOD              0
+             70 GET_AWAITABLE
+             72 LOAD_CONST               2 (None)
+             74 YIELD_FROM
+             76 POP_TOP
+             78 LOAD_CONST               2 (None)
+             80 RETURN_VALUE

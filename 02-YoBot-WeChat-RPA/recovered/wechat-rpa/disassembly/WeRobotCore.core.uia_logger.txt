@@ -1,0 +1,269 @@
+  1           0 LOAD_CONST               0 (0)
+              2 LOAD_CONST               1 (None)
+              4 IMPORT_NAME              0 (logging)
+              6 STORE_NAME               0 (logging)
+
+  2           8 LOAD_CONST               0 (0)
+             10 LOAD_CONST               2 (('Path',))
+             12 IMPORT_NAME              1 (pathlib)
+             14 IMPORT_FROM              2 (Path)
+             16 STORE_NAME               2 (Path)
+             18 POP_TOP
+
+  3          20 LOAD_CONST               0 (0)
+             22 LOAD_CONST               3 (('Optional',))
+             24 IMPORT_NAME              3 (typing)
+             26 IMPORT_FROM              4 (Optional)
+             28 STORE_NAME               4 (Optional)
+             30 POP_TOP
+
+  4          32 LOAD_CONST               0 (0)
+             34 LOAD_CONST               4 (('RotatingFileHandler',))
+             36 IMPORT_NAME              5 (logging.handlers)
+             38 IMPORT_FROM              6 (RotatingFileHandler)
+             40 STORE_NAME               6 (RotatingFileHandler)
+             42 POP_TOP
+
+  6          44 LOAD_BUILD_CLASS
+             46 LOAD_CONST               5 (<code object UiaLogger at 0x109244b30, file "WeRobotCore/core/uia_logger.py", line 6>)
+             48 LOAD_CONST               6 ('UiaLogger')
+             50 MAKE_FUNCTION            0
+             52 LOAD_CONST               6 ('UiaLogger')
+             54 CALL_FUNCTION            2
+             56 STORE_NAME               7 (UiaLogger)
+             58 LOAD_CONST               1 (None)
+             60 RETURN_VALUE
+
+Disassembly of <code object UiaLogger at 0x109244b30, file "WeRobotCore/core/uia_logger.py", line 6>:
+  6           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('UiaLogger')
+              6 STORE_NAME               2 (__qualname__)
+
+  7           8 LOAD_CONST               1 ('UIA微信操作日志管理器')
+             10 STORE_NAME               3 (__doc__)
+
+  9          12 LOAD_CONST              13 ((None, 'uiauto'))
+             14 LOAD_NAME                4 (Optional)
+             16 LOAD_NAME                5 (str)
+             18 BINARY_SUBSCR
+             20 LOAD_NAME                5 (str)
+             22 LOAD_CONST               4 (('log_dir', 'logger_name'))
+             24 BUILD_CONST_KEY_MAP      2
+             26 LOAD_CONST               5 (<code object __init__ at 0x1092440e0, file "WeRobotCore/core/uia_logger.py", line 9>)
+             28 LOAD_CONST               6 ('UiaLogger.__init__')
+             30 MAKE_FUNCTION            5 (defaults, annotations)
+             32 STORE_NAME               6 (__init__)
+
+ 52          34 LOAD_NAME                7 (logging)
+             36 LOAD_ATTR                8 (Logger)
+             38 LOAD_CONST               7 (('return',))
+             40 BUILD_CONST_KEY_MAP      1
+             42 LOAD_CONST               8 (<code object get_logger at 0x1092447c0, file "WeRobotCore/core/uia_logger.py", line 52>)
+             44 LOAD_CONST               9 ('UiaLogger.get_logger')
+             46 MAKE_FUNCTION            4 (annotations)
+             48 STORE_NAME               9 (get_logger)
+
+ 55          50 LOAD_NAME               10 (bool)
+             52 LOAD_CONST              10 (('debug',))
+             54 BUILD_CONST_KEY_MAP      1
+             56 LOAD_CONST              11 (<code object set_debug at 0x109244660, file "WeRobotCore/core/uia_logger.py", line 55>)
+             58 LOAD_CONST              12 ('UiaLogger.set_debug')
+             60 MAKE_FUNCTION            4 (annotations)
+             62 STORE_NAME              11 (set_debug)
+             64 LOAD_CONST               2 (None)
+             66 RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x1092440e0, file "WeRobotCore/core/uia_logger.py", line 9>:
+ 10           0 LOAD_FAST                1 (log_dir)
+              2 LOAD_CONST               0 (None)
+              4 IS_OP                    0
+              6 POP_JUMP_IF_FALSE       34
+
+ 11           8 LOAD_CONST               1 (0)
+             10 LOAD_CONST               2 (('get_log_root',))
+             12 IMPORT_NAME              0 (WeRobotCore.utils.logger)
+             14 IMPORT_FROM              1 (get_log_root)
+             16 STORE_FAST               3 (get_log_root)
+             18 POP_TOP
+
+ 13          20 LOAD_FAST                3 (get_log_root)
+             22 CALL_FUNCTION            0
+             24 LOAD_CONST               3 ('uiauto')
+             26 BINARY_TRUE_DIVIDE
+             28 LOAD_FAST                0 (self)
+             30 STORE_ATTR               2 (log_dir)
+             32 JUMP_FORWARD            10 (to 44)
+
+ 15     >>   34 LOAD_GLOBAL              3 (Path)
+             36 LOAD_FAST                1 (log_dir)
+             38 CALL_FUNCTION            1
+             40 LOAD_FAST                0 (self)
+             42 STORE_ATTR               2 (log_dir)
+
+ 16     >>   44 LOAD_FAST                0 (self)
+             46 LOAD_ATTR                2 (log_dir)
+             48 LOAD_ATTR                4 (mkdir)
+             50 LOAD_CONST               4 (True)
+             52 LOAD_CONST               4 (True)
+             54 LOAD_CONST               5 (('parents', 'exist_ok'))
+             56 CALL_FUNCTION_KW         2
+             58 POP_TOP
+
+ 19          60 LOAD_GLOBAL              5 (logging)
+             62 LOAD_METHOD              6 (Formatter)
+
+ 20          64 LOAD_CONST               6 ('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+
+ 19          66 CALL_METHOD              1
+             68 STORE_FAST               4 (formatter)
+
+ 23          70 LOAD_GLOBAL              5 (logging)
+             72 LOAD_METHOD              7 (getLogger)
+             74 LOAD_FAST                2 (logger_name)
+             76 CALL_METHOD              1
+             78 LOAD_FAST                0 (self)
+             80 STORE_ATTR               8 (logger)
+
+ 26          82 LOAD_FAST                0 (self)
+             84 LOAD_ATTR                8 (logger)
+             86 LOAD_METHOD              9 (hasHandlers)
+             88 CALL_METHOD              0
+             90 POP_JUMP_IF_FALSE      126
+
+ 27          92 LOAD_FAST                0 (self)
+             94 LOAD_ATTR                8 (logger)
+             96 LOAD_ATTR               10 (handlers)
+             98 GET_ITER
+        >>  100 FOR_ITER                12 (to 114)
+            102 STORE_FAST               5 (handler)
+
+ 28         104 LOAD_FAST                5 (handler)
+            106 LOAD_METHOD             11 (close)
+            108 CALL_METHOD              0
+            110 POP_TOP
+            112 JUMP_ABSOLUTE          100
+
+ 29     >>  114 LOAD_FAST                0 (self)
+            116 LOAD_ATTR                8 (logger)
+            118 LOAD_ATTR               10 (handlers)
+            120 LOAD_METHOD             12 (clear)
+            122 CALL_METHOD              0
+            124 POP_TOP
+
+ 32     >>  126 LOAD_GLOBAL             13 (RotatingFileHandler)
+
+ 33         128 LOAD_FAST                0 (self)
+            130 LOAD_ATTR                2 (log_dir)
+            132 LOAD_CONST               7 ('wechat_operations.log')
+            134 BINARY_TRUE_DIVIDE
+
+ 34         136 LOAD_CONST               8 (10485760)
+
+ 35         138 LOAD_CONST               9 (5)
+
+ 36         140 LOAD_CONST              10 ('utf-8')
+
+ 32         142 LOAD_CONST              11 (('maxBytes', 'backupCount', 'encoding'))
+            144 CALL_FUNCTION_KW         4
+            146 STORE_FAST               6 (file_handler)
+
+ 38         148 LOAD_FAST                6 (file_handler)
+            150 LOAD_METHOD             14 (setFormatter)
+            152 LOAD_FAST                4 (formatter)
+            154 CALL_METHOD              1
+            156 POP_TOP
+
+ 41         158 LOAD_CONST               1 (0)
+            160 LOAD_CONST               0 (None)
+            162 IMPORT_NAME             15 (sys)
+            164 STORE_FAST               7 (sys)
+
+ 42         166 LOAD_GLOBAL              5 (logging)
+            168 LOAD_METHOD             16 (StreamHandler)
+            170 LOAD_FAST                7 (sys)
+            172 LOAD_ATTR               17 (stdout)
+            174 CALL_METHOD              1
+            176 LOAD_FAST                0 (self)
+            178 STORE_ATTR              18 (console_handler)
+
+ 43         180 LOAD_FAST                0 (self)
+            182 LOAD_ATTR               18 (console_handler)
+            184 LOAD_METHOD             14 (setFormatter)
+            186 LOAD_FAST                4 (formatter)
+            188 CALL_METHOD              1
+            190 POP_TOP
+
+ 46         192 LOAD_FAST                0 (self)
+            194 LOAD_ATTR                8 (logger)
+            196 LOAD_METHOD             19 (setLevel)
+            198 LOAD_GLOBAL              5 (logging)
+            200 LOAD_ATTR               20 (DEBUG)
+            202 CALL_METHOD              1
+            204 POP_TOP
+
+ 47         206 LOAD_FAST                0 (self)
+            208 LOAD_ATTR                8 (logger)
+            210 LOAD_METHOD             21 (addHandler)
+            212 LOAD_FAST                6 (file_handler)
+            214 CALL_METHOD              1
+            216 POP_TOP
+
+ 48         218 LOAD_FAST                0 (self)
+            220 LOAD_ATTR                8 (logger)
+            222 LOAD_METHOD             21 (addHandler)
+            224 LOAD_FAST                0 (self)
+            226 LOAD_ATTR               18 (console_handler)
+            228 CALL_METHOD              1
+            230 POP_TOP
+
+ 50         232 LOAD_CONST              12 (False)
+            234 LOAD_FAST                0 (self)
+            236 LOAD_ATTR                8 (logger)
+            238 STORE_ATTR              22 (propagate)
+            240 LOAD_CONST               0 (None)
+            242 RETURN_VALUE
+
+Disassembly of <code object get_logger at 0x1092447c0, file "WeRobotCore/core/uia_logger.py", line 52>:
+ 53           0 LOAD_FAST                0 (self)
+              2 LOAD_ATTR                0 (logger)
+              4 RETURN_VALUE
+
+Disassembly of <code object set_debug at 0x109244660, file "WeRobotCore/core/uia_logger.py", line 55>:
+ 56           0 LOAD_FAST                1 (debug)
+              2 POP_JUMP_IF_FALSE       34
+
+ 57           4 LOAD_FAST                0 (self)
+              6 LOAD_ATTR                0 (logger)
+              8 LOAD_METHOD              1 (setLevel)
+             10 LOAD_GLOBAL              2 (logging)
+             12 LOAD_ATTR                3 (DEBUG)
+             14 CALL_METHOD              1
+             16 POP_TOP
+
+ 58          18 LOAD_FAST                0 (self)
+             20 LOAD_ATTR                4 (console_handler)
+             22 LOAD_METHOD              1 (setLevel)
+             24 LOAD_GLOBAL              2 (logging)
+             26 LOAD_ATTR                3 (DEBUG)
+             28 CALL_METHOD              1
+             30 POP_TOP
+             32 JUMP_FORWARD            28 (to 62)
+
+ 60     >>   34 LOAD_FAST                0 (self)
+             36 LOAD_ATTR                0 (logger)
+             38 LOAD_METHOD              1 (setLevel)
+             40 LOAD_GLOBAL              2 (logging)
+             42 LOAD_ATTR                5 (INFO)
+             44 CALL_METHOD              1
+             46 POP_TOP
+
+ 61          48 LOAD_FAST                0 (self)
+             50 LOAD_ATTR                4 (console_handler)
+             52 LOAD_METHOD              1 (setLevel)
+             54 LOAD_GLOBAL              2 (logging)
+             56 LOAD_ATTR                5 (INFO)
+             58 CALL_METHOD              1
+             60 POP_TOP
+        >>   62 LOAD_CONST               0 (None)
+             64 RETURN_VALUE

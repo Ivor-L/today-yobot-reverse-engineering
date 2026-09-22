@@ -1,0 +1,450 @@
+  1           0 LOAD_CONST               0 ('Explicit-root adapter for the established JSON chat-history contract.')
+              2 STORE_NAME               0 (__doc__)
+
+  3           4 LOAD_CONST               1 (0)
+              6 LOAD_CONST               2 (('annotations',))
+              8 IMPORT_NAME              1 (__future__)
+             10 IMPORT_FROM              2 (annotations)
+             12 STORE_NAME               2 (annotations)
+             14 POP_TOP
+
+  5          16 LOAD_CONST               1 (0)
+             18 LOAD_CONST               3 (None)
+             20 IMPORT_NAME              3 (asyncio)
+             22 STORE_NAME               3 (asyncio)
+
+  6          24 LOAD_CONST               1 (0)
+             26 LOAD_CONST               4 (('Path',))
+             28 IMPORT_NAME              4 (pathlib)
+             30 IMPORT_FROM              5 (Path)
+             32 STORE_NAME               5 (Path)
+             34 POP_TOP
+
+  7          36 LOAD_CONST               1 (0)
+             38 LOAD_CONST               5 (('Dict',))
+             40 IMPORT_NAME              6 (typing)
+             42 IMPORT_FROM              7 (Dict)
+             44 STORE_NAME               7 (Dict)
+             46 POP_TOP
+
+  9          48 LOAD_CONST               1 (0)
+             50 LOAD_CONST               6 (('AutoReplyTaskHistoryStore', 'AutoReplyTaskHistoryStoreFactory', 'require_task_history_store'))
+             52 IMPORT_NAME              8 (WeRobotCore.application.auto_reply)
+             54 IMPORT_FROM              9 (AutoReplyTaskHistoryStore)
+             56 STORE_NAME               9 (AutoReplyTaskHistoryStore)
+             58 IMPORT_FROM             10 (AutoReplyTaskHistoryStoreFactory)
+             60 STORE_NAME              10 (AutoReplyTaskHistoryStoreFactory)
+             62 IMPORT_FROM             11 (require_task_history_store)
+             64 STORE_NAME              11 (require_task_history_store)
+             66 POP_TOP
+
+ 14          68 LOAD_CONST               1 (0)
+             70 LOAD_CONST               7 (('ChatHistoryManager',))
+             72 IMPORT_NAME             12 (WeRobotCore.utils.chat_history)
+             74 IMPORT_FROM             13 (ChatHistoryManager)
+             76 STORE_NAME              13 (ChatHistoryManager)
+             78 POP_TOP
+
+ 17          80 LOAD_CONST               8 ('str')
+             82 LOAD_CONST               8 ('str')
+             84 LOAD_CONST               9 (('account_id', 'return'))
+             86 BUILD_CONST_KEY_MAP      2
+             88 LOAD_CONST              10 (<code object _account_segment at 0x1092449d0, file "WeRobotCore/adapters/history_storage/explicit_path.py", line 17>)
+             90 LOAD_CONST              11 ('_account_segment')
+             92 MAKE_FUNCTION            4 (annotations)
+             94 STORE_NAME              14 (_account_segment)
+
+ 29          96 LOAD_BUILD_CLASS
+             98 LOAD_CONST              12 (<code object ExplicitPathChatHistoryStore at 0x109244a80, file "WeRobotCore/adapters/history_storage/explicit_path.py", line 29>)
+            100 LOAD_CONST              13 ('ExplicitPathChatHistoryStore')
+            102 MAKE_FUNCTION            0
+            104 LOAD_CONST              13 ('ExplicitPathChatHistoryStore')
+            106 LOAD_NAME               13 (ChatHistoryManager)
+            108 CALL_FUNCTION            3
+            110 STORE_NAME              15 (ExplicitPathChatHistoryStore)
+
+ 78         112 LOAD_BUILD_CLASS
+            114 LOAD_CONST              14 (<code object ExplicitPathChatHistoryStoreFactory at 0x109244870, file "WeRobotCore/adapters/history_storage/explicit_path.py", line 78>)
+            116 LOAD_CONST              15 ('ExplicitPathChatHistoryStoreFactory')
+            118 MAKE_FUNCTION            0
+            120 LOAD_CONST              15 ('ExplicitPathChatHistoryStoreFactory')
+            122 CALL_FUNCTION            2
+            124 STORE_NAME              16 (ExplicitPathChatHistoryStoreFactory)
+
+109         126 LOAD_CONST              13 ('ExplicitPathChatHistoryStore')
+
+110         128 LOAD_CONST              15 ('ExplicitPathChatHistoryStoreFactory')
+
+108         130 BUILD_LIST               2
+            132 STORE_NAME              17 (__all__)
+            134 LOAD_CONST               3 (None)
+            136 RETURN_VALUE
+
+Disassembly of <code object _account_segment at 0x1092449d0, file "WeRobotCore/adapters/history_storage/explicit_path.py", line 17>:
+ 18           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                0 (account_id)
+              4 LOAD_GLOBAL              1 (str)
+              6 CALL_FUNCTION            2
+              8 POP_JUMP_IF_FALSE       14
+             10 LOAD_FAST                0 (account_id)
+             12 POP_JUMP_IF_TRUE        22
+
+ 19     >>   14 LOAD_GLOBAL              2 (ValueError)
+             16 LOAD_CONST               1 ('account_id must be a non-empty string')
+             18 CALL_FUNCTION            1
+             20 RAISE_VARARGS            1
+
+ 20     >>   22 LOAD_GLOBAL              3 (len)
+             24 LOAD_FAST                0 (account_id)
+             26 LOAD_METHOD              4 (encode)
+             28 LOAD_CONST               2 ('utf-8')
+             30 CALL_METHOD              1
+             32 CALL_FUNCTION            1
+             34 LOAD_CONST               3 (255)
+             36 COMPARE_OP               4 (>)
+             38 POP_JUMP_IF_FALSE       48
+
+ 21          40 LOAD_GLOBAL              2 (ValueError)
+             42 LOAD_CONST               4 ('account_id exceeds the filesystem segment limit')
+             44 CALL_FUNCTION            1
+             46 RAISE_VARARGS            1
+
+ 22     >>   48 LOAD_FAST                0 (account_id)
+             50 LOAD_CONST               5 (('.', '..'))
+             52 CONTAINS_OP              0
+             54 POP_JUMP_IF_TRUE        70
+             56 LOAD_GLOBAL              5 (Path)
+             58 LOAD_FAST                0 (account_id)
+             60 CALL_FUNCTION            1
+             62 LOAD_ATTR                6 (name)
+             64 LOAD_FAST                0 (account_id)
+             66 COMPARE_OP               3 (!=)
+             68 POP_JUMP_IF_FALSE       78
+
+ 23     >>   70 LOAD_GLOBAL              2 (ValueError)
+             72 LOAD_CONST               6 ('account_id must be one safe filesystem segment')
+             74 CALL_FUNCTION            1
+             76 RAISE_VARARGS            1
+
+ 24     >>   78 LOAD_CONST               7 ('\x00')
+             80 LOAD_FAST                0 (account_id)
+             82 CONTAINS_OP              0
+             84 POP_JUMP_IF_FALSE       94
+
+ 25          86 LOAD_GLOBAL              2 (ValueError)
+             88 LOAD_CONST               8 ('account_id must not contain NUL')
+             90 CALL_FUNCTION            1
+             92 RAISE_VARARGS            1
+
+ 26     >>   94 LOAD_FAST                0 (account_id)
+             96 RETURN_VALUE
+
+Disassembly of <code object ExplicitPathChatHistoryStore at 0x109244a80, file "WeRobotCore/adapters/history_storage/explicit_path.py", line 29>:
+ 29           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('ExplicitPathChatHistoryStore')
+              6 STORE_NAME               2 (__qualname__)
+
+ 30           8 LOAD_CONST               1 ('Reuse mature history behavior without DataManager or ``Path.home``.\n\n    Construction and reads of missing history are side-effect free.  The\n    account directory and established ``sessions_index.json`` are created only\n    by the first write, matching the point where persistence is actually\n    required.\n    ')
+             10 STORE_NAME               3 (__doc__)
+
+ 38          12 LOAD_CONST               2 (<code object __new__ at 0x109244920, file "WeRobotCore/adapters/history_storage/explicit_path.py", line 38>)
+             14 LOAD_CONST               3 ('ExplicitPathChatHistoryStore.__new__')
+             16 MAKE_FUNCTION            0
+             18 STORE_NAME               4 (__new__)
+
+ 41          20 LOAD_CONST               4 ('Path')
+             22 LOAD_CONST               5 ('str')
+             24 LOAD_CONST               6 ('None')
+             26 LOAD_CONST               7 (('history_root', 'account_id', 'return'))
+             28 BUILD_CONST_KEY_MAP      3
+             30 LOAD_CONST               8 (<code object __init__ at 0x109244030, file "WeRobotCore/adapters/history_storage/explicit_path.py", line 41>)
+             32 LOAD_CONST               9 ('ExplicitPathChatHistoryStore.__init__')
+             34 MAKE_FUNCTION            4 (annotations)
+             36 STORE_NAME               5 (__init__)
+
+ 56          38 LOAD_CONST               6 ('None')
+             40 LOAD_CONST              10 (('return',))
+             42 BUILD_CONST_KEY_MAP      1
+             44 LOAD_CONST              11 (<code object _ensure_write_root at 0x109244be0, file "WeRobotCore/adapters/history_storage/explicit_path.py", line 56>)
+             46 LOAD_CONST              12 ('ExplicitPathChatHistoryStore._ensure_write_root')
+             48 MAKE_FUNCTION            4 (annotations)
+             50 STORE_NAME               6 (_ensure_write_root)
+
+ 62          52 LOAD_CONST              16 ((False,))
+             54 LOAD_CONST               6 ('None')
+             56 LOAD_CONST              10 (('return',))
+             58 BUILD_CONST_KEY_MAP      1
+             60 LOAD_CLOSURE             0 (__class__)
+             62 BUILD_TUPLE              1
+             64 LOAD_CONST              14 (<code object save_messages at 0x1092443a0, file "WeRobotCore/adapters/history_storage/explicit_path.py", line 62>)
+             66 LOAD_CONST              15 ('ExplicitPathChatHistoryStore.save_messages')
+             68 MAKE_FUNCTION           13 (defaults, annotations, closure)
+             70 STORE_NAME               7 (save_messages)
+             72 LOAD_CLOSURE             0 (__class__)
+             74 DUP_TOP
+             76 STORE_NAME               8 (__classcell__)
+             78 RETURN_VALUE
+
+Disassembly of <code object __new__ at 0x109244920, file "WeRobotCore/adapters/history_storage/explicit_path.py", line 38>:
+ 39           0 LOAD_GLOBAL              0 (object)
+              2 LOAD_METHOD              1 (__new__)
+              4 LOAD_FAST                0 (cls)
+              6 CALL_METHOD              1
+              8 RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x109244030, file "WeRobotCore/adapters/history_storage/explicit_path.py", line 41>:
+ 42           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                1 (history_root)
+              4 LOAD_GLOBAL              1 (Path)
+              6 CALL_FUNCTION            2
+              8 POP_JUMP_IF_TRUE        18
+
+ 43          10 LOAD_GLOBAL              2 (TypeError)
+             12 LOAD_CONST               1 ('history_root must be a pathlib.Path')
+             14 CALL_FUNCTION            1
+             16 RAISE_VARARGS            1
+
+ 44     >>   18 LOAD_FAST                1 (history_root)
+             20 LOAD_METHOD              3 (is_absolute)
+             22 CALL_METHOD              0
+             24 POP_JUMP_IF_TRUE        34
+
+ 45          26 LOAD_GLOBAL              4 (ValueError)
+             28 LOAD_CONST               2 ('history_root must be an absolute path')
+             30 CALL_FUNCTION            1
+             32 RAISE_VARARGS            1
+
+ 46     >>   34 LOAD_GLOBAL              5 (_account_segment)
+             36 LOAD_FAST                2 (account_id)
+             38 CALL_FUNCTION            1
+             40 STORE_FAST               3 (normalized_account_id)
+
+ 47          42 LOAD_FAST                3 (normalized_account_id)
+             44 LOAD_FAST                0 (self)
+             46 STORE_ATTR               6 (account_id)
+
+ 48          48 LOAD_GLOBAL              7 (str)
+             50 LOAD_FAST                1 (history_root)
+             52 LOAD_FAST                3 (normalized_account_id)
+             54 BINARY_TRUE_DIVIDE
+             56 CALL_FUNCTION            1
+             58 LOAD_FAST                0 (self)
+             60 STORE_ATTR               8 (_history_dir)
+
+ 49          62 LOAD_GLOBAL              7 (str)
+
+ 50          64 LOAD_FAST                1 (history_root)
+             66 LOAD_FAST                3 (normalized_account_id)
+             68 BINARY_TRUE_DIVIDE
+             70 LOAD_CONST               3 ('sessions_index.json')
+             72 BINARY_TRUE_DIVIDE
+
+ 49          74 CALL_FUNCTION            1
+             76 LOAD_FAST                0 (self)
+             78 STORE_ATTR               9 (_sessions_index_path)
+
+ 52          80 LOAD_CONST               4 (100)
+             82 LOAD_FAST                0 (self)
+             84 STORE_ATTR              10 (_max_messages)
+
+ 53          86 LOAD_GLOBAL             11 (asyncio)
+             88 LOAD_METHOD             12 (Lock)
+             90 CALL_METHOD              0
+             92 LOAD_FAST                0 (self)
+             94 STORE_ATTR              13 (_lock)
+
+ 54          96 LOAD_CONST               5 (True)
+             98 LOAD_FAST                0 (self)
+            100 STORE_ATTR              14 (_initialized)
+            102 LOAD_CONST               0 (None)
+            104 RETURN_VALUE
+
+Disassembly of <code object _ensure_write_root at 0x109244be0, file "WeRobotCore/adapters/history_storage/explicit_path.py", line 56>:
+ 57           0 LOAD_GLOBAL              0 (Path)
+              2 LOAD_FAST                0 (self)
+              4 LOAD_ATTR                1 (_history_dir)
+              6 CALL_FUNCTION            1
+              8 STORE_FAST               1 (directory)
+
+ 58          10 LOAD_FAST                1 (directory)
+             12 LOAD_ATTR                2 (mkdir)
+             14 LOAD_CONST               1 (True)
+             16 LOAD_CONST               1 (True)
+             18 LOAD_CONST               2 (('parents', 'exist_ok'))
+             20 CALL_FUNCTION_KW         2
+             22 POP_TOP
+
+ 59          24 LOAD_GLOBAL              0 (Path)
+             26 LOAD_FAST                0 (self)
+             28 LOAD_ATTR                3 (_sessions_index_path)
+             30 CALL_FUNCTION            1
+             32 LOAD_METHOD              4 (exists)
+             34 CALL_METHOD              0
+             36 POP_JUMP_IF_TRUE        46
+
+ 60          38 LOAD_FAST                0 (self)
+             40 LOAD_METHOD              5 (_init_sessions_index)
+             42 CALL_METHOD              0
+             44 POP_TOP
+        >>   46 LOAD_CONST               0 (None)
+             48 RETURN_VALUE
+
+Disassembly of <code object save_messages at 0x1092443a0, file "WeRobotCore/adapters/history_storage/explicit_path.py", line 62>:
+ 69           0 LOAD_FAST                0 (self)
+              2 LOAD_METHOD              0 (_ensure_write_root)
+              4 CALL_METHOD              0
+              6 POP_TOP
+
+ 70           8 LOAD_GLOBAL              1 (super)
+             10 CALL_FUNCTION            0
+             12 LOAD_METHOD              2 (save_messages)
+
+ 71          14 LOAD_FAST                1 (session_id)
+
+ 72          16 LOAD_FAST                2 (session_name)
+
+ 73          18 LOAD_FAST                3 (messages)
+
+ 74          20 LOAD_FAST                4 (is_group)
+
+ 70          22 CALL_METHOD              4
+             24 GET_AWAITABLE
+             26 LOAD_CONST               0 (None)
+             28 YIELD_FROM
+             30 POP_TOP
+             32 LOAD_CONST               0 (None)
+             34 RETURN_VALUE
+
+Disassembly of <code object ExplicitPathChatHistoryStoreFactory at 0x109244870, file "WeRobotCore/adapters/history_storage/explicit_path.py", line 78>:
+ 78           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('ExplicitPathChatHistoryStoreFactory')
+              6 STORE_NAME               2 (__qualname__)
+
+ 79           8 LOAD_CONST               1 ('Per-account store cache bound to one explicit product data root.')
+             10 STORE_NAME               3 (__doc__)
+
+ 81          12 LOAD_CONST               2 ('Path')
+             14 LOAD_CONST               3 ('None')
+             16 LOAD_CONST               4 (('history_root', 'return'))
+             18 BUILD_CONST_KEY_MAP      2
+             20 LOAD_CONST               5 (<code object __init__ at 0x109244c90, file "WeRobotCore/adapters/history_storage/explicit_path.py", line 81>)
+             22 LOAD_CONST               6 ('ExplicitPathChatHistoryStoreFactory.__init__')
+             24 MAKE_FUNCTION            4 (annotations)
+             26 STORE_NAME               4 (__init__)
+
+ 89          28 LOAD_NAME                5 (property)
+
+ 90          30 LOAD_CONST               2 ('Path')
+             32 LOAD_CONST               7 (('return',))
+             34 BUILD_CONST_KEY_MAP      1
+             36 LOAD_CONST               8 (<code object history_root at 0x109244710, file "WeRobotCore/adapters/history_storage/explicit_path.py", line 89>)
+             38 LOAD_CONST               9 ('ExplicitPathChatHistoryStoreFactory.history_root')
+             40 MAKE_FUNCTION            4 (annotations)
+             42 CALL_FUNCTION            1
+             44 STORE_NAME               6 (history_root)
+
+ 93          46 LOAD_CONST              10 ('str')
+             48 LOAD_CONST              11 ('AutoReplyTaskHistoryStore')
+             50 LOAD_CONST              12 (('account_id', 'return'))
+             52 BUILD_CONST_KEY_MAP      2
+             54 LOAD_CONST              13 (<code object __call__ at 0x109244b30, file "WeRobotCore/adapters/history_storage/explicit_path.py", line 93>)
+             56 LOAD_CONST              14 ('ExplicitPathChatHistoryStoreFactory.__call__')
+             58 MAKE_FUNCTION            4 (annotations)
+             60 STORE_NAME               7 (__call__)
+
+ 96          62 LOAD_CONST              10 ('str')
+             64 LOAD_CONST              11 ('AutoReplyTaskHistoryStore')
+             66 LOAD_CONST              12 (('account_id', 'return'))
+             68 BUILD_CONST_KEY_MAP      2
+             70 LOAD_CONST              15 (<code object for_account at 0x1092447c0, file "WeRobotCore/adapters/history_storage/explicit_path.py", line 96>)
+             72 LOAD_CONST              16 ('ExplicitPathChatHistoryStoreFactory.for_account')
+             74 MAKE_FUNCTION            4 (annotations)
+             76 STORE_NAME               8 (for_account)
+             78 LOAD_CONST              17 (None)
+             80 RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x109244c90, file "WeRobotCore/adapters/history_storage/explicit_path.py", line 81>:
+ 82           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                1 (history_root)
+              4 LOAD_GLOBAL              1 (Path)
+              6 CALL_FUNCTION            2
+              8 POP_JUMP_IF_TRUE        18
+
+ 83          10 LOAD_GLOBAL              2 (TypeError)
+             12 LOAD_CONST               1 ('history_root must be a pathlib.Path')
+             14 CALL_FUNCTION            1
+             16 RAISE_VARARGS            1
+
+ 84     >>   18 LOAD_FAST                1 (history_root)
+             20 LOAD_METHOD              3 (is_absolute)
+             22 CALL_METHOD              0
+             24 POP_JUMP_IF_TRUE        34
+
+ 85          26 LOAD_GLOBAL              4 (ValueError)
+             28 LOAD_CONST               2 ('history_root must be an absolute path')
+             30 CALL_FUNCTION            1
+             32 RAISE_VARARGS            1
+
+ 86     >>   34 LOAD_FAST                1 (history_root)
+             36 LOAD_FAST                0 (self)
+             38 STORE_ATTR               5 (_history_root)
+
+ 87          40 BUILD_MAP                0
+             42 LOAD_FAST                0 (self)
+             44 STORE_ATTR               6 (_stores)
+             46 LOAD_CONST               0 (None)
+             48 RETURN_VALUE
+
+Disassembly of <code object history_root at 0x109244710, file "WeRobotCore/adapters/history_storage/explicit_path.py", line 89>:
+ 91           0 LOAD_FAST                0 (self)
+              2 LOAD_ATTR                0 (_history_root)
+              4 RETURN_VALUE
+
+Disassembly of <code object __call__ at 0x109244b30, file "WeRobotCore/adapters/history_storage/explicit_path.py", line 93>:
+ 94           0 LOAD_FAST                0 (self)
+              2 LOAD_METHOD              0 (for_account)
+              4 LOAD_FAST                1 (account_id)
+              6 CALL_METHOD              1
+              8 RETURN_VALUE
+
+Disassembly of <code object for_account at 0x1092447c0, file "WeRobotCore/adapters/history_storage/explicit_path.py", line 96>:
+ 97           0 LOAD_GLOBAL              0 (_account_segment)
+              2 LOAD_FAST                1 (account_id)
+              4 CALL_FUNCTION            1
+              6 STORE_FAST               2 (normalized_account_id)
+
+ 98           8 LOAD_FAST                0 (self)
+             10 LOAD_ATTR                1 (_stores)
+             12 LOAD_METHOD              2 (get)
+             14 LOAD_FAST                2 (normalized_account_id)
+             16 CALL_METHOD              1
+             18 STORE_FAST               3 (store)
+
+ 99          20 LOAD_FAST                3 (store)
+             22 LOAD_CONST               0 (None)
+             24 IS_OP                    0
+             26 POP_JUMP_IF_FALSE       52
+
+100          28 LOAD_GLOBAL              3 (ExplicitPathChatHistoryStore)
+
+101          30 LOAD_FAST                0 (self)
+             32 LOAD_ATTR                4 (_history_root)
+
+102          34 LOAD_FAST                2 (normalized_account_id)
+
+100          36 LOAD_CONST               1 (('history_root', 'account_id'))
+             38 CALL_FUNCTION_KW         2
+             40 STORE_FAST               3 (store)
+
+104          42 LOAD_FAST                3 (store)
+             44 LOAD_FAST                0 (self)
+             46 LOAD_ATTR                1 (_stores)
+             48 LOAD_FAST                2 (normalized_account_id)
+             50 STORE_SUBSCR
+
+105     >>   52 LOAD_GLOBAL              5 (require_task_history_store)
+             54 LOAD_FAST                3 (store)
+             56 CALL_FUNCTION            1
+             58 RETURN_VALUE

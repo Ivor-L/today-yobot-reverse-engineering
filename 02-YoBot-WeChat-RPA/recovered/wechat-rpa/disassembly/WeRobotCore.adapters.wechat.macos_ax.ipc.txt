@@ -1,0 +1,2106 @@
+  1           0 LOAD_CONST               0 ('Versioned, transport-neutral client for the signed macOS RPA Helper.\n\nThe production transport will own LaunchServices, the local socket and peer\nidentity verification.  This module owns only the stable request/response\ncontract and therefore imports no AppKit, Quartz or Accessibility modules.\n')
+              2 STORE_NAME               0 (__doc__)
+
+  8           4 LOAD_CONST               1 (0)
+              6 LOAD_CONST               2 (None)
+              8 IMPORT_NAME              1 (asyncio)
+             10 STORE_NAME               1 (asyncio)
+
+  9          12 LOAD_CONST               1 (0)
+             14 LOAD_CONST               2 (None)
+             16 IMPORT_NAME              2 (json)
+             18 STORE_NAME               2 (json)
+
+ 10          20 LOAD_CONST               1 (0)
+             22 LOAD_CONST               2 (None)
+             24 IMPORT_NAME              3 (uuid)
+             26 STORE_NAME               3 (uuid)
+
+ 11          28 LOAD_CONST               1 (0)
+             30 LOAD_CONST               3 (('Any', 'Callable', 'Mapping', 'Optional', 'Protocol', 'runtime_checkable'))
+             32 IMPORT_NAME              4 (typing)
+             34 IMPORT_FROM              5 (Any)
+             36 STORE_NAME               5 (Any)
+             38 IMPORT_FROM              6 (Callable)
+             40 STORE_NAME               6 (Callable)
+             42 IMPORT_FROM              7 (Mapping)
+             44 STORE_NAME               7 (Mapping)
+             46 IMPORT_FROM              8 (Optional)
+             48 STORE_NAME               8 (Optional)
+             50 IMPORT_FROM              9 (Protocol)
+             52 STORE_NAME               9 (Protocol)
+             54 IMPORT_FROM             10 (runtime_checkable)
+             56 STORE_NAME              10 (runtime_checkable)
+             58 POP_TOP
+
+ 13          60 LOAD_CONST               1 (0)
+             62 LOAD_CONST               4 (('ControlAccessAuthorizer', 'ControlAccessDeniedError', 'require_control_access'))
+             64 IMPORT_NAME             11 (WeRobotCore.application.control_access)
+             66 IMPORT_FROM             12 (ControlAccessAuthorizer)
+             68 STORE_NAME              12 (ControlAccessAuthorizer)
+             70 IMPORT_FROM             13 (ControlAccessDeniedError)
+             72 STORE_NAME              13 (ControlAccessDeniedError)
+             74 IMPORT_FROM             14 (require_control_access)
+             76 STORE_NAME              14 (require_control_access)
+             78 POP_TOP
+
+ 18          80 LOAD_CONST               1 (0)
+             82 LOAD_CONST               5 (('AutomationError', 'ErrorCode'))
+             84 IMPORT_NAME             15 (WeRobotCore.domain)
+             86 IMPORT_FROM             16 (AutomationError)
+             88 STORE_NAME              16 (AutomationError)
+             90 IMPORT_FROM             17 (ErrorCode)
+             92 STORE_NAME              17 (ErrorCode)
+             94 POP_TOP
+
+ 21          96 LOAD_CONST               6 (1)
+             98 STORE_NAME              18 (MACOS_HELPER_PROTOCOL_VERSION)
+
+ 22         100 LOAD_CONST               7 (65536)
+            102 STORE_NAME              19 (MACOS_HELPER_MAX_FRAME_BYTES)
+
+ 25         104 LOAD_NAME               10 (runtime_checkable)
+
+ 26         106 LOAD_BUILD_CLASS
+            108 LOAD_CONST               8 (<code object MacOSHelperTransport at 0x1090bd9d0, file "WeRobotCore/adapters/wechat/macos_ax/ipc.py", line 25>)
+            110 LOAD_CONST               9 ('MacOSHelperTransport')
+            112 MAKE_FUNCTION            0
+            114 LOAD_CONST               9 ('MacOSHelperTransport')
+            116 LOAD_NAME                9 (Protocol)
+            118 CALL_FUNCTION            3
+            120 CALL_FUNCTION            1
+            122 STORE_NAME              20 (MacOSHelperTransport)
+
+ 45         124 LOAD_NAME               10 (runtime_checkable)
+
+ 46         126 LOAD_BUILD_CLASS
+            128 LOAD_CONST              10 (<code object MacOSHelperSession at 0x1090bdd40, file "WeRobotCore/adapters/wechat/macos_ax/ipc.py", line 45>)
+            130 LOAD_CONST              11 ('MacOSHelperSession')
+            132 MAKE_FUNCTION            0
+            134 LOAD_CONST              11 ('MacOSHelperSession')
+            136 LOAD_NAME                9 (Protocol)
+            138 CALL_FUNCTION            3
+            140 CALL_FUNCTION            1
+            142 STORE_NAME              21 (MacOSHelperSession)
+
+ 60         144 LOAD_NAME               10 (runtime_checkable)
+
+ 61         146 LOAD_BUILD_CLASS
+            148 LOAD_CONST              12 (<code object MacOSHelperSessionFactory at 0x1090bd920, file "WeRobotCore/adapters/wechat/macos_ax/ipc.py", line 60>)
+            150 LOAD_CONST              13 ('MacOSHelperSessionFactory')
+            152 MAKE_FUNCTION            0
+            154 LOAD_CONST              13 ('MacOSHelperSessionFactory')
+            156 LOAD_NAME                9 (Protocol)
+            158 CALL_FUNCTION            3
+            160 CALL_FUNCTION            1
+            162 STORE_NAME              22 (MacOSHelperSessionFactory)
+
+ 68         164 LOAD_BUILD_CLASS
+            166 LOAD_CONST              14 (<code object MacOSHelperCallError at 0x1090bd710, file "WeRobotCore/adapters/wechat/macos_ax/ipc.py", line 68>)
+            168 LOAD_CONST              15 ('MacOSHelperCallError')
+            170 MAKE_FUNCTION            0
+            172 LOAD_CONST              15 ('MacOSHelperCallError')
+            174 LOAD_NAME               16 (AutomationError)
+            176 CALL_FUNCTION            3
+            178 STORE_NAME              23 (MacOSHelperCallError)
+
+ 83         180 LOAD_NAME               17 (ErrorCode)
+            182 LOAD_ATTR               24 (CLIENT_VERSION_UNSUPPORTED)
+
+ 84         184 LOAD_NAME               17 (ErrorCode)
+            186 LOAD_ATTR               25 (INVALID_ARGUMENT)
+
+ 85         188 LOAD_NAME               17 (ErrorCode)
+            190 LOAD_ATTR               25 (INVALID_ARGUMENT)
+
+ 86         192 LOAD_NAME               17 (ErrorCode)
+            194 LOAD_ATTR               26 (CAPABILITY_UNAVAILABLE)
+
+ 87         196 LOAD_NAME               17 (ErrorCode)
+            198 LOAD_ATTR               25 (INVALID_ARGUMENT)
+
+ 88         200 LOAD_NAME               17 (ErrorCode)
+            202 LOAD_ATTR               27 (PERMISSION_REQUIRED)
+
+ 89         204 LOAD_NAME               17 (ErrorCode)
+            206 LOAD_ATTR               27 (PERMISSION_REQUIRED)
+
+ 90         208 LOAD_NAME               17 (ErrorCode)
+            210 LOAD_ATTR               28 (CONFIRMATION_REQUIRED)
+
+ 91         212 LOAD_NAME               17 (ErrorCode)
+            214 LOAD_ATTR               28 (CONFIRMATION_REQUIRED)
+
+ 92         216 LOAD_NAME               17 (ErrorCode)
+            218 LOAD_ATTR               28 (CONFIRMATION_REQUIRED)
+
+ 93         220 LOAD_NAME               17 (ErrorCode)
+            222 LOAD_ATTR               25 (INVALID_ARGUMENT)
+
+ 94         224 LOAD_NAME               17 (ErrorCode)
+            226 LOAD_ATTR               29 (INSTANCE_NOT_FOUND)
+
+ 95         228 LOAD_NAME               17 (ErrorCode)
+            230 LOAD_ATTR               30 (INSTANCE_NOT_READY)
+
+ 96         232 LOAD_NAME               17 (ErrorCode)
+            234 LOAD_ATTR               31 (ACCOUNT_NOT_INITIALIZED)
+
+ 97         236 LOAD_NAME               17 (ErrorCode)
+            238 LOAD_ATTR               32 (ACTION_NOT_VERIFIED)
+
+ 98         240 LOAD_NAME               17 (ErrorCode)
+            242 LOAD_ATTR               32 (ACTION_NOT_VERIFIED)
+
+ 99         244 LOAD_NAME               17 (ErrorCode)
+            246 LOAD_ATTR               32 (ACTION_NOT_VERIFIED)
+
+100         248 LOAD_NAME               17 (ErrorCode)
+            250 LOAD_ATTR               33 (ELEMENT_NOT_FOUND)
+
+101         252 LOAD_NAME               17 (ErrorCode)
+            254 LOAD_ATTR               32 (ACTION_NOT_VERIFIED)
+
+102         256 LOAD_NAME               17 (ErrorCode)
+            258 LOAD_ATTR               33 (ELEMENT_NOT_FOUND)
+
+103         260 LOAD_NAME               17 (ErrorCode)
+            262 LOAD_ATTR               24 (CLIENT_VERSION_UNSUPPORTED)
+
+104         264 LOAD_NAME               17 (ErrorCode)
+            266 LOAD_ATTR               33 (ELEMENT_NOT_FOUND)
+
+105         268 LOAD_NAME               17 (ErrorCode)
+            270 LOAD_ATTR               34 (WINDOW_OCCLUDED)
+
+106         272 LOAD_NAME               17 (ErrorCode)
+            274 LOAD_ATTR               35 (CONVERSATION_CHANGED)
+
+107         276 LOAD_NAME               17 (ErrorCode)
+            278 LOAD_ATTR               32 (ACTION_NOT_VERIFIED)
+
+108         280 LOAD_NAME               17 (ErrorCode)
+            282 LOAD_ATTR               36 (OPERATION_TIMEOUT)
+
+109         284 LOAD_NAME               17 (ErrorCode)
+            286 LOAD_ATTR               37 (RATE_LIMITED)
+
+110         288 LOAD_NAME               17 (ErrorCode)
+            290 LOAD_ATTR               29 (INSTANCE_NOT_FOUND)
+
+111         292 LOAD_NAME               17 (ErrorCode)
+            294 LOAD_ATTR               30 (INSTANCE_NOT_READY)
+
+112         296 LOAD_NAME               17 (ErrorCode)
+            298 LOAD_ATTR               33 (ELEMENT_NOT_FOUND)
+
+113         300 LOAD_NAME               17 (ErrorCode)
+            302 LOAD_ATTR               33 (ELEMENT_NOT_FOUND)
+
+114         304 LOAD_NAME               17 (ErrorCode)
+            306 LOAD_ATTR               33 (ELEMENT_NOT_FOUND)
+
+115         308 LOAD_NAME               17 (ErrorCode)
+            310 LOAD_ATTR               26 (CAPABILITY_UNAVAILABLE)
+
+116         312 LOAD_NAME               17 (ErrorCode)
+            314 LOAD_ATTR               32 (ACTION_NOT_VERIFIED)
+
+117         316 LOAD_NAME               17 (ErrorCode)
+            318 LOAD_ATTR               32 (ACTION_NOT_VERIFIED)
+
+118         320 LOAD_NAME               17 (ErrorCode)
+            322 LOAD_ATTR               33 (ELEMENT_NOT_FOUND)
+
+119         324 LOAD_NAME               17 (ErrorCode)
+            326 LOAD_ATTR               35 (CONVERSATION_CHANGED)
+
+120         328 LOAD_NAME               17 (ErrorCode)
+            330 LOAD_ATTR               34 (WINDOW_OCCLUDED)
+
+121         332 LOAD_NAME               17 (ErrorCode)
+            334 LOAD_ATTR               34 (WINDOW_OCCLUDED)
+
+122         336 LOAD_NAME               17 (ErrorCode)
+            338 LOAD_ATTR               34 (WINDOW_OCCLUDED)
+
+123         340 LOAD_NAME               17 (ErrorCode)
+            342 LOAD_ATTR               32 (ACTION_NOT_VERIFIED)
+
+124         344 LOAD_NAME               17 (ErrorCode)
+            346 LOAD_ATTR               32 (ACTION_NOT_VERIFIED)
+
+125         348 LOAD_NAME               17 (ErrorCode)
+            350 LOAD_ATTR               32 (ACTION_NOT_VERIFIED)
+
+126         352 LOAD_NAME               17 (ErrorCode)
+            354 LOAD_ATTR               26 (CAPABILITY_UNAVAILABLE)
+
+127         356 LOAD_NAME               17 (ErrorCode)
+            358 LOAD_ATTR               32 (ACTION_NOT_VERIFIED)
+
+128         360 LOAD_NAME               17 (ErrorCode)
+            362 LOAD_ATTR               32 (ACTION_NOT_VERIFIED)
+
+129         364 LOAD_NAME               17 (ErrorCode)
+            366 LOAD_ATTR               32 (ACTION_NOT_VERIFIED)
+
+130         368 LOAD_NAME               17 (ErrorCode)
+            370 LOAD_ATTR               32 (ACTION_NOT_VERIFIED)
+
+131         372 LOAD_NAME               17 (ErrorCode)
+            374 LOAD_ATTR               32 (ACTION_NOT_VERIFIED)
+
+132         376 LOAD_NAME               17 (ErrorCode)
+            378 LOAD_ATTR               32 (ACTION_NOT_VERIFIED)
+
+133         380 LOAD_NAME               17 (ErrorCode)
+            382 LOAD_ATTR               32 (ACTION_NOT_VERIFIED)
+
+134         384 LOAD_NAME               17 (ErrorCode)
+            386 LOAD_ATTR               32 (ACTION_NOT_VERIFIED)
+
+135         388 LOAD_NAME               17 (ErrorCode)
+            390 LOAD_ATTR               25 (INVALID_ARGUMENT)
+
+136         392 LOAD_NAME               17 (ErrorCode)
+            394 LOAD_ATTR               32 (ACTION_NOT_VERIFIED)
+
+137         396 LOAD_NAME               17 (ErrorCode)
+            398 LOAD_ATTR               33 (ELEMENT_NOT_FOUND)
+
+138         400 LOAD_NAME               17 (ErrorCode)
+            402 LOAD_ATTR               32 (ACTION_NOT_VERIFIED)
+
+139         404 LOAD_NAME               17 (ErrorCode)
+            406 LOAD_ATTR               32 (ACTION_NOT_VERIFIED)
+
+140         408 LOAD_NAME               17 (ErrorCode)
+            410 LOAD_ATTR               32 (ACTION_NOT_VERIFIED)
+
+141         412 LOAD_NAME               17 (ErrorCode)
+            414 LOAD_ATTR               32 (ACTION_NOT_VERIFIED)
+
+142         416 LOAD_NAME               17 (ErrorCode)
+            418 LOAD_ATTR               32 (ACTION_NOT_VERIFIED)
+
+143         420 LOAD_NAME               17 (ErrorCode)
+            422 LOAD_ATTR               32 (ACTION_NOT_VERIFIED)
+
+144         424 LOAD_NAME               17 (ErrorCode)
+            426 LOAD_ATTR               32 (ACTION_NOT_VERIFIED)
+
+145         428 LOAD_NAME               17 (ErrorCode)
+            430 LOAD_ATTR               32 (ACTION_NOT_VERIFIED)
+
+146         432 LOAD_NAME               17 (ErrorCode)
+            434 LOAD_ATTR               33 (ELEMENT_NOT_FOUND)
+
+147         436 LOAD_NAME               17 (ErrorCode)
+            438 LOAD_ATTR               32 (ACTION_NOT_VERIFIED)
+
+148         440 LOAD_NAME               17 (ErrorCode)
+            442 LOAD_ATTR               32 (ACTION_NOT_VERIFIED)
+
+149         444 LOAD_NAME               17 (ErrorCode)
+            446 LOAD_ATTR               32 (ACTION_NOT_VERIFIED)
+
+150         448 LOAD_NAME               17 (ErrorCode)
+            450 LOAD_ATTR               32 (ACTION_NOT_VERIFIED)
+
+151         452 LOAD_NAME               17 (ErrorCode)
+            454 LOAD_ATTR               35 (CONVERSATION_CHANGED)
+
+152         456 LOAD_NAME               17 (ErrorCode)
+            458 LOAD_ATTR               32 (ACTION_NOT_VERIFIED)
+
+153         460 LOAD_NAME               17 (ErrorCode)
+            462 LOAD_ATTR               36 (OPERATION_TIMEOUT)
+
+154         464 LOAD_NAME               17 (ErrorCode)
+            466 LOAD_ATTR               37 (RATE_LIMITED)
+
+155         468 LOAD_NAME               17 (ErrorCode)
+            470 LOAD_ATTR               32 (ACTION_NOT_VERIFIED)
+
+ 82         472 LOAD_CONST              16 (('IPC_VERSION_UNSUPPORTED', 'REQUEST_ID_REQUIRED', 'REQUEST_ID_REUSED', 'ACTION_UNSUPPORTED', 'INVALID_ARGUMENT', 'ACCESSIBILITY_PERMISSION_REQUIRED', 'SCREEN_RECORDING_PERMISSION_REQUIRED', 'LIVE_READ_CONFIRMATION_REQUIRED', 'LIVE_WRITE_CONFIRMATION_REQUIRED', 'OPERATOR_CONFIRMATION_REQUIRED', 'READ_LIMIT_INVALID', 'INSTANCE_NOT_FOUND', 'INSTANCE_NOT_READY', 'ACCOUNT_NOT_INITIALIZED', 'WECHAT_PROFILE_ALREADY_VISIBLE', 'WECHAT_PROFILE_AMBIGUOUS', 'WECHAT_PROFILE_CLOSE_NOT_VERIFIED', 'WECHAT_PROFILE_ID_MISSING', 'WECHAT_AVATAR_AMBIGUOUS', 'WECHAT_AVATAR_ANCHOR_INVALID', 'CLIENT_VERSION_UNSUPPORTED', 'ELEMENT_NOT_FOUND', 'WINDOW_OCCLUDED', 'CONVERSATION_CHANGED', 'ACTION_NOT_VERIFIED', 'OPERATION_TIMEOUT', 'RATE_LIMITED', 'WECHAT_PROCESS_NOT_FOUND', 'WECHAT_MAIN_WINDOW_NOT_FOUND', 'WECHAT_ANCHOR_INVALID', 'AX_TREE_LIMIT_REACHED', 'WECHAT_CHAT_TITLE_MISSING', 'WECHAT_CHAT_TYPE_UNSUPPORTED', 'WECHAT_SESSION_AMBIGUOUS', 'WECHAT_CHAT_TYPE_AMBIGUOUS', 'WECHAT_MESSAGE_LIST_MISSING', 'WECHAT_SEND_PRIVATE_CHAT_REQUIRED', 'WECHAT_SEND_WINDOW_NOT_READY', 'WECHAT_SEND_WINDOW_NOT_FRONTMOST', 'WECHAT_SEND_MAIN_WINDOW_NOT_FOCUSED', 'WECHAT_SEND_CLEARED_UNVERIFIED', 'WECHAT_SEND_REMAINS_STAGED', 'WECHAT_SEND_RETURN_EVENT_FAILED', 'WECHAT_SEND_QUOTE_UNSUPPORTED', 'WECHAT_SEND_QUOTE_NOT_VERIFIED', 'WECHAT_SEND_CHAT_TYPE_UNRESOLVED', 'WECHAT_SEND_DRAFT_NOT_EMPTY', 'WECHAT_SEND_INPUT_FOCUS_FAILED', 'WECHAT_SEND_STAGE_FAILED', 'WECHAT_SEND_STAGE_MISMATCH', 'WECHAT_SEND_STAGE_UNVERIFIED', 'WECHAT_SEND_PASTE_EVENT_FAILED', 'WECHAT_SEND_ASSET_INVALID', 'WECHAT_SEND_CONTROL_AMBIGUOUS', 'WECHAT_FAVORITE_BUTTON_MISSING', 'WECHAT_FAVORITE_BUTTON_AMBIGUOUS', 'WECHAT_FAVORITE_SHEET_NOT_OPEN', 'WECHAT_FAVORITE_SHEET_AMBIGUOUS', 'WECHAT_FAVORITE_CONTROL_AMBIGUOUS', 'WECHAT_FAVORITE_SEARCH_DRAFT_PRESENT', 'WECHAT_FAVORITE_SEARCH_NOT_FOCUSED', 'WECHAT_FAVORITE_SEARCH_INPUT_FAILED', 'WECHAT_FAVORITE_SEARCH_NOT_READY', 'WECHAT_FAVORITE_RESULT_NOT_FOUND', 'WECHAT_FAVORITE_RESULT_CHANGED', 'WECHAT_FAVORITE_SELECTION_UNVERIFIED', 'WECHAT_FAVORITE_DELIVERY_UNVERIFIED', 'WECHAT_SNAPSHOT_CURSOR_INVALID', 'WECHAT_SNAPSHOT_BINDING_CHANGED', 'WECHAT_SNAPSHOT_PAGE_SIZE_CHANGED', 'WECHAT_SNAPSHOT_LEASE_EXPIRED', 'WECHAT_SNAPSHOT_LEASE_ACTIVE', 'WECHAT_SNAPSHOT_ACTION_CHANGED'))
+            474 BUILD_CONST_KEY_MAP     73
+            476 STORE_NAME              38 (_HELPER_ERROR_CODES)
+
+159         478 LOAD_NAME               39 (str)
+            480 LOAD_NAME               17 (ErrorCode)
+            482 LOAD_CONST              17 (('helper_code', 'return'))
+            484 BUILD_CONST_KEY_MAP      2
+            486 LOAD_CONST              18 (<code object map_helper_error_code at 0x10924c2f0, file "WeRobotCore/adapters/wechat/macos_ax/ipc.py", line 159>)
+            488 LOAD_CONST              19 ('map_helper_error_code')
+            490 MAKE_FUNCTION            4 (annotations)
+            492 STORE_NAME              40 (map_helper_error_code)
+
+174         494 LOAD_BUILD_CLASS
+            496 LOAD_CONST              20 (<code object SessionMacOSHelperTransport at 0x10924cea0, file "WeRobotCore/adapters/wechat/macos_ax/ipc.py", line 174>)
+            498 LOAD_CONST              21 ('SessionMacOSHelperTransport')
+            500 MAKE_FUNCTION            0
+            502 LOAD_CONST              21 ('SessionMacOSHelperTransport')
+            504 CALL_FUNCTION            2
+            506 STORE_NAME              41 (SessionMacOSHelperTransport)
+
+305         508 LOAD_BUILD_CLASS
+            510 LOAD_CONST              22 (<code object MacOSHelperClient at 0x109244f50, file "WeRobotCore/adapters/wechat/macos_ax/ipc.py", line 305>)
+            512 LOAD_CONST              23 ('MacOSHelperClient')
+            514 MAKE_FUNCTION            0
+            516 LOAD_CONST              23 ('MacOSHelperClient')
+            518 CALL_FUNCTION            2
+            520 STORE_NAME              42 (MacOSHelperClient)
+            522 LOAD_CONST               2 (None)
+            524 RETURN_VALUE
+
+Disassembly of <code object MacOSHelperTransport at 0x1090bd9d0, file "WeRobotCore/adapters/wechat/macos_ax/ipc.py", line 25>:
+ 25           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('MacOSHelperTransport')
+              6 STORE_NAME               2 (__qualname__)
+
+ 27           8 LOAD_CONST               1 ('One exchange over a transport-managed authenticated Helper session.\n\n    A concrete transport may retain the same signed Helper process and Unix\n    socket across sequential exchanges. The macOS product does this for its\n    process lifetime so time-scoped system consent survives between requests.\n    It must still close the session on invalid protocol state, transport error,\n    cancellation or explicit product shutdown. The public request/response\n    envelope remains unchanged.\n    ')
+             10 STORE_NAME               3 (__doc__)
+
+ 39          12 LOAD_NAME                4 (Mapping)
+             14 LOAD_NAME                5 (str)
+             16 LOAD_NAME                6 (Any)
+             18 BUILD_TUPLE              2
+             20 BINARY_SUBSCR
+
+ 40          22 LOAD_NAME                7 (float)
+
+ 41          24 LOAD_NAME                4 (Mapping)
+             26 LOAD_NAME                5 (str)
+             28 LOAD_NAME                6 (Any)
+             30 BUILD_TUPLE              2
+             32 BINARY_SUBSCR
+
+ 37          34 LOAD_CONST               2 (('request', 'timeout_seconds', 'return'))
+             36 BUILD_CONST_KEY_MAP      3
+             38 LOAD_CONST               3 (<code object exchange at 0x1090bda80, file "WeRobotCore/adapters/wechat/macos_ax/ipc.py", line 37>)
+             40 LOAD_CONST               4 ('MacOSHelperTransport.exchange')
+             42 MAKE_FUNCTION            4 (annotations)
+             44 STORE_NAME               8 (exchange)
+             46 LOAD_CONST               5 (None)
+             48 RETURN_VALUE
+
+Disassembly of <code object exchange at 0x1090bda80, file "WeRobotCore/adapters/wechat/macos_ax/ipc.py", line 37>:
+ 42           0 LOAD_CONST               0 (None)
+              2 RETURN_VALUE
+
+Disassembly of <code object MacOSHelperSession at 0x1090bdd40, file "WeRobotCore/adapters/wechat/macos_ax/ipc.py", line 45>:
+ 45           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('MacOSHelperSession')
+              6 STORE_NAME               2 (__qualname__)
+
+ 47           8 LOAD_CONST               1 ('One authenticated native Helper process and Unix-socket connection.')
+             10 STORE_NAME               3 (__doc__)
+
+ 51          12 LOAD_NAME                4 (Mapping)
+             14 LOAD_NAME                5 (str)
+             16 LOAD_NAME                6 (Any)
+             18 BUILD_TUPLE              2
+             20 BINARY_SUBSCR
+
+ 52          22 LOAD_NAME                7 (float)
+
+ 53          24 LOAD_NAME                4 (Mapping)
+             26 LOAD_NAME                5 (str)
+             28 LOAD_NAME                6 (Any)
+             30 BUILD_TUPLE              2
+             32 BINARY_SUBSCR
+
+ 49          34 LOAD_CONST               2 (('request', 'timeout_seconds', 'return'))
+             36 BUILD_CONST_KEY_MAP      3
+             38 LOAD_CONST               3 (<code object exchange_frame at 0x1090bdc90, file "WeRobotCore/adapters/wechat/macos_ax/ipc.py", line 49>)
+             40 LOAD_CONST               4 ('MacOSHelperSession.exchange_frame')
+             42 MAKE_FUNCTION            4 (annotations)
+             44 STORE_NAME               8 (exchange_frame)
+
+ 56          46 LOAD_CONST               5 (None)
+             48 LOAD_CONST               6 (('return',))
+             50 BUILD_CONST_KEY_MAP      1
+             52 LOAD_CONST               7 (<code object close at 0x1090bd5b0, file "WeRobotCore/adapters/wechat/macos_ax/ipc.py", line 56>)
+             54 LOAD_CONST               8 ('MacOSHelperSession.close')
+             56 MAKE_FUNCTION            4 (annotations)
+             58 STORE_NAME               9 (close)
+             60 LOAD_CONST               5 (None)
+             62 RETURN_VALUE
+
+Disassembly of <code object exchange_frame at 0x1090bdc90, file "WeRobotCore/adapters/wechat/macos_ax/ipc.py", line 49>:
+ 54           0 LOAD_CONST               0 (None)
+              2 RETURN_VALUE
+
+Disassembly of <code object close at 0x1090bd5b0, file "WeRobotCore/adapters/wechat/macos_ax/ipc.py", line 56>:
+ 57           0 LOAD_CONST               0 (None)
+              2 RETURN_VALUE
+
+Disassembly of <code object MacOSHelperSessionFactory at 0x1090bd920, file "WeRobotCore/adapters/wechat/macos_ax/ipc.py", line 60>:
+ 60           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('MacOSHelperSessionFactory')
+              6 STORE_NAME               2 (__qualname__)
+
+ 62           8 LOAD_CONST               1 ('Launch and authenticate one signed native Helper session.')
+             10 STORE_NAME               3 (__doc__)
+
+ 64          12 LOAD_NAME                4 (float)
+             14 LOAD_NAME                5 (MacOSHelperSession)
+             16 LOAD_CONST               2 (('timeout_seconds', 'return'))
+             18 BUILD_CONST_KEY_MAP      2
+             20 LOAD_CONST               3 (<code object open_session at 0x1090bddf0, file "WeRobotCore/adapters/wechat/macos_ax/ipc.py", line 64>)
+             22 LOAD_CONST               4 ('MacOSHelperSessionFactory.open_session')
+             24 MAKE_FUNCTION            4 (annotations)
+             26 STORE_NAME               6 (open_session)
+             28 LOAD_CONST               5 (None)
+             30 RETURN_VALUE
+
+Disassembly of <code object open_session at 0x1090bddf0, file "WeRobotCore/adapters/wechat/macos_ax/ipc.py", line 64>:
+ 65           0 LOAD_CONST               0 (None)
+              2 RETURN_VALUE
+
+Disassembly of <code object MacOSHelperCallError at 0x1090bd710, file "WeRobotCore/adapters/wechat/macos_ax/ipc.py", line 68>:
+ 68           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('MacOSHelperCallError')
+              6 STORE_NAME               2 (__qualname__)
+
+ 69           8 LOAD_CONST               1 ('Normalized Helper or IPC failure with the native code retained.')
+             10 STORE_NAME               3 (__doc__)
+
+ 71          12 LOAD_CONST               7 ((False,))
+
+ 73          14 LOAD_NAME                4 (ErrorCode)
+
+ 74          16 LOAD_NAME                5 (str)
+
+ 75          18 LOAD_NAME                5 (str)
+
+ 76          20 LOAD_NAME                6 (bool)
+
+ 77          22 LOAD_CONST               3 (None)
+
+ 71          24 LOAD_CONST               4 (('code', 'helper_code', 'message', 'retryable', 'return'))
+             26 BUILD_CONST_KEY_MAP      5
+             28 LOAD_CLOSURE             0 (__class__)
+             30 BUILD_TUPLE              1
+             32 LOAD_CONST               5 (<code object __init__ at 0x1090bdea0, file "WeRobotCore/adapters/wechat/macos_ax/ipc.py", line 71>)
+             34 LOAD_CONST               6 ('MacOSHelperCallError.__init__')
+             36 MAKE_FUNCTION           13 (defaults, annotations, closure)
+             38 STORE_NAME               7 (__init__)
+             40 LOAD_CLOSURE             0 (__class__)
+             42 DUP_TOP
+             44 STORE_NAME               8 (__classcell__)
+             46 RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x1090bdea0, file "WeRobotCore/adapters/wechat/macos_ax/ipc.py", line 71>:
+ 78           0 LOAD_GLOBAL              0 (super)
+              2 CALL_FUNCTION            0
+              4 LOAD_ATTR                1 (__init__)
+              6 LOAD_FAST                1 (code)
+              8 LOAD_FAST                3 (message)
+             10 LOAD_FAST                4 (retryable)
+             12 LOAD_CONST               1 (('retryable',))
+             14 CALL_FUNCTION_KW         3
+             16 POP_TOP
+
+ 79          18 LOAD_FAST                2 (helper_code)
+             20 LOAD_FAST                0 (self)
+             22 STORE_ATTR               2 (helper_code)
+             24 LOAD_CONST               0 (None)
+             26 RETURN_VALUE
+
+Disassembly of <code object map_helper_error_code at 0x10924c2f0, file "WeRobotCore/adapters/wechat/macos_ax/ipc.py", line 159>:
+162           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                0 (helper_code)
+              4 LOAD_GLOBAL              1 (str)
+              6 CALL_FUNCTION            2
+              8 POP_JUMP_IF_FALSE       18
+             10 LOAD_FAST                0 (helper_code)
+             12 LOAD_METHOD              2 (strip)
+             14 CALL_METHOD              0
+             16 POP_JUMP_IF_TRUE        24
+
+163     >>   18 LOAD_GLOBAL              3 (ErrorCode)
+             20 LOAD_ATTR                4 (OPERATION_FAILED)
+             22 RETURN_VALUE
+
+164     >>   24 LOAD_FAST                0 (helper_code)
+             26 LOAD_METHOD              2 (strip)
+             28 CALL_METHOD              0
+             30 LOAD_METHOD              5 (upper)
+             32 CALL_METHOD              0
+             34 STORE_FAST               1 (normalized)
+
+165          36 LOAD_FAST                1 (normalized)
+             38 LOAD_METHOD              6 (endswith)
+             40 LOAD_CONST               1 ('_PERMISSION_REQUIRED')
+             42 CALL_METHOD              1
+             44 POP_JUMP_IF_FALSE       52
+
+166          46 LOAD_GLOBAL              3 (ErrorCode)
+             48 LOAD_ATTR                7 (PERMISSION_REQUIRED)
+             50 RETURN_VALUE
+
+167     >>   52 LOAD_FAST                1 (normalized)
+             54 LOAD_METHOD              6 (endswith)
+             56 LOAD_CONST               2 ('_CONFIRMATION_REQUIRED')
+             58 CALL_METHOD              1
+             60 POP_JUMP_IF_FALSE       68
+
+168          62 LOAD_GLOBAL              3 (ErrorCode)
+             64 LOAD_ATTR                8 (CONFIRMATION_REQUIRED)
+             66 RETURN_VALUE
+
+169     >>   68 LOAD_FAST                1 (normalized)
+             70 LOAD_METHOD              6 (endswith)
+             72 LOAD_CONST               3 ('_NOT_FOUND')
+             74 CALL_METHOD              1
+             76 POP_JUMP_IF_FALSE       84
+
+170          78 LOAD_GLOBAL              3 (ErrorCode)
+             80 LOAD_ATTR                9 (ELEMENT_NOT_FOUND)
+             82 RETURN_VALUE
+
+171     >>   84 LOAD_GLOBAL             10 (_HELPER_ERROR_CODES)
+             86 LOAD_METHOD             11 (get)
+             88 LOAD_FAST                1 (normalized)
+             90 LOAD_GLOBAL              3 (ErrorCode)
+             92 LOAD_ATTR                4 (OPERATION_FAILED)
+             94 CALL_METHOD              2
+             96 RETURN_VALUE
+
+Disassembly of <code object SessionMacOSHelperTransport at 0x10924cea0, file "WeRobotCore/adapters/wechat/macos_ax/ipc.py", line 174>:
+174           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('SessionMacOSHelperTransport')
+              6 STORE_NAME               2 (__qualname__)
+
+175           8 LOAD_CONST               1 ("Retain one authenticated Helper for the Control process lifetime.\n\n    The injected factory owns LaunchServices, Unix sockets and bidirectional\n    code-signature validation. macOS grants access to another app's protected\n    data only for the lifetime of the requesting process, so closing the\n    Helper after every ordinary request would repeatedly discard the user's\n    consent. Snapshot cursor ordering remains strict within the retained\n    session. This policy layer is deliberately free of AppKit/Security imports\n    so it can be contract-tested on every platform.\n    ")
+             10 STORE_NAME               3 (__doc__)
+
+187          12 LOAD_CONST               2 ('contactPage')
+
+188          14 LOAD_CONST               3 ('groupPage')
+
+186          16 LOAD_CONST               4 (('wechat.contacts.list', 'wechat.groups.list'))
+             18 BUILD_CONST_KEY_MAP      2
+             20 STORE_NAME               4 (_SNAPSHOT_PAGES)
+
+191          22 LOAD_NAME                5 (MacOSHelperSessionFactory)
+             24 LOAD_CONST               5 (None)
+             26 LOAD_CONST               6 (('session_factory', 'return'))
+             28 BUILD_CONST_KEY_MAP      2
+             30 LOAD_CONST               7 (<code object __init__ at 0x10924c500, file "WeRobotCore/adapters/wechat/macos_ax/ipc.py", line 191>)
+             32 LOAD_CONST               8 ('SessionMacOSHelperTransport.__init__')
+             34 MAKE_FUNCTION            4 (annotations)
+             36 STORE_NAME               6 (__init__)
+
+203          38 LOAD_NAME                7 (asyncio)
+             40 LOAD_ATTR                8 (Lock)
+             42 LOAD_CONST               9 (('return',))
+             44 BUILD_CONST_KEY_MAP      1
+             46 LOAD_CONST              10 (<code object _exchange_lock at 0x10924c030, file "WeRobotCore/adapters/wechat/macos_ax/ipc.py", line 203>)
+             48 LOAD_CONST              11 ('SessionMacOSHelperTransport._exchange_lock')
+             50 MAKE_FUNCTION            4 (annotations)
+             52 STORE_NAME               9 (_exchange_lock)
+
+210          54 LOAD_NAME               10 (Mapping)
+             56 LOAD_NAME               11 (str)
+             58 LOAD_NAME               12 (Any)
+             60 BUILD_TUPLE              2
+             62 BINARY_SUBSCR
+
+211          64 LOAD_NAME               13 (float)
+
+212          66 LOAD_NAME               10 (Mapping)
+             68 LOAD_NAME               11 (str)
+             70 LOAD_NAME               12 (Any)
+             72 BUILD_TUPLE              2
+             74 BINARY_SUBSCR
+
+208          76 LOAD_CONST              12 (('request', 'timeout_seconds', 'return'))
+             78 BUILD_CONST_KEY_MAP      3
+             80 LOAD_CONST              13 (<code object exchange at 0x10924c7c0, file "WeRobotCore/adapters/wechat/macos_ax/ipc.py", line 208>)
+             82 LOAD_CONST              14 ('SessionMacOSHelperTransport.exchange')
+             84 MAKE_FUNCTION            4 (annotations)
+             86 STORE_NAME              14 (exchange)
+
+259          88 LOAD_CONST               5 (None)
+             90 LOAD_CONST               9 (('return',))
+             92 BUILD_CONST_KEY_MAP      1
+             94 LOAD_CONST              15 (<code object abort_active_session at 0x10924c660, file "WeRobotCore/adapters/wechat/macos_ax/ipc.py", line 259>)
+             96 LOAD_CONST              16 ('SessionMacOSHelperTransport.abort_active_session')
+             98 MAKE_FUNCTION            4 (annotations)
+            100 STORE_NAME              15 (abort_active_session)
+
+267         102 LOAD_NAME               12 (Any)
+
+268         104 LOAD_NAME               12 (Any)
+
+269         106 LOAD_CONST               5 (None)
+
+265         108 LOAD_CONST              17 (('action', 'response', 'return'))
+            110 BUILD_CONST_KEY_MAP      3
+            112 LOAD_CONST              18 (<code object _apply_response_lifecycle at 0x10924cbe0, file "WeRobotCore/adapters/wechat/macos_ax/ipc.py", line 265>)
+            114 LOAD_CONST              19 ('SessionMacOSHelperTransport._apply_response_lifecycle')
+            116 MAKE_FUNCTION            4 (annotations)
+            118 STORE_NAME              16 (_apply_response_lifecycle)
+
+291         120 LOAD_NAME               17 (bool)
+            122 LOAD_CONST               5 (None)
+            124 LOAD_CONST              20 (('suppress_errors', 'return'))
+            126 BUILD_CONST_KEY_MAP      2
+            128 LOAD_CONST              21 (<code object _close_session at 0x10924c870, file "WeRobotCore/adapters/wechat/macos_ax/ipc.py", line 291>)
+            130 LOAD_CONST              22 ('SessionMacOSHelperTransport._close_session')
+            132 MAKE_FUNCTION            4 (annotations)
+            134 STORE_NAME              18 (_close_session)
+            136 LOAD_CONST               5 (None)
+            138 RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x10924c500, file "WeRobotCore/adapters/wechat/macos_ax/ipc.py", line 191>:
+192           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                1 (session_factory)
+              4 LOAD_GLOBAL              1 (MacOSHelperSessionFactory)
+              6 CALL_FUNCTION            2
+              8 POP_JUMP_IF_TRUE        18
+
+193          10 LOAD_GLOBAL              2 (TypeError)
+             12 LOAD_CONST               1 ('session_factory must implement MacOSHelperSessionFactory')
+             14 CALL_FUNCTION            1
+             16 RAISE_VARARGS            1
+
+194     >>   18 LOAD_FAST                1 (session_factory)
+             20 LOAD_FAST                0 (self)
+             22 STORE_ATTR               3 (_session_factory)
+
+195          24 LOAD_CONST               0 (None)
+             26 LOAD_FAST                0 (self)
+             28 STORE_ATTR               4 (_session)
+
+196          30 LOAD_CONST               0 (None)
+             32 LOAD_FAST                0 (self)
+             34 STORE_ATTR               5 (_snapshot_action)
+
+197          36 LOAD_CONST               0 (None)
+             38 LOAD_FAST                0 (self)
+             40 STORE_ATTR               6 (_expected_cursor)
+
+201          42 LOAD_CONST               0 (None)
+             44 LOAD_FAST                0 (self)
+             46 STORE_ATTR               7 (_lock)
+             48 LOAD_CONST               0 (None)
+             50 RETURN_VALUE
+
+Disassembly of <code object _exchange_lock at 0x10924c030, file "WeRobotCore/adapters/wechat/macos_ax/ipc.py", line 203>:
+204           0 LOAD_FAST                0 (self)
+              2 LOAD_ATTR                0 (_lock)
+              4 LOAD_CONST               0 (None)
+              6 IS_OP                    0
+              8 POP_JUMP_IF_FALSE       20
+
+205          10 LOAD_GLOBAL              1 (asyncio)
+             12 LOAD_METHOD              2 (Lock)
+             14 CALL_METHOD              0
+             16 LOAD_FAST                0 (self)
+             18 STORE_ATTR               0 (_lock)
+
+206     >>   20 LOAD_FAST                0 (self)
+             22 LOAD_ATTR                0 (_lock)
+             24 RETURN_VALUE
+
+Disassembly of <code object exchange at 0x10924c7c0, file "WeRobotCore/adapters/wechat/macos_ax/ipc.py", line 208>:
+213           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                1 (request)
+              4 LOAD_GLOBAL              1 (Mapping)
+              6 CALL_FUNCTION            2
+              8 POP_JUMP_IF_TRUE        18
+
+214          10 LOAD_GLOBAL              2 (TypeError)
+             12 LOAD_CONST               1 ('request must be a mapping')
+             14 CALL_FUNCTION            1
+             16 RAISE_VARARGS            1
+
+215     >>   18 LOAD_FAST                2 (timeout_seconds)
+             20 LOAD_CONST               2 (0)
+             22 COMPARE_OP               1 (<=)
+             24 POP_JUMP_IF_FALSE       34
+
+216          26 LOAD_GLOBAL              3 (ValueError)
+             28 LOAD_CONST               3 ('timeout_seconds must be positive')
+             30 CALL_FUNCTION            1
+             32 RAISE_VARARGS            1
+
+217     >>   34 LOAD_FAST                0 (self)
+             36 LOAD_METHOD              4 (_exchange_lock)
+             38 CALL_METHOD              0
+             40 BEFORE_ASYNC_WITH
+             42 GET_AWAITABLE
+             44 LOAD_CONST               0 (None)
+             46 YIELD_FROM
+             48 EXTENDED_ARG             1
+             50 SETUP_ASYNC_WITH       300 (to 352)
+             52 POP_TOP
+
+218          54 LOAD_FAST                1 (request)
+             56 LOAD_METHOD              5 (get)
+             58 LOAD_CONST               4 ('action')
+             60 CALL_METHOD              1
+             62 STORE_FAST               3 (action)
+
+219          64 LOAD_FAST                1 (request)
+             66 LOAD_METHOD              5 (get)
+             68 LOAD_CONST               5 ('arguments')
+             70 CALL_METHOD              1
+             72 STORE_FAST               4 (arguments)
+
+220          74 LOAD_GLOBAL              0 (isinstance)
+             76 LOAD_FAST                4 (arguments)
+             78 LOAD_GLOBAL              1 (Mapping)
+             80 CALL_FUNCTION            2
+             82 POP_JUMP_IF_TRUE        88
+
+221          84 BUILD_MAP                0
+             86 STORE_FAST               4 (arguments)
+
+222     >>   88 LOAD_FAST                4 (arguments)
+             90 LOAD_METHOD              5 (get)
+             92 LOAD_CONST               6 ('cursor')
+             94 CALL_METHOD              1
+             96 STORE_FAST               5 (cursor)
+
+223          98 LOAD_FAST                0 (self)
+            100 LOAD_ATTR                6 (_snapshot_action)
+            102 LOAD_CONST               0 (None)
+            104 IS_OP                    1
+            106 POP_JUMP_IF_FALSE      162
+
+225         108 LOAD_FAST                3 (action)
+            110 LOAD_FAST                0 (self)
+            112 LOAD_ATTR                6 (_snapshot_action)
+            114 COMPARE_OP               3 (!=)
+
+224         116 POP_JUMP_IF_TRUE       128
+
+226         118 LOAD_FAST                5 (cursor)
+            120 LOAD_FAST                0 (self)
+            122 LOAD_ATTR                7 (_expected_cursor)
+            124 COMPARE_OP               3 (!=)
+
+224         126 POP_JUMP_IF_FALSE      194
+
+228     >>  128 LOAD_FAST                0 (self)
+            130 LOAD_ATTR                8 (_close_session)
+            132 LOAD_CONST               7 (True)
+            134 LOAD_CONST               8 (('suppress_errors',))
+            136 CALL_FUNCTION_KW         1
+            138 GET_AWAITABLE
+            140 LOAD_CONST               0 (None)
+            142 YIELD_FROM
+            144 POP_TOP
+
+229         146 LOAD_GLOBAL              9 (MacOSHelperCallError)
+
+230         148 LOAD_GLOBAL             10 (ErrorCode)
+            150 LOAD_ATTR               11 (ACTION_NOT_VERIFIED)
+
+231         152 LOAD_CONST               9 ('IPC_SNAPSHOT_SESSION_MISMATCH')
+
+232         154 LOAD_CONST              10 ('macOS Helper snapshot continuation does not match the active session')
+
+229         156 CALL_FUNCTION            3
+            158 RAISE_VARARGS            1
+            160 JUMP_FORWARD            32 (to 194)
+
+234     >>  162 LOAD_FAST                3 (action)
+            164 LOAD_FAST                0 (self)
+            166 LOAD_ATTR               12 (_SNAPSHOT_PAGES)
+            168 CONTAINS_OP              0
+            170 POP_JUMP_IF_FALSE      194
+            172 LOAD_FAST                5 (cursor)
+            174 LOAD_CONST               0 (None)
+            176 IS_OP                    1
+            178 POP_JUMP_IF_FALSE      194
+
+235         180 LOAD_GLOBAL              9 (MacOSHelperCallError)
+
+236         182 LOAD_GLOBAL             10 (ErrorCode)
+            184 LOAD_ATTR               11 (ACTION_NOT_VERIFIED)
+
+237         186 LOAD_CONST              11 ('IPC_SNAPSHOT_SESSION_MISSING')
+
+238         188 LOAD_CONST              12 ('macOS Helper snapshot continuation has no active session')
+
+235         190 CALL_FUNCTION            3
+            192 RAISE_VARARGS            1
+
+241     >>  194 LOAD_FAST                0 (self)
+            196 LOAD_ATTR               13 (_session)
+            198 LOAD_CONST               0 (None)
+            200 IS_OP                    0
+            202 POP_JUMP_IF_FALSE      224
+
+242         204 LOAD_FAST                0 (self)
+            206 LOAD_ATTR               14 (_session_factory)
+            208 LOAD_METHOD             15 (open_session)
+
+243         210 LOAD_FAST                2 (timeout_seconds)
+
+242         212 CALL_METHOD              1
+            214 GET_AWAITABLE
+            216 LOAD_CONST               0 (None)
+            218 YIELD_FROM
+            220 LOAD_FAST                0 (self)
+            222 STORE_ATTR              13 (_session)
+
+245     >>  224 SETUP_FINALLY           64 (to 290)
+
+246         226 LOAD_FAST                0 (self)
+            228 LOAD_ATTR               13 (_session)
+            230 LOAD_METHOD             16 (exchange_frame)
+
+247         232 LOAD_FAST                1 (request)
+
+248         234 LOAD_FAST                2 (timeout_seconds)
+
+246         236 CALL_METHOD              2
+            238 GET_AWAITABLE
+            240 LOAD_CONST               0 (None)
+            242 YIELD_FROM
+            244 STORE_FAST               6 (response)
+
+250         246 LOAD_FAST                0 (self)
+            248 LOAD_METHOD             17 (_apply_response_lifecycle)
+            250 LOAD_FAST                3 (action)
+            252 LOAD_FAST                6 (response)
+            254 CALL_METHOD              2
+            256 GET_AWAITABLE
+            258 LOAD_CONST               0 (None)
+            260 YIELD_FROM
+            262 POP_TOP
+
+251         264 LOAD_FAST                6 (response)
+            266 POP_BLOCK
+            268 POP_BLOCK
+            270 ROT_TWO
+            272 LOAD_CONST               0 (None)
+            274 DUP_TOP
+            276 DUP_TOP
+            278 CALL_FUNCTION            3
+            280 GET_AWAITABLE
+            282 LOAD_CONST               0 (None)
+            284 YIELD_FROM
+            286 POP_TOP
+            288 RETURN_VALUE
+
+252     >>  290 DUP_TOP
+            292 LOAD_GLOBAL             18 (BaseException)
+            294 EXTENDED_ARG             1
+            296 JUMP_IF_NOT_EXC_MATCH   328
+            298 POP_TOP
+            300 POP_TOP
+            302 POP_TOP
+
+256         304 LOAD_FAST                0 (self)
+            306 LOAD_ATTR                8 (_close_session)
+            308 LOAD_CONST               7 (True)
+            310 LOAD_CONST               8 (('suppress_errors',))
+            312 CALL_FUNCTION_KW         1
+            314 GET_AWAITABLE
+            316 LOAD_CONST               0 (None)
+            318 YIELD_FROM
+            320 POP_TOP
+
+257         322 RAISE_VARARGS            0
+            324 POP_EXCEPT
+            326 JUMP_FORWARD             2 (to 330)
+        >>  328 RERAISE
+        >>  330 POP_BLOCK
+            332 LOAD_CONST               0 (None)
+            334 DUP_TOP
+            336 DUP_TOP
+            338 CALL_FUNCTION            3
+            340 GET_AWAITABLE
+            342 LOAD_CONST               0 (None)
+            344 YIELD_FROM
+            346 POP_TOP
+            348 EXTENDED_ARG             1
+            350 JUMP_ABSOLUTE          376
+        >>  352 WITH_EXCEPT_START
+            354 GET_AWAITABLE
+            356 LOAD_CONST               0 (None)
+            358 YIELD_FROM
+            360 EXTENDED_ARG             1
+            362 POP_JUMP_IF_TRUE       366
+            364 RERAISE
+        >>  366 POP_TOP
+            368 POP_TOP
+            370 POP_TOP
+            372 POP_EXCEPT
+            374 POP_TOP
+        >>  376 LOAD_CONST               0 (None)
+            378 RETURN_VALUE
+
+Disassembly of <code object abort_active_session at 0x10924c660, file "WeRobotCore/adapters/wechat/macos_ax/ipc.py", line 259>:
+262           0 LOAD_FAST                0 (self)
+              2 LOAD_METHOD              0 (_exchange_lock)
+              4 CALL_METHOD              0
+              6 BEFORE_ASYNC_WITH
+              8 GET_AWAITABLE
+             10 LOAD_CONST               1 (None)
+             12 YIELD_FROM
+             14 SETUP_ASYNC_WITH        40 (to 56)
+             16 POP_TOP
+
+263          18 LOAD_FAST                0 (self)
+             20 LOAD_ATTR                1 (_close_session)
+             22 LOAD_CONST               2 (True)
+             24 LOAD_CONST               3 (('suppress_errors',))
+             26 CALL_FUNCTION_KW         1
+             28 GET_AWAITABLE
+             30 LOAD_CONST               1 (None)
+             32 YIELD_FROM
+             34 POP_TOP
+             36 POP_BLOCK
+             38 LOAD_CONST               1 (None)
+             40 DUP_TOP
+             42 DUP_TOP
+             44 CALL_FUNCTION            3
+             46 GET_AWAITABLE
+             48 LOAD_CONST               1 (None)
+             50 YIELD_FROM
+             52 POP_TOP
+             54 JUMP_ABSOLUTE           78
+        >>   56 WITH_EXCEPT_START
+             58 GET_AWAITABLE
+             60 LOAD_CONST               1 (None)
+             62 YIELD_FROM
+             64 POP_JUMP_IF_TRUE        68
+             66 RERAISE
+        >>   68 POP_TOP
+             70 POP_TOP
+             72 POP_TOP
+             74 POP_EXCEPT
+             76 POP_TOP
+        >>   78 LOAD_CONST               1 (None)
+             80 RETURN_VALUE
+
+Disassembly of <code object _apply_response_lifecycle at 0x10924cbe0, file "WeRobotCore/adapters/wechat/macos_ax/ipc.py", line 265>:
+270           0 LOAD_FAST                0 (self)
+              2 LOAD_ATTR                0 (_SNAPSHOT_PAGES)
+              4 LOAD_METHOD              1 (get)
+              6 LOAD_FAST                1 (action)
+              8 CALL_METHOD              1
+             10 STORE_FAST               3 (page_key)
+
+271          12 LOAD_GLOBAL              2 (isinstance)
+             14 LOAD_FAST                2 (response)
+             16 LOAD_GLOBAL              3 (Mapping)
+             18 CALL_FUNCTION            2
+             20 POP_JUMP_IF_FALSE       36
+             22 LOAD_FAST                2 (response)
+             24 LOAD_METHOD              1 (get)
+             26 LOAD_CONST               1 ('success')
+             28 CALL_METHOD              1
+             30 LOAD_CONST               2 (True)
+             32 IS_OP                    1
+             34 POP_JUMP_IF_FALSE       52
+
+275     >>   36 LOAD_CONST               0 (None)
+             38 LOAD_FAST                0 (self)
+             40 STORE_ATTR               4 (_snapshot_action)
+
+276          42 LOAD_CONST               0 (None)
+             44 LOAD_FAST                0 (self)
+             46 STORE_ATTR               5 (_expected_cursor)
+
+277          48 LOAD_CONST               0 (None)
+             50 RETURN_VALUE
+
+278     >>   52 LOAD_FAST                2 (response)
+             54 LOAD_METHOD              1 (get)
+             56 LOAD_CONST               3 ('result')
+             58 CALL_METHOD              1
+             60 STORE_FAST               4 (result)
+
+279          62 LOAD_FAST                3 (page_key)
+             64 POP_JUMP_IF_FALSE       86
+             66 LOAD_GLOBAL              2 (isinstance)
+             68 LOAD_FAST                4 (result)
+             70 LOAD_GLOBAL              3 (Mapping)
+             72 CALL_FUNCTION            2
+             74 POP_JUMP_IF_FALSE       86
+             76 LOAD_FAST                4 (result)
+             78 LOAD_METHOD              1 (get)
+             80 LOAD_FAST                3 (page_key)
+             82 CALL_METHOD              1
+             84 JUMP_FORWARD             2 (to 88)
+        >>   86 LOAD_CONST               0 (None)
+        >>   88 STORE_FAST               5 (page)
+
+280          90 LOAD_GLOBAL              2 (isinstance)
+             92 LOAD_FAST                5 (page)
+             94 LOAD_GLOBAL              3 (Mapping)
+             96 CALL_FUNCTION            2
+             98 POP_JUMP_IF_TRUE       104
+
+281         100 LOAD_CONST               0 (None)
+            102 RETURN_VALUE
+
+282     >>  104 LOAD_FAST                5 (page)
+            106 LOAD_METHOD              1 (get)
+            108 LOAD_CONST               4 ('complete')
+            110 CALL_METHOD              1
+            112 STORE_FAST               6 (complete)
+
+283         114 LOAD_FAST                5 (page)
+            116 LOAD_METHOD              1 (get)
+            118 LOAD_CONST               5 ('nextCursor')
+            120 CALL_METHOD              1
+            122 STORE_FAST               7 (next_cursor)
+
+284         124 LOAD_FAST                6 (complete)
+            126 LOAD_CONST               6 (False)
+            128 IS_OP                    0
+            130 POP_JUMP_IF_FALSE      170
+            132 LOAD_GLOBAL              2 (isinstance)
+            134 LOAD_FAST                7 (next_cursor)
+            136 LOAD_GLOBAL              6 (str)
+            138 CALL_FUNCTION            2
+            140 POP_JUMP_IF_FALSE      170
+            142 LOAD_FAST                7 (next_cursor)
+            144 LOAD_METHOD              7 (strip)
+            146 CALL_METHOD              0
+            148 POP_JUMP_IF_FALSE      170
+
+285         150 LOAD_GLOBAL              6 (str)
+            152 LOAD_FAST                1 (action)
+            154 CALL_FUNCTION            1
+            156 LOAD_FAST                0 (self)
+            158 STORE_ATTR               4 (_snapshot_action)
+
+286         160 LOAD_FAST                7 (next_cursor)
+            162 LOAD_FAST                0 (self)
+            164 STORE_ATTR               5 (_expected_cursor)
+
+287         166 LOAD_CONST               0 (None)
+            168 RETURN_VALUE
+
+288     >>  170 LOAD_CONST               0 (None)
+            172 LOAD_FAST                0 (self)
+            174 STORE_ATTR               4 (_snapshot_action)
+
+289         176 LOAD_CONST               0 (None)
+            178 LOAD_FAST                0 (self)
+            180 STORE_ATTR               5 (_expected_cursor)
+            182 LOAD_CONST               0 (None)
+            184 RETURN_VALUE
+
+Disassembly of <code object _close_session at 0x10924c870, file "WeRobotCore/adapters/wechat/macos_ax/ipc.py", line 291>:
+292           0 LOAD_FAST                0 (self)
+              2 LOAD_ATTR                0 (_session)
+              4 STORE_FAST               2 (session)
+
+293           6 LOAD_CONST               0 (None)
+              8 LOAD_FAST                0 (self)
+             10 STORE_ATTR               0 (_session)
+
+294          12 LOAD_CONST               0 (None)
+             14 LOAD_FAST                0 (self)
+             16 STORE_ATTR               1 (_snapshot_action)
+
+295          18 LOAD_CONST               0 (None)
+             20 LOAD_FAST                0 (self)
+             22 STORE_ATTR               2 (_expected_cursor)
+
+296          24 LOAD_FAST                2 (session)
+             26 LOAD_CONST               0 (None)
+             28 IS_OP                    0
+             30 POP_JUMP_IF_FALSE       36
+
+297          32 LOAD_CONST               0 (None)
+             34 RETURN_VALUE
+
+298     >>   36 SETUP_FINALLY           18 (to 56)
+
+299          38 LOAD_FAST                2 (session)
+             40 LOAD_METHOD              3 (close)
+             42 CALL_METHOD              0
+             44 GET_AWAITABLE
+             46 LOAD_CONST               0 (None)
+             48 YIELD_FROM
+             50 POP_TOP
+             52 POP_BLOCK
+             54 JUMP_FORWARD            24 (to 80)
+
+300     >>   56 DUP_TOP
+             58 LOAD_GLOBAL              4 (Exception)
+             60 JUMP_IF_NOT_EXC_MATCH    78
+             62 POP_TOP
+             64 POP_TOP
+             66 POP_TOP
+
+301          68 LOAD_FAST                1 (suppress_errors)
+             70 POP_JUMP_IF_TRUE        74
+
+302          72 RAISE_VARARGS            0
+        >>   74 POP_EXCEPT
+             76 JUMP_FORWARD             2 (to 80)
+        >>   78 RERAISE
+        >>   80 LOAD_CONST               0 (None)
+             82 RETURN_VALUE
+
+Disassembly of <code object MacOSHelperClient at 0x109244f50, file "WeRobotCore/adapters/wechat/macos_ax/ipc.py", line 305>:
+305           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('MacOSHelperClient')
+              6 STORE_NAME               2 (__qualname__)
+
+306           8 LOAD_CONST               1 ('Validate one bounded Helper exchange without retrying it.')
+             10 STORE_NAME               3 (__doc__)
+
+312          12 LOAD_NAME                4 (MACOS_HELPER_PROTOCOL_VERSION)
+
+313          14 LOAD_CONST               2 (8.0)
+
+314          16 LOAD_CONST               3 (None)
+
+308          18 LOAD_CONST               4 (('protocol_version', 'default_timeout_seconds', 'request_id_factory'))
+             20 BUILD_CONST_KEY_MAP      3
+
+310          22 LOAD_NAME                5 (MacOSHelperTransport)
+
+312          24 LOAD_NAME                6 (int)
+
+313          26 LOAD_NAME                7 (float)
+
+314          28 LOAD_NAME                8 (Optional)
+             30 LOAD_NAME                9 (Callable)
+             32 BUILD_LIST               0
+             34 LOAD_NAME               10 (str)
+             36 BUILD_TUPLE              2
+             38 BINARY_SUBSCR
+             40 BINARY_SUBSCR
+
+315          42 LOAD_CONST               3 (None)
+
+308          44 LOAD_CONST               5 (('transport', 'protocol_version', 'default_timeout_seconds', 'request_id_factory', 'return'))
+             46 BUILD_CONST_KEY_MAP      5
+             48 LOAD_CONST               6 (<code object __init__ at 0x10924cc90, file "WeRobotCore/adapters/wechat/macos_ax/ipc.py", line 308>)
+             50 LOAD_CONST               7 ('MacOSHelperClient.__init__')
+             52 MAKE_FUNCTION            6 (kwdefaults, annotations)
+             54 STORE_NAME              11 (__init__)
+
+330          56 LOAD_NAME               12 (property)
+
+331          58 LOAD_NAME                6 (int)
+             60 LOAD_CONST               8 (('return',))
+             62 BUILD_CONST_KEY_MAP      1
+             64 LOAD_CONST               9 (<code object protocol_version at 0x10924cdf0, file "WeRobotCore/adapters/wechat/macos_ax/ipc.py", line 330>)
+             66 LOAD_CONST              10 ('MacOSHelperClient.protocol_version')
+             68 MAKE_FUNCTION            4 (annotations)
+             70 CALL_FUNCTION            1
+             72 STORE_NAME              13 (protocol_version)
+
+334          74 LOAD_NAME               12 (property)
+
+335          76 LOAD_NAME               14 (bool)
+             78 LOAD_CONST               8 (('return',))
+             80 BUILD_CONST_KEY_MAP      1
+             82 LOAD_CONST              11 (<code object access_authorizer_bound at 0x10924cf50, file "WeRobotCore/adapters/wechat/macos_ax/ipc.py", line 334>)
+             84 LOAD_CONST              12 ('MacOSHelperClient.access_authorizer_bound')
+             86 MAKE_FUNCTION            4 (annotations)
+             88 CALL_FUNCTION            1
+             90 STORE_NAME              15 (access_authorizer_bound)
+
+340          92 LOAD_NAME               16 (ControlAccessAuthorizer)
+
+341          94 LOAD_CONST               3 (None)
+
+338          96 LOAD_CONST              13 (('authorizer', 'return'))
+             98 BUILD_CONST_KEY_MAP      2
+            100 LOAD_CONST              14 (<code object bind_access_authorizer at 0x109244500, file "WeRobotCore/adapters/wechat/macos_ax/ipc.py", line 338>)
+            102 LOAD_CONST              15 ('MacOSHelperClient.bind_access_authorizer')
+            104 MAKE_FUNCTION            4 (annotations)
+            106 STORE_NAME              17 (bind_access_authorizer)
+
+350         108 LOAD_CONST               3 (None)
+            110 LOAD_CONST               8 (('return',))
+            112 BUILD_CONST_KEY_MAP      1
+            114 LOAD_CONST              16 (<code object _require_bound_access at 0x109244ea0, file "WeRobotCore/adapters/wechat/macos_ax/ipc.py", line 350>)
+            116 LOAD_CONST              17 ('MacOSHelperClient._require_bound_access')
+            118 MAKE_FUNCTION            4 (annotations)
+            120 STORE_NAME              18 (_require_bound_access)
+
+365         122 LOAD_CONST              29 ((None,))
+
+370         124 LOAD_CONST               3 (None)
+
+365         126 LOAD_CONST              18 (('timeout_seconds',))
+            128 BUILD_CONST_KEY_MAP      1
+
+367         130 LOAD_NAME               10 (str)
+
+368         132 LOAD_NAME                8 (Optional)
+            134 LOAD_NAME               19 (Mapping)
+            136 LOAD_NAME               10 (str)
+            138 LOAD_NAME               20 (Any)
+            140 BUILD_TUPLE              2
+            142 BINARY_SUBSCR
+            144 BINARY_SUBSCR
+
+370         146 LOAD_NAME                8 (Optional)
+            148 LOAD_NAME                7 (float)
+            150 BINARY_SUBSCR
+
+371         152 LOAD_NAME               19 (Mapping)
+            154 LOAD_NAME               10 (str)
+            156 LOAD_NAME               20 (Any)
+            158 BUILD_TUPLE              2
+            160 BINARY_SUBSCR
+
+365         162 LOAD_CONST              19 (('action', 'arguments', 'timeout_seconds', 'return'))
+            164 BUILD_CONST_KEY_MAP      4
+            166 LOAD_CONST              20 (<code object call at 0x109244a80, file "WeRobotCore/adapters/wechat/macos_ax/ipc.py", line 365>)
+            168 LOAD_CONST              21 ('MacOSHelperClient.call')
+            170 MAKE_FUNCTION            7 (defaults, kwdefaults, annotations)
+            172 STORE_NAME              21 (call)
+
+490         174 LOAD_CONST               3 (None)
+            176 LOAD_CONST               8 (('return',))
+            178 BUILD_CONST_KEY_MAP      1
+            180 LOAD_CONST              22 (<code object close at 0x1092447c0, file "WeRobotCore/adapters/wechat/macos_ax/ipc.py", line 490>)
+            182 LOAD_CONST              23 ('MacOSHelperClient.close')
+            184 MAKE_FUNCTION            4 (annotations)
+            186 STORE_NAME              22 (close)
+
+495         188 LOAD_CONST               3 (None)
+            190 LOAD_CONST               8 (('return',))
+            192 BUILD_CONST_KEY_MAP      1
+            194 LOAD_CONST              24 (<code object abort_active_session at 0x109244b30, file "WeRobotCore/adapters/wechat/macos_ax/ipc.py", line 495>)
+            196 LOAD_CONST              25 ('MacOSHelperClient.abort_active_session')
+            198 MAKE_FUNCTION            4 (annotations)
+            200 STORE_NAME              23 (abort_active_session)
+
+505         202 LOAD_NAME               24 (staticmethod)
+
+506         204 LOAD_NAME               19 (Mapping)
+            206 LOAD_NAME               10 (str)
+            208 LOAD_NAME               20 (Any)
+            210 BUILD_TUPLE              2
+            212 BINARY_SUBSCR
+            214 LOAD_NAME               10 (str)
+            216 LOAD_CONST               3 (None)
+            218 LOAD_CONST              26 (('value', 'label', 'return'))
+            220 BUILD_CONST_KEY_MAP      3
+            222 LOAD_CONST              27 (<code object _require_bounded_json at 0x109244920, file "WeRobotCore/adapters/wechat/macos_ax/ipc.py", line 505>)
+            224 LOAD_CONST              28 ('MacOSHelperClient._require_bounded_json')
+            226 MAKE_FUNCTION            4 (annotations)
+            228 CALL_FUNCTION            1
+            230 STORE_NAME              25 (_require_bounded_json)
+            232 LOAD_CONST               3 (None)
+            234 RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x10924cc90, file "WeRobotCore/adapters/wechat/macos_ax/ipc.py", line 308>:
+316           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                1 (transport)
+              4 LOAD_GLOBAL              1 (MacOSHelperTransport)
+              6 CALL_FUNCTION            2
+              8 POP_JUMP_IF_TRUE        18
+
+317          10 LOAD_GLOBAL              2 (TypeError)
+             12 LOAD_CONST               1 ('transport must implement MacOSHelperTransport')
+             14 CALL_FUNCTION            1
+             16 RAISE_VARARGS            1
+
+318     >>   18 LOAD_GLOBAL              0 (isinstance)
+             20 LOAD_FAST                2 (protocol_version)
+             22 LOAD_GLOBAL              3 (int)
+             24 CALL_FUNCTION            2
+             26 POP_JUMP_IF_FALSE       36
+             28 LOAD_FAST                2 (protocol_version)
+             30 LOAD_CONST               2 (0)
+             32 COMPARE_OP               1 (<=)
+             34 POP_JUMP_IF_FALSE       44
+
+319     >>   36 LOAD_GLOBAL              4 (ValueError)
+             38 LOAD_CONST               3 ('protocol_version must be a positive integer')
+             40 CALL_FUNCTION            1
+             42 RAISE_VARARGS            1
+
+320     >>   44 LOAD_FAST                3 (default_timeout_seconds)
+             46 LOAD_CONST               2 (0)
+             48 COMPARE_OP               1 (<=)
+             50 POP_JUMP_IF_FALSE       60
+
+321          52 LOAD_GLOBAL              4 (ValueError)
+             54 LOAD_CONST               4 ('default_timeout_seconds must be positive')
+             56 CALL_FUNCTION            1
+             58 RAISE_VARARGS            1
+
+322     >>   60 LOAD_FAST                1 (transport)
+             62 LOAD_FAST                0 (self)
+             64 STORE_ATTR               5 (_transport)
+
+323          66 LOAD_FAST                2 (protocol_version)
+             68 LOAD_FAST                0 (self)
+             70 STORE_ATTR               6 (_protocol_version)
+
+324          72 LOAD_GLOBAL              7 (float)
+             74 LOAD_FAST                3 (default_timeout_seconds)
+             76 CALL_FUNCTION            1
+             78 LOAD_FAST                0 (self)
+             80 STORE_ATTR               8 (_default_timeout_seconds)
+
+325          82 LOAD_FAST                4 (request_id_factory)
+             84 JUMP_IF_TRUE_OR_POP     92
+
+326          86 LOAD_CONST               5 (<code object <lambda> at 0x10924cd40, file "WeRobotCore/adapters/wechat/macos_ax/ipc.py", line 326>)
+             88 LOAD_CONST               6 ('MacOSHelperClient.__init__.<locals>.<lambda>')
+             90 MAKE_FUNCTION            0
+
+325     >>   92 LOAD_FAST                0 (self)
+             94 STORE_ATTR               9 (_request_id_factory)
+
+328          96 LOAD_CONST               0 (None)
+             98 LOAD_FAST                0 (self)
+            100 STORE_ATTR              10 (_access_authorizer)
+            102 LOAD_CONST               0 (None)
+            104 RETURN_VALUE
+
+Disassembly of <code object <lambda> at 0x10924cd40, file "WeRobotCore/adapters/wechat/macos_ax/ipc.py", line 326>:
+326           0 LOAD_GLOBAL              0 (str)
+              2 LOAD_GLOBAL              1 (uuid)
+              4 LOAD_METHOD              2 (uuid4)
+              6 CALL_METHOD              0
+              8 CALL_FUNCTION            1
+             10 RETURN_VALUE
+
+Disassembly of <code object protocol_version at 0x10924cdf0, file "WeRobotCore/adapters/wechat/macos_ax/ipc.py", line 330>:
+332           0 LOAD_FAST                0 (self)
+              2 LOAD_ATTR                0 (_protocol_version)
+              4 RETURN_VALUE
+
+Disassembly of <code object access_authorizer_bound at 0x10924cf50, file "WeRobotCore/adapters/wechat/macos_ax/ipc.py", line 334>:
+336           0 LOAD_FAST                0 (self)
+              2 LOAD_ATTR                0 (_access_authorizer)
+              4 LOAD_CONST               0 (None)
+              6 IS_OP                    1
+              8 RETURN_VALUE
+
+Disassembly of <code object bind_access_authorizer at 0x109244500, file "WeRobotCore/adapters/wechat/macos_ax/ipc.py", line 338>:
+344           0 LOAD_GLOBAL              0 (callable)
+              2 LOAD_FAST                1 (authorizer)
+              4 CALL_FUNCTION            1
+              6 POP_JUMP_IF_TRUE        16
+
+345           8 LOAD_GLOBAL              1 (TypeError)
+             10 LOAD_CONST               1 ('authorizer must be callable')
+             12 CALL_FUNCTION            1
+             14 RAISE_VARARGS            1
+
+346     >>   16 LOAD_FAST                0 (self)
+             18 LOAD_ATTR                2 (_access_authorizer)
+             20 LOAD_CONST               2 (None)
+             22 IS_OP                    1
+             24 POP_JUMP_IF_FALSE       34
+
+347          26 LOAD_GLOBAL              3 (RuntimeError)
+             28 LOAD_CONST               3 ('macOS Helper access authorizer is already bound')
+             30 CALL_FUNCTION            1
+             32 RAISE_VARARGS            1
+
+348     >>   34 LOAD_FAST                1 (authorizer)
+             36 LOAD_FAST                0 (self)
+             38 STORE_ATTR               2 (_access_authorizer)
+             40 LOAD_CONST               2 (None)
+             42 RETURN_VALUE
+
+Disassembly of <code object _require_bound_access at 0x109244ea0, file "WeRobotCore/adapters/wechat/macos_ax/ipc.py", line 350>:
+351           0 LOAD_FAST                0 (self)
+              2 LOAD_ATTR                0 (_access_authorizer)
+              4 STORE_FAST               1 (authorizer)
+
+352           6 LOAD_FAST                1 (authorizer)
+              8 LOAD_CONST               0 (None)
+             10 IS_OP                    0
+             12 POP_JUMP_IF_FALSE       18
+
+353          14 LOAD_CONST               0 (None)
+             16 RETURN_VALUE
+
+354     >>   18 SETUP_FINALLY           18 (to 38)
+
+355          20 LOAD_GLOBAL              1 (require_control_access)
+             22 LOAD_FAST                1 (authorizer)
+             24 CALL_FUNCTION            1
+             26 GET_AWAITABLE
+             28 LOAD_CONST               0 (None)
+             30 YIELD_FROM
+             32 POP_TOP
+             34 POP_BLOCK
+             36 JUMP_FORWARD            72 (to 110)
+
+356     >>   38 DUP_TOP
+             40 LOAD_GLOBAL              2 (ControlAccessDeniedError)
+             42 JUMP_IF_NOT_EXC_MATCH   108
+             44 POP_TOP
+             46 STORE_FAST               2 (exc)
+             48 POP_TOP
+             50 SETUP_FINALLY           48 (to 100)
+
+357          52 LOAD_FAST                2 (exc)
+             54 LOAD_ATTR                3 (decision)
+             56 STORE_FAST               3 (decision)
+
+358          58 LOAD_GLOBAL              4 (MacOSHelperCallError)
+
+359          60 LOAD_GLOBAL              5 (ErrorCode)
+             62 LOAD_ATTR                6 (OPERATION_FAILED)
+
+360          64 LOAD_FAST                3 (decision)
+             66 LOAD_ATTR                7 (code)
+
+361          68 LOAD_FAST                3 (decision)
+             70 LOAD_ATTR                8 (message)
+
+362          72 LOAD_FAST                3 (decision)
+             74 LOAD_ATTR                9 (status_code)
+             76 LOAD_CONST               1 (500)
+             78 COMPARE_OP               5 (>=)
+
+358          80 LOAD_CONST               2 (('retryable',))
+             82 CALL_FUNCTION_KW         4
+
+363          84 LOAD_FAST                2 (exc)
+
+358          86 RAISE_VARARGS            2
+             88 POP_BLOCK
+             90 POP_EXCEPT
+             92 LOAD_CONST               0 (None)
+             94 STORE_FAST               2 (exc)
+             96 DELETE_FAST              2 (exc)
+             98 JUMP_FORWARD            10 (to 110)
+        >>  100 LOAD_CONST               0 (None)
+            102 STORE_FAST               2 (exc)
+            104 DELETE_FAST              2 (exc)
+            106 RERAISE
+        >>  108 RERAISE
+        >>  110 LOAD_CONST               0 (None)
+            112 RETURN_VALUE
+
+Disassembly of <code object call at 0x109244a80, file "WeRobotCore/adapters/wechat/macos_ax/ipc.py", line 365>:
+372           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                1 (action)
+              4 LOAD_GLOBAL              1 (str)
+              6 CALL_FUNCTION            2
+              8 POP_JUMP_IF_FALSE       18
+             10 LOAD_FAST                1 (action)
+             12 LOAD_METHOD              2 (strip)
+             14 CALL_METHOD              0
+             16 POP_JUMP_IF_TRUE        26
+
+373     >>   18 LOAD_GLOBAL              3 (ValueError)
+             20 LOAD_CONST               1 ('action must be a non-empty string')
+             22 CALL_FUNCTION            1
+             24 RAISE_VARARGS            1
+
+374     >>   26 LOAD_FAST                2 (arguments)
+             28 LOAD_CONST               0 (None)
+             30 IS_OP                    1
+             32 POP_JUMP_IF_FALSE       52
+             34 LOAD_GLOBAL              0 (isinstance)
+             36 LOAD_FAST                2 (arguments)
+             38 LOAD_GLOBAL              4 (Mapping)
+             40 CALL_FUNCTION            2
+             42 POP_JUMP_IF_TRUE        52
+
+375          44 LOAD_GLOBAL              5 (TypeError)
+             46 LOAD_CONST               2 ('arguments must be a mapping')
+             48 CALL_FUNCTION            1
+             50 RAISE_VARARGS            1
+
+378     >>   52 LOAD_FAST                3 (timeout_seconds)
+             54 LOAD_CONST               0 (None)
+             56 IS_OP                    0
+
+377          58 POP_JUMP_IF_FALSE       66
+             60 LOAD_FAST                0 (self)
+             62 LOAD_ATTR                6 (_default_timeout_seconds)
+             64 JUMP_FORWARD             6 (to 72)
+
+379     >>   66 LOAD_GLOBAL              7 (float)
+             68 LOAD_FAST                3 (timeout_seconds)
+             70 CALL_FUNCTION            1
+
+376     >>   72 STORE_FAST               4 (timeout)
+
+381          74 LOAD_FAST                4 (timeout)
+             76 LOAD_CONST               3 (0)
+             78 COMPARE_OP               1 (<=)
+             80 POP_JUMP_IF_FALSE       90
+
+382          82 LOAD_GLOBAL              3 (ValueError)
+             84 LOAD_CONST               4 ('timeout_seconds must be positive')
+             86 CALL_FUNCTION            1
+             88 RAISE_VARARGS            1
+
+386     >>   90 LOAD_FAST                0 (self)
+             92 LOAD_METHOD              8 (_require_bound_access)
+             94 CALL_METHOD              0
+             96 GET_AWAITABLE
+             98 LOAD_CONST               0 (None)
+            100 YIELD_FROM
+            102 POP_TOP
+
+387         104 LOAD_FAST                0 (self)
+            106 LOAD_METHOD              9 (_request_id_factory)
+            108 CALL_METHOD              0
+            110 STORE_FAST               5 (request_id)
+
+388         112 LOAD_GLOBAL              0 (isinstance)
+            114 LOAD_FAST                5 (request_id)
+            116 LOAD_GLOBAL              1 (str)
+            118 CALL_FUNCTION            2
+            120 POP_JUMP_IF_FALSE      130
+            122 LOAD_FAST                5 (request_id)
+            124 LOAD_METHOD              2 (strip)
+            126 CALL_METHOD              0
+            128 POP_JUMP_IF_TRUE       138
+
+389     >>  130 LOAD_GLOBAL              3 (ValueError)
+            132 LOAD_CONST               5 ('request_id_factory must return a non-empty string')
+            134 CALL_FUNCTION            1
+            136 RAISE_VARARGS            1
+
+391     >>  138 LOAD_FAST                0 (self)
+            140 LOAD_ATTR               10 (_protocol_version)
+
+392         142 LOAD_FAST                5 (request_id)
+
+393         144 LOAD_FAST                1 (action)
+            146 LOAD_METHOD              2 (strip)
+            148 CALL_METHOD              0
+
+394         150 LOAD_GLOBAL             11 (dict)
+            152 LOAD_FAST                2 (arguments)
+            154 JUMP_IF_TRUE_OR_POP    158
+            156 BUILD_MAP                0
+        >>  158 CALL_FUNCTION            1
+
+390         160 LOAD_CONST               6 (('protocolVersion', 'requestId', 'action', 'arguments'))
+            162 BUILD_CONST_KEY_MAP      4
+            164 STORE_FAST               6 (request)
+
+396         166 LOAD_FAST                0 (self)
+            168 LOAD_METHOD             12 (_require_bounded_json)
+            170 LOAD_FAST                6 (request)
+            172 LOAD_CONST               7 ('request')
+            174 CALL_METHOD              2
+            176 POP_TOP
+
+398         178 SETUP_FINALLY           24 (to 204)
+
+399         180 LOAD_FAST                0 (self)
+            182 LOAD_ATTR               13 (_transport)
+            184 LOAD_METHOD             14 (exchange)
+            186 LOAD_FAST                6 (request)
+            188 LOAD_FAST                4 (timeout)
+            190 CALL_METHOD              2
+            192 GET_AWAITABLE
+            194 LOAD_CONST               0 (None)
+            196 YIELD_FROM
+            198 STORE_FAST               7 (response)
+            200 POP_BLOCK
+            202 JUMP_FORWARD           132 (to 336)
+
+400     >>  204 DUP_TOP
+            206 LOAD_GLOBAL             15 (MacOSHelperCallError)
+            208 JUMP_IF_NOT_EXC_MATCH   222
+            210 POP_TOP
+            212 POP_TOP
+            214 POP_TOP
+
+401         216 RAISE_VARARGS            0
+            218 POP_EXCEPT
+            220 JUMP_FORWARD           114 (to 336)
+
+402     >>  222 DUP_TOP
+            224 LOAD_GLOBAL             16 (asyncio)
+            226 LOAD_ATTR               17 (TimeoutError)
+            228 EXTENDED_ARG             1
+            230 JUMP_IF_NOT_EXC_MATCH   276
+            232 POP_TOP
+            234 STORE_FAST               8 (exc)
+            236 POP_TOP
+            238 SETUP_FINALLY           28 (to 268)
+
+403         240 LOAD_GLOBAL             15 (MacOSHelperCallError)
+
+404         242 LOAD_GLOBAL             18 (ErrorCode)
+            244 LOAD_ATTR               19 (OPERATION_TIMEOUT)
+
+405         246 LOAD_CONST               8 ('IPC_TIMEOUT')
+
+406         248 LOAD_CONST               9 ('macOS Helper IPC timed out')
+
+403         250 CALL_FUNCTION            3
+
+407         252 LOAD_FAST                8 (exc)
+
+403         254 RAISE_VARARGS            2
+            256 POP_BLOCK
+            258 POP_EXCEPT
+            260 LOAD_CONST               0 (None)
+            262 STORE_FAST               8 (exc)
+            264 DELETE_FAST              8 (exc)
+            266 JUMP_FORWARD            68 (to 336)
+        >>  268 LOAD_CONST               0 (None)
+            270 STORE_FAST               8 (exc)
+            272 DELETE_FAST              8 (exc)
+            274 RERAISE
+
+408     >>  276 DUP_TOP
+            278 LOAD_GLOBAL             20 (Exception)
+            280 EXTENDED_ARG             1
+            282 JUMP_IF_NOT_EXC_MATCH   334
+            284 POP_TOP
+            286 STORE_FAST               8 (exc)
+            288 POP_TOP
+            290 SETUP_FINALLY           34 (to 326)
+
+409         292 LOAD_GLOBAL             15 (MacOSHelperCallError)
+
+410         294 LOAD_GLOBAL             18 (ErrorCode)
+            296 LOAD_ATTR               21 (OPERATION_FAILED)
+
+411         298 LOAD_CONST              10 ('IPC_EXCHANGE_FAILED')
+
+412         300 LOAD_CONST              11 ('macOS Helper IPC exchange failed: {}')
+            302 LOAD_METHOD             22 (format)
+            304 LOAD_FAST                8 (exc)
+            306 CALL_METHOD              1
+
+409         308 CALL_FUNCTION            3
+
+413         310 LOAD_FAST                8 (exc)
+
+409         312 RAISE_VARARGS            2
+            314 POP_BLOCK
+            316 POP_EXCEPT
+            318 LOAD_CONST               0 (None)
+            320 STORE_FAST               8 (exc)
+            322 DELETE_FAST              8 (exc)
+            324 JUMP_FORWARD            10 (to 336)
+        >>  326 LOAD_CONST               0 (None)
+            328 STORE_FAST               8 (exc)
+            330 DELETE_FAST              8 (exc)
+            332 RERAISE
+        >>  334 RERAISE
+
+415     >>  336 SETUP_FINALLY          140 (to 478)
+
+416         338 LOAD_GLOBAL              0 (isinstance)
+            340 LOAD_FAST                7 (response)
+            342 LOAD_GLOBAL              4 (Mapping)
+            344 CALL_FUNCTION            2
+            346 EXTENDED_ARG             1
+            348 POP_JUMP_IF_TRUE       364
+
+417         350 LOAD_GLOBAL             15 (MacOSHelperCallError)
+
+418         352 LOAD_GLOBAL             18 (ErrorCode)
+            354 LOAD_ATTR               21 (OPERATION_FAILED)
+
+419         356 LOAD_CONST              12 ('IPC_INVALID_RESPONSE')
+
+420         358 LOAD_CONST              13 ('macOS Helper returned a non-object response')
+
+417         360 CALL_FUNCTION            3
+            362 RAISE_VARARGS            1
+
+422     >>  364 LOAD_FAST                0 (self)
+            366 LOAD_METHOD             12 (_require_bounded_json)
+            368 LOAD_FAST                7 (response)
+            370 LOAD_CONST              14 ('response')
+            372 CALL_METHOD              2
+            374 POP_TOP
+
+423         376 LOAD_FAST                7 (response)
+            378 LOAD_METHOD             23 (get)
+            380 LOAD_CONST              15 ('protocolVersion')
+            382 CALL_METHOD              1
+            384 LOAD_FAST                0 (self)
+            386 LOAD_ATTR               10 (_protocol_version)
+            388 COMPARE_OP               3 (!=)
+            390 EXTENDED_ARG             1
+            392 POP_JUMP_IF_FALSE      408
+
+424         394 LOAD_GLOBAL             15 (MacOSHelperCallError)
+
+425         396 LOAD_GLOBAL             18 (ErrorCode)
+            398 LOAD_ATTR               24 (CLIENT_VERSION_UNSUPPORTED)
+
+426         400 LOAD_CONST              16 ('IPC_VERSION_UNSUPPORTED')
+
+427         402 LOAD_CONST              17 ('macOS Helper response protocolVersion does not match')
+
+424         404 CALL_FUNCTION            3
+            406 RAISE_VARARGS            1
+
+429     >>  408 LOAD_FAST                7 (response)
+            410 LOAD_METHOD             23 (get)
+            412 LOAD_CONST              18 ('requestId')
+            414 CALL_METHOD              1
+            416 LOAD_FAST                5 (request_id)
+            418 COMPARE_OP               3 (!=)
+            420 EXTENDED_ARG             1
+            422 POP_JUMP_IF_FALSE      438
+
+430         424 LOAD_GLOBAL             15 (MacOSHelperCallError)
+
+431         426 LOAD_GLOBAL             18 (ErrorCode)
+            428 LOAD_ATTR               21 (OPERATION_FAILED)
+
+432         430 LOAD_CONST              19 ('IPC_REQUEST_ID_MISMATCH')
+
+433         432 LOAD_CONST              20 ('macOS Helper response requestId does not match')
+
+430         434 CALL_FUNCTION            3
+            436 RAISE_VARARGS            1
+
+435     >>  438 LOAD_FAST                7 (response)
+            440 LOAD_METHOD             23 (get)
+            442 LOAD_CONST              21 ('success')
+            444 CALL_METHOD              1
+            446 STORE_FAST               9 (success)
+
+436         448 LOAD_GLOBAL              0 (isinstance)
+            450 LOAD_FAST                9 (success)
+            452 LOAD_GLOBAL             25 (bool)
+            454 CALL_FUNCTION            2
+            456 EXTENDED_ARG             1
+            458 POP_JUMP_IF_TRUE       474
+
+437         460 LOAD_GLOBAL             15 (MacOSHelperCallError)
+
+438         462 LOAD_GLOBAL             18 (ErrorCode)
+            464 LOAD_ATTR               21 (OPERATION_FAILED)
+
+439         466 LOAD_CONST              12 ('IPC_INVALID_RESPONSE')
+
+440         468 LOAD_CONST              22 ('macOS Helper response success must be a boolean')
+
+437         470 CALL_FUNCTION            3
+            472 RAISE_VARARGS            1
+        >>  474 POP_BLOCK
+            476 JUMP_FORWARD            36 (to 514)
+
+442     >>  478 DUP_TOP
+            480 LOAD_GLOBAL             26 (BaseException)
+            482 EXTENDED_ARG             2
+            484 JUMP_IF_NOT_EXC_MATCH   512
+            486 POP_TOP
+            488 POP_TOP
+            490 POP_TOP
+
+443         492 LOAD_FAST                0 (self)
+            494 LOAD_METHOD             27 (abort_active_session)
+            496 CALL_METHOD              0
+            498 GET_AWAITABLE
+            500 LOAD_CONST               0 (None)
+            502 YIELD_FROM
+            504 POP_TOP
+
+444         506 RAISE_VARARGS            0
+            508 POP_EXCEPT
+            510 JUMP_FORWARD             2 (to 514)
+        >>  512 RERAISE
+
+446     >>  514 LOAD_FAST                9 (success)
+            516 LOAD_CONST              23 (False)
+            518 IS_OP                    0
+            520 EXTENDED_ARG             2
+            522 POP_JUMP_IF_FALSE      682
+
+447         524 LOAD_FAST                7 (response)
+            526 LOAD_METHOD             23 (get)
+            528 LOAD_CONST              24 ('error')
+            530 CALL_METHOD              1
+            532 STORE_FAST              10 (error)
+
+448         534 LOAD_GLOBAL              0 (isinstance)
+            536 LOAD_FAST               10 (error)
+            538 LOAD_GLOBAL              4 (Mapping)
+            540 CALL_FUNCTION            2
+            542 EXTENDED_ARG             2
+            544 POP_JUMP_IF_TRUE       574
+
+449         546 LOAD_FAST                0 (self)
+            548 LOAD_METHOD             27 (abort_active_session)
+            550 CALL_METHOD              0
+            552 GET_AWAITABLE
+            554 LOAD_CONST               0 (None)
+            556 YIELD_FROM
+            558 POP_TOP
+
+450         560 LOAD_GLOBAL             15 (MacOSHelperCallError)
+
+451         562 LOAD_GLOBAL             18 (ErrorCode)
+            564 LOAD_ATTR               21 (OPERATION_FAILED)
+
+452         566 LOAD_CONST              12 ('IPC_INVALID_RESPONSE')
+
+453         568 LOAD_CONST              25 ('macOS Helper failure response must contain an error object')
+
+450         570 CALL_FUNCTION            3
+            572 RAISE_VARARGS            1
+
+455     >>  574 LOAD_FAST               10 (error)
+            576 LOAD_METHOD             23 (get)
+            578 LOAD_CONST              26 ('code')
+            580 CALL_METHOD              1
+            582 STORE_FAST              11 (helper_code)
+
+456         584 LOAD_FAST               10 (error)
+            586 LOAD_METHOD             23 (get)
+            588 LOAD_CONST              27 ('message')
+            590 CALL_METHOD              1
+            592 STORE_FAST              12 (message)
+
+458         594 LOAD_GLOBAL              0 (isinstance)
+            596 LOAD_FAST               11 (helper_code)
+            598 LOAD_GLOBAL              1 (str)
+            600 CALL_FUNCTION            2
+
+457         602 EXTENDED_ARG             2
+            604 POP_JUMP_IF_FALSE      638
+
+459         606 LOAD_FAST               11 (helper_code)
+            608 LOAD_METHOD              2 (strip)
+            610 CALL_METHOD              0
+
+457         612 EXTENDED_ARG             2
+            614 POP_JUMP_IF_FALSE      638
+
+460         616 LOAD_GLOBAL              0 (isinstance)
+            618 LOAD_FAST               12 (message)
+            620 LOAD_GLOBAL              1 (str)
+            622 CALL_FUNCTION            2
+
+457         624 EXTENDED_ARG             2
+            626 POP_JUMP_IF_FALSE      638
+
+461         628 LOAD_FAST               12 (message)
+            630 LOAD_METHOD              2 (strip)
+            632 CALL_METHOD              0
+
+457         634 EXTENDED_ARG             2
+            636 POP_JUMP_IF_TRUE       666
+
+463     >>  638 LOAD_FAST                0 (self)
+            640 LOAD_METHOD             27 (abort_active_session)
+            642 CALL_METHOD              0
+            644 GET_AWAITABLE
+            646 LOAD_CONST               0 (None)
+            648 YIELD_FROM
+            650 POP_TOP
+
+464         652 LOAD_GLOBAL             15 (MacOSHelperCallError)
+
+465         654 LOAD_GLOBAL             18 (ErrorCode)
+            656 LOAD_ATTR               21 (OPERATION_FAILED)
+
+466         658 LOAD_CONST              12 ('IPC_INVALID_RESPONSE')
+
+467         660 LOAD_CONST              28 ('macOS Helper failure response is incomplete')
+
+464         662 CALL_FUNCTION            3
+            664 RAISE_VARARGS            1
+
+472     >>  666 LOAD_GLOBAL             15 (MacOSHelperCallError)
+
+473         668 LOAD_GLOBAL             28 (map_helper_error_code)
+            670 LOAD_FAST               11 (helper_code)
+            672 CALL_FUNCTION            1
+
+474         674 LOAD_FAST               11 (helper_code)
+
+475         676 LOAD_FAST               12 (message)
+
+472         678 CALL_FUNCTION            3
+            680 RAISE_VARARGS            1
+
+478     >>  682 LOAD_FAST                7 (response)
+            684 LOAD_METHOD             23 (get)
+            686 LOAD_CONST              29 ('result')
+            688 CALL_METHOD              1
+            690 STORE_FAST              13 (result)
+
+479         692 LOAD_FAST               13 (result)
+            694 LOAD_CONST               0 (None)
+            696 IS_OP                    0
+            698 EXTENDED_ARG             2
+            700 POP_JUMP_IF_FALSE      706
+
+480         702 BUILD_MAP                0
+            704 RETURN_VALUE
+
+481     >>  706 LOAD_GLOBAL              0 (isinstance)
+            708 LOAD_FAST               13 (result)
+            710 LOAD_GLOBAL              4 (Mapping)
+            712 CALL_FUNCTION            2
+            714 EXTENDED_ARG             2
+            716 POP_JUMP_IF_TRUE       746
+
+482         718 LOAD_FAST                0 (self)
+            720 LOAD_METHOD             27 (abort_active_session)
+            722 CALL_METHOD              0
+            724 GET_AWAITABLE
+            726 LOAD_CONST               0 (None)
+            728 YIELD_FROM
+            730 POP_TOP
+
+483         732 LOAD_GLOBAL             15 (MacOSHelperCallError)
+
+484         734 LOAD_GLOBAL             18 (ErrorCode)
+            736 LOAD_ATTR               21 (OPERATION_FAILED)
+
+485         738 LOAD_CONST              30 ('IPC_INVALID_RESULT')
+
+486         740 LOAD_CONST              31 ('macOS Helper success result must be an object')
+
+483         742 CALL_FUNCTION            3
+            744 RAISE_VARARGS            1
+
+488     >>  746 LOAD_GLOBAL             11 (dict)
+            748 LOAD_FAST               13 (result)
+            750 CALL_FUNCTION            1
+            752 RETURN_VALUE
+
+Disassembly of <code object close at 0x1092447c0, file "WeRobotCore/adapters/wechat/macos_ax/ipc.py", line 490>:
+493           0 LOAD_FAST                0 (self)
+              2 LOAD_METHOD              0 (abort_active_session)
+              4 CALL_METHOD              0
+              6 GET_AWAITABLE
+              8 LOAD_CONST               1 (None)
+             10 YIELD_FROM
+             12 POP_TOP
+             14 LOAD_CONST               1 (None)
+             16 RETURN_VALUE
+
+Disassembly of <code object abort_active_session at 0x109244b30, file "WeRobotCore/adapters/wechat/macos_ax/ipc.py", line 495>:
+498           0 LOAD_GLOBAL              0 (getattr)
+              2 LOAD_FAST                0 (self)
+              4 LOAD_ATTR                1 (_transport)
+              6 LOAD_CONST               1 ('abort_active_session')
+              8 LOAD_CONST               2 (None)
+             10 CALL_FUNCTION            3
+             12 STORE_FAST               1 (abort)
+
+499          14 LOAD_FAST                1 (abort)
+             16 LOAD_CONST               2 (None)
+             18 IS_OP                    0
+             20 POP_JUMP_IF_TRUE        30
+             22 LOAD_GLOBAL              2 (callable)
+             24 LOAD_FAST                1 (abort)
+             26 CALL_FUNCTION            1
+             28 POP_JUMP_IF_TRUE        34
+
+500     >>   30 LOAD_CONST               2 (None)
+             32 RETURN_VALUE
+
+501     >>   34 LOAD_FAST                1 (abort)
+             36 CALL_FUNCTION            0
+             38 STORE_FAST               2 (outcome)
+
+502          40 LOAD_GLOBAL              3 (asyncio)
+             42 LOAD_METHOD              4 (iscoroutine)
+             44 LOAD_FAST                2 (outcome)
+             46 CALL_METHOD              1
+             48 POP_JUMP_IF_FALSE       60
+
+503          50 LOAD_FAST                2 (outcome)
+             52 GET_AWAITABLE
+             54 LOAD_CONST               2 (None)
+             56 YIELD_FROM
+             58 POP_TOP
+        >>   60 LOAD_CONST               2 (None)
+             62 RETURN_VALUE
+
+Disassembly of <code object _require_bounded_json at 0x109244920, file "WeRobotCore/adapters/wechat/macos_ax/ipc.py", line 505>:
+507           0 SETUP_FINALLY           28 (to 30)
+
+508           2 LOAD_GLOBAL              0 (json)
+              4 LOAD_ATTR                1 (dumps)
+
+509           6 LOAD_FAST                0 (value)
+
+510           8 LOAD_CONST               1 (False)
+
+511          10 LOAD_CONST               2 ((',', ':'))
+
+512          12 LOAD_CONST               3 (True)
+
+508          14 LOAD_CONST               4 (('ensure_ascii', 'separators', 'sort_keys'))
+             16 CALL_FUNCTION_KW         4
+             18 LOAD_METHOD              2 (encode)
+
+513          20 LOAD_CONST               5 ('utf-8')
+
+508          22 CALL_METHOD              1
+             24 STORE_FAST               2 (encoded)
+             26 POP_BLOCK
+             28 JUMP_FORWARD            56 (to 86)
+
+514     >>   30 DUP_TOP
+             32 LOAD_GLOBAL              3 (TypeError)
+             34 LOAD_GLOBAL              4 (ValueError)
+             36 BUILD_TUPLE              2
+             38 JUMP_IF_NOT_EXC_MATCH    84
+             40 POP_TOP
+             42 STORE_FAST               3 (exc)
+             44 POP_TOP
+             46 SETUP_FINALLY           28 (to 76)
+
+515          48 LOAD_GLOBAL              4 (ValueError)
+             50 LOAD_CONST               6 ('{} must be JSON serializable')
+             52 LOAD_METHOD              5 (format)
+             54 LOAD_FAST                1 (label)
+             56 CALL_METHOD              1
+             58 CALL_FUNCTION            1
+             60 LOAD_FAST                3 (exc)
+             62 RAISE_VARARGS            2
+             64 POP_BLOCK
+             66 POP_EXCEPT
+             68 LOAD_CONST               0 (None)
+             70 STORE_FAST               3 (exc)
+             72 DELETE_FAST              3 (exc)
+             74 JUMP_FORWARD            10 (to 86)
+        >>   76 LOAD_CONST               0 (None)
+             78 STORE_FAST               3 (exc)
+             80 DELETE_FAST              3 (exc)
+             82 RERAISE
+        >>   84 RERAISE
+
+516     >>   86 LOAD_GLOBAL              6 (len)
+             88 LOAD_FAST                2 (encoded)
+             90 CALL_FUNCTION            1
+             92 LOAD_GLOBAL              7 (MACOS_HELPER_MAX_FRAME_BYTES)
+             94 COMPARE_OP               5 (>=)
+             96 POP_JUMP_IF_FALSE      112
+
+517          98 LOAD_GLOBAL              4 (ValueError)
+
+518         100 LOAD_CONST               7 ('{} exceeds the macOS Helper frame limit')
+            102 LOAD_METHOD              5 (format)
+            104 LOAD_FAST                1 (label)
+            106 CALL_METHOD              1
+
+517         108 CALL_FUNCTION            1
+            110 RAISE_VARARGS            1
+        >>  112 LOAD_CONST               0 (None)
+            114 RETURN_VALUE

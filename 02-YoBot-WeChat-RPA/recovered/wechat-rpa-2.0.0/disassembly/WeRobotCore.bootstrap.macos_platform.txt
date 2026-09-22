@@ -1,0 +1,358 @@
+  1           0 LOAD_CONST               0 ('Side-effect-free composition of macOS platform services.')
+              2 STORE_NAME               0 (__doc__)
+
+  3           4 LOAD_CONST               1 (0)
+              6 LOAD_CONST               2 (None)
+              8 IMPORT_NAME              1 (logging)
+             10 STORE_NAME               1 (logging)
+
+  4          12 LOAD_CONST               1 (0)
+             14 LOAD_CONST               3 (('Path',))
+             16 IMPORT_NAME              2 (pathlib)
+             18 IMPORT_FROM              3 (Path)
+             20 STORE_NAME               3 (Path)
+             22 POP_TOP
+
+  5          24 LOAD_CONST               1 (0)
+             26 LOAD_CONST               4 (('Any', 'Awaitable', 'Callable', 'Mapping', 'Optional', 'Protocol'))
+             28 IMPORT_NAME              4 (typing)
+             30 IMPORT_FROM              5 (Any)
+             32 STORE_NAME               5 (Any)
+             34 IMPORT_FROM              6 (Awaitable)
+             36 STORE_NAME               6 (Awaitable)
+             38 IMPORT_FROM              7 (Callable)
+             40 STORE_NAME               7 (Callable)
+             42 IMPORT_FROM              8 (Mapping)
+             44 STORE_NAME               8 (Mapping)
+             46 IMPORT_FROM              9 (Optional)
+             48 STORE_NAME               9 (Optional)
+             50 IMPORT_FROM             10 (Protocol)
+             52 STORE_NAME              10 (Protocol)
+             54 POP_TOP
+
+  7          56 LOAD_CONST               1 (0)
+             58 LOAD_CONST               5 (('MacKeychainBackend', 'MacKeychainSecretStore', 'MacOSApplicationFacade', 'MacOSAppPaths', 'MacOSBundleApplicationLauncher', 'MacOSHelperPermissionService', 'MacOSProcessFacade', 'MacOSProcessManagerAdapter', 'MACOS_WECHAT_APP_DATA_PERMISSION'))
+             60 IMPORT_NAME             11 (WeRobotCore.adapters.platform)
+             62 IMPORT_FROM             12 (MacKeychainBackend)
+             64 STORE_NAME              12 (MacKeychainBackend)
+             66 IMPORT_FROM             13 (MacKeychainSecretStore)
+             68 STORE_NAME              13 (MacKeychainSecretStore)
+             70 IMPORT_FROM             14 (MacOSApplicationFacade)
+             72 STORE_NAME              14 (MacOSApplicationFacade)
+             74 IMPORT_FROM             15 (MacOSAppPaths)
+             76 STORE_NAME              15 (MacOSAppPaths)
+             78 IMPORT_FROM             16 (MacOSBundleApplicationLauncher)
+             80 STORE_NAME              16 (MacOSBundleApplicationLauncher)
+             82 IMPORT_FROM             17 (MacOSHelperPermissionService)
+             84 STORE_NAME              17 (MacOSHelperPermissionService)
+             86 IMPORT_FROM             18 (MacOSProcessFacade)
+             88 STORE_NAME              18 (MacOSProcessFacade)
+             90 IMPORT_FROM             19 (MacOSProcessManagerAdapter)
+             92 STORE_NAME              19 (MacOSProcessManagerAdapter)
+             94 IMPORT_FROM             20 (MACOS_WECHAT_APP_DATA_PERMISSION)
+             96 STORE_NAME              20 (MACOS_WECHAT_APP_DATA_PERMISSION)
+             98 POP_TOP
+
+ 18         100 LOAD_CONST               1 (0)
+            102 LOAD_CONST               6 (('PlatformServices',))
+            104 IMPORT_NAME             21 (WeRobotCore.application.runtime)
+            106 IMPORT_FROM             22 (PlatformServices)
+            108 STORE_NAME              22 (PlatformServices)
+            110 POP_TOP
+
+ 21         112 LOAD_NAME                1 (logging)
+            114 LOAD_METHOD             23 (getLogger)
+            116 LOAD_NAME               24 (__name__)
+            118 CALL_METHOD              1
+            120 STORE_NAME              25 (_logger)
+
+ 24         122 LOAD_BUILD_CLASS
+            124 LOAD_CONST               7 (<code object MacOSHelperStatusClient at 0x1073ab870, file "WeRobotCore/bootstrap/macos_platform.py", line 24>)
+            126 LOAD_CONST               8 ('MacOSHelperStatusClient')
+            128 MAKE_FUNCTION            0
+            130 LOAD_CONST               8 ('MacOSHelperStatusClient')
+            132 LOAD_NAME               10 (Protocol)
+            134 CALL_FUNCTION            3
+            136 STORE_NAME              26 (MacOSHelperStatusClient)
+
+ 39         138 LOAD_CONST               2 (None)
+
+ 40         140 LOAD_CONST               2 (None)
+
+ 41         142 LOAD_CONST               2 (None)
+
+ 42         144 LOAD_CONST               2 (None)
+
+ 43         146 LOAD_CONST               2 (None)
+
+ 35         148 LOAD_CONST               9 (('home_dir', 'secret_backend', 'process_facade', 'application_facade', 'status_provider'))
+            150 BUILD_CONST_KEY_MAP      5
+
+ 37         152 LOAD_NAME               26 (MacOSHelperStatusClient)
+
+ 38         154 LOAD_NAME                8 (Mapping)
+            156 LOAD_NAME               27 (str)
+            158 LOAD_NAME                3 (Path)
+            160 BUILD_TUPLE              2
+            162 BINARY_SUBSCR
+
+ 39         164 LOAD_NAME                9 (Optional)
+            166 LOAD_NAME                3 (Path)
+            168 BINARY_SUBSCR
+
+ 40         170 LOAD_NAME                9 (Optional)
+            172 LOAD_NAME               12 (MacKeychainBackend)
+            174 BINARY_SUBSCR
+
+ 41         176 LOAD_NAME                9 (Optional)
+            178 LOAD_NAME               18 (MacOSProcessFacade)
+            180 BINARY_SUBSCR
+
+ 42         182 LOAD_NAME                9 (Optional)
+            184 LOAD_NAME               14 (MacOSApplicationFacade)
+            186 BINARY_SUBSCR
+
+ 43         188 LOAD_NAME                9 (Optional)
+            190 LOAD_NAME                7 (Callable)
+            192 BUILD_LIST               0
+            194 LOAD_NAME                6 (Awaitable)
+            196 LOAD_NAME                8 (Mapping)
+            198 LOAD_NAME               27 (str)
+            200 LOAD_NAME                5 (Any)
+            202 BUILD_TUPLE              2
+            204 BINARY_SUBSCR
+            206 BINARY_SUBSCR
+            208 BUILD_TUPLE              2
+            210 BINARY_SUBSCR
+            212 BINARY_SUBSCR
+
+ 44         214 LOAD_NAME               22 (PlatformServices)
+
+ 35         216 LOAD_CONST              10 (('helper_client', 'application_paths', 'home_dir', 'secret_backend', 'process_facade', 'application_facade', 'status_provider', 'return'))
+            218 BUILD_CONST_KEY_MAP      8
+            220 LOAD_CONST              11 (<code object create_macos_platform_services at 0x1073ab190, file "WeRobotCore/bootstrap/macos_platform.py", line 35>)
+            222 LOAD_CONST              12 ('create_macos_platform_services')
+            224 MAKE_FUNCTION            6 (kwdefaults, annotations)
+            226 STORE_NAME              28 (create_macos_platform_services)
+            228 LOAD_CONST               2 (None)
+            230 RETURN_VALUE
+
+Disassembly of <code object MacOSHelperStatusClient at 0x1073ab870, file "WeRobotCore/bootstrap/macos_platform.py", line 24>:
+ 24           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('MacOSHelperStatusClient')
+              6 STORE_NAME               2 (__qualname__)
+
+ 25           8 LOAD_CONST               6 ((None,))
+
+ 30          10 LOAD_CONST               1 (None)
+
+ 25          12 LOAD_CONST               2 (('timeout_seconds',))
+             14 BUILD_CONST_KEY_MAP      1
+
+ 27          16 LOAD_NAME                3 (str)
+
+ 28          18 LOAD_NAME                4 (Optional)
+             20 LOAD_NAME                5 (Mapping)
+             22 LOAD_NAME                3 (str)
+             24 LOAD_NAME                6 (Any)
+             26 BUILD_TUPLE              2
+             28 BINARY_SUBSCR
+             30 BINARY_SUBSCR
+
+ 30          32 LOAD_NAME                4 (Optional)
+             34 LOAD_NAME                7 (float)
+             36 BINARY_SUBSCR
+
+ 31          38 LOAD_NAME                5 (Mapping)
+             40 LOAD_NAME                3 (str)
+             42 LOAD_NAME                6 (Any)
+             44 BUILD_TUPLE              2
+             46 BINARY_SUBSCR
+
+ 25          48 LOAD_CONST               3 (('action', 'arguments', 'timeout_seconds', 'return'))
+             50 BUILD_CONST_KEY_MAP      4
+             52 LOAD_CONST               4 (<code object call at 0x1072cfbe0, file "WeRobotCore/bootstrap/macos_platform.py", line 25>)
+             54 LOAD_CONST               5 ('MacOSHelperStatusClient.call')
+             56 MAKE_FUNCTION            7 (defaults, kwdefaults, annotations)
+             58 STORE_NAME               8 (call)
+             60 LOAD_CONST               1 (None)
+             62 RETURN_VALUE
+
+Disassembly of <code object call at 0x1072cfbe0, file "WeRobotCore/bootstrap/macos_platform.py", line 25>:
+ 32           0 LOAD_CONST               0 (None)
+              2 RETURN_VALUE
+
+Disassembly of <code object create_macos_platform_services at 0x1073ab190, file "WeRobotCore/bootstrap/macos_platform.py", line 35>:
+ 47           0 LOAD_GLOBAL              0 (callable)
+              2 LOAD_GLOBAL              1 (getattr)
+              4 LOAD_DEREF               0 (helper_client)
+              6 LOAD_CONST               1 ('call')
+              8 LOAD_CONST               2 (None)
+             10 CALL_FUNCTION            3
+             12 CALL_FUNCTION            1
+             14 POP_JUMP_IF_TRUE        24
+
+ 48          16 LOAD_GLOBAL              2 (TypeError)
+             18 LOAD_CONST               3 ('helper_client must provide call(action)')
+             20 CALL_FUNCTION            1
+             22 RAISE_VARARGS            1
+
+ 50     >>   24 LOAD_GLOBAL              3 (Mapping)
+             26 LOAD_GLOBAL              4 (str)
+             28 LOAD_GLOBAL              5 (Any)
+             30 BUILD_TUPLE              2
+             32 BINARY_SUBSCR
+             34 LOAD_CONST               4 (('return',))
+             36 BUILD_CONST_KEY_MAP      1
+             38 LOAD_CLOSURE             0 (helper_client)
+             40 BUILD_TUPLE              1
+             42 LOAD_CONST               5 (<code object read_helper_status at 0x1073abbe0, file "WeRobotCore/bootstrap/macos_platform.py", line 50>)
+             44 LOAD_CONST               6 ('create_macos_platform_services.<locals>.read_helper_status')
+             46 MAKE_FUNCTION           12 (annotations, closure)
+             48 STORE_FAST               7 (read_helper_status)
+
+ 53          50 LOAD_GLOBAL              4 (str)
+             52 LOAD_GLOBAL              3 (Mapping)
+             54 LOAD_GLOBAL              4 (str)
+             56 LOAD_GLOBAL              5 (Any)
+             58 BUILD_TUPLE              2
+             60 BINARY_SUBSCR
+             62 LOAD_CONST               7 (('name', 'return'))
+             64 BUILD_CONST_KEY_MAP      2
+             66 LOAD_CLOSURE             0 (helper_client)
+             68 BUILD_TUPLE              1
+             70 LOAD_CONST               8 (<code object request_helper_permission at 0x1073abc90, file "WeRobotCore/bootstrap/macos_platform.py", line 53>)
+             72 LOAD_CONST               9 ('create_macos_platform_services.<locals>.request_helper_permission')
+             74 MAKE_FUNCTION           12 (annotations, closure)
+             76 STORE_FAST               8 (request_helper_permission)
+
+ 78          78 LOAD_GLOBAL              6 (PlatformServices)
+
+ 79          80 LOAD_GLOBAL              7 (MacOSAppPaths)
+             82 LOAD_METHOD              8 (from_home)
+             84 LOAD_FAST                2 (home_dir)
+             86 JUMP_IF_TRUE_OR_POP     94
+             88 LOAD_GLOBAL              9 (Path)
+             90 LOAD_METHOD             10 (home)
+             92 CALL_METHOD              0
+        >>   94 CALL_METHOD              1
+
+ 80          96 LOAD_GLOBAL             11 (MacKeychainSecretStore)
+             98 LOAD_FAST                3 (secret_backend)
+            100 LOAD_CONST              10 (('backend',))
+            102 CALL_FUNCTION_KW         1
+
+ 81         104 LOAD_GLOBAL             12 (MacOSHelperPermissionService)
+
+ 82         106 LOAD_FAST                6 (status_provider)
+            108 JUMP_IF_TRUE_OR_POP    112
+            110 LOAD_FAST                7 (read_helper_status)
+
+ 83     >>  112 LOAD_FAST                8 (request_helper_permission)
+
+ 81         114 CALL_FUNCTION            2
+
+ 85         116 LOAD_GLOBAL             13 (MacOSProcessManagerAdapter)
+            118 LOAD_FAST                4 (process_facade)
+            120 CALL_FUNCTION            1
+
+ 86         122 LOAD_GLOBAL             14 (MacOSBundleApplicationLauncher)
+
+ 87         124 LOAD_FAST                1 (application_paths)
+
+ 88         126 LOAD_FAST                5 (application_facade)
+
+ 86         128 CALL_FUNCTION            2
+
+ 78         130 LOAD_CONST              11 (('paths', 'secrets', 'permissions', 'processes', 'launcher'))
+            132 CALL_FUNCTION_KW         5
+            134 RETURN_VALUE
+
+Disassembly of <code object read_helper_status at 0x1073abbe0, file "WeRobotCore/bootstrap/macos_platform.py", line 50>:
+ 51           0 LOAD_DEREF               0 (helper_client)
+              2 LOAD_METHOD              0 (call)
+              4 LOAD_CONST               1 ('status')
+              6 CALL_METHOD              1
+              8 GET_AWAITABLE
+             10 LOAD_CONST               0 (None)
+             12 YIELD_FROM
+             14 RETURN_VALUE
+
+Disassembly of <code object request_helper_permission at 0x1073abc90, file "WeRobotCore/bootstrap/macos_platform.py", line 53>:
+ 54           0 LOAD_DEREF               0 (helper_client)
+              2 LOAD_ATTR                0 (call)
+
+ 55           4 LOAD_CONST               1 ('permissions.request')
+
+ 56           6 LOAD_CONST               2 ('permissionName')
+              8 LOAD_FAST                0 (name)
+             10 BUILD_MAP                1
+
+ 57          12 LOAD_CONST               3 (120.0)
+
+ 54          14 LOAD_CONST               4 (('timeout_seconds',))
+             16 CALL_FUNCTION_KW         3
+             18 GET_AWAITABLE
+             20 LOAD_CONST               0 (None)
+             22 YIELD_FROM
+             24 STORE_FAST               1 (result)
+
+ 60          26 LOAD_FAST                0 (name)
+             28 LOAD_GLOBAL              1 (MACOS_WECHAT_APP_DATA_PERMISSION)
+             30 COMPARE_OP               2 (==)
+
+ 59          32 POP_JUMP_IF_FALSE       92
+
+ 61          34 LOAD_FAST                1 (result)
+             36 LOAD_METHOD              2 (get)
+             38 LOAD_CONST               5 ('wechatAppDataAccessGranted')
+             40 CALL_METHOD              1
+             42 LOAD_CONST               6 (True)
+             44 IS_OP                    1
+
+ 59          46 POP_JUMP_IF_FALSE       92
+
+ 66          48 LOAD_GLOBAL              3 (getattr)
+             50 LOAD_DEREF               0 (helper_client)
+             52 LOAD_CONST               7 ('close')
+             54 LOAD_CONST               0 (None)
+             56 CALL_FUNCTION            3
+             58 STORE_FAST               2 (close)
+
+ 67          60 LOAD_GLOBAL              4 (callable)
+             62 LOAD_FAST                2 (close)
+             64 CALL_FUNCTION            1
+             66 POP_JUMP_IF_FALSE       80
+
+ 68          68 LOAD_FAST                2 (close)
+             70 CALL_FUNCTION            0
+             72 GET_AWAITABLE
+             74 LOAD_CONST               0 (None)
+             76 YIELD_FROM
+             78 POP_TOP
+
+ 69     >>   80 LOAD_GLOBAL              5 (_logger)
+             82 LOAD_METHOD              6 (warning)
+
+ 70          84 LOAD_CONST               8 ('微信图片与文件访问权限未授予；已释放本次 Helper，允许用户再次开启时重试')
+
+ 69          86 CALL_METHOD              1
+             88 POP_TOP
+             90 JUMP_FORWARD            18 (to 110)
+
+ 72     >>   92 LOAD_FAST                0 (name)
+             94 LOAD_GLOBAL              1 (MACOS_WECHAT_APP_DATA_PERMISSION)
+             96 COMPARE_OP               2 (==)
+             98 POP_JUMP_IF_FALSE      110
+
+ 73         100 LOAD_GLOBAL              5 (_logger)
+            102 LOAD_METHOD              7 (info)
+
+ 74         104 LOAD_CONST               9 ('微信图片与文件访问权限预检通过；本次客户端运行期间复用已授权 Helper')
+
+ 73         106 CALL_METHOD              1
+            108 POP_TOP
+
+ 76     >>  110 LOAD_FAST                1 (result)
+            112 RETURN_VALUE

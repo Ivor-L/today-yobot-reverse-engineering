@@ -1,0 +1,1576 @@
+  1           0 LOAD_CONST               0 ('Caller-owned production builder for the signed macOS RPA Helper.\n\nThe historical spike script also emits host and intruder probes into a fixed\ncheckout directory.  This module builds only the formal Helper into fresh,\ncaller-owned paths.  It never selects an identity, overwrites an artifact,\nnotarizes, installs, launches, or touches TCC state.\n')
+              2 STORE_NAME               0 (__doc__)
+
+  9           4 LOAD_CONST               1 (0)
+              6 LOAD_CONST               2 (('annotations',))
+              8 IMPORT_NAME              1 (__future__)
+             10 IMPORT_FROM              2 (annotations)
+             12 STORE_NAME               2 (annotations)
+             14 POP_TOP
+
+ 11          16 LOAD_CONST               1 (0)
+             18 LOAD_CONST               3 (('dataclass',))
+             20 IMPORT_NAME              3 (dataclasses)
+             22 IMPORT_FROM              4 (dataclass)
+             24 STORE_NAME               4 (dataclass)
+             26 POP_TOP
+
+ 12          28 LOAD_CONST               1 (0)
+             30 LOAD_CONST               4 (('sha256',))
+             32 IMPORT_NAME              5 (hashlib)
+             34 IMPORT_FROM              6 (sha256)
+             36 STORE_NAME               6 (sha256)
+             38 POP_TOP
+
+ 13          40 LOAD_CONST               1 (0)
+             42 LOAD_CONST               5 (None)
+             44 IMPORT_NAME              7 (os)
+             46 STORE_NAME               7 (os)
+
+ 14          48 LOAD_CONST               1 (0)
+             50 LOAD_CONST               6 (('Path',))
+             52 IMPORT_NAME              8 (pathlib)
+             54 IMPORT_FROM              9 (Path)
+             56 STORE_NAME               9 (Path)
+             58 POP_TOP
+
+ 15          60 LOAD_CONST               1 (0)
+             62 LOAD_CONST               5 (None)
+             64 IMPORT_NAME             10 (platform)
+             66 STORE_NAME              10 (platform)
+
+ 16          68 LOAD_CONST               1 (0)
+             70 LOAD_CONST               5 (None)
+             72 IMPORT_NAME             11 (plistlib)
+             74 STORE_NAME              11 (plistlib)
+
+ 17          76 LOAD_CONST               1 (0)
+             78 LOAD_CONST               5 (None)
+             80 IMPORT_NAME             12 (re)
+             82 STORE_NAME              12 (re)
+
+ 18          84 LOAD_CONST               1 (0)
+             86 LOAD_CONST               5 (None)
+             88 IMPORT_NAME             13 (shutil)
+             90 STORE_NAME              13 (shutil)
+
+ 19          92 LOAD_CONST               1 (0)
+             94 LOAD_CONST               5 (None)
+             96 IMPORT_NAME             14 (subprocess)
+             98 STORE_NAME              14 (subprocess)
+
+ 20         100 LOAD_CONST               1 (0)
+            102 LOAD_CONST               7 (('Callable', 'Mapping', 'Optional', 'Sequence'))
+            104 IMPORT_NAME             15 (typing)
+            106 IMPORT_FROM             16 (Callable)
+            108 STORE_NAME              16 (Callable)
+            110 IMPORT_FROM             17 (Mapping)
+            112 STORE_NAME              17 (Mapping)
+            114 IMPORT_FROM             18 (Optional)
+            116 STORE_NAME              18 (Optional)
+            118 IMPORT_FROM             19 (Sequence)
+            120 STORE_NAME              19 (Sequence)
+            122 POP_TOP
+
+ 22         124 LOAD_CONST               1 (0)
+            126 LOAD_CONST               8 (('MACOS_PRODUCT_CONTROL_BUNDLE_IDENTIFIER', 'MACOS_PRODUCT_HELPER_BUNDLE_IDENTIFIER', 'MACOS_PRODUCT_TEAM_IDENTIFIER'))
+            128 IMPORT_NAME             20 (WeRobotCore.bootstrap.macos_product)
+            130 IMPORT_FROM             21 (MACOS_PRODUCT_CONTROL_BUNDLE_IDENTIFIER)
+            132 STORE_NAME              21 (MACOS_PRODUCT_CONTROL_BUNDLE_IDENTIFIER)
+            134 IMPORT_FROM             22 (MACOS_PRODUCT_HELPER_BUNDLE_IDENTIFIER)
+            136 STORE_NAME              22 (MACOS_PRODUCT_HELPER_BUNDLE_IDENTIFIER)
+            138 IMPORT_FROM             23 (MACOS_PRODUCT_TEAM_IDENTIFIER)
+            140 STORE_NAME              23 (MACOS_PRODUCT_TEAM_IDENTIFIER)
+            142 POP_TOP
+
+ 27         144 LOAD_CONST               1 (0)
+            146 LOAD_CONST               9 (('MACOS_HELPER_EXECUTABLE_NAME',))
+            148 IMPORT_NAME             24 (WeRobotCore.packaging.macos_control)
+            150 IMPORT_FROM             25 (MACOS_HELPER_EXECUTABLE_NAME)
+            152 STORE_NAME              25 (MACOS_HELPER_EXECUTABLE_NAME)
+            154 POP_TOP
+
+ 30         156 LOAD_CONST              10 ('YokoRpaDistributionHelper.app')
+            158 STORE_NAME              26 (MACOS_HELPER_APP_NAME)
+
+ 31         160 LOAD_CONST              11 ('13.0')
+            162 STORE_NAME              27 (MACOS_HELPER_MINIMUM_SYSTEM_VERSION)
+
+ 32         164 LOAD_CONST              12 ('YokoWebotRPA.icns')
+            166 STORE_NAME              28 (MACOS_HELPER_ICON_NAME)
+
+ 33         168 LOAD_CONST              13 (('AppKit', 'ApplicationServices', 'CoreGraphics', 'Foundation', 'LocalAuthentication', 'ScreenCaptureKit', 'Security', 'Vision'))
+            170 STORE_NAME              29 (MACOS_HELPER_SWIFT_FRAMEWORKS)
+
+ 43         172 LOAD_CONST              14 (('IpcShared.swift', 'MacKeychainIsolationProbe.swift', 'WeChatReadRules.swift', 'WeChatContactRules.swift', 'WeChatGroupRules.swift', 'WeChatSnapshotLease.swift', 'WeChatSnapshotDispatch.swift', 'WeChatPointerAutomation.swift', 'WeChatRead.swift', 'WeChatContactRead.swift', 'WeChatGroupRead.swift', 'WeChatConversationRead.swift', 'WeChatChatProfileRead.swift', 'WeChatGroupSenderRead.swift', 'WeChatMoment.swift', 'WeChatAddFriendRules.swift', 'WeChatAddFriend.swift', 'WeChatGroupInviteRules.swift', 'WeChatGroupInvite.swift', 'WeChatSendRules.swift', 'WeChatSend.swift', 'HelperMain.swift'))
+            174 STORE_NAME              30 (MACOS_HELPER_SWIFT_SOURCE_NAMES)
+
+ 68         176 LOAD_NAME               12 (re)
+            178 LOAD_METHOD             31 (compile)
+            180 LOAD_CONST              15 ('^[A-Za-z0-9][A-Za-z0-9.+-]{0,63}$')
+            182 CALL_METHOD              1
+            184 STORE_NAME              32 (_APP_VERSION)
+
+ 69         186 LOAD_NAME               12 (re)
+            188 LOAD_METHOD             31 (compile)
+            190 LOAD_CONST              16 ('^[A-Za-z0-9][A-Za-z0-9.-]{0,63}$')
+            192 CALL_METHOD              1
+            194 STORE_NAME              33 (_BUILD_VERSION)
+
+ 70         196 LOAD_NAME               12 (re)
+            198 LOAD_METHOD             31 (compile)
+
+ 71         200 LOAD_CONST              17 ('^Developer ID Application: .+ \\(')
+
+ 72         202 LOAD_NAME               12 (re)
+            204 LOAD_METHOD             34 (escape)
+            206 LOAD_NAME               23 (MACOS_PRODUCT_TEAM_IDENTIFIER)
+            208 CALL_METHOD              1
+
+ 71         210 BINARY_ADD
+
+ 73         212 LOAD_CONST              18 ('\\)$')
+
+ 71         214 BINARY_ADD
+
+ 70         216 CALL_METHOD              1
+            218 STORE_NAME              35 (_DEVELOPER_IDENTITY)
+
+ 77         220 LOAD_BUILD_CLASS
+            222 LOAD_CONST              19 (<code object MacOSHelperBuildError at 0x1073aa7c0, file "WeRobotCore/packaging/macos_helper.py", line 77>)
+            224 LOAD_CONST              20 ('MacOSHelperBuildError')
+            226 MAKE_FUNCTION            0
+            228 LOAD_CONST              20 ('MacOSHelperBuildError')
+            230 LOAD_NAME               36 (RuntimeError)
+            232 CALL_FUNCTION            3
+            234 STORE_NAME              37 (MacOSHelperBuildError)
+
+ 81         236 LOAD_NAME               16 (Callable)
+            238 LOAD_CONST              21 (Ellipsis)
+            240 LOAD_NAME               14 (subprocess)
+            242 LOAD_ATTR               38 (CompletedProcess)
+            244 BUILD_TUPLE              2
+            246 BINARY_SUBSCR
+            248 STORE_NAME              39 (CommandRunner)
+
+ 84         250 LOAD_NAME                4 (dataclass)
+            252 LOAD_CONST              22 (True)
+            254 LOAD_CONST              23 (('frozen',))
+            256 CALL_FUNCTION_KW         1
+
+ 85         258 LOAD_BUILD_CLASS
+            260 LOAD_CONST              24 (<code object MacOSHelperBuildRequest at 0x1073b95b0, file "WeRobotCore/packaging/macos_helper.py", line 84>)
+            262 LOAD_CONST              25 ('MacOSHelperBuildRequest')
+            264 MAKE_FUNCTION            0
+            266 LOAD_CONST              25 ('MacOSHelperBuildRequest')
+            268 CALL_FUNCTION            2
+            270 CALL_FUNCTION            1
+            272 STORE_NAME              40 (MacOSHelperBuildRequest)
+
+132         274 LOAD_CONST               5 (None)
+
+127         276 LOAD_CONST              26 (('environment',))
+            278 BUILD_CONST_KEY_MAP      1
+            280 LOAD_CONST              27 ('CommandRunner')
+            282 LOAD_CONST              28 ('Sequence[str]')
+            284 LOAD_CONST              29 ('Path')
+            286 LOAD_CONST              30 ('Optional[Mapping[str, str]]')
+            288 LOAD_CONST              31 ('subprocess.CompletedProcess')
+            290 LOAD_CONST              32 (('runner', 'arguments', 'cwd', 'environment', 'return'))
+            292 BUILD_CONST_KEY_MAP      5
+            294 LOAD_CONST              33 (<code object _run_command at 0x1073b9500, file "WeRobotCore/packaging/macos_helper.py", line 127>)
+            296 LOAD_CONST              34 ('_run_command')
+            298 MAKE_FUNCTION            6 (kwdefaults, annotations)
+            300 STORE_NAME              41 (_run_command)
+
+154         302 LOAD_CONST              29 ('Path')
+            304 LOAD_CONST              35 ('dict')
+            306 LOAD_CONST              36 (('project_root', 'return'))
+            308 BUILD_CONST_KEY_MAP      2
+            310 LOAD_CONST              37 (<code object _read_formal_template at 0x1073b9870, file "WeRobotCore/packaging/macos_helper.py", line 154>)
+            312 LOAD_CONST              38 ('_read_formal_template')
+            314 MAKE_FUNCTION            4 (annotations)
+            316 STORE_NAME              42 (_read_formal_template)
+
+181         318 LOAD_CONST              29 ('Path')
+            320 LOAD_CONST              39 ('Sequence[Path]')
+            322 LOAD_CONST              36 (('project_root', 'return'))
+            324 BUILD_CONST_KEY_MAP      2
+            326 LOAD_CONST              40 (<code object _required_sources at 0x1073b9f50, file "WeRobotCore/packaging/macos_helper.py", line 181>)
+            328 LOAD_CONST              41 ('_required_sources')
+            330 MAKE_FUNCTION            4 (annotations)
+            332 STORE_NAME              43 (_required_sources)
+
+191         334 LOAD_CONST              29 ('Path')
+            336 LOAD_CONST              42 ('None')
+            338 LOAD_CONST              43 (('path', 'return'))
+            340 BUILD_CONST_KEY_MAP      2
+            342 LOAD_CONST              44 (<code object _verify_entitlements at 0x1073b9a80, file "WeRobotCore/packaging/macos_helper.py", line 191>)
+            344 LOAD_CONST              45 ('_verify_entitlements')
+            346 MAKE_FUNCTION            4 (annotations)
+            348 STORE_NAME              44 (_verify_entitlements)
+
+200         350 LOAD_CONST              29 ('Path')
+            352 LOAD_CONST              29 ('Path')
+            354 LOAD_CONST              29 ('Path')
+            356 LOAD_CONST              42 ('None')
+            358 LOAD_CONST              46 (('project_root', 'output_bundle_path', 'work_dir', 'return'))
+            360 BUILD_CONST_KEY_MAP      4
+            362 LOAD_CONST              47 (<code object _require_external_atomic_paths at 0x1073b9be0, file "WeRobotCore/packaging/macos_helper.py", line 200>)
+            364 LOAD_CONST              48 ('_require_external_atomic_paths')
+            366 MAKE_FUNCTION            4 (annotations)
+            368 STORE_NAME              45 (_require_external_atomic_paths)
+
+222         370 LOAD_CONST              29 ('Path')
+            372 LOAD_CONST              49 ('str')
+            374 LOAD_CONST              43 (('path', 'return'))
+            376 BUILD_CONST_KEY_MAP      2
+            378 LOAD_CONST              50 (<code object _sha256 at 0x1073b9660, file "WeRobotCore/packaging/macos_helper.py", line 222>)
+            380 LOAD_CONST              51 ('_sha256')
+            382 MAKE_FUNCTION            4 (annotations)
+            384 STORE_NAME              46 (_sha256)
+
+233         386 LOAD_NAME               14 (subprocess)
+            388 LOAD_ATTR               47 (run)
+
+234         390 LOAD_CONST              52 ('')
+
+235         392 LOAD_CONST              52 ('')
+
+230         394 LOAD_CONST              53 (('command_runner', 'platform_name', 'machine'))
+            396 BUILD_CONST_KEY_MAP      3
+            398 LOAD_CONST              25 ('MacOSHelperBuildRequest')
+            400 LOAD_CONST              27 ('CommandRunner')
+            402 LOAD_CONST              49 ('str')
+            404 LOAD_CONST              49 ('str')
+            406 LOAD_CONST              54 ('Mapping[str, object]')
+            408 LOAD_CONST              55 (('request', 'command_runner', 'platform_name', 'machine', 'return'))
+            410 BUILD_CONST_KEY_MAP      5
+            412 LOAD_CONST              56 (<code object build_signed_macos_helper at 0x1073b9030, file "WeRobotCore/packaging/macos_helper.py", line 230>)
+            414 LOAD_CONST              57 ('build_signed_macos_helper')
+            416 MAKE_FUNCTION            6 (kwdefaults, annotations)
+            418 STORE_NAME              48 (build_signed_macos_helper)
+
+392         420 BUILD_LIST               0
+            422 LOAD_CONST              58 (('MACOS_HELPER_APP_NAME', 'MACOS_HELPER_MINIMUM_SYSTEM_VERSION', 'MACOS_HELPER_ICON_NAME', 'MACOS_HELPER_SWIFT_FRAMEWORKS', 'MACOS_HELPER_SWIFT_SOURCE_NAMES', 'MacOSHelperBuildError', 'MacOSHelperBuildRequest', 'build_signed_macos_helper'))
+            424 LIST_EXTEND              1
+            426 STORE_NAME              49 (__all__)
+            428 LOAD_CONST               5 (None)
+            430 RETURN_VALUE
+
+Disassembly of <code object MacOSHelperBuildError at 0x1073aa7c0, file "WeRobotCore/packaging/macos_helper.py", line 77>:
+ 77           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('MacOSHelperBuildError')
+              6 STORE_NAME               2 (__qualname__)
+
+ 78           8 LOAD_CONST               1 ('A sanitized formal Helper build failure.')
+             10 STORE_NAME               3 (__doc__)
+             12 LOAD_CONST               2 (None)
+             14 RETURN_VALUE
+
+Disassembly of <code object MacOSHelperBuildRequest at 0x1073b95b0, file "WeRobotCore/packaging/macos_helper.py", line 84>:
+ 84           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('MacOSHelperBuildRequest')
+              6 STORE_NAME               2 (__qualname__)
+              8 SETUP_ANNOTATIONS
+
+ 86          10 LOAD_CONST               1 ('Path')
+             12 LOAD_NAME                3 (__annotations__)
+             14 LOAD_CONST               2 ('project_root')
+             16 STORE_SUBSCR
+
+ 87          18 LOAD_CONST               1 ('Path')
+             20 LOAD_NAME                3 (__annotations__)
+             22 LOAD_CONST               3 ('output_bundle_path')
+             24 STORE_SUBSCR
+
+ 88          26 LOAD_CONST               1 ('Path')
+             28 LOAD_NAME                3 (__annotations__)
+             30 LOAD_CONST               4 ('work_dir')
+             32 STORE_SUBSCR
+
+ 89          34 LOAD_CONST               5 ('str')
+             36 LOAD_NAME                3 (__annotations__)
+             38 LOAD_CONST               6 ('app_version')
+             40 STORE_SUBSCR
+
+ 90          42 LOAD_CONST               5 ('str')
+             44 LOAD_NAME                3 (__annotations__)
+             46 LOAD_CONST               7 ('build_version')
+             48 STORE_SUBSCR
+
+ 91          50 LOAD_CONST               5 ('str')
+             52 LOAD_NAME                3 (__annotations__)
+             54 LOAD_CONST               8 ('signing_identity')
+             56 STORE_SUBSCR
+
+ 92          58 LOAD_CONST               9 ('arm64')
+             60 STORE_NAME               4 (architecture)
+             62 LOAD_CONST               5 ('str')
+             64 LOAD_NAME                3 (__annotations__)
+             66 LOAD_CONST              10 ('architecture')
+             68 STORE_SUBSCR
+
+ 94          70 LOAD_CONST              11 ('None')
+             72 LOAD_CONST              12 (('return',))
+             74 BUILD_CONST_KEY_MAP      1
+             76 LOAD_CONST              13 (<code object __post_init__ at 0x1073b9ea0, file "WeRobotCore/packaging/macos_helper.py", line 94>)
+             78 LOAD_CONST              14 ('MacOSHelperBuildRequest.__post_init__')
+             80 MAKE_FUNCTION            4 (annotations)
+             82 STORE_NAME               5 (__post_init__)
+             84 LOAD_CONST              15 (None)
+             86 RETURN_VALUE
+
+Disassembly of <code object __post_init__ at 0x1073b9ea0, file "WeRobotCore/packaging/macos_helper.py", line 94>:
+ 95           0 LOAD_CONST               1 (('project_root', 'output_bundle_path', 'work_dir'))
+              2 GET_ITER
+        >>    4 FOR_ITER                34 (to 40)
+              6 STORE_FAST               1 (name)
+
+ 96           8 LOAD_GLOBAL              0 (isinstance)
+             10 LOAD_GLOBAL              1 (getattr)
+             12 LOAD_FAST                0 (self)
+             14 LOAD_FAST                1 (name)
+             16 CALL_FUNCTION            2
+             18 LOAD_GLOBAL              2 (Path)
+             20 CALL_FUNCTION            2
+             22 POP_JUMP_IF_TRUE         4
+
+ 97          24 LOAD_GLOBAL              3 (TypeError)
+             26 LOAD_CONST               2 ('{} must be a pathlib.Path')
+             28 LOAD_METHOD              4 (format)
+             30 LOAD_FAST                1 (name)
+             32 CALL_METHOD              1
+             34 CALL_FUNCTION            1
+             36 RAISE_VARARGS            1
+             38 JUMP_ABSOLUTE            4
+
+ 98     >>   40 LOAD_FAST                0 (self)
+             42 LOAD_ATTR                5 (project_root)
+             44 LOAD_METHOD              6 (is_absolute)
+             46 CALL_METHOD              0
+             48 POP_JUMP_IF_TRUE        58
+
+ 99          50 LOAD_GLOBAL              7 (ValueError)
+             52 LOAD_CONST               3 ('project_root must be absolute')
+             54 CALL_FUNCTION            1
+             56 RAISE_VARARGS            1
+
+101     >>   58 LOAD_FAST                0 (self)
+             60 LOAD_ATTR                8 (output_bundle_path)
+             62 LOAD_METHOD              6 (is_absolute)
+             64 CALL_METHOD              0
+
+100          66 POP_JUMP_IF_FALSE       80
+
+102          68 LOAD_FAST                0 (self)
+             70 LOAD_ATTR                8 (output_bundle_path)
+             72 LOAD_ATTR                9 (name)
+             74 LOAD_GLOBAL             10 (MACOS_HELPER_APP_NAME)
+             76 COMPARE_OP               3 (!=)
+
+100          78 POP_JUMP_IF_FALSE       88
+
+104     >>   80 LOAD_GLOBAL              7 (ValueError)
+             82 LOAD_CONST               4 ('output_bundle_path must use the formal Helper name')
+             84 CALL_FUNCTION            1
+             86 RAISE_VARARGS            1
+
+105     >>   88 LOAD_FAST                0 (self)
+             90 LOAD_ATTR               11 (work_dir)
+             92 LOAD_METHOD              6 (is_absolute)
+             94 CALL_METHOD              0
+             96 POP_JUMP_IF_TRUE       106
+
+106          98 LOAD_GLOBAL              7 (ValueError)
+            100 LOAD_CONST               5 ('work_dir must be absolute')
+            102 CALL_FUNCTION            1
+            104 RAISE_VARARGS            1
+
+107     >>  106 LOAD_FAST                0 (self)
+            108 LOAD_ATTR                8 (output_bundle_path)
+            110 LOAD_METHOD             12 (exists)
+            112 CALL_METHOD              0
+            114 POP_JUMP_IF_TRUE       126
+            116 LOAD_FAST                0 (self)
+            118 LOAD_ATTR               11 (work_dir)
+            120 LOAD_METHOD             12 (exists)
+            122 CALL_METHOD              0
+            124 POP_JUMP_IF_FALSE      134
+
+108     >>  126 LOAD_GLOBAL              7 (ValueError)
+            128 LOAD_CONST               6 ('Helper output and work paths must not exist')
+            130 CALL_FUNCTION            1
+            132 RAISE_VARARGS            1
+
+109     >>  134 LOAD_FAST                0 (self)
+            136 LOAD_ATTR                8 (output_bundle_path)
+            138 LOAD_ATTR               13 (parent)
+            140 LOAD_METHOD             14 (is_dir)
+            142 CALL_METHOD              0
+            144 POP_JUMP_IF_TRUE       154
+
+110         146 LOAD_GLOBAL              7 (ValueError)
+            148 LOAD_CONST               7 ('Helper output parent is unavailable')
+            150 CALL_FUNCTION            1
+            152 RAISE_VARARGS            1
+
+111     >>  154 LOAD_FAST                0 (self)
+            156 LOAD_ATTR               11 (work_dir)
+            158 LOAD_ATTR               13 (parent)
+            160 LOAD_METHOD             14 (is_dir)
+            162 CALL_METHOD              0
+            164 POP_JUMP_IF_TRUE       174
+
+112         166 LOAD_GLOBAL              7 (ValueError)
+            168 LOAD_CONST               8 ('Helper work parent is unavailable')
+            170 CALL_FUNCTION            1
+            172 RAISE_VARARGS            1
+
+113     >>  174 LOAD_GLOBAL             15 (_APP_VERSION)
+            176 LOAD_METHOD             16 (fullmatch)
+            178 LOAD_FAST                0 (self)
+            180 LOAD_ATTR               17 (app_version)
+            182 CALL_METHOD              1
+            184 LOAD_CONST               0 (None)
+            186 IS_OP                    0
+            188 POP_JUMP_IF_FALSE      198
+
+114         190 LOAD_GLOBAL              7 (ValueError)
+            192 LOAD_CONST               9 ('app_version is invalid')
+            194 CALL_FUNCTION            1
+            196 RAISE_VARARGS            1
+
+115     >>  198 LOAD_GLOBAL             18 (_BUILD_VERSION)
+            200 LOAD_METHOD             16 (fullmatch)
+            202 LOAD_FAST                0 (self)
+            204 LOAD_ATTR               19 (build_version)
+            206 CALL_METHOD              1
+            208 LOAD_CONST               0 (None)
+            210 IS_OP                    0
+            212 POP_JUMP_IF_FALSE      222
+
+116         214 LOAD_GLOBAL              7 (ValueError)
+            216 LOAD_CONST              10 ('build_version is invalid')
+            218 CALL_FUNCTION            1
+            220 RAISE_VARARGS            1
+
+117     >>  222 LOAD_GLOBAL             20 (_DEVELOPER_IDENTITY)
+            224 LOAD_METHOD             16 (fullmatch)
+            226 LOAD_FAST                0 (self)
+            228 LOAD_ATTR               21 (signing_identity)
+            230 CALL_METHOD              1
+            232 LOAD_CONST               0 (None)
+            234 IS_OP                    0
+            236 POP_JUMP_IF_FALSE      252
+
+118         238 LOAD_GLOBAL              7 (ValueError)
+
+119         240 LOAD_CONST              11 ('signing_identity must be Developer ID Team {}')
+            242 LOAD_METHOD              4 (format)
+
+120         244 LOAD_GLOBAL             22 (MACOS_PRODUCT_TEAM_IDENTIFIER)
+
+119         246 CALL_METHOD              1
+
+118         248 CALL_FUNCTION            1
+            250 RAISE_VARARGS            1
+
+123     >>  252 LOAD_FAST                0 (self)
+            254 LOAD_ATTR               23 (architecture)
+            256 LOAD_CONST              12 ('arm64')
+            258 COMPARE_OP               3 (!=)
+            260 EXTENDED_ARG             1
+            262 POP_JUMP_IF_FALSE      272
+
+124         264 LOAD_GLOBAL              7 (ValueError)
+            266 LOAD_CONST              13 ('the official macOS Helper release is arm64 only')
+            268 CALL_FUNCTION            1
+            270 RAISE_VARARGS            1
+        >>  272 LOAD_CONST               0 (None)
+            274 RETURN_VALUE
+
+Disassembly of <code object _run_command at 0x1073b9500, file "WeRobotCore/packaging/macos_helper.py", line 127>:
+134           0 SETUP_FINALLY           66 (to 68)
+
+135           2 LOAD_FAST                0 (runner)
+
+136           4 LOAD_GLOBAL              0 (tuple)
+              6 LOAD_CONST               1 (<code object <genexpr> at 0x1073b99d0, file "WeRobotCore/packaging/macos_helper.py", line 136>)
+              8 LOAD_CONST               2 ('_run_command.<locals>.<genexpr>')
+             10 MAKE_FUNCTION            0
+             12 LOAD_FAST                1 (arguments)
+             14 GET_ITER
+             16 CALL_FUNCTION            1
+             18 CALL_FUNCTION            1
+
+137          20 LOAD_GLOBAL              1 (str)
+             22 LOAD_FAST                2 (cwd)
+             24 CALL_FUNCTION            1
+
+138          26 LOAD_FAST                3 (environment)
+             28 LOAD_CONST               0 (None)
+             30 IS_OP                    1
+             32 POP_JUMP_IF_FALSE       42
+             34 LOAD_GLOBAL              2 (dict)
+             36 LOAD_FAST                3 (environment)
+             38 CALL_FUNCTION            1
+             40 JUMP_FORWARD             2 (to 44)
+        >>   42 LOAD_CONST               0 (None)
+
+139     >>   44 LOAD_GLOBAL              3 (subprocess)
+             46 LOAD_ATTR                4 (PIPE)
+
+140          48 LOAD_GLOBAL              3 (subprocess)
+             50 LOAD_ATTR                4 (PIPE)
+
+141          52 LOAD_CONST               3 (True)
+
+142          54 LOAD_CONST               4 (False)
+
+143          56 LOAD_CONST               5 (600)
+
+135          58 LOAD_CONST               6 (('cwd', 'env', 'stdout', 'stderr', 'text', 'check', 'timeout'))
+             60 CALL_FUNCTION_KW         8
+             62 STORE_FAST               4 (completed)
+             64 POP_BLOCK
+             66 JUMP_FORWARD            46 (to 114)
+
+145     >>   68 DUP_TOP
+             70 LOAD_GLOBAL              5 (Exception)
+             72 JUMP_IF_NOT_EXC_MATCH   112
+             74 POP_TOP
+             76 STORE_FAST               5 (exc)
+             78 POP_TOP
+             80 SETUP_FINALLY           22 (to 104)
+
+146          82 LOAD_GLOBAL              6 (MacOSHelperBuildError)
+             84 LOAD_CONST               7 ('macOS Helper build command failed')
+             86 CALL_FUNCTION            1
+             88 LOAD_FAST                5 (exc)
+             90 RAISE_VARARGS            2
+             92 POP_BLOCK
+             94 POP_EXCEPT
+             96 LOAD_CONST               0 (None)
+             98 STORE_FAST               5 (exc)
+            100 DELETE_FAST              5 (exc)
+            102 JUMP_FORWARD            10 (to 114)
+        >>  104 LOAD_CONST               0 (None)
+            106 STORE_FAST               5 (exc)
+            108 DELETE_FAST              5 (exc)
+            110 RERAISE
+        >>  112 RERAISE
+
+147     >>  114 LOAD_GLOBAL              7 (isinstance)
+            116 LOAD_FAST                4 (completed)
+            118 LOAD_GLOBAL              3 (subprocess)
+            120 LOAD_ATTR                8 (CompletedProcess)
+            122 CALL_FUNCTION            2
+            124 POP_JUMP_IF_TRUE       134
+
+148         126 LOAD_GLOBAL              6 (MacOSHelperBuildError)
+            128 LOAD_CONST               8 ('macOS Helper command runner is invalid')
+            130 CALL_FUNCTION            1
+            132 RAISE_VARARGS            1
+
+149     >>  134 LOAD_FAST                4 (completed)
+            136 LOAD_ATTR                9 (returncode)
+            138 LOAD_CONST               9 (0)
+            140 COMPARE_OP               3 (!=)
+            142 POP_JUMP_IF_FALSE      152
+
+150         144 LOAD_GLOBAL              6 (MacOSHelperBuildError)
+            146 LOAD_CONST               7 ('macOS Helper build command failed')
+            148 CALL_FUNCTION            1
+            150 RAISE_VARARGS            1
+
+151     >>  152 LOAD_FAST                4 (completed)
+            154 RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x1073b99d0, file "WeRobotCore/packaging/macos_helper.py", line 136>:
+136           0 LOAD_FAST                0 (.0)
+        >>    2 FOR_ITER                14 (to 18)
+              4 STORE_FAST               1 (value)
+              6 LOAD_GLOBAL              0 (str)
+              8 LOAD_FAST                1 (value)
+             10 CALL_FUNCTION            1
+             12 YIELD_VALUE
+             14 POP_TOP
+             16 JUMP_ABSOLUTE            2
+        >>   18 LOAD_CONST               0 (None)
+             20 RETURN_VALUE
+
+Disassembly of <code object _read_formal_template at 0x1073b9870, file "WeRobotCore/packaging/macos_helper.py", line 154>:
+156           0 LOAD_FAST                0 (project_root)
+
+157           2 LOAD_CONST               1 ('spikes')
+
+156           4 BINARY_TRUE_DIVIDE
+
+158           6 LOAD_CONST               2 ('macos_distribution_helper')
+
+156           8 BINARY_TRUE_DIVIDE
+
+159          10 LOAD_CONST               3 ('HelperInfo.plist')
+
+156          12 BINARY_TRUE_DIVIDE
+
+155          14 STORE_FAST               1 (template)
+
+161          16 SETUP_FINALLY           18 (to 36)
+
+162          18 LOAD_GLOBAL              0 (plistlib)
+             20 LOAD_METHOD              1 (loads)
+             22 LOAD_FAST                1 (template)
+             24 LOAD_METHOD              2 (read_bytes)
+             26 CALL_METHOD              0
+             28 CALL_METHOD              1
+             30 STORE_DEREF              0 (value)
+             32 POP_BLOCK
+             34 JUMP_FORWARD            46 (to 82)
+
+163     >>   36 DUP_TOP
+             38 LOAD_GLOBAL              3 (Exception)
+             40 JUMP_IF_NOT_EXC_MATCH    80
+             42 POP_TOP
+             44 STORE_FAST               2 (exc)
+             46 POP_TOP
+             48 SETUP_FINALLY           22 (to 72)
+
+164          50 LOAD_GLOBAL              4 (MacOSHelperBuildError)
+             52 LOAD_CONST               4 ('formal Helper Info.plist is invalid')
+             54 CALL_FUNCTION            1
+             56 LOAD_FAST                2 (exc)
+             58 RAISE_VARARGS            2
+             60 POP_BLOCK
+             62 POP_EXCEPT
+             64 LOAD_CONST               0 (None)
+             66 STORE_FAST               2 (exc)
+             68 DELETE_FAST              2 (exc)
+             70 JUMP_FORWARD            10 (to 82)
+        >>   72 LOAD_CONST               0 (None)
+             74 STORE_FAST               2 (exc)
+             76 DELETE_FAST              2 (exc)
+             78 RERAISE
+        >>   80 RERAISE
+
+165     >>   82 LOAD_GLOBAL              5 (isinstance)
+             84 LOAD_DEREF               0 (value)
+             86 LOAD_GLOBAL              6 (dict)
+             88 CALL_FUNCTION            2
+             90 POP_JUMP_IF_TRUE       100
+
+166          92 LOAD_GLOBAL              4 (MacOSHelperBuildError)
+             94 LOAD_CONST               4 ('formal Helper Info.plist is invalid')
+             96 CALL_FUNCTION            1
+             98 RAISE_VARARGS            1
+
+168     >>  100 LOAD_CONST               5 ('WeBot_RPA_Service')
+
+169         102 LOAD_GLOBAL              7 (MACOS_HELPER_EXECUTABLE_NAME)
+
+170         104 LOAD_GLOBAL              8 (MACOS_PRODUCT_HELPER_BUNDLE_IDENTIFIER)
+
+171         106 LOAD_GLOBAL              9 (MACOS_HELPER_ICON_NAME)
+
+172         108 LOAD_CONST               6 ('WeBotRPAService')
+
+173         110 LOAD_CONST               7 ('APPL')
+
+174         112 LOAD_GLOBAL             10 (MACOS_HELPER_MINIMUM_SYSTEM_VERSION)
+
+167         114 LOAD_CONST               8 (('CFBundleDisplayName', 'CFBundleExecutable', 'CFBundleIdentifier', 'CFBundleIconFile', 'CFBundleName', 'CFBundlePackageType', 'LSMinimumSystemVersion'))
+            116 BUILD_CONST_KEY_MAP      7
+            118 STORE_FAST               3 (expected)
+
+176         120 LOAD_GLOBAL             11 (any)
+            122 LOAD_CLOSURE             0 (value)
+            124 BUILD_TUPLE              1
+            126 LOAD_CONST               9 (<code object <genexpr> at 0x1073b9df0, file "WeRobotCore/packaging/macos_helper.py", line 176>)
+            128 LOAD_CONST              10 ('_read_formal_template.<locals>.<genexpr>')
+            130 MAKE_FUNCTION            8 (closure)
+            132 LOAD_FAST                3 (expected)
+            134 LOAD_METHOD             12 (items)
+            136 CALL_METHOD              0
+            138 GET_ITER
+            140 CALL_FUNCTION            1
+            142 CALL_FUNCTION            1
+            144 POP_JUMP_IF_FALSE      154
+
+177         146 LOAD_GLOBAL              4 (MacOSHelperBuildError)
+            148 LOAD_CONST              11 ('formal Helper Info.plist policy drifted')
+            150 CALL_FUNCTION            1
+            152 RAISE_VARARGS            1
+
+178     >>  154 LOAD_DEREF               0 (value)
+            156 RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x1073b9df0, file "WeRobotCore/packaging/macos_helper.py", line 176>:
+176           0 LOAD_FAST                0 (.0)
+        >>    2 FOR_ITER                24 (to 28)
+              4 UNPACK_SEQUENCE          2
+              6 STORE_FAST               1 (key)
+              8 STORE_FAST               2 (expected_value)
+             10 LOAD_DEREF               0 (value)
+             12 LOAD_METHOD              0 (get)
+             14 LOAD_FAST                1 (key)
+             16 CALL_METHOD              1
+             18 LOAD_FAST                2 (expected_value)
+             20 COMPARE_OP               3 (!=)
+             22 YIELD_VALUE
+             24 POP_TOP
+             26 JUMP_ABSOLUTE            2
+        >>   28 LOAD_CONST               0 (None)
+             30 RETURN_VALUE
+
+Disassembly of <code object _required_sources at 0x1073b9f50, file "WeRobotCore/packaging/macos_helper.py", line 181>:
+183           0 LOAD_FAST                0 (project_root)
+              2 LOAD_CONST               1 ('spikes')
+              4 BINARY_TRUE_DIVIDE
+              6 LOAD_CONST               2 ('macos_distribution_helper')
+              8 BINARY_TRUE_DIVIDE
+             10 LOAD_CONST               3 ('Sources')
+             12 BINARY_TRUE_DIVIDE
+
+182          14 STORE_DEREF              0 (source_root)
+
+185          16 LOAD_GLOBAL              0 (tuple)
+             18 LOAD_CLOSURE             0 (source_root)
+             20 BUILD_TUPLE              1
+             22 LOAD_CONST               4 (<code object <genexpr> at 0x1073b9920, file "WeRobotCore/packaging/macos_helper.py", line 185>)
+             24 LOAD_CONST               5 ('_required_sources.<locals>.<genexpr>')
+             26 MAKE_FUNCTION            8 (closure)
+             28 LOAD_GLOBAL              1 (MACOS_HELPER_SWIFT_SOURCE_NAMES)
+             30 GET_ITER
+             32 CALL_FUNCTION            1
+             34 CALL_FUNCTION            1
+             36 STORE_FAST               1 (sources)
+
+186          38 LOAD_GLOBAL              2 (any)
+             40 LOAD_CONST               6 (<code object <genexpr> at 0x1073b92f0, file "WeRobotCore/packaging/macos_helper.py", line 186>)
+             42 LOAD_CONST               5 ('_required_sources.<locals>.<genexpr>')
+             44 MAKE_FUNCTION            0
+             46 LOAD_FAST                1 (sources)
+             48 GET_ITER
+             50 CALL_FUNCTION            1
+             52 CALL_FUNCTION            1
+             54 POP_JUMP_IF_FALSE       64
+
+187          56 LOAD_GLOBAL              3 (MacOSHelperBuildError)
+             58 LOAD_CONST               7 ('formal Helper Swift sources are incomplete')
+             60 CALL_FUNCTION            1
+             62 RAISE_VARARGS            1
+
+188     >>   64 LOAD_FAST                1 (sources)
+             66 RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x1073b9920, file "WeRobotCore/packaging/macos_helper.py", line 185>:
+185           0 LOAD_FAST                0 (.0)
+        >>    2 FOR_ITER                14 (to 18)
+              4 STORE_FAST               1 (name)
+              6 LOAD_DEREF               0 (source_root)
+              8 LOAD_FAST                1 (name)
+             10 BINARY_TRUE_DIVIDE
+             12 YIELD_VALUE
+             14 POP_TOP
+             16 JUMP_ABSOLUTE            2
+        >>   18 LOAD_CONST               0 (None)
+             20 RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x1073b92f0, file "WeRobotCore/packaging/macos_helper.py", line 186>:
+186           0 LOAD_FAST                0 (.0)
+        >>    2 FOR_ITER                24 (to 28)
+              4 STORE_FAST               1 (path)
+              6 LOAD_FAST                1 (path)
+              8 LOAD_METHOD              0 (is_file)
+             10 CALL_METHOD              0
+             12 UNARY_NOT
+             14 JUMP_IF_TRUE_OR_POP     22
+             16 LOAD_FAST                1 (path)
+             18 LOAD_METHOD              1 (is_symlink)
+             20 CALL_METHOD              0
+        >>   22 YIELD_VALUE
+             24 POP_TOP
+             26 JUMP_ABSOLUTE            2
+        >>   28 LOAD_CONST               0 (None)
+             30 RETURN_VALUE
+
+Disassembly of <code object _verify_entitlements at 0x1073b9a80, file "WeRobotCore/packaging/macos_helper.py", line 191>:
+192           0 SETUP_FINALLY           18 (to 20)
+
+193           2 LOAD_GLOBAL              0 (plistlib)
+              4 LOAD_METHOD              1 (loads)
+              6 LOAD_FAST                0 (path)
+              8 LOAD_METHOD              2 (read_bytes)
+             10 CALL_METHOD              0
+             12 CALL_METHOD              1
+             14 STORE_FAST               1 (value)
+             16 POP_BLOCK
+             18 JUMP_FORWARD            46 (to 66)
+
+194     >>   20 DUP_TOP
+             22 LOAD_GLOBAL              3 (Exception)
+             24 JUMP_IF_NOT_EXC_MATCH    64
+             26 POP_TOP
+             28 STORE_FAST               2 (exc)
+             30 POP_TOP
+             32 SETUP_FINALLY           22 (to 56)
+
+195          34 LOAD_GLOBAL              4 (MacOSHelperBuildError)
+             36 LOAD_CONST               1 ('formal Helper entitlements are invalid')
+             38 CALL_FUNCTION            1
+             40 LOAD_FAST                2 (exc)
+             42 RAISE_VARARGS            2
+             44 POP_BLOCK
+             46 POP_EXCEPT
+             48 LOAD_CONST               0 (None)
+             50 STORE_FAST               2 (exc)
+             52 DELETE_FAST              2 (exc)
+             54 JUMP_FORWARD            10 (to 66)
+        >>   56 LOAD_CONST               0 (None)
+             58 STORE_FAST               2 (exc)
+             60 DELETE_FAST              2 (exc)
+             62 RERAISE
+        >>   64 RERAISE
+
+196     >>   66 LOAD_FAST                1 (value)
+             68 BUILD_MAP                0
+             70 COMPARE_OP               3 (!=)
+             72 POP_JUMP_IF_FALSE       82
+
+197          74 LOAD_GLOBAL              4 (MacOSHelperBuildError)
+             76 LOAD_CONST               2 ('formal Helper entitlements policy drifted')
+             78 CALL_FUNCTION            1
+             80 RAISE_VARARGS            1
+        >>   82 LOAD_CONST               0 (None)
+             84 RETURN_VALUE
+
+Disassembly of <code object _require_external_atomic_paths at 0x1073b9be0, file "WeRobotCore/packaging/macos_helper.py", line 200>:
+205           0 LOAD_FAST                1 (output_bundle_path)
+              2 LOAD_METHOD              0 (resolve)
+              4 CALL_METHOD              0
+              6 LOAD_FAST                2 (work_dir)
+              8 LOAD_METHOD              0 (resolve)
+             10 CALL_METHOD              0
+             12 BUILD_TUPLE              2
+             14 GET_ITER
+        >>   16 FOR_ITER                50 (to 68)
+             18 STORE_FAST               3 (path)
+
+206          20 SETUP_FINALLY           14 (to 36)
+
+207          22 LOAD_FAST                3 (path)
+             24 LOAD_METHOD              1 (relative_to)
+             26 LOAD_FAST                0 (project_root)
+             28 CALL_METHOD              1
+             30 POP_TOP
+             32 POP_BLOCK
+             34 JUMP_FORWARD            22 (to 58)
+
+208     >>   36 DUP_TOP
+             38 LOAD_GLOBAL              2 (ValueError)
+             40 JUMP_IF_NOT_EXC_MATCH    56
+             42 POP_TOP
+             44 POP_TOP
+             46 POP_TOP
+
+209          48 POP_EXCEPT
+             50 JUMP_ABSOLUTE           16
+             52 POP_EXCEPT
+             54 JUMP_FORWARD             2 (to 58)
+        >>   56 RERAISE
+
+210     >>   58 LOAD_GLOBAL              3 (MacOSHelperBuildError)
+
+211          60 LOAD_CONST               1 ('formal Helper output and work paths must be outside the checkout')
+
+210          62 CALL_FUNCTION            1
+             64 RAISE_VARARGS            1
+             66 JUMP_ABSOLUTE           16
+
+214     >>   68 LOAD_FAST                1 (output_bundle_path)
+             70 LOAD_ATTR                4 (parent)
+             72 LOAD_METHOD              0 (resolve)
+             74 CALL_METHOD              0
+             76 LOAD_METHOD              5 (stat)
+             78 CALL_METHOD              0
+             80 LOAD_ATTR                6 (st_dev)
+
+215          82 LOAD_FAST                2 (work_dir)
+             84 LOAD_ATTR                4 (parent)
+             86 LOAD_METHOD              0 (resolve)
+             88 CALL_METHOD              0
+             90 LOAD_METHOD              5 (stat)
+             92 CALL_METHOD              0
+             94 LOAD_ATTR                6 (st_dev)
+
+214          96 COMPARE_OP               3 (!=)
+
+213          98 POP_JUMP_IF_FALSE      108
+
+217         100 LOAD_GLOBAL              3 (MacOSHelperBuildError)
+
+218         102 LOAD_CONST               2 ('formal Helper output and work paths must share one volume')
+
+217         104 CALL_FUNCTION            1
+            106 RAISE_VARARGS            1
+        >>  108 LOAD_CONST               0 (None)
+            110 RETURN_VALUE
+
+Disassembly of <code object _sha256 at 0x1073b9660, file "WeRobotCore/packaging/macos_helper.py", line 222>:
+223           0 LOAD_GLOBAL              0 (sha256)
+              2 CALL_FUNCTION            0
+              4 STORE_FAST               1 (digest)
+
+224           6 LOAD_FAST                0 (path)
+              8 LOAD_METHOD              1 (open)
+             10 LOAD_CONST               1 ('rb')
+             12 CALL_METHOD              1
+             14 SETUP_WITH              50 (to 66)
+             16 STORE_DEREF              0 (stream)
+
+225          18 LOAD_GLOBAL              2 (iter)
+             20 LOAD_CLOSURE             0 (stream)
+             22 BUILD_TUPLE              1
+             24 LOAD_CONST               2 (<code object <lambda> at 0x1073b9710, file "WeRobotCore/packaging/macos_helper.py", line 225>)
+             26 LOAD_CONST               3 ('_sha256.<locals>.<lambda>')
+             28 MAKE_FUNCTION            8 (closure)
+             30 LOAD_CONST               4 (b'')
+             32 CALL_FUNCTION            2
+             34 GET_ITER
+        >>   36 FOR_ITER                14 (to 52)
+             38 STORE_FAST               2 (chunk)
+
+226          40 LOAD_FAST                1 (digest)
+             42 LOAD_METHOD              3 (update)
+             44 LOAD_FAST                2 (chunk)
+             46 CALL_METHOD              1
+             48 POP_TOP
+             50 JUMP_ABSOLUTE           36
+        >>   52 POP_BLOCK
+             54 LOAD_CONST               0 (None)
+             56 DUP_TOP
+             58 DUP_TOP
+             60 CALL_FUNCTION            3
+             62 POP_TOP
+             64 JUMP_FORWARD            16 (to 82)
+        >>   66 WITH_EXCEPT_START
+             68 POP_JUMP_IF_TRUE        72
+             70 RERAISE
+        >>   72 POP_TOP
+             74 POP_TOP
+             76 POP_TOP
+             78 POP_EXCEPT
+             80 POP_TOP
+
+227     >>   82 LOAD_FAST                1 (digest)
+             84 LOAD_METHOD              4 (hexdigest)
+             86 CALL_METHOD              0
+             88 RETURN_VALUE
+
+Disassembly of <code object <lambda> at 0x1073b9710, file "WeRobotCore/packaging/macos_helper.py", line 225>:
+225           0 LOAD_DEREF               0 (stream)
+              2 LOAD_METHOD              0 (read)
+              4 LOAD_CONST               1 (1048576)
+              6 CALL_METHOD              1
+              8 RETURN_VALUE
+
+Disassembly of <code object build_signed_macos_helper at 0x1073b9030, file "WeRobotCore/packaging/macos_helper.py", line 230>:
+239           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                0 (request)
+              4 LOAD_GLOBAL              1 (MacOSHelperBuildRequest)
+              6 CALL_FUNCTION            2
+              8 POP_JUMP_IF_TRUE        18
+
+240          10 LOAD_GLOBAL              2 (TypeError)
+             12 LOAD_CONST               1 ('request must be a MacOSHelperBuildRequest')
+             14 CALL_FUNCTION            1
+             16 RAISE_VARARGS            1
+
+241     >>   18 LOAD_FAST                2 (platform_name)
+             20 JUMP_IF_TRUE_OR_POP     28
+             22 LOAD_GLOBAL              3 (os)
+             24 LOAD_ATTR                4 (sys)
+             26 LOAD_ATTR                5 (platform)
+        >>   28 STORE_FAST               4 (current_platform)
+
+242          30 LOAD_FAST                3 (machine)
+             32 JUMP_IF_TRUE_OR_POP     40
+             34 LOAD_GLOBAL              5 (platform)
+             36 LOAD_METHOD              6 (machine)
+             38 CALL_METHOD              0
+        >>   40 LOAD_METHOD              7 (lower)
+             42 CALL_METHOD              0
+             44 STORE_FAST               5 (current_machine)
+
+243          46 LOAD_FAST                5 (current_machine)
+             48 LOAD_CONST               2 ('aarch64')
+             50 COMPARE_OP               2 (==)
+             52 POP_JUMP_IF_FALSE       58
+
+244          54 LOAD_CONST               3 ('arm64')
+             56 STORE_FAST               5 (current_machine)
+
+245     >>   58 LOAD_FAST                4 (current_platform)
+             60 LOAD_CONST               4 ('darwin')
+             62 COMPARE_OP               3 (!=)
+             64 POP_JUMP_IF_TRUE        76
+             66 LOAD_FAST                5 (current_machine)
+             68 LOAD_FAST                0 (request)
+             70 LOAD_ATTR                8 (architecture)
+             72 COMPARE_OP               3 (!=)
+             74 POP_JUMP_IF_FALSE       84
+
+246     >>   76 LOAD_GLOBAL              9 (MacOSHelperBuildError)
+
+247          78 LOAD_CONST               5 ('formal Helper must be built natively on arm64 macOS')
+
+246          80 CALL_FUNCTION            1
+             82 RAISE_VARARGS            1
+
+250     >>   84 LOAD_FAST                0 (request)
+             86 LOAD_ATTR               10 (project_root)
+             88 LOAD_ATTR               11 (resolve)
+             90 LOAD_CONST               6 (True)
+             92 LOAD_CONST               7 (('strict',))
+             94 CALL_FUNCTION_KW         1
+             96 STORE_FAST               6 (project_root)
+
+251          98 LOAD_GLOBAL             12 (_require_external_atomic_paths)
+
+252         100 LOAD_FAST                6 (project_root)
+
+253         102 LOAD_FAST                0 (request)
+            104 LOAD_ATTR               13 (output_bundle_path)
+
+254         106 LOAD_FAST                0 (request)
+            108 LOAD_ATTR               14 (work_dir)
+
+251         110 CALL_FUNCTION            3
+            112 POP_TOP
+
+256         114 LOAD_GLOBAL             15 (_required_sources)
+            116 LOAD_FAST                6 (project_root)
+            118 CALL_FUNCTION            1
+            120 STORE_FAST               7 (sources)
+
+258         122 LOAD_FAST                6 (project_root)
+
+259         124 LOAD_CONST               8 ('spikes')
+
+258         126 BINARY_TRUE_DIVIDE
+
+260         128 LOAD_CONST               9 ('macos_distribution_helper')
+
+258         130 BINARY_TRUE_DIVIDE
+
+261         132 LOAD_CONST              10 ('entitlements.plist')
+
+258         134 BINARY_TRUE_DIVIDE
+
+257         136 STORE_FAST               8 (entitlements)
+
+263         138 LOAD_FAST                8 (entitlements)
+            140 LOAD_METHOD             16 (is_file)
+            142 CALL_METHOD              0
+            144 POP_JUMP_IF_FALSE      154
+            146 LOAD_FAST                8 (entitlements)
+            148 LOAD_METHOD             17 (is_symlink)
+            150 CALL_METHOD              0
+            152 POP_JUMP_IF_FALSE      162
+
+264     >>  154 LOAD_GLOBAL              9 (MacOSHelperBuildError)
+            156 LOAD_CONST              11 ('formal Helper entitlements are unavailable')
+            158 CALL_FUNCTION            1
+            160 RAISE_VARARGS            1
+
+265     >>  162 LOAD_GLOBAL             18 (_verify_entitlements)
+            164 LOAD_FAST                8 (entitlements)
+            166 CALL_FUNCTION            1
+            168 POP_TOP
+
+267         170 LOAD_FAST                0 (request)
+            172 LOAD_ATTR               14 (work_dir)
+            174 LOAD_ATTR               19 (mkdir)
+            176 LOAD_CONST              12 (448)
+            178 LOAD_CONST              13 (('mode',))
+            180 CALL_FUNCTION_KW         1
+            182 POP_TOP
+
+268         184 LOAD_FAST                0 (request)
+            186 LOAD_ATTR               14 (work_dir)
+            188 LOAD_CONST              14 ('module-cache')
+            190 BINARY_TRUE_DIVIDE
+            192 STORE_FAST               9 (module_cache)
+
+269         194 LOAD_FAST                9 (module_cache)
+            196 LOAD_ATTR               19 (mkdir)
+            198 LOAD_CONST              12 (448)
+            200 LOAD_CONST              13 (('mode',))
+            202 CALL_FUNCTION_KW         1
+            204 POP_TOP
+
+270         206 LOAD_FAST                0 (request)
+            208 LOAD_ATTR               14 (work_dir)
+            210 LOAD_GLOBAL             20 (MACOS_HELPER_APP_NAME)
+            212 BINARY_TRUE_DIVIDE
+            214 STORE_FAST              10 (staged_bundle)
+
+271         216 LOAD_FAST               10 (staged_bundle)
+            218 LOAD_CONST              15 ('Contents')
+            220 BINARY_TRUE_DIVIDE
+            222 LOAD_CONST              16 ('MacOS')
+            224 BINARY_TRUE_DIVIDE
+            226 LOAD_GLOBAL             21 (MACOS_HELPER_EXECUTABLE_NAME)
+            228 BINARY_TRUE_DIVIDE
+            230 STORE_FAST              11 (executable)
+
+272         232 LOAD_FAST               11 (executable)
+            234 LOAD_ATTR               22 (parent)
+            236 LOAD_ATTR               19 (mkdir)
+            238 LOAD_CONST               6 (True)
+            240 LOAD_CONST              17 (('parents',))
+            242 CALL_FUNCTION_KW         1
+            244 POP_TOP
+
+274         246 LOAD_FAST                6 (project_root)
+
+275         248 LOAD_CONST               8 ('spikes')
+
+274         250 BINARY_TRUE_DIVIDE
+
+276         252 LOAD_CONST               9 ('macos_distribution_helper')
+
+274         254 BINARY_TRUE_DIVIDE
+
+277         256 LOAD_GLOBAL             23 (MACOS_HELPER_ICON_NAME)
+
+274         258 BINARY_TRUE_DIVIDE
+
+273         260 STORE_FAST              12 (icon_source)
+
+279         262 LOAD_FAST               12 (icon_source)
+            264 LOAD_METHOD             16 (is_file)
+            266 CALL_METHOD              0
+            268 EXTENDED_ARG             1
+            270 POP_JUMP_IF_FALSE      282
+            272 LOAD_FAST               12 (icon_source)
+            274 LOAD_METHOD             17 (is_symlink)
+            276 CALL_METHOD              0
+            278 EXTENDED_ARG             1
+            280 POP_JUMP_IF_FALSE      290
+
+280     >>  282 LOAD_GLOBAL              9 (MacOSHelperBuildError)
+            284 LOAD_CONST              18 ('formal Helper icon is unavailable')
+            286 CALL_FUNCTION            1
+            288 RAISE_VARARGS            1
+
+281     >>  290 LOAD_FAST               10 (staged_bundle)
+            292 LOAD_CONST              15 ('Contents')
+            294 BINARY_TRUE_DIVIDE
+            296 LOAD_CONST              19 ('Resources')
+            298 BINARY_TRUE_DIVIDE
+            300 STORE_FAST              13 (resources)
+
+282         302 LOAD_FAST               13 (resources)
+            304 LOAD_ATTR               19 (mkdir)
+            306 LOAD_CONST               6 (True)
+            308 LOAD_CONST              17 (('parents',))
+            310 CALL_FUNCTION_KW         1
+            312 POP_TOP
+
+283         314 LOAD_FAST               13 (resources)
+            316 LOAD_GLOBAL             23 (MACOS_HELPER_ICON_NAME)
+            318 BINARY_TRUE_DIVIDE
+            320 STORE_FAST              14 (staged_icon)
+
+284         322 LOAD_GLOBAL             24 (shutil)
+            324 LOAD_METHOD             25 (copyfile)
+            326 LOAD_FAST               12 (icon_source)
+            328 LOAD_FAST               14 (staged_icon)
+            330 CALL_METHOD              2
+            332 POP_TOP
+
+286         334 LOAD_GLOBAL             26 (_read_formal_template)
+            336 LOAD_FAST                6 (project_root)
+            338 CALL_FUNCTION            1
+            340 STORE_FAST              15 (info)
+
+287         342 LOAD_FAST                0 (request)
+            344 LOAD_ATTR               27 (app_version)
+            346 LOAD_FAST               15 (info)
+            348 LOAD_CONST              20 ('CFBundleShortVersionString')
+            350 STORE_SUBSCR
+
+288         352 LOAD_FAST                0 (request)
+            354 LOAD_ATTR               28 (build_version)
+            356 LOAD_FAST               15 (info)
+            358 LOAD_CONST              21 ('CFBundleVersion')
+            360 STORE_SUBSCR
+
+289         362 LOAD_GLOBAL             29 (MACOS_PRODUCT_CONTROL_BUNDLE_IDENTIFIER)
+            364 LOAD_FAST               15 (info)
+            366 LOAD_CONST              22 ('YokoExpectedPeerIdentifier')
+            368 STORE_SUBSCR
+
+290         370 LOAD_GLOBAL             30 (MACOS_PRODUCT_TEAM_IDENTIFIER)
+            372 LOAD_FAST               15 (info)
+            374 LOAD_CONST              23 ('YokoExpectedTeamIdentifier')
+            376 STORE_SUBSCR
+
+291         378 LOAD_FAST               10 (staged_bundle)
+            380 LOAD_CONST              15 ('Contents')
+            382 BINARY_TRUE_DIVIDE
+            384 LOAD_CONST              24 ('Info.plist')
+            386 BINARY_TRUE_DIVIDE
+            388 LOAD_METHOD             31 (write_bytes)
+
+292         390 LOAD_GLOBAL             32 (plistlib)
+            392 LOAD_ATTR               33 (dumps)
+            394 LOAD_FAST               15 (info)
+            396 LOAD_CONST               6 (True)
+            398 LOAD_CONST              25 (('sort_keys',))
+            400 CALL_FUNCTION_KW         2
+
+291         402 CALL_METHOD              1
+            404 POP_TOP
+
+295         406 BUILD_LIST               0
+            408 LOAD_CONST              26 (('xcrun', 'swiftc', '-parse-as-library', '-target', 'arm64-apple-macos13.0'))
+            410 LIST_EXTEND              1
+            412 STORE_FAST              16 (compile_arguments)
+
+302         414 LOAD_GLOBAL             34 (MACOS_HELPER_SWIFT_FRAMEWORKS)
+            416 GET_ITER
+        >>  418 FOR_ITER                20 (to 440)
+            420 STORE_FAST              17 (framework)
+
+303         422 LOAD_FAST               16 (compile_arguments)
+            424 LOAD_METHOD             35 (extend)
+            426 LOAD_CONST              27 ('-framework')
+            428 LOAD_FAST               17 (framework)
+            430 BUILD_TUPLE              2
+            432 CALL_METHOD              1
+            434 POP_TOP
+            436 EXTENDED_ARG             1
+            438 JUMP_ABSOLUTE          418
+
+304     >>  440 LOAD_FAST               16 (compile_arguments)
+            442 LOAD_METHOD             35 (extend)
+            444 LOAD_CONST              28 (<code object <genexpr> at 0x1073b9d40, file "WeRobotCore/packaging/macos_helper.py", line 304>)
+            446 LOAD_CONST              29 ('build_signed_macos_helper.<locals>.<genexpr>')
+            448 MAKE_FUNCTION            0
+            450 LOAD_FAST                7 (sources)
+            452 GET_ITER
+            454 CALL_FUNCTION            1
+            456 CALL_METHOD              1
+            458 POP_TOP
+
+305         460 LOAD_FAST               16 (compile_arguments)
+            462 LOAD_METHOD             35 (extend)
+            464 LOAD_CONST              30 ('-o')
+            466 LOAD_GLOBAL             36 (str)
+            468 LOAD_FAST               11 (executable)
+            470 CALL_FUNCTION            1
+            472 BUILD_TUPLE              2
+            474 CALL_METHOD              1
+            476 POP_TOP
+
+306         478 LOAD_GLOBAL             37 (dict)
+            480 LOAD_GLOBAL              3 (os)
+            482 LOAD_ATTR               38 (environ)
+            484 CALL_FUNCTION            1
+            486 STORE_FAST              18 (environment)
+
+307         488 LOAD_GLOBAL             36 (str)
+            490 LOAD_FAST                9 (module_cache)
+            492 CALL_FUNCTION            1
+            494 LOAD_FAST               18 (environment)
+            496 LOAD_CONST              31 ('CLANG_MODULE_CACHE_PATH')
+            498 STORE_SUBSCR
+
+308         500 LOAD_GLOBAL             39 (_run_command)
+
+309         502 LOAD_FAST                1 (command_runner)
+
+310         504 LOAD_FAST               16 (compile_arguments)
+
+311         506 LOAD_FAST                6 (project_root)
+
+312         508 LOAD_FAST               18 (environment)
+
+308         510 LOAD_CONST              32 (('cwd', 'environment'))
+            512 CALL_FUNCTION_KW         4
+            514 POP_TOP
+
+314         516 LOAD_FAST               11 (executable)
+            518 LOAD_METHOD             16 (is_file)
+            520 CALL_METHOD              0
+            522 EXTENDED_ARG             2
+            524 POP_JUMP_IF_TRUE       534
+
+315         526 LOAD_GLOBAL              9 (MacOSHelperBuildError)
+            528 LOAD_CONST              33 ('formal Helper compiler produced no executable')
+            530 CALL_FUNCTION            1
+            532 RAISE_VARARGS            1
+
+316     >>  534 LOAD_FAST               11 (executable)
+            536 LOAD_METHOD             40 (chmod)
+            538 LOAD_CONST              34 (493)
+            540 CALL_METHOD              1
+            542 POP_TOP
+
+318         544 LOAD_GLOBAL             39 (_run_command)
+
+319         546 LOAD_FAST                1 (command_runner)
+
+321         548 LOAD_CONST              35 ('codesign')
+
+322         550 LOAD_CONST              36 ('--force')
+
+323         552 LOAD_CONST              37 ('--sign')
+
+324         554 LOAD_FAST                0 (request)
+            556 LOAD_ATTR               41 (signing_identity)
+
+325         558 LOAD_CONST              38 ('--identifier')
+
+326         560 LOAD_GLOBAL             42 (MACOS_PRODUCT_HELPER_BUNDLE_IDENTIFIER)
+
+327         562 LOAD_CONST              39 ('--options')
+
+328         564 LOAD_CONST              40 ('runtime')
+
+329         566 LOAD_CONST              41 ('--timestamp')
+
+330         568 LOAD_CONST              42 ('--entitlements')
+
+331         570 LOAD_GLOBAL             36 (str)
+            572 LOAD_FAST                8 (entitlements)
+            574 CALL_FUNCTION            1
+
+332         576 LOAD_GLOBAL             36 (str)
+            578 LOAD_FAST               10 (staged_bundle)
+            580 CALL_FUNCTION            1
+
+320         582 BUILD_TUPLE             12
+
+334         584 LOAD_FAST                6 (project_root)
+
+318         586 LOAD_CONST              43 (('cwd',))
+            588 CALL_FUNCTION_KW         3
+            590 POP_TOP
+
+336         592 LOAD_GLOBAL             39 (_run_command)
+
+337         594 LOAD_FAST                1 (command_runner)
+
+338         596 LOAD_CONST              35 ('codesign')
+            598 LOAD_CONST              44 ('--verify')
+            600 LOAD_CONST              45 ('--deep')
+            602 LOAD_CONST              46 ('--strict')
+            604 LOAD_GLOBAL             36 (str)
+            606 LOAD_FAST               10 (staged_bundle)
+            608 CALL_FUNCTION            1
+            610 BUILD_TUPLE              5
+
+339         612 LOAD_FAST                6 (project_root)
+
+336         614 LOAD_CONST              43 (('cwd',))
+            616 CALL_FUNCTION_KW         3
+            618 POP_TOP
+
+341         620 LOAD_GLOBAL             39 (_run_command)
+
+342         622 LOAD_FAST                1 (command_runner)
+
+343         624 LOAD_CONST              35 ('codesign')
+            626 LOAD_CONST              47 ('--display')
+            628 LOAD_CONST              48 ('--verbose=4')
+            630 LOAD_GLOBAL             36 (str)
+            632 LOAD_FAST               10 (staged_bundle)
+            634 CALL_FUNCTION            1
+            636 BUILD_TUPLE              4
+
+344         638 LOAD_FAST                6 (project_root)
+
+341         640 LOAD_CONST              43 (('cwd',))
+            642 CALL_FUNCTION_KW         3
+            644 STORE_FAST              19 (signature)
+
+346         646 LOAD_CONST              49 ('{}\n{}')
+            648 LOAD_METHOD             43 (format)
+            650 LOAD_FAST               19 (signature)
+            652 LOAD_ATTR               44 (stdout)
+            654 LOAD_FAST               19 (signature)
+            656 LOAD_ATTR               45 (stderr)
+            658 CALL_METHOD              2
+            660 STORE_FAST              20 (signature_text)
+
+348         662 LOAD_CONST              50 ('TeamIdentifier={}')
+            664 LOAD_METHOD             43 (format)
+            666 LOAD_GLOBAL             30 (MACOS_PRODUCT_TEAM_IDENTIFIER)
+            668 CALL_METHOD              1
+
+349         670 LOAD_FAST               20 (signature_text)
+
+348         672 CONTAINS_OP              1
+
+347         674 EXTENDED_ARG             2
+            676 POP_JUMP_IF_TRUE       708
+
+350         678 LOAD_CONST              51 ('Authority=Developer ID Application:')
+            680 LOAD_FAST               20 (signature_text)
+            682 CONTAINS_OP              1
+
+347         684 EXTENDED_ARG             2
+            686 POP_JUMP_IF_TRUE       708
+
+351         688 LOAD_CONST              52 ('flags=0x10000(runtime)')
+            690 LOAD_FAST               20 (signature_text)
+            692 CONTAINS_OP              1
+
+347         694 EXTENDED_ARG             2
+            696 POP_JUMP_IF_TRUE       708
+
+352         698 LOAD_CONST              53 ('Timestamp=')
+            700 LOAD_FAST               20 (signature_text)
+            702 CONTAINS_OP              1
+
+347         704 EXTENDED_ARG             2
+            706 POP_JUMP_IF_FALSE      716
+
+354     >>  708 LOAD_GLOBAL              9 (MacOSHelperBuildError)
+            710 LOAD_CONST              54 ('formal Helper signature identity is invalid')
+            712 CALL_FUNCTION            1
+            714 RAISE_VARARGS            1
+
+355     >>  716 LOAD_GLOBAL             39 (_run_command)
+
+356         718 LOAD_FAST                1 (command_runner)
+
+357         720 LOAD_CONST              55 ('lipo')
+            722 LOAD_CONST              56 ('-archs')
+            724 LOAD_GLOBAL             36 (str)
+            726 LOAD_FAST               11 (executable)
+            728 CALL_FUNCTION            1
+            730 BUILD_TUPLE              3
+
+358         732 LOAD_FAST                6 (project_root)
+
+355         734 LOAD_CONST              43 (('cwd',))
+            736 CALL_FUNCTION_KW         3
+            738 STORE_FAST              21 (architecture)
+
+360         740 LOAD_FAST               21 (architecture)
+            742 LOAD_ATTR               44 (stdout)
+            744 LOAD_METHOD             46 (strip)
+            746 CALL_METHOD              0
+            748 LOAD_FAST                0 (request)
+            750 LOAD_ATTR                8 (architecture)
+            752 COMPARE_OP               3 (!=)
+            754 EXTENDED_ARG             2
+            756 POP_JUMP_IF_FALSE      766
+
+361         758 LOAD_GLOBAL              9 (MacOSHelperBuildError)
+            760 LOAD_CONST              57 ('formal Helper architecture is invalid')
+            762 CALL_FUNCTION            1
+            764 RAISE_VARARGS            1
+
+363     >>  766 LOAD_GLOBAL              3 (os)
+            768 LOAD_METHOD             47 (replace)
+            770 LOAD_GLOBAL             36 (str)
+            772 LOAD_FAST               10 (staged_bundle)
+            774 CALL_FUNCTION            1
+            776 LOAD_GLOBAL             36 (str)
+            778 LOAD_FAST                0 (request)
+            780 LOAD_ATTR               13 (output_bundle_path)
+            782 CALL_FUNCTION            1
+            784 CALL_METHOD              2
+            786 POP_TOP
+
+365         788 LOAD_CONST              58 (1)
+
+366         790 LOAD_GLOBAL             42 (MACOS_PRODUCT_HELPER_BUNDLE_IDENTIFIER)
+
+367         792 LOAD_GLOBAL             29 (MACOS_PRODUCT_CONTROL_BUNDLE_IDENTIFIER)
+
+368         794 LOAD_GLOBAL             30 (MACOS_PRODUCT_TEAM_IDENTIFIER)
+
+369         796 LOAD_FAST                0 (request)
+            798 LOAD_ATTR               27 (app_version)
+
+370         800 LOAD_FAST                0 (request)
+            802 LOAD_ATTR               28 (build_version)
+
+371         804 LOAD_FAST                0 (request)
+            806 LOAD_ATTR                8 (architecture)
+
+372         808 LOAD_GLOBAL             48 (MACOS_HELPER_MINIMUM_SYSTEM_VERSION)
+
+373         810 LOAD_GLOBAL             49 (len)
+            812 LOAD_FAST                7 (sources)
+            814 CALL_FUNCTION            1
+
+374         816 LOAD_GLOBAL             50 (_sha256)
+
+375         818 LOAD_FAST                0 (request)
+            820 LOAD_ATTR               13 (output_bundle_path)
+
+376         822 LOAD_CONST              15 ('Contents')
+
+375         824 BINARY_TRUE_DIVIDE
+
+377         826 LOAD_CONST              19 ('Resources')
+
+375         828 BINARY_TRUE_DIVIDE
+
+378         830 LOAD_GLOBAL             23 (MACOS_HELPER_ICON_NAME)
+
+375         832 BINARY_TRUE_DIVIDE
+
+374         834 CALL_FUNCTION            1
+
+380         836 LOAD_GLOBAL             50 (_sha256)
+
+381         838 LOAD_FAST                0 (request)
+            840 LOAD_ATTR               13 (output_bundle_path)
+
+382         842 LOAD_CONST              15 ('Contents')
+
+381         844 BINARY_TRUE_DIVIDE
+
+383         846 LOAD_CONST              16 ('MacOS')
+
+381         848 BINARY_TRUE_DIVIDE
+
+384         850 LOAD_GLOBAL             21 (MACOS_HELPER_EXECUTABLE_NAME)
+
+381         852 BINARY_TRUE_DIVIDE
+
+380         854 CALL_FUNCTION            1
+
+386         856 LOAD_CONST               6 (True)
+
+387         858 LOAD_CONST               6 (True)
+
+388         860 LOAD_CONST               6 (True)
+
+364         862 LOAD_CONST              59 (('schemaVersion', 'bundleIdentifier', 'expectedPeerIdentifier', 'teamIdentifier', 'appVersion', 'buildVersion', 'architecture', 'minimumSystemVersion', 'sourceFileCount', 'iconSha256', 'executableSha256', 'developerIdVerified', 'hardenedRuntimeRequested', 'timestampRequested'))
+            864 BUILD_CONST_KEY_MAP     14
+            866 RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x1073b9d40, file "WeRobotCore/packaging/macos_helper.py", line 304>:
+304           0 LOAD_FAST                0 (.0)
+        >>    2 FOR_ITER                14 (to 18)
+              4 STORE_FAST               1 (path)
+              6 LOAD_GLOBAL              0 (str)
+              8 LOAD_FAST                1 (path)
+             10 CALL_FUNCTION            1
+             12 YIELD_VALUE
+             14 POP_TOP
+             16 JUMP_ABSOLUTE            2
+        >>   18 LOAD_CONST               0 (None)
+             20 RETURN_VALUE

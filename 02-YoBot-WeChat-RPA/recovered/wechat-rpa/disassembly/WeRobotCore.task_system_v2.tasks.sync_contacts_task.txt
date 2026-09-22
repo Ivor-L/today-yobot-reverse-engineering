@@ -1,0 +1,838 @@
+  1           0 LOAD_CONST               0 ('\n自动同步通讯录任务 - Task System V2\n\n实现对所有活跃微信账号的通讯录同步功能，支持好友和群聊的选择性同步。\n按照 V3 调度系统规范，只负责纯执行逻辑，调度逻辑由 manager 和 adapter 处理。\n')
+              2 STORE_NAME               0 (__doc__)
+
+  8           4 LOAD_CONST               1 (0)
+              6 LOAD_CONST               2 (('datetime', 'timezone'))
+              8 IMPORT_NAME              1 (datetime)
+             10 IMPORT_FROM              1 (datetime)
+             12 STORE_NAME               1 (datetime)
+             14 IMPORT_FROM              2 (timezone)
+             16 STORE_NAME               2 (timezone)
+             18 POP_TOP
+
+  9          20 LOAD_CONST               1 (0)
+             22 LOAD_CONST               3 (('Dict', 'Any', 'Optional', 'List'))
+             24 IMPORT_NAME              3 (typing)
+             26 IMPORT_FROM              4 (Dict)
+             28 STORE_NAME               4 (Dict)
+             30 IMPORT_FROM              5 (Any)
+             32 STORE_NAME               5 (Any)
+             34 IMPORT_FROM              6 (Optional)
+             36 STORE_NAME               6 (Optional)
+             38 IMPORT_FROM              7 (List)
+             40 STORE_NAME               7 (List)
+             42 POP_TOP
+
+ 10          44 LOAD_CONST               4 (2)
+             46 LOAD_CONST               5 (('TimedBaseTask', 'TaskType', 'TaskPriority', 'TaskStatus'))
+             48 IMPORT_NAME              8 (base)
+             50 IMPORT_FROM              9 (TimedBaseTask)
+             52 STORE_NAME               9 (TimedBaseTask)
+             54 IMPORT_FROM             10 (TaskType)
+             56 STORE_NAME              10 (TaskType)
+             58 IMPORT_FROM             11 (TaskPriority)
+             60 STORE_NAME              11 (TaskPriority)
+             62 IMPORT_FROM             12 (TaskStatus)
+             64 STORE_NAME              12 (TaskStatus)
+             66 POP_TOP
+
+ 11          68 LOAD_CONST               6 (3)
+             70 LOAD_CONST               7 (('InstanceManagerV2',))
+             72 IMPORT_NAME             13 (core.instance_manager_v2)
+             74 IMPORT_FROM             14 (InstanceManagerV2)
+             76 STORE_NAME              14 (InstanceManagerV2)
+             78 POP_TOP
+
+ 12          80 LOAD_CONST               6 (3)
+             82 LOAD_CONST               8 (('run_contact_sync',))
+             84 IMPORT_NAME             15 (api.contact_sync_runner)
+             86 IMPORT_FROM             16 (run_contact_sync)
+             88 STORE_NAME              16 (run_contact_sync)
+             90 POP_TOP
+
+ 15          92 LOAD_BUILD_CLASS
+             94 LOAD_CONST               9 (<code object SyncContactsTask at 0x10925dbe0, file "WeRobotCore/task_system_v2/tasks/sync_contacts_task.py", line 15>)
+             96 LOAD_CONST              10 ('SyncContactsTask')
+             98 MAKE_FUNCTION            0
+            100 LOAD_CONST              10 ('SyncContactsTask')
+            102 LOAD_NAME                9 (TimedBaseTask)
+            104 CALL_FUNCTION            3
+            106 STORE_NAME              17 (SyncContactsTask)
+            108 LOAD_CONST              11 (None)
+            110 RETURN_VALUE
+
+Disassembly of <code object SyncContactsTask at 0x10925dbe0, file "WeRobotCore/task_system_v2/tasks/sync_contacts_task.py", line 15>:
+ 15           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('SyncContactsTask')
+              6 STORE_NAME               2 (__qualname__)
+
+ 16           8 LOAD_CONST               1 ('自动同步通讯录任务\n    \n    负责同步所有活跃微信账号的通讯录，\n    支持好友和群聊的选择性同步。\n    调度逻辑由 V3 系统的 manager 和 adapter 处理。\n    ')
+             10 STORE_NAME               3 (__doc__)
+
+ 23          12 LOAD_CONST              15 ((None, None, False))
+
+ 25          14 LOAD_NAME                4 (str)
+
+ 26          16 LOAD_NAME                5 (Dict)
+             18 LOAD_NAME                4 (str)
+             20 LOAD_NAME                6 (Any)
+             22 BUILD_TUPLE              2
+             24 BINARY_SUBSCR
+
+ 27          26 LOAD_NAME                7 (Optional)
+             28 LOAD_NAME                8 (datetime)
+             30 BINARY_SUBSCR
+
+ 28          32 LOAD_NAME                7 (Optional)
+             34 LOAD_NAME                5 (Dict)
+             36 BINARY_SUBSCR
+
+ 29          38 LOAD_NAME                9 (bool)
+
+ 23          40 LOAD_CONST               4 (('task_id', 'params', 'schedule_time', 'schedule_config', 'is_recurring'))
+             42 BUILD_CONST_KEY_MAP      5
+             44 LOAD_CLOSURE             0 (__class__)
+             46 BUILD_TUPLE              1
+             48 LOAD_CONST               5 (<code object __init__ at 0x10925d500, file "WeRobotCore/task_system_v2/tasks/sync_contacts_task.py", line 23>)
+             50 LOAD_CONST               6 ('SyncContactsTask.__init__')
+             52 MAKE_FUNCTION           13 (defaults, annotations, closure)
+             54 STORE_NAME              10 (__init__)
+
+ 71          56 LOAD_NAME                9 (bool)
+             58 LOAD_CONST               7 (('return',))
+             60 BUILD_CONST_KEY_MAP      1
+             62 LOAD_CONST               8 (<code object execute at 0x10925ddf0, file "WeRobotCore/task_system_v2/tasks/sync_contacts_task.py", line 71>)
+             64 LOAD_CONST               9 ('SyncContactsTask.execute')
+             66 MAKE_FUNCTION            4 (annotations)
+             68 STORE_NAME              11 (execute)
+
+134          70 LOAD_NAME               12 (List)
+             72 LOAD_NAME                5 (Dict)
+             74 LOAD_NAME                4 (str)
+             76 LOAD_NAME                4 (str)
+             78 BUILD_TUPLE              2
+             80 BINARY_SUBSCR
+             82 BINARY_SUBSCR
+             84 LOAD_CONST               7 (('return',))
+             86 BUILD_CONST_KEY_MAP      1
+             88 LOAD_CONST              10 (<code object _get_target_accounts at 0x10925d030, file "WeRobotCore/task_system_v2/tasks/sync_contacts_task.py", line 134>)
+             90 LOAD_CONST              11 ('SyncContactsTask._get_target_accounts')
+             92 MAKE_FUNCTION            4 (annotations)
+             94 STORE_NAME              13 (_get_target_accounts)
+
+175          96 LOAD_NAME                4 (str)
+             98 LOAD_NAME                4 (str)
+            100 LOAD_NAME                9 (bool)
+            102 LOAD_CONST              12 (('account_id', 'sync_type', 'return'))
+            104 BUILD_CONST_KEY_MAP      3
+            106 LOAD_CONST              13 (<code object _sync_account_contacts at 0x10925d450, file "WeRobotCore/task_system_v2/tasks/sync_contacts_task.py", line 175>)
+            108 LOAD_CONST              14 ('SyncContactsTask._sync_account_contacts')
+            110 MAKE_FUNCTION            4 (annotations)
+            112 STORE_NAME              14 (_sync_account_contacts)
+            114 LOAD_CLOSURE             0 (__class__)
+            116 DUP_TOP
+            118 STORE_NAME              15 (__classcell__)
+            120 RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x10925d500, file "WeRobotCore/task_system_v2/tasks/sync_contacts_task.py", line 23>:
+ 43           0 LOAD_FAST                2 (params)
+              2 LOAD_METHOD              0 (get)
+              4 LOAD_CONST               1 ('sync_items')
+              6 BUILD_LIST               0
+              8 CALL_METHOD              2
+             10 STORE_FAST               6 (sync_items)
+
+ 44          12 LOAD_FAST                6 (sync_items)
+             14 POP_JUMP_IF_FALSE       26
+             16 LOAD_GLOBAL              1 (isinstance)
+             18 LOAD_FAST                6 (sync_items)
+             20 LOAD_GLOBAL              2 (list)
+             22 CALL_FUNCTION            2
+             24 POP_JUMP_IF_TRUE        34
+
+ 45     >>   26 LOAD_GLOBAL              3 (ValueError)
+             28 LOAD_CONST               2 ('sync_items 必须是非空列表')
+             30 CALL_FUNCTION            1
+             32 RAISE_VARARGS            1
+
+ 47     >>   34 LOAD_CONST               3 ('friend')
+             36 LOAD_CONST               4 ('group')
+             38 BUILD_SET                2
+             40 STORE_DEREF              0 (valid_items)
+
+ 48          42 LOAD_GLOBAL              4 (all)
+             44 LOAD_CLOSURE             0 (valid_items)
+             46 BUILD_TUPLE              1
+             48 LOAD_CONST               5 (<code object <genexpr> at 0x10925dd40, file "WeRobotCore/task_system_v2/tasks/sync_contacts_task.py", line 48>)
+             50 LOAD_CONST               6 ('SyncContactsTask.__init__.<locals>.<genexpr>')
+             52 MAKE_FUNCTION            8 (closure)
+             54 LOAD_FAST                6 (sync_items)
+             56 GET_ITER
+             58 CALL_FUNCTION            1
+             60 CALL_FUNCTION            1
+             62 POP_JUMP_IF_TRUE        78
+
+ 49          64 LOAD_GLOBAL              3 (ValueError)
+             66 LOAD_CONST               7 ('sync_items 只能包含: ')
+             68 LOAD_DEREF               0 (valid_items)
+             70 FORMAT_VALUE             0
+             72 BUILD_STRING             2
+             74 CALL_FUNCTION            1
+             76 RAISE_VARARGS            1
+
+ 51     >>   78 LOAD_GLOBAL              5 (super)
+             80 CALL_FUNCTION            0
+             82 LOAD_ATTR                6 (__init__)
+
+ 52          84 LOAD_FAST                1 (task_id)
+
+ 53          86 LOAD_GLOBAL              7 (TaskType)
+             88 LOAD_ATTR                8 (SYNC_CONTACTS)
+
+ 54          90 LOAD_FAST                2 (params)
+
+ 55          92 LOAD_FAST                3 (schedule_time)
+
+ 56          94 LOAD_GLOBAL              9 (TaskPriority)
+             96 LOAD_ATTR               10 (LOW)
+
+ 57          98 LOAD_FAST                4 (schedule_config)
+
+ 58         100 LOAD_FAST                5 (is_recurring)
+
+ 51         102 LOAD_CONST               8 (('task_id', 'task_type', 'params', 'schedule_time', 'priority', 'schedule_config', 'is_recurring'))
+            104 CALL_FUNCTION_KW         7
+            106 POP_TOP
+
+ 61         108 LOAD_GLOBAL             11 (InstanceManagerV2)
+            110 CALL_FUNCTION            0
+            112 LOAD_FAST                0 (self)
+            114 STORE_ATTR              12 (instance_manager)
+
+ 62         116 LOAD_FAST                1 (task_id)
+            118 LOAD_FAST                0 (self)
+            120 STORE_ATTR              13 (id)
+
+ 63         122 LOAD_CONST               9 (None)
+            124 LOAD_FAST                0 (self)
+            126 STORE_ATTR              14 (error)
+
+ 66         128 LOAD_FAST                2 (params)
+            130 LOAD_CONST               1 ('sync_items')
+            132 BINARY_SUBSCR
+            134 LOAD_FAST                0 (self)
+            136 STORE_ATTR              15 (sync_items)
+
+ 67         138 LOAD_FAST                2 (params)
+            140 LOAD_METHOD              0 (get)
+            142 LOAD_CONST              10 ('account_id')
+            144 CALL_METHOD              1
+            146 LOAD_FAST                0 (self)
+            148 STORE_ATTR              16 (account_id)
+
+ 69         150 LOAD_GLOBAL             17 (print)
+            152 LOAD_CONST              11 ('初始化同步通讯录任务: 同步项=')
+            154 LOAD_FAST                0 (self)
+            156 LOAD_ATTR               15 (sync_items)
+            158 FORMAT_VALUE             0
+            160 LOAD_CONST              12 (', 账号=')
+            162 LOAD_FAST                0 (self)
+            164 LOAD_ATTR               16 (account_id)
+            166 JUMP_IF_TRUE_OR_POP    170
+            168 LOAD_CONST              13 ('所有活跃账号')
+        >>  170 FORMAT_VALUE             0
+            172 BUILD_STRING             4
+            174 CALL_FUNCTION            1
+            176 POP_TOP
+            178 LOAD_CONST               9 (None)
+            180 RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x10925dd40, file "WeRobotCore/task_system_v2/tasks/sync_contacts_task.py", line 48>:
+ 48           0 LOAD_FAST                0 (.0)
+        >>    2 FOR_ITER                14 (to 18)
+              4 STORE_FAST               1 (item)
+              6 LOAD_FAST                1 (item)
+              8 LOAD_DEREF               0 (valid_items)
+             10 CONTAINS_OP              0
+             12 YIELD_VALUE
+             14 POP_TOP
+             16 JUMP_ABSOLUTE            2
+        >>   18 LOAD_CONST               0 (None)
+             20 RETURN_VALUE
+
+Disassembly of <code object execute at 0x10925ddf0, file "WeRobotCore/task_system_v2/tasks/sync_contacts_task.py", line 71>:
+ 73           0 EXTENDED_ARG             1
+              2 SETUP_FINALLY          420 (to 424)
+
+ 74           4 LOAD_GLOBAL              0 (print)
+              6 LOAD_CONST               1 ('开始执行同步通讯录任务: ')
+              8 LOAD_FAST                0 (self)
+             10 LOAD_ATTR                1 (sync_items)
+             12 FORMAT_VALUE             0
+             14 BUILD_STRING             2
+             16 CALL_FUNCTION            1
+             18 POP_TOP
+
+ 75          20 LOAD_GLOBAL              2 (TaskStatus)
+             22 LOAD_ATTR                3 (RUNNING)
+             24 LOAD_FAST                0 (self)
+             26 STORE_ATTR               4 (status)
+
+ 78          28 LOAD_FAST                0 (self)
+             30 LOAD_METHOD              5 (_get_target_accounts)
+             32 CALL_METHOD              0
+             34 GET_AWAITABLE
+             36 LOAD_CONST               2 (None)
+             38 YIELD_FROM
+             40 STORE_FAST               1 (target_accounts)
+
+ 79          42 LOAD_FAST                1 (target_accounts)
+             44 POP_JUMP_IF_TRUE        68
+
+ 80          46 LOAD_GLOBAL              0 (print)
+             48 LOAD_CONST               3 ('没有找到目标账号')
+             50 CALL_FUNCTION            1
+             52 POP_TOP
+
+ 81          54 LOAD_GLOBAL              2 (TaskStatus)
+             56 LOAD_ATTR                6 (COMPLETED)
+             58 LOAD_FAST                0 (self)
+             60 STORE_ATTR               4 (status)
+
+ 82          62 POP_BLOCK
+             64 LOAD_CONST               4 (True)
+             66 RETURN_VALUE
+
+ 84     >>   68 LOAD_GLOBAL              0 (print)
+             70 LOAD_CONST               5 ('找到 ')
+             72 LOAD_GLOBAL              7 (len)
+             74 LOAD_FAST                1 (target_accounts)
+             76 CALL_FUNCTION            1
+             78 FORMAT_VALUE             0
+             80 LOAD_CONST               6 (' 个目标账号')
+             82 BUILD_STRING             3
+             84 CALL_FUNCTION            1
+             86 POP_TOP
+
+ 87          88 LOAD_CONST               7 (0)
+             90 STORE_FAST               2 (success_count)
+
+ 88          92 LOAD_GLOBAL              7 (len)
+             94 LOAD_FAST                1 (target_accounts)
+             96 CALL_FUNCTION            1
+             98 STORE_FAST               3 (total_count)
+
+ 90         100 LOAD_FAST                1 (target_accounts)
+            102 GET_ITER
+        >>  104 FOR_ITER               246 (to 352)
+            106 STORE_FAST               4 (account)
+
+ 91         108 LOAD_FAST                4 (account)
+            110 LOAD_CONST               8 ('account_id')
+            112 BINARY_SUBSCR
+            114 STORE_FAST               5 (account_id)
+
+ 92         116 LOAD_FAST                4 (account)
+            118 LOAD_CONST               9 ('nickname')
+            120 BINARY_SUBSCR
+            122 STORE_FAST               6 (nickname)
+
+ 94         124 SETUP_FINALLY          144 (to 270)
+
+ 95         126 LOAD_GLOBAL              0 (print)
+            128 LOAD_CONST              10 ('开始同步账号: ')
+            130 LOAD_FAST                6 (nickname)
+            132 FORMAT_VALUE             0
+            134 LOAD_CONST              11 ('(')
+            136 LOAD_FAST                5 (account_id)
+            138 FORMAT_VALUE             0
+            140 LOAD_CONST              12 (')')
+            142 BUILD_STRING             5
+            144 CALL_FUNCTION            1
+            146 POP_TOP
+
+ 96         148 LOAD_CONST               4 (True)
+            150 STORE_FAST               7 (account_success)
+
+ 99         152 LOAD_FAST                0 (self)
+            154 LOAD_ATTR                1 (sync_items)
+            156 GET_ITER
+        >>  158 FOR_ITER                76 (to 236)
+            160 STORE_FAST               8 (sync_item)
+
+100         162 LOAD_FAST                0 (self)
+            164 LOAD_METHOD              8 (_sync_account_contacts)
+            166 LOAD_FAST                5 (account_id)
+            168 LOAD_FAST                8 (sync_item)
+            170 CALL_METHOD              2
+            172 GET_AWAITABLE
+            174 LOAD_CONST               2 (None)
+            176 YIELD_FROM
+            178 STORE_FAST               9 (sync_success)
+
+101         180 LOAD_FAST                9 (sync_success)
+            182 POP_JUMP_IF_FALSE      208
+
+102         184 LOAD_GLOBAL              0 (print)
+            186 LOAD_CONST              13 ('账号 ')
+            188 LOAD_FAST                6 (nickname)
+            190 FORMAT_VALUE             0
+            192 LOAD_CONST              14 (' 的 ')
+            194 LOAD_FAST                8 (sync_item)
+            196 FORMAT_VALUE             0
+            198 LOAD_CONST              15 (' 同步成功')
+            200 BUILD_STRING             5
+            202 CALL_FUNCTION            1
+            204 POP_TOP
+            206 JUMP_ABSOLUTE          158
+
+104     >>  208 LOAD_GLOBAL              0 (print)
+            210 LOAD_CONST              13 ('账号 ')
+            212 LOAD_FAST                6 (nickname)
+            214 FORMAT_VALUE             0
+            216 LOAD_CONST              14 (' 的 ')
+            218 LOAD_FAST                8 (sync_item)
+            220 FORMAT_VALUE             0
+            222 LOAD_CONST              16 (' 同步失败')
+            224 BUILD_STRING             5
+            226 CALL_FUNCTION            1
+            228 POP_TOP
+
+105         230 LOAD_CONST              17 (False)
+            232 STORE_FAST               7 (account_success)
+            234 JUMP_ABSOLUTE          158
+
+107     >>  236 LOAD_FAST                7 (account_success)
+            238 POP_JUMP_IF_FALSE      250
+
+108         240 LOAD_FAST                2 (success_count)
+            242 LOAD_CONST              18 (1)
+            244 INPLACE_ADD
+            246 STORE_FAST               2 (success_count)
+            248 JUMP_FORWARD            16 (to 266)
+
+110     >>  250 LOAD_GLOBAL              0 (print)
+            252 LOAD_CONST              13 ('账号 ')
+            254 LOAD_FAST                6 (nickname)
+            256 FORMAT_VALUE             0
+            258 LOAD_CONST              19 (' 存在同步失败项，不计入成功账号')
+            260 BUILD_STRING             3
+            262 CALL_FUNCTION            1
+            264 POP_TOP
+        >>  266 POP_BLOCK
+            268 JUMP_ABSOLUTE          104
+
+112     >>  270 DUP_TOP
+            272 LOAD_GLOBAL              9 (Exception)
+            274 EXTENDED_ARG             1
+            276 JUMP_IF_NOT_EXC_MATCH   348
+            278 POP_TOP
+            280 STORE_FAST              10 (e)
+            282 POP_TOP
+            284 SETUP_FINALLY           54 (to 340)
+
+113         286 LOAD_GLOBAL              0 (print)
+            288 LOAD_CONST              20 ('同步账号 ')
+            290 LOAD_FAST                6 (nickname)
+            292 FORMAT_VALUE             0
+            294 LOAD_CONST              11 ('(')
+            296 LOAD_FAST                5 (account_id)
+            298 FORMAT_VALUE             0
+            300 LOAD_CONST              21 (') 失败: ')
+            302 LOAD_GLOBAL             10 (str)
+            304 LOAD_FAST               10 (e)
+            306 CALL_FUNCTION            1
+            308 FORMAT_VALUE             0
+            310 BUILD_STRING             6
+            312 CALL_FUNCTION            1
+            314 POP_TOP
+
+114         316 POP_BLOCK
+            318 POP_EXCEPT
+            320 LOAD_CONST               2 (None)
+            322 STORE_FAST              10 (e)
+            324 DELETE_FAST             10 (e)
+            326 JUMP_ABSOLUTE          104
+            328 POP_BLOCK
+            330 POP_EXCEPT
+            332 LOAD_CONST               2 (None)
+            334 STORE_FAST              10 (e)
+            336 DELETE_FAST             10 (e)
+            338 JUMP_ABSOLUTE          104
+        >>  340 LOAD_CONST               2 (None)
+            342 STORE_FAST              10 (e)
+            344 DELETE_FAST             10 (e)
+            346 RERAISE
+        >>  348 RERAISE
+            350 JUMP_ABSOLUTE          104
+
+117     >>  352 LOAD_FAST                2 (success_count)
+            354 LOAD_CONST               7 (0)
+            356 COMPARE_OP               4 (>)
+            358 EXTENDED_ARG             1
+            360 POP_JUMP_IF_FALSE      398
+
+118         362 LOAD_GLOBAL              0 (print)
+            364 LOAD_CONST              22 ('同步通讯录任务执行完成: 成功 ')
+            366 LOAD_FAST                2 (success_count)
+            368 FORMAT_VALUE             0
+            370 LOAD_CONST              23 ('/')
+            372 LOAD_FAST                3 (total_count)
+            374 FORMAT_VALUE             0
+            376 LOAD_CONST              24 (' 个账号')
+            378 BUILD_STRING             5
+            380 CALL_FUNCTION            1
+            382 POP_TOP
+
+119         384 LOAD_GLOBAL              2 (TaskStatus)
+            386 LOAD_ATTR                6 (COMPLETED)
+            388 LOAD_FAST                0 (self)
+            390 STORE_ATTR               4 (status)
+
+120         392 POP_BLOCK
+            394 LOAD_CONST               4 (True)
+            396 RETURN_VALUE
+
+122     >>  398 LOAD_GLOBAL              0 (print)
+            400 LOAD_CONST              25 ('同步通讯录任务执行失败: 没有账号同步成功')
+            402 CALL_FUNCTION            1
+            404 POP_TOP
+
+123         406 LOAD_GLOBAL              2 (TaskStatus)
+            408 LOAD_ATTR               11 (FAILED)
+            410 LOAD_FAST                0 (self)
+            412 STORE_ATTR               4 (status)
+
+124         414 POP_BLOCK
+            416 LOAD_CONST              17 (False)
+            418 RETURN_VALUE
+            420 POP_BLOCK
+            422 JUMP_FORWARD            94 (to 518)
+
+126     >>  424 DUP_TOP
+            426 LOAD_GLOBAL              9 (Exception)
+            428 EXTENDED_ARG             2
+            430 JUMP_IF_NOT_EXC_MATCH   516
+            432 POP_TOP
+            434 STORE_FAST              10 (e)
+            436 POP_TOP
+            438 SETUP_FINALLY           68 (to 508)
+
+127         440 LOAD_CONST               7 (0)
+            442 LOAD_CONST               2 (None)
+            444 IMPORT_NAME             12 (traceback)
+            446 STORE_FAST              11 (traceback)
+
+128         448 LOAD_FAST               11 (traceback)
+            450 LOAD_METHOD             13 (format_exc)
+            452 CALL_METHOD              0
+            454 STORE_FAST              12 (error_info)
+
+129         456 LOAD_GLOBAL              0 (print)
+            458 LOAD_CONST              26 ('同步通讯录任务执行异常:\n')
+            460 LOAD_FAST               12 (error_info)
+            462 FORMAT_VALUE             0
+            464 BUILD_STRING             2
+            466 CALL_FUNCTION            1
+            468 POP_TOP
+
+130         470 LOAD_CONST              27 ('同步通讯录任务执行失败: ')
+            472 LOAD_GLOBAL             10 (str)
+            474 LOAD_FAST               10 (e)
+            476 CALL_FUNCTION            1
+            478 FORMAT_VALUE             0
+            480 BUILD_STRING             2
+            482 LOAD_FAST                0 (self)
+            484 STORE_ATTR              14 (error)
+
+131         486 LOAD_GLOBAL              2 (TaskStatus)
+            488 LOAD_ATTR               11 (FAILED)
+            490 LOAD_FAST                0 (self)
+            492 STORE_ATTR               4 (status)
+
+132         494 POP_BLOCK
+            496 POP_EXCEPT
+            498 LOAD_CONST               2 (None)
+            500 STORE_FAST              10 (e)
+            502 DELETE_FAST             10 (e)
+            504 LOAD_CONST              17 (False)
+            506 RETURN_VALUE
+        >>  508 LOAD_CONST               2 (None)
+            510 STORE_FAST              10 (e)
+            512 DELETE_FAST             10 (e)
+            514 RERAISE
+        >>  516 RERAISE
+        >>  518 LOAD_CONST               2 (None)
+            520 RETURN_VALUE
+
+Disassembly of <code object _get_target_accounts at 0x10925d030, file "WeRobotCore/task_system_v2/tasks/sync_contacts_task.py", line 134>:
+136           0 SETUP_FINALLY          228 (to 230)
+
+138           2 LOAD_FAST                0 (self)
+              4 LOAD_ATTR                0 (account_id)
+              6 POP_JUMP_IF_FALSE      126
+
+139           8 LOAD_FAST                0 (self)
+             10 LOAD_ATTR                1 (instance_manager)
+             12 LOAD_METHOD              2 (list_instances)
+             14 CALL_METHOD              0
+             16 STORE_FAST               1 (instances)
+
+140          18 LOAD_FAST                1 (instances)
+             20 GET_ITER
+        >>   22 FOR_ITER                80 (to 104)
+             24 STORE_FAST               2 (instance)
+
+141          26 LOAD_FAST                2 (instance)
+             28 LOAD_METHOD              3 (get)
+             30 LOAD_CONST               1 ('manually_exited')
+             32 LOAD_CONST               2 (False)
+             34 CALL_METHOD              2
+             36 POP_JUMP_IF_FALSE       40
+
+142          38 JUMP_ABSOLUTE           22
+
+143     >>   40 LOAD_FAST                2 (instance)
+             42 LOAD_METHOD              3 (get)
+             44 LOAD_CONST               3 ('account_info')
+             46 BUILD_MAP                0
+             48 CALL_METHOD              2
+             50 STORE_FAST               3 (account_info)
+
+144          52 LOAD_FAST                3 (account_info)
+             54 POP_JUMP_IF_FALSE       22
+
+145          56 LOAD_FAST                3 (account_info)
+             58 LOAD_METHOD              3 (get)
+             60 LOAD_CONST               4 ('account_id')
+             62 CALL_METHOD              1
+             64 LOAD_FAST                0 (self)
+             66 LOAD_ATTR                0 (account_id)
+             68 COMPARE_OP               2 (==)
+
+144          70 POP_JUMP_IF_FALSE       22
+
+147          72 LOAD_FAST                3 (account_info)
+             74 LOAD_CONST               4 ('account_id')
+             76 BINARY_SUBSCR
+
+148          78 LOAD_FAST                3 (account_info)
+             80 LOAD_METHOD              3 (get)
+             82 LOAD_CONST               5 ('nickname')
+             84 LOAD_CONST               6 ('未知')
+             86 CALL_METHOD              2
+
+146          88 LOAD_CONST               7 (('account_id', 'nickname'))
+             90 BUILD_CONST_KEY_MAP      2
+             92 BUILD_LIST               1
+             94 ROT_TWO
+             96 POP_TOP
+             98 POP_BLOCK
+            100 RETURN_VALUE
+            102 JUMP_ABSOLUTE           22
+
+150     >>  104 LOAD_GLOBAL              4 (print)
+            106 LOAD_CONST               8 ('未找到指定账号: ')
+            108 LOAD_FAST                0 (self)
+            110 LOAD_ATTR                0 (account_id)
+            112 FORMAT_VALUE             0
+            114 BUILD_STRING             2
+            116 CALL_FUNCTION            1
+            118 POP_TOP
+
+151         120 BUILD_LIST               0
+            122 POP_BLOCK
+            124 RETURN_VALUE
+
+154     >>  126 LOAD_FAST                0 (self)
+            128 LOAD_ATTR                1 (instance_manager)
+            130 LOAD_METHOD              2 (list_instances)
+            132 CALL_METHOD              0
+            134 STORE_FAST               1 (instances)
+
+155         136 BUILD_LIST               0
+            138 STORE_FAST               4 (target_accounts)
+
+157         140 LOAD_FAST                1 (instances)
+            142 GET_ITER
+        >>  144 FOR_ITER                78 (to 224)
+            146 STORE_FAST               2 (instance)
+
+158         148 LOAD_FAST                2 (instance)
+            150 LOAD_METHOD              3 (get)
+            152 LOAD_CONST               1 ('manually_exited')
+            154 LOAD_CONST               2 (False)
+            156 CALL_METHOD              2
+            158 POP_JUMP_IF_FALSE      162
+
+159         160 JUMP_ABSOLUTE          144
+
+160     >>  162 LOAD_FAST                2 (instance)
+            164 LOAD_METHOD              3 (get)
+            166 LOAD_CONST               3 ('account_info')
+            168 BUILD_MAP                0
+            170 CALL_METHOD              2
+            172 STORE_FAST               3 (account_info)
+
+161         174 LOAD_FAST                3 (account_info)
+            176 POP_JUMP_IF_FALSE      144
+
+162         178 LOAD_FAST                3 (account_info)
+            180 LOAD_METHOD              3 (get)
+            182 LOAD_CONST               5 ('nickname')
+            184 CALL_METHOD              1
+
+161         186 POP_JUMP_IF_FALSE      144
+
+163         188 LOAD_FAST                3 (account_info)
+            190 LOAD_METHOD              3 (get)
+            192 LOAD_CONST               4 ('account_id')
+            194 CALL_METHOD              1
+
+161         196 POP_JUMP_IF_FALSE      144
+
+164         198 LOAD_FAST                4 (target_accounts)
+            200 LOAD_METHOD              5 (append)
+
+165         202 LOAD_FAST                3 (account_info)
+            204 LOAD_CONST               4 ('account_id')
+            206 BINARY_SUBSCR
+
+166         208 LOAD_FAST                3 (account_info)
+            210 LOAD_CONST               5 ('nickname')
+            212 BINARY_SUBSCR
+
+164         214 LOAD_CONST               7 (('account_id', 'nickname'))
+            216 BUILD_CONST_KEY_MAP      2
+            218 CALL_METHOD              1
+            220 POP_TOP
+            222 JUMP_ABSOLUTE          144
+
+169     >>  224 LOAD_FAST                4 (target_accounts)
+            226 POP_BLOCK
+            228 RETURN_VALUE
+
+171     >>  230 DUP_TOP
+            232 LOAD_GLOBAL              6 (Exception)
+            234 EXTENDED_ARG             1
+            236 JUMP_IF_NOT_EXC_MATCH   288
+            238 POP_TOP
+            240 STORE_FAST               5 (e)
+            242 POP_TOP
+            244 SETUP_FINALLY           34 (to 280)
+
+172         246 LOAD_GLOBAL              4 (print)
+            248 LOAD_CONST               9 ('获取目标账号失败: ')
+            250 LOAD_GLOBAL              7 (str)
+            252 LOAD_FAST                5 (e)
+            254 CALL_FUNCTION            1
+            256 FORMAT_VALUE             0
+            258 BUILD_STRING             2
+            260 CALL_FUNCTION            1
+            262 POP_TOP
+
+173         264 BUILD_LIST               0
+            266 POP_BLOCK
+            268 ROT_FOUR
+            270 POP_EXCEPT
+            272 LOAD_CONST              10 (None)
+            274 STORE_FAST               5 (e)
+            276 DELETE_FAST              5 (e)
+            278 RETURN_VALUE
+        >>  280 LOAD_CONST              10 (None)
+            282 STORE_FAST               5 (e)
+            284 DELETE_FAST              5 (e)
+            286 RERAISE
+        >>  288 RERAISE
+            290 LOAD_CONST              10 (None)
+            292 RETURN_VALUE
+
+Disassembly of <code object _sync_account_contacts at 0x10925d450, file "WeRobotCore/task_system_v2/tasks/sync_contacts_task.py", line 175>:
+185           0 SETUP_FINALLY           76 (to 78)
+
+186           2 LOAD_GLOBAL              0 (run_contact_sync)
+
+187           4 LOAD_FAST                1 (account_id)
+
+188           6 LOAD_FAST                2 (sync_type)
+
+189           8 LOAD_FAST                2 (sync_type)
+             10 LOAD_CONST               1 ('friend')
+             12 COMPARE_OP               2 (==)
+
+190          14 LOAD_CONST               2 (True)
+
+186          16 LOAD_CONST               3 (('incremental', 'permission_already_held'))
+             18 CALL_FUNCTION_KW         4
+             20 GET_AWAITABLE
+             22 LOAD_CONST               4 (None)
+             24 YIELD_FROM
+             26 STORE_FAST               3 (result)
+
+192          28 LOAD_FAST                3 (result)
+             30 LOAD_METHOD              1 (get)
+             32 LOAD_CONST               5 ('success')
+             34 LOAD_CONST               6 (False)
+             36 CALL_METHOD              2
+             38 STORE_FAST               4 (success)
+
+193          40 LOAD_GLOBAL              2 (print)
+             42 LOAD_CONST               7 ('账号 ')
+             44 LOAD_FAST                1 (account_id)
+             46 FORMAT_VALUE             0
+             48 LOAD_CONST               8 (' ')
+             50 LOAD_FAST                2 (sync_type)
+             52 FORMAT_VALUE             0
+             54 LOAD_CONST               9 (' 同步结果: ')
+             56 LOAD_FAST                3 (result)
+             58 LOAD_METHOD              1 (get)
+             60 LOAD_CONST              10 ('raw_result')
+             62 CALL_METHOD              1
+             64 FORMAT_VALUE             0
+             66 BUILD_STRING             6
+             68 CALL_FUNCTION            1
+             70 POP_TOP
+
+194          72 LOAD_FAST                4 (success)
+             74 POP_BLOCK
+             76 RETURN_VALUE
+
+196     >>   78 DUP_TOP
+             80 LOAD_GLOBAL              3 (Exception)
+             82 JUMP_IF_NOT_EXC_MATCH   144
+             84 POP_TOP
+             86 STORE_FAST               5 (e)
+             88 POP_TOP
+             90 SETUP_FINALLY           44 (to 136)
+
+197          92 LOAD_GLOBAL              2 (print)
+             94 LOAD_CONST              11 ('同步账号 ')
+             96 LOAD_FAST                1 (account_id)
+             98 FORMAT_VALUE             0
+            100 LOAD_CONST              12 (' 的 ')
+            102 LOAD_FAST                2 (sync_type)
+            104 FORMAT_VALUE             0
+            106 LOAD_CONST              13 (' 失败: ')
+            108 LOAD_GLOBAL              4 (str)
+            110 LOAD_FAST                5 (e)
+            112 CALL_FUNCTION            1
+            114 FORMAT_VALUE             0
+            116 BUILD_STRING             6
+            118 CALL_FUNCTION            1
+            120 POP_TOP
+
+198         122 POP_BLOCK
+            124 POP_EXCEPT
+            126 LOAD_CONST               4 (None)
+            128 STORE_FAST               5 (e)
+            130 DELETE_FAST              5 (e)
+            132 LOAD_CONST               6 (False)
+            134 RETURN_VALUE
+        >>  136 LOAD_CONST               4 (None)
+            138 STORE_FAST               5 (e)
+            140 DELETE_FAST              5 (e)
+            142 RERAISE
+        >>  144 RERAISE
+            146 LOAD_CONST               4 (None)
+            148 RETURN_VALUE

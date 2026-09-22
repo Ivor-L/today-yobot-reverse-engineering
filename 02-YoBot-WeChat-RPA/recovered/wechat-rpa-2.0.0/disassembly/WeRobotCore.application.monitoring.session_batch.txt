@@ -1,0 +1,411 @@
+  1           0 LOAD_CONST               0 ('Normalized monitor input with an explicit Legacy compatibility projection.\n\nThe monitor migration needs both representations for a limited transition:\nshared decisions can consume :class:`SessionSummary`, while unchanged task and\nWebSocket consumers can continue receiving the established Legacy fields.\nKeeping the compatibility payload here prevents either representation from\nbeing reconstructed later from incomplete data.\n')
+              2 STORE_NAME               0 (__doc__)
+
+ 10           4 LOAD_CONST               1 (0)
+              6 LOAD_CONST               2 (('dataclass', 'field'))
+              8 IMPORT_NAME              1 (dataclasses)
+             10 IMPORT_FROM              2 (dataclass)
+             12 STORE_NAME               2 (dataclass)
+             14 IMPORT_FROM              3 (field)
+             16 STORE_NAME               3 (field)
+             18 POP_TOP
+
+ 11          20 LOAD_CONST               1 (0)
+             22 LOAD_CONST               3 (('MappingProxyType',))
+             24 IMPORT_NAME              4 (types)
+             26 IMPORT_FROM              5 (MappingProxyType)
+             28 STORE_NAME               5 (MappingProxyType)
+             30 POP_TOP
+
+ 12          32 LOAD_CONST               1 (0)
+             34 LOAD_CONST               4 (('Any', 'Mapping', 'Tuple'))
+             36 IMPORT_NAME              6 (typing)
+             38 IMPORT_FROM              7 (Any)
+             40 STORE_NAME               7 (Any)
+             42 IMPORT_FROM              8 (Mapping)
+             44 STORE_NAME               8 (Mapping)
+             46 IMPORT_FROM              9 (Tuple)
+             48 STORE_NAME               9 (Tuple)
+             50 POP_TOP
+
+ 14          52 LOAD_CONST               1 (0)
+             54 LOAD_CONST               5 (('SessionSummary',))
+             56 IMPORT_NAME             10 (WeRobotCore.domain)
+             58 IMPORT_FROM             11 (SessionSummary)
+             60 STORE_NAME              11 (SessionSummary)
+             62 POP_TOP
+
+ 17          64 LOAD_NAME                2 (dataclass)
+             66 LOAD_CONST               6 (True)
+             68 LOAD_CONST               7 (('frozen',))
+             70 CALL_FUNCTION_KW         1
+
+ 18          72 LOAD_BUILD_CLASS
+             74 LOAD_CONST               8 (<code object MonitorSessionItem at 0x1072cfbe0, file "WeRobotCore/application/monitoring/session_batch.py", line 17>)
+             76 LOAD_CONST               9 ('MonitorSessionItem')
+             78 MAKE_FUNCTION            0
+             80 LOAD_CONST               9 ('MonitorSessionItem')
+             82 CALL_FUNCTION            2
+             84 CALL_FUNCTION            1
+             86 STORE_NAME              12 (MonitorSessionItem)
+
+ 45          88 LOAD_NAME                2 (dataclass)
+             90 LOAD_CONST               6 (True)
+             92 LOAD_CONST               7 (('frozen',))
+             94 CALL_FUNCTION_KW         1
+
+ 46          96 LOAD_BUILD_CLASS
+             98 LOAD_CONST              10 (<code object MonitorSessionBatch at 0x1073ab660, file "WeRobotCore/application/monitoring/session_batch.py", line 45>)
+            100 LOAD_CONST              11 ('MonitorSessionBatch')
+            102 MAKE_FUNCTION            0
+            104 LOAD_CONST              11 ('MonitorSessionBatch')
+            106 CALL_FUNCTION            2
+            108 CALL_FUNCTION            1
+            110 STORE_NAME              13 (MonitorSessionBatch)
+            112 LOAD_CONST              12 (None)
+            114 RETURN_VALUE
+
+Disassembly of <code object MonitorSessionItem at 0x1072cfbe0, file "WeRobotCore/application/monitoring/session_batch.py", line 17>:
+ 17           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('MonitorSessionItem')
+              6 STORE_NAME               2 (__qualname__)
+              8 SETUP_ANNOTATIONS
+
+ 19          10 LOAD_CONST               1 ('One normalized session and its shallow, read-only Legacy projection.')
+             12 STORE_NAME               3 (__doc__)
+
+ 21          14 LOAD_NAME                4 (SessionSummary)
+             16 LOAD_NAME                5 (__annotations__)
+             18 LOAD_CONST               2 ('summary')
+             20 STORE_SUBSCR
+
+ 22          22 LOAD_NAME                6 (Mapping)
+             24 LOAD_NAME                7 (str)
+             26 LOAD_NAME                8 (Any)
+             28 BUILD_TUPLE              2
+             30 BINARY_SUBSCR
+             32 LOAD_NAME                5 (__annotations__)
+             34 LOAD_CONST               3 ('compatibility_payload')
+             36 STORE_SUBSCR
+
+ 24          38 LOAD_CONST               4 (None)
+             40 LOAD_CONST               5 (('return',))
+             42 BUILD_CONST_KEY_MAP      1
+             44 LOAD_CONST               6 (<code object __post_init__ at 0x1072e0be0, file "WeRobotCore/application/monitoring/session_batch.py", line 24>)
+             46 LOAD_CONST               7 ('MonitorSessionItem.__post_init__')
+             48 MAKE_FUNCTION            4 (annotations)
+             50 STORE_NAME               9 (__post_init__)
+             52 LOAD_CONST               4 (None)
+             54 RETURN_VALUE
+
+Disassembly of <code object __post_init__ at 0x1072e0be0, file "WeRobotCore/application/monitoring/session_batch.py", line 24>:
+ 25           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                0 (self)
+              4 LOAD_ATTR                1 (summary)
+              6 LOAD_GLOBAL              2 (SessionSummary)
+              8 CALL_FUNCTION            2
+             10 POP_JUMP_IF_TRUE        20
+
+ 26          12 LOAD_GLOBAL              3 (TypeError)
+             14 LOAD_CONST               1 ('summary must be a SessionSummary')
+             16 CALL_FUNCTION            1
+             18 RAISE_VARARGS            1
+
+ 27     >>   20 LOAD_GLOBAL              0 (isinstance)
+             22 LOAD_FAST                0 (self)
+             24 LOAD_ATTR                4 (compatibility_payload)
+             26 LOAD_GLOBAL              5 (Mapping)
+             28 CALL_FUNCTION            2
+             30 POP_JUMP_IF_TRUE        40
+
+ 28          32 LOAD_GLOBAL              3 (TypeError)
+             34 LOAD_CONST               2 ('compatibility_payload must be a mapping')
+             36 CALL_FUNCTION            1
+             38 RAISE_VARARGS            1
+
+ 30     >>   40 LOAD_GLOBAL              6 (dict)
+             42 LOAD_FAST                0 (self)
+             44 LOAD_ATTR                4 (compatibility_payload)
+             46 CALL_FUNCTION            1
+             48 STORE_FAST               1 (payload_snapshot)
+
+ 31          50 LOAD_FAST                1 (payload_snapshot)
+             52 LOAD_METHOD              7 (get)
+             54 LOAD_CONST               3 ('id')
+             56 CALL_METHOD              1
+             58 STORE_FAST               2 (raw_session_id)
+
+ 32          60 LOAD_FAST                2 (raw_session_id)
+             62 LOAD_CONST               0 (None)
+             64 IS_OP                    0
+             66 POP_JUMP_IF_FALSE       72
+             68 LOAD_CONST               4 ('')
+             70 JUMP_FORWARD            10 (to 82)
+        >>   72 LOAD_GLOBAL              8 (str)
+             74 LOAD_FAST                2 (raw_session_id)
+             76 CALL_FUNCTION            1
+             78 LOAD_METHOD              9 (strip)
+             80 CALL_METHOD              0
+        >>   82 STORE_FAST               3 (normalized_raw_id)
+
+ 33          84 LOAD_FAST                3 (normalized_raw_id)
+             86 LOAD_FAST                0 (self)
+             88 LOAD_ATTR                1 (summary)
+             90 LOAD_ATTR               10 (session_id)
+             92 COMPARE_OP               3 (!=)
+             94 POP_JUMP_IF_FALSE      104
+
+ 34          96 LOAD_GLOBAL             11 (ValueError)
+
+ 35          98 LOAD_CONST               5 ('compatibility payload id must match summary.session_id')
+
+ 34         100 CALL_FUNCTION            1
+            102 RAISE_VARARGS            1
+
+ 38     >>  104 LOAD_GLOBAL             12 (object)
+            106 LOAD_METHOD             13 (__setattr__)
+
+ 39         108 LOAD_FAST                0 (self)
+
+ 40         110 LOAD_CONST               6 ('compatibility_payload')
+
+ 41         112 LOAD_GLOBAL             14 (MappingProxyType)
+            114 LOAD_FAST                1 (payload_snapshot)
+            116 CALL_FUNCTION            1
+
+ 38         118 CALL_METHOD              3
+            120 POP_TOP
+            122 LOAD_CONST               0 (None)
+            124 RETURN_VALUE
+
+Disassembly of <code object MonitorSessionBatch at 0x1073ab660, file "WeRobotCore/application/monitoring/session_batch.py", line 45>:
+ 45           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('MonitorSessionBatch')
+              6 STORE_NAME               2 (__qualname__)
+              8 SETUP_ANNOTATIONS
+
+ 47          10 LOAD_CONST               1 ('An ordered, account-scoped monitor snapshot.\n\n    Duplicate normalized session identifiers are rejected because the shared\n    monitor cache is keyed by account and session identity.  The model is not\n    connected to the production monitor yet; this invariant is established\n    before that later dependency switch.\n    ')
+             12 STORE_NAME               3 (__doc__)
+
+ 55          14 LOAD_NAME                4 (str)
+             16 LOAD_NAME                5 (__annotations__)
+             18 LOAD_CONST               2 ('account_id')
+             20 STORE_SUBSCR
+
+ 56          22 LOAD_NAME                6 (field)
+             24 LOAD_NAME                7 (tuple)
+             26 LOAD_CONST               3 (('default_factory',))
+             28 CALL_FUNCTION_KW         1
+             30 STORE_NAME               8 (items)
+             32 LOAD_NAME                9 (Tuple)
+             34 LOAD_NAME               10 (MonitorSessionItem)
+             36 LOAD_CONST               4 (Ellipsis)
+             38 BUILD_TUPLE              2
+             40 BINARY_SUBSCR
+             42 LOAD_NAME                5 (__annotations__)
+             44 LOAD_CONST               5 ('items')
+             46 STORE_SUBSCR
+
+ 58          48 LOAD_CONST               6 (None)
+             50 LOAD_CONST               7 (('return',))
+             52 BUILD_CONST_KEY_MAP      1
+             54 LOAD_CONST               8 (<code object __post_init__ at 0x1073ab2f0, file "WeRobotCore/application/monitoring/session_batch.py", line 58>)
+             56 LOAD_CONST               9 ('MonitorSessionBatch.__post_init__')
+             58 MAKE_FUNCTION            4 (annotations)
+             60 STORE_NAME              11 (__post_init__)
+
+ 74          62 LOAD_NAME               12 (property)
+
+ 75          64 LOAD_NAME                9 (Tuple)
+             66 LOAD_NAME               13 (SessionSummary)
+             68 LOAD_CONST               4 (Ellipsis)
+             70 BUILD_TUPLE              2
+             72 BINARY_SUBSCR
+             74 LOAD_CONST               7 (('return',))
+             76 BUILD_CONST_KEY_MAP      1
+             78 LOAD_CONST              10 (<code object summaries at 0x1073ab190, file "WeRobotCore/application/monitoring/session_batch.py", line 74>)
+             80 LOAD_CONST              11 ('MonitorSessionBatch.summaries')
+             82 MAKE_FUNCTION            4 (annotations)
+             84 CALL_FUNCTION            1
+             86 STORE_NAME              14 (summaries)
+
+ 78          88 LOAD_NAME               12 (property)
+
+ 79          90 LOAD_NAME                9 (Tuple)
+             92 LOAD_NAME               15 (Mapping)
+             94 LOAD_NAME                4 (str)
+             96 LOAD_NAME               16 (Any)
+             98 BUILD_TUPLE              2
+            100 BINARY_SUBSCR
+            102 LOAD_CONST               4 (Ellipsis)
+            104 BUILD_TUPLE              2
+            106 BINARY_SUBSCR
+            108 LOAD_CONST               7 (('return',))
+            110 BUILD_CONST_KEY_MAP      1
+            112 LOAD_CONST              12 (<code object compatibility_payloads at 0x1073abd40, file "WeRobotCore/application/monitoring/session_batch.py", line 78>)
+            114 LOAD_CONST              13 ('MonitorSessionBatch.compatibility_payloads')
+            116 MAKE_FUNCTION            4 (annotations)
+            118 CALL_FUNCTION            1
+            120 STORE_NAME              17 (compatibility_payloads)
+            122 LOAD_CONST               6 (None)
+            124 RETURN_VALUE
+
+Disassembly of <code object __post_init__ at 0x1073ab2f0, file "WeRobotCore/application/monitoring/session_batch.py", line 58>:
+ 59           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                0 (self)
+              4 LOAD_ATTR                1 (account_id)
+              6 LOAD_GLOBAL              2 (str)
+              8 CALL_FUNCTION            2
+             10 POP_JUMP_IF_FALSE       22
+             12 LOAD_FAST                0 (self)
+             14 LOAD_ATTR                1 (account_id)
+             16 LOAD_METHOD              3 (strip)
+             18 CALL_METHOD              0
+             20 POP_JUMP_IF_TRUE        30
+
+ 60     >>   22 LOAD_GLOBAL              4 (ValueError)
+             24 LOAD_CONST               1 ('account_id must be a non-empty string')
+             26 CALL_FUNCTION            1
+             28 RAISE_VARARGS            1
+
+ 61     >>   30 LOAD_GLOBAL              0 (isinstance)
+             32 LOAD_FAST                0 (self)
+             34 LOAD_ATTR                5 (items)
+             36 LOAD_GLOBAL              6 (tuple)
+             38 CALL_FUNCTION            2
+             40 POP_JUMP_IF_TRUE        50
+
+ 62          42 LOAD_GLOBAL              7 (TypeError)
+             44 LOAD_CONST               2 ('items must be a tuple')
+             46 CALL_FUNCTION            1
+             48 RAISE_VARARGS            1
+
+ 63     >>   50 LOAD_GLOBAL              8 (any)
+             52 LOAD_CONST               3 (<code object <genexpr> at 0x1073ab500, file "WeRobotCore/application/monitoring/session_batch.py", line 63>)
+             54 LOAD_CONST               4 ('MonitorSessionBatch.__post_init__.<locals>.<genexpr>')
+             56 MAKE_FUNCTION            0
+             58 LOAD_FAST                0 (self)
+             60 LOAD_ATTR                5 (items)
+             62 GET_ITER
+             64 CALL_FUNCTION            1
+             66 CALL_FUNCTION            1
+             68 POP_JUMP_IF_FALSE       78
+
+ 64          70 LOAD_GLOBAL              7 (TypeError)
+             72 LOAD_CONST               5 ('items must contain MonitorSessionItem values')
+             74 CALL_FUNCTION            1
+             76 RAISE_VARARGS            1
+
+ 66     >>   78 BUILD_LIST               0
+             80 STORE_FAST               1 (session_ids)
+
+ 67          82 LOAD_FAST                0 (self)
+             84 LOAD_ATTR                5 (items)
+             86 GET_ITER
+        >>   88 FOR_ITER                40 (to 130)
+             90 STORE_FAST               2 (item)
+
+ 68          92 LOAD_FAST                2 (item)
+             94 LOAD_ATTR                9 (summary)
+             96 LOAD_ATTR                1 (account_id)
+             98 LOAD_FAST                0 (self)
+            100 LOAD_ATTR                1 (account_id)
+            102 COMPARE_OP               3 (!=)
+            104 POP_JUMP_IF_FALSE      114
+
+ 69         106 LOAD_GLOBAL              4 (ValueError)
+            108 LOAD_CONST               6 ('all sessions must belong to the batch account')
+            110 CALL_FUNCTION            1
+            112 RAISE_VARARGS            1
+
+ 70     >>  114 LOAD_FAST                1 (session_ids)
+            116 LOAD_METHOD             10 (append)
+            118 LOAD_FAST                2 (item)
+            120 LOAD_ATTR                9 (summary)
+            122 LOAD_ATTR               11 (session_id)
+            124 CALL_METHOD              1
+            126 POP_TOP
+            128 JUMP_ABSOLUTE           88
+
+ 71     >>  130 LOAD_GLOBAL             12 (len)
+            132 LOAD_FAST                1 (session_ids)
+            134 CALL_FUNCTION            1
+            136 LOAD_GLOBAL             12 (len)
+            138 LOAD_GLOBAL             13 (set)
+            140 LOAD_FAST                1 (session_ids)
+            142 CALL_FUNCTION            1
+            144 CALL_FUNCTION            1
+            146 COMPARE_OP               3 (!=)
+            148 POP_JUMP_IF_FALSE      158
+
+ 72         150 LOAD_GLOBAL              4 (ValueError)
+            152 LOAD_CONST               7 ('session ids must be unique within a monitor batch')
+            154 CALL_FUNCTION            1
+            156 RAISE_VARARGS            1
+        >>  158 LOAD_CONST               0 (None)
+            160 RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x1073ab500, file "WeRobotCore/application/monitoring/session_batch.py", line 63>:
+ 63           0 LOAD_FAST                0 (.0)
+        >>    2 FOR_ITER                18 (to 22)
+              4 STORE_FAST               1 (item)
+              6 LOAD_GLOBAL              0 (isinstance)
+              8 LOAD_FAST                1 (item)
+             10 LOAD_GLOBAL              1 (MonitorSessionItem)
+             12 CALL_FUNCTION            2
+             14 UNARY_NOT
+             16 YIELD_VALUE
+             18 POP_TOP
+             20 JUMP_ABSOLUTE            2
+        >>   22 LOAD_CONST               0 (None)
+             24 RETURN_VALUE
+
+Disassembly of <code object summaries at 0x1073ab190, file "WeRobotCore/application/monitoring/session_batch.py", line 74>:
+ 76           0 LOAD_GLOBAL              0 (tuple)
+              2 LOAD_CONST               1 (<code object <genexpr> at 0x1073aba80, file "WeRobotCore/application/monitoring/session_batch.py", line 76>)
+              4 LOAD_CONST               2 ('MonitorSessionBatch.summaries.<locals>.<genexpr>')
+              6 MAKE_FUNCTION            0
+              8 LOAD_FAST                0 (self)
+             10 LOAD_ATTR                1 (items)
+             12 GET_ITER
+             14 CALL_FUNCTION            1
+             16 CALL_FUNCTION            1
+             18 RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x1073aba80, file "WeRobotCore/application/monitoring/session_batch.py", line 76>:
+ 76           0 LOAD_FAST                0 (.0)
+        >>    2 FOR_ITER                12 (to 16)
+              4 STORE_FAST               1 (item)
+              6 LOAD_FAST                1 (item)
+              8 LOAD_ATTR                0 (summary)
+             10 YIELD_VALUE
+             12 POP_TOP
+             14 JUMP_ABSOLUTE            2
+        >>   16 LOAD_CONST               0 (None)
+             18 RETURN_VALUE
+
+Disassembly of <code object compatibility_payloads at 0x1073abd40, file "WeRobotCore/application/monitoring/session_batch.py", line 78>:
+ 80           0 LOAD_GLOBAL              0 (tuple)
+              2 LOAD_CONST               1 (<code object <genexpr> at 0x1073ab870, file "WeRobotCore/application/monitoring/session_batch.py", line 80>)
+              4 LOAD_CONST               2 ('MonitorSessionBatch.compatibility_payloads.<locals>.<genexpr>')
+              6 MAKE_FUNCTION            0
+              8 LOAD_FAST                0 (self)
+             10 LOAD_ATTR                1 (items)
+             12 GET_ITER
+             14 CALL_FUNCTION            1
+             16 CALL_FUNCTION            1
+             18 RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x1073ab870, file "WeRobotCore/application/monitoring/session_batch.py", line 80>:
+ 80           0 LOAD_FAST                0 (.0)
+        >>    2 FOR_ITER                12 (to 16)
+              4 STORE_FAST               1 (item)
+              6 LOAD_FAST                1 (item)
+              8 LOAD_ATTR                0 (compatibility_payload)
+             10 YIELD_VALUE
+             12 POP_TOP
+             14 JUMP_ABSOLUTE            2
+        >>   16 LOAD_CONST               0 (None)
+             18 RETURN_VALUE

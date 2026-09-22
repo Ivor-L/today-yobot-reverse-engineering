@@ -1,0 +1,537 @@
+  1           0 LOAD_CONST               0 ('\n火山引擎 (Volcano Engine) Open API V4 风格签名实现。\n\n参考：火山引擎签名规范（与 AWS Signature V4 兼容的变体）\n  - 算法：HMAC-SHA256\n  - Authorization header 形如：\n      HMAC-SHA256 Credential=<AK>/<date>/<region>/<service>/request,\n                  SignedHeaders=content-type;host;x-content-sha256;x-date,\n                  Signature=<hex>\n\n只覆盖本项目用得到的 POST + Action 查询参数 + JSON body 这一种调用形态。\n未来需要 GET / 其它姿势再扩展。\n\n外部入口：sign_request() 返回应该附到请求上的 headers。\n')
+              2 STORE_NAME               0 (__doc__)
+
+ 16           4 LOAD_CONST               1 (0)
+              6 LOAD_CONST               2 (('annotations',))
+              8 IMPORT_NAME              1 (__future__)
+             10 IMPORT_FROM              2 (annotations)
+             12 STORE_NAME               2 (annotations)
+             14 POP_TOP
+
+ 18          16 LOAD_CONST               1 (0)
+             18 LOAD_CONST               3 (None)
+             20 IMPORT_NAME              3 (datetime)
+             22 STORE_NAME               3 (datetime)
+
+ 19          24 LOAD_CONST               1 (0)
+             26 LOAD_CONST               3 (None)
+             28 IMPORT_NAME              4 (hashlib)
+             30 STORE_NAME               4 (hashlib)
+
+ 20          32 LOAD_CONST               1 (0)
+             34 LOAD_CONST               3 (None)
+             36 IMPORT_NAME              5 (hmac)
+             38 STORE_NAME               5 (hmac)
+
+ 21          40 LOAD_CONST               1 (0)
+             42 LOAD_CONST               4 (('Dict', 'Mapping', 'Optional'))
+             44 IMPORT_NAME              6 (typing)
+             46 IMPORT_FROM              7 (Dict)
+             48 STORE_NAME               7 (Dict)
+             50 IMPORT_FROM              8 (Mapping)
+             52 STORE_NAME               8 (Mapping)
+             54 IMPORT_FROM              9 (Optional)
+             56 STORE_NAME               9 (Optional)
+             58 POP_TOP
+
+ 22          60 LOAD_CONST               1 (0)
+             62 LOAD_CONST               5 (('quote',))
+             64 IMPORT_NAME             10 (urllib.parse)
+             66 IMPORT_FROM             11 (quote)
+             68 STORE_NAME              11 (quote)
+             70 POP_TOP
+
+ 25          72 LOAD_CONST               6 ('HMAC-SHA256')
+             74 STORE_NAME              12 (_ALGORITHM)
+
+ 26          76 LOAD_CONST               7 ('request')
+             78 STORE_NAME              13 (_REQUEST_SUFFIX)
+
+ 29          80 LOAD_CONST               8 ('bytes')
+             82 LOAD_CONST               9 ('str')
+             84 LOAD_CONST              10 (('payload', 'return'))
+             86 BUILD_CONST_KEY_MAP      2
+             88 LOAD_CONST              11 (<code object _sha256_hex at 0x10924b5b0, file "WeRobotCore/utils/volc_signer.py", line 29>)
+             90 LOAD_CONST              12 ('_sha256_hex')
+             92 MAKE_FUNCTION            4 (annotations)
+             94 STORE_NAME              14 (_sha256_hex)
+
+ 33          96 LOAD_CONST               8 ('bytes')
+             98 LOAD_CONST               9 ('str')
+            100 LOAD_CONST               8 ('bytes')
+            102 LOAD_CONST              13 (('key', 'msg', 'return'))
+            104 BUILD_CONST_KEY_MAP      3
+            106 LOAD_CONST              14 (<code object _hmac_sha256 at 0x10924bdf0, file "WeRobotCore/utils/volc_signer.py", line 33>)
+            108 LOAD_CONST              15 ('_hmac_sha256')
+            110 MAKE_FUNCTION            4 (annotations)
+            112 STORE_NAME              15 (_hmac_sha256)
+
+ 37         114 LOAD_CONST              16 ('Mapping[str, str]')
+            116 LOAD_CONST               9 ('str')
+            118 LOAD_CONST              17 (('query', 'return'))
+            120 BUILD_CONST_KEY_MAP      2
+            122 LOAD_CONST              18 (<code object _canonical_query at 0x10924ba80, file "WeRobotCore/utils/volc_signer.py", line 37>)
+            124 LOAD_CONST              19 ('_canonical_query')
+            126 MAKE_FUNCTION            4 (annotations)
+            128 STORE_NAME              16 (_canonical_query)
+
+ 51         130 LOAD_CONST              16 ('Mapping[str, str]')
+            132 LOAD_CONST               9 ('str')
+            134 LOAD_CONST              20 (('headers', 'return'))
+            136 BUILD_CONST_KEY_MAP      2
+            138 LOAD_CONST              21 (<code object _canonical_headers at 0x10924bb30, file "WeRobotCore/utils/volc_signer.py", line 51>)
+            140 LOAD_CONST              22 ('_canonical_headers')
+            142 MAKE_FUNCTION            4 (annotations)
+            144 STORE_NAME              17 (_canonical_headers)
+
+ 63         146 LOAD_CONST              16 ('Mapping[str, str]')
+            148 LOAD_CONST               9 ('str')
+            150 LOAD_CONST              20 (('headers', 'return'))
+            152 BUILD_CONST_KEY_MAP      2
+            154 LOAD_CONST              23 (<code object _signed_headers at 0x10925ddf0, file "WeRobotCore/utils/volc_signer.py", line 63>)
+            156 LOAD_CONST              24 ('_signed_headers')
+            158 MAKE_FUNCTION            4 (annotations)
+            160 STORE_NAME              18 (_signed_headers)
+
+ 67         162 LOAD_CONST               9 ('str')
+            164 LOAD_CONST               9 ('str')
+            166 LOAD_CONST               9 ('str')
+            168 LOAD_CONST               9 ('str')
+            170 LOAD_CONST               8 ('bytes')
+            172 LOAD_CONST              25 (('secret_key', 'date', 'region', 'service', 'return'))
+            174 BUILD_CONST_KEY_MAP      5
+            176 LOAD_CONST              26 (<code object _derive_signing_key at 0x10925dea0, file "WeRobotCore/utils/volc_signer.py", line 67>)
+            178 LOAD_CONST              27 ('_derive_signing_key')
+            180 MAKE_FUNCTION            4 (annotations)
+            182 STORE_NAME              19 (_derive_signing_key)
+
+ 86         184 LOAD_CONST              28 ('application/json; charset=utf-8')
+
+ 87         186 LOAD_CONST               3 (None)
+
+ 75         188 LOAD_CONST              29 (('content_type', 'now'))
+            190 BUILD_CONST_KEY_MAP      2
+            192 LOAD_CONST               9 ('str')
+            194 LOAD_CONST               9 ('str')
+            196 LOAD_CONST               9 ('str')
+            198 LOAD_CONST              16 ('Mapping[str, str]')
+            200 LOAD_CONST               8 ('bytes')
+            202 LOAD_CONST               9 ('str')
+            204 LOAD_CONST               9 ('str')
+            206 LOAD_CONST               9 ('str')
+            208 LOAD_CONST               9 ('str')
+            210 LOAD_CONST               9 ('str')
+            212 LOAD_CONST              30 ('Optional[datetime.datetime]')
+            214 LOAD_CONST              31 ('Dict[str, str]')
+            216 LOAD_CONST              32 (('method', 'host', 'path', 'query', 'body', 'access_key_id', 'secret_access_key', 'service', 'region', 'content_type', 'now', 'return'))
+            218 BUILD_CONST_KEY_MAP     12
+            220 LOAD_CONST              33 (<code object sign_request at 0x10925d710, file "WeRobotCore/utils/volc_signer.py", line 75>)
+            222 LOAD_CONST              34 ('sign_request')
+            224 MAKE_FUNCTION            6 (kwdefaults, annotations)
+            226 STORE_NAME              20 (sign_request)
+            228 LOAD_CONST               3 (None)
+            230 RETURN_VALUE
+
+Disassembly of <code object _sha256_hex at 0x10924b5b0, file "WeRobotCore/utils/volc_signer.py", line 29>:
+ 30           0 LOAD_GLOBAL              0 (hashlib)
+              2 LOAD_METHOD              1 (sha256)
+              4 LOAD_FAST                0 (payload)
+              6 CALL_METHOD              1
+              8 LOAD_METHOD              2 (hexdigest)
+             10 CALL_METHOD              0
+             12 RETURN_VALUE
+
+Disassembly of <code object _hmac_sha256 at 0x10924bdf0, file "WeRobotCore/utils/volc_signer.py", line 33>:
+ 34           0 LOAD_GLOBAL              0 (hmac)
+              2 LOAD_METHOD              1 (new)
+              4 LOAD_FAST                0 (key)
+              6 LOAD_FAST                1 (msg)
+              8 LOAD_METHOD              2 (encode)
+             10 LOAD_CONST               1 ('utf-8')
+             12 CALL_METHOD              1
+             14 LOAD_GLOBAL              3 (hashlib)
+             16 LOAD_ATTR                4 (sha256)
+             18 CALL_METHOD              3
+             20 LOAD_METHOD              5 (digest)
+             22 CALL_METHOD              0
+             24 RETURN_VALUE
+
+Disassembly of <code object _canonical_query at 0x10924ba80, file "WeRobotCore/utils/volc_signer.py", line 37>:
+ 39           0 LOAD_FAST                0 (query)
+              2 POP_JUMP_IF_TRUE         8
+
+ 40           4 LOAD_CONST               1 ('')
+              6 RETURN_VALUE
+
+ 41     >>    8 LOAD_GLOBAL              0 (sorted)
+             10 LOAD_FAST                0 (query)
+             12 LOAD_METHOD              1 (items)
+             14 CALL_METHOD              0
+             16 LOAD_CONST               2 (<code object <lambda> at 0x10924b2f0, file "WeRobotCore/utils/volc_signer.py", line 41>)
+             18 LOAD_CONST               3 ('_canonical_query.<locals>.<lambda>')
+             20 MAKE_FUNCTION            0
+             22 LOAD_CONST               4 (('key',))
+             24 CALL_FUNCTION_KW         2
+             26 STORE_FAST               1 (items)
+
+ 42          28 BUILD_LIST               0
+             30 STORE_FAST               2 (parts)
+
+ 43          32 LOAD_FAST                1 (items)
+             34 GET_ITER
+        >>   36 FOR_ITER                60 (to 98)
+             38 UNPACK_SEQUENCE          2
+             40 STORE_FAST               3 (k)
+             42 STORE_FAST               4 (v)
+
+ 45          44 LOAD_GLOBAL              2 (quote)
+             46 LOAD_GLOBAL              3 (str)
+             48 LOAD_FAST                3 (k)
+             50 CALL_FUNCTION            1
+             52 LOAD_CONST               5 ('-_.~')
+             54 LOAD_CONST               6 (('safe',))
+             56 CALL_FUNCTION_KW         2
+             58 STORE_FAST               5 (ek)
+
+ 46          60 LOAD_GLOBAL              2 (quote)
+             62 LOAD_GLOBAL              3 (str)
+             64 LOAD_FAST                4 (v)
+             66 CALL_FUNCTION            1
+             68 LOAD_CONST               5 ('-_.~')
+             70 LOAD_CONST               6 (('safe',))
+             72 CALL_FUNCTION_KW         2
+             74 STORE_FAST               6 (ev)
+
+ 47          76 LOAD_FAST                2 (parts)
+             78 LOAD_METHOD              4 (append)
+             80 LOAD_FAST                5 (ek)
+             82 FORMAT_VALUE             0
+             84 LOAD_CONST               7 ('=')
+             86 LOAD_FAST                6 (ev)
+             88 FORMAT_VALUE             0
+             90 BUILD_STRING             3
+             92 CALL_METHOD              1
+             94 POP_TOP
+             96 JUMP_ABSOLUTE           36
+
+ 48     >>   98 LOAD_CONST               8 ('&')
+            100 LOAD_METHOD              5 (join)
+            102 LOAD_FAST                2 (parts)
+            104 CALL_METHOD              1
+            106 RETURN_VALUE
+
+Disassembly of <code object <lambda> at 0x10924b2f0, file "WeRobotCore/utils/volc_signer.py", line 41>:
+ 41           0 LOAD_FAST                0 (kv)
+              2 LOAD_CONST               1 (0)
+              4 BINARY_SUBSCR
+              6 RETURN_VALUE
+
+Disassembly of <code object _canonical_headers at 0x10924bb30, file "WeRobotCore/utils/volc_signer.py", line 51>:
+ 59           0 LOAD_GLOBAL              0 (sorted)
+              2 LOAD_CONST               1 (<code object <genexpr> at 0x10924b710, file "WeRobotCore/utils/volc_signer.py", line 59>)
+              4 LOAD_CONST               2 ('_canonical_headers.<locals>.<genexpr>')
+              6 MAKE_FUNCTION            0
+              8 LOAD_FAST                0 (headers)
+             10 LOAD_METHOD              1 (items)
+             12 CALL_METHOD              0
+             14 GET_ITER
+             16 CALL_FUNCTION            1
+             18 LOAD_CONST               3 (<code object <lambda> at 0x10924bf50, file "WeRobotCore/utils/volc_signer.py", line 59>)
+             20 LOAD_CONST               4 ('_canonical_headers.<locals>.<lambda>')
+             22 MAKE_FUNCTION            0
+             24 LOAD_CONST               5 (('key',))
+             26 CALL_FUNCTION_KW         2
+             28 STORE_FAST               1 (items)
+
+ 60          30 LOAD_CONST               6 ('\n')
+             32 LOAD_METHOD              2 (join)
+             34 LOAD_CONST               7 (<code object <genexpr> at 0x10924b660, file "WeRobotCore/utils/volc_signer.py", line 60>)
+             36 LOAD_CONST               2 ('_canonical_headers.<locals>.<genexpr>')
+             38 MAKE_FUNCTION            0
+             40 LOAD_FAST                1 (items)
+             42 GET_ITER
+             44 CALL_FUNCTION            1
+             46 CALL_METHOD              1
+             48 LOAD_CONST               6 ('\n')
+             50 BINARY_ADD
+             52 RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x10924b710, file "WeRobotCore/utils/volc_signer.py", line 59>:
+ 59           0 LOAD_FAST                0 (.0)
+        >>    2 FOR_ITER                30 (to 34)
+              4 UNPACK_SEQUENCE          2
+              6 STORE_FAST               1 (k)
+              8 STORE_FAST               2 (v)
+             10 LOAD_FAST                1 (k)
+             12 LOAD_METHOD              0 (lower)
+             14 CALL_METHOD              0
+             16 LOAD_METHOD              1 (strip)
+             18 CALL_METHOD              0
+             20 LOAD_FAST                2 (v)
+             22 LOAD_METHOD              1 (strip)
+             24 CALL_METHOD              0
+             26 BUILD_TUPLE              2
+             28 YIELD_VALUE
+             30 POP_TOP
+             32 JUMP_ABSOLUTE            2
+        >>   34 LOAD_CONST               0 (None)
+             36 RETURN_VALUE
+
+Disassembly of <code object <lambda> at 0x10924bf50, file "WeRobotCore/utils/volc_signer.py", line 59>:
+ 59           0 LOAD_FAST                0 (kv)
+              2 LOAD_CONST               1 (0)
+              4 BINARY_SUBSCR
+              6 RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x10924b660, file "WeRobotCore/utils/volc_signer.py", line 60>:
+ 60           0 LOAD_FAST                0 (.0)
+        >>    2 FOR_ITER                24 (to 28)
+              4 UNPACK_SEQUENCE          2
+              6 STORE_FAST               1 (k)
+              8 STORE_FAST               2 (v)
+             10 LOAD_FAST                1 (k)
+             12 FORMAT_VALUE             0
+             14 LOAD_CONST               0 (':')
+             16 LOAD_FAST                2 (v)
+             18 FORMAT_VALUE             0
+             20 BUILD_STRING             3
+             22 YIELD_VALUE
+             24 POP_TOP
+             26 JUMP_ABSOLUTE            2
+        >>   28 LOAD_CONST               1 (None)
+             30 RETURN_VALUE
+
+Disassembly of <code object _signed_headers at 0x10925ddf0, file "WeRobotCore/utils/volc_signer.py", line 63>:
+ 64           0 LOAD_CONST               1 (';')
+              2 LOAD_METHOD              0 (join)
+              4 LOAD_GLOBAL              1 (sorted)
+              6 LOAD_CONST               2 (<code object <genexpr> at 0x10924b030, file "WeRobotCore/utils/volc_signer.py", line 64>)
+              8 LOAD_CONST               3 ('_signed_headers.<locals>.<genexpr>')
+             10 MAKE_FUNCTION            0
+             12 LOAD_FAST                0 (headers)
+             14 LOAD_METHOD              2 (keys)
+             16 CALL_METHOD              0
+             18 GET_ITER
+             20 CALL_FUNCTION            1
+             22 CALL_FUNCTION            1
+             24 CALL_METHOD              1
+             26 RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x10924b030, file "WeRobotCore/utils/volc_signer.py", line 64>:
+ 64           0 LOAD_FAST                0 (.0)
+        >>    2 FOR_ITER                18 (to 22)
+              4 STORE_FAST               1 (k)
+              6 LOAD_FAST                1 (k)
+              8 LOAD_METHOD              0 (lower)
+             10 CALL_METHOD              0
+             12 LOAD_METHOD              1 (strip)
+             14 CALL_METHOD              0
+             16 YIELD_VALUE
+             18 POP_TOP
+             20 JUMP_ABSOLUTE            2
+        >>   22 LOAD_CONST               0 (None)
+             24 RETURN_VALUE
+
+Disassembly of <code object _derive_signing_key at 0x10925dea0, file "WeRobotCore/utils/volc_signer.py", line 67>:
+ 68           0 LOAD_GLOBAL              0 (_hmac_sha256)
+              2 LOAD_FAST                0 (secret_key)
+              4 LOAD_METHOD              1 (encode)
+              6 LOAD_CONST               1 ('utf-8')
+              8 CALL_METHOD              1
+             10 LOAD_FAST                1 (date)
+             12 CALL_FUNCTION            2
+             14 STORE_FAST               4 (k_date)
+
+ 69          16 LOAD_GLOBAL              0 (_hmac_sha256)
+             18 LOAD_FAST                4 (k_date)
+             20 LOAD_FAST                2 (region)
+             22 CALL_FUNCTION            2
+             24 STORE_FAST               5 (k_region)
+
+ 70          26 LOAD_GLOBAL              0 (_hmac_sha256)
+             28 LOAD_FAST                5 (k_region)
+             30 LOAD_FAST                3 (service)
+             32 CALL_FUNCTION            2
+             34 STORE_FAST               6 (k_service)
+
+ 71          36 LOAD_GLOBAL              0 (_hmac_sha256)
+             38 LOAD_FAST                6 (k_service)
+             40 LOAD_GLOBAL              2 (_REQUEST_SUFFIX)
+             42 CALL_FUNCTION            2
+             44 STORE_FAST               7 (k_signing)
+
+ 72          46 LOAD_FAST                7 (k_signing)
+             48 RETURN_VALUE
+
+Disassembly of <code object sign_request at 0x10925d710, file "WeRobotCore/utils/volc_signer.py", line 75>:
+ 94           0 LOAD_FAST               10 (now)
+              2 LOAD_CONST               1 (None)
+              4 IS_OP                    0
+              6 POP_JUMP_IF_FALSE       24
+
+ 95           8 LOAD_GLOBAL              0 (datetime)
+             10 LOAD_ATTR                0 (datetime)
+             12 LOAD_METHOD              1 (now)
+             14 LOAD_GLOBAL              0 (datetime)
+             16 LOAD_ATTR                2 (timezone)
+             18 LOAD_ATTR                3 (utc)
+             20 CALL_METHOD              1
+             22 STORE_FAST              10 (now)
+
+ 96     >>   24 LOAD_FAST               10 (now)
+             26 LOAD_METHOD              4 (strftime)
+             28 LOAD_CONST               2 ('%Y%m%dT%H%M%SZ')
+             30 CALL_METHOD              1
+             32 STORE_FAST              11 (x_date)
+
+ 97          34 LOAD_FAST               10 (now)
+             36 LOAD_METHOD              4 (strftime)
+             38 LOAD_CONST               3 ('%Y%m%d')
+             40 CALL_METHOD              1
+             42 STORE_FAST              12 (date_only)
+
+ 99          44 LOAD_GLOBAL              5 (_sha256_hex)
+             46 LOAD_FAST                4 (body)
+             48 JUMP_IF_TRUE_OR_POP     52
+             50 LOAD_CONST               4 (b'')
+        >>   52 CALL_FUNCTION            1
+             54 STORE_FAST              13 (x_content_sha256)
+
+102          56 LOAD_FAST                9 (content_type)
+
+103          58 LOAD_FAST                1 (host)
+
+104          60 LOAD_FAST               13 (x_content_sha256)
+
+105          62 LOAD_FAST               11 (x_date)
+
+101          64 LOAD_CONST               5 (('Content-Type', 'Host', 'X-Content-Sha256', 'X-Date'))
+             66 BUILD_CONST_KEY_MAP      4
+             68 STORE_FAST              14 (base_headers)
+
+108          70 LOAD_CONST               6 ('\n')
+             72 LOAD_METHOD              6 (join)
+
+109          74 LOAD_FAST                0 (method)
+             76 LOAD_METHOD              7 (upper)
+             78 CALL_METHOD              0
+
+110          80 LOAD_FAST                2 (path)
+             82 JUMP_IF_TRUE_OR_POP     86
+             84 LOAD_CONST               7 ('/')
+
+111     >>   86 LOAD_GLOBAL              8 (_canonical_query)
+             88 LOAD_FAST                3 (query)
+             90 CALL_FUNCTION            1
+
+112          92 LOAD_GLOBAL              9 (_canonical_headers)
+             94 LOAD_FAST               14 (base_headers)
+             96 CALL_FUNCTION            1
+
+113          98 LOAD_GLOBAL             10 (_signed_headers)
+            100 LOAD_FAST               14 (base_headers)
+            102 CALL_FUNCTION            1
+
+114         104 LOAD_FAST               13 (x_content_sha256)
+
+108         106 BUILD_LIST               6
+            108 CALL_METHOD              1
+            110 STORE_FAST              15 (canonical_request)
+
+117         112 LOAD_FAST               12 (date_only)
+            114 FORMAT_VALUE             0
+            116 LOAD_CONST               7 ('/')
+            118 LOAD_FAST                8 (region)
+            120 FORMAT_VALUE             0
+            122 LOAD_CONST               7 ('/')
+            124 LOAD_FAST                7 (service)
+            126 FORMAT_VALUE             0
+            128 LOAD_CONST               7 ('/')
+            130 LOAD_GLOBAL             11 (_REQUEST_SUFFIX)
+            132 FORMAT_VALUE             0
+            134 BUILD_STRING             7
+            136 STORE_FAST              16 (credential_scope)
+
+118         138 LOAD_CONST               6 ('\n')
+            140 LOAD_METHOD              6 (join)
+
+119         142 LOAD_GLOBAL             12 (_ALGORITHM)
+
+120         144 LOAD_FAST               11 (x_date)
+
+121         146 LOAD_FAST               16 (credential_scope)
+
+122         148 LOAD_GLOBAL              5 (_sha256_hex)
+            150 LOAD_FAST               15 (canonical_request)
+            152 LOAD_METHOD             13 (encode)
+            154 LOAD_CONST               8 ('utf-8')
+            156 CALL_METHOD              1
+            158 CALL_FUNCTION            1
+
+118         160 BUILD_LIST               4
+            162 CALL_METHOD              1
+            164 STORE_FAST              17 (string_to_sign)
+
+125         166 LOAD_GLOBAL             14 (_derive_signing_key)
+            168 LOAD_FAST                6 (secret_access_key)
+            170 LOAD_FAST               12 (date_only)
+            172 LOAD_FAST                8 (region)
+            174 LOAD_FAST                7 (service)
+            176 CALL_FUNCTION            4
+            178 STORE_FAST              18 (signing_key)
+
+126         180 LOAD_GLOBAL             15 (hmac)
+            182 LOAD_METHOD             16 (new)
+            184 LOAD_FAST               18 (signing_key)
+            186 LOAD_FAST               17 (string_to_sign)
+            188 LOAD_METHOD             13 (encode)
+            190 LOAD_CONST               8 ('utf-8')
+            192 CALL_METHOD              1
+            194 LOAD_GLOBAL             17 (hashlib)
+            196 LOAD_ATTR               18 (sha256)
+            198 CALL_METHOD              3
+            200 LOAD_METHOD             19 (hexdigest)
+            202 CALL_METHOD              0
+            204 STORE_FAST              19 (signature)
+
+129         206 LOAD_GLOBAL             12 (_ALGORITHM)
+            208 FORMAT_VALUE             0
+            210 LOAD_CONST               9 (' Credential=')
+
+130         212 LOAD_FAST                5 (access_key_id)
+
+129         214 FORMAT_VALUE             0
+            216 LOAD_CONST               7 ('/')
+
+130         218 LOAD_FAST               16 (credential_scope)
+
+129         220 FORMAT_VALUE             0
+            222 LOAD_CONST              10 (', SignedHeaders=')
+
+131         224 LOAD_GLOBAL             10 (_signed_headers)
+            226 LOAD_FAST               14 (base_headers)
+            228 CALL_FUNCTION            1
+
+129         230 FORMAT_VALUE             0
+            232 LOAD_CONST              11 (', Signature=')
+
+132         234 LOAD_FAST               19 (signature)
+
+129         236 FORMAT_VALUE             0
+            238 BUILD_STRING             9
+
+128         240 STORE_FAST              20 (authorization)
+
+136         242 LOAD_FAST                9 (content_type)
+
+137         244 LOAD_FAST                1 (host)
+
+138         246 LOAD_FAST               13 (x_content_sha256)
+
+139         248 LOAD_FAST               11 (x_date)
+
+140         250 LOAD_FAST               20 (authorization)
+
+135         252 LOAD_CONST              12 (('Content-Type', 'Host', 'X-Content-Sha256', 'X-Date', 'Authorization'))
+            254 BUILD_CONST_KEY_MAP      5
+            256 RETURN_VALUE

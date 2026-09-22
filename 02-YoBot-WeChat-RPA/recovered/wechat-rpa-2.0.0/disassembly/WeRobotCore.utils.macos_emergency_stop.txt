@@ -1,0 +1,464 @@
+  1           0 LOAD_CONST               0 ('Low-risk macOS physical emergency-stop state for desktop RPA tasks.')
+              2 STORE_NAME               0 (__doc__)
+
+  3           4 LOAD_CONST               1 (0)
+              6 LOAD_CONST               2 (('annotations',))
+              8 IMPORT_NAME              1 (__future__)
+             10 IMPORT_FROM              2 (annotations)
+             12 STORE_NAME               2 (annotations)
+             14 POP_TOP
+
+  5          16 LOAD_CONST               1 (0)
+             18 LOAD_CONST               3 (None)
+             20 IMPORT_NAME              3 (ctypes)
+             22 STORE_NAME               3 (ctypes)
+
+  6          24 LOAD_CONST               1 (0)
+             26 LOAD_CONST               3 (None)
+             28 IMPORT_NAME              4 (sys)
+             30 STORE_NAME               4 (sys)
+
+  7          32 LOAD_CONST               1 (0)
+             34 LOAD_CONST               3 (None)
+             36 IMPORT_NAME              5 (time)
+             38 STORE_NAME               5 (time)
+
+  8          40 LOAD_CONST               1 (0)
+             42 LOAD_CONST               4 (('Callable', 'Optional', 'Sequence'))
+             44 IMPORT_NAME              6 (typing)
+             46 IMPORT_FROM              7 (Callable)
+             48 STORE_NAME               7 (Callable)
+             50 IMPORT_FROM              8 (Optional)
+             52 STORE_NAME               8 (Optional)
+             54 IMPORT_FROM              9 (Sequence)
+             56 STORE_NAME               9 (Sequence)
+             58 POP_TOP
+
+ 12          60 LOAD_CONST               5 ('/System/Library/Frameworks/CoreGraphics.framework/CoreGraphics')
+
+ 11          62 STORE_NAME              10 (_CORE_GRAPHICS_PATH)
+
+ 14          64 LOAD_CONST               1 (0)
+             66 STORE_NAME              11 (_COMBINED_SESSION_STATE)
+
+ 15          68 LOAD_CONST               6 (53)
+             70 STORE_NAME              12 (_ESCAPE_KEY_CODE)
+
+ 16          72 LOAD_CONST               7 (59)
+             74 STORE_NAME              13 (_LEFT_CONTROL_KEY_CODE)
+
+ 17          76 LOAD_CONST               8 (62)
+             78 STORE_NAME              14 (_RIGHT_CONTROL_KEY_CODE)
+
+ 20          80 LOAD_CONST               9 ('Optional[Callable[[int], bool]]')
+             82 LOAD_CONST              10 (('return',))
+             84 BUILD_CONST_KEY_MAP      1
+             86 LOAD_CONST              11 (<code object _system_key_state_reader at 0x1072e0df0, file "WeRobotCore/utils/macos_emergency_stop.py", line 20>)
+             88 LOAD_CONST              12 ('_system_key_state_reader')
+             90 MAKE_FUNCTION            4 (annotations)
+             92 STORE_NAME              15 (_system_key_state_reader)
+
+ 42          94 LOAD_BUILD_CLASS
+             96 LOAD_CONST              13 (<code object MacOSControlHoldEmergencyStop at 0x1072cfbe0, file "WeRobotCore/utils/macos_emergency_stop.py", line 42>)
+             98 LOAD_CONST              14 ('MacOSControlHoldEmergencyStop')
+            100 MAKE_FUNCTION            0
+            102 LOAD_CONST              14 ('MacOSControlHoldEmergencyStop')
+            104 CALL_FUNCTION            2
+            106 STORE_NAME              16 (MacOSControlHoldEmergencyStop)
+
+110         108 LOAD_CONST              14 ('MacOSControlHoldEmergencyStop')
+            110 BUILD_LIST               1
+            112 STORE_NAME              17 (__all__)
+            114 LOAD_CONST               3 (None)
+            116 RETURN_VALUE
+
+Disassembly of <code object _system_key_state_reader at 0x1072e0df0, file "WeRobotCore/utils/macos_emergency_stop.py", line 20>:
+ 21           0 LOAD_GLOBAL              0 (sys)
+              2 LOAD_ATTR                1 (platform)
+              4 LOAD_CONST               1 ('darwin')
+              6 COMPARE_OP               3 (!=)
+              8 POP_JUMP_IF_FALSE       14
+
+ 22          10 LOAD_CONST               0 (None)
+             12 RETURN_VALUE
+
+ 23     >>   14 SETUP_FINALLY           42 (to 58)
+
+ 24          16 LOAD_GLOBAL              2 (ctypes)
+             18 LOAD_METHOD              3 (CDLL)
+             20 LOAD_GLOBAL              4 (_CORE_GRAPHICS_PATH)
+             22 CALL_METHOD              1
+             24 STORE_FAST               0 (framework)
+
+ 25          26 LOAD_FAST                0 (framework)
+             28 LOAD_ATTR                5 (CGEventSourceKeyState)
+             30 STORE_DEREF              0 (function)
+
+ 26          32 LOAD_GLOBAL              2 (ctypes)
+             34 LOAD_ATTR                6 (c_uint32)
+             36 LOAD_GLOBAL              2 (ctypes)
+             38 LOAD_ATTR                7 (c_uint16)
+             40 BUILD_TUPLE              2
+             42 LOAD_DEREF               0 (function)
+             44 STORE_ATTR               8 (argtypes)
+
+ 27          46 LOAD_GLOBAL              2 (ctypes)
+             48 LOAD_ATTR                9 (c_bool)
+             50 LOAD_DEREF               0 (function)
+             52 STORE_ATTR              10 (restype)
+             54 POP_BLOCK
+             56 JUMP_FORWARD            24 (to 82)
+
+ 28     >>   58 DUP_TOP
+             60 LOAD_GLOBAL             11 (AttributeError)
+             62 LOAD_GLOBAL             12 (OSError)
+             64 BUILD_TUPLE              2
+             66 JUMP_IF_NOT_EXC_MATCH    80
+             68 POP_TOP
+             70 POP_TOP
+             72 POP_TOP
+
+ 29          74 POP_EXCEPT
+             76 LOAD_CONST               0 (None)
+             78 RETURN_VALUE
+        >>   80 RERAISE
+
+ 31     >>   82 LOAD_CONST               2 ('int')
+             84 LOAD_CONST               3 ('bool')
+             86 LOAD_CONST               4 (('key_code', 'return'))
+             88 BUILD_CONST_KEY_MAP      2
+             90 LOAD_CLOSURE             0 (function)
+             92 BUILD_TUPLE              1
+             94 LOAD_CONST               5 (<code object pressed at 0x1072e0f50, file "WeRobotCore/utils/macos_emergency_stop.py", line 31>)
+             96 LOAD_CONST               6 ('_system_key_state_reader.<locals>.pressed')
+             98 MAKE_FUNCTION           12 (annotations, closure)
+            100 STORE_FAST               1 (pressed)
+
+ 38         102 LOAD_FAST                0 (framework)
+            104 LOAD_FAST                1 (pressed)
+            106 STORE_ATTR              13 (_core_graphics)
+
+ 39         108 LOAD_FAST                1 (pressed)
+            110 RETURN_VALUE
+
+Disassembly of <code object pressed at 0x1072e0f50, file "WeRobotCore/utils/macos_emergency_stop.py", line 31>:
+ 32           0 SETUP_FINALLY           20 (to 22)
+
+ 33           2 LOAD_GLOBAL              0 (bool)
+              4 LOAD_DEREF               0 (function)
+              6 LOAD_GLOBAL              1 (_COMBINED_SESSION_STATE)
+              8 LOAD_GLOBAL              2 (int)
+             10 LOAD_FAST                0 (key_code)
+             12 CALL_FUNCTION            1
+             14 CALL_FUNCTION            2
+             16 CALL_FUNCTION            1
+             18 POP_BLOCK
+             20 RETURN_VALUE
+
+ 34     >>   22 DUP_TOP
+             24 LOAD_GLOBAL              3 (TypeError)
+             26 LOAD_GLOBAL              4 (ValueError)
+             28 BUILD_TUPLE              2
+             30 JUMP_IF_NOT_EXC_MATCH    44
+             32 POP_TOP
+             34 POP_TOP
+             36 POP_TOP
+
+ 35          38 POP_EXCEPT
+             40 LOAD_CONST               1 (False)
+             42 RETURN_VALUE
+        >>   44 RERAISE
+             46 LOAD_CONST               0 (None)
+             48 RETURN_VALUE
+
+Disassembly of <code object MacOSControlHoldEmergencyStop at 0x1072cfbe0, file "WeRobotCore/utils/macos_emergency_stop.py", line 42>:
+ 42           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('MacOSControlHoldEmergencyStop')
+              6 STORE_NAME               2 (__qualname__)
+
+ 43           8 LOAD_CONST               1 ('Trigger once when Escape or either Control key is held continuously.\n\n    The compatibility class name is retained because packaged callers already\n    import it.  Escape is the primary user-facing gesture; Control remains an\n    alias for users of earlier Mac builds.\n    ')
+             10 STORE_NAME               3 (__doc__)
+
+ 53          12 LOAD_CONST               2 (1.5)
+
+ 54          14 LOAD_CONST               3 (None)
+
+ 55          16 LOAD_NAME                4 (time)
+             18 LOAD_ATTR                5 (monotonic)
+
+ 57          20 LOAD_NAME                6 (_ESCAPE_KEY_CODE)
+
+ 58          22 LOAD_NAME                7 (_LEFT_CONTROL_KEY_CODE)
+
+ 59          24 LOAD_NAME                8 (_RIGHT_CONTROL_KEY_CODE)
+
+ 56          26 BUILD_TUPLE              3
+
+ 50          28 LOAD_CONST               4 (('hold_seconds', 'key_state_reader', 'monotonic', 'key_codes'))
+             30 BUILD_CONST_KEY_MAP      4
+             32 LOAD_CONST               5 ('float')
+             34 LOAD_CONST               6 ('Optional[Callable[[int], bool]]')
+             36 LOAD_CONST               7 ('Callable[[], float]')
+             38 LOAD_CONST               8 ('Sequence[int]')
+             40 LOAD_CONST               9 ('None')
+             42 LOAD_CONST              10 (('hold_seconds', 'key_state_reader', 'monotonic', 'key_codes', 'return'))
+             44 BUILD_CONST_KEY_MAP      5
+             46 LOAD_CONST              11 (<code object __init__ at 0x1073b95b0, file "WeRobotCore/utils/macos_emergency_stop.py", line 50>)
+             48 LOAD_CONST              12 ('MacOSControlHoldEmergencyStop.__init__')
+             50 MAKE_FUNCTION            6 (kwdefaults, annotations)
+             52 STORE_NAME               9 (__init__)
+
+ 79          54 LOAD_NAME               10 (property)
+
+ 80          56 LOAD_CONST              13 ('bool')
+             58 LOAD_CONST              14 (('return',))
+             60 BUILD_CONST_KEY_MAP      1
+             62 LOAD_CONST              15 (<code object available at 0x1073b9920, file "WeRobotCore/utils/macos_emergency_stop.py", line 79>)
+             64 LOAD_CONST              16 ('MacOSControlHoldEmergencyStop.available')
+             66 MAKE_FUNCTION            4 (annotations)
+             68 CALL_FUNCTION            1
+             70 STORE_NAME              11 (available)
+
+ 83          72 LOAD_NAME               10 (property)
+
+ 84          74 LOAD_CONST               5 ('float')
+             76 LOAD_CONST              14 (('return',))
+             78 BUILD_CONST_KEY_MAP      1
+             80 LOAD_CONST              17 (<code object hold_seconds at 0x1073b9d40, file "WeRobotCore/utils/macos_emergency_stop.py", line 83>)
+             82 LOAD_CONST              18 ('MacOSControlHoldEmergencyStop.hold_seconds')
+             84 MAKE_FUNCTION            4 (annotations)
+             86 CALL_FUNCTION            1
+             88 STORE_NAME              12 (hold_seconds)
+
+ 87          90 LOAD_CONST              13 ('bool')
+             92 LOAD_CONST              14 (('return',))
+             94 BUILD_CONST_KEY_MAP      1
+             96 LOAD_CONST              19 (<code object poll at 0x1073b9ea0, file "WeRobotCore/utils/macos_emergency_stop.py", line 87>)
+             98 LOAD_CONST              20 ('MacOSControlHoldEmergencyStop.poll')
+            100 MAKE_FUNCTION            4 (annotations)
+            102 STORE_NAME              13 (poll)
+
+105         104 LOAD_CONST               9 ('None')
+            106 LOAD_CONST              14 (('return',))
+            108 BUILD_CONST_KEY_MAP      1
+            110 LOAD_CONST              21 (<code object reset at 0x1073b9f50, file "WeRobotCore/utils/macos_emergency_stop.py", line 105>)
+            112 LOAD_CONST              22 ('MacOSControlHoldEmergencyStop.reset')
+            114 MAKE_FUNCTION            4 (annotations)
+            116 STORE_NAME              14 (reset)
+            118 LOAD_CONST               3 (None)
+            120 RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x1073b95b0, file "WeRobotCore/utils/macos_emergency_stop.py", line 50>:
+ 62           0 LOAD_FAST                1 (hold_seconds)
+              2 LOAD_CONST               1 (0.5)
+              4 COMPARE_OP               0 (<)
+              6 POP_JUMP_IF_FALSE       16
+
+ 63           8 LOAD_GLOBAL              0 (ValueError)
+             10 LOAD_CONST               2 ('hold_seconds must be at least 0.5')
+             12 CALL_FUNCTION            1
+             14 RAISE_VARARGS            1
+
+ 64     >>   16 LOAD_GLOBAL              1 (callable)
+             18 LOAD_FAST                3 (monotonic)
+             20 CALL_FUNCTION            1
+             22 POP_JUMP_IF_TRUE        32
+
+ 65          24 LOAD_GLOBAL              2 (TypeError)
+             26 LOAD_CONST               3 ('monotonic must be callable')
+             28 CALL_FUNCTION            1
+             30 RAISE_VARARGS            1
+
+ 66     >>   32 LOAD_GLOBAL              3 (tuple)
+             34 LOAD_CONST               4 (<code object <genexpr> at 0x1073b9710, file "WeRobotCore/utils/macos_emergency_stop.py", line 66>)
+             36 LOAD_CONST               5 ('MacOSControlHoldEmergencyStop.__init__.<locals>.<genexpr>')
+             38 MAKE_FUNCTION            0
+             40 LOAD_FAST                4 (key_codes)
+             42 GET_ITER
+             44 CALL_FUNCTION            1
+             46 CALL_FUNCTION            1
+             48 STORE_FAST               5 (normalized_codes)
+
+ 67          50 LOAD_FAST                5 (normalized_codes)
+             52 POP_JUMP_IF_TRUE        62
+
+ 68          54 LOAD_GLOBAL              0 (ValueError)
+             56 LOAD_CONST               6 ('key_codes must not be empty')
+             58 CALL_FUNCTION            1
+             60 RAISE_VARARGS            1
+
+ 69     >>   62 LOAD_FAST                2 (key_state_reader)
+             64 JUMP_IF_TRUE_OR_POP     70
+             66 LOAD_GLOBAL              4 (_system_key_state_reader)
+             68 CALL_FUNCTION            0
+        >>   70 STORE_FAST               6 (reader)
+
+ 70          72 LOAD_FAST                6 (reader)
+             74 LOAD_CONST               0 (None)
+             76 IS_OP                    1
+             78 POP_JUMP_IF_FALSE       96
+             80 LOAD_GLOBAL              1 (callable)
+             82 LOAD_FAST                6 (reader)
+             84 CALL_FUNCTION            1
+             86 POP_JUMP_IF_TRUE        96
+
+ 71          88 LOAD_GLOBAL              2 (TypeError)
+             90 LOAD_CONST               7 ('key_state_reader must be callable')
+             92 CALL_FUNCTION            1
+             94 RAISE_VARARGS            1
+
+ 72     >>   96 LOAD_FAST                6 (reader)
+             98 LOAD_FAST                0 (self)
+            100 STORE_ATTR               5 (_reader)
+
+ 73         102 LOAD_FAST                3 (monotonic)
+            104 LOAD_FAST                0 (self)
+            106 STORE_ATTR               6 (_monotonic)
+
+ 74         108 LOAD_GLOBAL              7 (float)
+            110 LOAD_FAST                1 (hold_seconds)
+            112 CALL_FUNCTION            1
+            114 LOAD_FAST                0 (self)
+            116 STORE_ATTR               8 (_hold_seconds)
+
+ 75         118 LOAD_FAST                5 (normalized_codes)
+            120 LOAD_FAST                0 (self)
+            122 STORE_ATTR               9 (_key_codes)
+
+ 76         124 LOAD_CONST               0 (None)
+            126 LOAD_FAST                0 (self)
+            128 STORE_ATTR              10 (_pressed_since)
+
+ 77         130 LOAD_CONST               8 (False)
+            132 LOAD_FAST                0 (self)
+            134 STORE_ATTR              11 (_triggered)
+            136 LOAD_CONST               0 (None)
+            138 RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x1073b9710, file "WeRobotCore/utils/macos_emergency_stop.py", line 66>:
+ 66           0 LOAD_FAST                0 (.0)
+        >>    2 FOR_ITER                14 (to 18)
+              4 STORE_FAST               1 (value)
+              6 LOAD_GLOBAL              0 (int)
+              8 LOAD_FAST                1 (value)
+             10 CALL_FUNCTION            1
+             12 YIELD_VALUE
+             14 POP_TOP
+             16 JUMP_ABSOLUTE            2
+        >>   18 LOAD_CONST               0 (None)
+             20 RETURN_VALUE
+
+Disassembly of <code object available at 0x1073b9920, file "WeRobotCore/utils/macos_emergency_stop.py", line 79>:
+ 81           0 LOAD_FAST                0 (self)
+              2 LOAD_ATTR                0 (_reader)
+              4 LOAD_CONST               0 (None)
+              6 IS_OP                    1
+              8 RETURN_VALUE
+
+Disassembly of <code object hold_seconds at 0x1073b9d40, file "WeRobotCore/utils/macos_emergency_stop.py", line 83>:
+ 85           0 LOAD_FAST                0 (self)
+              2 LOAD_ATTR                0 (_hold_seconds)
+              4 RETURN_VALUE
+
+Disassembly of <code object poll at 0x1073b9ea0, file "WeRobotCore/utils/macos_emergency_stop.py", line 87>:
+ 88           0 LOAD_FAST                0 (self)
+              2 LOAD_ATTR                0 (_triggered)
+              4 POP_JUMP_IF_FALSE       10
+
+ 89           6 LOAD_CONST               1 (True)
+              8 RETURN_VALUE
+
+ 90     >>   10 LOAD_FAST                0 (self)
+             12 LOAD_ATTR                1 (_reader)
+             14 STORE_DEREF              0 (reader)
+
+ 91          16 LOAD_DEREF               0 (reader)
+             18 LOAD_CONST               0 (None)
+             20 IS_OP                    0
+             22 POP_JUMP_IF_FALSE       28
+
+ 92          24 LOAD_CONST               2 (False)
+             26 RETURN_VALUE
+
+ 93     >>   28 LOAD_GLOBAL              2 (any)
+             30 LOAD_CLOSURE             0 (reader)
+             32 BUILD_TUPLE              1
+             34 LOAD_CONST               3 (<code object <genexpr> at 0x1073b9b30, file "WeRobotCore/utils/macos_emergency_stop.py", line 93>)
+             36 LOAD_CONST               4 ('MacOSControlHoldEmergencyStop.poll.<locals>.<genexpr>')
+             38 MAKE_FUNCTION            8 (closure)
+             40 LOAD_FAST                0 (self)
+             42 LOAD_ATTR                3 (_key_codes)
+             44 GET_ITER
+             46 CALL_FUNCTION            1
+             48 CALL_FUNCTION            1
+             50 STORE_FAST               1 (pressed)
+
+ 94          52 LOAD_FAST                0 (self)
+             54 LOAD_METHOD              4 (_monotonic)
+             56 CALL_METHOD              0
+             58 STORE_FAST               2 (now)
+
+ 95          60 LOAD_FAST                1 (pressed)
+             62 POP_JUMP_IF_TRUE        74
+
+ 96          64 LOAD_CONST               0 (None)
+             66 LOAD_FAST                0 (self)
+             68 STORE_ATTR               5 (_pressed_since)
+
+ 97          70 LOAD_CONST               2 (False)
+             72 RETURN_VALUE
+
+ 98     >>   74 LOAD_FAST                0 (self)
+             76 LOAD_ATTR                5 (_pressed_since)
+             78 LOAD_CONST               0 (None)
+             80 IS_OP                    0
+             82 POP_JUMP_IF_FALSE       94
+
+ 99          84 LOAD_FAST                2 (now)
+             86 LOAD_FAST                0 (self)
+             88 STORE_ATTR               5 (_pressed_since)
+
+100          90 LOAD_CONST               2 (False)
+             92 RETURN_VALUE
+
+101     >>   94 LOAD_FAST                2 (now)
+             96 LOAD_FAST                0 (self)
+             98 LOAD_ATTR                5 (_pressed_since)
+            100 BINARY_SUBTRACT
+            102 LOAD_FAST                0 (self)
+            104 LOAD_ATTR                6 (_hold_seconds)
+            106 COMPARE_OP               5 (>=)
+            108 POP_JUMP_IF_FALSE      116
+
+102         110 LOAD_CONST               1 (True)
+            112 LOAD_FAST                0 (self)
+            114 STORE_ATTR               0 (_triggered)
+
+103     >>  116 LOAD_FAST                0 (self)
+            118 LOAD_ATTR                0 (_triggered)
+            120 RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x1073b9b30, file "WeRobotCore/utils/macos_emergency_stop.py", line 93>:
+ 93           0 LOAD_FAST                0 (.0)
+        >>    2 FOR_ITER                14 (to 18)
+              4 STORE_FAST               1 (key_code)
+              6 LOAD_DEREF               0 (reader)
+              8 LOAD_FAST                1 (key_code)
+             10 CALL_FUNCTION            1
+             12 YIELD_VALUE
+             14 POP_TOP
+             16 JUMP_ABSOLUTE            2
+        >>   18 LOAD_CONST               0 (None)
+             20 RETURN_VALUE
+
+Disassembly of <code object reset at 0x1073b9f50, file "WeRobotCore/utils/macos_emergency_stop.py", line 105>:
+106           0 LOAD_CONST               0 (None)
+              2 LOAD_FAST                0 (self)
+              4 STORE_ATTR               0 (_pressed_since)
+
+107           6 LOAD_CONST               1 (False)
+              8 LOAD_FAST                0 (self)
+             10 STORE_ATTR               1 (_triggered)
+             12 LOAD_CONST               0 (None)
+             14 RETURN_VALUE

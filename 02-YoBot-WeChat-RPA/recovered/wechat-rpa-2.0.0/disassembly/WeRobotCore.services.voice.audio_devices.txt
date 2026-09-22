@@ -1,0 +1,1049 @@
+  1           0 LOAD_CONST               0 ('\nWindows 音频端点管理（基于 Windows Core Audio API / pycaw）。\n\n核心能力（服务于 AI 语音回复）：\n- 枚举 / 探测 VB-Cable 是否安装\n- 找到 CABLE Input 的 sounddevice 索引（用于 sd.play 输出）\n- 找到 CABLE Output 的 IMMDevice EndpointID（用于设置默认录音设备）\n- 通过 IPolicyConfig 临时切换 / 恢复默认录音设备\n- 体检函数 check_environment() 给 /api 与日志使用\n\n注意：所有 COM 调用必须在已 CoInitialize 的线程里跑。我们这边都被\nsounddevice / pycaw 隐式初始化了，外面不需要手动初始化。\n')
+              2 STORE_NAME               0 (__doc__)
+
+ 14           4 LOAD_CONST               1 (0)
+              6 LOAD_CONST               2 (('annotations',))
+              8 IMPORT_NAME              1 (__future__)
+             10 IMPORT_FROM              2 (annotations)
+             12 STORE_NAME               2 (annotations)
+             14 POP_TOP
+
+ 16          16 LOAD_CONST               1 (0)
+             18 LOAD_CONST               3 (None)
+             20 IMPORT_NAME              3 (os)
+             22 STORE_NAME               3 (os)
+
+ 17          24 LOAD_CONST               1 (0)
+             26 LOAD_CONST               3 (None)
+             28 IMPORT_NAME              4 (shutil)
+             30 STORE_NAME               4 (shutil)
+
+ 18          32 LOAD_CONST               1 (0)
+             34 LOAD_CONST               3 (None)
+             36 IMPORT_NAME              5 (subprocess)
+             38 STORE_NAME               5 (subprocess)
+
+ 19          40 LOAD_CONST               1 (0)
+             42 LOAD_CONST               3 (None)
+             44 IMPORT_NAME              6 (threading)
+             46 STORE_NAME               6 (threading)
+
+ 20          48 LOAD_CONST               1 (0)
+             50 LOAD_CONST               3 (None)
+             52 IMPORT_NAME              7 (warnings)
+             54 STORE_NAME               7 (warnings)
+
+ 21          56 LOAD_CONST               1 (0)
+             58 LOAD_CONST               4 (('contextmanager',))
+             60 IMPORT_NAME              8 (contextlib)
+             62 IMPORT_FROM              9 (contextmanager)
+             64 STORE_NAME               9 (contextmanager)
+             66 POP_TOP
+
+ 22          68 LOAD_CONST               1 (0)
+             70 LOAD_CONST               5 (('Dict', 'List', 'Optional', 'Tuple'))
+             72 IMPORT_NAME             10 (typing)
+             74 IMPORT_FROM             11 (Dict)
+             76 STORE_NAME              11 (Dict)
+             78 IMPORT_FROM             12 (List)
+             80 STORE_NAME              12 (List)
+             82 IMPORT_FROM             13 (Optional)
+             84 STORE_NAME              13 (Optional)
+             86 IMPORT_FROM             14 (Tuple)
+             88 STORE_NAME              14 (Tuple)
+             90 POP_TOP
+
+ 27          92 LOAD_CONST               1 (0)
+             94 LOAD_CONST               3 (None)
+             96 IMPORT_NAME             15 (comtypes)
+             98 STORE_NAME              15 (comtypes)
+
+ 28         100 LOAD_CONST               1 (0)
+            102 LOAD_CONST               6 (('CLSCTX_ALL', 'GUID'))
+            104 IMPORT_NAME             15 (comtypes)
+            106 IMPORT_FROM             16 (CLSCTX_ALL)
+            108 STORE_NAME              16 (CLSCTX_ALL)
+            110 IMPORT_FROM             17 (GUID)
+            112 STORE_NAME              17 (GUID)
+            114 POP_TOP
+
+ 29         116 LOAD_CONST               1 (0)
+            118 LOAD_CONST               7 (('IMMDeviceEnumerator', 'PROPERTYKEY'))
+            120 IMPORT_NAME             18 (pycaw.api.mmdeviceapi)
+            122 IMPORT_FROM             19 (IMMDeviceEnumerator)
+            124 STORE_NAME              19 (IMMDeviceEnumerator)
+            126 IMPORT_FROM             20 (PROPERTYKEY)
+            128 STORE_NAME              20 (PROPERTYKEY)
+            130 POP_TOP
+
+ 30         132 LOAD_CONST               1 (0)
+            134 LOAD_CONST               8 (('IPolicyConfig',))
+            136 IMPORT_NAME             21 (pycaw.api.policyconfig)
+            138 IMPORT_FROM             22 (IPolicyConfig)
+            140 STORE_NAME              22 (IPolicyConfig)
+            142 POP_TOP
+
+ 31         144 LOAD_CONST               1 (0)
+            146 LOAD_CONST               9 (('CLSID_MMDeviceEnumerator', 'CLSID_CPolicyConfigClient', 'DEVICE_STATE', 'STGM'))
+            148 IMPORT_NAME             23 (pycaw.constants)
+            150 IMPORT_FROM             24 (CLSID_MMDeviceEnumerator)
+            152 STORE_NAME              24 (CLSID_MMDeviceEnumerator)
+            154 IMPORT_FROM             25 (CLSID_CPolicyConfigClient)
+            156 STORE_NAME              25 (CLSID_CPolicyConfigClient)
+            158 IMPORT_FROM             26 (DEVICE_STATE)
+            160 STORE_NAME              26 (DEVICE_STATE)
+            162 IMPORT_FROM             27 (STGM)
+            164 STORE_NAME              27 (STGM)
+            166 POP_TOP
+
+ 37         168 LOAD_CONST               1 (0)
+            170 LOAD_CONST               3 (None)
+            172 IMPORT_NAME             28 (sounddevice)
+            174 STORE_NAME              29 (sd)
+
+ 40         176 LOAD_CONST              10 ('CABLE Input')
+            178 STORE_NAME              30 (CABLE_INPUT_PLAYBACK_PREFIX)
+
+ 41         180 LOAD_CONST              11 ('CABLE Output')
+            182 STORE_NAME              31 (CABLE_OUTPUT_RECORDING_PREFIX)
+
+ 45         184 LOAD_NAME                7 (warnings)
+            186 LOAD_ATTR               32 (filterwarnings)
+            188 LOAD_CONST              12 ('ignore')
+            190 LOAD_NAME               33 (UserWarning)
+            192 LOAD_CONST              13 ('pycaw.utils')
+            194 LOAD_CONST              14 (('category', 'module'))
+            196 CALL_FUNCTION_KW         3
+            198 POP_TOP
+
+ 48         200 LOAD_NAME                6 (threading)
+            202 LOAD_METHOD             34 (Lock)
+            204 CALL_METHOD              0
+            206 STORE_NAME              35 (_lock)
+
+ 53         208 LOAD_CONST              15 (<code object _get_enumerator at 0x1073aaa80, file "WeRobotCore/services/voice/audio_devices.py", line 53>)
+            210 LOAD_CONST              16 ('_get_enumerator')
+            212 MAKE_FUNCTION            0
+            214 STORE_NAME              36 (_get_enumerator)
+
+ 61         216 LOAD_CONST              17 (<code object _get_policy_config at 0x1073aa500, file "WeRobotCore/services/voice/audio_devices.py", line 61>)
+            218 LOAD_CONST              18 ('_get_policy_config')
+            220 MAKE_FUNCTION            0
+            222 STORE_NAME              37 (_get_policy_config)
+
+ 67         224 LOAD_CONST              19 ('str')
+            226 LOAD_CONST              20 (('return',))
+            228 BUILD_CONST_KEY_MAP      1
+            230 LOAD_CONST              21 (<code object _friendly_name at 0x1073aa5b0, file "WeRobotCore/services/voice/audio_devices.py", line 67>)
+            232 LOAD_CONST              22 ('_friendly_name')
+            234 MAKE_FUNCTION            4 (annotations)
+            236 STORE_NAME              38 (_friendly_name)
+
+ 80         238 LOAD_CONST              23 ('int')
+            240 LOAD_CONST              24 ('List[Dict[str, str]]')
+            242 LOAD_CONST              25 (('direction', 'return'))
+            244 BUILD_CONST_KEY_MAP      2
+            246 LOAD_CONST              26 (<code object _list_endpoints at 0x1073aa190, file "WeRobotCore/services/voice/audio_devices.py", line 80>)
+            248 LOAD_CONST              27 ('_list_endpoints')
+            250 MAKE_FUNCTION            4 (annotations)
+            252 STORE_NAME              39 (_list_endpoints)
+
+ 99         254 LOAD_CONST              24 ('List[Dict[str, str]]')
+            256 LOAD_CONST              20 (('return',))
+            258 BUILD_CONST_KEY_MAP      1
+            260 LOAD_CONST              28 (<code object list_playback_endpoints at 0x1073aa7c0, file "WeRobotCore/services/voice/audio_devices.py", line 99>)
+            262 LOAD_CONST              29 ('list_playback_endpoints')
+            264 MAKE_FUNCTION            4 (annotations)
+            266 STORE_NAME              40 (list_playback_endpoints)
+
+104         268 LOAD_CONST              24 ('List[Dict[str, str]]')
+            270 LOAD_CONST              20 (('return',))
+            272 BUILD_CONST_KEY_MAP      1
+            274 LOAD_CONST              30 (<code object list_recording_endpoints at 0x1073aa660, file "WeRobotCore/services/voice/audio_devices.py", line 104>)
+            276 LOAD_CONST              31 ('list_recording_endpoints')
+            278 MAKE_FUNCTION            4 (annotations)
+            280 STORE_NAME              41 (list_recording_endpoints)
+
+109         282 LOAD_CONST              32 ('Optional[str]')
+            284 LOAD_CONST              20 (('return',))
+            286 BUILD_CONST_KEY_MAP      1
+            288 LOAD_CONST              33 (<code object find_cable_output_endpoint_id at 0x1073aa0e0, file "WeRobotCore/services/voice/audio_devices.py", line 109>)
+            290 LOAD_CONST              34 ('find_cable_output_endpoint_id')
+            292 MAKE_FUNCTION            4 (annotations)
+            294 STORE_NAME              42 (find_cable_output_endpoint_id)
+
+117         296 LOAD_CONST              35 ('Optional[int]')
+            298 LOAD_CONST              20 (('return',))
+            300 BUILD_CONST_KEY_MAP      1
+            302 LOAD_CONST              36 (<code object find_cable_input_sd_index at 0x1073aac90, file "WeRobotCore/services/voice/audio_devices.py", line 117>)
+            304 LOAD_CONST              37 ('find_cable_input_sd_index')
+            306 MAKE_FUNCTION            4 (annotations)
+            308 STORE_NAME              43 (find_cable_input_sd_index)
+
+142         310 LOAD_CONST              58 ((0,))
+            312 LOAD_CONST              23 ('int')
+            314 LOAD_CONST              32 ('Optional[str]')
+            316 LOAD_CONST              38 (('role', 'return'))
+            318 BUILD_CONST_KEY_MAP      2
+            320 LOAD_CONST              39 (<code object get_default_recording_endpoint_id at 0x1073aa450, file "WeRobotCore/services/voice/audio_devices.py", line 142>)
+            322 LOAD_CONST              40 ('get_default_recording_endpoint_id')
+            324 MAKE_FUNCTION            5 (defaults, annotations)
+            326 STORE_NAME              44 (get_default_recording_endpoint_id)
+
+155         328 LOAD_CONST              59 (((0, 1, 2),))
+            330 LOAD_CONST              19 ('str')
+            332 LOAD_CONST              42 ('Tuple[int, ...]')
+            334 LOAD_CONST              43 ('bool')
+            336 LOAD_CONST              44 (('endpoint_id', 'roles', 'return'))
+            338 BUILD_CONST_KEY_MAP      3
+            340 LOAD_CONST              45 (<code object set_default_recording_endpoint at 0x1073aab30, file "WeRobotCore/services/voice/audio_devices.py", line 155>)
+            342 LOAD_CONST              46 ('set_default_recording_endpoint')
+            344 MAKE_FUNCTION            5 (defaults, annotations)
+            346 STORE_NAME              45 (set_default_recording_endpoint)
+
+172         348 LOAD_NAME                9 (contextmanager)
+
+173         350 LOAD_CONST              19 ('str')
+            352 LOAD_CONST              47 (('target_endpoint_id',))
+            354 BUILD_CONST_KEY_MAP      1
+            356 LOAD_CONST              48 (<code object temporary_default_recording_device at 0x1073aa240, file "WeRobotCore/services/voice/audio_devices.py", line 172>)
+            358 LOAD_CONST              49 ('temporary_default_recording_device')
+            360 MAKE_FUNCTION            4 (annotations)
+            362 CALL_FUNCTION            1
+            364 STORE_NAME              46 (temporary_default_recording_device)
+
+205         366 LOAD_CONST              50 ('dict')
+            368 LOAD_CONST              20 (('return',))
+            370 BUILD_CONST_KEY_MAP      1
+            372 LOAD_CONST              51 (<code object _hidden_subprocess_kwargs at 0x1073aa870, file "WeRobotCore/services/voice/audio_devices.py", line 205>)
+            374 LOAD_CONST              52 ('_hidden_subprocess_kwargs')
+            376 MAKE_FUNCTION            4 (annotations)
+            378 STORE_NAME              47 (_hidden_subprocess_kwargs)
+
+218         380 LOAD_CONST              53 ('Dict')
+            382 LOAD_CONST              20 (('return',))
+            384 BUILD_CONST_KEY_MAP      1
+            386 LOAD_CONST              54 (<code object check_ffmpeg at 0x1073aaf50, file "WeRobotCore/services/voice/audio_devices.py", line 218>)
+            388 LOAD_CONST              55 ('check_ffmpeg')
+            390 MAKE_FUNCTION            4 (annotations)
+            392 STORE_NAME              48 (check_ffmpeg)
+
+248         394 LOAD_CONST              53 ('Dict')
+            396 LOAD_CONST              20 (('return',))
+            398 BUILD_CONST_KEY_MAP      1
+            400 LOAD_CONST              56 (<code object check_environment at 0x1073aa030, file "WeRobotCore/services/voice/audio_devices.py", line 248>)
+            402 LOAD_CONST              57 ('check_environment')
+            404 MAKE_FUNCTION            4 (annotations)
+            406 STORE_NAME              49 (check_environment)
+            408 LOAD_CONST               3 (None)
+            410 RETURN_VALUE
+
+Disassembly of <code object _get_enumerator at 0x1073aaa80, file "WeRobotCore/services/voice/audio_devices.py", line 53>:
+ 56           0 LOAD_GLOBAL              0 (comtypes)
+              2 LOAD_METHOD              1 (CoCreateInstance)
+
+ 57           4 LOAD_GLOBAL              2 (CLSID_MMDeviceEnumerator)
+              6 LOAD_GLOBAL              3 (IMMDeviceEnumerator)
+              8 LOAD_GLOBAL              4 (CLSCTX_ALL)
+
+ 56          10 CALL_METHOD              3
+             12 RETURN_VALUE
+
+Disassembly of <code object _get_policy_config at 0x1073aa500, file "WeRobotCore/services/voice/audio_devices.py", line 61>:
+ 62           0 LOAD_GLOBAL              0 (comtypes)
+              2 LOAD_METHOD              1 (CoCreateInstance)
+
+ 63           4 LOAD_GLOBAL              2 (CLSID_CPolicyConfigClient)
+              6 LOAD_GLOBAL              3 (IPolicyConfig)
+              8 LOAD_GLOBAL              4 (CLSCTX_ALL)
+
+ 62          10 CALL_METHOD              3
+             12 RETURN_VALUE
+
+Disassembly of <code object _friendly_name at 0x1073aa5b0, file "WeRobotCore/services/voice/audio_devices.py", line 67>:
+ 69           0 SETUP_FINALLY           60 (to 62)
+
+ 70           2 LOAD_GLOBAL              0 (PROPERTYKEY)
+              4 CALL_FUNCTION            0
+              6 STORE_FAST               1 (pkey)
+
+ 71           8 LOAD_GLOBAL              1 (GUID)
+             10 LOAD_CONST               1 ('{a45c254e-df1c-4efd-8020-67d146a850e0}')
+             12 CALL_FUNCTION            1
+             14 LOAD_FAST                1 (pkey)
+             16 STORE_ATTR               2 (fmtid)
+
+ 72          18 LOAD_CONST               2 (14)
+             20 LOAD_FAST                1 (pkey)
+             22 STORE_ATTR               3 (pid)
+
+ 73          24 LOAD_FAST                0 (dev)
+             26 LOAD_METHOD              4 (OpenPropertyStore)
+             28 LOAD_GLOBAL              5 (STGM)
+             30 LOAD_ATTR                6 (STGM_READ)
+             32 LOAD_ATTR                7 (value)
+             34 CALL_METHOD              1
+             36 STORE_FAST               2 (store)
+
+ 74          38 LOAD_FAST                2 (store)
+             40 LOAD_METHOD              8 (GetValue)
+             42 LOAD_FAST                1 (pkey)
+             44 CALL_METHOD              1
+             46 STORE_FAST               3 (pv)
+
+ 75          48 LOAD_FAST                3 (pv)
+             50 LOAD_ATTR                9 (union)
+             52 LOAD_ATTR               10 (pwszVal)
+             54 JUMP_IF_TRUE_OR_POP     58
+             56 LOAD_CONST               3 ('')
+        >>   58 POP_BLOCK
+             60 RETURN_VALUE
+
+ 76     >>   62 DUP_TOP
+             64 LOAD_GLOBAL             11 (Exception)
+             66 JUMP_IF_NOT_EXC_MATCH    80
+             68 POP_TOP
+             70 POP_TOP
+             72 POP_TOP
+
+ 77          74 POP_EXCEPT
+             76 LOAD_CONST               3 ('')
+             78 RETURN_VALUE
+        >>   80 RERAISE
+             82 LOAD_CONST               4 (None)
+             84 RETURN_VALUE
+
+Disassembly of <code object _list_endpoints at 0x1073aa190, file "WeRobotCore/services/voice/audio_devices.py", line 80>:
+ 85           0 BUILD_LIST               0
+              2 STORE_FAST               1 (out)
+
+ 86           4 SETUP_FINALLY           78 (to 84)
+
+ 87           6 LOAD_GLOBAL              0 (_get_enumerator)
+              8 CALL_FUNCTION            0
+             10 STORE_FAST               2 (enumerator)
+
+ 88          12 LOAD_FAST                2 (enumerator)
+             14 LOAD_METHOD              1 (EnumAudioEndpoints)
+             16 LOAD_FAST                0 (direction)
+             18 LOAD_GLOBAL              2 (DEVICE_STATE)
+             20 LOAD_ATTR                3 (ACTIVE)
+             22 LOAD_ATTR                4 (value)
+             24 CALL_METHOD              2
+             26 STORE_FAST               3 (coll)
+
+ 89          28 LOAD_GLOBAL              5 (range)
+             30 LOAD_FAST                3 (coll)
+             32 LOAD_METHOD              6 (GetCount)
+             34 CALL_METHOD              0
+             36 CALL_FUNCTION            1
+             38 GET_ITER
+        >>   40 FOR_ITER                38 (to 80)
+             42 STORE_FAST               4 (i)
+
+ 90          44 LOAD_FAST                3 (coll)
+             46 LOAD_METHOD              7 (Item)
+             48 LOAD_FAST                4 (i)
+             50 CALL_METHOD              1
+             52 STORE_FAST               5 (dev)
+
+ 91          54 LOAD_FAST                1 (out)
+             56 LOAD_METHOD              8 (append)
+             58 LOAD_FAST                5 (dev)
+             60 LOAD_METHOD              9 (GetId)
+             62 CALL_METHOD              0
+             64 LOAD_GLOBAL             10 (_friendly_name)
+             66 LOAD_FAST                5 (dev)
+             68 CALL_FUNCTION            1
+             70 LOAD_CONST               1 (('id', 'name'))
+             72 BUILD_CONST_KEY_MAP      2
+             74 CALL_METHOD              1
+             76 POP_TOP
+             78 JUMP_ABSOLUTE           40
+        >>   80 POP_BLOCK
+             82 JUMP_FORWARD            18 (to 102)
+
+ 92     >>   84 DUP_TOP
+             86 LOAD_GLOBAL             11 (Exception)
+             88 JUMP_IF_NOT_EXC_MATCH   100
+             90 POP_TOP
+             92 POP_TOP
+             94 POP_TOP
+
+ 93          96 POP_EXCEPT
+             98 JUMP_FORWARD             2 (to 102)
+        >>  100 RERAISE
+
+ 94     >>  102 LOAD_FAST                1 (out)
+            104 RETURN_VALUE
+
+Disassembly of <code object list_playback_endpoints at 0x1073aa7c0, file "WeRobotCore/services/voice/audio_devices.py", line 99>:
+101           0 LOAD_GLOBAL              0 (_list_endpoints)
+              2 LOAD_CONST               1 (0)
+              4 CALL_FUNCTION            1
+              6 RETURN_VALUE
+
+Disassembly of <code object list_recording_endpoints at 0x1073aa660, file "WeRobotCore/services/voice/audio_devices.py", line 104>:
+106           0 LOAD_GLOBAL              0 (_list_endpoints)
+              2 LOAD_CONST               1 (1)
+              4 CALL_FUNCTION            1
+              6 RETURN_VALUE
+
+Disassembly of <code object find_cable_output_endpoint_id at 0x1073aa0e0, file "WeRobotCore/services/voice/audio_devices.py", line 109>:
+111           0 LOAD_GLOBAL              0 (list_recording_endpoints)
+              2 CALL_FUNCTION            0
+              4 GET_ITER
+        >>    6 FOR_ITER                30 (to 38)
+              8 STORE_FAST               0 (ep)
+
+112          10 LOAD_FAST                0 (ep)
+             12 LOAD_CONST               1 ('name')
+             14 BINARY_SUBSCR
+             16 LOAD_METHOD              1 (startswith)
+             18 LOAD_GLOBAL              2 (CABLE_OUTPUT_RECORDING_PREFIX)
+             20 CALL_METHOD              1
+             22 POP_JUMP_IF_FALSE        6
+
+113          24 LOAD_FAST                0 (ep)
+             26 LOAD_CONST               2 ('id')
+             28 BINARY_SUBSCR
+             30 ROT_TWO
+             32 POP_TOP
+             34 RETURN_VALUE
+             36 JUMP_ABSOLUTE            6
+
+114     >>   38 LOAD_CONST               3 (None)
+             40 RETURN_VALUE
+
+Disassembly of <code object find_cable_input_sd_index at 0x1073aac90, file "WeRobotCore/services/voice/audio_devices.py", line 117>:
+124           0 SETUP_FINALLY           12 (to 14)
+
+125           2 LOAD_GLOBAL              0 (sd)
+              4 LOAD_METHOD              1 (query_devices)
+              6 CALL_METHOD              0
+              8 STORE_FAST               0 (devices)
+             10 POP_BLOCK
+             12 JUMP_FORWARD            20 (to 34)
+
+126     >>   14 DUP_TOP
+             16 LOAD_GLOBAL              2 (Exception)
+             18 JUMP_IF_NOT_EXC_MATCH    32
+             20 POP_TOP
+             22 POP_TOP
+             24 POP_TOP
+
+127          26 POP_EXCEPT
+             28 LOAD_CONST               1 (None)
+             30 RETURN_VALUE
+        >>   32 RERAISE
+
+128     >>   34 LOAD_CONST               1 (None)
+             36 STORE_FAST               1 (primary)
+
+129          38 LOAD_CONST               1 (None)
+             40 STORE_FAST               2 (fallback)
+
+130          42 LOAD_GLOBAL              3 (enumerate)
+             44 LOAD_FAST                0 (devices)
+             46 CALL_FUNCTION            1
+             48 GET_ITER
+        >>   50 FOR_ITER                86 (to 138)
+             52 UNPACK_SEQUENCE          2
+             54 STORE_FAST               3 (i)
+             56 STORE_FAST               4 (d)
+
+131          58 LOAD_FAST                4 (d)
+             60 LOAD_METHOD              4 (get)
+             62 LOAD_CONST               2 ('max_output_channels')
+             64 LOAD_CONST               3 (0)
+             66 CALL_METHOD              2
+             68 LOAD_CONST               4 (2)
+             70 COMPARE_OP               0 (<)
+             72 POP_JUMP_IF_FALSE       76
+
+132          74 JUMP_ABSOLUTE           50
+
+133     >>   76 LOAD_FAST                4 (d)
+             78 LOAD_METHOD              4 (get)
+             80 LOAD_CONST               5 ('name')
+             82 LOAD_CONST               6 ('')
+             84 CALL_METHOD              2
+             86 JUMP_IF_TRUE_OR_POP     90
+             88 LOAD_CONST               6 ('')
+        >>   90 STORE_FAST               5 (name)
+
+134          92 LOAD_FAST                5 (name)
+             94 LOAD_METHOD              5 (startswith)
+             96 LOAD_CONST               7 ('CABLE Input')
+             98 CALL_METHOD              1
+            100 POP_JUMP_IF_FALSE      110
+
+135         102 LOAD_FAST                3 (i)
+            104 STORE_FAST               1 (primary)
+
+136         106 POP_TOP
+            108 JUMP_ABSOLUTE          138
+
+137     >>  110 LOAD_FAST                5 (name)
+            112 LOAD_METHOD              5 (startswith)
+            114 LOAD_CONST               8 ('CABLE In')
+            116 CALL_METHOD              1
+            118 POP_JUMP_IF_FALSE       50
+
+138         120 LOAD_FAST                2 (fallback)
+            122 LOAD_CONST               1 (None)
+            124 IS_OP                    1
+            126 POP_JUMP_IF_FALSE      132
+            128 LOAD_FAST                2 (fallback)
+            130 JUMP_FORWARD             2 (to 134)
+        >>  132 LOAD_FAST                3 (i)
+        >>  134 STORE_FAST               2 (fallback)
+            136 JUMP_ABSOLUTE           50
+
+139     >>  138 LOAD_FAST                1 (primary)
+            140 LOAD_CONST               1 (None)
+            142 IS_OP                    1
+            144 POP_JUMP_IF_FALSE      150
+            146 LOAD_FAST                1 (primary)
+            148 RETURN_VALUE
+        >>  150 LOAD_FAST                2 (fallback)
+            152 RETURN_VALUE
+
+Disassembly of <code object get_default_recording_endpoint_id at 0x1073aa450, file "WeRobotCore/services/voice/audio_devices.py", line 142>:
+147           0 SETUP_FINALLY           28 (to 30)
+
+148           2 LOAD_GLOBAL              0 (_get_enumerator)
+              4 CALL_FUNCTION            0
+              6 STORE_FAST               1 (enumerator)
+
+149           8 LOAD_FAST                1 (enumerator)
+             10 LOAD_METHOD              1 (GetDefaultAudioEndpoint)
+             12 LOAD_CONST               1 (1)
+             14 LOAD_FAST                0 (role)
+             16 CALL_METHOD              2
+             18 STORE_FAST               2 (dev)
+
+150          20 LOAD_FAST                2 (dev)
+             22 LOAD_METHOD              2 (GetId)
+             24 CALL_METHOD              0
+             26 POP_BLOCK
+             28 RETURN_VALUE
+
+151     >>   30 DUP_TOP
+             32 LOAD_GLOBAL              3 (Exception)
+             34 JUMP_IF_NOT_EXC_MATCH    48
+             36 POP_TOP
+             38 POP_TOP
+             40 POP_TOP
+
+152          42 POP_EXCEPT
+             44 LOAD_CONST               2 (None)
+             46 RETURN_VALUE
+        >>   48 RERAISE
+             50 LOAD_CONST               2 (None)
+             52 RETURN_VALUE
+
+Disassembly of <code object set_default_recording_endpoint at 0x1073aab30, file "WeRobotCore/services/voice/audio_devices.py", line 155>:
+161           0 LOAD_FAST                0 (endpoint_id)
+              2 POP_JUMP_IF_TRUE         8
+
+162           4 LOAD_CONST               1 (False)
+              6 RETURN_VALUE
+
+163     >>    8 SETUP_FINALLY           34 (to 44)
+
+164          10 LOAD_GLOBAL              0 (_get_policy_config)
+             12 CALL_FUNCTION            0
+             14 STORE_FAST               2 (policy)
+
+165          16 LOAD_FAST                1 (roles)
+             18 GET_ITER
+        >>   20 FOR_ITER                16 (to 38)
+             22 STORE_FAST               3 (r)
+
+166          24 LOAD_FAST                2 (policy)
+             26 LOAD_METHOD              1 (SetDefaultEndpoint)
+             28 LOAD_FAST                0 (endpoint_id)
+             30 LOAD_FAST                3 (r)
+             32 CALL_METHOD              2
+             34 POP_TOP
+             36 JUMP_ABSOLUTE           20
+
+167     >>   38 POP_BLOCK
+             40 LOAD_CONST               2 (True)
+             42 RETURN_VALUE
+
+168     >>   44 DUP_TOP
+             46 LOAD_GLOBAL              2 (Exception)
+             48 JUMP_IF_NOT_EXC_MATCH    62
+             50 POP_TOP
+             52 POP_TOP
+             54 POP_TOP
+
+169          56 POP_EXCEPT
+             58 LOAD_CONST               1 (False)
+             60 RETURN_VALUE
+        >>   62 RERAISE
+             64 LOAD_CONST               3 (None)
+             66 RETURN_VALUE
+
+Disassembly of <code object temporary_default_recording_device at 0x1073aa240, file "WeRobotCore/services/voice/audio_devices.py", line 172>:
+185           0 LOAD_FAST                0 (target_endpoint_id)
+              2 POP_JUMP_IF_TRUE        14
+
+186           4 LOAD_CONST               1 (False)
+              6 YIELD_VALUE
+              8 POP_TOP
+
+187          10 LOAD_CONST               2 (None)
+             12 RETURN_VALUE
+
+190     >>   14 LOAD_GLOBAL              0 (get_default_recording_endpoint_id)
+             16 LOAD_CONST               3 (0)
+             18 LOAD_CONST               4 (('role',))
+             20 CALL_FUNCTION_KW         1
+             22 STORE_FAST               1 (original_id)
+
+192          24 LOAD_GLOBAL              1 (_lock)
+             26 SETUP_WITH             134 (to 162)
+             28 POP_TOP
+
+193          30 LOAD_GLOBAL              2 (set_default_recording_endpoint)
+             32 LOAD_FAST                0 (target_endpoint_id)
+             34 CALL_FUNCTION            1
+             36 STORE_FAST               2 (switched)
+
+194          38 SETUP_FINALLY           58 (to 98)
+
+195          40 LOAD_FAST                2 (switched)
+             42 YIELD_VALUE
+             44 POP_TOP
+             46 POP_BLOCK
+
+197          48 LOAD_FAST                2 (switched)
+             50 POP_JUMP_IF_FALSE      148
+             52 LOAD_FAST                1 (original_id)
+             54 POP_JUMP_IF_FALSE      148
+             56 LOAD_FAST                1 (original_id)
+             58 LOAD_FAST                0 (target_endpoint_id)
+             60 COMPARE_OP               3 (!=)
+             62 POP_JUMP_IF_FALSE      148
+
+199          64 SETUP_FINALLY           12 (to 78)
+
+200          66 LOAD_GLOBAL              2 (set_default_recording_endpoint)
+             68 LOAD_FAST                1 (original_id)
+             70 CALL_FUNCTION            1
+             72 POP_TOP
+             74 POP_BLOCK
+             76 JUMP_ABSOLUTE          148
+
+201     >>   78 DUP_TOP
+             80 LOAD_GLOBAL              3 (Exception)
+             82 JUMP_IF_NOT_EXC_MATCH    94
+             84 POP_TOP
+             86 POP_TOP
+             88 POP_TOP
+
+202          90 POP_EXCEPT
+             92 JUMP_ABSOLUTE          148
+        >>   94 RERAISE
+             96 JUMP_FORWARD            50 (to 148)
+
+197     >>   98 LOAD_FAST                2 (switched)
+            100 POP_JUMP_IF_FALSE      146
+            102 LOAD_FAST                1 (original_id)
+            104 POP_JUMP_IF_FALSE      146
+            106 LOAD_FAST                1 (original_id)
+            108 LOAD_FAST                0 (target_endpoint_id)
+            110 COMPARE_OP               3 (!=)
+            112 POP_JUMP_IF_FALSE      146
+
+199         114 SETUP_FINALLY           12 (to 128)
+
+200         116 LOAD_GLOBAL              2 (set_default_recording_endpoint)
+            118 LOAD_FAST                1 (original_id)
+            120 CALL_FUNCTION            1
+            122 POP_TOP
+            124 POP_BLOCK
+            126 JUMP_FORWARD            18 (to 146)
+
+201     >>  128 DUP_TOP
+            130 LOAD_GLOBAL              3 (Exception)
+            132 JUMP_IF_NOT_EXC_MATCH   144
+            134 POP_TOP
+            136 POP_TOP
+            138 POP_TOP
+
+202         140 POP_EXCEPT
+            142 JUMP_FORWARD             2 (to 146)
+        >>  144 RERAISE
+        >>  146 RERAISE
+        >>  148 POP_BLOCK
+            150 LOAD_CONST               2 (None)
+            152 DUP_TOP
+            154 DUP_TOP
+            156 CALL_FUNCTION            3
+            158 POP_TOP
+            160 JUMP_FORWARD            16 (to 178)
+        >>  162 WITH_EXCEPT_START
+            164 POP_JUMP_IF_TRUE       168
+            166 RERAISE
+        >>  168 POP_TOP
+            170 POP_TOP
+            172 POP_TOP
+            174 POP_EXCEPT
+            176 POP_TOP
+        >>  178 LOAD_CONST               2 (None)
+            180 RETURN_VALUE
+
+Disassembly of <code object _hidden_subprocess_kwargs at 0x1073aa870, file "WeRobotCore/services/voice/audio_devices.py", line 205>:
+207           0 LOAD_GLOBAL              0 (os)
+              2 LOAD_ATTR                1 (name)
+              4 LOAD_CONST               1 ('nt')
+              6 COMPARE_OP               3 (!=)
+              8 POP_JUMP_IF_FALSE       14
+
+208          10 BUILD_MAP                0
+             12 RETURN_VALUE
+
+209     >>   14 LOAD_GLOBAL              2 (subprocess)
+             16 LOAD_METHOD              3 (STARTUPINFO)
+             18 CALL_METHOD              0
+             20 STORE_FAST               0 (startupinfo)
+
+210          22 LOAD_FAST                0 (startupinfo)
+             24 DUP_TOP
+             26 LOAD_ATTR                4 (dwFlags)
+             28 LOAD_GLOBAL              2 (subprocess)
+             30 LOAD_ATTR                5 (STARTF_USESHOWWINDOW)
+             32 INPLACE_OR
+             34 ROT_TWO
+             36 STORE_ATTR               4 (dwFlags)
+
+211          38 LOAD_CONST               2 (0)
+             40 LOAD_FAST                0 (startupinfo)
+             42 STORE_ATTR               6 (wShowWindow)
+
+213          44 LOAD_CONST               3 (134217728)
+
+214          46 LOAD_FAST                0 (startupinfo)
+
+212          48 LOAD_CONST               4 (('creationflags', 'startupinfo'))
+             50 BUILD_CONST_KEY_MAP      2
+             52 RETURN_VALUE
+
+Disassembly of <code object check_ffmpeg at 0x1073aaf50, file "WeRobotCore/services/voice/audio_devices.py", line 218>:
+223           0 LOAD_GLOBAL              0 (shutil)
+              2 LOAD_METHOD              1 (which)
+              4 LOAD_CONST               1 ('ffmpeg')
+              6 CALL_METHOD              1
+              8 STORE_FAST               0 (path)
+
+224          10 LOAD_FAST                0 (path)
+             12 POP_JUMP_IF_TRUE        26
+
+225          14 LOAD_CONST               2 (False)
+             16 LOAD_CONST               3 (None)
+             18 LOAD_CONST               3 (None)
+             20 LOAD_CONST               4 (('installed', 'version', 'path'))
+             22 BUILD_CONST_KEY_MAP      3
+             24 RETURN_VALUE
+
+226     >>   26 SETUP_FINALLY          130 (to 158)
+
+227          28 LOAD_GLOBAL              2 (subprocess)
+             30 LOAD_ATTR                3 (run)
+
+228          32 LOAD_FAST                0 (path)
+             34 LOAD_CONST               5 ('-version')
+             36 BUILD_LIST               2
+
+227          38 BUILD_TUPLE              1
+
+229          40 LOAD_CONST               6 (True)
+
+230          42 LOAD_CONST               7 (3)
+
+227          44 LOAD_CONST               8 (('capture_output', 'timeout'))
+             46 BUILD_CONST_KEY_MAP      2
+
+231          48 LOAD_GLOBAL              4 (_hidden_subprocess_kwargs)
+             50 CALL_FUNCTION            0
+
+227          52 DICT_MERGE               1
+             54 CALL_FUNCTION_EX         1
+             56 STORE_FAST               1 (proc)
+
+233          58 LOAD_FAST                1 (proc)
+             60 LOAD_ATTR                5 (stdout)
+             62 JUMP_IF_TRUE_OR_POP     66
+             64 LOAD_CONST               9 (b'')
+        >>   66 LOAD_ATTR                6 (decode)
+             68 LOAD_CONST              10 ('utf-8')
+             70 LOAD_CONST              11 ('replace')
+             72 LOAD_CONST              12 (('errors',))
+             74 CALL_FUNCTION_KW         2
+             76 STORE_FAST               2 (out)
+
+235          78 LOAD_FAST                2 (out)
+             80 POP_JUMP_IF_FALSE       94
+             82 LOAD_FAST                2 (out)
+             84 LOAD_METHOD              7 (splitlines)
+             86 CALL_METHOD              0
+             88 LOAD_CONST              13 (0)
+             90 BINARY_SUBSCR
+             92 JUMP_FORWARD             2 (to 96)
+        >>   94 LOAD_CONST              14 ('')
+        >>   96 STORE_FAST               3 (first_line)
+
+236          98 LOAD_CONST              14 ('')
+            100 STORE_FAST               4 (version)
+
+237         102 LOAD_FAST                3 (first_line)
+            104 LOAD_METHOD              8 (startswith)
+            106 LOAD_CONST              15 ('ffmpeg version')
+            108 CALL_METHOD              1
+            110 POP_JUMP_IF_FALSE      140
+
+239         112 LOAD_FAST                3 (first_line)
+            114 LOAD_METHOD              9 (split)
+            116 CALL_METHOD              0
+            118 STORE_FAST               5 (parts)
+
+240         120 LOAD_GLOBAL             10 (len)
+            122 LOAD_FAST                5 (parts)
+            124 CALL_FUNCTION            1
+            126 LOAD_CONST               7 (3)
+            128 COMPARE_OP               5 (>=)
+            130 POP_JUMP_IF_FALSE      140
+
+241         132 LOAD_FAST                5 (parts)
+            134 LOAD_CONST              16 (2)
+            136 BINARY_SUBSCR
+            138 STORE_FAST               4 (version)
+
+242     >>  140 LOAD_CONST               6 (True)
+            142 LOAD_FAST                4 (version)
+            144 JUMP_IF_TRUE_OR_POP    148
+            146 LOAD_CONST               3 (None)
+        >>  148 LOAD_FAST                0 (path)
+            150 LOAD_CONST               4 (('installed', 'version', 'path'))
+            152 BUILD_CONST_KEY_MAP      3
+            154 POP_BLOCK
+            156 RETURN_VALUE
+
+243     >>  158 DUP_TOP
+            160 LOAD_GLOBAL             11 (Exception)
+            162 JUMP_IF_NOT_EXC_MATCH   186
+            164 POP_TOP
+            166 POP_TOP
+            168 POP_TOP
+
+245         170 LOAD_CONST               2 (False)
+            172 LOAD_CONST               3 (None)
+            174 LOAD_FAST                0 (path)
+            176 LOAD_CONST               4 (('installed', 'version', 'path'))
+            178 BUILD_CONST_KEY_MAP      3
+            180 ROT_FOUR
+            182 POP_EXCEPT
+            184 RETURN_VALUE
+        >>  186 RERAISE
+            188 LOAD_CONST               3 (None)
+            190 RETURN_VALUE
+
+Disassembly of <code object check_environment at 0x1073aa030, file "WeRobotCore/services/voice/audio_devices.py", line 248>:
+265           0 LOAD_CONST               1 (False)
+
+266           2 LOAD_CONST               1 (False)
+
+267           4 LOAD_CONST               1 (False)
+              6 LOAD_CONST               2 (None)
+              8 LOAD_CONST               2 (None)
+             10 LOAD_CONST               3 (('installed', 'version', 'path'))
+             12 BUILD_CONST_KEY_MAP      3
+
+268          14 LOAD_CONST               2 (None)
+
+269          16 LOAD_CONST               2 (None)
+
+270          18 LOAD_CONST               2 (None)
+
+271          20 LOAD_CONST               2 (None)
+
+272          22 BUILD_LIST               0
+
+273          24 BUILD_LIST               0
+
+274          26 LOAD_CONST               2 (None)
+
+264          28 LOAD_CONST               4 (('ok', 'vb_cable_installed', 'ffmpeg', 'cable_output_endpoint_id', 'cable_input_sd_index', 'default_recording_id', 'default_recording_name', 'playback_endpoints', 'recording_endpoints', 'reason'))
+             30 BUILD_CONST_KEY_MAP     10
+             32 STORE_FAST               0 (info)
+
+276          34 SETUP_FINALLY          218 (to 254)
+
+277          36 LOAD_GLOBAL              0 (list_recording_endpoints)
+             38 CALL_FUNCTION            0
+             40 LOAD_FAST                0 (info)
+             42 LOAD_CONST               5 ('recording_endpoints')
+             44 STORE_SUBSCR
+
+278          46 LOAD_GLOBAL              1 (list_playback_endpoints)
+             48 CALL_FUNCTION            0
+             50 LOAD_FAST                0 (info)
+             52 LOAD_CONST               6 ('playback_endpoints')
+             54 STORE_SUBSCR
+
+279          56 LOAD_GLOBAL              2 (find_cable_output_endpoint_id)
+             58 CALL_FUNCTION            0
+             60 LOAD_FAST                0 (info)
+             62 LOAD_CONST               7 ('cable_output_endpoint_id')
+             64 STORE_SUBSCR
+
+280          66 LOAD_GLOBAL              3 (find_cable_input_sd_index)
+             68 CALL_FUNCTION            0
+             70 LOAD_FAST                0 (info)
+             72 LOAD_CONST               8 ('cable_input_sd_index')
+             74 STORE_SUBSCR
+
+281          76 LOAD_GLOBAL              4 (get_default_recording_endpoint_id)
+             78 CALL_FUNCTION            0
+             80 STORE_FAST               1 (default_id)
+
+282          82 LOAD_FAST                1 (default_id)
+             84 LOAD_FAST                0 (info)
+             86 LOAD_CONST               9 ('default_recording_id')
+             88 STORE_SUBSCR
+
+283          90 LOAD_FAST                1 (default_id)
+             92 POP_JUMP_IF_FALSE      136
+
+284          94 LOAD_FAST                0 (info)
+             96 LOAD_CONST               5 ('recording_endpoints')
+             98 BINARY_SUBSCR
+            100 GET_ITER
+        >>  102 FOR_ITER                32 (to 136)
+            104 STORE_FAST               2 (ep)
+
+285         106 LOAD_FAST                2 (ep)
+            108 LOAD_CONST              10 ('id')
+            110 BINARY_SUBSCR
+            112 LOAD_FAST                1 (default_id)
+            114 COMPARE_OP               2 (==)
+            116 POP_JUMP_IF_FALSE      102
+
+286         118 LOAD_FAST                2 (ep)
+            120 LOAD_CONST              11 ('name')
+            122 BINARY_SUBSCR
+            124 LOAD_FAST                0 (info)
+            126 LOAD_CONST              12 ('default_recording_name')
+            128 STORE_SUBSCR
+
+287         130 POP_TOP
+            132 JUMP_ABSOLUTE          136
+            134 JUMP_ABSOLUTE          102
+
+290     >>  136 LOAD_GLOBAL              5 (check_ffmpeg)
+            138 CALL_FUNCTION            0
+            140 LOAD_FAST                0 (info)
+            142 LOAD_CONST              13 ('ffmpeg')
+            144 STORE_SUBSCR
+
+292         146 LOAD_GLOBAL              6 (bool)
+            148 LOAD_FAST                0 (info)
+            150 LOAD_CONST               7 ('cable_output_endpoint_id')
+            152 BINARY_SUBSCR
+            154 CALL_FUNCTION            1
+            156 JUMP_IF_FALSE_OR_POP   168
+            158 LOAD_FAST                0 (info)
+            160 LOAD_CONST               8 ('cable_input_sd_index')
+            162 BINARY_SUBSCR
+            164 LOAD_CONST               2 (None)
+            166 IS_OP                    1
+        >>  168 STORE_FAST               3 (vb_ok)
+
+293         170 LOAD_FAST                3 (vb_ok)
+            172 LOAD_FAST                0 (info)
+            174 LOAD_CONST              14 ('vb_cable_installed')
+            176 STORE_SUBSCR
+
+294         178 LOAD_GLOBAL              6 (bool)
+            180 LOAD_FAST                0 (info)
+            182 LOAD_CONST              13 ('ffmpeg')
+            184 BINARY_SUBSCR
+            186 LOAD_CONST              15 ('installed')
+            188 BINARY_SUBSCR
+            190 CALL_FUNCTION            1
+            192 STORE_FAST               4 (ff_ok)
+
+296         194 LOAD_FAST                3 (vb_ok)
+            196 POP_JUMP_IF_TRUE       212
+            198 LOAD_FAST                4 (ff_ok)
+            200 POP_JUMP_IF_TRUE       212
+
+297         202 LOAD_CONST              16 ('未检测到 VB-Cable 和 ffmpeg（两者都是发语音的前置依赖）')
+            204 LOAD_FAST                0 (info)
+            206 LOAD_CONST              17 ('reason')
+            208 STORE_SUBSCR
+            210 JUMP_FORWARD            36 (to 248)
+
+298     >>  212 LOAD_FAST                3 (vb_ok)
+            214 POP_JUMP_IF_TRUE       226
+
+299         216 LOAD_CONST              18 ('未检测到 VB-Cable（需安装 VB-Audio Virtual Cable 并重启）')
+            218 LOAD_FAST                0 (info)
+            220 LOAD_CONST              17 ('reason')
+            222 STORE_SUBSCR
+            224 JUMP_FORWARD            22 (to 248)
+
+300     >>  226 LOAD_FAST                4 (ff_ok)
+            228 POP_JUMP_IF_TRUE       240
+
+301         230 LOAD_CONST              19 ('未检测到 ffmpeg（语音解码依赖，需添加到系统 PATH）')
+            232 LOAD_FAST                0 (info)
+            234 LOAD_CONST              17 ('reason')
+            236 STORE_SUBSCR
+            238 JUMP_FORWARD             8 (to 248)
+
+303     >>  240 LOAD_CONST              20 (True)
+            242 LOAD_FAST                0 (info)
+            244 LOAD_CONST              21 ('ok')
+            246 STORE_SUBSCR
+
+304     >>  248 LOAD_FAST                0 (info)
+            250 POP_BLOCK
+            252 RETURN_VALUE
+
+305     >>  254 DUP_TOP
+            256 LOAD_GLOBAL              7 (Exception)
+            258 EXTENDED_ARG             1
+            260 JUMP_IF_NOT_EXC_MATCH   308
+            262 POP_TOP
+            264 STORE_FAST               5 (e)
+            266 POP_TOP
+            268 SETUP_FINALLY           30 (to 300)
+
+306         270 LOAD_CONST              22 ('探测异常: ')
+            272 LOAD_FAST                5 (e)
+            274 FORMAT_VALUE             0
+            276 BUILD_STRING             2
+            278 LOAD_FAST                0 (info)
+            280 LOAD_CONST              17 ('reason')
+            282 STORE_SUBSCR
+
+307         284 LOAD_FAST                0 (info)
+            286 POP_BLOCK
+            288 ROT_FOUR
+            290 POP_EXCEPT
+            292 LOAD_CONST               2 (None)
+            294 STORE_FAST               5 (e)
+            296 DELETE_FAST              5 (e)
+            298 RETURN_VALUE
+        >>  300 LOAD_CONST               2 (None)
+            302 STORE_FAST               5 (e)
+            304 DELETE_FAST              5 (e)
+            306 RERAISE
+        >>  308 RERAISE
+            310 LOAD_CONST               2 (None)
+            312 RETURN_VALUE

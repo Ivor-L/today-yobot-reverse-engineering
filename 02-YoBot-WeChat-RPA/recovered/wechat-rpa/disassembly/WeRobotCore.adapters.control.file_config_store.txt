@@ -1,0 +1,924 @@
+  1           0 LOAD_CONST               0 ('Atomic explicit-root writer for the macOS AutoReply configuration set.\n\nThe mature Windows ``ConfigManager`` owns business matching rules but also\nowns Windows-era home-directory, cache and encryption behavior.  The macOS\nproduct therefore reuses its document shapes through this narrow store while\nkeeping paths explicit and credentials out of JSON.\n')
+              2 STORE_NAME               0 (__doc__)
+
+  9           4 LOAD_CONST               1 (0)
+              6 LOAD_CONST               2 (('annotations',))
+              8 IMPORT_NAME              1 (__future__)
+             10 IMPORT_FROM              2 (annotations)
+             12 STORE_NAME               2 (annotations)
+             14 POP_TOP
+
+ 11          16 LOAD_CONST               1 (0)
+             18 LOAD_CONST               3 (None)
+             20 IMPORT_NAME              3 (json)
+             22 STORE_NAME               3 (json)
+
+ 12          24 LOAD_CONST               1 (0)
+             26 LOAD_CONST               3 (None)
+             28 IMPORT_NAME              4 (os)
+             30 STORE_NAME               4 (os)
+
+ 13          32 LOAD_CONST               1 (0)
+             34 LOAD_CONST               4 (('Path',))
+             36 IMPORT_NAME              5 (pathlib)
+             38 IMPORT_FROM              6 (Path)
+             40 STORE_NAME               6 (Path)
+             42 POP_TOP
+
+ 14          44 LOAD_CONST               1 (0)
+             46 LOAD_CONST               3 (None)
+             48 IMPORT_NAME              7 (tempfile)
+             50 STORE_NAME               7 (tempfile)
+
+ 15          52 LOAD_CONST               1 (0)
+             54 LOAD_CONST               5 (('Any', 'Mapping', 'Optional'))
+             56 IMPORT_NAME              8 (typing)
+             58 IMPORT_FROM              9 (Any)
+             60 STORE_NAME               9 (Any)
+             62 IMPORT_FROM             10 (Mapping)
+             64 STORE_NAME              10 (Mapping)
+             66 IMPORT_FROM             11 (Optional)
+             68 STORE_NAME              11 (Optional)
+             70 POP_TOP
+
+ 17          72 LOAD_CONST               6 (1)
+             74 LOAD_CONST               7 (('MACOS_AUTO_REPLY_ACCOUNT_CONFIGS', 'MACOS_AUTO_REPLY_GLOBAL_CONFIGS'))
+             76 IMPORT_NAME             12 (file_config)
+             78 IMPORT_FROM             13 (MACOS_AUTO_REPLY_ACCOUNT_CONFIGS)
+             80 STORE_NAME              13 (MACOS_AUTO_REPLY_ACCOUNT_CONFIGS)
+             82 IMPORT_FROM             14 (MACOS_AUTO_REPLY_GLOBAL_CONFIGS)
+             84 STORE_NAME              14 (MACOS_AUTO_REPLY_GLOBAL_CONFIGS)
+             86 POP_TOP
+
+ 23          88 LOAD_CONST               8 (2097152)
+             90 STORE_NAME              15 (_MAX_CONFIG_BYTES)
+
+ 26          92 LOAD_CONST               9 ('Optional[str]')
+             94 LOAD_CONST               9 ('Optional[str]')
+             96 LOAD_CONST              10 (('account_id', 'return'))
+             98 BUILD_CONST_KEY_MAP      2
+            100 LOAD_CONST              11 (<code object _safe_account_id at 0x10924b0e0, file "WeRobotCore/adapters/control/file_config_store.py", line 26>)
+            102 LOAD_CONST              12 ('_safe_account_id')
+            104 MAKE_FUNCTION            4 (annotations)
+            106 STORE_NAME              16 (_safe_account_id)
+
+ 41         108 LOAD_BUILD_CLASS
+            110 LOAD_CONST              13 (<code object ExplicitPathAutoReplyConfigurationStore at 0x10924b9d0, file "WeRobotCore/adapters/control/file_config_store.py", line 41>)
+            112 LOAD_CONST              14 ('ExplicitPathAutoReplyConfigurationStore')
+            114 MAKE_FUNCTION            0
+            116 LOAD_CONST              14 ('ExplicitPathAutoReplyConfigurationStore')
+            118 CALL_FUNCTION            2
+            120 STORE_NAME              17 (ExplicitPathAutoReplyConfigurationStore)
+
+176         122 LOAD_CONST              14 ('ExplicitPathAutoReplyConfigurationStore')
+            124 BUILD_LIST               1
+            126 STORE_NAME              18 (__all__)
+            128 LOAD_CONST               3 (None)
+            130 RETURN_VALUE
+
+Disassembly of <code object _safe_account_id at 0x10924b0e0, file "WeRobotCore/adapters/control/file_config_store.py", line 26>:
+ 27           0 LOAD_FAST                0 (account_id)
+              2 LOAD_CONST               0 (None)
+              4 IS_OP                    0
+              6 POP_JUMP_IF_FALSE       12
+
+ 28           8 LOAD_CONST               0 (None)
+             10 RETURN_VALUE
+
+ 29     >>   12 LOAD_GLOBAL              0 (isinstance)
+             14 LOAD_FAST                0 (account_id)
+             16 LOAD_GLOBAL              1 (str)
+             18 CALL_FUNCTION            2
+             20 POP_JUMP_IF_FALSE       30
+             22 LOAD_FAST                0 (account_id)
+             24 LOAD_METHOD              2 (strip)
+             26 CALL_METHOD              0
+             28 POP_JUMP_IF_TRUE        38
+
+ 30     >>   30 LOAD_GLOBAL              3 (ValueError)
+             32 LOAD_CONST               1 ('account_id must be a non-empty string or None')
+             34 CALL_FUNCTION            1
+             36 RAISE_VARARGS            1
+
+ 31     >>   38 LOAD_FAST                0 (account_id)
+             40 LOAD_METHOD              2 (strip)
+             42 CALL_METHOD              0
+             44 STORE_FAST               1 (normalized)
+
+ 32          46 LOAD_GLOBAL              4 (len)
+             48 LOAD_FAST                1 (normalized)
+             50 LOAD_METHOD              5 (encode)
+             52 LOAD_CONST               2 ('utf-8')
+             54 CALL_METHOD              1
+             56 CALL_FUNCTION            1
+             58 LOAD_CONST               3 (255)
+             60 COMPARE_OP               4 (>)
+             62 POP_JUMP_IF_FALSE       72
+
+ 33          64 LOAD_GLOBAL              3 (ValueError)
+             66 LOAD_CONST               4 ('account_id exceeds the filesystem segment limit')
+             68 CALL_FUNCTION            1
+             70 RAISE_VARARGS            1
+
+ 34     >>   72 LOAD_FAST                1 (normalized)
+             74 LOAD_CONST               5 (('.', '..'))
+             76 CONTAINS_OP              0
+             78 POP_JUMP_IF_TRUE        94
+             80 LOAD_GLOBAL              6 (Path)
+             82 LOAD_FAST                1 (normalized)
+             84 CALL_FUNCTION            1
+             86 LOAD_ATTR                7 (name)
+             88 LOAD_FAST                1 (normalized)
+             90 COMPARE_OP               3 (!=)
+             92 POP_JUMP_IF_FALSE      102
+
+ 35     >>   94 LOAD_GLOBAL              3 (ValueError)
+             96 LOAD_CONST               6 ('account_id must be one safe filesystem segment')
+             98 CALL_FUNCTION            1
+            100 RAISE_VARARGS            1
+
+ 36     >>  102 LOAD_CONST               7 ('\x00')
+            104 LOAD_FAST                1 (normalized)
+            106 CONTAINS_OP              0
+            108 POP_JUMP_IF_FALSE      118
+
+ 37         110 LOAD_GLOBAL              3 (ValueError)
+            112 LOAD_CONST               8 ('account_id must not contain NUL')
+            114 CALL_FUNCTION            1
+            116 RAISE_VARARGS            1
+
+ 38     >>  118 LOAD_FAST                1 (normalized)
+            120 RETURN_VALUE
+
+Disassembly of <code object ExplicitPathAutoReplyConfigurationStore at 0x10924b9d0, file "WeRobotCore/adapters/control/file_config_store.py", line 41>:
+ 41           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('ExplicitPathAutoReplyConfigurationStore')
+              6 STORE_NAME               2 (__qualname__)
+
+ 42           8 LOAD_CONST               1 ('Read and atomically replace only documents used by the Mac MVP.')
+             10 STORE_NAME               3 (__doc__)
+
+ 44          12 LOAD_CONST               2 ('Path')
+             14 LOAD_CONST               3 ('None')
+             16 LOAD_CONST               4 (('config_root', 'return'))
+             18 BUILD_CONST_KEY_MAP      2
+             20 LOAD_CONST               5 (<code object __init__ at 0x10924b450, file "WeRobotCore/adapters/control/file_config_store.py", line 44>)
+             22 LOAD_CONST               6 ('ExplicitPathAutoReplyConfigurationStore.__init__')
+             24 MAKE_FUNCTION            4 (annotations)
+             26 STORE_NAME               4 (__init__)
+
+ 51          28 LOAD_NAME                5 (property)
+
+ 52          30 LOAD_CONST               2 ('Path')
+             32 LOAD_CONST               7 (('return',))
+             34 BUILD_CONST_KEY_MAP      1
+             36 LOAD_CONST               8 (<code object config_root at 0x10924b3a0, file "WeRobotCore/adapters/control/file_config_store.py", line 51>)
+             38 LOAD_CONST               9 ('ExplicitPathAutoReplyConfigurationStore.config_root')
+             40 MAKE_FUNCTION            4 (annotations)
+             42 CALL_FUNCTION            1
+             44 STORE_NAME               6 (config_root)
+
+ 55          46 LOAD_CONST              10 ('str')
+             48 LOAD_CONST              11 ('Optional[str]')
+             50 LOAD_CONST               2 ('Path')
+             52 LOAD_CONST              12 (('config_type', 'account_id', 'return'))
+             54 BUILD_CONST_KEY_MAP      3
+             56 LOAD_CONST              13 (<code object path_for at 0x10924b030, file "WeRobotCore/adapters/control/file_config_store.py", line 55>)
+             58 LOAD_CONST              14 ('ExplicitPathAutoReplyConfigurationStore.path_for')
+             60 MAKE_FUNCTION            4 (annotations)
+             62 STORE_NAME               7 (path_for)
+
+ 76          64 LOAD_NAME                8 (staticmethod)
+
+ 77          66 LOAD_CONST               2 ('Path')
+             68 LOAD_CONST              15 ('Mapping[str, Any]')
+             70 LOAD_CONST              16 (('path', 'return'))
+             72 BUILD_CONST_KEY_MAP      2
+             74 LOAD_CONST              17 (<code object _read_document at 0x10924b2f0, file "WeRobotCore/adapters/control/file_config_store.py", line 76>)
+             76 LOAD_CONST              18 ('ExplicitPathAutoReplyConfigurationStore._read_document')
+             78 MAKE_FUNCTION            4 (annotations)
+             80 CALL_FUNCTION            1
+             82 STORE_NAME               9 (_read_document)
+
+ 96          84 LOAD_CONST              19 (None)
+
+ 92          86 LOAD_CONST              20 (('account_id',))
+             88 BUILD_CONST_KEY_MAP      1
+             90 LOAD_CONST              10 ('str')
+             92 LOAD_CONST              11 ('Optional[str]')
+             94 LOAD_CONST              15 ('Mapping[str, Any]')
+             96 LOAD_CONST              12 (('config_type', 'account_id', 'return'))
+             98 BUILD_CONST_KEY_MAP      3
+            100 LOAD_CONST              21 (<code object load_config at 0x10924b190, file "WeRobotCore/adapters/control/file_config_store.py", line 92>)
+            102 LOAD_CONST              22 ('ExplicitPathAutoReplyConfigurationStore.load_config')
+            104 MAKE_FUNCTION            6 (kwdefaults, annotations)
+            106 STORE_NAME              10 (load_config)
+
+100         108 LOAD_CONST               2 ('Path')
+            110 LOAD_CONST               3 ('None')
+            112 LOAD_CONST              23 (('parent', 'return'))
+            114 BUILD_CONST_KEY_MAP      2
+            116 LOAD_CONST              24 (<code object _prepare_parent at 0x10924b7c0, file "WeRobotCore/adapters/control/file_config_store.py", line 100>)
+            118 LOAD_CONST              25 ('ExplicitPathAutoReplyConfigurationStore._prepare_parent')
+            120 MAKE_FUNCTION            4 (annotations)
+            122 STORE_NAME              11 (_prepare_parent)
+
+119         124 LOAD_CONST              19 (None)
+
+114         126 LOAD_CONST              20 (('account_id',))
+            128 BUILD_CONST_KEY_MAP      1
+            130 LOAD_CONST              10 ('str')
+            132 LOAD_CONST              15 ('Mapping[str, Any]')
+            134 LOAD_CONST              11 ('Optional[str]')
+            136 LOAD_CONST               2 ('Path')
+            138 LOAD_CONST              26 (('config_type', 'document', 'account_id', 'return'))
+            140 BUILD_CONST_KEY_MAP      4
+            142 LOAD_CONST              27 (<code object save_config at 0x10924b5b0, file "WeRobotCore/adapters/control/file_config_store.py", line 114>)
+            144 LOAD_CONST              28 ('ExplicitPathAutoReplyConfigurationStore.save_config')
+            146 MAKE_FUNCTION            6 (kwdefaults, annotations)
+            148 STORE_NAME              12 (save_config)
+            150 LOAD_CONST              19 (None)
+            152 RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x10924b450, file "WeRobotCore/adapters/control/file_config_store.py", line 44>:
+ 45           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                1 (config_root)
+              4 LOAD_GLOBAL              1 (Path)
+              6 CALL_FUNCTION            2
+              8 POP_JUMP_IF_TRUE        18
+
+ 46          10 LOAD_GLOBAL              2 (TypeError)
+             12 LOAD_CONST               1 ('config_root must be a pathlib.Path')
+             14 CALL_FUNCTION            1
+             16 RAISE_VARARGS            1
+
+ 47     >>   18 LOAD_FAST                1 (config_root)
+             20 LOAD_METHOD              3 (is_absolute)
+             22 CALL_METHOD              0
+             24 POP_JUMP_IF_TRUE        34
+
+ 48          26 LOAD_GLOBAL              4 (ValueError)
+             28 LOAD_CONST               2 ('config_root must be an absolute path')
+             30 CALL_FUNCTION            1
+             32 RAISE_VARARGS            1
+
+ 49     >>   34 LOAD_FAST                1 (config_root)
+             36 LOAD_FAST                0 (self)
+             38 STORE_ATTR               5 (_config_root)
+             40 LOAD_CONST               0 (None)
+             42 RETURN_VALUE
+
+Disassembly of <code object config_root at 0x10924b3a0, file "WeRobotCore/adapters/control/file_config_store.py", line 51>:
+ 53           0 LOAD_FAST                0 (self)
+              2 LOAD_ATTR                0 (_config_root)
+              4 RETURN_VALUE
+
+Disassembly of <code object path_for at 0x10924b030, file "WeRobotCore/adapters/control/file_config_store.py", line 55>:
+ 56           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                1 (config_type)
+              4 LOAD_GLOBAL              1 (str)
+              6 CALL_FUNCTION            2
+              8 POP_JUMP_IF_FALSE       18
+             10 LOAD_FAST                1 (config_type)
+             12 LOAD_METHOD              2 (strip)
+             14 CALL_METHOD              0
+             16 POP_JUMP_IF_TRUE        26
+
+ 57     >>   18 LOAD_GLOBAL              3 (ValueError)
+             20 LOAD_CONST               1 ('config_type must be a non-empty string')
+             22 CALL_FUNCTION            1
+             24 RAISE_VARARGS            1
+
+ 58     >>   26 LOAD_FAST                1 (config_type)
+             28 LOAD_METHOD              2 (strip)
+             30 CALL_METHOD              0
+             32 STORE_FAST               3 (normalized_type)
+
+ 59          34 LOAD_GLOBAL              4 (_safe_account_id)
+             36 LOAD_FAST                2 (account_id)
+             38 CALL_FUNCTION            1
+             40 STORE_FAST               4 (normalized_account)
+
+ 60          42 LOAD_FAST                3 (normalized_type)
+             44 LOAD_GLOBAL              5 (MACOS_AUTO_REPLY_ACCOUNT_CONFIGS)
+             46 CONTAINS_OP              0
+             48 POP_JUMP_IF_FALSE       84
+
+ 61          50 LOAD_FAST                4 (normalized_account)
+             52 LOAD_CONST               0 (None)
+             54 IS_OP                    0
+             56 POP_JUMP_IF_FALSE       66
+
+ 62          58 LOAD_GLOBAL              3 (ValueError)
+
+ 63          60 LOAD_CONST               2 ('account_id is required for account configuration')
+
+ 62          62 CALL_FUNCTION            1
+             64 RAISE_VARARGS            1
+
+ 66     >>   66 LOAD_FAST                0 (self)
+             68 LOAD_ATTR                6 (_config_root)
+
+ 67          70 LOAD_FAST                4 (normalized_account)
+
+ 66          72 BINARY_TRUE_DIVIDE
+
+ 68          74 LOAD_FAST                3 (normalized_type)
+             76 LOAD_CONST               3 ('.json')
+             78 BINARY_ADD
+
+ 66          80 BINARY_TRUE_DIVIDE
+
+ 65          82 RETURN_VALUE
+
+ 70     >>   84 LOAD_FAST                3 (normalized_type)
+             86 LOAD_GLOBAL              7 (MACOS_AUTO_REPLY_GLOBAL_CONFIGS)
+             88 CONTAINS_OP              0
+             90 POP_JUMP_IF_FALSE      106
+
+ 71          92 LOAD_FAST                0 (self)
+             94 LOAD_ATTR                6 (_config_root)
+             96 LOAD_FAST                3 (normalized_type)
+             98 LOAD_CONST               3 ('.json')
+            100 BINARY_ADD
+            102 BINARY_TRUE_DIVIDE
+            104 RETURN_VALUE
+
+ 72     >>  106 LOAD_GLOBAL              3 (ValueError)
+
+ 73         108 LOAD_CONST               4 ('unsupported AutoReply config type: {}')
+            110 LOAD_METHOD              8 (format)
+            112 LOAD_FAST                3 (normalized_type)
+            114 CALL_METHOD              1
+
+ 72         116 CALL_FUNCTION            1
+            118 RAISE_VARARGS            1
+            120 LOAD_CONST               0 (None)
+            122 RETURN_VALUE
+
+Disassembly of <code object _read_document at 0x10924b2f0, file "WeRobotCore/adapters/control/file_config_store.py", line 76>:
+ 78           0 SETUP_FINALLY           66 (to 68)
+
+ 79           2 LOAD_FAST                0 (path)
+              4 LOAD_METHOD              0 (is_file)
+              6 CALL_METHOD              0
+              8 POP_JUMP_IF_FALSE       18
+             10 LOAD_FAST                0 (path)
+             12 LOAD_METHOD              1 (is_symlink)
+             14 CALL_METHOD              0
+             16 POP_JUMP_IF_FALSE       24
+
+ 80     >>   18 BUILD_MAP                0
+             20 POP_BLOCK
+             22 RETURN_VALUE
+
+ 81     >>   24 LOAD_FAST                0 (path)
+             26 LOAD_METHOD              2 (stat)
+             28 CALL_METHOD              0
+             30 LOAD_ATTR                3 (st_size)
+             32 LOAD_GLOBAL              4 (_MAX_CONFIG_BYTES)
+             34 COMPARE_OP               4 (>)
+             36 POP_JUMP_IF_FALSE       46
+
+ 82          38 LOAD_GLOBAL              5 (ValueError)
+             40 LOAD_CONST               1 ('configuration exceeds the size limit')
+             42 CALL_FUNCTION            1
+             44 RAISE_VARARGS            1
+
+ 83     >>   46 LOAD_GLOBAL              6 (json)
+             48 LOAD_METHOD              7 (loads)
+             50 LOAD_FAST                0 (path)
+             52 LOAD_ATTR                8 (read_text)
+             54 LOAD_CONST               2 ('utf-8')
+             56 LOAD_CONST               3 (('encoding',))
+             58 CALL_FUNCTION_KW         1
+             60 CALL_METHOD              1
+             62 STORE_FAST               1 (document)
+             64 POP_BLOCK
+             66 JUMP_FORWARD            74 (to 142)
+
+ 84     >>   68 DUP_TOP
+             70 LOAD_GLOBAL              9 (FileNotFoundError)
+             72 JUMP_IF_NOT_EXC_MATCH    88
+             74 POP_TOP
+             76 POP_TOP
+             78 POP_TOP
+
+ 85          80 BUILD_MAP                0
+             82 ROT_FOUR
+             84 POP_EXCEPT
+             86 RETURN_VALUE
+
+ 86     >>   88 DUP_TOP
+             90 LOAD_GLOBAL             10 (OSError)
+             92 LOAD_GLOBAL             11 (UnicodeError)
+             94 LOAD_GLOBAL              6 (json)
+             96 LOAD_ATTR               12 (JSONDecodeError)
+             98 BUILD_TUPLE              3
+            100 JUMP_IF_NOT_EXC_MATCH   140
+            102 POP_TOP
+            104 STORE_FAST               2 (exc)
+            106 POP_TOP
+            108 SETUP_FINALLY           22 (to 132)
+
+ 87         110 LOAD_GLOBAL              5 (ValueError)
+            112 LOAD_CONST               4 ('configuration document is unreadable')
+            114 CALL_FUNCTION            1
+            116 LOAD_FAST                2 (exc)
+            118 RAISE_VARARGS            2
+            120 POP_BLOCK
+            122 POP_EXCEPT
+            124 LOAD_CONST               0 (None)
+            126 STORE_FAST               2 (exc)
+            128 DELETE_FAST              2 (exc)
+            130 JUMP_FORWARD            10 (to 142)
+        >>  132 LOAD_CONST               0 (None)
+            134 STORE_FAST               2 (exc)
+            136 DELETE_FAST              2 (exc)
+            138 RERAISE
+        >>  140 RERAISE
+
+ 88     >>  142 LOAD_GLOBAL             13 (isinstance)
+            144 LOAD_FAST                1 (document)
+            146 LOAD_GLOBAL             14 (Mapping)
+            148 CALL_FUNCTION            2
+            150 POP_JUMP_IF_TRUE       160
+
+ 89         152 LOAD_GLOBAL              5 (ValueError)
+            154 LOAD_CONST               5 ('configuration document must contain an object')
+            156 CALL_FUNCTION            1
+            158 RAISE_VARARGS            1
+
+ 90     >>  160 LOAD_GLOBAL             15 (dict)
+            162 LOAD_FAST                1 (document)
+            164 CALL_FUNCTION            1
+            166 RETURN_VALUE
+
+Disassembly of <code object load_config at 0x10924b190, file "WeRobotCore/adapters/control/file_config_store.py", line 92>:
+ 98           0 LOAD_FAST                0 (self)
+              2 LOAD_METHOD              0 (_read_document)
+              4 LOAD_FAST                0 (self)
+              6 LOAD_METHOD              1 (path_for)
+              8 LOAD_FAST                1 (config_type)
+             10 LOAD_FAST                2 (account_id)
+             12 CALL_METHOD              2
+             14 CALL_METHOD              1
+             16 RETURN_VALUE
+
+Disassembly of <code object _prepare_parent at 0x10924b7c0, file "WeRobotCore/adapters/control/file_config_store.py", line 100>:
+101           0 LOAD_FAST                0 (self)
+              2 LOAD_ATTR                0 (_config_root)
+              4 LOAD_ATTR                1 (mkdir)
+              6 LOAD_CONST               1 (True)
+              8 LOAD_CONST               1 (True)
+             10 LOAD_CONST               2 (448)
+             12 LOAD_CONST               3 (('parents', 'exist_ok', 'mode'))
+             14 CALL_FUNCTION_KW         3
+             16 POP_TOP
+
+102          18 LOAD_FAST                0 (self)
+             20 LOAD_ATTR                0 (_config_root)
+             22 LOAD_METHOD              2 (is_symlink)
+             24 CALL_METHOD              0
+             26 POP_JUMP_IF_FALSE       36
+
+103          28 LOAD_GLOBAL              3 (ValueError)
+             30 LOAD_CONST               4 ('config_root must not be a symbolic link')
+             32 CALL_FUNCTION            1
+             34 RAISE_VARARGS            1
+
+104     >>   36 LOAD_FAST                1 (parent)
+             38 LOAD_ATTR                1 (mkdir)
+             40 LOAD_CONST               1 (True)
+             42 LOAD_CONST               1 (True)
+             44 LOAD_CONST               2 (448)
+             46 LOAD_CONST               3 (('parents', 'exist_ok', 'mode'))
+             48 CALL_FUNCTION_KW         3
+             50 POP_TOP
+
+105          52 LOAD_FAST                1 (parent)
+             54 LOAD_METHOD              2 (is_symlink)
+             56 CALL_METHOD              0
+             58 POP_JUMP_IF_FALSE       68
+
+106          60 LOAD_GLOBAL              3 (ValueError)
+             62 LOAD_CONST               5 ('configuration parent must not be a symbolic link')
+             64 CALL_FUNCTION            1
+             66 RAISE_VARARGS            1
+
+107     >>   68 SETUP_FINALLY           32 (to 102)
+
+108          70 LOAD_FAST                1 (parent)
+             72 LOAD_ATTR                4 (resolve)
+             74 LOAD_CONST               1 (True)
+             76 LOAD_CONST               6 (('strict',))
+             78 CALL_FUNCTION_KW         1
+             80 LOAD_METHOD              5 (relative_to)
+
+109          82 LOAD_FAST                0 (self)
+             84 LOAD_ATTR                0 (_config_root)
+             86 LOAD_ATTR                4 (resolve)
+             88 LOAD_CONST               1 (True)
+             90 LOAD_CONST               6 (('strict',))
+             92 CALL_FUNCTION_KW         1
+
+108          94 CALL_METHOD              1
+             96 POP_TOP
+             98 POP_BLOCK
+            100 JUMP_FORWARD            50 (to 152)
+
+111     >>  102 DUP_TOP
+            104 LOAD_GLOBAL              6 (OSError)
+            106 LOAD_GLOBAL              3 (ValueError)
+            108 BUILD_TUPLE              2
+            110 JUMP_IF_NOT_EXC_MATCH   150
+            112 POP_TOP
+            114 STORE_FAST               2 (exc)
+            116 POP_TOP
+            118 SETUP_FINALLY           22 (to 142)
+
+112         120 LOAD_GLOBAL              3 (ValueError)
+            122 LOAD_CONST               7 ('configuration path escapes config_root')
+            124 CALL_FUNCTION            1
+            126 LOAD_FAST                2 (exc)
+            128 RAISE_VARARGS            2
+            130 POP_BLOCK
+            132 POP_EXCEPT
+            134 LOAD_CONST               0 (None)
+            136 STORE_FAST               2 (exc)
+            138 DELETE_FAST              2 (exc)
+            140 JUMP_FORWARD            10 (to 152)
+        >>  142 LOAD_CONST               0 (None)
+            144 STORE_FAST               2 (exc)
+            146 DELETE_FAST              2 (exc)
+            148 RERAISE
+        >>  150 RERAISE
+        >>  152 LOAD_CONST               0 (None)
+            154 RETURN_VALUE
+
+Disassembly of <code object save_config at 0x10924b5b0, file "WeRobotCore/adapters/control/file_config_store.py", line 114>:
+121           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                2 (document)
+              4 LOAD_GLOBAL              1 (Mapping)
+              6 CALL_FUNCTION            2
+              8 POP_JUMP_IF_TRUE        18
+
+122          10 LOAD_GLOBAL              2 (TypeError)
+             12 LOAD_CONST               1 ('configuration document must be a mapping')
+             14 CALL_FUNCTION            1
+             16 RAISE_VARARGS            1
+
+123     >>   18 LOAD_FAST                0 (self)
+             20 LOAD_METHOD              3 (path_for)
+             22 LOAD_FAST                1 (config_type)
+             24 LOAD_FAST                3 (account_id)
+             26 CALL_METHOD              2
+             28 STORE_FAST               4 (target)
+
+124          30 LOAD_FAST                4 (target)
+             32 LOAD_METHOD              4 (is_symlink)
+             34 CALL_METHOD              0
+             36 POP_JUMP_IF_FALSE       46
+
+125          38 LOAD_GLOBAL              5 (ValueError)
+             40 LOAD_CONST               2 ('configuration target must not be a symbolic link')
+             42 CALL_FUNCTION            1
+             44 RAISE_VARARGS            1
+
+126     >>   46 SETUP_FINALLY           36 (to 84)
+
+127          48 LOAD_GLOBAL              6 (json)
+             50 LOAD_ATTR                7 (dumps)
+
+128          52 LOAD_GLOBAL              8 (dict)
+             54 LOAD_FAST                2 (document)
+             56 CALL_FUNCTION            1
+
+129          58 LOAD_CONST               3 (False)
+
+130          60 LOAD_CONST               4 (2)
+
+131          62 LOAD_CONST               5 (True)
+
+127          64 LOAD_CONST               6 (('ensure_ascii', 'indent', 'sort_keys'))
+             66 CALL_FUNCTION_KW         4
+             68 LOAD_ATTR                9 (encode)
+
+132          70 LOAD_CONST               7 ('utf-8')
+             72 LOAD_CONST               8 ('strict')
+
+127          74 LOAD_CONST               9 (('errors',))
+             76 CALL_FUNCTION_KW         2
+             78 STORE_FAST               5 (encoded)
+             80 POP_BLOCK
+             82 JUMP_FORWARD            52 (to 136)
+
+133     >>   84 DUP_TOP
+             86 LOAD_GLOBAL              2 (TypeError)
+             88 LOAD_GLOBAL              5 (ValueError)
+             90 LOAD_GLOBAL             10 (UnicodeError)
+             92 BUILD_TUPLE              3
+             94 JUMP_IF_NOT_EXC_MATCH   134
+             96 POP_TOP
+             98 STORE_FAST               6 (exc)
+            100 POP_TOP
+            102 SETUP_FINALLY           22 (to 126)
+
+134         104 LOAD_GLOBAL              5 (ValueError)
+            106 LOAD_CONST              10 ('configuration document is not valid JSON')
+            108 CALL_FUNCTION            1
+            110 LOAD_FAST                6 (exc)
+            112 RAISE_VARARGS            2
+            114 POP_BLOCK
+            116 POP_EXCEPT
+            118 LOAD_CONST               0 (None)
+            120 STORE_FAST               6 (exc)
+            122 DELETE_FAST              6 (exc)
+            124 JUMP_FORWARD            10 (to 136)
+        >>  126 LOAD_CONST               0 (None)
+            128 STORE_FAST               6 (exc)
+            130 DELETE_FAST              6 (exc)
+            132 RERAISE
+        >>  134 RERAISE
+
+135     >>  136 LOAD_GLOBAL             11 (len)
+            138 LOAD_FAST                5 (encoded)
+            140 CALL_FUNCTION            1
+            142 LOAD_GLOBAL             12 (_MAX_CONFIG_BYTES)
+            144 COMPARE_OP               4 (>)
+            146 POP_JUMP_IF_FALSE      156
+
+136         148 LOAD_GLOBAL              5 (ValueError)
+            150 LOAD_CONST              11 ('configuration exceeds the size limit')
+            152 CALL_FUNCTION            1
+            154 RAISE_VARARGS            1
+
+138     >>  156 LOAD_FAST                0 (self)
+            158 LOAD_METHOD             13 (_prepare_parent)
+            160 LOAD_FAST                4 (target)
+            162 LOAD_ATTR               14 (parent)
+            164 CALL_METHOD              1
+            166 POP_TOP
+
+139         168 LOAD_CONST               0 (None)
+            170 STORE_FAST               7 (descriptor)
+
+140         172 LOAD_CONST               0 (None)
+            174 STORE_FAST               8 (temporary_name)
+
+141         176 EXTENDED_ARG             1
+            178 SETUP_FINALLY          352 (to 532)
+
+142         180 LOAD_GLOBAL             15 (tempfile)
+            182 LOAD_ATTR               16 (mkstemp)
+
+143         184 LOAD_CONST              12 ('.{}-')
+            186 LOAD_METHOD             17 (format)
+            188 LOAD_FAST                4 (target)
+            190 LOAD_ATTR               18 (stem)
+            192 CALL_METHOD              1
+
+144         194 LOAD_CONST              13 ('.tmp')
+
+145         196 LOAD_GLOBAL             19 (str)
+            198 LOAD_FAST                4 (target)
+            200 LOAD_ATTR               14 (parent)
+            202 CALL_FUNCTION            1
+
+142         204 LOAD_CONST              14 (('prefix', 'suffix', 'dir'))
+            206 CALL_FUNCTION_KW         3
+            208 UNPACK_SEQUENCE          2
+            210 STORE_FAST               7 (descriptor)
+            212 STORE_FAST               8 (temporary_name)
+
+147         214 LOAD_GLOBAL             20 (os)
+            216 LOAD_METHOD             21 (fchmod)
+            218 LOAD_FAST                7 (descriptor)
+            220 LOAD_CONST              15 (384)
+            222 CALL_METHOD              2
+            224 POP_TOP
+
+148         226 LOAD_GLOBAL             20 (os)
+            228 LOAD_METHOD             22 (fdopen)
+            230 LOAD_FAST                7 (descriptor)
+            232 LOAD_CONST              16 ('wb')
+            234 CALL_METHOD              2
+            236 SETUP_WITH              52 (to 290)
+            238 STORE_FAST               9 (stream)
+
+149         240 LOAD_CONST               0 (None)
+            242 STORE_FAST               7 (descriptor)
+
+150         244 LOAD_FAST                9 (stream)
+            246 LOAD_METHOD             23 (write)
+            248 LOAD_FAST                5 (encoded)
+            250 CALL_METHOD              1
+            252 POP_TOP
+
+151         254 LOAD_FAST                9 (stream)
+            256 LOAD_METHOD             24 (flush)
+            258 CALL_METHOD              0
+            260 POP_TOP
+
+152         262 LOAD_GLOBAL             20 (os)
+            264 LOAD_METHOD             25 (fsync)
+            266 LOAD_FAST                9 (stream)
+            268 LOAD_METHOD             26 (fileno)
+            270 CALL_METHOD              0
+            272 CALL_METHOD              1
+            274 POP_TOP
+            276 POP_BLOCK
+            278 LOAD_CONST               0 (None)
+            280 DUP_TOP
+            282 DUP_TOP
+            284 CALL_FUNCTION            3
+            286 POP_TOP
+            288 JUMP_FORWARD            18 (to 308)
+        >>  290 WITH_EXCEPT_START
+            292 EXTENDED_ARG             1
+            294 POP_JUMP_IF_TRUE       298
+            296 RERAISE
+        >>  298 POP_TOP
+            300 POP_TOP
+            302 POP_TOP
+            304 POP_EXCEPT
+            306 POP_TOP
+
+153     >>  308 LOAD_GLOBAL             20 (os)
+            310 LOAD_METHOD             27 (replace)
+            312 LOAD_FAST                8 (temporary_name)
+            314 LOAD_GLOBAL             19 (str)
+            316 LOAD_FAST                4 (target)
+            318 CALL_FUNCTION            1
+            320 CALL_METHOD              2
+            322 POP_TOP
+
+154         324 LOAD_CONST               0 (None)
+            326 STORE_FAST               8 (temporary_name)
+
+155         328 SETUP_FINALLY           62 (to 392)
+
+156         330 LOAD_GLOBAL             20 (os)
+            332 LOAD_METHOD             28 (open)
+            334 LOAD_GLOBAL             19 (str)
+            336 LOAD_FAST                4 (target)
+            338 LOAD_ATTR               14 (parent)
+            340 CALL_FUNCTION            1
+            342 LOAD_GLOBAL             20 (os)
+            344 LOAD_ATTR               29 (O_RDONLY)
+            346 CALL_METHOD              2
+            348 STORE_FAST              10 (parent_descriptor)
+
+157         350 SETUP_FINALLY           24 (to 376)
+
+158         352 LOAD_GLOBAL             20 (os)
+            354 LOAD_METHOD             25 (fsync)
+            356 LOAD_FAST               10 (parent_descriptor)
+            358 CALL_METHOD              1
+            360 POP_TOP
+            362 POP_BLOCK
+
+160         364 LOAD_GLOBAL             20 (os)
+            366 LOAD_METHOD             30 (close)
+            368 LOAD_FAST               10 (parent_descriptor)
+            370 CALL_METHOD              1
+            372 POP_TOP
+            374 JUMP_FORWARD            12 (to 388)
+        >>  376 LOAD_GLOBAL             20 (os)
+            378 LOAD_METHOD             30 (close)
+            380 LOAD_FAST               10 (parent_descriptor)
+            382 CALL_METHOD              1
+            384 POP_TOP
+            386 RERAISE
+        >>  388 POP_BLOCK
+            390 JUMP_FORWARD            20 (to 412)
+
+161     >>  392 DUP_TOP
+            394 LOAD_GLOBAL             31 (OSError)
+            396 EXTENDED_ARG             1
+            398 JUMP_IF_NOT_EXC_MATCH   410
+            400 POP_TOP
+            402 POP_TOP
+            404 POP_TOP
+
+164         406 POP_EXCEPT
+            408 JUMP_FORWARD             2 (to 412)
+        >>  410 RERAISE
+
+165     >>  412 LOAD_FAST                4 (target)
+            414 POP_BLOCK
+
+167         416 LOAD_FAST                7 (descriptor)
+            418 LOAD_CONST               0 (None)
+            420 IS_OP                    1
+            422 EXTENDED_ARG             1
+            424 POP_JUMP_IF_FALSE      436
+
+168         426 LOAD_GLOBAL             20 (os)
+            428 LOAD_METHOD             30 (close)
+            430 LOAD_FAST                7 (descriptor)
+            432 CALL_METHOD              1
+            434 POP_TOP
+
+169     >>  436 LOAD_FAST                8 (temporary_name)
+            438 LOAD_CONST               0 (None)
+            440 IS_OP                    1
+            442 EXTENDED_ARG             1
+            444 POP_JUMP_IF_FALSE      482
+
+170         446 SETUP_FINALLY           14 (to 462)
+
+171         448 LOAD_GLOBAL             20 (os)
+            450 LOAD_METHOD             32 (unlink)
+            452 LOAD_FAST                8 (temporary_name)
+            454 CALL_METHOD              1
+            456 POP_TOP
+            458 POP_BLOCK
+            460 RETURN_VALUE
+
+172     >>  462 DUP_TOP
+            464 LOAD_GLOBAL             33 (FileNotFoundError)
+            466 EXTENDED_ARG             1
+            468 JUMP_IF_NOT_EXC_MATCH   480
+            470 POP_TOP
+            472 POP_TOP
+            474 POP_TOP
+
+173         476 POP_EXCEPT
+            478 RETURN_VALUE
+        >>  480 RERAISE
+
+165     >>  482 RETURN_VALUE
+
+169         484 LOAD_FAST                8 (temporary_name)
+            486 LOAD_CONST               0 (None)
+            488 IS_OP                    1
+            490 EXTENDED_ARG             2
+            492 POP_JUMP_IF_FALSE      600
+
+170         494 SETUP_FINALLY           14 (to 510)
+
+171         496 LOAD_GLOBAL             20 (os)
+            498 LOAD_METHOD             32 (unlink)
+            500 LOAD_FAST                8 (temporary_name)
+            502 CALL_METHOD              1
+            504 POP_TOP
+            506 POP_BLOCK
+            508 JUMP_FORWARD            20 (to 530)
+
+172     >>  510 DUP_TOP
+            512 LOAD_GLOBAL             33 (FileNotFoundError)
+            514 EXTENDED_ARG             2
+            516 JUMP_IF_NOT_EXC_MATCH   528
+            518 POP_TOP
+            520 POP_TOP
+            522 POP_TOP
+
+173         524 POP_EXCEPT
+            526 JUMP_FORWARD             2 (to 530)
+        >>  528 RERAISE
+        >>  530 JUMP_FORWARD            68 (to 600)
+
+167     >>  532 LOAD_FAST                7 (descriptor)
+            534 LOAD_CONST               0 (None)
+            536 IS_OP                    1
+            538 EXTENDED_ARG             2
+            540 POP_JUMP_IF_FALSE      552
+
+168         542 LOAD_GLOBAL             20 (os)
+            544 LOAD_METHOD             30 (close)
+            546 LOAD_FAST                7 (descriptor)
+            548 CALL_METHOD              1
+            550 POP_TOP
+
+169     >>  552 LOAD_FAST                8 (temporary_name)
+            554 LOAD_CONST               0 (None)
+            556 IS_OP                    1
+            558 EXTENDED_ARG             2
+            560 POP_JUMP_IF_FALSE      598
+
+170         562 SETUP_FINALLY           14 (to 578)
+
+171         564 LOAD_GLOBAL             20 (os)
+            566 LOAD_METHOD             32 (unlink)
+            568 LOAD_FAST                8 (temporary_name)
+            570 CALL_METHOD              1
+            572 POP_TOP
+            574 POP_BLOCK
+            576 JUMP_FORWARD            20 (to 598)
+
+172     >>  578 DUP_TOP
+            580 LOAD_GLOBAL             33 (FileNotFoundError)
+            582 EXTENDED_ARG             2
+            584 JUMP_IF_NOT_EXC_MATCH   596
+            586 POP_TOP
+            588 POP_TOP
+            590 POP_TOP
+
+173         592 POP_EXCEPT
+            594 JUMP_FORWARD             2 (to 598)
+        >>  596 RERAISE
+        >>  598 RERAISE
+        >>  600 LOAD_CONST               0 (None)
+            602 RETURN_VALUE

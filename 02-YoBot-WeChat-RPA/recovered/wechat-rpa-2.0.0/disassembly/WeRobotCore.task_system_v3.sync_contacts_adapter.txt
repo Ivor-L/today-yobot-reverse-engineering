@@ -1,0 +1,2627 @@
+  1           0 LOAD_CONST               0 ('\n自动同步通讯录任务适配器\n采用标准的adapter模式，实现通讯录定期同步功能\n')
+              2 STORE_NAME               0 (__doc__)
+
+  6           4 LOAD_CONST               1 (0)
+              6 LOAD_CONST               2 (None)
+              8 IMPORT_NAME              1 (asyncio)
+             10 STORE_NAME               1 (asyncio)
+
+  7          12 LOAD_CONST               1 (0)
+             14 LOAD_CONST               2 (None)
+             16 IMPORT_NAME              2 (uuid)
+             18 STORE_NAME               2 (uuid)
+
+  8          20 LOAD_CONST               1 (0)
+             22 LOAD_CONST               2 (None)
+             24 IMPORT_NAME              3 (time)
+             26 STORE_NAME               3 (time)
+
+  9          28 LOAD_CONST               1 (0)
+             30 LOAD_CONST               3 (('datetime', 'timedelta'))
+             32 IMPORT_NAME              4 (datetime)
+             34 IMPORT_FROM              4 (datetime)
+             36 STORE_NAME               4 (datetime)
+             38 IMPORT_FROM              5 (timedelta)
+             40 STORE_NAME               5 (timedelta)
+             42 POP_TOP
+
+ 10          44 LOAD_CONST               1 (0)
+             46 LOAD_CONST               4 (('Dict', 'Any', 'Optional', 'List'))
+             48 IMPORT_NAME              6 (typing)
+             50 IMPORT_FROM              7 (Dict)
+             52 STORE_NAME               7 (Dict)
+             54 IMPORT_FROM              8 (Any)
+             56 STORE_NAME               8 (Any)
+             58 IMPORT_FROM              9 (Optional)
+             60 STORE_NAME               9 (Optional)
+             62 IMPORT_FROM             10 (List)
+             64 STORE_NAME              10 (List)
+             66 POP_TOP
+
+ 12          68 LOAD_CONST               1 (0)
+             70 LOAD_CONST               5 (('TaskType', 'TaskStatus', 'TaskPriority', 'ScheduleConfig', 'TaskExecutionContext', 'TriggerType', 'ExecutionMode'))
+             72 IMPORT_NAME             11 (WeRobotCore.task_system_v3.types)
+             74 IMPORT_FROM             12 (TaskType)
+             76 STORE_NAME              12 (TaskType)
+             78 IMPORT_FROM             13 (TaskStatus)
+             80 STORE_NAME              13 (TaskStatus)
+             82 IMPORT_FROM             14 (TaskPriority)
+             84 STORE_NAME              14 (TaskPriority)
+             86 IMPORT_FROM             15 (ScheduleConfig)
+             88 STORE_NAME              15 (ScheduleConfig)
+             90 IMPORT_FROM             16 (TaskExecutionContext)
+             92 STORE_NAME              16 (TaskExecutionContext)
+             94 IMPORT_FROM             17 (TriggerType)
+             96 STORE_NAME              17 (TriggerType)
+             98 IMPORT_FROM             18 (ExecutionMode)
+            100 STORE_NAME              18 (ExecutionMode)
+            102 POP_TOP
+
+ 16         104 LOAD_CONST               1 (0)
+            106 LOAD_CONST               6 (('BaseTask',))
+            108 IMPORT_NAME             19 (WeRobotCore.task_system_v2.base)
+            110 IMPORT_FROM             20 (BaseTask)
+            112 STORE_NAME              20 (BaseTask)
+            114 POP_TOP
+
+ 18         116 SETUP_FINALLY           20 (to 138)
+
+ 19         118 LOAD_CONST               1 (0)
+            120 LOAD_CONST               7 (('task_logger', 'get_logger'))
+            122 IMPORT_NAME             21 (WeRobotCore.utils.logger)
+            124 IMPORT_FROM             22 (task_logger)
+            126 STORE_NAME              22 (task_logger)
+            128 IMPORT_FROM             23 (get_logger)
+            130 STORE_NAME              23 (get_logger)
+            132 POP_TOP
+            134 POP_BLOCK
+            136 JUMP_FORWARD            42 (to 180)
+
+ 20     >>  138 DUP_TOP
+            140 LOAD_NAME               24 (ImportError)
+            142 JUMP_IF_NOT_EXC_MATCH   178
+            144 POP_TOP
+            146 POP_TOP
+            148 POP_TOP
+
+ 21         150 LOAD_CONST               1 (0)
+            152 LOAD_CONST               2 (None)
+            154 IMPORT_NAME             25 (logging)
+            156 STORE_NAME              25 (logging)
+
+ 22         158 LOAD_NAME               25 (logging)
+            160 LOAD_METHOD             26 (getLogger)
+            162 LOAD_NAME               27 (__name__)
+            164 CALL_METHOD              1
+            166 STORE_NAME              22 (task_logger)
+
+ 23         168 LOAD_NAME               25 (logging)
+            170 LOAD_ATTR               26 (getLogger)
+            172 STORE_NAME              23 (get_logger)
+            174 POP_EXCEPT
+            176 JUMP_FORWARD             2 (to 180)
+        >>  178 RERAISE
+
+ 26     >>  180 LOAD_BUILD_CLASS
+            182 LOAD_CONST               8 (<code object SyncContactsAdapter at 0x1073aa190, file "WeRobotCore/task_system_v3/sync_contacts_adapter.py", line 26>)
+            184 LOAD_CONST               9 ('SyncContactsAdapter')
+            186 MAKE_FUNCTION            0
+            188 LOAD_CONST               9 ('SyncContactsAdapter')
+            190 CALL_FUNCTION            2
+            192 STORE_NAME              28 (SyncContactsAdapter)
+            194 LOAD_CONST               2 (None)
+            196 RETURN_VALUE
+
+Disassembly of <code object SyncContactsAdapter at 0x1073aa190, file "WeRobotCore/task_system_v3/sync_contacts_adapter.py", line 26>:
+ 26           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('SyncContactsAdapter')
+              6 STORE_NAME               2 (__qualname__)
+
+ 27           8 LOAD_CONST               1 ('自动同步通讯录任务适配器 - 标准版本')
+             10 STORE_NAME               3 (__doc__)
+
+ 29          12 LOAD_CONST              58 ((None,))
+             14 LOAD_CONST               3 (<code object __init__ at 0x1073abdf0, file "WeRobotCore/task_system_v3/sync_contacts_adapter.py", line 29>)
+             16 LOAD_CONST               4 ('SyncContactsAdapter.__init__')
+             18 MAKE_FUNCTION            1 (defaults)
+             20 STORE_NAME               4 (__init__)
+
+ 65          22 LOAD_CONST               2 (None)
+             24 LOAD_CONST               5 (('return',))
+             26 BUILD_CONST_KEY_MAP      1
+             28 LOAD_CONST               6 (<code object bind_runtime at 0x1073ab710, file "WeRobotCore/task_system_v3/sync_contacts_adapter.py", line 65>)
+             30 LOAD_CONST               7 ('SyncContactsAdapter.bind_runtime')
+             32 MAKE_FUNCTION            4 (annotations)
+             34 STORE_NAME               5 (bind_runtime)
+
+ 81          36 LOAD_NAME                6 (Dict)
+             38 LOAD_NAME                7 (str)
+             40 LOAD_NAME                8 (Any)
+             42 BUILD_TUPLE              2
+             44 BINARY_SUBSCR
+             46 LOAD_CONST               5 (('return',))
+             48 BUILD_CONST_KEY_MAP      1
+             50 LOAD_CONST               8 (<code object get_task_config at 0x1073abf50, file "WeRobotCore/task_system_v3/sync_contacts_adapter.py", line 81>)
+             52 LOAD_CONST               9 ('SyncContactsAdapter.get_task_config')
+             54 MAKE_FUNCTION            4 (annotations)
+             56 STORE_NAME               9 (get_task_config)
+
+ 85          58 LOAD_NAME               10 (int)
+             60 LOAD_CONST               5 (('return',))
+             62 BUILD_CONST_KEY_MAP      1
+             64 LOAD_CONST              10 (<code object get_timeout_seconds at 0x1073ab450, file "WeRobotCore/task_system_v3/sync_contacts_adapter.py", line 85>)
+             66 LOAD_CONST              11 ('SyncContactsAdapter.get_timeout_seconds')
+             68 MAKE_FUNCTION            4 (annotations)
+             70 STORE_NAME              11 (get_timeout_seconds)
+
+ 89          72 LOAD_NAME                6 (Dict)
+             74 LOAD_NAME                7 (str)
+             76 LOAD_NAME                8 (Any)
+             78 BUILD_TUPLE              2
+             80 BINARY_SUBSCR
+             82 LOAD_CONST               5 (('return',))
+             84 BUILD_CONST_KEY_MAP      1
+             86 LOAD_CONST              12 (<code object get_misfire_config at 0x1073ab0e0, file "WeRobotCore/task_system_v3/sync_contacts_adapter.py", line 89>)
+             88 LOAD_CONST              13 ('SyncContactsAdapter.get_misfire_config')
+             90 MAKE_FUNCTION            4 (annotations)
+             92 STORE_NAME              12 (get_misfire_config)
+
+ 96          94 LOAD_NAME               13 (bool)
+             96 LOAD_CONST               5 (('return',))
+             98 BUILD_CONST_KEY_MAP      1
+            100 LOAD_CONST              14 (<code object is_auto_resume_enabled at 0x1073ab2f0, file "WeRobotCore/task_system_v3/sync_contacts_adapter.py", line 96>)
+            102 LOAD_CONST              15 ('SyncContactsAdapter.is_auto_resume_enabled')
+            104 MAKE_FUNCTION            4 (annotations)
+            106 STORE_NAME              14 (is_auto_resume_enabled)
+
+100         108 LOAD_NAME                7 (str)
+            110 LOAD_CONST               5 (('return',))
+            112 BUILD_CONST_KEY_MAP      1
+            114 LOAD_CONST              16 (<code object get_auto_resume_task_type at 0x1073ab030, file "WeRobotCore/task_system_v3/sync_contacts_adapter.py", line 100>)
+            116 LOAD_CONST              17 ('SyncContactsAdapter.get_auto_resume_task_type')
+            118 MAKE_FUNCTION            4 (annotations)
+            120 STORE_NAME              15 (get_auto_resume_task_type)
+
+104         122 LOAD_NAME               16 (ScheduleConfig)
+            124 LOAD_NAME               16 (ScheduleConfig)
+            126 LOAD_CONST              18 (('schedule_config', 'return'))
+            128 BUILD_CONST_KEY_MAP      2
+            130 LOAD_CONST              19 (<code object apply_task_config_to_schedule at 0x1073ab500, file "WeRobotCore/task_system_v3/sync_contacts_adapter.py", line 104>)
+            132 LOAD_CONST              20 ('SyncContactsAdapter.apply_task_config_to_schedule')
+            134 MAKE_FUNCTION            4 (annotations)
+            136 STORE_NAME              17 (apply_task_config_to_schedule)
+
+130         138 LOAD_CONST              21 (<code object start at 0x1073ab190, file "WeRobotCore/task_system_v3/sync_contacts_adapter.py", line 130>)
+            140 LOAD_CONST              22 ('SyncContactsAdapter.start')
+            142 MAKE_FUNCTION            0
+            144 STORE_NAME              18 (start)
+
+145         146 LOAD_CONST              23 (<code object stop at 0x1073ab7c0, file "WeRobotCore/task_system_v3/sync_contacts_adapter.py", line 145>)
+            148 LOAD_CONST              24 ('SyncContactsAdapter.stop')
+            150 MAKE_FUNCTION            0
+            152 STORE_NAME              19 (stop)
+
+165         154 LOAD_NAME                7 (str)
+            156 LOAD_CONST               5 (('return',))
+            158 BUILD_CONST_KEY_MAP      1
+            160 LOAD_CONST              25 (<code object generate_task_id at 0x1073abd40, file "WeRobotCore/task_system_v3/sync_contacts_adapter.py", line 165>)
+            162 LOAD_CONST              26 ('SyncContactsAdapter.generate_task_id')
+            164 MAKE_FUNCTION            4 (annotations)
+            166 STORE_NAME              20 (generate_task_id)
+
+170         168 LOAD_NAME                6 (Dict)
+            170 LOAD_NAME                7 (str)
+            172 LOAD_NAME                8 (Any)
+            174 BUILD_TUPLE              2
+            176 BINARY_SUBSCR
+            178 LOAD_NAME                6 (Dict)
+            180 LOAD_NAME                7 (str)
+            182 LOAD_NAME                8 (Any)
+            184 BUILD_TUPLE              2
+            186 BINARY_SUBSCR
+            188 LOAD_CONST              27 (('task_data', 'return'))
+            190 BUILD_CONST_KEY_MAP      2
+            192 LOAD_CONST              28 (<code object _build_task_metadata at 0x1073ab870, file "WeRobotCore/task_system_v3/sync_contacts_adapter.py", line 170>)
+            194 LOAD_CONST              29 ('SyncContactsAdapter._build_task_metadata')
+            196 MAKE_FUNCTION            4 (annotations)
+            198 STORE_NAME              21 (_build_task_metadata)
+
+203         200 LOAD_CONST              59 ((None,))
+            202 LOAD_NAME                6 (Dict)
+            204 LOAD_NAME                7 (str)
+            206 LOAD_NAME                8 (Any)
+            208 BUILD_TUPLE              2
+            210 BINARY_SUBSCR
+
+204         212 LOAD_NAME               22 (Optional)
+            214 LOAD_NAME                7 (str)
+            216 BINARY_SUBSCR
+            218 LOAD_NAME               22 (Optional)
+            220 LOAD_NAME               23 (datetime)
+            222 BINARY_SUBSCR
+
+203         224 LOAD_CONST              30 (('sync_config', 'last_execution_date', 'return'))
+            226 BUILD_CONST_KEY_MAP      3
+            228 LOAD_CONST              31 (<code object _calculate_next_execution_time at 0x1073ab660, file "WeRobotCore/task_system_v3/sync_contacts_adapter.py", line 203>)
+            230 LOAD_CONST              32 ('SyncContactsAdapter._calculate_next_execution_time')
+            232 MAKE_FUNCTION            5 (defaults, annotations)
+            234 STORE_NAME              24 (_calculate_next_execution_time)
+
+303         236 LOAD_NAME                6 (Dict)
+            238 LOAD_NAME                7 (str)
+            240 LOAD_NAME                8 (Any)
+            242 BUILD_TUPLE              2
+            244 BINARY_SUBSCR
+            246 LOAD_NAME                6 (Dict)
+            248 LOAD_NAME                7 (str)
+            250 LOAD_NAME                8 (Any)
+            252 BUILD_TUPLE              2
+            254 BINARY_SUBSCR
+            256 LOAD_CONST              33 (('task_request', 'return'))
+            258 BUILD_CONST_KEY_MAP      2
+            260 LOAD_CONST              34 (<code object create_sync_contacts_task at 0x1073aba80, file "WeRobotCore/task_system_v3/sync_contacts_adapter.py", line 303>)
+            262 LOAD_CONST              35 ('SyncContactsAdapter.create_sync_contacts_task')
+            264 MAKE_FUNCTION            4 (annotations)
+            266 STORE_NAME              25 (create_sync_contacts_task)
+
+380         268 LOAD_NAME               26 (TaskExecutionContext)
+            270 LOAD_NAME                6 (Dict)
+            272 LOAD_NAME                7 (str)
+            274 LOAD_NAME                8 (Any)
+            276 BUILD_TUPLE              2
+            278 BINARY_SUBSCR
+            280 LOAD_NAME                6 (Dict)
+            282 LOAD_NAME                7 (str)
+            284 LOAD_NAME                8 (Any)
+            286 BUILD_TUPLE              2
+            288 BINARY_SUBSCR
+            290 LOAD_CONST              36 (('context', 'params', 'return'))
+            292 BUILD_CONST_KEY_MAP      3
+            294 LOAD_CONST              37 (<code object _execute_sync_contacts_task at 0x1073abc90, file "WeRobotCore/task_system_v3/sync_contacts_adapter.py", line 380>)
+            296 LOAD_CONST              38 ('SyncContactsAdapter._execute_sync_contacts_task')
+            298 MAKE_FUNCTION            4 (annotations)
+            300 STORE_NAME              27 (_execute_sync_contacts_task)
+
+430         302 LOAD_NAME                6 (Dict)
+            304 LOAD_NAME                7 (str)
+            306 LOAD_NAME                8 (Any)
+            308 BUILD_TUPLE              2
+            310 BINARY_SUBSCR
+            312 LOAD_NAME                6 (Dict)
+            314 LOAD_NAME                7 (str)
+            316 LOAD_NAME                8 (Any)
+            318 BUILD_TUPLE              2
+            320 BINARY_SUBSCR
+            322 LOAD_CONST              39 (('metadata', 'return'))
+            324 BUILD_CONST_KEY_MAP      2
+            326 LOAD_CONST              40 (<code object _perform_sync_contacts_task at 0x1073abbe0, file "WeRobotCore/task_system_v3/sync_contacts_adapter.py", line 430>)
+            328 LOAD_CONST              41 ('SyncContactsAdapter._perform_sync_contacts_task')
+            330 MAKE_FUNCTION            4 (annotations)
+            332 STORE_NAME              28 (_perform_sync_contacts_task)
+
+487         334 LOAD_NAME                7 (str)
+            336 LOAD_NAME                6 (Dict)
+            338 LOAD_NAME                7 (str)
+            340 LOAD_NAME                8 (Any)
+            342 BUILD_TUPLE              2
+            344 BINARY_SUBSCR
+            346 LOAD_CONST              42 (('schedule_id', 'result'))
+            348 BUILD_CONST_KEY_MAP      2
+            350 LOAD_CONST              43 (<code object _record_execution at 0x1073ab920, file "WeRobotCore/task_system_v3/sync_contacts_adapter.py", line 487>)
+            352 LOAD_CONST              44 ('SyncContactsAdapter._record_execution')
+            354 MAKE_FUNCTION            4 (annotations)
+            356 STORE_NAME              29 (_record_execution)
+
+512         358 LOAD_NAME                7 (str)
+            360 LOAD_NAME                6 (Dict)
+            362 LOAD_NAME                7 (str)
+            364 LOAD_NAME                8 (Any)
+            366 BUILD_TUPLE              2
+            368 BINARY_SUBSCR
+            370 LOAD_CONST              45 (('schedule_id', 'metadata'))
+            372 BUILD_CONST_KEY_MAP      2
+            374 LOAD_CONST              46 (<code object _reschedule_task at 0x1073aa450, file "WeRobotCore/task_system_v3/sync_contacts_adapter.py", line 512>)
+            376 LOAD_CONST              47 ('SyncContactsAdapter._reschedule_task')
+            378 MAKE_FUNCTION            4 (annotations)
+            380 STORE_NAME              30 (_reschedule_task)
+
+537         382 LOAD_NAME                7 (str)
+            384 LOAD_NAME                6 (Dict)
+            386 LOAD_NAME                7 (str)
+            388 LOAD_NAME                8 (Any)
+            390 BUILD_TUPLE              2
+            392 BINARY_SUBSCR
+            394 LOAD_CONST              48 (('task_id', 'return'))
+            396 BUILD_CONST_KEY_MAP      2
+            398 LOAD_CONST              49 (<code object cancel_sync_contacts_task at 0x1073aa920, file "WeRobotCore/task_system_v3/sync_contacts_adapter.py", line 537>)
+            400 LOAD_CONST              50 ('SyncContactsAdapter.cancel_sync_contacts_task')
+            402 MAKE_FUNCTION            4 (annotations)
+            404 STORE_NAME              31 (cancel_sync_contacts_task)
+
+550         406 LOAD_NAME                7 (str)
+            408 LOAD_NAME                6 (Dict)
+            410 LOAD_NAME                7 (str)
+            412 LOAD_NAME                8 (Any)
+            414 BUILD_TUPLE              2
+            416 BINARY_SUBSCR
+            418 LOAD_CONST              48 (('task_id', 'return'))
+            420 BUILD_CONST_KEY_MAP      2
+            422 LOAD_CONST              51 (<code object get_sync_contacts_task_info at 0x1073aabe0, file "WeRobotCore/task_system_v3/sync_contacts_adapter.py", line 550>)
+            424 LOAD_CONST              52 ('SyncContactsAdapter.get_sync_contacts_task_info')
+            426 MAKE_FUNCTION            4 (annotations)
+            428 STORE_NAME              32 (get_sync_contacts_task_info)
+
+562         430 LOAD_CONST              60 ((None,))
+            432 LOAD_NAME                7 (str)
+            434 LOAD_NAME                6 (Dict)
+            436 LOAD_NAME                7 (str)
+            438 LOAD_NAME                8 (Any)
+            440 BUILD_TUPLE              2
+            442 BINARY_SUBSCR
+            444 LOAD_CONST              53 (('status', 'return'))
+            446 BUILD_CONST_KEY_MAP      2
+            448 LOAD_CONST              54 (<code object get_sync_contacts_tasks at 0x1073aac90, file "WeRobotCore/task_system_v3/sync_contacts_adapter.py", line 562>)
+            450 LOAD_CONST              55 ('SyncContactsAdapter.get_sync_contacts_tasks')
+            452 MAKE_FUNCTION            5 (defaults, annotations)
+            454 STORE_NAME              33 (get_sync_contacts_tasks)
+
+585         456 LOAD_NAME                6 (Dict)
+            458 LOAD_NAME                7 (str)
+            460 LOAD_NAME                8 (Any)
+            462 BUILD_TUPLE              2
+            464 BINARY_SUBSCR
+            466 LOAD_CONST               5 (('return',))
+            468 BUILD_CONST_KEY_MAP      1
+            470 LOAD_CONST              56 (<code object get_sync_contacts_task_status at 0x1073aa2f0, file "WeRobotCore/task_system_v3/sync_contacts_adapter.py", line 585>)
+            472 LOAD_CONST              57 ('SyncContactsAdapter.get_sync_contacts_task_status')
+            474 MAKE_FUNCTION            4 (annotations)
+            476 STORE_NAME              34 (get_sync_contacts_task_status)
+            478 LOAD_CONST               2 (None)
+            480 RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x1073abdf0, file "WeRobotCore/task_system_v3/sync_contacts_adapter.py", line 29>:
+ 30           0 LOAD_FAST                1 (unified_scheduler)
+              2 LOAD_FAST                0 (self)
+              4 STORE_ATTR               0 (scheduler)
+
+ 31           6 LOAD_FAST                2 (permission_manager)
+              8 LOAD_FAST                0 (self)
+             10 STORE_ATTR               1 (permission_manager)
+
+ 32          12 LOAD_GLOBAL              2 (get_logger)
+             14 LOAD_CONST               1 ('sync_contacts_adapter')
+             16 CALL_FUNCTION            1
+             18 LOAD_FAST                0 (self)
+             20 STORE_ATTR               3 (logger)
+
+ 33          22 LOAD_GLOBAL              4 (task_logger)
+             24 LOAD_FAST                0 (self)
+             26 STORE_ATTR               4 (task_logger)
+
+ 36          28 BUILD_MAP                0
+             30 LOAD_FAST                0 (self)
+             32 STORE_ATTR               5 (_task_instances)
+
+ 37          34 BUILD_MAP                0
+             36 LOAD_FAST                0 (self)
+             38 STORE_ATTR               6 (_task_instance_timestamps)
+
+ 40          40 LOAD_CONST               2 (False)
+             42 LOAD_FAST                0 (self)
+             44 STORE_ATTR               7 (_is_running)
+
+ 41          46 LOAD_CONST               0 (None)
+             48 LOAD_FAST                0 (self)
+             50 STORE_ATTR               8 (_startup_time)
+
+ 42          52 LOAD_CONST               0 (None)
+             54 LOAD_FAST                0 (self)
+             56 STORE_ATTR               9 (_runtime)
+
+ 43          58 LOAD_FAST                3 (runtime)
+             60 LOAD_CONST               0 (None)
+             62 IS_OP                    1
+             64 POP_JUMP_IF_FALSE       76
+
+ 44          66 LOAD_FAST                0 (self)
+             68 LOAD_METHOD             10 (bind_runtime)
+             70 LOAD_FAST                3 (runtime)
+             72 CALL_METHOD              1
+             74 POP_TOP
+
+ 49     >>   76 LOAD_CONST               3 (3600)
+
+ 52          78 LOAD_CONST               4 (2)
+
+ 53          80 LOAD_CONST               5 (True)
+
+ 56          82 LOAD_CONST               5 (True)
+
+ 57          84 LOAD_CONST               6 ('sync_contacts')
+
+ 47          86 LOAD_CONST               7 (('timeout_seconds', 'misfire_grace_time_hours', 'coalesce', 'auto_resume_enabled', 'auto_resume_task_type'))
+             88 BUILD_CONST_KEY_MAP      5
+             90 LOAD_FAST                0 (self)
+             92 STORE_ATTR              11 (_sync_contacts_config)
+
+ 60          94 LOAD_FAST                0 (self)
+             96 LOAD_ATTR                0 (scheduler)
+             98 LOAD_METHOD             12 (register_task_executor)
+            100 LOAD_GLOBAL             13 (TaskType)
+            102 LOAD_ATTR               14 (SYNC_CONTACTS)
+            104 LOAD_FAST                0 (self)
+            106 LOAD_ATTR               15 (_execute_sync_contacts_task)
+            108 CALL_METHOD              2
+            110 POP_TOP
+
+ 62         112 LOAD_FAST                0 (self)
+            114 LOAD_METHOD             16 (is_auto_resume_enabled)
+            116 CALL_METHOD              0
+            118 POP_JUMP_IF_FALSE      136
+
+ 63         120 LOAD_FAST                0 (self)
+            122 LOAD_ATTR                0 (scheduler)
+            124 LOAD_METHOD             17 (register_auto_resume_task_type)
+            126 LOAD_FAST                0 (self)
+            128 LOAD_METHOD             18 (get_auto_resume_task_type)
+            130 CALL_METHOD              0
+            132 CALL_METHOD              1
+            134 POP_TOP
+        >>  136 LOAD_CONST               0 (None)
+            138 RETURN_VALUE
+
+Disassembly of <code object bind_runtime at 0x1073ab710, file "WeRobotCore/task_system_v3/sync_contacts_adapter.py", line 65>:
+ 72           0 LOAD_GLOBAL              0 (getattr)
+              2 LOAD_FAST                1 (runtime)
+              4 LOAD_CONST               1 ('execute')
+              6 LOAD_CONST               2 (None)
+              8 CALL_FUNCTION            3
+             10 STORE_FAST               2 (execute)
+
+ 73          12 LOAD_GLOBAL              1 (callable)
+             14 LOAD_FAST                2 (execute)
+             16 CALL_FUNCTION            1
+             18 POP_JUMP_IF_TRUE        28
+
+ 74          20 LOAD_GLOBAL              2 (TypeError)
+             22 LOAD_CONST               3 ('sync contacts runtime must expose execute()')
+             24 CALL_FUNCTION            1
+             26 RAISE_VARARGS            1
+
+ 75     >>   28 LOAD_FAST                0 (self)
+             30 LOAD_ATTR                3 (_is_running)
+             32 POP_JUMP_IF_FALSE       42
+
+ 76          34 LOAD_GLOBAL              4 (RuntimeError)
+             36 LOAD_CONST               4 ('sync contacts runtime cannot be rebound while running')
+             38 CALL_FUNCTION            1
+             40 RAISE_VARARGS            1
+
+ 77     >>   42 LOAD_FAST                0 (self)
+             44 LOAD_ATTR                5 (_runtime)
+             46 LOAD_CONST               2 (None)
+             48 IS_OP                    1
+             50 POP_JUMP_IF_FALSE       70
+             52 LOAD_FAST                0 (self)
+             54 LOAD_ATTR                5 (_runtime)
+             56 LOAD_FAST                1 (runtime)
+             58 IS_OP                    1
+             60 POP_JUMP_IF_FALSE       70
+
+ 78          62 LOAD_GLOBAL              4 (RuntimeError)
+             64 LOAD_CONST               5 ('sync contacts runtime is already bound')
+             66 CALL_FUNCTION            1
+             68 RAISE_VARARGS            1
+
+ 79     >>   70 LOAD_FAST                1 (runtime)
+             72 LOAD_FAST                0 (self)
+             74 STORE_ATTR               5 (_runtime)
+             76 LOAD_CONST               2 (None)
+             78 RETURN_VALUE
+
+Disassembly of <code object get_task_config at 0x1073abf50, file "WeRobotCore/task_system_v3/sync_contacts_adapter.py", line 81>:
+ 83           0 LOAD_FAST                0 (self)
+              2 LOAD_ATTR                0 (_sync_contacts_config)
+              4 LOAD_METHOD              1 (copy)
+              6 CALL_METHOD              0
+              8 RETURN_VALUE
+
+Disassembly of <code object get_timeout_seconds at 0x1073ab450, file "WeRobotCore/task_system_v3/sync_contacts_adapter.py", line 85>:
+ 87           0 LOAD_FAST                0 (self)
+              2 LOAD_ATTR                0 (_sync_contacts_config)
+              4 LOAD_CONST               1 ('timeout_seconds')
+              6 BINARY_SUBSCR
+              8 RETURN_VALUE
+
+Disassembly of <code object get_misfire_config at 0x1073ab0e0, file "WeRobotCore/task_system_v3/sync_contacts_adapter.py", line 89>:
+ 92           0 LOAD_FAST                0 (self)
+              2 LOAD_ATTR                0 (_sync_contacts_config)
+              4 LOAD_CONST               1 ('misfire_grace_time_hours')
+              6 BINARY_SUBSCR
+
+ 93           8 LOAD_FAST                0 (self)
+             10 LOAD_ATTR                0 (_sync_contacts_config)
+             12 LOAD_CONST               2 ('coalesce')
+             14 BINARY_SUBSCR
+
+ 91          16 LOAD_CONST               3 (('misfire_grace_time_hours', 'coalesce'))
+             18 BUILD_CONST_KEY_MAP      2
+             20 RETURN_VALUE
+
+Disassembly of <code object is_auto_resume_enabled at 0x1073ab2f0, file "WeRobotCore/task_system_v3/sync_contacts_adapter.py", line 96>:
+ 98           0 LOAD_FAST                0 (self)
+              2 LOAD_ATTR                0 (_sync_contacts_config)
+              4 LOAD_CONST               1 ('auto_resume_enabled')
+              6 BINARY_SUBSCR
+              8 RETURN_VALUE
+
+Disassembly of <code object get_auto_resume_task_type at 0x1073ab030, file "WeRobotCore/task_system_v3/sync_contacts_adapter.py", line 100>:
+102           0 LOAD_FAST                0 (self)
+              2 LOAD_ATTR                0 (_sync_contacts_config)
+              4 LOAD_CONST               1 ('auto_resume_task_type')
+              6 BINARY_SUBSCR
+              8 RETURN_VALUE
+
+Disassembly of <code object apply_task_config_to_schedule at 0x1073ab500, file "WeRobotCore/task_system_v3/sync_contacts_adapter.py", line 104>:
+114           0 LOAD_GLOBAL              0 (ScheduleConfig)
+
+115           2 LOAD_FAST                1 (schedule_config)
+              4 LOAD_ATTR                1 (trigger_type)
+
+116           6 LOAD_FAST                1 (schedule_config)
+              8 LOAD_ATTR                2 (trigger_args)
+             10 LOAD_METHOD              3 (copy)
+             12 CALL_METHOD              0
+
+117          14 LOAD_FAST                1 (schedule_config)
+             16 LOAD_ATTR                4 (execution_mode)
+
+118          18 LOAD_FAST                1 (schedule_config)
+             20 LOAD_ATTR                5 (misfire_grace_time)
+
+119          22 LOAD_FAST                1 (schedule_config)
+             24 LOAD_ATTR                6 (coalesce)
+
+114          26 LOAD_CONST               1 (('trigger_type', 'trigger_args', 'execution_mode', 'misfire_grace_time', 'coalesce'))
+             28 CALL_FUNCTION_KW         5
+             30 STORE_FAST               2 (optimized_config)
+
+123          32 LOAD_GLOBAL              7 (int)
+
+124          34 LOAD_FAST                0 (self)
+             36 LOAD_ATTR                8 (_sync_contacts_config)
+             38 LOAD_CONST               2 ('misfire_grace_time_hours')
+             40 BINARY_SUBSCR
+             42 LOAD_CONST               3 (3600)
+             44 BINARY_MULTIPLY
+
+123          46 CALL_FUNCTION            1
+             48 LOAD_FAST                2 (optimized_config)
+             50 STORE_ATTR               5 (misfire_grace_time)
+
+126          52 LOAD_FAST                0 (self)
+             54 LOAD_ATTR                8 (_sync_contacts_config)
+             56 LOAD_CONST               4 ('coalesce')
+             58 BINARY_SUBSCR
+             60 LOAD_FAST                2 (optimized_config)
+             62 STORE_ATTR               6 (coalesce)
+
+128          64 LOAD_FAST                2 (optimized_config)
+             66 RETURN_VALUE
+
+Disassembly of <code object start at 0x1073ab190, file "WeRobotCore/task_system_v3/sync_contacts_adapter.py", line 130>:
+132           0 SETUP_FINALLY           46 (to 48)
+
+133           2 LOAD_FAST                0 (self)
+              4 LOAD_ATTR                0 (_is_running)
+              6 POP_JUMP_IF_FALSE       26
+
+134           8 LOAD_FAST                0 (self)
+             10 LOAD_ATTR                1 (logger)
+             12 LOAD_METHOD              2 (warning)
+             14 LOAD_CONST               1 ('自动同步通讯录适配器已在运行')
+             16 CALL_METHOD              1
+             18 POP_TOP
+
+135          20 POP_BLOCK
+             22 LOAD_CONST               2 (True)
+             24 RETURN_VALUE
+
+137     >>   26 LOAD_CONST               2 (True)
+             28 LOAD_FAST                0 (self)
+             30 STORE_ATTR               0 (_is_running)
+
+138          32 LOAD_GLOBAL              3 (datetime)
+             34 LOAD_METHOD              4 (now)
+             36 CALL_METHOD              0
+             38 LOAD_FAST                0 (self)
+             40 STORE_ATTR               5 (_startup_time)
+
+139          42 POP_BLOCK
+             44 LOAD_CONST               2 (True)
+             46 RETURN_VALUE
+
+141     >>   48 DUP_TOP
+             50 LOAD_GLOBAL              6 (Exception)
+             52 JUMP_IF_NOT_EXC_MATCH   102
+             54 POP_TOP
+             56 STORE_FAST               1 (e)
+             58 POP_TOP
+             60 SETUP_FINALLY           32 (to 94)
+
+142          62 LOAD_FAST                0 (self)
+             64 LOAD_ATTR                1 (logger)
+             66 LOAD_METHOD              7 (error)
+             68 LOAD_CONST               3 ('启动自动同步通讯录适配器失败: ')
+             70 LOAD_FAST                1 (e)
+             72 FORMAT_VALUE             0
+             74 BUILD_STRING             2
+             76 CALL_METHOD              1
+             78 POP_TOP
+
+143          80 POP_BLOCK
+             82 POP_EXCEPT
+             84 LOAD_CONST               4 (None)
+             86 STORE_FAST               1 (e)
+             88 DELETE_FAST              1 (e)
+             90 LOAD_CONST               5 (False)
+             92 RETURN_VALUE
+        >>   94 LOAD_CONST               4 (None)
+             96 STORE_FAST               1 (e)
+             98 DELETE_FAST              1 (e)
+            100 RERAISE
+        >>  102 RERAISE
+            104 LOAD_CONST               4 (None)
+            106 RETURN_VALUE
+
+Disassembly of <code object stop at 0x1073ab7c0, file "WeRobotCore/task_system_v3/sync_contacts_adapter.py", line 145>:
+147           0 SETUP_FINALLY           74 (to 76)
+
+148           2 LOAD_FAST                0 (self)
+              4 LOAD_ATTR                0 (_is_running)
+              6 POP_JUMP_IF_TRUE        26
+
+149           8 LOAD_FAST                0 (self)
+             10 LOAD_ATTR                1 (logger)
+             12 LOAD_METHOD              2 (warning)
+             14 LOAD_CONST               1 ('自动同步通讯录适配器未在运行')
+             16 CALL_METHOD              1
+             18 POP_TOP
+
+150          20 POP_BLOCK
+             22 LOAD_CONST               2 (True)
+             24 RETURN_VALUE
+
+153     >>   26 LOAD_FAST                0 (self)
+             28 LOAD_ATTR                3 (_task_instances)
+             30 LOAD_METHOD              4 (clear)
+             32 CALL_METHOD              0
+             34 POP_TOP
+
+154          36 LOAD_FAST                0 (self)
+             38 LOAD_ATTR                5 (_task_instance_timestamps)
+             40 LOAD_METHOD              4 (clear)
+             42 CALL_METHOD              0
+             44 POP_TOP
+
+156          46 LOAD_CONST               3 (False)
+             48 LOAD_FAST                0 (self)
+             50 STORE_ATTR               0 (_is_running)
+
+157          52 LOAD_CONST               4 (None)
+             54 LOAD_FAST                0 (self)
+             56 STORE_ATTR               6 (_startup_time)
+
+158          58 LOAD_FAST                0 (self)
+             60 LOAD_ATTR                1 (logger)
+             62 LOAD_METHOD              7 (info)
+             64 LOAD_CONST               5 ('自动同步通讯录适配器停止成功')
+             66 CALL_METHOD              1
+             68 POP_TOP
+
+159          70 POP_BLOCK
+             72 LOAD_CONST               2 (True)
+             74 RETURN_VALUE
+
+161     >>   76 DUP_TOP
+             78 LOAD_GLOBAL              8 (Exception)
+             80 JUMP_IF_NOT_EXC_MATCH   130
+             82 POP_TOP
+             84 STORE_FAST               1 (e)
+             86 POP_TOP
+             88 SETUP_FINALLY           32 (to 122)
+
+162          90 LOAD_FAST                0 (self)
+             92 LOAD_ATTR                1 (logger)
+             94 LOAD_METHOD              9 (error)
+             96 LOAD_CONST               6 ('停止自动同步通讯录适配器失败: ')
+             98 LOAD_FAST                1 (e)
+            100 FORMAT_VALUE             0
+            102 BUILD_STRING             2
+            104 CALL_METHOD              1
+            106 POP_TOP
+
+163         108 POP_BLOCK
+            110 POP_EXCEPT
+            112 LOAD_CONST               4 (None)
+            114 STORE_FAST               1 (e)
+            116 DELETE_FAST              1 (e)
+            118 LOAD_CONST               3 (False)
+            120 RETURN_VALUE
+        >>  122 LOAD_CONST               4 (None)
+            124 STORE_FAST               1 (e)
+            126 DELETE_FAST              1 (e)
+            128 RERAISE
+        >>  130 RERAISE
+            132 LOAD_CONST               4 (None)
+            134 RETURN_VALUE
+
+Disassembly of <code object generate_task_id at 0x1073abd40, file "WeRobotCore/task_system_v3/sync_contacts_adapter.py", line 165>:
+167           0 LOAD_GLOBAL              0 (datetime)
+              2 LOAD_METHOD              1 (now)
+              4 CALL_METHOD              0
+              6 LOAD_METHOD              2 (strftime)
+              8 LOAD_CONST               1 ('%Y%m%d_%H%M%S')
+             10 CALL_METHOD              1
+             12 STORE_FAST               1 (timestamp)
+
+168          14 LOAD_CONST               2 ('sync_contacts_')
+             16 LOAD_FAST                1 (timestamp)
+             18 FORMAT_VALUE             0
+             20 BUILD_STRING             2
+             22 RETURN_VALUE
+
+Disassembly of <code object _build_task_metadata at 0x1073ab870, file "WeRobotCore/task_system_v3/sync_contacts_adapter.py", line 170>:
+172           0 LOAD_FAST                0 (self)
+              2 LOAD_METHOD              0 (generate_task_id)
+              4 CALL_METHOD              0
+              6 STORE_FAST               2 (task_id)
+
+175           8 LOAD_GLOBAL              1 (datetime)
+             10 LOAD_METHOD              2 (now)
+             12 CALL_METHOD              0
+             14 LOAD_METHOD              3 (date)
+             16 CALL_METHOD              0
+             18 STORE_FAST               3 (start_date)
+
+177          20 LOAD_GLOBAL              1 (datetime)
+             22 LOAD_METHOD              2 (now)
+             24 CALL_METHOD              0
+             26 LOAD_METHOD              4 (isoformat)
+             28 CALL_METHOD              0
+             30 STORE_FAST               4 (current_time)
+
+181          32 LOAD_FAST                2 (task_id)
+
+182          34 LOAD_CONST               1 ('sync_contacts')
+
+183          36 LOAD_FAST                4 (current_time)
+
+184          38 LOAD_FAST                4 (current_time)
+
+180          40 LOAD_CONST               2 (('task_id', 'task_type', 'created_at', 'updated_at'))
+             42 BUILD_CONST_KEY_MAP      4
+
+187          44 LOAD_FAST                1 (task_data)
+             46 LOAD_METHOD              5 (get)
+             48 LOAD_CONST               3 ('sync_items')
+             50 LOAD_CONST               4 ('group')
+             52 BUILD_LIST               1
+             54 CALL_METHOD              2
+
+188          56 LOAD_FAST                1 (task_data)
+             58 LOAD_METHOD              5 (get)
+             60 LOAD_CONST               5 ('sync_frequency')
+             62 LOAD_CONST               6 (7)
+             64 CALL_METHOD              2
+
+189          66 LOAD_FAST                1 (task_data)
+             68 LOAD_METHOD              5 (get)
+             70 LOAD_CONST               7 ('time_range_start')
+             72 LOAD_CONST               8 ('02:00')
+             74 CALL_METHOD              2
+
+190          76 LOAD_FAST                1 (task_data)
+             78 LOAD_METHOD              5 (get)
+             80 LOAD_CONST               9 ('time_range_end')
+             82 LOAD_CONST              10 ('04:00')
+             84 CALL_METHOD              2
+
+191          86 LOAD_FAST                3 (start_date)
+             88 LOAD_METHOD              4 (isoformat)
+             90 CALL_METHOD              0
+
+186          92 LOAD_CONST              11 (('sync_items', 'sync_frequency', 'time_range_start', 'time_range_end', 'start_date'))
+             94 BUILD_CONST_KEY_MAP      5
+
+194          96 LOAD_CONST              12 (0)
+
+195          98 LOAD_CONST              13 ('')
+
+196         100 LOAD_CONST              12 (0)
+
+197         102 LOAD_CONST              12 (0)
+
+193         104 LOAD_CONST              14 (('execution_count', 'last_execution_time', 'total_success', 'total_failed'))
+            106 BUILD_CONST_KEY_MAP      4
+
+199         108 LOAD_CONST              15 ('active')
+
+200         110 BUILD_LIST               0
+
+179         112 LOAD_CONST              16 (('task_info', 'sync_config', 'execution_stats', 'task_status', 'execution_history'))
+            114 BUILD_CONST_KEY_MAP      5
+            116 RETURN_VALUE
+
+Disassembly of <code object _calculate_next_execution_time at 0x1073ab660, file "WeRobotCore/task_system_v3/sync_contacts_adapter.py", line 203>:
+216           0 EXTENDED_ARG             1
+              2 SETUP_FINALLY          438 (to 442)
+
+217           4 LOAD_GLOBAL              0 (datetime)
+              6 LOAD_METHOD              1 (now)
+              8 CALL_METHOD              0
+             10 STORE_FAST               3 (current_time)
+
+218          12 LOAD_FAST                3 (current_time)
+             14 LOAD_METHOD              2 (date)
+             16 CALL_METHOD              0
+             18 STORE_FAST               4 (current_date)
+
+221          20 LOAD_FAST                1 (sync_config)
+             22 LOAD_METHOD              3 (get)
+             24 LOAD_CONST               1 ('time_range_start')
+             26 LOAD_CONST               2 ('02:00')
+             28 CALL_METHOD              2
+             30 STORE_FAST               5 (time_range_start)
+
+222          32 LOAD_FAST                1 (sync_config)
+             34 LOAD_METHOD              3 (get)
+             36 LOAD_CONST               3 ('time_range_end')
+             38 LOAD_CONST               4 ('04:00')
+             40 CALL_METHOD              2
+             42 STORE_FAST               6 (time_range_end)
+
+224          44 LOAD_GLOBAL              4 (map)
+             46 LOAD_GLOBAL              5 (int)
+             48 LOAD_FAST                5 (time_range_start)
+             50 LOAD_METHOD              6 (split)
+             52 LOAD_CONST               5 (':')
+             54 CALL_METHOD              1
+             56 CALL_FUNCTION            2
+             58 UNPACK_SEQUENCE          2
+             60 STORE_DEREF              2 (start_hour)
+             62 STORE_DEREF              3 (start_minute)
+
+225          64 LOAD_GLOBAL              4 (map)
+             66 LOAD_GLOBAL              5 (int)
+             68 LOAD_FAST                6 (time_range_end)
+             70 LOAD_METHOD              6 (split)
+             72 LOAD_CONST               5 (':')
+             74 CALL_METHOD              1
+             76 CALL_FUNCTION            2
+             78 UNPACK_SEQUENCE          2
+             80 STORE_DEREF              0 (end_hour)
+             82 STORE_DEREF              1 (end_minute)
+
+228          84 LOAD_FAST                1 (sync_config)
+             86 LOAD_METHOD              3 (get)
+             88 LOAD_CONST               6 ('sync_frequency')
+             90 LOAD_CONST               7 (7)
+             92 CALL_METHOD              2
+             94 STORE_FAST               7 (sync_frequency)
+
+231          96 LOAD_GLOBAL              0 (datetime)
+             98 LOAD_GLOBAL              7 (bool)
+            100 LOAD_CONST               8 (('check_time', 'return'))
+            102 BUILD_CONST_KEY_MAP      2
+            104 LOAD_CLOSURE             0 (end_hour)
+            106 LOAD_CLOSURE             1 (end_minute)
+            108 LOAD_CLOSURE             2 (start_hour)
+            110 LOAD_CLOSURE             3 (start_minute)
+            112 BUILD_TUPLE              4
+            114 LOAD_CONST               9 (<code object is_in_time_range at 0x1073ab240, file "WeRobotCore/task_system_v3/sync_contacts_adapter.py", line 231>)
+            116 LOAD_CONST              10 ('SyncContactsAdapter._calculate_next_execution_time.<locals>.is_in_time_range')
+            118 MAKE_FUNCTION           12 (annotations, closure)
+            120 STORE_FAST               8 (is_in_time_range)
+
+247         122 LOAD_FAST                2 (last_execution_date)
+            124 POP_JUMP_IF_TRUE       236
+
+249         126 LOAD_FAST                8 (is_in_time_range)
+            128 LOAD_FAST                3 (current_time)
+            130 CALL_FUNCTION            1
+            132 POP_JUMP_IF_FALSE      150
+
+251         134 LOAD_FAST                3 (current_time)
+            136 LOAD_GLOBAL              8 (timedelta)
+            138 LOAD_CONST              11 (1)
+            140 LOAD_CONST              12 (('minutes',))
+            142 CALL_FUNCTION_KW         1
+            144 BINARY_ADD
+            146 STORE_FAST               9 (next_execution_time)
+            148 JUMP_FORWARD            84 (to 234)
+
+255     >>  150 LOAD_GLOBAL              0 (datetime)
+            152 LOAD_METHOD              9 (combine)
+
+256         154 LOAD_FAST                4 (current_date)
+
+257         156 LOAD_GLOBAL              0 (datetime)
+            158 LOAD_ATTR               10 (min)
+            160 LOAD_METHOD             11 (time)
+            162 CALL_METHOD              0
+            164 LOAD_ATTR               12 (replace)
+            166 LOAD_DEREF               2 (start_hour)
+            168 LOAD_DEREF               3 (start_minute)
+            170 LOAD_CONST              13 (('hour', 'minute'))
+            172 CALL_FUNCTION_KW         2
+
+255         174 CALL_METHOD              2
+            176 STORE_FAST              10 (today_start_time)
+
+260         178 LOAD_FAST                3 (current_time)
+            180 LOAD_FAST               10 (today_start_time)
+            182 COMPARE_OP               0 (<)
+            184 POP_JUMP_IF_FALSE      192
+
+262         186 LOAD_FAST               10 (today_start_time)
+            188 STORE_FAST               9 (next_execution_time)
+            190 JUMP_FORWARD            42 (to 234)
+
+265     >>  192 LOAD_FAST                4 (current_date)
+            194 LOAD_GLOBAL              8 (timedelta)
+            196 LOAD_CONST              11 (1)
+            198 LOAD_CONST              14 (('days',))
+            200 CALL_FUNCTION_KW         1
+            202 BINARY_ADD
+            204 STORE_FAST              11 (next_date)
+
+266         206 LOAD_GLOBAL              0 (datetime)
+            208 LOAD_METHOD              9 (combine)
+
+267         210 LOAD_FAST               11 (next_date)
+
+268         212 LOAD_GLOBAL              0 (datetime)
+            214 LOAD_ATTR               10 (min)
+            216 LOAD_METHOD             11 (time)
+            218 CALL_METHOD              0
+            220 LOAD_ATTR               12 (replace)
+            222 LOAD_DEREF               2 (start_hour)
+            224 LOAD_DEREF               3 (start_minute)
+            226 LOAD_CONST              13 (('hour', 'minute'))
+            228 CALL_FUNCTION_KW         2
+
+266         230 CALL_METHOD              2
+            232 STORE_FAST               9 (next_execution_time)
+        >>  234 JUMP_FORWARD           180 (to 416)
+
+272     >>  236 SETUP_FINALLY          112 (to 350)
+
+273         238 LOAD_GLOBAL              0 (datetime)
+            240 LOAD_METHOD             13 (strptime)
+            242 LOAD_FAST                2 (last_execution_date)
+            244 LOAD_CONST              15 ('%Y-%m-%d')
+            246 CALL_METHOD              2
+            248 LOAD_METHOD              2 (date)
+            250 CALL_METHOD              0
+            252 STORE_FAST              12 (last_date)
+
+274         254 LOAD_FAST               12 (last_date)
+            256 LOAD_GLOBAL              8 (timedelta)
+            258 LOAD_FAST                7 (sync_frequency)
+            260 LOAD_CONST              14 (('days',))
+            262 CALL_FUNCTION_KW         1
+            264 BINARY_ADD
+            266 STORE_FAST              11 (next_date)
+
+277         268 LOAD_FAST               11 (next_date)
+            270 LOAD_FAST                4 (current_date)
+            272 COMPARE_OP               0 (<)
+            274 EXTENDED_ARG             1
+            276 POP_JUMP_IF_FALSE      318
+
+280         278 LOAD_FAST                4 (current_date)
+            280 LOAD_FAST               12 (last_date)
+            282 BINARY_SUBTRACT
+            284 LOAD_ATTR               14 (days)
+            286 STORE_FAST              13 (days_since_last)
+
+281         288 LOAD_FAST               13 (days_since_last)
+            290 LOAD_FAST                7 (sync_frequency)
+            292 BINARY_FLOOR_DIVIDE
+            294 STORE_FAST              14 (cycles_passed)
+
+282         296 LOAD_FAST               12 (last_date)
+            298 LOAD_GLOBAL              8 (timedelta)
+            300 LOAD_FAST               14 (cycles_passed)
+            302 LOAD_CONST              11 (1)
+            304 BINARY_ADD
+            306 LOAD_FAST                7 (sync_frequency)
+            308 BINARY_MULTIPLY
+            310 LOAD_CONST              14 (('days',))
+            312 CALL_FUNCTION_KW         1
+            314 BINARY_ADD
+            316 STORE_FAST              11 (next_date)
+
+285     >>  318 LOAD_GLOBAL              0 (datetime)
+            320 LOAD_METHOD              9 (combine)
+
+286         322 LOAD_FAST               11 (next_date)
+
+287         324 LOAD_GLOBAL              0 (datetime)
+            326 LOAD_ATTR               10 (min)
+            328 LOAD_METHOD             11 (time)
+            330 CALL_METHOD              0
+            332 LOAD_ATTR               12 (replace)
+            334 LOAD_DEREF               2 (start_hour)
+            336 LOAD_DEREF               3 (start_minute)
+            338 LOAD_CONST              13 (('hour', 'minute'))
+            340 CALL_FUNCTION_KW         2
+
+285         342 CALL_METHOD              2
+            344 STORE_FAST               9 (next_execution_time)
+            346 POP_BLOCK
+            348 JUMP_FORWARD            66 (to 416)
+
+289     >>  350 DUP_TOP
+            352 LOAD_GLOBAL             15 (ValueError)
+            354 LOAD_GLOBAL             16 (TypeError)
+            356 BUILD_TUPLE              2
+            358 EXTENDED_ARG             1
+            360 JUMP_IF_NOT_EXC_MATCH   414
+            362 POP_TOP
+            364 POP_TOP
+            366 POP_TOP
+
+291         368 LOAD_FAST                4 (current_date)
+            370 LOAD_GLOBAL              8 (timedelta)
+            372 LOAD_CONST              11 (1)
+            374 LOAD_CONST              14 (('days',))
+            376 CALL_FUNCTION_KW         1
+            378 BINARY_ADD
+            380 STORE_FAST              11 (next_date)
+
+292         382 LOAD_GLOBAL              0 (datetime)
+            384 LOAD_METHOD              9 (combine)
+
+293         386 LOAD_FAST               11 (next_date)
+
+294         388 LOAD_GLOBAL              0 (datetime)
+            390 LOAD_ATTR               10 (min)
+            392 LOAD_METHOD             11 (time)
+            394 CALL_METHOD              0
+            396 LOAD_ATTR               12 (replace)
+            398 LOAD_DEREF               2 (start_hour)
+            400 LOAD_DEREF               3 (start_minute)
+            402 LOAD_CONST              13 (('hour', 'minute'))
+            404 CALL_FUNCTION_KW         2
+
+292         406 CALL_METHOD              2
+            408 STORE_FAST               9 (next_execution_time)
+            410 POP_EXCEPT
+            412 JUMP_FORWARD             2 (to 416)
+        >>  414 RERAISE
+
+296     >>  416 LOAD_GLOBAL             17 (print)
+            418 LOAD_CONST              16 ('当前时间：')
+            420 LOAD_FAST                3 (current_time)
+            422 FORMAT_VALUE             0
+            424 LOAD_CONST              17 (' ，下次执行时间: ')
+            426 LOAD_FAST                9 (next_execution_time)
+            428 FORMAT_VALUE             0
+            430 BUILD_STRING             4
+            432 CALL_FUNCTION            1
+            434 POP_TOP
+
+297         436 LOAD_FAST                9 (next_execution_time)
+            438 POP_BLOCK
+            440 RETURN_VALUE
+
+299     >>  442 DUP_TOP
+            444 LOAD_GLOBAL             18 (Exception)
+            446 EXTENDED_ARG             1
+            448 JUMP_IF_NOT_EXC_MATCH   498
+            450 POP_TOP
+            452 STORE_FAST              15 (e)
+            454 POP_TOP
+            456 SETUP_FINALLY           32 (to 490)
+
+300         458 LOAD_FAST                0 (self)
+            460 LOAD_ATTR               19 (logger)
+            462 LOAD_METHOD             20 (error)
+            464 LOAD_CONST              18 ('计算下次执行时间失败: ')
+            466 LOAD_FAST               15 (e)
+            468 FORMAT_VALUE             0
+            470 BUILD_STRING             2
+            472 CALL_METHOD              1
+            474 POP_TOP
+
+301         476 POP_BLOCK
+            478 POP_EXCEPT
+            480 LOAD_CONST              19 (None)
+            482 STORE_FAST              15 (e)
+            484 DELETE_FAST             15 (e)
+            486 LOAD_CONST              19 (None)
+            488 RETURN_VALUE
+        >>  490 LOAD_CONST              19 (None)
+            492 STORE_FAST              15 (e)
+            494 DELETE_FAST             15 (e)
+            496 RERAISE
+        >>  498 RERAISE
+            500 LOAD_CONST              19 (None)
+            502 RETURN_VALUE
+
+Disassembly of <code object is_in_time_range at 0x1073ab240, file "WeRobotCore/task_system_v3/sync_contacts_adapter.py", line 231>:
+232           0 LOAD_FAST                0 (check_time)
+              2 LOAD_ATTR                0 (hour)
+              4 STORE_FAST               1 (check_hour)
+
+233           6 LOAD_FAST                0 (check_time)
+              8 LOAD_ATTR                1 (minute)
+             10 STORE_FAST               2 (check_minute)
+
+234          12 LOAD_FAST                1 (check_hour)
+             14 LOAD_CONST               1 (60)
+             16 BINARY_MULTIPLY
+             18 LOAD_FAST                2 (check_minute)
+             20 BINARY_ADD
+             22 STORE_FAST               3 (check_minutes)
+
+235          24 LOAD_DEREF               2 (start_hour)
+             26 LOAD_CONST               1 (60)
+             28 BINARY_MULTIPLY
+             30 LOAD_DEREF               3 (start_minute)
+             32 BINARY_ADD
+             34 STORE_FAST               4 (start_minutes)
+
+236          36 LOAD_DEREF               0 (end_hour)
+             38 LOAD_CONST               1 (60)
+             40 BINARY_MULTIPLY
+             42 LOAD_DEREF               1 (end_minute)
+             44 BINARY_ADD
+             46 STORE_FAST               5 (end_minutes)
+
+239          48 LOAD_FAST                4 (start_minutes)
+             50 LOAD_FAST                5 (end_minutes)
+             52 COMPARE_OP               1 (<=)
+             54 POP_JUMP_IF_FALSE       80
+
+241          56 LOAD_FAST                4 (start_minutes)
+             58 LOAD_FAST                3 (check_minutes)
+             60 DUP_TOP
+             62 ROT_THREE
+             64 COMPARE_OP               1 (<=)
+             66 JUMP_IF_FALSE_OR_POP    74
+             68 LOAD_FAST                5 (end_minutes)
+             70 COMPARE_OP               1 (<=)
+             72 RETURN_VALUE
+        >>   74 ROT_TWO
+             76 POP_TOP
+             78 RETURN_VALUE
+
+244     >>   80 LOAD_FAST                3 (check_minutes)
+             82 LOAD_FAST                4 (start_minutes)
+             84 COMPARE_OP               5 (>=)
+             86 JUMP_IF_TRUE_OR_POP     94
+             88 LOAD_FAST                3 (check_minutes)
+             90 LOAD_FAST                5 (end_minutes)
+             92 COMPARE_OP               1 (<=)
+        >>   94 RETURN_VALUE
+             96 LOAD_CONST               0 (None)
+             98 RETURN_VALUE
+
+Disassembly of <code object create_sync_contacts_task at 0x1073aba80, file "WeRobotCore/task_system_v3/sync_contacts_adapter.py", line 303>:
+305           0 EXTENDED_ARG             1
+              2 SETUP_FINALLY          458 (to 462)
+
+307           4 LOAD_FAST                1 (task_request)
+              6 LOAD_METHOD              0 (get)
+              8 LOAD_CONST               1 ('sync_items')
+             10 BUILD_LIST               0
+             12 CALL_METHOD              2
+             14 STORE_FAST               2 (sync_items)
+
+308          16 LOAD_FAST                2 (sync_items)
+             18 POP_JUMP_IF_TRUE        32
+
+309          20 LOAD_CONST               2 (False)
+             22 LOAD_CONST               3 ('必须选择至少一个同步项（好友或群聊）')
+             24 LOAD_CONST               4 (('success', 'error'))
+             26 BUILD_CONST_KEY_MAP      2
+             28 POP_BLOCK
+             30 RETURN_VALUE
+
+311     >>   32 LOAD_FAST                1 (task_request)
+             34 LOAD_METHOD              0 (get)
+             36 LOAD_CONST               5 ('sync_frequency')
+             38 LOAD_CONST               6 (7)
+             40 CALL_METHOD              2
+             42 STORE_FAST               3 (sync_frequency)
+
+312          44 LOAD_CONST               7 (2)
+             46 LOAD_FAST                3 (sync_frequency)
+             48 DUP_TOP
+             50 ROT_THREE
+             52 COMPARE_OP               1 (<=)
+             54 POP_JUMP_IF_FALSE       64
+             56 LOAD_CONST               8 (30)
+             58 COMPARE_OP               1 (<=)
+             60 POP_JUMP_IF_TRUE        78
+             62 JUMP_FORWARD             2 (to 66)
+        >>   64 POP_TOP
+
+313     >>   66 LOAD_CONST               2 (False)
+             68 LOAD_CONST               9 ('同步频率必须在2-30天之间')
+             70 LOAD_CONST               4 (('success', 'error'))
+             72 BUILD_CONST_KEY_MAP      2
+             74 POP_BLOCK
+             76 RETURN_VALUE
+
+316     >>   78 LOAD_FAST                0 (self)
+             80 LOAD_ATTR                1 (get_sync_contacts_tasks)
+             82 LOAD_CONST              10 (None)
+             84 LOAD_CONST              11 (('status',))
+             86 CALL_FUNCTION_KW         1
+             88 GET_AWAITABLE
+             90 LOAD_CONST              10 (None)
+             92 YIELD_FROM
+             94 STORE_FAST               4 (existing_tasks_result)
+
+317          96 LOAD_FAST                4 (existing_tasks_result)
+             98 LOAD_METHOD              0 (get)
+            100 LOAD_CONST              12 ('success')
+            102 LOAD_CONST               2 (False)
+            104 CALL_METHOD              2
+            106 POP_JUMP_IF_FALSE      248
+
+318         108 LOAD_FAST                4 (existing_tasks_result)
+            110 LOAD_METHOD              0 (get)
+            112 LOAD_CONST              13 ('tasks')
+            114 BUILD_LIST               0
+            116 CALL_METHOD              2
+            118 STORE_FAST               5 (existing_tasks)
+
+319         120 LOAD_FAST                5 (existing_tasks)
+            122 GET_ITER
+        >>  124 FOR_ITER               122 (to 248)
+            126 STORE_FAST               6 (task)
+
+320         128 LOAD_FAST                6 (task)
+            130 LOAD_METHOD              0 (get)
+            132 LOAD_CONST              14 ('id')
+            134 CALL_METHOD              1
+            136 STORE_FAST               7 (task_id_to_cancel)
+
+321         138 LOAD_FAST                7 (task_id_to_cancel)
+            140 POP_JUMP_IF_TRUE       144
+
+322         142 JUMP_ABSOLUTE          124
+
+323     >>  144 SETUP_FINALLY           40 (to 186)
+
+324         146 LOAD_FAST                0 (self)
+            148 LOAD_ATTR                2 (scheduler)
+            150 LOAD_METHOD              3 (cancel_task)
+            152 LOAD_FAST                7 (task_id_to_cancel)
+            154 CALL_METHOD              1
+            156 GET_AWAITABLE
+            158 LOAD_CONST              10 (None)
+            160 YIELD_FROM
+            162 POP_TOP
+
+325         164 LOAD_FAST                0 (self)
+            166 LOAD_ATTR                4 (logger)
+            168 LOAD_METHOD              5 (info)
+            170 LOAD_CONST              15 ('已取消现有的自动同步任务: ')
+            172 LOAD_FAST                7 (task_id_to_cancel)
+            174 FORMAT_VALUE             0
+            176 BUILD_STRING             2
+            178 CALL_METHOD              1
+            180 POP_TOP
+            182 POP_BLOCK
+            184 JUMP_ABSOLUTE          124
+
+326     >>  186 DUP_TOP
+            188 LOAD_GLOBAL              6 (Exception)
+            190 JUMP_IF_NOT_EXC_MATCH   244
+            192 POP_TOP
+            194 STORE_FAST               8 (e)
+            196 POP_TOP
+            198 SETUP_FINALLY           36 (to 236)
+
+327         200 LOAD_FAST                0 (self)
+            202 LOAD_ATTR                4 (logger)
+            204 LOAD_METHOD              7 (warning)
+            206 LOAD_CONST              16 ('取消现有任务失败(')
+            208 LOAD_FAST                7 (task_id_to_cancel)
+            210 FORMAT_VALUE             0
+            212 LOAD_CONST              17 ('): ')
+            214 LOAD_FAST                8 (e)
+            216 FORMAT_VALUE             0
+            218 BUILD_STRING             4
+            220 CALL_METHOD              1
+            222 POP_TOP
+            224 POP_BLOCK
+            226 POP_EXCEPT
+            228 LOAD_CONST              10 (None)
+            230 STORE_FAST               8 (e)
+            232 DELETE_FAST              8 (e)
+            234 JUMP_ABSOLUTE          124
+        >>  236 LOAD_CONST              10 (None)
+            238 STORE_FAST               8 (e)
+            240 DELETE_FAST              8 (e)
+            242 RERAISE
+        >>  244 RERAISE
+            246 JUMP_ABSOLUTE          124
+
+330     >>  248 LOAD_FAST                0 (self)
+            250 LOAD_METHOD              8 (_build_task_metadata)
+            252 LOAD_FAST                1 (task_request)
+            254 CALL_METHOD              1
+            256 STORE_FAST               9 (metadata)
+
+331         258 LOAD_FAST                9 (metadata)
+            260 LOAD_CONST              18 ('task_info')
+            262 BINARY_SUBSCR
+            264 LOAD_CONST              19 ('task_id')
+            266 BINARY_SUBSCR
+            268 STORE_FAST              10 (task_id)
+
+334         270 LOAD_FAST                9 (metadata)
+            272 LOAD_CONST              20 ('sync_config')
+            274 BINARY_SUBSCR
+            276 STORE_FAST              11 (sync_config)
+
+335         278 LOAD_FAST                0 (self)
+            280 LOAD_METHOD              9 (_calculate_next_execution_time)
+            282 LOAD_FAST               11 (sync_config)
+            284 CALL_METHOD              1
+            286 STORE_FAST              12 (next_execution_time)
+
+337         288 LOAD_FAST               12 (next_execution_time)
+            290 EXTENDED_ARG             1
+            292 POP_JUMP_IF_TRUE       306
+
+338         294 LOAD_CONST               2 (False)
+            296 LOAD_CONST              21 ('计算执行时间失败')
+            298 LOAD_CONST               4 (('success', 'error'))
+            300 BUILD_CONST_KEY_MAP      2
+            302 POP_BLOCK
+            304 RETURN_VALUE
+
+342     >>  306 LOAD_GLOBAL             10 (ScheduleConfig)
+
+343         308 LOAD_GLOBAL             11 (TriggerType)
+            310 LOAD_ATTR               12 (DATE)
+
+345         312 LOAD_CONST              22 ('run_time')
+            314 LOAD_FAST               12 (next_execution_time)
+
+344         316 BUILD_MAP                1
+
+347         318 LOAD_GLOBAL             13 (ExecutionMode)
+            320 LOAD_ATTR               14 (SCHEDULED)
+
+348         322 LOAD_FAST                0 (self)
+            324 LOAD_ATTR               15 (_sync_contacts_config)
+            326 LOAD_CONST              23 ('misfire_grace_time_hours')
+            328 BINARY_SUBSCR
+            330 LOAD_CONST              24 (3600)
+            332 BINARY_MULTIPLY
+
+349         334 LOAD_FAST                0 (self)
+            336 LOAD_ATTR               15 (_sync_contacts_config)
+            338 LOAD_CONST              25 ('coalesce')
+            340 BINARY_SUBSCR
+
+342         342 LOAD_CONST              26 (('trigger_type', 'trigger_args', 'execution_mode', 'misfire_grace_time', 'coalesce'))
+            344 CALL_FUNCTION_KW         5
+            346 STORE_FAST              13 (schedule_config)
+
+353         348 LOAD_FAST                0 (self)
+            350 LOAD_ATTR                2 (scheduler)
+            352 LOAD_ATTR               16 (add_scheduled_task)
+
+354         354 LOAD_GLOBAL             17 (TaskType)
+            356 LOAD_ATTR               18 (SYNC_CONTACTS)
+
+355         358 LOAD_FAST                9 (metadata)
+
+356         360 LOAD_FAST               13 (schedule_config)
+
+357         362 LOAD_FAST               10 (task_id)
+
+353         364 LOAD_CONST              27 (('task_type', 'params', 'schedule_config', 'task_id'))
+            366 CALL_FUNCTION_KW         4
+            368 GET_AWAITABLE
+            370 LOAD_CONST              10 (None)
+            372 YIELD_FROM
+            374 STORE_FAST              14 (result_task_id)
+
+360         376 LOAD_FAST               14 (result_task_id)
+            378 LOAD_CONST              10 (None)
+            380 IS_OP                    1
+            382 STORE_FAST              15 (success)
+
+362         384 LOAD_FAST               15 (success)
+            386 EXTENDED_ARG             1
+            388 POP_JUMP_IF_FALSE      428
+
+363         390 LOAD_FAST                0 (self)
+            392 LOAD_ATTR                4 (logger)
+            394 LOAD_METHOD              5 (info)
+            396 LOAD_CONST              28 ('自动同步通讯录任务创建成功: ')
+            398 LOAD_FAST               10 (task_id)
+            400 FORMAT_VALUE             0
+            402 BUILD_STRING             2
+            404 CALL_METHOD              1
+            406 POP_TOP
+
+365         408 LOAD_CONST              29 (True)
+
+366         410 LOAD_FAST               10 (task_id)
+
+367         412 LOAD_FAST               12 (next_execution_time)
+            414 LOAD_METHOD             19 (isoformat)
+            416 CALL_METHOD              0
+
+368         418 LOAD_CONST              30 ('自动同步通讯录任务创建成功')
+
+364         420 LOAD_CONST              31 (('success', 'task_id', 'next_execution_time', 'message'))
+            422 BUILD_CONST_KEY_MAP      4
+            424 POP_BLOCK
+            426 RETURN_VALUE
+
+371     >>  428 LOAD_FAST                0 (self)
+            430 LOAD_ATTR                4 (logger)
+            432 LOAD_METHOD             20 (error)
+            434 LOAD_CONST              32 ('自动同步通讯录任务创建失败: ')
+            436 LOAD_FAST               10 (task_id)
+            438 FORMAT_VALUE             0
+            440 BUILD_STRING             2
+            442 CALL_METHOD              1
+            444 POP_TOP
+
+372         446 LOAD_CONST               2 (False)
+            448 LOAD_CONST              33 ('任务创建失败')
+            450 LOAD_CONST               4 (('success', 'error'))
+            452 BUILD_CONST_KEY_MAP      2
+            454 POP_BLOCK
+            456 RETURN_VALUE
+            458 POP_BLOCK
+            460 JUMP_FORWARD            86 (to 548)
+
+374     >>  462 DUP_TOP
+            464 LOAD_GLOBAL              6 (Exception)
+            466 EXTENDED_ARG             2
+            468 JUMP_IF_NOT_EXC_MATCH   546
+            470 POP_TOP
+            472 STORE_FAST               8 (e)
+            474 POP_TOP
+            476 SETUP_FINALLY           60 (to 538)
+
+375         478 LOAD_CONST              34 (0)
+            480 LOAD_CONST              10 (None)
+            482 IMPORT_NAME             21 (traceback)
+            484 STORE_FAST              16 (traceback)
+
+376         486 LOAD_FAST               16 (traceback)
+            488 LOAD_METHOD             22 (print_exc)
+            490 CALL_METHOD              0
+            492 POP_TOP
+
+377         494 LOAD_FAST                0 (self)
+            496 LOAD_ATTR                4 (logger)
+            498 LOAD_METHOD             20 (error)
+            500 LOAD_CONST              35 ('添加自动同步通讯录任务失败: ')
+            502 LOAD_FAST                8 (e)
+            504 FORMAT_VALUE             0
+            506 BUILD_STRING             2
+            508 CALL_METHOD              1
+            510 POP_TOP
+
+378         512 LOAD_CONST               2 (False)
+            514 LOAD_GLOBAL             23 (str)
+            516 LOAD_FAST                8 (e)
+            518 CALL_FUNCTION            1
+            520 LOAD_CONST               4 (('success', 'error'))
+            522 BUILD_CONST_KEY_MAP      2
+            524 POP_BLOCK
+            526 ROT_FOUR
+            528 POP_EXCEPT
+            530 LOAD_CONST              10 (None)
+            532 STORE_FAST               8 (e)
+            534 DELETE_FAST              8 (e)
+            536 RETURN_VALUE
+        >>  538 LOAD_CONST              10 (None)
+            540 STORE_FAST               8 (e)
+            542 DELETE_FAST              8 (e)
+            544 RERAISE
+        >>  546 RERAISE
+        >>  548 LOAD_CONST              10 (None)
+            550 RETURN_VALUE
+
+Disassembly of <code object _execute_sync_contacts_task at 0x1073abc90, file "WeRobotCore/task_system_v3/sync_contacts_adapter.py", line 380>:
+382           0 EXTENDED_ARG             1
+              2 SETUP_FINALLY          334 (to 338)
+
+383           4 LOAD_FAST                1 (context)
+              6 LOAD_ATTR                0 (schedule_id)
+              8 STORE_FAST               3 (schedule_id)
+
+384          10 LOAD_FAST                1 (context)
+             12 LOAD_ATTR                1 (metadata)
+             14 STORE_FAST               4 (metadata)
+
+387          16 LOAD_FAST                4 (metadata)
+             18 LOAD_METHOD              2 (get)
+             20 LOAD_CONST               1 ('task_status')
+             22 LOAD_CONST               2 ('active')
+             24 CALL_METHOD              2
+             26 STORE_FAST               5 (task_status)
+
+388          28 LOAD_FAST                5 (task_status)
+             30 LOAD_CONST               2 ('active')
+             32 COMPARE_OP               3 (!=)
+             34 POP_JUMP_IF_FALSE       74
+
+389          36 LOAD_FAST                0 (self)
+             38 LOAD_ATTR                3 (logger)
+             40 LOAD_METHOD              4 (info)
+             42 LOAD_CONST               3 ('任务 ')
+             44 LOAD_FAST                3 (schedule_id)
+             46 FORMAT_VALUE             0
+             48 LOAD_CONST               4 (' 状态为 ')
+             50 LOAD_FAST                5 (task_status)
+             52 FORMAT_VALUE             0
+             54 LOAD_CONST               5 ('，跳过执行')
+             56 BUILD_STRING             5
+             58 CALL_METHOD              1
+             60 POP_TOP
+
+390          62 LOAD_CONST               6 (True)
+             64 LOAD_CONST               7 ('任务已暂停或完成')
+             66 LOAD_CONST               8 (('success', 'message'))
+             68 BUILD_CONST_KEY_MAP      2
+             70 POP_BLOCK
+             72 RETURN_VALUE
+
+393     >>   74 LOAD_FAST                4 (metadata)
+             76 LOAD_METHOD              2 (get)
+             78 LOAD_CONST               9 ('sync_config')
+             80 BUILD_MAP                0
+             82 CALL_METHOD              2
+             84 STORE_FAST               6 (sync_config)
+
+394          86 LOAD_GLOBAL              5 (datetime)
+             88 LOAD_METHOD              6 (now)
+             90 CALL_METHOD              0
+             92 STORE_FAST               7 (current_time)
+
+396          94 LOAD_FAST                6 (sync_config)
+             96 LOAD_METHOD              2 (get)
+             98 LOAD_CONST              10 ('time_range_start')
+            100 LOAD_CONST              11 ('02:00')
+            102 CALL_METHOD              2
+            104 STORE_FAST               8 (time_range_start)
+
+397         106 LOAD_FAST                6 (sync_config)
+            108 LOAD_METHOD              2 (get)
+            110 LOAD_CONST              12 ('time_range_end')
+            112 LOAD_CONST              13 ('04:00')
+            114 CALL_METHOD              2
+            116 STORE_FAST               9 (time_range_end)
+
+399         118 LOAD_GLOBAL              7 (map)
+            120 LOAD_GLOBAL              8 (int)
+            122 LOAD_FAST                8 (time_range_start)
+            124 LOAD_METHOD              9 (split)
+            126 LOAD_CONST              14 (':')
+            128 CALL_METHOD              1
+            130 CALL_FUNCTION            2
+            132 UNPACK_SEQUENCE          2
+            134 STORE_FAST              10 (start_hour)
+            136 STORE_FAST              11 (start_minute)
+
+400         138 LOAD_GLOBAL              7 (map)
+            140 LOAD_GLOBAL              8 (int)
+            142 LOAD_FAST                9 (time_range_end)
+            144 LOAD_METHOD              9 (split)
+            146 LOAD_CONST              14 (':')
+            148 CALL_METHOD              1
+            150 CALL_FUNCTION            2
+            152 UNPACK_SEQUENCE          2
+            154 STORE_FAST              12 (end_hour)
+            156 STORE_FAST              13 (end_minute)
+
+402         158 LOAD_FAST                7 (current_time)
+            160 LOAD_ATTR               10 (hour)
+            162 STORE_FAST              14 (current_hour)
+
+403         164 LOAD_FAST                7 (current_time)
+            166 LOAD_ATTR               11 (minute)
+            168 STORE_FAST              15 (current_minute)
+
+405         170 LOAD_FAST               10 (start_hour)
+            172 LOAD_CONST              15 (60)
+            174 BINARY_MULTIPLY
+            176 LOAD_FAST               11 (start_minute)
+            178 BINARY_ADD
+            180 STORE_FAST              16 (start_minutes)
+
+406         182 LOAD_FAST               12 (end_hour)
+            184 LOAD_CONST              15 (60)
+            186 BINARY_MULTIPLY
+            188 LOAD_FAST               13 (end_minute)
+            190 BINARY_ADD
+            192 STORE_FAST              17 (end_minutes)
+
+407         194 LOAD_FAST               14 (current_hour)
+            196 LOAD_CONST              15 (60)
+            198 BINARY_MULTIPLY
+            200 LOAD_FAST               15 (current_minute)
+            202 BINARY_ADD
+            204 STORE_FAST              18 (current_minutes)
+
+409         206 LOAD_FAST               16 (start_minutes)
+            208 LOAD_FAST               18 (current_minutes)
+            210 DUP_TOP
+            212 ROT_THREE
+            214 COMPARE_OP               1 (<=)
+            216 POP_JUMP_IF_FALSE      228
+            218 LOAD_FAST               17 (end_minutes)
+            220 COMPARE_OP               1 (<=)
+            222 EXTENDED_ARG             1
+            224 POP_JUMP_IF_TRUE       280
+            226 JUMP_FORWARD             2 (to 230)
+        >>  228 POP_TOP
+
+410     >>  230 LOAD_FAST                0 (self)
+            232 LOAD_ATTR                3 (logger)
+            234 LOAD_METHOD              4 (info)
+            236 LOAD_CONST               3 ('任务 ')
+            238 LOAD_FAST                3 (schedule_id)
+            240 FORMAT_VALUE             0
+            242 LOAD_CONST              16 (' 不在执行时间段内，跳过执行')
+            244 BUILD_STRING             3
+            246 CALL_METHOD              1
+            248 POP_TOP
+
+412         250 LOAD_FAST                0 (self)
+            252 LOAD_METHOD             12 (_reschedule_task)
+            254 LOAD_FAST                3 (schedule_id)
+            256 LOAD_FAST                4 (metadata)
+            258 CALL_METHOD              2
+            260 GET_AWAITABLE
+            262 LOAD_CONST              17 (None)
+            264 YIELD_FROM
+            266 POP_TOP
+
+413         268 LOAD_CONST               6 (True)
+            270 LOAD_CONST              18 ('不在执行时间段内')
+            272 LOAD_CONST               8 (('success', 'message'))
+            274 BUILD_CONST_KEY_MAP      2
+            276 POP_BLOCK
+            278 RETURN_VALUE
+
+416     >>  280 LOAD_FAST                0 (self)
+            282 LOAD_METHOD             13 (_perform_sync_contacts_task)
+            284 LOAD_FAST                4 (metadata)
+            286 CALL_METHOD              1
+            288 GET_AWAITABLE
+            290 LOAD_CONST              17 (None)
+            292 YIELD_FROM
+            294 STORE_FAST              19 (result)
+
+419         296 LOAD_FAST                0 (self)
+            298 LOAD_METHOD             14 (_record_execution)
+            300 LOAD_FAST                3 (schedule_id)
+            302 LOAD_FAST               19 (result)
+            304 CALL_METHOD              2
+            306 GET_AWAITABLE
+            308 LOAD_CONST              17 (None)
+            310 YIELD_FROM
+            312 POP_TOP
+
+422         314 LOAD_FAST                0 (self)
+            316 LOAD_METHOD             12 (_reschedule_task)
+            318 LOAD_FAST                3 (schedule_id)
+            320 LOAD_FAST                4 (metadata)
+            322 CALL_METHOD              2
+            324 GET_AWAITABLE
+            326 LOAD_CONST              17 (None)
+            328 YIELD_FROM
+            330 POP_TOP
+
+424         332 LOAD_FAST               19 (result)
+            334 POP_BLOCK
+            336 RETURN_VALUE
+
+426     >>  338 DUP_TOP
+            340 LOAD_GLOBAL             15 (Exception)
+            342 EXTENDED_ARG             1
+            344 JUMP_IF_NOT_EXC_MATCH   406
+            346 POP_TOP
+            348 STORE_FAST              20 (e)
+            350 POP_TOP
+            352 SETUP_FINALLY           44 (to 398)
+
+427         354 LOAD_FAST                0 (self)
+            356 LOAD_ATTR                3 (logger)
+            358 LOAD_METHOD             16 (error)
+            360 LOAD_CONST              19 ('执行自动同步通讯录任务失败: ')
+            362 LOAD_FAST               20 (e)
+            364 FORMAT_VALUE             0
+            366 BUILD_STRING             2
+            368 CALL_METHOD              1
+            370 POP_TOP
+
+428         372 LOAD_CONST              20 (False)
+            374 LOAD_GLOBAL             17 (str)
+            376 LOAD_FAST               20 (e)
+            378 CALL_FUNCTION            1
+            380 LOAD_CONST              21 (('success', 'error'))
+            382 BUILD_CONST_KEY_MAP      2
+            384 POP_BLOCK
+            386 ROT_FOUR
+            388 POP_EXCEPT
+            390 LOAD_CONST              17 (None)
+            392 STORE_FAST              20 (e)
+            394 DELETE_FAST             20 (e)
+            396 RETURN_VALUE
+        >>  398 LOAD_CONST              17 (None)
+            400 STORE_FAST              20 (e)
+            402 DELETE_FAST             20 (e)
+            404 RERAISE
+        >>  406 RERAISE
+            408 LOAD_CONST              17 (None)
+            410 RETURN_VALUE
+
+Disassembly of <code object _perform_sync_contacts_task at 0x1073abbe0, file "WeRobotCore/task_system_v3/sync_contacts_adapter.py", line 430>:
+432           0 EXTENDED_ARG             1
+              2 SETUP_FINALLY          260 (to 264)
+
+434           4 LOAD_FAST                1 (metadata)
+              6 LOAD_METHOD              0 (get)
+              8 LOAD_CONST               1 ('sync_config')
+             10 BUILD_MAP                0
+             12 CALL_METHOD              2
+             14 STORE_FAST               2 (sync_config)
+
+436          16 LOAD_CONST               2 ('sync_items')
+             18 LOAD_FAST                2 (sync_config)
+             20 LOAD_METHOD              0 (get)
+             22 LOAD_CONST               2 ('sync_items')
+             24 LOAD_CONST               3 ('group')
+             26 BUILD_LIST               1
+             28 CALL_METHOD              2
+
+435          30 BUILD_MAP                1
+             32 STORE_FAST               3 (task_params)
+
+440          34 LOAD_FAST                1 (metadata)
+             36 LOAD_CONST               4 ('task_info')
+             38 BINARY_SUBSCR
+             40 LOAD_CONST               5 ('task_id')
+             42 BINARY_SUBSCR
+             44 STORE_FAST               4 (task_id)
+
+443          46 LOAD_GLOBAL              1 (time)
+             48 LOAD_METHOD              1 (time)
+             50 CALL_METHOD              0
+             52 STORE_FAST               5 (start_time)
+
+444          54 LOAD_CONST               6 (None)
+             56 STORE_FAST               6 (sync_contacts_task)
+
+445          58 LOAD_FAST                0 (self)
+             60 LOAD_ATTR                2 (_runtime)
+             62 LOAD_CONST               6 (None)
+             64 IS_OP                    1
+             66 POP_JUMP_IF_FALSE       94
+
+446          68 LOAD_FAST                0 (self)
+             70 LOAD_ATTR                2 (_runtime)
+             72 LOAD_METHOD              3 (execute)
+
+447          74 LOAD_FAST                4 (task_id)
+
+448          76 LOAD_FAST                3 (task_params)
+             78 LOAD_CONST               2 ('sync_items')
+             80 BINARY_SUBSCR
+
+446          82 CALL_METHOD              2
+             84 GET_AWAITABLE
+             86 LOAD_CONST               6 (None)
+             88 YIELD_FROM
+             90 STORE_FAST               7 (execution_result)
+             92 JUMP_FORWARD            36 (to 130)
+
+453     >>   94 LOAD_CONST               7 (0)
+             96 LOAD_CONST               8 (('SyncContactsTask',))
+             98 IMPORT_NAME              4 (WeRobotCore.task_system_v2.tasks.sync_contacts_task)
+            100 IMPORT_FROM              5 (SyncContactsTask)
+            102 STORE_FAST               8 (SyncContactsTask)
+            104 POP_TOP
+
+455         106 LOAD_FAST                8 (SyncContactsTask)
+            108 LOAD_FAST                4 (task_id)
+            110 LOAD_FAST                3 (task_params)
+            112 CALL_FUNCTION            2
+            114 STORE_FAST               6 (sync_contacts_task)
+
+456         116 LOAD_FAST                6 (sync_contacts_task)
+            118 LOAD_METHOD              3 (execute)
+            120 CALL_METHOD              0
+            122 GET_AWAITABLE
+            124 LOAD_CONST               6 (None)
+            126 YIELD_FROM
+            128 STORE_FAST               7 (execution_result)
+
+457     >>  130 LOAD_GLOBAL              1 (time)
+            132 LOAD_METHOD              1 (time)
+            134 CALL_METHOD              0
+            136 LOAD_FAST                5 (start_time)
+            138 BINARY_SUBTRACT
+            140 STORE_FAST               9 (execution_time)
+
+460         142 LOAD_FAST                7 (execution_result)
+            144 POP_JUMP_IF_FALSE      190
+
+461         146 LOAD_FAST                0 (self)
+            148 LOAD_ATTR                6 (logger)
+            150 LOAD_METHOD              7 (info)
+            152 LOAD_CONST               9 ('同步通讯录任务执行成功: ')
+            154 LOAD_FAST                4 (task_id)
+            156 FORMAT_VALUE             0
+            158 LOAD_CONST              10 (', 耗时: ')
+            160 LOAD_FAST                9 (execution_time)
+            162 LOAD_CONST              11 ('.2f')
+            164 FORMAT_VALUE             4 (with format)
+            166 LOAD_CONST              12 ('秒')
+            168 BUILD_STRING             5
+            170 CALL_METHOD              1
+            172 POP_TOP
+
+463         174 LOAD_CONST              13 (True)
+
+464         176 LOAD_CONST              14 ('同步通讯录任务执行成功')
+
+465         178 LOAD_FAST                9 (execution_time)
+
+466         180 BUILD_MAP                0
+
+462         182 LOAD_CONST              15 (('success', 'message', 'execution_time', 'sync_results'))
+            184 BUILD_CONST_KEY_MAP      4
+            186 POP_BLOCK
+            188 RETURN_VALUE
+
+469     >>  190 LOAD_GLOBAL              8 (getattr)
+
+470         192 LOAD_FAST                0 (self)
+            194 LOAD_ATTR                2 (_runtime)
+            196 LOAD_CONST               6 (None)
+            198 IS_OP                    1
+            200 POP_JUMP_IF_FALSE      208
+            202 LOAD_FAST                0 (self)
+            204 LOAD_ATTR                2 (_runtime)
+            206 JUMP_FORWARD             2 (to 210)
+        >>  208 LOAD_FAST                6 (sync_contacts_task)
+
+471     >>  210 LOAD_CONST              16 ('error')
+
+472         212 LOAD_CONST               6 (None)
+
+469         214 CALL_FUNCTION            3
+            216 JUMP_IF_TRUE_OR_POP    220
+
+473         218 LOAD_CONST              17 ('任务执行失败')
+
+469     >>  220 STORE_FAST              10 (error_msg)
+
+474         222 LOAD_FAST                0 (self)
+            224 LOAD_ATTR                6 (logger)
+            226 LOAD_METHOD              9 (error)
+            228 LOAD_CONST              18 ('同步通讯录任务执行失败: ')
+            230 LOAD_FAST                4 (task_id)
+            232 FORMAT_VALUE             0
+            234 LOAD_CONST              19 (', 错误: ')
+            236 LOAD_FAST               10 (error_msg)
+            238 FORMAT_VALUE             0
+            240 BUILD_STRING             4
+            242 CALL_METHOD              1
+            244 POP_TOP
+
+476         246 LOAD_CONST              20 (False)
+
+477         248 LOAD_FAST               10 (error_msg)
+
+478         250 LOAD_FAST                9 (execution_time)
+
+475         252 LOAD_CONST              21 (('success', 'error', 'execution_time'))
+            254 BUILD_CONST_KEY_MAP      3
+            256 POP_BLOCK
+            258 RETURN_VALUE
+            260 POP_BLOCK
+            262 JUMP_FORWARD            86 (to 350)
+
+481     >>  264 DUP_TOP
+            266 LOAD_GLOBAL             10 (Exception)
+            268 EXTENDED_ARG             1
+            270 JUMP_IF_NOT_EXC_MATCH   348
+            272 POP_TOP
+            274 STORE_FAST              11 (e)
+            276 POP_TOP
+            278 SETUP_FINALLY           60 (to 340)
+
+482         280 LOAD_CONST               7 (0)
+            282 LOAD_CONST               6 (None)
+            284 IMPORT_NAME             11 (traceback)
+            286 STORE_FAST              12 (traceback)
+
+483         288 LOAD_FAST               12 (traceback)
+            290 LOAD_METHOD             12 (print_exc)
+            292 CALL_METHOD              0
+            294 POP_TOP
+
+484         296 LOAD_FAST                0 (self)
+            298 LOAD_ATTR                6 (logger)
+            300 LOAD_METHOD              9 (error)
+            302 LOAD_CONST              22 ('执行同步通讯录任务失败: ')
+            304 LOAD_FAST               11 (e)
+            306 FORMAT_VALUE             0
+            308 BUILD_STRING             2
+            310 CALL_METHOD              1
+            312 POP_TOP
+
+485         314 LOAD_CONST              20 (False)
+            316 LOAD_GLOBAL             13 (str)
+            318 LOAD_FAST               11 (e)
+            320 CALL_FUNCTION            1
+            322 LOAD_CONST              23 (('success', 'error'))
+            324 BUILD_CONST_KEY_MAP      2
+            326 POP_BLOCK
+            328 ROT_FOUR
+            330 POP_EXCEPT
+            332 LOAD_CONST               6 (None)
+            334 STORE_FAST              11 (e)
+            336 DELETE_FAST             11 (e)
+            338 RETURN_VALUE
+        >>  340 LOAD_CONST               6 (None)
+            342 STORE_FAST              11 (e)
+            344 DELETE_FAST             11 (e)
+            346 RERAISE
+        >>  348 RERAISE
+        >>  350 LOAD_CONST               6 (None)
+            352 RETURN_VALUE
+
+Disassembly of <code object _record_execution at 0x1073ab920, file "WeRobotCore/task_system_v3/sync_contacts_adapter.py", line 487>:
+489           0 SETUP_FINALLY          114 (to 116)
+
+490           2 LOAD_GLOBAL              0 (datetime)
+              4 LOAD_METHOD              1 (now)
+              6 CALL_METHOD              0
+              8 STORE_FAST               3 (current_time)
+
+492          10 LOAD_FAST                3 (current_time)
+             12 LOAD_METHOD              2 (isoformat)
+             14 CALL_METHOD              0
+
+493          16 LOAD_FAST                2 (result)
+             18 LOAD_METHOD              3 (get)
+             20 LOAD_CONST               1 ('success')
+             22 LOAD_CONST               2 (False)
+             24 CALL_METHOD              2
+
+494          26 LOAD_FAST                2 (result)
+             28 LOAD_METHOD              3 (get)
+             30 LOAD_CONST               3 ('message')
+             32 LOAD_CONST               4 ('')
+             34 CALL_METHOD              2
+
+495          36 LOAD_FAST                2 (result)
+             38 LOAD_METHOD              3 (get)
+             40 LOAD_CONST               5 ('execution_time')
+             42 LOAD_CONST               6 (0)
+             44 CALL_METHOD              2
+
+491          46 LOAD_CONST               7 (('execution_time', 'success', 'message', 'execution_duration'))
+             48 BUILD_CONST_KEY_MAP      4
+             50 STORE_FAST               4 (execution_record)
+
+499          52 LOAD_FAST                0 (self)
+             54 LOAD_ATTR                4 (scheduler)
+             56 LOAD_METHOD              5 (update_task_metadata)
+
+500          58 LOAD_FAST                1 (schedule_id)
+
+502          60 LOAD_CONST               8 ('execution_stats.execution_count')
+             62 LOAD_CONST               9 ('+1')
+
+503          64 LOAD_CONST              10 ('execution_stats.last_execution_time')
+             66 LOAD_FAST                3 (current_time)
+             68 LOAD_METHOD              2 (isoformat)
+             70 CALL_METHOD              0
+
+504          72 LOAD_CONST              11 ('execution_stats.total_')
+             74 LOAD_FAST                2 (result)
+             76 LOAD_METHOD              3 (get)
+             78 LOAD_CONST               1 ('success')
+             80 CALL_METHOD              1
+             82 POP_JUMP_IF_FALSE       88
+             84 LOAD_CONST               1 ('success')
+             86 JUMP_FORWARD             2 (to 90)
+        >>   88 LOAD_CONST              12 ('failed')
+        >>   90 FORMAT_VALUE             0
+             92 BUILD_STRING             2
+             94 LOAD_CONST               9 ('+1')
+
+505          96 LOAD_CONST              13 ('execution_history')
+             98 LOAD_FAST                4 (execution_record)
+
+501         100 BUILD_MAP                4
+
+499         102 CALL_METHOD              2
+            104 GET_AWAITABLE
+            106 LOAD_CONST              14 (None)
+            108 YIELD_FROM
+            110 POP_TOP
+            112 POP_BLOCK
+            114 JUMP_FORWARD            54 (to 170)
+
+509     >>  116 DUP_TOP
+            118 LOAD_GLOBAL              6 (Exception)
+            120 JUMP_IF_NOT_EXC_MATCH   168
+            122 POP_TOP
+            124 STORE_FAST               5 (e)
+            126 POP_TOP
+            128 SETUP_FINALLY           30 (to 160)
+
+510         130 LOAD_FAST                0 (self)
+            132 LOAD_ATTR                7 (logger)
+            134 LOAD_METHOD              8 (error)
+            136 LOAD_CONST              15 ('记录执行结果失败: ')
+            138 LOAD_FAST                5 (e)
+            140 FORMAT_VALUE             0
+            142 BUILD_STRING             2
+            144 CALL_METHOD              1
+            146 POP_TOP
+            148 POP_BLOCK
+            150 POP_EXCEPT
+            152 LOAD_CONST              14 (None)
+            154 STORE_FAST               5 (e)
+            156 DELETE_FAST              5 (e)
+            158 JUMP_FORWARD            10 (to 170)
+        >>  160 LOAD_CONST              14 (None)
+            162 STORE_FAST               5 (e)
+            164 DELETE_FAST              5 (e)
+            166 RERAISE
+        >>  168 RERAISE
+        >>  170 LOAD_CONST              14 (None)
+            172 RETURN_VALUE
+
+Disassembly of <code object _reschedule_task at 0x1073aa450, file "WeRobotCore/task_system_v3/sync_contacts_adapter.py", line 512>:
+514           0 SETUP_FINALLY          144 (to 146)
+
+515           2 LOAD_FAST                2 (metadata)
+              4 LOAD_METHOD              0 (get)
+              6 LOAD_CONST               1 ('sync_config')
+              8 BUILD_MAP                0
+             10 CALL_METHOD              2
+             12 STORE_FAST               3 (sync_config)
+
+516          14 LOAD_FAST                2 (metadata)
+             16 LOAD_METHOD              0 (get)
+             18 LOAD_CONST               2 ('execution_stats')
+             20 BUILD_MAP                0
+             22 CALL_METHOD              2
+             24 STORE_FAST               4 (execution_stats)
+
+517          26 LOAD_FAST                4 (execution_stats)
+             28 LOAD_METHOD              0 (get)
+             30 LOAD_CONST               3 ('last_execution_time')
+             32 LOAD_CONST               4 ('')
+             34 CALL_METHOD              2
+             36 STORE_FAST               5 (last_execution_time)
+
+521          38 LOAD_GLOBAL              1 (datetime)
+             40 LOAD_METHOD              2 (now)
+             42 CALL_METHOD              0
+             44 STORE_FAST               6 (current_time)
+
+522          46 LOAD_FAST                6 (current_time)
+             48 LOAD_METHOD              3 (date)
+             50 CALL_METHOD              0
+             52 LOAD_METHOD              4 (isoformat)
+             54 CALL_METHOD              0
+             56 STORE_FAST               7 (current_date)
+
+525          58 LOAD_FAST                0 (self)
+             60 LOAD_METHOD              5 (_calculate_next_execution_time)
+             62 LOAD_FAST                3 (sync_config)
+             64 LOAD_FAST                7 (current_date)
+             66 CALL_METHOD              2
+             68 STORE_FAST               8 (next_execution_time)
+
+527          70 LOAD_FAST                8 (next_execution_time)
+             72 POP_JUMP_IF_FALSE      122
+
+529          74 LOAD_FAST                0 (self)
+             76 LOAD_ATTR                6 (scheduler)
+             78 LOAD_ATTR                7 (modify_schedule)
+             80 LOAD_FAST                1 (schedule_id)
+             82 LOAD_FAST                8 (next_execution_time)
+             84 LOAD_CONST               5 (('next_fire_time',))
+             86 CALL_FUNCTION_KW         2
+             88 GET_AWAITABLE
+             90 LOAD_CONST               6 (None)
+             92 YIELD_FROM
+             94 POP_TOP
+
+530          96 LOAD_FAST                0 (self)
+             98 LOAD_ATTR                8 (logger)
+            100 LOAD_METHOD              9 (info)
+            102 LOAD_CONST               7 ('任务 ')
+            104 LOAD_FAST                1 (schedule_id)
+            106 FORMAT_VALUE             0
+            108 LOAD_CONST               8 (' 已重新安排到 ')
+            110 LOAD_FAST                8 (next_execution_time)
+            112 FORMAT_VALUE             0
+            114 BUILD_STRING             4
+            116 CALL_METHOD              1
+            118 POP_TOP
+            120 JUMP_FORWARD            20 (to 142)
+
+532     >>  122 LOAD_FAST                0 (self)
+            124 LOAD_ATTR                8 (logger)
+            126 LOAD_METHOD             10 (error)
+            128 LOAD_CONST               9 ('无法计算任务 ')
+            130 LOAD_FAST                1 (schedule_id)
+            132 FORMAT_VALUE             0
+            134 LOAD_CONST              10 (' 的下次执行时间')
+            136 BUILD_STRING             3
+            138 CALL_METHOD              1
+            140 POP_TOP
+        >>  142 POP_BLOCK
+            144 JUMP_FORWARD            54 (to 200)
+
+534     >>  146 DUP_TOP
+            148 LOAD_GLOBAL             11 (Exception)
+            150 JUMP_IF_NOT_EXC_MATCH   198
+            152 POP_TOP
+            154 STORE_FAST               9 (e)
+            156 POP_TOP
+            158 SETUP_FINALLY           30 (to 190)
+
+535         160 LOAD_FAST                0 (self)
+            162 LOAD_ATTR                8 (logger)
+            164 LOAD_METHOD             10 (error)
+            166 LOAD_CONST              11 ('重新安排任务失败: ')
+            168 LOAD_FAST                9 (e)
+            170 FORMAT_VALUE             0
+            172 BUILD_STRING             2
+            174 CALL_METHOD              1
+            176 POP_TOP
+            178 POP_BLOCK
+            180 POP_EXCEPT
+            182 LOAD_CONST               6 (None)
+            184 STORE_FAST               9 (e)
+            186 DELETE_FAST              9 (e)
+            188 JUMP_FORWARD            10 (to 200)
+        >>  190 LOAD_CONST               6 (None)
+            192 STORE_FAST               9 (e)
+            194 DELETE_FAST              9 (e)
+            196 RERAISE
+        >>  198 RERAISE
+        >>  200 LOAD_CONST               6 (None)
+            202 RETURN_VALUE
+
+Disassembly of <code object cancel_sync_contacts_task at 0x1073aa920, file "WeRobotCore/task_system_v3/sync_contacts_adapter.py", line 537>:
+539           0 SETUP_FINALLY           68 (to 70)
+
+540           2 LOAD_FAST                0 (self)
+              4 LOAD_ATTR                0 (scheduler)
+              6 LOAD_METHOD              1 (cancel_task)
+              8 LOAD_FAST                1 (task_id)
+             10 CALL_METHOD              1
+             12 GET_AWAITABLE
+             14 LOAD_CONST               1 (None)
+             16 YIELD_FROM
+             18 STORE_FAST               2 (success)
+
+541          20 LOAD_FAST                2 (success)
+             22 POP_JUMP_IF_FALSE       54
+
+542          24 LOAD_FAST                0 (self)
+             26 LOAD_ATTR                2 (logger)
+             28 LOAD_METHOD              3 (info)
+             30 LOAD_CONST               2 ('自动同步通讯录任务取消成功: ')
+             32 LOAD_FAST                1 (task_id)
+             34 FORMAT_VALUE             0
+             36 BUILD_STRING             2
+             38 CALL_METHOD              1
+             40 POP_TOP
+
+543          42 LOAD_CONST               3 (True)
+             44 LOAD_CONST               4 ('任务取消成功')
+             46 LOAD_CONST               5 (('success', 'message'))
+             48 BUILD_CONST_KEY_MAP      2
+             50 POP_BLOCK
+             52 RETURN_VALUE
+
+545     >>   54 LOAD_CONST               6 (False)
+             56 LOAD_CONST               7 ('任务取消失败')
+             58 LOAD_CONST               8 (('success', 'error'))
+             60 BUILD_CONST_KEY_MAP      2
+             62 POP_BLOCK
+             64 RETURN_VALUE
+             66 POP_BLOCK
+             68 JUMP_FORWARD            68 (to 138)
+
+546     >>   70 DUP_TOP
+             72 LOAD_GLOBAL              4 (Exception)
+             74 JUMP_IF_NOT_EXC_MATCH   136
+             76 POP_TOP
+             78 STORE_FAST               3 (e)
+             80 POP_TOP
+             82 SETUP_FINALLY           44 (to 128)
+
+547          84 LOAD_FAST                0 (self)
+             86 LOAD_ATTR                2 (logger)
+             88 LOAD_METHOD              5 (error)
+             90 LOAD_CONST               9 ('取消自动同步通讯录任务失败: ')
+             92 LOAD_FAST                3 (e)
+             94 FORMAT_VALUE             0
+             96 BUILD_STRING             2
+             98 CALL_METHOD              1
+            100 POP_TOP
+
+548         102 LOAD_CONST               6 (False)
+            104 LOAD_GLOBAL              6 (str)
+            106 LOAD_FAST                3 (e)
+            108 CALL_FUNCTION            1
+            110 LOAD_CONST               8 (('success', 'error'))
+            112 BUILD_CONST_KEY_MAP      2
+            114 POP_BLOCK
+            116 ROT_FOUR
+            118 POP_EXCEPT
+            120 LOAD_CONST               1 (None)
+            122 STORE_FAST               3 (e)
+            124 DELETE_FAST              3 (e)
+            126 RETURN_VALUE
+        >>  128 LOAD_CONST               1 (None)
+            130 STORE_FAST               3 (e)
+            132 DELETE_FAST              3 (e)
+            134 RERAISE
+        >>  136 RERAISE
+        >>  138 LOAD_CONST               1 (None)
+            140 RETURN_VALUE
+
+Disassembly of <code object get_sync_contacts_task_info at 0x1073aabe0, file "WeRobotCore/task_system_v3/sync_contacts_adapter.py", line 550>:
+552           0 SETUP_FINALLY           50 (to 52)
+
+553           2 LOAD_FAST                0 (self)
+              4 LOAD_ATTR                0 (scheduler)
+              6 LOAD_METHOD              1 (get_task_info)
+              8 LOAD_FAST                1 (task_id)
+             10 CALL_METHOD              1
+             12 GET_AWAITABLE
+             14 LOAD_CONST               1 (None)
+             16 YIELD_FROM
+             18 STORE_FAST               2 (task_info)
+
+554          20 LOAD_FAST                2 (task_info)
+             22 POP_JUMP_IF_FALSE       36
+
+555          24 LOAD_CONST               2 (True)
+             26 LOAD_FAST                2 (task_info)
+             28 LOAD_CONST               3 (('success', 'task_info'))
+             30 BUILD_CONST_KEY_MAP      2
+             32 POP_BLOCK
+             34 RETURN_VALUE
+
+557     >>   36 LOAD_CONST               4 (False)
+             38 LOAD_CONST               5 ('任务不存在')
+             40 LOAD_CONST               6 (('success', 'error'))
+             42 BUILD_CONST_KEY_MAP      2
+             44 POP_BLOCK
+             46 RETURN_VALUE
+             48 POP_BLOCK
+             50 JUMP_FORWARD            68 (to 120)
+
+558     >>   52 DUP_TOP
+             54 LOAD_GLOBAL              2 (Exception)
+             56 JUMP_IF_NOT_EXC_MATCH   118
+             58 POP_TOP
+             60 STORE_FAST               3 (e)
+             62 POP_TOP
+             64 SETUP_FINALLY           44 (to 110)
+
+559          66 LOAD_FAST                0 (self)
+             68 LOAD_ATTR                3 (logger)
+             70 LOAD_METHOD              4 (error)
+             72 LOAD_CONST               7 ('获取任务信息失败: ')
+             74 LOAD_FAST                3 (e)
+             76 FORMAT_VALUE             0
+             78 BUILD_STRING             2
+             80 CALL_METHOD              1
+             82 POP_TOP
+
+560          84 LOAD_CONST               4 (False)
+             86 LOAD_GLOBAL              5 (str)
+             88 LOAD_FAST                3 (e)
+             90 CALL_FUNCTION            1
+             92 LOAD_CONST               6 (('success', 'error'))
+             94 BUILD_CONST_KEY_MAP      2
+             96 POP_BLOCK
+             98 ROT_FOUR
+            100 POP_EXCEPT
+            102 LOAD_CONST               1 (None)
+            104 STORE_FAST               3 (e)
+            106 DELETE_FAST              3 (e)
+            108 RETURN_VALUE
+        >>  110 LOAD_CONST               1 (None)
+            112 STORE_FAST               3 (e)
+            114 DELETE_FAST              3 (e)
+            116 RERAISE
+        >>  118 RERAISE
+        >>  120 LOAD_CONST               1 (None)
+            122 RETURN_VALUE
+
+Disassembly of <code object get_sync_contacts_tasks at 0x1073aac90, file "WeRobotCore/task_system_v3/sync_contacts_adapter.py", line 562>:
+564           0 SETUP_FINALLY          122 (to 124)
+
+566           2 LOAD_FAST                0 (self)
+              4 LOAD_ATTR                0 (scheduler)
+              6 LOAD_METHOD              1 (get_all_tasks)
+              8 CALL_METHOD              0
+             10 GET_AWAITABLE
+             12 LOAD_CONST               1 (None)
+             14 YIELD_FROM
+             16 STORE_FAST               2 (all_tasks)
+
+569          18 BUILD_LIST               0
+             20 STORE_FAST               3 (sync_contacts_tasks)
+
+570          22 LOAD_FAST                2 (all_tasks)
+             24 GET_ITER
+        >>   26 FOR_ITER                84 (to 112)
+             28 STORE_FAST               4 (task)
+
+572          30 LOAD_FAST                4 (task)
+             32 LOAD_METHOD              2 (get)
+             34 LOAD_CONST               2 ('type')
+             36 CALL_METHOD              1
+             38 LOAD_GLOBAL              3 (TaskType)
+             40 LOAD_ATTR                4 (SYNC_CONTACTS)
+             42 LOAD_ATTR                5 (value)
+             44 COMPARE_OP               2 (==)
+             46 POP_JUMP_IF_TRUE        78
+
+573          48 LOAD_FAST                4 (task)
+             50 LOAD_METHOD              2 (get)
+             52 LOAD_CONST               2 ('type')
+             54 CALL_METHOD              1
+             56 LOAD_CONST               3 ('SYNC_CONTACTS')
+             58 COMPARE_OP               2 (==)
+
+572          60 POP_JUMP_IF_TRUE        78
+
+574          62 LOAD_FAST                4 (task)
+             64 LOAD_METHOD              2 (get)
+             66 LOAD_CONST               2 ('type')
+             68 CALL_METHOD              1
+             70 LOAD_GLOBAL              3 (TaskType)
+             72 LOAD_ATTR                4 (SYNC_CONTACTS)
+             74 COMPARE_OP               2 (==)
+
+572          76 POP_JUMP_IF_FALSE       26
+
+577     >>   78 LOAD_FAST                1 (status)
+             80 LOAD_CONST               1 (None)
+             82 IS_OP                    0
+             84 POP_JUMP_IF_TRUE       100
+             86 LOAD_FAST                4 (task)
+             88 LOAD_METHOD              2 (get)
+             90 LOAD_CONST               4 ('status')
+             92 CALL_METHOD              1
+             94 LOAD_FAST                1 (status)
+             96 COMPARE_OP               2 (==)
+             98 POP_JUMP_IF_FALSE       26
+
+578     >>  100 LOAD_FAST                3 (sync_contacts_tasks)
+            102 LOAD_METHOD              6 (append)
+            104 LOAD_FAST                4 (task)
+            106 CALL_METHOD              1
+            108 POP_TOP
+            110 JUMP_ABSOLUTE           26
+
+580     >>  112 LOAD_CONST               5 (True)
+            114 LOAD_FAST                3 (sync_contacts_tasks)
+            116 LOAD_CONST               6 (('success', 'tasks'))
+            118 BUILD_CONST_KEY_MAP      2
+            120 POP_BLOCK
+            122 RETURN_VALUE
+
+581     >>  124 DUP_TOP
+            126 LOAD_GLOBAL              7 (Exception)
+            128 JUMP_IF_NOT_EXC_MATCH   190
+            130 POP_TOP
+            132 STORE_FAST               5 (e)
+            134 POP_TOP
+            136 SETUP_FINALLY           44 (to 182)
+
+582         138 LOAD_FAST                0 (self)
+            140 LOAD_ATTR                8 (logger)
+            142 LOAD_METHOD              9 (error)
+            144 LOAD_CONST               7 ('获取同步通讯录任务列表失败: ')
+            146 LOAD_FAST                5 (e)
+            148 FORMAT_VALUE             0
+            150 BUILD_STRING             2
+            152 CALL_METHOD              1
+            154 POP_TOP
+
+583         156 LOAD_CONST               8 (False)
+            158 LOAD_GLOBAL             10 (str)
+            160 LOAD_FAST                5 (e)
+            162 CALL_FUNCTION            1
+            164 LOAD_CONST               9 (('success', 'error'))
+            166 BUILD_CONST_KEY_MAP      2
+            168 POP_BLOCK
+            170 ROT_FOUR
+            172 POP_EXCEPT
+            174 LOAD_CONST               1 (None)
+            176 STORE_FAST               5 (e)
+            178 DELETE_FAST              5 (e)
+            180 RETURN_VALUE
+        >>  182 LOAD_CONST               1 (None)
+            184 STORE_FAST               5 (e)
+            186 DELETE_FAST              5 (e)
+            188 RERAISE
+        >>  190 RERAISE
+            192 LOAD_CONST               1 (None)
+            194 RETURN_VALUE
+
+Disassembly of <code object get_sync_contacts_task_status at 0x1073aa2f0, file "WeRobotCore/task_system_v3/sync_contacts_adapter.py", line 585>:
+587           0 SETUP_FINALLY          158 (to 160)
+
+589           2 LOAD_FAST                0 (self)
+              4 LOAD_ATTR                0 (scheduler)
+              6 LOAD_METHOD              1 (get_all_tasks)
+              8 CALL_METHOD              0
+             10 GET_AWAITABLE
+             12 LOAD_CONST               1 (None)
+             14 YIELD_FROM
+             16 STORE_FAST               1 (all_tasks)
+
+592          18 LOAD_CONST               1 (None)
+             20 STORE_FAST               2 (active_task)
+
+593          22 LOAD_FAST                1 (all_tasks)
+             24 GET_ITER
+        >>   26 FOR_ITER                96 (to 124)
+             28 STORE_FAST               3 (task)
+
+595          30 LOAD_FAST                3 (task)
+             32 LOAD_METHOD              2 (get)
+             34 LOAD_CONST               2 ('type')
+             36 CALL_METHOD              1
+             38 LOAD_GLOBAL              3 (TaskType)
+             40 LOAD_ATTR                4 (SYNC_CONTACTS)
+             42 LOAD_ATTR                5 (value)
+             44 COMPARE_OP               2 (==)
+             46 POP_JUMP_IF_TRUE        78
+
+596          48 LOAD_FAST                3 (task)
+             50 LOAD_METHOD              2 (get)
+             52 LOAD_CONST               2 ('type')
+             54 CALL_METHOD              1
+             56 LOAD_CONST               3 ('SYNC_CONTACTS')
+             58 COMPARE_OP               2 (==)
+
+595          60 POP_JUMP_IF_TRUE        78
+
+597          62 LOAD_FAST                3 (task)
+             64 LOAD_METHOD              2 (get)
+             66 LOAD_CONST               2 ('type')
+             68 CALL_METHOD              1
+             70 LOAD_GLOBAL              3 (TaskType)
+             72 LOAD_ATTR                4 (SYNC_CONTACTS)
+             74 COMPARE_OP               2 (==)
+
+595          76 POP_JUMP_IF_FALSE       26
+
+600     >>   78 LOAD_FAST                3 (task)
+             80 LOAD_METHOD              2 (get)
+             82 LOAD_CONST               4 ('status')
+             84 CALL_METHOD              1
+             86 LOAD_CONST               5 ('scheduled')
+             88 COMPARE_OP               2 (==)
+             90 POP_JUMP_IF_FALSE       26
+
+601          92 LOAD_FAST                3 (task)
+             94 LOAD_METHOD              2 (get)
+             96 LOAD_CONST               6 ('params')
+             98 BUILD_MAP                0
+            100 CALL_METHOD              2
+            102 LOAD_METHOD              2 (get)
+            104 LOAD_CONST               7 ('task_status')
+            106 CALL_METHOD              1
+            108 LOAD_CONST               8 ('active')
+            110 COMPARE_OP               2 (==)
+
+600         112 POP_JUMP_IF_FALSE       26
+
+602         114 LOAD_FAST                3 (task)
+            116 STORE_FAST               2 (active_task)
+
+603         118 POP_TOP
+            120 JUMP_ABSOLUTE          124
+            122 JUMP_ABSOLUTE           26
+
+605     >>  124 LOAD_FAST                2 (active_task)
+            126 POP_JUMP_IF_FALSE      142
+
+607         128 LOAD_CONST               9 (True)
+
+608         130 LOAD_CONST               9 (True)
+
+609         132 LOAD_FAST                2 (active_task)
+
+606         134 LOAD_CONST              10 (('success', 'enabled', 'task'))
+            136 BUILD_CONST_KEY_MAP      3
+            138 POP_BLOCK
+            140 RETURN_VALUE
+
+613     >>  142 LOAD_CONST               9 (True)
+
+614         144 LOAD_CONST              11 (False)
+
+615         146 LOAD_CONST               1 (None)
+
+612         148 LOAD_CONST              10 (('success', 'enabled', 'task'))
+            150 BUILD_CONST_KEY_MAP      3
+            152 POP_BLOCK
+            154 RETURN_VALUE
+            156 POP_BLOCK
+            158 JUMP_FORWARD            68 (to 228)
+
+617     >>  160 DUP_TOP
+            162 LOAD_GLOBAL              6 (Exception)
+            164 JUMP_IF_NOT_EXC_MATCH   226
+            166 POP_TOP
+            168 STORE_FAST               4 (e)
+            170 POP_TOP
+            172 SETUP_FINALLY           44 (to 218)
+
+618         174 LOAD_FAST                0 (self)
+            176 LOAD_ATTR                7 (logger)
+            178 LOAD_METHOD              8 (error)
+            180 LOAD_CONST              12 ('获取自动同步任务状态失败: ')
+            182 LOAD_FAST                4 (e)
+            184 FORMAT_VALUE             0
+            186 BUILD_STRING             2
+            188 CALL_METHOD              1
+            190 POP_TOP
+
+619         192 LOAD_CONST              11 (False)
+            194 LOAD_GLOBAL              9 (str)
+            196 LOAD_FAST                4 (e)
+            198 CALL_FUNCTION            1
+            200 LOAD_CONST              13 (('success', 'error'))
+            202 BUILD_CONST_KEY_MAP      2
+            204 POP_BLOCK
+            206 ROT_FOUR
+            208 POP_EXCEPT
+            210 LOAD_CONST               1 (None)
+            212 STORE_FAST               4 (e)
+            214 DELETE_FAST              4 (e)
+            216 RETURN_VALUE
+        >>  218 LOAD_CONST               1 (None)
+            220 STORE_FAST               4 (e)
+            222 DELETE_FAST              4 (e)
+            224 RERAISE
+        >>  226 RERAISE
+        >>  228 LOAD_CONST               1 (None)
+            230 RETURN_VALUE

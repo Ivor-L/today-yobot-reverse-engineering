@@ -1,0 +1,1142 @@
+  1           0 LOAD_CONST               0 ("Agentic-only message identities. Never replace RPA's UIA id or fingerprint.\n\nUIA ids identify controls, not durable messages. Fingerprints include a sliding\nwindow. Reconcile ordered observations and persist separate occurrence UUIDs.\nOnly confirmed sequence overlap is reused; no global content/fingerprint dedup.\n")
+              2 STORE_NAME               0 (__doc__)
+
+  7           4 LOAD_CONST               1 (0)
+              6 LOAD_CONST               2 (('annotations',))
+              8 IMPORT_NAME              1 (__future__)
+             10 IMPORT_FROM              2 (annotations)
+             12 STORE_NAME               2 (annotations)
+             14 POP_TOP
+
+  9          16 LOAD_CONST               1 (0)
+             18 LOAD_CONST               3 (None)
+             20 IMPORT_NAME              3 (hashlib)
+             22 STORE_NAME               3 (hashlib)
+
+ 10          24 LOAD_CONST               1 (0)
+             26 LOAD_CONST               3 (None)
+             28 IMPORT_NAME              4 (json)
+             30 STORE_NAME               4 (json)
+
+ 11          32 LOAD_CONST               1 (0)
+             34 LOAD_CONST               3 (None)
+             36 IMPORT_NAME              5 (sqlite3)
+             38 STORE_NAME               5 (sqlite3)
+
+ 12          40 LOAD_CONST               1 (0)
+             42 LOAD_CONST               3 (None)
+             44 IMPORT_NAME              6 (uuid)
+             46 STORE_NAME               6 (uuid)
+
+ 13          48 LOAD_CONST               1 (0)
+             50 LOAD_CONST               4 (('Path',))
+             52 IMPORT_NAME              7 (pathlib)
+             54 IMPORT_FROM              8 (Path)
+             56 STORE_NAME               8 (Path)
+             58 POP_TOP
+
+ 16          60 LOAD_CONST               5 (<code object _digest at 0x10924bf50, file "WeRobotCore/services/agentic_identity.py", line 16>)
+             62 LOAD_CONST               6 ('_digest')
+             64 MAKE_FUNCTION            0
+             66 STORE_NAME               9 (_digest)
+
+ 21          68 LOAD_CONST               7 (<code object fallback_identity at 0x10924bc90, file "WeRobotCore/services/agentic_identity.py", line 21>)
+             70 LOAD_CONST               8 ('fallback_identity')
+             72 MAKE_FUNCTION            0
+             74 STORE_NAME              10 (fallback_identity)
+
+ 28          76 LOAD_CONST               9 (<code object batch_identity at 0x10924b920, file "WeRobotCore/services/agentic_identity.py", line 28>)
+             78 LOAD_CONST              10 ('batch_identity')
+             80 MAKE_FUNCTION            0
+             82 STORE_NAME              11 (batch_identity)
+
+ 33          84 LOAD_CONST              11 (<code object _observation at 0x10924b7c0, file "WeRobotCore/services/agentic_identity.py", line 33>)
+             86 LOAD_CONST              12 ('_observation')
+             88 MAKE_FUNCTION            0
+             90 STORE_NAME              12 (_observation)
+
+ 47          92 LOAD_CONST              13 (<code object _same at 0x10924b9d0, file "WeRobotCore/services/agentic_identity.py", line 47>)
+             94 LOAD_CONST              14 ('_same')
+             96 MAKE_FUNCTION            0
+             98 STORE_NAME              13 (_same)
+
+ 53         100 LOAD_CONST              15 (<code object _evidence at 0x10924bbe0, file "WeRobotCore/services/agentic_identity.py", line 53>)
+            102 LOAD_CONST              16 ('_evidence')
+            104 MAKE_FUNCTION            0
+            106 STORE_NAME              14 (_evidence)
+
+ 58         108 LOAD_CONST              17 (<code object _same_single_observation at 0x10924b190, file "WeRobotCore/services/agentic_identity.py", line 58>)
+            110 LOAD_CONST              18 ('_same_single_observation')
+            112 MAKE_FUNCTION            0
+            114 STORE_NAME              15 (_same_single_observation)
+
+ 68         116 LOAD_BUILD_CLASS
+            118 LOAD_CONST              19 (<code object AgenticIdentityStore at 0x10924cea0, file "WeRobotCore/services/agentic_identity.py", line 68>)
+            120 LOAD_CONST              20 ('AgenticIdentityStore')
+            122 MAKE_FUNCTION            0
+            124 LOAD_CONST              20 ('AgenticIdentityStore')
+            126 CALL_FUNCTION            2
+            128 STORE_NAME              16 (AgenticIdentityStore)
+            130 LOAD_CONST               3 (None)
+            132 RETURN_VALUE
+
+Disassembly of <code object _digest at 0x10924bf50, file "WeRobotCore/services/agentic_identity.py", line 16>:
+ 17           0 LOAD_GLOBAL              0 (hashlib)
+              2 LOAD_METHOD              1 (sha256)
+              4 LOAD_GLOBAL              2 (json)
+              6 LOAD_ATTR                3 (dumps)
+              8 LOAD_FAST                0 (value)
+             10 LOAD_CONST               1 (False)
+             12 LOAD_CONST               2 (True)
+
+ 18          14 LOAD_CONST               3 ((',', ':'))
+
+ 17          16 LOAD_CONST               4 (('ensure_ascii', 'sort_keys', 'separators'))
+             18 CALL_FUNCTION_KW         4
+             20 LOAD_METHOD              4 (encode)
+
+ 18          22 LOAD_CONST               5 ('utf-8')
+
+ 17          24 CALL_METHOD              1
+             26 CALL_METHOD              1
+             28 LOAD_METHOD              5 (hexdigest)
+             30 CALL_METHOD              0
+             32 RETURN_VALUE
+
+Disassembly of <code object fallback_identity at 0x10924bc90, file "WeRobotCore/services/agentic_identity.py", line 21>:
+ 23           0 LOAD_FAST                0 (message)
+              2 LOAD_METHOD              0 (get)
+              4 LOAD_CONST               1 ('agentic_id')
+              6 CALL_METHOD              1
+              8 POP_JUMP_IF_FALSE       18
+
+ 24          10 LOAD_FAST                0 (message)
+             12 LOAD_CONST               1 ('agentic_id')
+             14 BINARY_SUBSCR
+             16 RETURN_VALUE
+
+ 25     >>   18 LOAD_CONST               2 ('rpa-observation-v2:')
+             20 LOAD_GLOBAL              1 (_digest)
+             22 LOAD_GLOBAL              2 (_observation)
+             24 LOAD_FAST                0 (message)
+             26 CALL_FUNCTION            1
+             28 CALL_FUNCTION            1
+             30 BINARY_ADD
+             32 RETURN_VALUE
+
+Disassembly of <code object batch_identity at 0x10924b920, file "WeRobotCore/services/agentic_identity.py", line 28>:
+ 29           0 LOAD_CONST               1 (<code object <listcomp> at 0x10924b030, file "WeRobotCore/services/agentic_identity.py", line 29>)
+              2 LOAD_CONST               2 ('batch_identity.<locals>.<listcomp>')
+              4 MAKE_FUNCTION            0
+              6 LOAD_FAST                0 (messages)
+              8 GET_ITER
+             10 CALL_FUNCTION            1
+             12 STORE_FAST               1 (ids)
+
+ 30          14 LOAD_GLOBAL              0 (len)
+             16 LOAD_FAST                1 (ids)
+             18 CALL_FUNCTION            1
+             20 LOAD_CONST               3 (1)
+             22 COMPARE_OP               2 (==)
+             24 POP_JUMP_IF_FALSE       34
+             26 LOAD_FAST                1 (ids)
+             28 LOAD_CONST               4 (0)
+             30 BINARY_SUBSCR
+             32 RETURN_VALUE
+        >>   34 LOAD_CONST               5 ('rpa-batch-v2:')
+             36 LOAD_GLOBAL              1 (_digest)
+             38 LOAD_FAST                1 (ids)
+             40 CALL_FUNCTION            1
+             42 BINARY_ADD
+             44 RETURN_VALUE
+
+Disassembly of <code object <listcomp> at 0x10924b030, file "WeRobotCore/services/agentic_identity.py", line 29>:
+ 29           0 BUILD_LIST               0
+              2 LOAD_FAST                0 (.0)
+        >>    4 FOR_ITER                12 (to 18)
+              6 STORE_FAST               1 (message)
+              8 LOAD_GLOBAL              0 (fallback_identity)
+             10 LOAD_FAST                1 (message)
+             12 CALL_FUNCTION            1
+             14 LIST_APPEND              2
+             16 JUMP_ABSOLUTE            4
+        >>   18 RETURN_VALUE
+
+Disassembly of <code object _observation at 0x10924b7c0, file "WeRobotCore/services/agentic_identity.py", line 33>:
+ 34           0 LOAD_FAST                0 (message)
+              2 LOAD_METHOD              0 (get)
+              4 LOAD_CONST               1 ('sender')
+              6 CALL_METHOD              1
+              8 JUMP_IF_TRUE_OR_POP     12
+             10 LOAD_CONST               2 ('')
+        >>   12 STORE_FAST               1 (sender)
+
+ 35          14 LOAD_GLOBAL              1 (isinstance)
+             16 LOAD_FAST                1 (sender)
+             18 LOAD_GLOBAL              2 (dict)
+             20 CALL_FUNCTION            2
+             22 POP_JUMP_IF_FALSE       36
+
+ 36          24 LOAD_FAST                1 (sender)
+             26 LOAD_METHOD              0 (get)
+             28 LOAD_CONST               3 ('name')
+             30 LOAD_CONST               2 ('')
+             32 CALL_METHOD              2
+             34 STORE_FAST               1 (sender)
+
+ 38     >>   36 LOAD_FAST                1 (sender)
+
+ 39          38 LOAD_GLOBAL              3 (bool)
+             40 LOAD_FAST                0 (message)
+             42 LOAD_METHOD              0 (get)
+             44 LOAD_CONST               4 ('isSelf')
+             46 CALL_METHOD              1
+             48 CALL_FUNCTION            1
+
+ 40          50 LOAD_GLOBAL              4 (str)
+             52 LOAD_FAST                0 (message)
+             54 LOAD_METHOD              0 (get)
+             56 LOAD_CONST               5 ('content')
+             58 CALL_METHOD              1
+             60 JUMP_IF_TRUE_OR_POP     64
+             62 LOAD_CONST               2 ('')
+        >>   64 CALL_FUNCTION            1
+
+ 41          66 LOAD_FAST                0 (message)
+             68 LOAD_METHOD              0 (get)
+             70 LOAD_CONST               6 ('timestamp')
+             72 CALL_METHOD              1
+             74 JUMP_IF_TRUE_OR_POP     88
+             76 LOAD_FAST                0 (message)
+             78 LOAD_METHOD              0 (get)
+             80 LOAD_CONST               7 ('time')
+             82 CALL_METHOD              1
+             84 JUMP_IF_TRUE_OR_POP     88
+             86 LOAD_CONST               0 (None)
+
+ 42     >>   88 LOAD_GLOBAL              4 (str)
+             90 LOAD_FAST                0 (message)
+             92 LOAD_METHOD              0 (get)
+             94 LOAD_CONST               8 ('id')
+             96 CALL_METHOD              1
+             98 JUMP_IF_TRUE_OR_POP    102
+            100 LOAD_CONST               2 ('')
+        >>  102 CALL_FUNCTION            1
+
+ 43         104 LOAD_GLOBAL              4 (str)
+            106 LOAD_FAST                0 (message)
+            108 LOAD_METHOD              0 (get)
+            110 LOAD_CONST               9 ('fingerprint')
+            112 CALL_METHOD              1
+            114 JUMP_IF_TRUE_OR_POP    118
+            116 LOAD_CONST               2 ('')
+        >>  118 CALL_FUNCTION            1
+
+ 37         120 LOAD_CONST              10 (('sender', 'self', 'content', 'time', 'runtime', 'fingerprint'))
+            122 BUILD_CONST_KEY_MAP      6
+            124 RETURN_VALUE
+
+Disassembly of <code object _same at 0x10924b9d0, file "WeRobotCore/services/agentic_identity.py", line 47>:
+ 49           0 LOAD_GLOBAL              0 (all)
+              2 LOAD_CLOSURE             0 (left)
+              4 LOAD_CLOSURE             1 (right)
+              6 BUILD_TUPLE              2
+              8 LOAD_CONST               1 (<code object <genexpr> at 0x10924b660, file "WeRobotCore/services/agentic_identity.py", line 49>)
+             10 LOAD_CONST               2 ('_same.<locals>.<genexpr>')
+             12 MAKE_FUNCTION            8 (closure)
+             14 LOAD_CONST               3 (('sender', 'self', 'content'))
+             16 GET_ITER
+             18 CALL_FUNCTION            1
+             20 CALL_FUNCTION            1
+             22 JUMP_IF_FALSE_OR_POP    58
+
+ 50          24 LOAD_DEREF               0 (left)
+             26 LOAD_CONST               4 ('time')
+             28 BINARY_SUBSCR
+             30 UNARY_NOT
+             32 JUMP_IF_TRUE_OR_POP     58
+             34 LOAD_DEREF               1 (right)
+             36 LOAD_CONST               4 ('time')
+             38 BINARY_SUBSCR
+             40 UNARY_NOT
+             42 JUMP_IF_TRUE_OR_POP     58
+             44 LOAD_DEREF               0 (left)
+             46 LOAD_CONST               4 ('time')
+             48 BINARY_SUBSCR
+             50 LOAD_DEREF               1 (right)
+             52 LOAD_CONST               4 ('time')
+             54 BINARY_SUBSCR
+             56 COMPARE_OP               2 (==)
+
+ 49     >>   58 RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x10924b660, file "WeRobotCore/services/agentic_identity.py", line 49>:
+ 49           0 LOAD_FAST                0 (.0)
+        >>    2 FOR_ITER                22 (to 26)
+              4 STORE_FAST               1 (key)
+              6 LOAD_DEREF               0 (left)
+              8 LOAD_FAST                1 (key)
+             10 BINARY_SUBSCR
+             12 LOAD_DEREF               1 (right)
+             14 LOAD_FAST                1 (key)
+             16 BINARY_SUBSCR
+             18 COMPARE_OP               2 (==)
+             20 YIELD_VALUE
+             22 POP_TOP
+             24 JUMP_ABSOLUTE            2
+        >>   26 LOAD_CONST               0 (None)
+             28 RETURN_VALUE
+
+Disassembly of <code object _evidence at 0x10924bbe0, file "WeRobotCore/services/agentic_identity.py", line 53>:
+ 54           0 LOAD_GLOBAL              0 (sum)
+              2 LOAD_CLOSURE             0 (left)
+              4 LOAD_CLOSURE             1 (right)
+              6 BUILD_TUPLE              2
+              8 LOAD_CONST               1 (<code object <genexpr> at 0x10924ba80, file "WeRobotCore/services/agentic_identity.py", line 54>)
+             10 LOAD_CONST               2 ('_evidence.<locals>.<genexpr>')
+             12 MAKE_FUNCTION            8 (closure)
+
+ 55          14 LOAD_CONST               3 (('runtime', 'fingerprint', 'time'))
+
+ 54          16 GET_ITER
+             18 CALL_FUNCTION            1
+             20 CALL_FUNCTION            1
+             22 RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x10924ba80, file "WeRobotCore/services/agentic_identity.py", line 54>:
+ 54           0 LOAD_FAST                0 (.0)
+        >>    2 FOR_ITER                34 (to 38)
+
+ 55           4 STORE_FAST               1 (key)
+
+ 54           6 LOAD_GLOBAL              0 (bool)
+              8 LOAD_DEREF               0 (left)
+             10 LOAD_FAST                1 (key)
+             12 BINARY_SUBSCR
+             14 CALL_FUNCTION            1
+             16 JUMP_IF_FALSE_OR_POP    32
+             18 LOAD_DEREF               0 (left)
+             20 LOAD_FAST                1 (key)
+             22 BINARY_SUBSCR
+             24 LOAD_DEREF               1 (right)
+             26 LOAD_FAST                1 (key)
+             28 BINARY_SUBSCR
+             30 COMPARE_OP               2 (==)
+        >>   32 YIELD_VALUE
+             34 POP_TOP
+             36 JUMP_ABSOLUTE            2
+        >>   38 LOAD_CONST               0 (None)
+             40 RETURN_VALUE
+
+Disassembly of <code object _same_single_observation at 0x10924b190, file "WeRobotCore/services/agentic_identity.py", line 58>:
+ 61           0 LOAD_FAST                0 (left)
+              2 LOAD_CONST               1 ('fingerprint')
+              4 BINARY_SUBSCR
+              6 POP_JUMP_IF_FALSE       48
+              8 LOAD_FAST                1 (right)
+             10 LOAD_CONST               1 ('fingerprint')
+             12 BINARY_SUBSCR
+             14 POP_JUMP_IF_FALSE       48
+
+ 62          16 LOAD_FAST                0 (left)
+             18 LOAD_CONST               1 ('fingerprint')
+             20 BINARY_SUBSCR
+             22 LOAD_FAST                1 (right)
+             24 LOAD_CONST               1 ('fingerprint')
+             26 BINARY_SUBSCR
+             28 COMPARE_OP               2 (==)
+             30 JUMP_IF_FALSE_OR_POP    46
+
+ 63          32 LOAD_FAST                0 (left)
+             34 LOAD_CONST               2 ('runtime')
+             36 BINARY_SUBSCR
+             38 LOAD_FAST                1 (right)
+             40 LOAD_CONST               2 ('runtime')
+             42 BINARY_SUBSCR
+             44 COMPARE_OP               2 (==)
+
+ 62     >>   46 RETURN_VALUE
+
+ 64     >>   48 LOAD_GLOBAL              0 (bool)
+             50 LOAD_FAST                0 (left)
+             52 LOAD_CONST               2 ('runtime')
+             54 BINARY_SUBSCR
+             56 JUMP_IF_FALSE_OR_POP    96
+             58 LOAD_FAST                0 (left)
+             60 LOAD_CONST               2 ('runtime')
+             62 BINARY_SUBSCR
+             64 LOAD_FAST                1 (right)
+             66 LOAD_CONST               2 ('runtime')
+             68 BINARY_SUBSCR
+             70 COMPARE_OP               2 (==)
+             72 JUMP_IF_FALSE_OR_POP    96
+
+ 65          74 LOAD_FAST                0 (left)
+             76 LOAD_CONST               3 ('time')
+             78 BINARY_SUBSCR
+
+ 64          80 JUMP_IF_FALSE_OR_POP    96
+
+ 65          82 LOAD_FAST                0 (left)
+             84 LOAD_CONST               3 ('time')
+             86 BINARY_SUBSCR
+             88 LOAD_FAST                1 (right)
+             90 LOAD_CONST               3 ('time')
+             92 BINARY_SUBSCR
+             94 COMPARE_OP               2 (==)
+
+ 64     >>   96 CALL_FUNCTION            1
+             98 RETURN_VALUE
+
+Disassembly of <code object AgenticIdentityStore at 0x10924cea0, file "WeRobotCore/services/agentic_identity.py", line 68>:
+ 68           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('AgenticIdentityStore')
+              6 STORE_NAME               2 (__qualname__)
+
+ 69           8 LOAD_CONST               6 ((None,))
+             10 LOAD_CONST               2 (<code object __init__ at 0x10924b3a0, file "WeRobotCore/services/agentic_identity.py", line 69>)
+             12 LOAD_CONST               3 ('AgenticIdentityStore.__init__')
+             14 MAKE_FUNCTION            1 (defaults)
+             16 STORE_NAME               3 (__init__)
+
+ 75          18 LOAD_CONST               4 (<code object prepare at 0x10924cc90, file "WeRobotCore/services/agentic_identity.py", line 75>)
+             20 LOAD_CONST               5 ('AgenticIdentityStore.prepare')
+             22 MAKE_FUNCTION            0
+             24 STORE_NAME               4 (prepare)
+             26 LOAD_CONST               1 (None)
+             28 RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x10924b3a0, file "WeRobotCore/services/agentic_identity.py", line 69>:
+ 70           0 LOAD_FAST                1 (db_path)
+              2 LOAD_CONST               0 (None)
+              4 IS_OP                    0
+              6 POP_JUMP_IF_FALSE       36
+
+ 71           8 LOAD_CONST               1 (0)
+             10 LOAD_CONST               2 (('DataManager',))
+             12 IMPORT_NAME              0 (WeRobotCore.utils.data_manager)
+             14 IMPORT_FROM              1 (DataManager)
+             16 STORE_FAST               2 (DataManager)
+             18 POP_TOP
+
+ 72          20 LOAD_GLOBAL              2 (Path)
+             22 LOAD_FAST                2 (DataManager)
+             24 LOAD_METHOD              3 (get_data_dir_str)
+             26 CALL_METHOD              0
+             28 CALL_FUNCTION            1
+             30 LOAD_CONST               3 ('agentic_identity_v2.sqlite3')
+             32 BINARY_TRUE_DIVIDE
+             34 STORE_FAST               1 (db_path)
+
+ 73     >>   36 LOAD_GLOBAL              2 (Path)
+             38 LOAD_FAST                1 (db_path)
+             40 CALL_FUNCTION            1
+             42 LOAD_FAST                0 (self)
+             44 STORE_ATTR               4 (db_path)
+             46 LOAD_CONST               0 (None)
+             48 RETURN_VALUE
+
+Disassembly of <code object prepare at 0x10924cc90, file "WeRobotCore/services/agentic_identity.py", line 75>:
+ 81           0 LOAD_CONST               1 (<code object <listcomp> at 0x10924b710, file "WeRobotCore/services/agentic_identity.py", line 81>)
+              2 LOAD_CONST               2 ('AgenticIdentityStore.prepare.<locals>.<listcomp>')
+              4 MAKE_FUNCTION            0
+              6 LOAD_FAST                3 (snapshot)
+              8 JUMP_IF_TRUE_OR_POP     12
+             10 LOAD_FAST                4 (triggers)
+        >>   12 GET_ITER
+             14 CALL_FUNCTION            1
+             16 STORE_DEREF              0 (current)
+
+ 82          18 LOAD_CONST               3 (None)
+             20 BUILD_LIST               1
+             22 LOAD_GLOBAL              0 (len)
+             24 LOAD_FAST                4 (triggers)
+             26 CALL_FUNCTION            1
+             28 BINARY_MULTIPLY
+             30 STORE_FAST               5 (trigger_indices)
+
+ 83          32 LOAD_GLOBAL              1 (set)
+             34 CALL_FUNCTION            0
+             36 STORE_DEREF              2 (used)
+
+ 84          38 LOAD_GLOBAL              2 (range)
+             40 LOAD_GLOBAL              0 (len)
+             42 LOAD_FAST                4 (triggers)
+             44 CALL_FUNCTION            1
+             46 LOAD_CONST               4 (1)
+             48 BINARY_SUBTRACT
+             50 LOAD_CONST               5 (-1)
+             52 LOAD_CONST               5 (-1)
+             54 CALL_FUNCTION            3
+             56 GET_ITER
+        >>   58 FOR_ITER                82 (to 142)
+             60 STORE_FAST               6 (trigger_index)
+
+ 85          62 LOAD_FAST                4 (triggers)
+             64 LOAD_FAST                6 (trigger_index)
+             66 BINARY_SUBSCR
+             68 STORE_DEREF              1 (trigger)
+
+ 88          70 LOAD_GLOBAL              3 (next)
+             72 LOAD_CLOSURE             0 (current)
+             74 LOAD_CLOSURE             1 (trigger)
+             76 LOAD_CLOSURE             2 (used)
+             78 BUILD_TUPLE              3
+             80 LOAD_CONST               6 (<code object <genexpr> at 0x10924bd40, file "WeRobotCore/services/agentic_identity.py", line 88>)
+             82 LOAD_CONST               7 ('AgenticIdentityStore.prepare.<locals>.<genexpr>')
+             84 MAKE_FUNCTION            8 (closure)
+             86 LOAD_GLOBAL              2 (range)
+             88 LOAD_GLOBAL              0 (len)
+             90 LOAD_DEREF               0 (current)
+             92 CALL_FUNCTION            1
+             94 LOAD_CONST               4 (1)
+             96 BINARY_SUBTRACT
+             98 LOAD_CONST               5 (-1)
+            100 LOAD_CONST               5 (-1)
+            102 CALL_FUNCTION            3
+            104 GET_ITER
+            106 CALL_FUNCTION            1
+
+ 93         108 LOAD_CONST               3 (None)
+
+ 88         110 CALL_FUNCTION            2
+            112 STORE_FAST               7 (index)
+
+ 94         114 LOAD_FAST                7 (index)
+            116 LOAD_CONST               3 (None)
+            118 IS_OP                    1
+            120 POP_JUMP_IF_FALSE       58
+
+ 95         122 LOAD_DEREF               2 (used)
+            124 LOAD_METHOD              4 (add)
+            126 LOAD_FAST                7 (index)
+            128 CALL_METHOD              1
+            130 POP_TOP
+
+ 96         132 LOAD_FAST                7 (index)
+            134 LOAD_FAST                5 (trigger_indices)
+            136 LOAD_FAST                6 (trigger_index)
+            138 STORE_SUBSCR
+            140 JUMP_ABSOLUTE           58
+
+ 99     >>  142 LOAD_GLOBAL              5 (enumerate)
+            144 LOAD_FAST                4 (triggers)
+            146 CALL_FUNCTION            1
+            148 GET_ITER
+        >>  150 FOR_ITER                46 (to 198)
+            152 UNPACK_SEQUENCE          2
+            154 STORE_FAST               6 (trigger_index)
+            156 STORE_DEREF              1 (trigger)
+
+100         158 LOAD_FAST                5 (trigger_indices)
+            160 LOAD_FAST                6 (trigger_index)
+            162 BINARY_SUBSCR
+            164 LOAD_CONST               3 (None)
+            166 IS_OP                    0
+            168 POP_JUMP_IF_FALSE      150
+
+101         170 LOAD_GLOBAL              0 (len)
+            172 LOAD_DEREF               0 (current)
+            174 CALL_FUNCTION            1
+            176 LOAD_FAST                5 (trigger_indices)
+            178 LOAD_FAST                6 (trigger_index)
+            180 STORE_SUBSCR
+
+102         182 LOAD_DEREF               0 (current)
+            184 LOAD_METHOD              6 (append)
+            186 LOAD_GLOBAL              7 (dict)
+            188 LOAD_DEREF               1 (trigger)
+            190 CALL_FUNCTION            1
+            192 CALL_METHOD              1
+            194 POP_TOP
+            196 JUMP_ABSOLUTE          150
+
+103     >>  198 LOAD_CONST               8 (<code object <listcomp> at 0x10924b870, file "WeRobotCore/services/agentic_identity.py", line 103>)
+            200 LOAD_CONST               2 ('AgenticIdentityStore.prepare.<locals>.<listcomp>')
+            202 MAKE_FUNCTION            0
+            204 LOAD_DEREF               0 (current)
+            206 GET_ITER
+            208 CALL_FUNCTION            1
+            210 STORE_FAST               8 (observations)
+
+104         212 LOAD_GLOBAL              8 (_digest)
+            214 LOAD_GLOBAL              9 (str)
+            216 LOAD_FAST                1 (account_id)
+            218 CALL_FUNCTION            1
+            220 LOAD_GLOBAL              9 (str)
+            222 LOAD_FAST                2 (session_id)
+            224 CALL_FUNCTION            1
+            226 BUILD_LIST               2
+            228 CALL_FUNCTION            1
+            230 STORE_FAST               9 (scope)
+
+105         232 LOAD_FAST                0 (self)
+            234 LOAD_ATTR               10 (db_path)
+            236 LOAD_ATTR               11 (parent)
+            238 LOAD_ATTR               12 (mkdir)
+            240 LOAD_CONST               9 (True)
+            242 LOAD_CONST               9 (True)
+            244 LOAD_CONST              10 (('parents', 'exist_ok'))
+            246 CALL_FUNCTION_KW         2
+            248 POP_TOP
+
+106         250 LOAD_GLOBAL             13 (sqlite3)
+            252 LOAD_ATTR               14 (connect)
+            254 LOAD_GLOBAL              9 (str)
+            256 LOAD_FAST                0 (self)
+            258 LOAD_ATTR               10 (db_path)
+            260 CALL_FUNCTION            1
+            262 LOAD_CONST              11 (10)
+            264 LOAD_CONST              12 (('timeout',))
+            266 CALL_FUNCTION_KW         2
+            268 EXTENDED_ARG             2
+            270 SETUP_WITH             654 (to 926)
+            272 STORE_FAST              10 (db)
+
+107         274 LOAD_FAST               10 (db)
+            276 LOAD_METHOD             15 (execute)
+            278 LOAD_CONST              13 ('CREATE TABLE IF NOT EXISTS snapshots (scope TEXT PRIMARY KEY, body TEXT NOT NULL)')
+            280 CALL_METHOD              1
+            282 POP_TOP
+
+108         284 LOAD_FAST               10 (db)
+            286 LOAD_METHOD             15 (execute)
+            288 LOAD_CONST              14 ('BEGIN IMMEDIATE')
+            290 CALL_METHOD              1
+            292 POP_TOP
+
+109         294 LOAD_FAST               10 (db)
+            296 LOAD_METHOD             15 (execute)
+            298 LOAD_CONST              15 ('SELECT body FROM snapshots WHERE scope=?')
+            300 LOAD_FAST                9 (scope)
+            302 BUILD_TUPLE              1
+            304 CALL_METHOD              2
+            306 LOAD_METHOD             16 (fetchone)
+            308 CALL_METHOD              0
+            310 STORE_FAST              11 (row)
+
+110         312 LOAD_FAST               11 (row)
+            314 EXTENDED_ARG             1
+            316 POP_JUMP_IF_FALSE      332
+            318 LOAD_GLOBAL             17 (json)
+            320 LOAD_METHOD             18 (loads)
+            322 LOAD_FAST               11 (row)
+            324 LOAD_CONST              16 (0)
+            326 BINARY_SUBSCR
+            328 CALL_METHOD              1
+            330 JUMP_FORWARD             2 (to 334)
+        >>  332 BUILD_LIST               0
+        >>  334 STORE_FAST              12 (previous)
+
+111         336 LOAD_CONST               3 (None)
+            338 STORE_FAST              13 (best)
+
+114         340 LOAD_GLOBAL              2 (range)
+            342 LOAD_GLOBAL              0 (len)
+            344 LOAD_FAST               12 (previous)
+            346 CALL_FUNCTION            1
+            348 CALL_FUNCTION            1
+            350 GET_ITER
+        >>  352 EXTENDED_ARG             1
+            354 FOR_ITER               354 (to 710)
+            356 STORE_FAST              14 (old_start)
+
+115         358 LOAD_GLOBAL              2 (range)
+            360 LOAD_GLOBAL              0 (len)
+            362 LOAD_FAST                8 (observations)
+            364 CALL_FUNCTION            1
+            366 CALL_FUNCTION            1
+            368 GET_ITER
+        >>  370 EXTENDED_ARG             1
+            372 FOR_ITER               332 (to 706)
+            374 STORE_FAST              15 (new_start)
+
+116         376 LOAD_CONST              16 (0)
+            378 STORE_FAST              16 (length)
+
+117         380 LOAD_CONST              16 (0)
+            382 STORE_FAST              17 (evidence)
+
+118         384 LOAD_CONST              16 (0)
+            386 STORE_FAST              18 (exact)
+
+119     >>  388 LOAD_FAST               14 (old_start)
+            390 LOAD_FAST               16 (length)
+            392 BINARY_ADD
+            394 LOAD_GLOBAL              0 (len)
+            396 LOAD_FAST               12 (previous)
+            398 CALL_FUNCTION            1
+            400 COMPARE_OP               0 (<)
+            402 EXTENDED_ARG             2
+            404 POP_JUMP_IF_FALSE      524
+
+120         406 LOAD_FAST               15 (new_start)
+            408 LOAD_FAST               16 (length)
+            410 BINARY_ADD
+            412 LOAD_GLOBAL              0 (len)
+            414 LOAD_FAST                8 (observations)
+            416 CALL_FUNCTION            1
+            418 COMPARE_OP               0 (<)
+
+119         420 EXTENDED_ARG             2
+            422 POP_JUMP_IF_FALSE      524
+
+121         424 LOAD_GLOBAL             19 (_same)
+            426 LOAD_FAST               12 (previous)
+            428 LOAD_FAST               14 (old_start)
+            430 LOAD_FAST               16 (length)
+            432 BINARY_ADD
+            434 BINARY_SUBSCR
+            436 LOAD_FAST                8 (observations)
+            438 LOAD_FAST               15 (new_start)
+            440 LOAD_FAST               16 (length)
+            442 BINARY_ADD
+            444 BINARY_SUBSCR
+            446 CALL_FUNCTION            2
+
+119         448 EXTENDED_ARG             2
+            450 POP_JUMP_IF_FALSE      524
+
+122         452 LOAD_FAST               17 (evidence)
+            454 LOAD_GLOBAL             20 (_evidence)
+            456 LOAD_FAST               12 (previous)
+            458 LOAD_FAST               14 (old_start)
+            460 LOAD_FAST               16 (length)
+            462 BINARY_ADD
+            464 BINARY_SUBSCR
+            466 LOAD_FAST                8 (observations)
+            468 LOAD_FAST               15 (new_start)
+            470 LOAD_FAST               16 (length)
+            472 BINARY_ADD
+            474 BINARY_SUBSCR
+            476 CALL_FUNCTION            2
+            478 INPLACE_ADD
+            480 STORE_FAST              17 (evidence)
+
+123         482 LOAD_FAST               18 (exact)
+            484 LOAD_GLOBAL             21 (_same_single_observation)
+            486 LOAD_FAST               12 (previous)
+            488 LOAD_FAST               14 (old_start)
+            490 LOAD_FAST               16 (length)
+            492 BINARY_ADD
+            494 BINARY_SUBSCR
+            496 LOAD_FAST                8 (observations)
+            498 LOAD_FAST               15 (new_start)
+            500 LOAD_FAST               16 (length)
+            502 BINARY_ADD
+            504 BINARY_SUBSCR
+            506 CALL_FUNCTION            2
+            508 INPLACE_ADD
+            510 STORE_FAST              18 (exact)
+
+124         512 LOAD_FAST               16 (length)
+            514 LOAD_CONST               4 (1)
+            516 INPLACE_ADD
+            518 STORE_FAST              16 (length)
+            520 EXTENDED_ARG             1
+            522 JUMP_ABSOLUTE          388
+
+125     >>  524 LOAD_FAST               16 (length)
+            526 EXTENDED_ARG             1
+            528 POP_JUMP_IF_FALSE      370
+            530 LOAD_FAST               16 (length)
+            532 LOAD_CONST               4 (1)
+            534 COMPARE_OP               2 (==)
+            536 EXTENDED_ARG             2
+            538 POP_JUMP_IF_FALSE      564
+            540 LOAD_GLOBAL             21 (_same_single_observation)
+
+126         542 LOAD_FAST               12 (previous)
+            544 LOAD_FAST               14 (old_start)
+            546 BINARY_SUBSCR
+            548 LOAD_FAST                8 (observations)
+            550 LOAD_FAST               15 (new_start)
+            552 BINARY_SUBSCR
+
+125         554 CALL_FUNCTION            2
+            556 EXTENDED_ARG             2
+            558 POP_JUMP_IF_TRUE       564
+
+127         560 EXTENDED_ARG             1
+            562 JUMP_ABSOLUTE          370
+
+128     >>  564 LOAD_FAST               14 (old_start)
+            566 LOAD_FAST               16 (length)
+            568 BINARY_ADD
+            570 LOAD_GLOBAL              0 (len)
+            572 LOAD_FAST               12 (previous)
+            574 CALL_FUNCTION            1
+            576 COMPARE_OP               3 (!=)
+            578 EXTENDED_ARG             2
+            580 POP_JUMP_IF_FALSE      604
+            582 LOAD_FAST               15 (new_start)
+            584 LOAD_FAST               16 (length)
+            586 BINARY_ADD
+            588 LOAD_GLOBAL              0 (len)
+            590 LOAD_FAST                8 (observations)
+            592 CALL_FUNCTION            1
+            594 COMPARE_OP               3 (!=)
+            596 EXTENDED_ARG             2
+            598 POP_JUMP_IF_FALSE      604
+
+129         600 EXTENDED_ARG             1
+            602 JUMP_ABSOLUTE          370
+
+133     >>  604 LOAD_FAST               18 (exact)
+            606 EXTENDED_ARG             2
+            608 POP_JUMP_IF_TRUE       650
+            610 LOAD_GLOBAL              0 (len)
+            612 LOAD_CONST              17 (<code object <setcomp> at 0x10924c710, file "WeRobotCore/services/agentic_identity.py", line 133>)
+            614 LOAD_CONST              18 ('AgenticIdentityStore.prepare.<locals>.<setcomp>')
+            616 MAKE_FUNCTION            0
+
+134         618 LOAD_FAST                8 (observations)
+            620 LOAD_FAST               15 (new_start)
+            622 LOAD_FAST               15 (new_start)
+            624 LOAD_FAST               16 (length)
+            626 BINARY_ADD
+            628 BUILD_SLICE              2
+            630 BINARY_SUBSCR
+
+133         632 GET_ITER
+            634 CALL_FUNCTION            1
+            636 CALL_FUNCTION            1
+
+134         638 LOAD_CONST              19 (2)
+
+133         640 COMPARE_OP               0 (<)
+            642 EXTENDED_ARG             2
+            644 POP_JUMP_IF_FALSE      650
+
+135         646 EXTENDED_ARG             1
+            648 JUMP_ABSOLUTE          370
+
+136     >>  650 LOAD_FAST               18 (exact)
+            652 LOAD_FAST               16 (length)
+            654 LOAD_FAST               17 (evidence)
+            656 LOAD_FAST               15 (new_start)
+            658 UNARY_NEGATIVE
+            660 LOAD_FAST               14 (old_start)
+            662 BUILD_TUPLE              5
+            664 STORE_FAST              19 (rank)
+
+137         666 LOAD_FAST               13 (best)
+            668 LOAD_CONST               3 (None)
+            670 IS_OP                    0
+            672 EXTENDED_ARG             2
+            674 POP_JUMP_IF_TRUE       690
+            676 LOAD_FAST               19 (rank)
+            678 LOAD_FAST               13 (best)
+            680 LOAD_CONST              16 (0)
+            682 BINARY_SUBSCR
+            684 COMPARE_OP               4 (>)
+            686 EXTENDED_ARG             1
+            688 POP_JUMP_IF_FALSE      370
+
+138     >>  690 LOAD_FAST               19 (rank)
+            692 LOAD_FAST               14 (old_start)
+            694 LOAD_FAST               15 (new_start)
+            696 LOAD_FAST               16 (length)
+            698 BUILD_TUPLE              4
+            700 STORE_FAST              13 (best)
+            702 EXTENDED_ARG             1
+            704 JUMP_ABSOLUTE          370
+        >>  706 EXTENDED_ARG             1
+            708 JUMP_ABSOLUTE          352
+
+139     >>  710 LOAD_FAST                8 (observations)
+            712 GET_ITER
+        >>  714 FOR_ITER                24 (to 740)
+            716 STORE_FAST              20 (observation)
+
+140         718 LOAD_CONST              20 ('rpa-message-v2:')
+            720 LOAD_GLOBAL             22 (uuid)
+            722 LOAD_METHOD             23 (uuid4)
+            724 CALL_METHOD              0
+            726 LOAD_ATTR               24 (hex)
+            728 BINARY_ADD
+            730 LOAD_FAST               20 (observation)
+            732 LOAD_CONST              21 ('agentic_id')
+            734 STORE_SUBSCR
+            736 EXTENDED_ARG             2
+            738 JUMP_ABSOLUTE          714
+
+141     >>  740 LOAD_FAST               13 (best)
+            742 EXTENDED_ARG             3
+            744 POP_JUMP_IF_FALSE      870
+
+142         746 LOAD_FAST               13 (best)
+            748 UNPACK_SEQUENCE          4
+            750 STORE_FAST              21 (_)
+            752 STORE_FAST              14 (old_start)
+            754 STORE_FAST              15 (new_start)
+            756 STORE_FAST              16 (length)
+
+143         758 LOAD_GLOBAL              2 (range)
+            760 LOAD_FAST               16 (length)
+            762 CALL_FUNCTION            1
+            764 GET_ITER
+        >>  766 FOR_ITER                34 (to 802)
+            768 STORE_FAST              22 (offset)
+
+144         770 LOAD_FAST               12 (previous)
+            772 LOAD_FAST               14 (old_start)
+            774 LOAD_FAST               22 (offset)
+            776 BINARY_ADD
+            778 BINARY_SUBSCR
+            780 LOAD_CONST              21 ('agentic_id')
+            782 BINARY_SUBSCR
+            784 LOAD_FAST                8 (observations)
+            786 LOAD_FAST               15 (new_start)
+            788 LOAD_FAST               22 (offset)
+            790 BINARY_ADD
+            792 BINARY_SUBSCR
+            794 LOAD_CONST              21 ('agentic_id')
+            796 STORE_SUBSCR
+            798 EXTENDED_ARG             2
+            800 JUMP_ABSOLUTE          766
+
+146     >>  802 LOAD_FAST               12 (previous)
+            804 LOAD_CONST               3 (None)
+            806 LOAD_FAST               14 (old_start)
+            808 BUILD_SLICE              2
+            810 BINARY_SUBSCR
+            812 LOAD_FAST                8 (observations)
+            814 LOAD_FAST               15 (new_start)
+            816 LOAD_CONST               3 (None)
+            818 BUILD_SLICE              2
+            820 BINARY_SUBSCR
+            822 BINARY_ADD
+
+147         824 LOAD_FAST               12 (previous)
+            826 LOAD_FAST               14 (old_start)
+            828 LOAD_FAST               16 (length)
+            830 BINARY_ADD
+            832 LOAD_CONST               3 (None)
+            834 BUILD_SLICE              2
+            836 BINARY_SUBSCR
+
+146         838 BINARY_ADD
+            840 STORE_FAST              23 (merged)
+
+148         842 LOAD_FAST               14 (old_start)
+            844 LOAD_CONST              16 (0)
+            846 COMPARE_OP               2 (==)
+            848 EXTENDED_ARG             3
+            850 POP_JUMP_IF_FALSE      878
+
+149         852 LOAD_FAST                8 (observations)
+            854 LOAD_CONST               3 (None)
+            856 LOAD_FAST               15 (new_start)
+            858 BUILD_SLICE              2
+            860 BINARY_SUBSCR
+            862 LOAD_FAST               23 (merged)
+            864 BINARY_ADD
+            866 STORE_FAST              23 (merged)
+            868 JUMP_FORWARD             8 (to 878)
+
+151     >>  870 LOAD_FAST               12 (previous)
+            872 LOAD_FAST                8 (observations)
+            874 BINARY_ADD
+            876 STORE_FAST              23 (merged)
+
+152     >>  878 LOAD_FAST               10 (db)
+            880 LOAD_METHOD             15 (execute)
+            882 LOAD_CONST              22 ('INSERT OR REPLACE INTO snapshots VALUES (?, ?)')
+
+153         884 LOAD_FAST                9 (scope)
+            886 LOAD_GLOBAL             17 (json)
+            888 LOAD_ATTR               25 (dumps)
+            890 LOAD_FAST               23 (merged)
+            892 LOAD_CONST              23 (-200)
+            894 LOAD_CONST               3 (None)
+            896 BUILD_SLICE              2
+            898 BINARY_SUBSCR
+            900 LOAD_CONST              24 (False)
+            902 LOAD_CONST              25 (('ensure_ascii',))
+            904 CALL_FUNCTION_KW         2
+            906 BUILD_TUPLE              2
+
+152         908 CALL_METHOD              2
+            910 POP_TOP
+            912 POP_BLOCK
+            914 LOAD_CONST               3 (None)
+            916 DUP_TOP
+            918 DUP_TOP
+            920 CALL_FUNCTION            3
+            922 POP_TOP
+            924 JUMP_FORWARD            18 (to 944)
+        >>  926 WITH_EXCEPT_START
+            928 EXTENDED_ARG             3
+            930 POP_JUMP_IF_TRUE       934
+            932 RERAISE
+        >>  934 POP_TOP
+            936 POP_TOP
+            938 POP_TOP
+            940 POP_EXCEPT
+            942 POP_TOP
+
+154     >>  944 LOAD_GLOBAL             26 (zip)
+            946 LOAD_DEREF               0 (current)
+            948 LOAD_FAST                8 (observations)
+            950 CALL_FUNCTION            2
+            952 GET_ITER
+        >>  954 FOR_ITER                22 (to 978)
+            956 UNPACK_SEQUENCE          2
+            958 STORE_FAST              24 (message)
+            960 STORE_FAST              20 (observation)
+
+155         962 LOAD_FAST               20 (observation)
+            964 LOAD_CONST              21 ('agentic_id')
+            966 BINARY_SUBSCR
+            968 LOAD_FAST               24 (message)
+            970 LOAD_CONST              21 ('agentic_id')
+            972 STORE_SUBSCR
+            974 EXTENDED_ARG             3
+            976 JUMP_ABSOLUTE          954
+
+156     >>  978 LOAD_CLOSURE             0 (current)
+            980 BUILD_TUPLE              1
+            982 LOAD_CONST              26 (<code object <listcomp> at 0x10924c450, file "WeRobotCore/services/agentic_identity.py", line 156>)
+            984 LOAD_CONST               2 ('AgenticIdentityStore.prepare.<locals>.<listcomp>')
+            986 MAKE_FUNCTION            8 (closure)
+
+157         988 LOAD_GLOBAL             26 (zip)
+            990 LOAD_FAST                4 (triggers)
+            992 LOAD_FAST                5 (trigger_indices)
+            994 CALL_FUNCTION            2
+
+156         996 GET_ITER
+            998 CALL_FUNCTION            1
+           1000 STORE_FAST              25 (identified)
+
+158        1002 LOAD_DEREF               0 (current)
+           1004 LOAD_FAST               25 (identified)
+           1006 BUILD_TUPLE              2
+           1008 RETURN_VALUE
+
+Disassembly of <code object <listcomp> at 0x10924b710, file "WeRobotCore/services/agentic_identity.py", line 81>:
+ 81           0 BUILD_LIST               0
+              2 LOAD_FAST                0 (.0)
+        >>    4 FOR_ITER                12 (to 18)
+              6 STORE_FAST               1 (message)
+              8 LOAD_GLOBAL              0 (dict)
+             10 LOAD_FAST                1 (message)
+             12 CALL_FUNCTION            1
+             14 LIST_APPEND              2
+             16 JUMP_ABSOLUTE            4
+        >>   18 RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x10924bd40, file "WeRobotCore/services/agentic_identity.py", line 88>:
+ 88           0 LOAD_FAST                0 (.0)
+        >>    2 FOR_ITER                88 (to 92)
+              4 STORE_FAST               1 (i)
+
+ 89           6 LOAD_FAST                1 (i)
+              8 LOAD_DEREF               2 (used)
+             10 CONTAINS_OP              1
+             12 POP_JUMP_IF_FALSE        2
+
+ 90          14 LOAD_DEREF               1 (trigger)
+             16 LOAD_METHOD              0 (get)
+             18 LOAD_CONST               0 ('fingerprint')
+             20 CALL_METHOD              1
+             22 POP_JUMP_IF_FALSE       72
+
+ 91          24 LOAD_DEREF               1 (trigger)
+             26 LOAD_METHOD              0 (get)
+             28 LOAD_CONST               0 ('fingerprint')
+             30 CALL_METHOD              1
+             32 LOAD_DEREF               0 (current)
+             34 LOAD_FAST                1 (i)
+             36 BINARY_SUBSCR
+             38 LOAD_METHOD              0 (get)
+             40 LOAD_CONST               0 ('fingerprint')
+             42 CALL_METHOD              1
+             44 COMPARE_OP               2 (==)
+             46 POP_JUMP_IF_FALSE       72
+
+ 92          48 LOAD_DEREF               1 (trigger)
+             50 LOAD_METHOD              0 (get)
+             52 LOAD_CONST               1 ('id')
+             54 CALL_METHOD              1
+             56 LOAD_DEREF               0 (current)
+             58 LOAD_FAST                1 (i)
+             60 BINARY_SUBSCR
+             62 LOAD_METHOD              0 (get)
+             64 LOAD_CONST               1 ('id')
+             66 CALL_METHOD              1
+             68 COMPARE_OP               2 (==)
+             70 POP_JUMP_IF_TRUE        84
+
+ 93     >>   72 LOAD_DEREF               0 (current)
+             74 LOAD_FAST                1 (i)
+             76 BINARY_SUBSCR
+             78 LOAD_DEREF               1 (trigger)
+             80 COMPARE_OP               2 (==)
+             82 POP_JUMP_IF_FALSE        2
+
+ 88     >>   84 LOAD_FAST                1 (i)
+             86 YIELD_VALUE
+             88 POP_TOP
+             90 JUMP_ABSOLUTE            2
+        >>   92 LOAD_CONST               2 (None)
+             94 RETURN_VALUE
+
+Disassembly of <code object <listcomp> at 0x10924b870, file "WeRobotCore/services/agentic_identity.py", line 103>:
+103           0 BUILD_LIST               0
+              2 LOAD_FAST                0 (.0)
+        >>    4 FOR_ITER                12 (to 18)
+              6 STORE_FAST               1 (message)
+              8 LOAD_GLOBAL              0 (_observation)
+             10 LOAD_FAST                1 (message)
+             12 CALL_FUNCTION            1
+             14 LIST_APPEND              2
+             16 JUMP_ABSOLUTE            4
+        >>   18 RETURN_VALUE
+
+Disassembly of <code object <setcomp> at 0x10924c710, file "WeRobotCore/services/agentic_identity.py", line 133>:
+133           0 BUILD_SET                0
+              2 LOAD_FAST                0 (.0)
+        >>    4 FOR_ITER                26 (to 32)
+
+134           6 STORE_FAST               1 (m)
+
+133           8 LOAD_FAST                1 (m)
+             10 LOAD_CONST               0 ('sender')
+             12 BINARY_SUBSCR
+             14 LOAD_FAST                1 (m)
+             16 LOAD_CONST               1 ('self')
+             18 BINARY_SUBSCR
+             20 LOAD_FAST                1 (m)
+             22 LOAD_CONST               2 ('content')
+             24 BINARY_SUBSCR
+             26 BUILD_TUPLE              3
+             28 SET_ADD                  2
+             30 JUMP_ABSOLUTE            4
+        >>   32 RETURN_VALUE
+
+Disassembly of <code object <listcomp> at 0x10924c450, file "WeRobotCore/services/agentic_identity.py", line 156>:
+156           0 BUILD_LIST               0
+              2 LOAD_FAST                0 (.0)
+        >>    4 FOR_ITER                32 (to 38)
+
+157           6 UNPACK_SEQUENCE          2
+              8 STORE_FAST               1 (message)
+             10 STORE_FAST               2 (index)
+
+156          12 BUILD_MAP                0
+             14 LOAD_FAST                1 (message)
+             16 DICT_UPDATE              1
+             18 LOAD_CONST               0 ('agentic_id')
+             20 LOAD_DEREF               0 (current)
+             22 LOAD_FAST                2 (index)
+             24 BINARY_SUBSCR
+             26 LOAD_CONST               0 ('agentic_id')
+             28 BINARY_SUBSCR
+             30 BUILD_MAP                1
+             32 DICT_UPDATE              1
+             34 LIST_APPEND              2
+             36 JUMP_ABSOLUTE            4
+        >>   38 RETURN_VALUE

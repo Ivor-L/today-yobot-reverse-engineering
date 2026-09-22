@@ -1,0 +1,172 @@
+  1           0 LOAD_CONST               0 (0)
+              2 LOAD_CONST               1 (('Dict', 'Type'))
+              4 IMPORT_NAME              0 (typing)
+              6 IMPORT_FROM              1 (Dict)
+              8 STORE_NAME               1 (Dict)
+             10 IMPORT_FROM              2 (Type)
+             12 STORE_NAME               2 (Type)
+             14 POP_TOP
+
+  2          16 LOAD_CONST               2 (1)
+             18 LOAD_CONST               3 (('BaseAPIAdapter',))
+             20 IMPORT_NAME              3 (base_adapter)
+             22 IMPORT_FROM              4 (BaseAPIAdapter)
+             24 STORE_NAME               4 (BaseAPIAdapter)
+             26 POP_TOP
+
+  3          28 LOAD_CONST               2 (1)
+             30 LOAD_CONST               4 (('StandardAPIAdapter',))
+             32 IMPORT_NAME              5 (standard_adapter)
+             34 IMPORT_FROM              6 (StandardAPIAdapter)
+             36 STORE_NAME               6 (StandardAPIAdapter)
+             38 POP_TOP
+
+  4          40 LOAD_CONST               2 (1)
+             42 LOAD_CONST               5 (('CustomAPIAdapter',))
+             44 IMPORT_NAME              7 (custom_adapter)
+             46 IMPORT_FROM              8 (CustomAPIAdapter)
+             48 STORE_NAME               8 (CustomAPIAdapter)
+             50 POP_TOP
+
+  5          52 LOAD_CONST               0 (0)
+             54 LOAD_CONST               6 (('CustomerAPIConfig',))
+             56 IMPORT_NAME              9 (WeRobotCore.utils.customer_api_config)
+             58 IMPORT_FROM             10 (CustomerAPIConfig)
+             60 STORE_NAME              10 (CustomerAPIConfig)
+             62 POP_TOP
+
+  6          64 LOAD_CONST               2 (1)
+             66 LOAD_CONST               7 (('ValidateMobileAdapter',))
+             68 IMPORT_NAME             11 (validate_mobile_adapter)
+             70 IMPORT_FROM             12 (ValidateMobileAdapter)
+             72 STORE_NAME              12 (ValidateMobileAdapter)
+             74 POP_TOP
+
+  8          76 LOAD_BUILD_CLASS
+             78 LOAD_CONST               8 (<code object APIAdapterFactory at 0x1072e0d40, file "WeRobotCore/api/customer_api/adapter_factory.py", line 8>)
+             80 LOAD_CONST               9 ('APIAdapterFactory')
+             82 MAKE_FUNCTION            0
+             84 LOAD_CONST               9 ('APIAdapterFactory')
+             86 CALL_FUNCTION            2
+             88 STORE_NAME              13 (APIAdapterFactory)
+             90 LOAD_CONST              10 (None)
+             92 RETURN_VALUE
+
+Disassembly of <code object APIAdapterFactory at 0x1072e0d40, file "WeRobotCore/api/customer_api/adapter_factory.py", line 8>:
+  8           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('APIAdapterFactory')
+              6 STORE_NAME               2 (__qualname__)
+              8 SETUP_ANNOTATIONS
+
+  9          10 LOAD_CONST               1 ('API适配器工厂')
+             12 STORE_NAME               3 (__doc__)
+
+ 13          14 LOAD_NAME                4 (StandardAPIAdapter)
+
+ 14          16 LOAD_NAME                5 (CustomAPIAdapter)
+
+ 15          18 LOAD_NAME                6 (ValidateMobileAdapter)
+
+ 12          20 LOAD_CONST               2 (('standard', 'custom', 'validate_mobile'))
+             22 BUILD_CONST_KEY_MAP      3
+             24 STORE_NAME               7 (_adapter_types)
+             26 LOAD_NAME                8 (Dict)
+             28 LOAD_NAME                9 (str)
+             30 LOAD_NAME               10 (Type)
+             32 LOAD_NAME               11 (BaseAPIAdapter)
+             34 BINARY_SUBSCR
+             36 BUILD_TUPLE              2
+             38 BINARY_SUBSCR
+             40 LOAD_NAME               12 (__annotations__)
+             42 LOAD_CONST               3 ('_adapter_types')
+             44 STORE_SUBSCR
+
+ 18          46 LOAD_NAME               13 (classmethod)
+
+ 19          48 LOAD_NAME                9 (str)
+             50 LOAD_NAME               10 (Type)
+             52 LOAD_NAME               11 (BaseAPIAdapter)
+             54 BINARY_SUBSCR
+             56 LOAD_CONST               4 (('api_type', 'adapter_class'))
+             58 BUILD_CONST_KEY_MAP      2
+             60 LOAD_CONST               5 (<code object register_adapter at 0x1072e0ea0, file "WeRobotCore/api/customer_api/adapter_factory.py", line 18>)
+             62 LOAD_CONST               6 ('APIAdapterFactory.register_adapter')
+             64 MAKE_FUNCTION            4 (annotations)
+             66 CALL_FUNCTION            1
+             68 STORE_NAME              14 (register_adapter)
+
+ 23          70 LOAD_NAME               13 (classmethod)
+
+ 24          72 LOAD_NAME                9 (str)
+             74 LOAD_NAME               11 (BaseAPIAdapter)
+             76 LOAD_CONST               7 (('customer_id', 'return'))
+             78 BUILD_CONST_KEY_MAP      2
+             80 LOAD_CONST               8 (<code object create_adapter at 0x1072e0be0, file "WeRobotCore/api/customer_api/adapter_factory.py", line 23>)
+             82 LOAD_CONST               9 ('APIAdapterFactory.create_adapter')
+             84 MAKE_FUNCTION            4 (annotations)
+             86 CALL_FUNCTION            1
+             88 STORE_NAME              15 (create_adapter)
+             90 LOAD_CONST              10 (None)
+             92 RETURN_VALUE
+
+Disassembly of <code object register_adapter at 0x1072e0ea0, file "WeRobotCore/api/customer_api/adapter_factory.py", line 18>:
+ 21           0 LOAD_FAST                2 (adapter_class)
+              2 LOAD_FAST                0 (cls)
+              4 LOAD_ATTR                0 (_adapter_types)
+              6 LOAD_FAST                1 (api_type)
+              8 STORE_SUBSCR
+             10 LOAD_CONST               1 (None)
+             12 RETURN_VALUE
+
+Disassembly of <code object create_adapter at 0x1072e0be0, file "WeRobotCore/api/customer_api/adapter_factory.py", line 23>:
+ 26           0 LOAD_GLOBAL              0 (CustomerAPIConfig)
+              2 CALL_FUNCTION            0
+              4 LOAD_METHOD              1 (get_customer_config)
+              6 LOAD_FAST                1 (customer_id)
+              8 CALL_METHOD              1
+             10 STORE_FAST               2 (config)
+
+ 27          12 LOAD_FAST                2 (config)
+             14 POP_JUMP_IF_TRUE        32
+
+ 28          16 LOAD_GLOBAL              2 (ValueError)
+             18 LOAD_CONST               1 ('客户 ')
+             20 LOAD_FAST                1 (customer_id)
+             22 FORMAT_VALUE             0
+             24 LOAD_CONST               2 (' 配置不存在或未启用')
+             26 BUILD_STRING             3
+             28 CALL_FUNCTION            1
+             30 RAISE_VARARGS            1
+
+ 30     >>   32 LOAD_FAST                2 (config)
+             34 LOAD_METHOD              3 (get)
+             36 LOAD_CONST               3 ('api_type')
+             38 LOAD_CONST               4 ('standard')
+             40 CALL_METHOD              2
+             42 STORE_FAST               3 (api_type)
+
+ 32          44 LOAD_FAST                3 (api_type)
+             46 LOAD_FAST                0 (cls)
+             48 LOAD_ATTR                4 (_adapter_types)
+             50 CONTAINS_OP              1
+             52 POP_JUMP_IF_FALSE       68
+
+ 33          54 LOAD_GLOBAL              2 (ValueError)
+             56 LOAD_CONST               5 ('未知的API类型: ')
+             58 LOAD_FAST                3 (api_type)
+             60 FORMAT_VALUE             0
+             62 BUILD_STRING             2
+             64 CALL_FUNCTION            1
+             66 RAISE_VARARGS            1
+
+ 35     >>   68 LOAD_FAST                0 (cls)
+             70 LOAD_ATTR                4 (_adapter_types)
+             72 LOAD_FAST                3 (api_type)
+             74 BINARY_SUBSCR
+             76 STORE_FAST               4 (adapter_class)
+
+ 36          78 LOAD_FAST                4 (adapter_class)
+             80 LOAD_FAST                1 (customer_id)
+             82 CALL_FUNCTION            1
+             84 RETURN_VALUE

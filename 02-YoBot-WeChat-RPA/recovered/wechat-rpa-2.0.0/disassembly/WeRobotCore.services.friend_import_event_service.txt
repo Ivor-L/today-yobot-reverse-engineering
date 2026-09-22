@@ -1,0 +1,1031 @@
+  1           0 LOAD_CONST               0 ('Friend-import persistence with best-effort V1 event recording.')
+              2 STORE_NAME               0 (__doc__)
+
+  3           4 LOAD_CONST               1 (0)
+              6 LOAD_CONST               2 (None)
+              8 IMPORT_NAME              1 (json)
+             10 STORE_NAME               1 (json)
+
+  4          12 LOAD_CONST               1 (0)
+             14 LOAD_CONST               2 (None)
+             16 IMPORT_NAME              2 (logging)
+             18 STORE_NAME               2 (logging)
+
+  5          20 LOAD_CONST               1 (0)
+             22 LOAD_CONST               2 (None)
+             24 IMPORT_NAME              3 (re)
+             26 STORE_NAME               3 (re)
+
+  6          28 LOAD_CONST               1 (0)
+             30 LOAD_CONST               2 (None)
+             32 IMPORT_NAME              4 (uuid)
+             34 STORE_NAME               4 (uuid)
+
+  8          36 LOAD_CONST               1 (0)
+             38 LOAD_CONST               3 (('UNASSIGNED_ACCOUNT_ID', 'get_customer_event_store'))
+             40 IMPORT_NAME              5 (WeRobotCore.utils.customer_event_store)
+             42 IMPORT_FROM              6 (UNASSIGNED_ACCOUNT_ID)
+             44 STORE_NAME               6 (UNASSIGNED_ACCOUNT_ID)
+             46 IMPORT_FROM              7 (get_customer_event_store)
+             48 STORE_NAME               7 (get_customer_event_store)
+             50 POP_TOP
+
+ 14          52 LOAD_NAME                2 (logging)
+             54 LOAD_METHOD              8 (getLogger)
+             56 LOAD_NAME                9 (__name__)
+             58 CALL_METHOD              1
+             60 STORE_NAME              10 (logger)
+
+ 17          62 LOAD_CONST               4 (<code object normalize_account_ids at 0x1073aaa80, file "WeRobotCore/services/friend_import_event_service.py", line 17>)
+             64 LOAD_CONST               5 ('normalize_account_ids')
+             66 MAKE_FUNCTION            0
+             68 STORE_NAME              11 (normalize_account_ids)
+
+ 42          70 LOAD_CONST               6 (<code object _classify_identifier at 0x1073aa660, file "WeRobotCore/services/friend_import_event_service.py", line 42>)
+             72 LOAD_CONST               7 ('_classify_identifier')
+             74 MAKE_FUNCTION            0
+             76 STORE_NAME              12 (_classify_identifier)
+
+ 54          78 LOAD_CONST               8 (<code object _split_tags at 0x1073aa0e0, file "WeRobotCore/services/friend_import_event_service.py", line 54>)
+             80 LOAD_CONST               9 ('_split_tags')
+             82 MAKE_FUNCTION            0
+             84 STORE_NAME              13 (_split_tags)
+
+ 60          86 LOAD_CONST              10 (<code object _friend_snapshot_item at 0x1073aab30, file "WeRobotCore/services/friend_import_event_service.py", line 60>)
+             88 LOAD_CONST              11 ('_friend_snapshot_item')
+             90 MAKE_FUNCTION            0
+             92 STORE_NAME              14 (_friend_snapshot_item)
+
+ 95          94 LOAD_CONST              18 ((None,))
+             96 LOAD_CONST              12 (<code object prepare_friend_import at 0x1073aa240, file "WeRobotCore/services/friend_import_event_service.py", line 95>)
+             98 LOAD_CONST              13 ('prepare_friend_import')
+            100 MAKE_FUNCTION            1 (defaults)
+            102 STORE_NAME              15 (prepare_friend_import)
+
+122         104 LOAD_CONST              19 ((None,))
+            106 LOAD_CONST              14 (<code object record_prepared_friend_import at 0x1073b9c90, file "WeRobotCore/services/friend_import_event_service.py", line 122>)
+            108 LOAD_CONST              15 ('record_prepared_friend_import')
+            110 MAKE_FUNCTION            1 (defaults)
+            112 STORE_NAME              16 (record_prepared_friend_import)
+
+203         114 LOAD_CONST              20 ((None, None, None))
+            116 LOAD_CONST              16 (<code object persist_friend_import at 0x1073b90e0, file "WeRobotCore/services/friend_import_event_service.py", line 203>)
+            118 LOAD_CONST              17 ('persist_friend_import')
+            120 MAKE_FUNCTION            1 (defaults)
+            122 STORE_NAME              17 (persist_friend_import)
+            124 LOAD_CONST               2 (None)
+            126 RETURN_VALUE
+
+Disassembly of <code object normalize_account_ids at 0x1073aaa80, file "WeRobotCore/services/friend_import_event_service.py", line 17>:
+ 20           0 LOAD_FAST                0 (value)
+              2 LOAD_CONST               1 (None)
+              4 IS_OP                    0
+              6 POP_JUMP_IF_FALSE       12
+
+ 21           8 BUILD_LIST               0
+             10 RETURN_VALUE
+
+ 22     >>   12 LOAD_GLOBAL              0 (isinstance)
+             14 LOAD_FAST                0 (value)
+             16 LOAD_GLOBAL              1 (str)
+             18 CALL_FUNCTION            2
+             20 POP_JUMP_IF_FALSE      108
+
+ 23          22 LOAD_FAST                0 (value)
+             24 LOAD_METHOD              2 (strip)
+             26 CALL_METHOD              0
+             28 STORE_FAST               1 (stripped)
+
+ 24          30 LOAD_FAST                1 (stripped)
+             32 POP_JUMP_IF_TRUE        38
+
+ 25          34 BUILD_LIST               0
+             36 RETURN_VALUE
+
+ 26     >>   38 SETUP_FINALLY           34 (to 74)
+
+ 27          40 LOAD_GLOBAL              3 (json)
+             42 LOAD_METHOD              4 (loads)
+             44 LOAD_FAST                1 (stripped)
+             46 CALL_METHOD              1
+             48 STORE_FAST               2 (decoded)
+
+ 28          50 LOAD_GLOBAL              0 (isinstance)
+             52 LOAD_FAST                2 (decoded)
+             54 LOAD_GLOBAL              5 (list)
+             56 CALL_FUNCTION            2
+             58 POP_JUMP_IF_FALSE       64
+             60 LOAD_FAST                2 (decoded)
+             62 JUMP_FORWARD             4 (to 68)
+        >>   64 LOAD_FAST                2 (decoded)
+             66 BUILD_LIST               1
+        >>   68 STORE_FAST               0 (value)
+             70 POP_BLOCK
+             72 JUMP_ABSOLUTE          130
+
+ 29     >>   74 DUP_TOP
+             76 LOAD_GLOBAL              6 (TypeError)
+             78 LOAD_GLOBAL              7 (ValueError)
+             80 BUILD_TUPLE              2
+             82 JUMP_IF_NOT_EXC_MATCH   104
+             84 POP_TOP
+             86 POP_TOP
+             88 POP_TOP
+
+ 30          90 LOAD_FAST                1 (stripped)
+             92 LOAD_METHOD              8 (split)
+             94 LOAD_CONST               2 (',')
+             96 CALL_METHOD              1
+             98 STORE_FAST               0 (value)
+            100 POP_EXCEPT
+            102 JUMP_ABSOLUTE          130
+        >>  104 RERAISE
+            106 JUMP_FORWARD            22 (to 130)
+
+ 31     >>  108 LOAD_GLOBAL              0 (isinstance)
+            110 LOAD_FAST                0 (value)
+            112 LOAD_GLOBAL              5 (list)
+            114 LOAD_GLOBAL              9 (tuple)
+            116 LOAD_GLOBAL             10 (set)
+            118 BUILD_TUPLE              3
+            120 CALL_FUNCTION            2
+            122 POP_JUMP_IF_TRUE       130
+
+ 32         124 LOAD_FAST                0 (value)
+            126 BUILD_LIST               1
+            128 STORE_FAST               0 (value)
+
+ 34     >>  130 BUILD_LIST               0
+            132 STORE_FAST               3 (normalized)
+
+ 35         134 LOAD_FAST                0 (value)
+            136 GET_ITER
+        >>  138 FOR_ITER                42 (to 182)
+            140 STORE_FAST               4 (item)
+
+ 36         142 LOAD_GLOBAL              1 (str)
+            144 LOAD_FAST                4 (item)
+            146 JUMP_IF_TRUE_OR_POP    150
+            148 LOAD_CONST               3 ('')
+        >>  150 CALL_FUNCTION            1
+            152 LOAD_METHOD              2 (strip)
+            154 CALL_METHOD              0
+            156 STORE_FAST               5 (account_id)
+
+ 37         158 LOAD_FAST                5 (account_id)
+            160 POP_JUMP_IF_FALSE      138
+            162 LOAD_FAST                5 (account_id)
+            164 LOAD_FAST                3 (normalized)
+            166 CONTAINS_OP              1
+            168 POP_JUMP_IF_FALSE      138
+
+ 38         170 LOAD_FAST                3 (normalized)
+            172 LOAD_METHOD             11 (append)
+            174 LOAD_FAST                5 (account_id)
+            176 CALL_METHOD              1
+            178 POP_TOP
+            180 JUMP_ABSOLUTE          138
+
+ 39     >>  182 LOAD_FAST                3 (normalized)
+            184 RETURN_VALUE
+
+Disassembly of <code object _classify_identifier at 0x1073aa660, file "WeRobotCore/services/friend_import_event_service.py", line 42>:
+ 43           0 LOAD_GLOBAL              0 (re)
+              2 LOAD_METHOD              1 (sub)
+              4 LOAD_CONST               1 ('[\\s-]+')
+              6 LOAD_CONST               2 ('')
+              8 LOAD_GLOBAL              2 (str)
+             10 LOAD_FAST                0 (value)
+             12 JUMP_IF_TRUE_OR_POP     16
+             14 LOAD_CONST               2 ('')
+        >>   16 CALL_FUNCTION            1
+             18 LOAD_METHOD              3 (strip)
+             20 CALL_METHOD              0
+             22 CALL_METHOD              3
+             24 STORE_FAST               1 (normalized)
+
+ 44          26 LOAD_GLOBAL              0 (re)
+             28 LOAD_METHOD              4 (fullmatch)
+             30 LOAD_CONST               3 ('(?:\\+?86)?1[3-9]\\d{9}')
+             32 LOAD_FAST                1 (normalized)
+             34 CALL_METHOD              2
+             36 POP_JUMP_IF_FALSE      102
+
+ 45          38 LOAD_FAST                1 (normalized)
+             40 STORE_FAST               2 (phone)
+
+ 46          42 LOAD_FAST                2 (phone)
+             44 LOAD_METHOD              5 (startswith)
+             46 LOAD_CONST               4 ('86')
+             48 CALL_METHOD              1
+             50 POP_JUMP_IF_FALSE       74
+             52 LOAD_FAST                2 (phone)
+             54 LOAD_METHOD              5 (startswith)
+             56 LOAD_CONST               5 ('+86')
+             58 CALL_METHOD              1
+             60 POP_JUMP_IF_TRUE        74
+
+ 47          62 LOAD_CONST               6 ('+{}')
+             64 LOAD_METHOD              6 (format)
+             66 LOAD_FAST                2 (phone)
+             68 CALL_METHOD              1
+             70 STORE_FAST               2 (phone)
+             72 JUMP_FORWARD            20 (to 94)
+
+ 48     >>   74 LOAD_FAST                2 (phone)
+             76 LOAD_METHOD              5 (startswith)
+             78 LOAD_CONST               5 ('+86')
+             80 CALL_METHOD              1
+             82 POP_JUMP_IF_TRUE        94
+
+ 49          84 LOAD_CONST               7 ('+86{}')
+             86 LOAD_METHOD              6 (format)
+             88 LOAD_FAST                2 (phone)
+             90 CALL_METHOD              1
+             92 STORE_FAST               2 (phone)
+
+ 50     >>   94 LOAD_CONST               8 ('phone_input')
+             96 LOAD_FAST                2 (phone)
+             98 BUILD_TUPLE              2
+            100 RETURN_VALUE
+
+ 51     >>  102 LOAD_CONST               9 ('wechat_number_input')
+            104 LOAD_FAST                1 (normalized)
+            106 BUILD_TUPLE              2
+            108 RETURN_VALUE
+
+Disassembly of <code object _split_tags at 0x1073aa0e0, file "WeRobotCore/services/friend_import_event_service.py", line 54>:
+ 55           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                0 (value)
+              4 LOAD_GLOBAL              1 (list)
+              6 LOAD_GLOBAL              2 (tuple)
+              8 LOAD_GLOBAL              3 (set)
+             10 BUILD_TUPLE              3
+             12 CALL_FUNCTION            2
+             14 POP_JUMP_IF_FALSE       30
+
+ 56          16 LOAD_CONST               1 (<code object <listcomp> at 0x1073aac90, file "WeRobotCore/services/friend_import_event_service.py", line 56>)
+             18 LOAD_CONST               2 ('_split_tags.<locals>.<listcomp>')
+             20 MAKE_FUNCTION            0
+             22 LOAD_FAST                0 (value)
+             24 GET_ITER
+             26 CALL_FUNCTION            1
+             28 RETURN_VALUE
+
+ 57     >>   30 LOAD_CONST               3 (<code object <listcomp> at 0x1073aa450, file "WeRobotCore/services/friend_import_event_service.py", line 57>)
+             32 LOAD_CONST               2 ('_split_tags.<locals>.<listcomp>')
+             34 MAKE_FUNCTION            0
+             36 LOAD_GLOBAL              4 (str)
+             38 LOAD_FAST                0 (value)
+             40 JUMP_IF_TRUE_OR_POP     44
+             42 LOAD_CONST               4 ('')
+        >>   44 CALL_FUNCTION            1
+             46 LOAD_METHOD              5 (split)
+             48 LOAD_CONST               5 (',')
+             50 CALL_METHOD              1
+             52 GET_ITER
+             54 CALL_FUNCTION            1
+             56 RETURN_VALUE
+
+Disassembly of <code object <listcomp> at 0x1073aac90, file "WeRobotCore/services/friend_import_event_service.py", line 56>:
+ 56           0 BUILD_LIST               0
+              2 LOAD_FAST                0 (.0)
+        >>    4 FOR_ITER                28 (to 34)
+              6 STORE_FAST               1 (item)
+              8 LOAD_GLOBAL              0 (str)
+             10 LOAD_FAST                1 (item)
+             12 CALL_FUNCTION            1
+             14 LOAD_METHOD              1 (strip)
+             16 CALL_METHOD              0
+             18 POP_JUMP_IF_FALSE        4
+             20 LOAD_GLOBAL              0 (str)
+             22 LOAD_FAST                1 (item)
+             24 CALL_FUNCTION            1
+             26 LOAD_METHOD              1 (strip)
+             28 CALL_METHOD              0
+             30 LIST_APPEND              2
+             32 JUMP_ABSOLUTE            4
+        >>   34 RETURN_VALUE
+
+Disassembly of <code object <listcomp> at 0x1073aa450, file "WeRobotCore/services/friend_import_event_service.py", line 57>:
+ 57           0 BUILD_LIST               0
+              2 LOAD_FAST                0 (.0)
+        >>    4 FOR_ITER                20 (to 26)
+              6 STORE_FAST               1 (part)
+              8 LOAD_FAST                1 (part)
+             10 LOAD_METHOD              0 (strip)
+             12 CALL_METHOD              0
+             14 POP_JUMP_IF_FALSE        4
+             16 LOAD_FAST                1 (part)
+             18 LOAD_METHOD              0 (strip)
+             20 CALL_METHOD              0
+             22 LIST_APPEND              2
+             24 JUMP_ABSOLUTE            4
+        >>   26 RETURN_VALUE
+
+Disassembly of <code object _friend_snapshot_item at 0x1073aab30, file "WeRobotCore/services/friend_import_event_service.py", line 60>:
+ 61           0 LOAD_GLOBAL              0 (str)
+              2 LOAD_FAST                0 (friend)
+              4 LOAD_METHOD              1 (get)
+              6 LOAD_CONST               1 ('wxid')
+              8 CALL_METHOD              1
+             10 JUMP_IF_TRUE_OR_POP     14
+             12 LOAD_CONST               2 ('')
+        >>   14 CALL_FUNCTION            1
+             16 LOAD_METHOD              2 (strip)
+             18 CALL_METHOD              0
+             20 STORE_FAST               1 (raw_identifier)
+
+ 62          22 LOAD_GLOBAL              0 (str)
+             24 LOAD_FAST                0 (friend)
+             26 LOAD_METHOD              1 (get)
+             28 LOAD_CONST               3 ('identifier_type')
+             30 CALL_METHOD              1
+             32 JUMP_IF_TRUE_OR_POP     36
+             34 LOAD_CONST               2 ('')
+        >>   36 CALL_FUNCTION            1
+             38 LOAD_METHOD              2 (strip)
+             40 CALL_METHOD              0
+             42 STORE_FAST               2 (identifier_type)
+
+ 63          44 LOAD_FAST                1 (raw_identifier)
+             46 STORE_FAST               3 (normalized_identifier)
+
+ 64          48 LOAD_FAST                2 (identifier_type)
+             50 POP_JUMP_IF_TRUE        66
+
+ 65          52 LOAD_GLOBAL              3 (_classify_identifier)
+             54 LOAD_FAST                1 (raw_identifier)
+             56 CALL_FUNCTION            1
+             58 UNPACK_SEQUENCE          2
+             60 STORE_FAST               2 (identifier_type)
+             62 STORE_FAST               3 (normalized_identifier)
+             64 JUMP_FORWARD            20 (to 86)
+
+ 66     >>   66 LOAD_FAST                2 (identifier_type)
+             68 LOAD_CONST               4 ('phone_input')
+             70 COMPARE_OP               2 (==)
+             72 POP_JUMP_IF_FALSE       86
+
+ 67          74 LOAD_GLOBAL              3 (_classify_identifier)
+             76 LOAD_FAST                1 (raw_identifier)
+             78 CALL_FUNCTION            1
+             80 UNPACK_SEQUENCE          2
+             82 STORE_FAST               4 (_)
+             84 STORE_FAST               3 (normalized_identifier)
+
+ 69     >>   86 LOAD_GLOBAL              0 (str)
+             88 LOAD_FAST                0 (friend)
+             90 LOAD_METHOD              1 (get)
+             92 LOAD_CONST               5 ('lead_ref')
+             94 CALL_METHOD              1
+             96 JUMP_IF_TRUE_OR_POP    112
+             98 LOAD_CONST               6 ('lead_{}')
+            100 LOAD_METHOD              4 (format)
+            102 LOAD_GLOBAL              5 (uuid)
+            104 LOAD_METHOD              6 (uuid4)
+            106 CALL_METHOD              0
+            108 LOAD_ATTR                7 (hex)
+            110 CALL_METHOD              1
+        >>  112 CALL_FUNCTION            1
+            114 STORE_FAST               5 (lead_ref)
+
+ 70         116 LOAD_GLOBAL              0 (str)
+            118 LOAD_FAST                0 (friend)
+            120 LOAD_METHOD              1 (get)
+            122 LOAD_CONST               7 ('remark')
+            124 CALL_METHOD              1
+            126 JUMP_IF_TRUE_OR_POP    130
+            128 LOAD_CONST               2 ('')
+        >>  130 CALL_FUNCTION            1
+            132 STORE_FAST               6 (remark)
+
+ 71         134 LOAD_GLOBAL              0 (str)
+            136 LOAD_FAST                0 (friend)
+            138 LOAD_METHOD              1 (get)
+            140 LOAD_CONST               8 ('nickname')
+            142 CALL_METHOD              1
+            144 JUMP_IF_TRUE_OR_POP    148
+            146 LOAD_CONST               2 ('')
+        >>  148 CALL_FUNCTION            1
+            150 STORE_FAST               7 (nickname)
+
+ 73         152 LOAD_FAST                5 (lead_ref)
+
+ 74         154 LOAD_CONST               9 ('lead_flow')
+
+ 75         156 LOAD_FAST                6 (remark)
+            158 JUMP_IF_TRUE_OR_POP    166
+            160 LOAD_FAST                7 (nickname)
+            162 JUMP_IF_TRUE_OR_POP    166
+            164 LOAD_FAST                1 (raw_identifier)
+
+ 76     >>  166 LOAD_FAST                7 (nickname)
+
+ 77         168 LOAD_FAST                6 (remark)
+
+ 86         170 LOAD_FAST                1 (raw_identifier)
+
+ 78         172 POP_JUMP_IF_FALSE      192
+
+ 80         174 LOAD_FAST                2 (identifier_type)
+
+ 81         176 LOAD_FAST                1 (raw_identifier)
+
+ 82         178 LOAD_FAST                3 (normalized_identifier)
+
+ 83         180 LOAD_CONST              10 ('user_import')
+
+ 84         182 LOAD_CONST              11 (False)
+
+ 79         184 LOAD_CONST              12 (('type', 'value', 'normalized_value', 'origin', 'verified'))
+            186 BUILD_CONST_KEY_MAP      5
+
+ 78         188 BUILD_LIST               1
+            190 JUMP_FORWARD             2 (to 194)
+
+ 86     >>  192 BUILD_LIST               0
+
+ 87     >>  194 LOAD_GLOBAL              8 (_split_tags)
+            196 LOAD_FAST                0 (friend)
+            198 LOAD_METHOD              1 (get)
+            200 LOAD_CONST              13 ('tags')
+            202 CALL_METHOD              1
+            204 CALL_FUNCTION            1
+
+ 89         206 LOAD_CONST              14 ('import_source')
+            208 LOAD_GLOBAL              0 (str)
+            210 LOAD_FAST                0 (friend)
+            212 LOAD_METHOD              1 (get)
+            214 LOAD_CONST              14 ('import_source')
+            216 CALL_METHOD              1
+            218 JUMP_IF_TRUE_OR_POP    222
+            220 LOAD_CONST               2 ('')
+        >>  222 CALL_FUNCTION            1
+
+ 88         224 BUILD_MAP                1
+
+ 72         226 LOAD_CONST              15 (('subject_ref', 'ref_scope', 'display_name', 'nickname', 'remark', 'identifiers', 'tags', 'extensions'))
+            228 BUILD_CONST_KEY_MAP      8
+            230 STORE_FAST               8 (item)
+
+ 92         232 LOAD_FAST                8 (item)
+            234 RETURN_VALUE
+
+Disassembly of <code object prepare_friend_import at 0x1073aa240, file "WeRobotCore/services/friend_import_event_service.py", line 95>:
+ 98           0 LOAD_FAST                2 (batch_id)
+              2 JUMP_IF_TRUE_OR_POP     18
+              4 LOAD_CONST               1 ('import_{}')
+              6 LOAD_METHOD              0 (format)
+              8 LOAD_GLOBAL              1 (uuid)
+             10 LOAD_METHOD              2 (uuid4)
+             12 CALL_METHOD              0
+             14 LOAD_ATTR                3 (hex)
+             16 CALL_METHOD              1
+        >>   18 STORE_FAST               3 (resolved_batch_id)
+
+ 99          20 BUILD_LIST               0
+             22 STORE_FAST               4 (prepared)
+
+100          24 LOAD_FAST                0 (friend_list)
+             26 JUMP_IF_TRUE_OR_POP     30
+             28 BUILD_LIST               0
+        >>   30 GET_ITER
+        >>   32 FOR_ITER               160 (to 194)
+             34 STORE_FAST               5 (friend)
+
+101          36 LOAD_GLOBAL              4 (isinstance)
+             38 LOAD_FAST                5 (friend)
+             40 LOAD_GLOBAL              5 (dict)
+             42 CALL_FUNCTION            2
+             44 POP_JUMP_IF_TRUE        48
+
+102          46 JUMP_ABSOLUTE           32
+
+103     >>   48 LOAD_GLOBAL              6 (str)
+             50 LOAD_FAST                5 (friend)
+             52 LOAD_METHOD              7 (get)
+             54 LOAD_CONST               2 ('wxid')
+             56 CALL_METHOD              1
+             58 JUMP_IF_TRUE_OR_POP     62
+             60 LOAD_CONST               3 ('')
+        >>   62 CALL_FUNCTION            1
+             64 LOAD_METHOD              8 (strip)
+             66 CALL_METHOD              0
+             68 STORE_FAST               6 (wxid)
+
+104          70 LOAD_FAST                6 (wxid)
+             72 POP_JUMP_IF_TRUE        76
+
+105          74 JUMP_ABSOLUTE           32
+
+106     >>   76 LOAD_GLOBAL              9 (_classify_identifier)
+             78 LOAD_FAST                6 (wxid)
+             80 CALL_FUNCTION            1
+             82 UNPACK_SEQUENCE          2
+             84 STORE_FAST               7 (identifier_type)
+             86 STORE_FAST               8 (_)
+
+107          88 LOAD_FAST                4 (prepared)
+             90 LOAD_METHOD             10 (append)
+
+108          92 BUILD_MAP                0
+
+109          94 LOAD_FAST                5 (friend)
+
+108          96 DICT_UPDATE              1
+
+110          98 LOAD_FAST                6 (wxid)
+
+111         100 LOAD_GLOBAL              6 (str)
+            102 LOAD_FAST                5 (friend)
+            104 LOAD_METHOD              7 (get)
+            106 LOAD_CONST               4 ('remark')
+            108 CALL_METHOD              1
+            110 JUMP_IF_TRUE_OR_POP    114
+            112 LOAD_CONST               3 ('')
+        >>  114 CALL_FUNCTION            1
+
+112         116 LOAD_CONST               5 (',')
+            118 LOAD_METHOD             11 (join)
+            120 LOAD_GLOBAL             12 (_split_tags)
+            122 LOAD_FAST                5 (friend)
+            124 LOAD_METHOD              7 (get)
+            126 LOAD_CONST               6 ('tags')
+            128 CALL_METHOD              1
+            130 CALL_FUNCTION            1
+            132 CALL_METHOD              1
+
+113         134 LOAD_GLOBAL              6 (str)
+            136 LOAD_FAST                5 (friend)
+            138 LOAD_METHOD              7 (get)
+            140 LOAD_CONST               7 ('lead_ref')
+            142 CALL_METHOD              1
+            144 JUMP_IF_TRUE_OR_POP    160
+            146 LOAD_CONST               8 ('lead_{}')
+            148 LOAD_METHOD              0 (format)
+            150 LOAD_GLOBAL              1 (uuid)
+            152 LOAD_METHOD              2 (uuid4)
+            154 CALL_METHOD              0
+            156 LOAD_ATTR                3 (hex)
+            158 CALL_METHOD              1
+        >>  160 CALL_FUNCTION            1
+
+114         162 LOAD_FAST                3 (resolved_batch_id)
+
+115         164 LOAD_FAST                1 (import_source)
+
+116         166 LOAD_GLOBAL              6 (str)
+            168 LOAD_FAST                5 (friend)
+            170 LOAD_METHOD              7 (get)
+            172 LOAD_CONST               9 ('identifier_type')
+            174 CALL_METHOD              1
+            176 JUMP_IF_TRUE_OR_POP    180
+            178 LOAD_FAST                7 (identifier_type)
+        >>  180 CALL_FUNCTION            1
+
+108         182 LOAD_CONST              10 (('wxid', 'remark', 'tags', 'lead_ref', 'import_batch_id', 'import_source', 'identifier_type'))
+            184 BUILD_CONST_KEY_MAP      7
+            186 DICT_UPDATE              1
+
+107         188 CALL_METHOD              1
+            190 POP_TOP
+            192 JUMP_ABSOLUTE           32
+
+119     >>  194 LOAD_FAST                3 (resolved_batch_id)
+            196 LOAD_FAST                4 (prepared)
+            198 BUILD_TUPLE              2
+            200 RETURN_VALUE
+
+Disassembly of <code object record_prepared_friend_import at 0x1073b9c90, file "WeRobotCore/services/friend_import_event_service.py", line 122>:
+131           0 LOAD_GLOBAL              0 (normalize_account_ids)
+              2 LOAD_FAST                2 (account_ids)
+              4 CALL_FUNCTION            1
+              6 STORE_FAST               5 (normalized_accounts)
+
+133           8 LOAD_GLOBAL              1 (len)
+             10 LOAD_FAST                5 (normalized_accounts)
+             12 CALL_FUNCTION            1
+             14 LOAD_CONST               1 (1)
+             16 COMPARE_OP               2 (==)
+             18 POP_JUMP_IF_FALSE       28
+             20 LOAD_FAST                5 (normalized_accounts)
+             22 LOAD_CONST               2 (0)
+             24 BINARY_SUBSCR
+             26 JUMP_FORWARD             2 (to 30)
+        >>   28 LOAD_CONST               3 (None)
+
+132     >>   30 STORE_FAST               6 (assigned_account_id)
+
+135          32 LOAD_FAST                6 (assigned_account_id)
+             34 JUMP_IF_TRUE_OR_POP     38
+             36 LOAD_GLOBAL              2 (UNASSIGNED_ACCOUNT_ID)
+        >>   38 STORE_FAST               7 (event_account_id)
+
+136          40 LOAD_FAST                6 (assigned_account_id)
+             42 POP_JUMP_IF_FALSE       48
+             44 LOAD_CONST               4 ('assigned')
+             46 JUMP_FORWARD             2 (to 50)
+        >>   48 LOAD_CONST               5 ('unassigned')
+        >>   50 STORE_FAST               8 (assignment_status)
+
+137          52 LOAD_CONST               3 (None)
+             54 STORE_FAST               9 (snapshot_result)
+
+138          56 LOAD_CONST               3 (None)
+             58 STORE_FAST              10 (event_result)
+
+139          60 SETUP_FINALLY          230 (to 292)
+
+140          62 LOAD_FAST                4 (store)
+             64 JUMP_IF_TRUE_OR_POP     70
+             66 LOAD_GLOBAL              3 (get_customer_event_store)
+             68 CALL_FUNCTION            0
+        >>   70 STORE_FAST               4 (store)
+
+141          72 LOAD_CONST               6 (<code object <listcomp> at 0x1073b93a0, file "WeRobotCore/services/friend_import_event_service.py", line 141>)
+             74 LOAD_CONST               7 ('record_prepared_friend_import.<locals>.<listcomp>')
+             76 MAKE_FUNCTION            0
+             78 LOAD_FAST                0 (prepared)
+             80 GET_ITER
+             82 CALL_FUNCTION            1
+             84 STORE_FAST              11 (items)
+
+142          86 LOAD_FAST                4 (store)
+             88 LOAD_ATTR                4 (save_snapshot)
+
+143          90 LOAD_FAST                7 (event_account_id)
+
+144          92 LOAD_CONST               8 ('friend_import')
+
+145          94 LOAD_FAST               11 (items)
+
+147          96 LOAD_FAST                1 (import_source)
+
+148          98 LOAD_CONST               9 ('add_friend')
+
+149         100 LOAD_FAST                3 (batch_id)
+
+146         102 LOAD_CONST              10 (('type', 'module', 'batch_id'))
+            104 BUILD_CONST_KEY_MAP      3
+
+152         106 LOAD_FAST                8 (assignment_status)
+
+153         108 LOAD_FAST                5 (normalized_accounts)
+
+154         110 LOAD_CONST              11 (True)
+
+151         112 LOAD_CONST              12 (('assignment_status', 'candidate_account_ids', 'business_queue_updated'))
+            114 BUILD_CONST_KEY_MAP      3
+
+142         116 LOAD_CONST              13 (('account_id', 'snapshot_type', 'items', 'source', 'extensions'))
+            118 CALL_FUNCTION_KW         5
+            120 STORE_FAST               9 (snapshot_result)
+
+157         122 LOAD_FAST                4 (store)
+            124 LOAD_ATTR                5 (emit_event)
+
+158         126 LOAD_FAST                7 (event_account_id)
+
+159         128 LOAD_CONST              14 ('lead.import.completed')
+
+161         130 LOAD_FAST                1 (import_source)
+
+162         132 LOAD_CONST               9 ('add_friend')
+
+163         134 LOAD_FAST                3 (batch_id)
+
+160         136 LOAD_CONST              10 (('type', 'module', 'batch_id'))
+            138 BUILD_CONST_KEY_MAP      3
+
+166         140 LOAD_CONST              15 ('success')
+
+167         142 LOAD_CONST              16 ('')
+
+168         144 LOAD_CONST              16 ('')
+
+165         146 LOAD_CONST              17 (('status', 'error_code', 'error_message'))
+            148 BUILD_CONST_KEY_MAP      3
+
+171         150 LOAD_FAST                3 (batch_id)
+
+172         152 LOAD_GLOBAL              1 (len)
+            154 LOAD_FAST                0 (prepared)
+            156 CALL_FUNCTION            1
+
+173         158 LOAD_FAST                8 (assignment_status)
+
+174         160 LOAD_FAST                5 (normalized_accounts)
+
+175         162 LOAD_FAST                9 (snapshot_result)
+            164 LOAD_METHOD              6 (get)
+            166 LOAD_CONST              18 ('snapshot_id')
+            168 CALL_METHOD              1
+            170 JUMP_IF_TRUE_OR_POP    174
+            172 LOAD_CONST              16 ('')
+
+176     >>  174 LOAD_FAST                9 (snapshot_result)
+            176 LOAD_METHOD              6 (get)
+            178 LOAD_CONST              19 ('path')
+            180 CALL_METHOD              1
+            182 JUMP_IF_TRUE_OR_POP    186
+            184 LOAD_CONST              16 ('')
+
+177     >>  186 LOAD_GLOBAL              7 (bool)
+            188 LOAD_FAST                9 (snapshot_result)
+            190 LOAD_METHOD              6 (get)
+            192 LOAD_CONST              15 ('success')
+            194 CALL_METHOD              1
+            196 CALL_FUNCTION            1
+
+178         198 LOAD_FAST                9 (snapshot_result)
+            200 LOAD_METHOD              6 (get)
+            202 LOAD_CONST              20 ('error')
+            204 CALL_METHOD              1
+            206 JUMP_IF_TRUE_OR_POP    210
+            208 LOAD_CONST              16 ('')
+
+170     >>  210 LOAD_CONST              21 (('batch_id', 'count', 'assignment_status', 'candidate_account_ids', 'snapshot_id', 'snapshot_path', 'snapshot_success', 'snapshot_error'))
+            212 BUILD_CONST_KEY_MAP      8
+
+180         214 LOAD_CONST              22 ('business_queue_updated')
+            216 LOAD_CONST              11 (True)
+            218 BUILD_MAP                1
+
+157         220 LOAD_CONST              23 (('account_id', 'event_type', 'source', 'result', 'data', 'extensions'))
+            222 CALL_FUNCTION_KW         6
+            224 STORE_FAST              10 (event_result)
+
+182         226 LOAD_GLOBAL              7 (bool)
+
+183         228 LOAD_FAST                9 (snapshot_result)
+            230 LOAD_METHOD              6 (get)
+            232 LOAD_CONST              15 ('success')
+            234 CALL_METHOD              1
+            236 JUMP_IF_FALSE_OR_POP   246
+            238 LOAD_FAST               10 (event_result)
+            240 LOAD_METHOD              6 (get)
+            242 LOAD_CONST              15 ('success')
+            244 CALL_METHOD              1
+
+182     >>  246 CALL_FUNCTION            1
+            248 STORE_FAST              12 (success)
+
+186         250 LOAD_FAST               12 (success)
+
+187         252 LOAD_FAST                8 (assignment_status)
+
+188         254 LOAD_FAST                9 (snapshot_result)
+
+189         256 LOAD_FAST               10 (event_result)
+
+190         258 LOAD_FAST                9 (snapshot_result)
+            260 LOAD_METHOD              6 (get)
+            262 LOAD_CONST              20 ('error')
+            264 CALL_METHOD              1
+            266 EXTENDED_ARG             1
+            268 JUMP_IF_TRUE_OR_POP    284
+            270 LOAD_FAST               10 (event_result)
+            272 LOAD_METHOD              6 (get)
+            274 LOAD_CONST              20 ('error')
+            276 CALL_METHOD              1
+            278 EXTENDED_ARG             1
+            280 JUMP_IF_TRUE_OR_POP    284
+            282 LOAD_CONST              16 ('')
+
+185     >>  284 LOAD_CONST              24 (('success', 'assignment_status', 'snapshot', 'event', 'error'))
+            286 BUILD_CONST_KEY_MAP      5
+            288 POP_BLOCK
+            290 RETURN_VALUE
+
+192     >>  292 DUP_TOP
+            294 LOAD_GLOBAL              8 (Exception)
+            296 EXTENDED_ARG             1
+            298 JUMP_IF_NOT_EXC_MATCH   358
+            300 POP_TOP
+            302 STORE_FAST              13 (exc)
+            304 POP_TOP
+            306 SETUP_FINALLY           42 (to 350)
+
+193         308 LOAD_GLOBAL              9 (logger)
+            310 LOAD_METHOD             10 (exception)
+            312 LOAD_CONST              25 ('名单业务已保存，但新版事件快照写入异常（不影响导入结果）')
+            314 CALL_METHOD              1
+            316 POP_TOP
+
+195         318 LOAD_CONST              26 (False)
+
+196         320 LOAD_FAST                8 (assignment_status)
+
+197         322 LOAD_FAST                9 (snapshot_result)
+
+198         324 LOAD_FAST               10 (event_result)
+
+199         326 LOAD_GLOBAL             11 (str)
+            328 LOAD_FAST               13 (exc)
+            330 CALL_FUNCTION            1
+
+194         332 LOAD_CONST              24 (('success', 'assignment_status', 'snapshot', 'event', 'error'))
+            334 BUILD_CONST_KEY_MAP      5
+            336 POP_BLOCK
+            338 ROT_FOUR
+            340 POP_EXCEPT
+            342 LOAD_CONST               3 (None)
+            344 STORE_FAST              13 (exc)
+            346 DELETE_FAST             13 (exc)
+            348 RETURN_VALUE
+        >>  350 LOAD_CONST               3 (None)
+            352 STORE_FAST              13 (exc)
+            354 DELETE_FAST             13 (exc)
+            356 RERAISE
+        >>  358 RERAISE
+            360 LOAD_CONST               3 (None)
+            362 RETURN_VALUE
+
+Disassembly of <code object <listcomp> at 0x1073b93a0, file "WeRobotCore/services/friend_import_event_service.py", line 141>:
+141           0 BUILD_LIST               0
+              2 LOAD_FAST                0 (.0)
+        >>    4 FOR_ITER                12 (to 18)
+              6 STORE_FAST               1 (friend)
+              8 LOAD_GLOBAL              0 (_friend_snapshot_item)
+             10 LOAD_FAST                1 (friend)
+             12 CALL_FUNCTION            1
+             14 LIST_APPEND              2
+             16 JUMP_ABSOLUTE            4
+        >>   18 RETURN_VALUE
+
+Disassembly of <code object persist_friend_import at 0x1073b90e0, file "WeRobotCore/services/friend_import_event_service.py", line 203>:
+212           0 SETUP_FINALLY          180 (to 182)
+
+213           2 LOAD_FAST                3 (db_manager)
+              4 LOAD_CONST               1 (None)
+              6 IS_OP                    0
+              8 POP_JUMP_IF_FALSE       28
+
+214          10 LOAD_CONST               2 (0)
+             12 LOAD_CONST               3 (('WeChatDBManager',))
+             14 IMPORT_NAME              0 (WeRobotCore.core.db_manager)
+             16 IMPORT_FROM              1 (WeChatDBManager)
+             18 STORE_FAST               5 (WeChatDBManager)
+             20 POP_TOP
+
+216          22 LOAD_FAST                5 (WeChatDBManager)
+             24 CALL_FUNCTION            0
+             26 STORE_FAST               3 (db_manager)
+
+217     >>   28 LOAD_GLOBAL              2 (normalize_account_ids)
+             30 LOAD_FAST                2 (account_ids)
+             32 CALL_FUNCTION            1
+             34 STORE_FAST               6 (normalized_accounts)
+
+219          36 LOAD_GLOBAL              3 (len)
+             38 LOAD_FAST                6 (normalized_accounts)
+             40 CALL_FUNCTION            1
+             42 LOAD_CONST               4 (1)
+             44 COMPARE_OP               2 (==)
+             46 POP_JUMP_IF_FALSE       56
+             48 LOAD_FAST                6 (normalized_accounts)
+             50 LOAD_CONST               2 (0)
+             52 BINARY_SUBSCR
+             54 JUMP_FORWARD             2 (to 58)
+        >>   56 LOAD_CONST               1 (None)
+
+218     >>   58 STORE_FAST               7 (assigned_account_id)
+
+221          60 LOAD_GLOBAL              4 (prepare_friend_import)
+             62 LOAD_FAST                0 (friend_list)
+             64 LOAD_FAST                1 (import_source)
+             66 CALL_FUNCTION            2
+             68 UNPACK_SEQUENCE          2
+             70 STORE_FAST               8 (batch_id)
+             72 STORE_FAST               9 (prepared)
+
+223          74 LOAD_FAST                3 (db_manager)
+             76 LOAD_ATTR                5 (add_friend_list)
+
+224          78 LOAD_FAST                9 (prepared)
+
+225          80 LOAD_FAST                7 (assigned_account_id)
+
+226          82 LOAD_FAST                8 (batch_id)
+
+227          84 LOAD_FAST                1 (import_source)
+
+223          86 LOAD_CONST               5 (('account_id', 'import_batch_id', 'import_source'))
+             88 CALL_FUNCTION_KW         4
+             90 STORE_FAST              10 (database_success)
+
+229          92 LOAD_FAST               10 (database_success)
+             94 POP_JUMP_IF_TRUE       116
+
+231          96 LOAD_CONST               6 (False)
+
+232          98 LOAD_CONST               2 (0)
+
+233         100 LOAD_FAST                8 (batch_id)
+
+234         102 LOAD_CONST               6 (False)
+
+235         104 LOAD_CONST               7 ('failed')
+
+236         106 LOAD_CONST               8 ('保存好友名单数据库失败')
+
+230         108 LOAD_CONST               9 (('success', 'count', 'batch_id', 'recording_success', 'assignment_status', 'error'))
+            110 BUILD_CONST_KEY_MAP      6
+            112 POP_BLOCK
+            114 RETURN_VALUE
+
+239     >>  116 LOAD_GLOBAL              6 (record_prepared_friend_import)
+
+240         118 LOAD_FAST                9 (prepared)
+
+241         120 LOAD_FAST                1 (import_source)
+
+242         122 LOAD_FAST                6 (normalized_accounts)
+
+243         124 LOAD_FAST                8 (batch_id)
+
+244         126 LOAD_FAST                4 (store)
+
+239         128 LOAD_CONST              10 (('prepared', 'import_source', 'account_ids', 'batch_id', 'store'))
+            130 CALL_FUNCTION_KW         5
+            132 STORE_FAST              11 (recording)
+
+247         134 LOAD_CONST              11 (True)
+
+248         136 LOAD_GLOBAL              3 (len)
+            138 LOAD_FAST                9 (prepared)
+            140 CALL_FUNCTION            1
+
+249         142 LOAD_FAST                8 (batch_id)
+
+250         144 LOAD_FAST               11 (recording)
+            146 LOAD_CONST              12 ('success')
+            148 BINARY_SUBSCR
+
+251         150 LOAD_FAST               11 (recording)
+            152 LOAD_CONST              13 ('assignment_status')
+            154 BINARY_SUBSCR
+
+252         156 LOAD_FAST               11 (recording)
+            158 LOAD_CONST              14 ('snapshot')
+            160 BINARY_SUBSCR
+
+253         162 LOAD_FAST               11 (recording)
+            164 LOAD_CONST              15 ('event')
+            166 BINARY_SUBSCR
+
+254         168 LOAD_FAST               11 (recording)
+            170 LOAD_CONST              16 ('error')
+            172 BINARY_SUBSCR
+
+246         174 LOAD_CONST              17 (('success', 'count', 'batch_id', 'recording_success', 'assignment_status', 'snapshot', 'event', 'error'))
+            176 BUILD_CONST_KEY_MAP      8
+            178 POP_BLOCK
+            180 RETURN_VALUE
+
+256     >>  182 DUP_TOP
+            184 LOAD_GLOBAL              7 (Exception)
+            186 EXTENDED_ARG             0
+            188 JUMP_IF_NOT_EXC_MATCH   250
+            190 POP_TOP
+            192 STORE_FAST              12 (exc)
+            194 POP_TOP
+            196 SETUP_FINALLY           44 (to 242)
+
+257         198 LOAD_GLOBAL              8 (logger)
+            200 LOAD_METHOD              9 (exception)
+            202 LOAD_CONST              18 ('好友名单写入失败')
+            204 CALL_METHOD              1
+            206 POP_TOP
+
+259         208 LOAD_CONST               6 (False)
+
+260         210 LOAD_CONST               2 (0)
+
+261         212 LOAD_CONST              19 ('')
+
+262         214 LOAD_CONST               6 (False)
+
+263         216 LOAD_CONST               7 ('failed')
+
+264         218 LOAD_GLOBAL             10 (str)
+            220 LOAD_FAST               12 (exc)
+            222 CALL_FUNCTION            1
+
+258         224 LOAD_CONST               9 (('success', 'count', 'batch_id', 'recording_success', 'assignment_status', 'error'))
+            226 BUILD_CONST_KEY_MAP      6
+            228 POP_BLOCK
+            230 ROT_FOUR
+            232 POP_EXCEPT
+            234 LOAD_CONST               1 (None)
+            236 STORE_FAST              12 (exc)
+            238 DELETE_FAST             12 (exc)
+            240 RETURN_VALUE
+        >>  242 LOAD_CONST               1 (None)
+            244 STORE_FAST              12 (exc)
+            246 DELETE_FAST             12 (exc)
+            248 RERAISE
+        >>  250 RERAISE
+            252 LOAD_CONST               1 (None)
+            254 RETURN_VALUE

@@ -1,0 +1,95 @@
+  1           0 LOAD_CONST               0 ('Compatibility-safe package root for YokoWebot core modules.\n\nThe legacy ``chat``, ``file`` and ``friend`` exports are intentionally loaded\nonly when a caller explicitly requests them.  This keeps platform-neutral\nDomain and Port imports from initializing the Windows UIA stack.\n')
+              2 STORE_NAME               0 (__doc__)
+
+  8           4 LOAD_CONST               1 (0)
+              6 LOAD_CONST               2 (None)
+              8 IMPORT_NAME              1 (importlib)
+             10 STORE_NAME               1 (importlib)
+
+  9          12 LOAD_CONST               1 (0)
+             14 LOAD_CONST               2 (None)
+             16 IMPORT_NAME              2 (sys)
+             18 STORE_NAME               2 (sys)
+
+ 11          20 LOAD_CONST               1 (0)
+             22 LOAD_CONST               3 (('SPLIT_LINE',))
+             24 IMPORT_NAME              3 (WeRobotCore.lib.CONST)
+             26 IMPORT_FROM              4 (SPLIT_LINE)
+             28 STORE_NAME               4 (SPLIT_LINE)
+             30 POP_TOP
+
+ 13          32 LOAD_CONST               4 ('1.9.11')
+             34 STORE_NAME               5 (__version__)
+
+ 15          36 BUILD_LIST               0
+             38 LOAD_CONST               5 (('chat', 'file', 'friend', 'SPLIT_LINE', '__version__'))
+             40 LIST_EXTEND              1
+             42 STORE_NAME               6 (__all__)
+
+ 17          44 LOAD_NAME                7 (frozenset)
+             46 LOAD_CONST               6 (('chat', 'file', 'friend'))
+             48 CALL_FUNCTION            1
+             50 STORE_NAME               8 (_LEGACY_API_EXPORTS)
+
+ 20          52 LOAD_CONST               7 (<code object __getattr__ at 0x1090bd500, file "WeRobotCore/__init__.py", line 20>)
+             54 LOAD_CONST               8 ('__getattr__')
+             56 MAKE_FUNCTION            0
+             58 STORE_NAME               9 (__getattr__)
+
+ 31          60 LOAD_CONST               9 (<code object __dir__ at 0x1090bd5b0, file "WeRobotCore/__init__.py", line 31>)
+             62 LOAD_CONST              10 ('__dir__')
+             64 MAKE_FUNCTION            0
+             66 STORE_NAME              10 (__dir__)
+             68 LOAD_CONST               2 (None)
+             70 RETURN_VALUE
+
+Disassembly of <code object __getattr__ at 0x1090bd500, file "WeRobotCore/__init__.py", line 20>:
+ 23           0 LOAD_FAST                0 (name)
+              2 LOAD_GLOBAL              0 (_LEGACY_API_EXPORTS)
+              4 CONTAINS_OP              1
+              6 POP_JUMP_IF_TRUE        18
+              8 LOAD_GLOBAL              1 (sys)
+             10 LOAD_ATTR                2 (platform)
+             12 LOAD_CONST               1 ('win32')
+             14 COMPARE_OP               3 (!=)
+             16 POP_JUMP_IF_FALSE       34
+
+ 24     >>   18 LOAD_GLOBAL              3 (AttributeError)
+             20 LOAD_CONST               2 ('module {!r} has no attribute {!r}')
+             22 LOAD_METHOD              4 (format)
+             24 LOAD_GLOBAL              5 (__name__)
+             26 LOAD_FAST                0 (name)
+             28 CALL_METHOD              2
+             30 CALL_FUNCTION            1
+             32 RAISE_VARARGS            1
+
+ 26     >>   34 LOAD_GLOBAL              6 (importlib)
+             36 LOAD_METHOD              7 (import_module)
+             38 LOAD_CONST               3 ('.api.{}')
+             40 LOAD_METHOD              4 (format)
+             42 LOAD_FAST                0 (name)
+             44 CALL_METHOD              1
+             46 LOAD_GLOBAL              5 (__name__)
+             48 CALL_METHOD              2
+             50 STORE_FAST               1 (module)
+
+ 27          52 LOAD_FAST                1 (module)
+             54 LOAD_GLOBAL              8 (globals)
+             56 CALL_FUNCTION            0
+             58 LOAD_FAST                0 (name)
+             60 STORE_SUBSCR
+
+ 28          62 LOAD_FAST                1 (module)
+             64 RETURN_VALUE
+
+Disassembly of <code object __dir__ at 0x1090bd5b0, file "WeRobotCore/__init__.py", line 31>:
+ 32           0 LOAD_GLOBAL              0 (sorted)
+              2 LOAD_GLOBAL              1 (set)
+              4 LOAD_GLOBAL              2 (globals)
+              6 CALL_FUNCTION            0
+              8 CALL_FUNCTION            1
+             10 LOAD_METHOD              3 (union)
+             12 LOAD_GLOBAL              4 (__all__)
+             14 CALL_METHOD              1
+             16 CALL_FUNCTION            1
+             18 RETURN_VALUE

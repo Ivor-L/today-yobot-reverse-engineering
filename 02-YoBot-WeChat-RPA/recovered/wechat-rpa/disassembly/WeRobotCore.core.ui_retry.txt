@@ -1,0 +1,503 @@
+  1           0 LOAD_CONST               0 (0)
+              2 LOAD_CONST               1 (None)
+              4 IMPORT_NAME              0 (time)
+              6 STORE_NAME               0 (time)
+
+  2           8 LOAD_CONST               0 (0)
+             10 LOAD_CONST               1 (None)
+             12 IMPORT_NAME              1 (random)
+             14 STORE_NAME               1 (random)
+
+  3          16 LOAD_CONST               0 (0)
+             18 LOAD_CONST               1 (None)
+             20 IMPORT_NAME              2 (logging)
+             22 STORE_NAME               2 (logging)
+
+  4          24 LOAD_CONST               0 (0)
+             26 LOAD_CONST               2 (('Optional', 'Callable', 'Any'))
+             28 IMPORT_NAME              3 (typing)
+             30 IMPORT_FROM              4 (Optional)
+             32 STORE_NAME               4 (Optional)
+             34 IMPORT_FROM              5 (Callable)
+             36 STORE_NAME               5 (Callable)
+             38 IMPORT_FROM              6 (Any)
+             40 STORE_NAME               6 (Any)
+             42 POP_TOP
+
+  5          44 LOAD_CONST               0 (0)
+             46 LOAD_CONST               1 (None)
+             48 IMPORT_NAME              7 (uiautomation)
+             50 STORE_NAME               8 (ui_Coder)
+
+  7          52 LOAD_NAME                2 (logging)
+             54 LOAD_METHOD              9 (getLogger)
+             56 LOAD_CONST               3 ('UIRetry')
+             58 CALL_METHOD              1
+             60 STORE_NAME              10 (logger)
+
+  9          62 LOAD_BUILD_CLASS
+             64 LOAD_CONST               4 (<code object UIRetry at 0x1092447c0, file "WeRobotCore/core/ui_retry.py", line 9>)
+             66 LOAD_CONST               3 ('UIRetry')
+             68 MAKE_FUNCTION            0
+             70 LOAD_CONST               3 ('UIRetry')
+             72 CALL_FUNCTION            2
+             74 STORE_NAME              11 (UIRetry)
+             76 LOAD_CONST               1 (None)
+             78 RETURN_VALUE
+
+Disassembly of <code object UIRetry at 0x1092447c0, file "WeRobotCore/core/ui_retry.py", line 9>:
+  9           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('UIRetry')
+              6 STORE_NAME               2 (__qualname__)
+
+ 10           8 LOAD_CONST               1 ('UI元素交互重试助手')
+             10 STORE_NAME               3 (__doc__)
+
+ 12          12 LOAD_NAME                4 (staticmethod)
+
+ 13          14 LOAD_CONST              16 ((3, True, True, None))
+
+ 15          16 LOAD_NAME                5 (int)
+
+ 16          18 LOAD_NAME                6 (bool)
+
+ 17          20 LOAD_NAME                6 (bool)
+
+ 18          22 LOAD_NAME                7 (Optional)
+             24 LOAD_NAME                8 (float)
+             26 BINARY_SUBSCR
+
+ 19          28 LOAD_NAME                6 (bool)
+
+ 13          30 LOAD_CONST               5 (('max_attempts', 'check_exists', 'simulate_move', 'wait_time', 'return'))
+             32 BUILD_CONST_KEY_MAP      5
+             34 LOAD_CONST               6 (<code object try_click_element at 0x109244660, file "WeRobotCore/core/ui_retry.py", line 12>)
+             36 LOAD_CONST               7 ('UIRetry.try_click_element')
+             38 MAKE_FUNCTION            5 (defaults, annotations)
+             40 CALL_FUNCTION            1
+             42 STORE_NAME               9 (try_click_element)
+
+ 54          44 LOAD_NAME                4 (staticmethod)
+
+ 55          46 LOAD_CONST              17 ((3, True, None))
+
+ 57          48 LOAD_NAME                5 (int)
+
+ 58          50 LOAD_NAME                6 (bool)
+
+ 59          52 LOAD_NAME                7 (Optional)
+             54 LOAD_NAME                8 (float)
+             56 BINARY_SUBSCR
+
+ 60          58 LOAD_NAME                6 (bool)
+
+ 55          60 LOAD_CONST               8 (('max_attempts', 'check_exists', 'wait_time', 'return'))
+             62 BUILD_CONST_KEY_MAP      4
+             64 LOAD_CONST               9 (<code object try_right_click_element at 0x109244b30, file "WeRobotCore/core/ui_retry.py", line 54>)
+             66 LOAD_CONST              10 ('UIRetry.try_right_click_element')
+             68 MAKE_FUNCTION            5 (defaults, annotations)
+             70 CALL_FUNCTION            1
+             72 STORE_NAME              10 (try_right_click_element)
+
+ 84          74 LOAD_NAME                4 (staticmethod)
+
+ 85          76 LOAD_CONST              18 ((3, '操作', (1.0, 2.0)))
+
+ 86          78 LOAD_NAME               11 (Callable)
+
+ 87          80 LOAD_NAME                5 (int)
+
+ 88          82 LOAD_NAME               12 (str)
+
+ 89          84 LOAD_NAME               13 (tuple)
+
+ 90          86 LOAD_NAME               14 (Any)
+
+ 85          88 LOAD_CONST              13 (('action', 'max_attempts', 'action_name', 'retry_interval', 'return'))
+             90 BUILD_CONST_KEY_MAP      5
+             92 LOAD_CONST              14 (<code object try_action at 0x109244920, file "WeRobotCore/core/ui_retry.py", line 84>)
+             94 LOAD_CONST              15 ('UIRetry.try_action')
+             96 MAKE_FUNCTION            5 (defaults, annotations)
+             98 CALL_FUNCTION            1
+            100 STORE_NAME              15 (try_action)
+            102 LOAD_CONST               4 (None)
+            104 RETURN_VALUE
+
+Disassembly of <code object try_click_element at 0x109244660, file "WeRobotCore/core/ui_retry.py", line 12>:
+ 30           0 LOAD_GLOBAL              0 (range)
+              2 LOAD_CONST               1 (1)
+              4 LOAD_FAST                1 (max_attempts)
+              6 LOAD_CONST               1 (1)
+              8 BINARY_ADD
+             10 CALL_FUNCTION            2
+             12 GET_ITER
+        >>   14 FOR_ITER               206 (to 222)
+             16 STORE_FAST               5 (attempt)
+
+ 31          18 SETUP_FINALLY          106 (to 126)
+
+ 33          20 LOAD_FAST                2 (check_exists)
+             22 POP_JUMP_IF_FALSE       84
+             24 LOAD_FAST                0 (element)
+             26 LOAD_METHOD              1 (Exists)
+             28 LOAD_CONST               1 (1)
+             30 CALL_METHOD              1
+             32 POP_JUMP_IF_TRUE        84
+
+ 34          34 LOAD_GLOBAL              2 (logger)
+             36 LOAD_METHOD              3 (warning)
+             38 LOAD_CONST               2 ('元素不存在，等待重试... (')
+             40 LOAD_FAST                5 (attempt)
+             42 FORMAT_VALUE             0
+             44 LOAD_CONST               3 ('/')
+             46 LOAD_FAST                1 (max_attempts)
+             48 FORMAT_VALUE             0
+             50 LOAD_CONST               4 ('),element=')
+             52 LOAD_FAST                0 (element)
+             54 FORMAT_VALUE             0
+             56 BUILD_STRING             6
+             58 CALL_METHOD              1
+             60 POP_TOP
+
+ 35          62 LOAD_GLOBAL              4 (time)
+             64 LOAD_METHOD              5 (sleep)
+             66 LOAD_GLOBAL              6 (random)
+             68 LOAD_METHOD              7 (uniform)
+             70 LOAD_CONST               5 (0.5)
+             72 LOAD_CONST               6 (1.0)
+             74 CALL_METHOD              2
+             76 CALL_METHOD              1
+             78 POP_TOP
+
+ 36          80 POP_BLOCK
+             82 JUMP_ABSOLUTE           14
+
+ 39     >>   84 LOAD_FAST                4 (wait_time)
+             86 LOAD_CONST               7 (None)
+             88 IS_OP                    0
+             90 POP_JUMP_IF_FALSE      104
+
+ 40          92 LOAD_GLOBAL              6 (random)
+             94 LOAD_METHOD              7 (uniform)
+             96 LOAD_CONST               8 (0.2)
+             98 LOAD_CONST               5 (0.5)
+            100 CALL_METHOD              2
+            102 STORE_FAST               4 (wait_time)
+
+ 42     >>  104 LOAD_FAST                0 (element)
+            106 LOAD_ATTR                8 (Click)
+            108 LOAD_FAST                3 (simulate_move)
+            110 LOAD_FAST                4 (wait_time)
+            112 LOAD_CONST               9 (('simulateMove', 'waitTime'))
+            114 CALL_FUNCTION_KW         2
+            116 POP_TOP
+
+ 44         118 POP_BLOCK
+            120 POP_TOP
+            122 LOAD_CONST              10 (True)
+            124 RETURN_VALUE
+
+ 46     >>  126 DUP_TOP
+            128 LOAD_GLOBAL              9 (Exception)
+            130 JUMP_IF_NOT_EXC_MATCH   218
+            132 POP_TOP
+            134 STORE_FAST               6 (e)
+            136 POP_TOP
+            138 SETUP_FINALLY           70 (to 210)
+
+ 47         140 LOAD_GLOBAL              2 (logger)
+            142 LOAD_METHOD              3 (warning)
+            144 LOAD_CONST              11 ('点击失败 (尝试 ')
+            146 LOAD_FAST                5 (attempt)
+            148 FORMAT_VALUE             0
+            150 LOAD_CONST               3 ('/')
+            152 LOAD_FAST                1 (max_attempts)
+            154 FORMAT_VALUE             0
+            156 LOAD_CONST              12 ('): ')
+            158 LOAD_GLOBAL             10 (str)
+            160 LOAD_FAST                6 (e)
+            162 CALL_FUNCTION            1
+            164 FORMAT_VALUE             0
+            166 BUILD_STRING             6
+            168 CALL_METHOD              1
+            170 POP_TOP
+
+ 48         172 LOAD_FAST                5 (attempt)
+            174 LOAD_FAST                1 (max_attempts)
+            176 COMPARE_OP               0 (<)
+            178 POP_JUMP_IF_FALSE      198
+
+ 49         180 LOAD_GLOBAL              4 (time)
+            182 LOAD_METHOD              5 (sleep)
+            184 LOAD_GLOBAL              6 (random)
+            186 LOAD_METHOD              7 (uniform)
+            188 LOAD_CONST               6 (1.0)
+            190 LOAD_CONST              13 (2.0)
+            192 CALL_METHOD              2
+            194 CALL_METHOD              1
+            196 POP_TOP
+        >>  198 POP_BLOCK
+            200 POP_EXCEPT
+            202 LOAD_CONST               7 (None)
+            204 STORE_FAST               6 (e)
+            206 DELETE_FAST              6 (e)
+            208 JUMP_ABSOLUTE           14
+        >>  210 LOAD_CONST               7 (None)
+            212 STORE_FAST               6 (e)
+            214 DELETE_FAST              6 (e)
+            216 RERAISE
+        >>  218 RERAISE
+            220 JUMP_ABSOLUTE           14
+
+ 51     >>  222 LOAD_GLOBAL              2 (logger)
+            224 LOAD_METHOD             11 (error)
+            226 LOAD_CONST              14 ('元素点击失败，已达到最大重试次数: ')
+            228 LOAD_FAST                1 (max_attempts)
+            230 FORMAT_VALUE             0
+            232 BUILD_STRING             2
+            234 CALL_METHOD              1
+            236 POP_TOP
+
+ 52         238 LOAD_CONST              15 (False)
+            240 RETURN_VALUE
+
+Disassembly of <code object try_right_click_element at 0x109244b30, file "WeRobotCore/core/ui_retry.py", line 54>:
+ 62           0 LOAD_GLOBAL              0 (range)
+              2 LOAD_CONST               1 (1)
+              4 LOAD_FAST                1 (max_attempts)
+              6 LOAD_CONST               1 (1)
+              8 BINARY_ADD
+             10 CALL_FUNCTION            2
+             12 GET_ITER
+        >>   14 FOR_ITER               210 (to 226)
+             16 STORE_FAST               4 (attempt)
+
+ 63          18 SETUP_FINALLY          110 (to 130)
+
+ 64          20 LOAD_FAST                2 (check_exists)
+             22 POP_JUMP_IF_FALSE       80
+             24 LOAD_FAST                0 (element)
+             26 LOAD_METHOD              1 (Exists)
+             28 LOAD_CONST               1 (1)
+             30 CALL_METHOD              1
+             32 POP_JUMP_IF_TRUE        80
+
+ 65          34 LOAD_GLOBAL              2 (logger)
+             36 LOAD_METHOD              3 (warning)
+             38 LOAD_CONST               2 ('元素不存在，等待重试... (')
+             40 LOAD_FAST                4 (attempt)
+             42 FORMAT_VALUE             0
+             44 LOAD_CONST               3 ('/')
+             46 LOAD_FAST                1 (max_attempts)
+             48 FORMAT_VALUE             0
+             50 LOAD_CONST               4 (')')
+             52 BUILD_STRING             5
+             54 CALL_METHOD              1
+             56 POP_TOP
+
+ 66          58 LOAD_GLOBAL              4 (time)
+             60 LOAD_METHOD              5 (sleep)
+             62 LOAD_GLOBAL              6 (random)
+             64 LOAD_METHOD              7 (uniform)
+             66 LOAD_CONST               5 (0.5)
+             68 LOAD_CONST               6 (1.0)
+             70 CALL_METHOD              2
+             72 CALL_METHOD              1
+             74 POP_TOP
+
+ 67          76 POP_BLOCK
+             78 JUMP_ABSOLUTE           14
+
+ 69     >>   80 LOAD_FAST                3 (wait_time)
+             82 LOAD_CONST               7 (None)
+             84 IS_OP                    0
+             86 POP_JUMP_IF_FALSE      100
+
+ 70          88 LOAD_GLOBAL              6 (random)
+             90 LOAD_METHOD              7 (uniform)
+             92 LOAD_CONST               8 (0.2)
+             94 LOAD_CONST               5 (0.5)
+             96 CALL_METHOD              2
+             98 STORE_FAST               3 (wait_time)
+
+ 72     >>  100 LOAD_FAST                0 (element)
+            102 LOAD_ATTR                8 (RightClick)
+            104 LOAD_FAST                3 (wait_time)
+            106 LOAD_CONST               9 (('waitTime',))
+            108 CALL_FUNCTION_KW         1
+            110 POP_TOP
+
+ 73         112 LOAD_GLOBAL              2 (logger)
+            114 LOAD_METHOD              9 (info)
+            116 LOAD_CONST              10 ('元素右键点击成功')
+            118 CALL_METHOD              1
+            120 POP_TOP
+
+ 74         122 POP_BLOCK
+            124 POP_TOP
+            126 LOAD_CONST              11 (True)
+            128 RETURN_VALUE
+
+ 76     >>  130 DUP_TOP
+            132 LOAD_GLOBAL             10 (Exception)
+            134 JUMP_IF_NOT_EXC_MATCH   222
+            136 POP_TOP
+            138 STORE_FAST               5 (e)
+            140 POP_TOP
+            142 SETUP_FINALLY           70 (to 214)
+
+ 77         144 LOAD_GLOBAL              2 (logger)
+            146 LOAD_METHOD              3 (warning)
+            148 LOAD_CONST              12 ('右键点击失败 (尝试 ')
+            150 LOAD_FAST                4 (attempt)
+            152 FORMAT_VALUE             0
+            154 LOAD_CONST               3 ('/')
+            156 LOAD_FAST                1 (max_attempts)
+            158 FORMAT_VALUE             0
+            160 LOAD_CONST              13 ('): ')
+            162 LOAD_GLOBAL             11 (str)
+            164 LOAD_FAST                5 (e)
+            166 CALL_FUNCTION            1
+            168 FORMAT_VALUE             0
+            170 BUILD_STRING             6
+            172 CALL_METHOD              1
+            174 POP_TOP
+
+ 78         176 LOAD_FAST                4 (attempt)
+            178 LOAD_FAST                1 (max_attempts)
+            180 COMPARE_OP               0 (<)
+            182 POP_JUMP_IF_FALSE      202
+
+ 79         184 LOAD_GLOBAL              4 (time)
+            186 LOAD_METHOD              5 (sleep)
+            188 LOAD_GLOBAL              6 (random)
+            190 LOAD_METHOD              7 (uniform)
+            192 LOAD_CONST               6 (1.0)
+            194 LOAD_CONST              14 (2.0)
+            196 CALL_METHOD              2
+            198 CALL_METHOD              1
+            200 POP_TOP
+        >>  202 POP_BLOCK
+            204 POP_EXCEPT
+            206 LOAD_CONST               7 (None)
+            208 STORE_FAST               5 (e)
+            210 DELETE_FAST              5 (e)
+            212 JUMP_ABSOLUTE           14
+        >>  214 LOAD_CONST               7 (None)
+            216 STORE_FAST               5 (e)
+            218 DELETE_FAST              5 (e)
+            220 RERAISE
+        >>  222 RERAISE
+            224 JUMP_ABSOLUTE           14
+
+ 81     >>  226 LOAD_GLOBAL              2 (logger)
+            228 LOAD_METHOD             12 (error)
+            230 LOAD_CONST              15 ('元素右键点击失败，已达到最大重试次数: ')
+            232 LOAD_FAST                1 (max_attempts)
+            234 FORMAT_VALUE             0
+            236 BUILD_STRING             2
+            238 CALL_METHOD              1
+            240 POP_TOP
+
+ 82         242 LOAD_CONST              16 (False)
+            244 RETURN_VALUE
+
+Disassembly of <code object try_action at 0x109244920, file "WeRobotCore/core/ui_retry.py", line 84>:
+100           0 LOAD_GLOBAL              0 (range)
+              2 LOAD_CONST               1 (1)
+              4 LOAD_FAST                1 (max_attempts)
+              6 LOAD_CONST               1 (1)
+              8 BINARY_ADD
+             10 CALL_FUNCTION            2
+             12 GET_ITER
+        >>   14 FOR_ITER               134 (to 150)
+             16 STORE_FAST               4 (attempt)
+
+101          18 SETUP_FINALLY           32 (to 52)
+
+102          20 LOAD_FAST                0 (action)
+             22 CALL_FUNCTION            0
+             24 STORE_FAST               5 (result)
+
+103          26 LOAD_GLOBAL              1 (logger)
+             28 LOAD_METHOD              2 (info)
+             30 LOAD_FAST                2 (action_name)
+             32 FORMAT_VALUE             0
+             34 LOAD_CONST               2 ('成功')
+             36 BUILD_STRING             2
+             38 CALL_METHOD              1
+             40 POP_TOP
+
+104          42 LOAD_FAST                5 (result)
+             44 POP_BLOCK
+             46 ROT_TWO
+             48 POP_TOP
+             50 RETURN_VALUE
+
+106     >>   52 DUP_TOP
+             54 LOAD_GLOBAL              3 (Exception)
+             56 JUMP_IF_NOT_EXC_MATCH   146
+             58 POP_TOP
+             60 STORE_FAST               6 (e)
+             62 POP_TOP
+             64 SETUP_FINALLY           72 (to 138)
+
+107          66 LOAD_GLOBAL              1 (logger)
+             68 LOAD_METHOD              4 (warning)
+             70 LOAD_FAST                2 (action_name)
+             72 FORMAT_VALUE             0
+             74 LOAD_CONST               3 ('失败 (尝试 ')
+             76 LOAD_FAST                4 (attempt)
+             78 FORMAT_VALUE             0
+             80 LOAD_CONST               4 ('/')
+             82 LOAD_FAST                1 (max_attempts)
+             84 FORMAT_VALUE             0
+             86 LOAD_CONST               5 ('): ')
+             88 LOAD_GLOBAL              5 (str)
+             90 LOAD_FAST                6 (e)
+             92 CALL_FUNCTION            1
+             94 FORMAT_VALUE             0
+             96 BUILD_STRING             7
+             98 CALL_METHOD              1
+            100 POP_TOP
+
+108         102 LOAD_FAST                4 (attempt)
+            104 LOAD_FAST                1 (max_attempts)
+            106 COMPARE_OP               0 (<)
+            108 POP_JUMP_IF_FALSE      126
+
+109         110 LOAD_GLOBAL              6 (time)
+            112 LOAD_METHOD              7 (sleep)
+            114 LOAD_GLOBAL              8 (random)
+            116 LOAD_ATTR                9 (uniform)
+            118 LOAD_FAST                3 (retry_interval)
+            120 CALL_FUNCTION_EX         0
+            122 CALL_METHOD              1
+            124 POP_TOP
+        >>  126 POP_BLOCK
+            128 POP_EXCEPT
+            130 LOAD_CONST               6 (None)
+            132 STORE_FAST               6 (e)
+            134 DELETE_FAST              6 (e)
+            136 JUMP_ABSOLUTE           14
+        >>  138 LOAD_CONST               6 (None)
+            140 STORE_FAST               6 (e)
+            142 DELETE_FAST              6 (e)
+            144 RERAISE
+        >>  146 RERAISE
+            148 JUMP_ABSOLUTE           14
+
+111     >>  150 LOAD_GLOBAL              1 (logger)
+            152 LOAD_METHOD             10 (error)
+            154 LOAD_FAST                2 (action_name)
+            156 FORMAT_VALUE             0
+            158 LOAD_CONST               7 ('失败，已达到最大重试次数: ')
+            160 LOAD_FAST                1 (max_attempts)
+            162 FORMAT_VALUE             0
+            164 BUILD_STRING             3
+            166 CALL_METHOD              1
+            168 POP_TOP
+
+112         170 LOAD_CONST               6 (None)
+            172 RETURN_VALUE

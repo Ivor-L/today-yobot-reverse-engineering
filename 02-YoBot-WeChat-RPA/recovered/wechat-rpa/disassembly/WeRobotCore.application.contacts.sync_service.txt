@@ -1,0 +1,810 @@
+  1           0 LOAD_CONST               0 ('Shared full-snapshot contact sync above platform-specific Drivers.')
+              2 STORE_NAME               0 (__doc__)
+
+  3           4 LOAD_CONST               1 (0)
+              6 LOAD_CONST               2 (('dataclass', 'field'))
+              8 IMPORT_NAME              1 (dataclasses)
+             10 IMPORT_FROM              2 (dataclass)
+             12 STORE_NAME               2 (dataclass)
+             14 IMPORT_FROM              3 (field)
+             16 STORE_NAME               3 (field)
+             18 POP_TOP
+
+  4          20 LOAD_CONST               1 (0)
+             22 LOAD_CONST               3 (('Any', 'Callable', 'Mapping', 'Protocol', 'Sequence', 'runtime_checkable'))
+             24 IMPORT_NAME              4 (typing)
+             26 IMPORT_FROM              5 (Any)
+             28 STORE_NAME               5 (Any)
+             30 IMPORT_FROM              6 (Callable)
+             32 STORE_NAME               6 (Callable)
+             34 IMPORT_FROM              7 (Mapping)
+             36 STORE_NAME               7 (Mapping)
+             38 IMPORT_FROM              8 (Protocol)
+             40 STORE_NAME               8 (Protocol)
+             42 IMPORT_FROM              9 (Sequence)
+             44 STORE_NAME               9 (Sequence)
+             46 IMPORT_FROM             10 (runtime_checkable)
+             48 STORE_NAME              10 (runtime_checkable)
+             50 POP_TOP
+
+  6          52 LOAD_CONST               1 (0)
+             54 LOAD_CONST               4 (('AutomationContext',))
+             56 IMPORT_NAME             11 (WeRobotCore.application.runtime)
+             58 IMPORT_FROM             12 (AutomationContext)
+             60 STORE_NAME              12 (AutomationContext)
+             62 POP_TOP
+
+  7          64 LOAD_CONST               1 (0)
+             66 LOAD_CONST               5 (('ContactRecord', 'GroupRecord'))
+             68 IMPORT_NAME             13 (WeRobotCore.domain)
+             70 IMPORT_FROM             14 (ContactRecord)
+             72 STORE_NAME              14 (ContactRecord)
+             74 IMPORT_FROM             15 (GroupRecord)
+             76 STORE_NAME              15 (GroupRecord)
+             78 POP_TOP
+
+ 11          80 LOAD_NAME               16 (str)
+
+ 12          82 LOAD_NAME                9 (Sequence)
+             84 LOAD_NAME                5 (Any)
+             86 BINARY_SUBSCR
+
+ 14          88 LOAD_NAME               16 (str)
+
+ 15          90 LOAD_CONST               6 (None)
+
+ 10          92 LOAD_CONST               7 (('account_id', 'records', 'id_field', 'return'))
+             94 BUILD_CONST_KEY_MAP      4
+             96 LOAD_CONST               8 (<code object validate_contact_snapshot at 0x10924ca80, file "WeRobotCore/application/contacts/sync_service.py", line 10>)
+             98 LOAD_CONST               9 ('validate_contact_snapshot')
+            100 MAKE_FUNCTION            4 (annotations)
+            102 STORE_NAME              17 (validate_contact_snapshot)
+
+ 30         104 LOAD_NAME               10 (runtime_checkable)
+
+ 31         106 LOAD_BUILD_CLASS
+            108 LOAD_CONST              10 (<code object ContactSyncContextProvider at 0x10924cdf0, file "WeRobotCore/application/contacts/sync_service.py", line 30>)
+            110 LOAD_CONST              11 ('ContactSyncContextProvider')
+            112 MAKE_FUNCTION            0
+            114 LOAD_CONST              11 ('ContactSyncContextProvider')
+            116 LOAD_NAME                8 (Protocol)
+            118 CALL_FUNCTION            3
+            120 CALL_FUNCTION            1
+            122 STORE_NAME              18 (ContactSyncContextProvider)
+
+ 36         124 LOAD_NAME               10 (runtime_checkable)
+
+ 37         126 LOAD_BUILD_CLASS
+            128 LOAD_CONST              12 (<code object ContactSnapshotStore at 0x10924c500, file "WeRobotCore/application/contacts/sync_service.py", line 36>)
+            130 LOAD_CONST              13 ('ContactSnapshotStore')
+            132 MAKE_FUNCTION            0
+            134 LOAD_CONST              13 ('ContactSnapshotStore')
+            136 LOAD_NAME                8 (Protocol)
+            138 CALL_FUNCTION            3
+            140 CALL_FUNCTION            1
+            142 STORE_NAME              19 (ContactSnapshotStore)
+
+ 59         144 LOAD_NAME                2 (dataclass)
+            146 LOAD_CONST              14 (True)
+            148 LOAD_CONST              15 (('frozen',))
+            150 CALL_FUNCTION_KW         1
+
+ 60         152 LOAD_BUILD_CLASS
+            154 LOAD_CONST              16 (<code object ContactSyncOutcome at 0x10924cbe0, file "WeRobotCore/application/contacts/sync_service.py", line 59>)
+            156 LOAD_CONST              17 ('ContactSyncOutcome')
+            158 MAKE_FUNCTION            0
+            160 LOAD_CONST              17 ('ContactSyncOutcome')
+            162 CALL_FUNCTION            2
+            164 CALL_FUNCTION            1
+            166 STORE_NAME              20 (ContactSyncOutcome)
+
+100         168 LOAD_BUILD_CLASS
+            170 LOAD_CONST              18 (<code object AutomationContextContactSyncService at 0x10924cea0, file "WeRobotCore/application/contacts/sync_service.py", line 100>)
+            172 LOAD_CONST              19 ('AutomationContextContactSyncService')
+            174 MAKE_FUNCTION            0
+            176 LOAD_CONST              19 ('AutomationContextContactSyncService')
+            178 CALL_FUNCTION            2
+            180 STORE_NAME              21 (AutomationContextContactSyncService)
+            182 LOAD_CONST               6 (None)
+            184 RETURN_VALUE
+
+Disassembly of <code object validate_contact_snapshot at 0x10924ca80, file "WeRobotCore/application/contacts/sync_service.py", line 10>:
+ 18           0 LOAD_GLOBAL              0 (set)
+              2 CALL_FUNCTION            0
+              4 STORE_FAST               4 (seen)
+
+ 19           6 LOAD_FAST                1 (records)
+              8 GET_ITER
+        >>   10 FOR_ITER                76 (to 88)
+             12 STORE_FAST               5 (record)
+
+ 20          14 LOAD_GLOBAL              1 (isinstance)
+             16 LOAD_FAST                5 (record)
+             18 LOAD_FAST                2 (record_type)
+             20 CALL_FUNCTION            2
+             22 POP_JUMP_IF_TRUE        32
+
+ 21          24 LOAD_GLOBAL              2 (TypeError)
+             26 LOAD_CONST               1 ('contact snapshot contains an invalid record')
+             28 CALL_FUNCTION            1
+             30 RAISE_VARARGS            1
+
+ 22     >>   32 LOAD_FAST                5 (record)
+             34 LOAD_ATTR                3 (account_id)
+             36 LOAD_FAST                0 (account_id)
+             38 COMPARE_OP               3 (!=)
+             40 POP_JUMP_IF_FALSE       50
+
+ 23          42 LOAD_GLOBAL              4 (ValueError)
+             44 LOAD_CONST               2 ('contact snapshot crossed account boundaries')
+             46 CALL_FUNCTION            1
+             48 RAISE_VARARGS            1
+
+ 24     >>   50 LOAD_GLOBAL              5 (getattr)
+             52 LOAD_FAST                5 (record)
+             54 LOAD_FAST                3 (id_field)
+             56 CALL_FUNCTION            2
+             58 STORE_FAST               6 (record_id)
+
+ 25          60 LOAD_FAST                6 (record_id)
+             62 LOAD_FAST                4 (seen)
+             64 CONTAINS_OP              0
+             66 POP_JUMP_IF_FALSE       76
+
+ 26          68 LOAD_GLOBAL              4 (ValueError)
+             70 LOAD_CONST               3 ('contact snapshot contains duplicate ids')
+             72 CALL_FUNCTION            1
+             74 RAISE_VARARGS            1
+
+ 27     >>   76 LOAD_FAST                4 (seen)
+             78 LOAD_METHOD              6 (add)
+             80 LOAD_FAST                6 (record_id)
+             82 CALL_METHOD              1
+             84 POP_TOP
+             86 JUMP_ABSOLUTE           10
+        >>   88 LOAD_CONST               4 (None)
+             90 RETURN_VALUE
+
+Disassembly of <code object ContactSyncContextProvider at 0x10924cdf0, file "WeRobotCore/application/contacts/sync_service.py", line 30>:
+ 30           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('ContactSyncContextProvider')
+              6 STORE_NAME               2 (__qualname__)
+
+ 32           8 LOAD_NAME                3 (str)
+             10 LOAD_NAME                4 (AutomationContext)
+             12 LOAD_CONST               1 (('account_id', 'return'))
+             14 BUILD_CONST_KEY_MAP      2
+             16 LOAD_CONST               2 (<code object for_account at 0x10924c0e0, file "WeRobotCore/application/contacts/sync_service.py", line 32>)
+             18 LOAD_CONST               3 ('ContactSyncContextProvider.for_account')
+             20 MAKE_FUNCTION            4 (annotations)
+             22 STORE_NAME               5 (for_account)
+             24 LOAD_CONST               4 (None)
+             26 RETURN_VALUE
+
+Disassembly of <code object for_account at 0x10924c0e0, file "WeRobotCore/application/contacts/sync_service.py", line 32>:
+ 33           0 LOAD_CONST               0 (None)
+              2 RETURN_VALUE
+
+Disassembly of <code object ContactSnapshotStore at 0x10924c500, file "WeRobotCore/application/contacts/sync_service.py", line 36>:
+ 36           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('ContactSnapshotStore')
+              6 STORE_NAME               2 (__qualname__)
+
+ 38           8 LOAD_CONST               1 ('Persist only a complete normalized snapshot.\n\n    UI exclusivity, task permission and Monitor suspension belong to the\n    existing sync controller.  A store only owns the final database write.\n    ')
+             10 STORE_NAME               3 (__doc__)
+
+ 46          12 LOAD_NAME                4 (str)
+
+ 47          14 LOAD_NAME                5 (Sequence)
+             16 LOAD_NAME                6 (ContactRecord)
+             18 BINARY_SUBSCR
+
+ 48          20 LOAD_NAME                7 (Mapping)
+             22 LOAD_NAME                4 (str)
+             24 LOAD_NAME                8 (Any)
+             26 BUILD_TUPLE              2
+             28 BINARY_SUBSCR
+
+ 44          30 LOAD_CONST               2 (('account_id', 'contacts', 'return'))
+             32 BUILD_CONST_KEY_MAP      3
+             34 LOAD_CONST               3 (<code object replace_contacts at 0x10924cc90, file "WeRobotCore/application/contacts/sync_service.py", line 44>)
+             36 LOAD_CONST               4 ('ContactSnapshotStore.replace_contacts')
+             38 MAKE_FUNCTION            4 (annotations)
+             40 STORE_NAME               9 (replace_contacts)
+
+ 53          42 LOAD_NAME                4 (str)
+
+ 54          44 LOAD_NAME                5 (Sequence)
+             46 LOAD_NAME               10 (GroupRecord)
+             48 BINARY_SUBSCR
+
+ 55          50 LOAD_NAME                7 (Mapping)
+             52 LOAD_NAME                4 (str)
+             54 LOAD_NAME                8 (Any)
+             56 BUILD_TUPLE              2
+             58 BINARY_SUBSCR
+
+ 51          60 LOAD_CONST               5 (('account_id', 'groups', 'return'))
+             62 BUILD_CONST_KEY_MAP      3
+             64 LOAD_CONST               6 (<code object replace_groups at 0x10924c5b0, file "WeRobotCore/application/contacts/sync_service.py", line 51>)
+             66 LOAD_CONST               7 ('ContactSnapshotStore.replace_groups')
+             68 MAKE_FUNCTION            4 (annotations)
+             70 STORE_NAME              11 (replace_groups)
+             72 LOAD_CONST               8 (None)
+             74 RETURN_VALUE
+
+Disassembly of <code object replace_contacts at 0x10924cc90, file "WeRobotCore/application/contacts/sync_service.py", line 44>:
+ 49           0 LOAD_CONST               0 (None)
+              2 RETURN_VALUE
+
+Disassembly of <code object replace_groups at 0x10924c5b0, file "WeRobotCore/application/contacts/sync_service.py", line 51>:
+ 56           0 LOAD_CONST               0 (None)
+              2 RETURN_VALUE
+
+Disassembly of <code object ContactSyncOutcome at 0x10924cbe0, file "WeRobotCore/application/contacts/sync_service.py", line 59>:
+ 59           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('ContactSyncOutcome')
+              6 STORE_NAME               2 (__qualname__)
+              8 SETUP_ANNOTATIONS
+
+ 61          10 LOAD_NAME                3 (str)
+             12 LOAD_NAME                4 (__annotations__)
+             14 LOAD_CONST               1 ('account_id')
+             16 STORE_SUBSCR
+
+ 62          18 LOAD_NAME                3 (str)
+             20 LOAD_NAME                4 (__annotations__)
+             22 LOAD_CONST               2 ('kind')
+             24 STORE_SUBSCR
+
+ 63          26 LOAD_NAME                5 (int)
+             28 LOAD_NAME                4 (__annotations__)
+             30 LOAD_CONST               3 ('item_count')
+             32 STORE_SUBSCR
+
+ 64          34 LOAD_NAME                6 (bool)
+             36 LOAD_NAME                4 (__annotations__)
+             38 LOAD_CONST               4 ('stored')
+             40 STORE_SUBSCR
+
+ 65          42 LOAD_NAME                7 (field)
+             44 LOAD_NAME                8 (dict)
+             46 LOAD_CONST               5 (('default_factory',))
+             48 CALL_FUNCTION_KW         1
+             50 STORE_NAME               9 (storage_result)
+             52 LOAD_NAME               10 (Mapping)
+             54 LOAD_NAME                3 (str)
+             56 LOAD_NAME               11 (Any)
+             58 BUILD_TUPLE              2
+             60 BINARY_SUBSCR
+             62 LOAD_NAME                4 (__annotations__)
+             64 LOAD_CONST               6 ('storage_result')
+             66 STORE_SUBSCR
+
+ 67          68 LOAD_CONST               7 (None)
+             70 LOAD_CONST               8 (('return',))
+             72 BUILD_CONST_KEY_MAP      1
+             74 LOAD_CONST               9 (<code object __post_init__ at 0x10924c710, file "WeRobotCore/application/contacts/sync_service.py", line 67>)
+             76 LOAD_CONST              10 ('ContactSyncOutcome.__post_init__')
+             78 MAKE_FUNCTION            4 (annotations)
+             80 STORE_NAME              12 (__post_init__)
+
+ 83          82 LOAD_NAME               10 (Mapping)
+             84 LOAD_NAME                3 (str)
+             86 LOAD_NAME               11 (Any)
+             88 BUILD_TUPLE              2
+             90 BINARY_SUBSCR
+             92 LOAD_CONST               8 (('return',))
+             94 BUILD_CONST_KEY_MAP      1
+             96 LOAD_CONST              11 (<code object to_legacy_payload at 0x10924cb30, file "WeRobotCore/application/contacts/sync_service.py", line 83>)
+             98 LOAD_CONST              12 ('ContactSyncOutcome.to_legacy_payload')
+            100 MAKE_FUNCTION            4 (annotations)
+            102 STORE_NAME              13 (to_legacy_payload)
+            104 LOAD_CONST               7 (None)
+            106 RETURN_VALUE
+
+Disassembly of <code object __post_init__ at 0x10924c710, file "WeRobotCore/application/contacts/sync_service.py", line 67>:
+ 68           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                0 (self)
+              4 LOAD_ATTR                1 (account_id)
+              6 LOAD_GLOBAL              2 (str)
+              8 CALL_FUNCTION            2
+             10 POP_JUMP_IF_FALSE       22
+             12 LOAD_FAST                0 (self)
+             14 LOAD_ATTR                1 (account_id)
+             16 LOAD_METHOD              3 (strip)
+             18 CALL_METHOD              0
+             20 POP_JUMP_IF_TRUE        30
+
+ 69     >>   22 LOAD_GLOBAL              4 (ValueError)
+             24 LOAD_CONST               1 ('account_id must be a non-empty string')
+             26 CALL_FUNCTION            1
+             28 RAISE_VARARGS            1
+
+ 70     >>   30 LOAD_FAST                0 (self)
+             32 LOAD_ATTR                5 (kind)
+             34 LOAD_CONST               2 (frozenset({'group', 'contact'}))
+             36 CONTAINS_OP              1
+             38 POP_JUMP_IF_FALSE       48
+
+ 71          40 LOAD_GLOBAL              4 (ValueError)
+             42 LOAD_CONST               3 ('kind must be contact or group')
+             44 CALL_FUNCTION            1
+             46 RAISE_VARARGS            1
+
+ 73     >>   48 LOAD_GLOBAL              0 (isinstance)
+             50 LOAD_FAST                0 (self)
+             52 LOAD_ATTR                6 (item_count)
+             54 LOAD_GLOBAL              7 (bool)
+             56 CALL_FUNCTION            2
+
+ 72          58 POP_JUMP_IF_TRUE        82
+
+ 74          60 LOAD_GLOBAL              0 (isinstance)
+             62 LOAD_FAST                0 (self)
+             64 LOAD_ATTR                6 (item_count)
+             66 LOAD_GLOBAL              8 (int)
+             68 CALL_FUNCTION            2
+
+ 72          70 POP_JUMP_IF_FALSE       82
+
+ 75          72 LOAD_FAST                0 (self)
+             74 LOAD_ATTR                6 (item_count)
+             76 LOAD_CONST               4 (0)
+             78 COMPARE_OP               0 (<)
+
+ 72          80 POP_JUMP_IF_FALSE       90
+
+ 77     >>   82 LOAD_GLOBAL              4 (ValueError)
+             84 LOAD_CONST               5 ('item_count must be a non-negative integer')
+             86 CALL_FUNCTION            1
+             88 RAISE_VARARGS            1
+
+ 78     >>   90 LOAD_GLOBAL              0 (isinstance)
+             92 LOAD_FAST                0 (self)
+             94 LOAD_ATTR                9 (stored)
+             96 LOAD_GLOBAL              7 (bool)
+             98 CALL_FUNCTION            2
+            100 POP_JUMP_IF_TRUE       110
+
+ 79         102 LOAD_GLOBAL             10 (TypeError)
+            104 LOAD_CONST               6 ('stored must be a boolean')
+            106 CALL_FUNCTION            1
+            108 RAISE_VARARGS            1
+
+ 80     >>  110 LOAD_GLOBAL              0 (isinstance)
+            112 LOAD_FAST                0 (self)
+            114 LOAD_ATTR               11 (storage_result)
+            116 LOAD_GLOBAL             12 (Mapping)
+            118 CALL_FUNCTION            2
+            120 POP_JUMP_IF_TRUE       130
+
+ 81         122 LOAD_GLOBAL             10 (TypeError)
+            124 LOAD_CONST               7 ('storage_result must be a mapping')
+            126 CALL_FUNCTION            1
+            128 RAISE_VARARGS            1
+        >>  130 LOAD_CONST               0 (None)
+            132 RETURN_VALUE
+
+Disassembly of <code object to_legacy_payload at 0x10924cb30, file "WeRobotCore/application/contacts/sync_service.py", line 83>:
+ 84           0 LOAD_FAST                0 (self)
+              2 LOAD_ATTR                0 (kind)
+              4 LOAD_CONST               1 ('contact')
+              6 COMPARE_OP               2 (==)
+              8 POP_JUMP_IF_FALSE       14
+             10 LOAD_CONST               2 ('通讯录')
+             12 JUMP_FORWARD             2 (to 16)
+        >>   14 LOAD_CONST               3 ('群聊')
+        >>   16 STORE_FAST               1 (label)
+
+ 85          18 LOAD_FAST                0 (self)
+             20 LOAD_ATTR                1 (stored)
+             22 POP_JUMP_IF_TRUE        36
+
+ 86          24 LOAD_CONST               4 ('{}快照为空，已跳过保存')
+             26 LOAD_METHOD              2 (format)
+             28 LOAD_FAST                1 (label)
+             30 CALL_METHOD              1
+             32 STORE_FAST               2 (message)
+             34 JUMP_FORWARD            14 (to 50)
+
+ 88     >>   36 LOAD_CONST               5 ('成功同步 {} 个{}到数据库')
+             38 LOAD_METHOD              2 (format)
+
+ 89          40 LOAD_FAST                0 (self)
+             42 LOAD_ATTR                3 (item_count)
+
+ 90          44 LOAD_FAST                1 (label)
+
+ 88          46 CALL_METHOD              2
+             48 STORE_FAST               2 (message)
+
+ 93     >>   50 LOAD_CONST               6 (True)
+
+ 94          52 LOAD_FAST                2 (message)
+
+ 95          54 LOAD_FAST                0 (self)
+             56 LOAD_ATTR                3 (item_count)
+
+ 96          58 LOAD_GLOBAL              4 (dict)
+             60 LOAD_FAST                0 (self)
+             62 LOAD_ATTR                5 (storage_result)
+             64 CALL_FUNCTION            1
+
+ 92          66 LOAD_CONST               7 (('success', 'message', 'contacts_count', 'raw_result'))
+             68 BUILD_CONST_KEY_MAP      4
+             70 RETURN_VALUE
+
+Disassembly of <code object AutomationContextContactSyncService at 0x10924cea0, file "WeRobotCore/application/contacts/sync_service.py", line 100>:
+100           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('AutomationContextContactSyncService')
+              6 STORE_NAME               2 (__qualname__)
+
+101           8 LOAD_CONST               1 ('Collect through a Driver Context, then persist one complete snapshot.')
+             10 STORE_NAME               3 (__doc__)
+
+105          12 LOAD_NAME                4 (ContactSyncContextProvider)
+
+106          14 LOAD_NAME                5 (Callable)
+             16 LOAD_NAME                6 (str)
+             18 BUILD_LIST               1
+             20 LOAD_NAME                7 (ContactSnapshotStore)
+             22 BUILD_TUPLE              2
+             24 BINARY_SUBSCR
+
+107          26 LOAD_CONST               2 (None)
+
+103          28 LOAD_CONST               3 (('contexts', 'store_factory', 'return'))
+             30 BUILD_CONST_KEY_MAP      3
+             32 LOAD_CONST               4 (<code object __init__ at 0x10924cf50, file "WeRobotCore/application/contacts/sync_service.py", line 103>)
+             34 LOAD_CONST               5 ('AutomationContextContactSyncService.__init__')
+             36 MAKE_FUNCTION            4 (annotations)
+             38 STORE_NAME               8 (__init__)
+
+115          40 LOAD_NAME                6 (str)
+             42 LOAD_NAME                9 (ContactSyncOutcome)
+             44 LOAD_CONST               6 (('account_id', 'return'))
+             46 BUILD_CONST_KEY_MAP      2
+             48 LOAD_CONST               7 (<code object sync_contacts at 0x10924c7c0, file "WeRobotCore/application/contacts/sync_service.py", line 115>)
+             50 LOAD_CONST               8 ('AutomationContextContactSyncService.sync_contacts')
+             52 MAKE_FUNCTION            4 (annotations)
+             54 STORE_NAME              10 (sync_contacts)
+
+142          56 LOAD_NAME                6 (str)
+             58 LOAD_NAME                9 (ContactSyncOutcome)
+             60 LOAD_CONST               6 (('account_id', 'return'))
+             62 BUILD_CONST_KEY_MAP      2
+             64 LOAD_CONST               9 (<code object sync_groups at 0x10924c450, file "WeRobotCore/application/contacts/sync_service.py", line 142>)
+             66 LOAD_CONST              10 ('AutomationContextContactSyncService.sync_groups')
+             68 MAKE_FUNCTION            4 (annotations)
+             70 STORE_NAME              11 (sync_groups)
+
+169          72 LOAD_NAME               12 (staticmethod)
+
+170          74 LOAD_NAME                6 (str)
+             76 LOAD_NAME                6 (str)
+             78 LOAD_CONST               6 (('account_id', 'return'))
+             80 BUILD_CONST_KEY_MAP      2
+             82 LOAD_CONST              11 (<code object _account_id at 0x10924cd40, file "WeRobotCore/application/contacts/sync_service.py", line 169>)
+             84 LOAD_CONST              12 ('AutomationContextContactSyncService._account_id')
+             86 MAKE_FUNCTION            4 (annotations)
+             88 CALL_FUNCTION            1
+             90 STORE_NAME              13 (_account_id)
+
+175          92 LOAD_NAME                6 (str)
+             94 LOAD_NAME                7 (ContactSnapshotStore)
+             96 LOAD_CONST               6 (('account_id', 'return'))
+             98 BUILD_CONST_KEY_MAP      2
+            100 LOAD_CONST              13 (<code object _store at 0x10924c870, file "WeRobotCore/application/contacts/sync_service.py", line 175>)
+            102 LOAD_CONST              14 ('AutomationContextContactSyncService._store')
+            104 MAKE_FUNCTION            4 (annotations)
+            106 STORE_NAME              14 (_store)
+
+181         108 LOAD_NAME               12 (staticmethod)
+
+182         110 LOAD_NAME               15 (Any)
+            112 LOAD_NAME               16 (Mapping)
+            114 LOAD_NAME                6 (str)
+            116 LOAD_NAME               15 (Any)
+            118 BUILD_TUPLE              2
+            120 BINARY_SUBSCR
+            122 LOAD_CONST              15 (('result', 'return'))
+            124 BUILD_CONST_KEY_MAP      2
+            126 LOAD_CONST              16 (<code object _storage_result at 0x10924c3a0, file "WeRobotCore/application/contacts/sync_service.py", line 181>)
+            128 LOAD_CONST              17 ('AutomationContextContactSyncService._storage_result')
+            130 MAKE_FUNCTION            4 (annotations)
+            132 CALL_FUNCTION            1
+            134 STORE_NAME              17 (_storage_result)
+            136 LOAD_CONST               2 (None)
+            138 RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x10924cf50, file "WeRobotCore/application/contacts/sync_service.py", line 103>:
+108           0 LOAD_FAST                1 (contexts)
+              2 LOAD_CONST               0 (None)
+              4 IS_OP                    0
+              6 POP_JUMP_IF_TRUE        18
+              8 LOAD_GLOBAL              0 (isinstance)
+             10 LOAD_FAST                1 (contexts)
+             12 LOAD_GLOBAL              1 (ContactSyncContextProvider)
+             14 CALL_FUNCTION            2
+             16 POP_JUMP_IF_TRUE        26
+
+109     >>   18 LOAD_GLOBAL              2 (TypeError)
+             20 LOAD_CONST               1 ('contexts must implement ContactSyncContextProvider')
+             22 CALL_FUNCTION            1
+             24 RAISE_VARARGS            1
+
+110     >>   26 LOAD_GLOBAL              3 (callable)
+             28 LOAD_FAST                2 (store_factory)
+             30 CALL_FUNCTION            1
+             32 POP_JUMP_IF_TRUE        42
+
+111          34 LOAD_GLOBAL              2 (TypeError)
+             36 LOAD_CONST               2 ('store_factory must be callable')
+             38 CALL_FUNCTION            1
+             40 RAISE_VARARGS            1
+
+112     >>   42 LOAD_FAST                1 (contexts)
+             44 LOAD_FAST                0 (self)
+             46 STORE_ATTR               4 (_contexts)
+
+113          48 LOAD_FAST                2 (store_factory)
+             50 LOAD_FAST                0 (self)
+             52 STORE_ATTR               5 (_store_factory)
+             54 LOAD_CONST               0 (None)
+             56 RETURN_VALUE
+
+Disassembly of <code object sync_contacts at 0x10924c7c0, file "WeRobotCore/application/contacts/sync_service.py", line 115>:
+116           0 LOAD_FAST                0 (self)
+              2 LOAD_METHOD              0 (_account_id)
+              4 LOAD_FAST                1 (account_id)
+              6 CALL_METHOD              1
+              8 STORE_FAST               2 (normalized_account_id)
+
+117          10 LOAD_FAST                0 (self)
+             12 LOAD_ATTR                1 (_contexts)
+             14 LOAD_METHOD              2 (for_account)
+             16 LOAD_FAST                2 (normalized_account_id)
+             18 CALL_METHOD              1
+             20 GET_AWAITABLE
+             22 LOAD_CONST               0 (None)
+             24 YIELD_FROM
+             26 STORE_FAST               3 (context)
+
+118          28 LOAD_GLOBAL              3 (tuple)
+             30 LOAD_FAST                3 (context)
+             32 LOAD_METHOD              4 (list_contacts)
+             34 CALL_METHOD              0
+             36 GET_AWAITABLE
+             38 LOAD_CONST               0 (None)
+             40 YIELD_FROM
+             42 CALL_FUNCTION            1
+             44 STORE_FAST               4 (contacts)
+
+119          46 LOAD_GLOBAL              5 (validate_contact_snapshot)
+
+120          48 LOAD_FAST                2 (normalized_account_id)
+
+121          50 LOAD_FAST                4 (contacts)
+
+122          52 LOAD_GLOBAL              6 (ContactRecord)
+
+123          54 LOAD_CONST               1 ('contact_id')
+
+119          56 CALL_FUNCTION            4
+             58 POP_TOP
+
+125          60 LOAD_FAST                4 (contacts)
+             62 POP_JUMP_IF_TRUE        80
+
+126          64 LOAD_GLOBAL              7 (ContactSyncOutcome)
+
+127          66 LOAD_FAST                2 (normalized_account_id)
+
+128          68 LOAD_CONST               2 ('contact')
+
+129          70 LOAD_CONST               3 (0)
+
+130          72 LOAD_CONST               4 (False)
+
+126          74 LOAD_CONST               5 (('account_id', 'kind', 'item_count', 'stored'))
+             76 CALL_FUNCTION_KW         4
+             78 RETURN_VALUE
+
+132     >>   80 LOAD_FAST                0 (self)
+             82 LOAD_METHOD              8 (_store)
+             84 LOAD_FAST                2 (normalized_account_id)
+             86 CALL_METHOD              1
+             88 STORE_FAST               5 (store)
+
+133          90 LOAD_FAST                5 (store)
+             92 LOAD_METHOD              9 (replace_contacts)
+             94 LOAD_FAST                2 (normalized_account_id)
+             96 LOAD_FAST                4 (contacts)
+             98 CALL_METHOD              2
+            100 GET_AWAITABLE
+            102 LOAD_CONST               0 (None)
+            104 YIELD_FROM
+            106 STORE_FAST               6 (result)
+
+134         108 LOAD_GLOBAL              7 (ContactSyncOutcome)
+
+135         110 LOAD_FAST                2 (normalized_account_id)
+
+136         112 LOAD_CONST               2 ('contact')
+
+137         114 LOAD_GLOBAL             10 (len)
+            116 LOAD_FAST                4 (contacts)
+            118 CALL_FUNCTION            1
+
+138         120 LOAD_CONST               6 (True)
+
+139         122 LOAD_FAST                0 (self)
+            124 LOAD_METHOD             11 (_storage_result)
+            126 LOAD_FAST                6 (result)
+            128 CALL_METHOD              1
+
+134         130 LOAD_CONST               7 (('account_id', 'kind', 'item_count', 'stored', 'storage_result'))
+            132 CALL_FUNCTION_KW         5
+            134 RETURN_VALUE
+
+Disassembly of <code object sync_groups at 0x10924c450, file "WeRobotCore/application/contacts/sync_service.py", line 142>:
+143           0 LOAD_FAST                0 (self)
+              2 LOAD_METHOD              0 (_account_id)
+              4 LOAD_FAST                1 (account_id)
+              6 CALL_METHOD              1
+              8 STORE_FAST               2 (normalized_account_id)
+
+144          10 LOAD_FAST                0 (self)
+             12 LOAD_ATTR                1 (_contexts)
+             14 LOAD_METHOD              2 (for_account)
+             16 LOAD_FAST                2 (normalized_account_id)
+             18 CALL_METHOD              1
+             20 GET_AWAITABLE
+             22 LOAD_CONST               0 (None)
+             24 YIELD_FROM
+             26 STORE_FAST               3 (context)
+
+145          28 LOAD_GLOBAL              3 (tuple)
+             30 LOAD_FAST                3 (context)
+             32 LOAD_METHOD              4 (list_groups)
+             34 CALL_METHOD              0
+             36 GET_AWAITABLE
+             38 LOAD_CONST               0 (None)
+             40 YIELD_FROM
+             42 CALL_FUNCTION            1
+             44 STORE_FAST               4 (groups)
+
+146          46 LOAD_GLOBAL              5 (validate_contact_snapshot)
+
+147          48 LOAD_FAST                2 (normalized_account_id)
+
+148          50 LOAD_FAST                4 (groups)
+
+149          52 LOAD_GLOBAL              6 (GroupRecord)
+
+150          54 LOAD_CONST               1 ('group_id')
+
+146          56 CALL_FUNCTION            4
+             58 POP_TOP
+
+152          60 LOAD_FAST                4 (groups)
+             62 POP_JUMP_IF_TRUE        80
+
+153          64 LOAD_GLOBAL              7 (ContactSyncOutcome)
+
+154          66 LOAD_FAST                2 (normalized_account_id)
+
+155          68 LOAD_CONST               2 ('group')
+
+156          70 LOAD_CONST               3 (0)
+
+157          72 LOAD_CONST               4 (False)
+
+153          74 LOAD_CONST               5 (('account_id', 'kind', 'item_count', 'stored'))
+             76 CALL_FUNCTION_KW         4
+             78 RETURN_VALUE
+
+159     >>   80 LOAD_FAST                0 (self)
+             82 LOAD_METHOD              8 (_store)
+             84 LOAD_FAST                2 (normalized_account_id)
+             86 CALL_METHOD              1
+             88 STORE_FAST               5 (store)
+
+160          90 LOAD_FAST                5 (store)
+             92 LOAD_METHOD              9 (replace_groups)
+             94 LOAD_FAST                2 (normalized_account_id)
+             96 LOAD_FAST                4 (groups)
+             98 CALL_METHOD              2
+            100 GET_AWAITABLE
+            102 LOAD_CONST               0 (None)
+            104 YIELD_FROM
+            106 STORE_FAST               6 (result)
+
+161         108 LOAD_GLOBAL              7 (ContactSyncOutcome)
+
+162         110 LOAD_FAST                2 (normalized_account_id)
+
+163         112 LOAD_CONST               2 ('group')
+
+164         114 LOAD_GLOBAL             10 (len)
+            116 LOAD_FAST                4 (groups)
+            118 CALL_FUNCTION            1
+
+165         120 LOAD_CONST               6 (True)
+
+166         122 LOAD_FAST                0 (self)
+            124 LOAD_METHOD             11 (_storage_result)
+            126 LOAD_FAST                6 (result)
+            128 CALL_METHOD              1
+
+161         130 LOAD_CONST               7 (('account_id', 'kind', 'item_count', 'stored', 'storage_result'))
+            132 CALL_FUNCTION_KW         5
+            134 RETURN_VALUE
+
+Disassembly of <code object _account_id at 0x10924cd40, file "WeRobotCore/application/contacts/sync_service.py", line 169>:
+171           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                0 (account_id)
+              4 LOAD_GLOBAL              1 (str)
+              6 CALL_FUNCTION            2
+              8 POP_JUMP_IF_FALSE       18
+             10 LOAD_FAST                0 (account_id)
+             12 LOAD_METHOD              2 (strip)
+             14 CALL_METHOD              0
+             16 POP_JUMP_IF_TRUE        26
+
+172     >>   18 LOAD_GLOBAL              3 (ValueError)
+             20 LOAD_CONST               1 ('account_id must be a non-empty string')
+             22 CALL_FUNCTION            1
+             24 RAISE_VARARGS            1
+
+173     >>   26 LOAD_FAST                0 (account_id)
+             28 LOAD_METHOD              2 (strip)
+             30 CALL_METHOD              0
+             32 RETURN_VALUE
+
+Disassembly of <code object _store at 0x10924c870, file "WeRobotCore/application/contacts/sync_service.py", line 175>:
+176           0 LOAD_FAST                0 (self)
+              2 LOAD_METHOD              0 (_store_factory)
+              4 LOAD_FAST                1 (account_id)
+              6 CALL_METHOD              1
+              8 STORE_FAST               2 (store)
+
+177          10 LOAD_FAST                2 (store)
+             12 LOAD_CONST               0 (None)
+             14 IS_OP                    0
+             16 POP_JUMP_IF_TRUE        28
+             18 LOAD_GLOBAL              1 (isinstance)
+             20 LOAD_FAST                2 (store)
+             22 LOAD_GLOBAL              2 (ContactSnapshotStore)
+             24 CALL_FUNCTION            2
+             26 POP_JUMP_IF_TRUE        36
+
+178     >>   28 LOAD_GLOBAL              3 (TypeError)
+             30 LOAD_CONST               1 ('store_factory must return ContactSnapshotStore')
+             32 CALL_FUNCTION            1
+             34 RAISE_VARARGS            1
+
+179     >>   36 LOAD_FAST                2 (store)
+             38 RETURN_VALUE
+
+Disassembly of <code object _storage_result at 0x10924c3a0, file "WeRobotCore/application/contacts/sync_service.py", line 181>:
+183           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                0 (result)
+              4 LOAD_GLOBAL              1 (Mapping)
+              6 CALL_FUNCTION            2
+              8 POP_JUMP_IF_TRUE        18
+
+184          10 LOAD_GLOBAL              2 (TypeError)
+             12 LOAD_CONST               1 ('contact snapshot store must return a mapping')
+             14 CALL_FUNCTION            1
+             16 RAISE_VARARGS            1
+
+185     >>   18 LOAD_GLOBAL              3 (dict)
+             20 LOAD_FAST                0 (result)
+             22 CALL_FUNCTION            1
+             24 RETURN_VALUE

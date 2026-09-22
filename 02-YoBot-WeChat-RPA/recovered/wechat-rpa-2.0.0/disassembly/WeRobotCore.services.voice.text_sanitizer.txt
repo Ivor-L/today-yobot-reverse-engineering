@@ -1,0 +1,391 @@
+  1           0 LOAD_CONST               0 ('\nTTS 文本净化：把不该被语音播报的 Markdown / URL / HTML 标记剥掉，\n但保留所有有效字符内容（包括中英文、标点、emoji、代码字面量等）。\n\n设计原则：\n- 只删格式符号（** ` # > * -...），不删有效字符；\n- 裸 URL 由于无法被自然朗读，整段移除；\n- 链接保留锚文本；图片整段删除；\n- 嵌套顺序很重要：先粗体后斜体，避免 ** 被当作 * 嵌套吃掉。\n')
+              2 STORE_NAME               0 (__doc__)
+
+ 11           4 LOAD_CONST               1 (0)
+              6 LOAD_CONST               2 (('annotations',))
+              8 IMPORT_NAME              1 (__future__)
+             10 IMPORT_FROM              2 (annotations)
+             12 STORE_NAME               2 (annotations)
+             14 POP_TOP
+
+ 13          16 LOAD_CONST               1 (0)
+             18 LOAD_CONST               3 (None)
+             20 IMPORT_NAME              3 (re)
+             22 STORE_NAME               3 (re)
+
+ 18          24 LOAD_NAME                3 (re)
+             26 LOAD_METHOD              4 (compile)
+             28 LOAD_CONST               4 ('```(?:[\\w+\\-]*\\n)?(.*?)```')
+             30 LOAD_NAME                3 (re)
+             32 LOAD_ATTR                5 (DOTALL)
+             34 CALL_METHOD              2
+             36 STORE_NAME               6 (_RE_CODE_FENCE)
+
+ 20          38 LOAD_NAME                3 (re)
+             40 LOAD_METHOD              4 (compile)
+             42 LOAD_CONST               5 ('^\\s*\\|?\\s*:?-{2,}:?\\s*(\\|\\s*:?-{2,}:?\\s*)+\\|?\\s*$')
+             44 LOAD_NAME                3 (re)
+             46 LOAD_ATTR                7 (MULTILINE)
+             48 CALL_METHOD              2
+             50 STORE_NAME               8 (_RE_TABLE_SEP)
+
+ 22          52 LOAD_NAME                3 (re)
+             54 LOAD_METHOD              4 (compile)
+             56 LOAD_CONST               6 ('^\\s*(?:[-*_]\\s*){3,}\\s*$')
+             58 LOAD_NAME                3 (re)
+             60 LOAD_ATTR                7 (MULTILINE)
+             62 CALL_METHOD              2
+             64 STORE_NAME               9 (_RE_HR)
+
+ 24          66 LOAD_NAME                3 (re)
+             68 LOAD_METHOD              4 (compile)
+             70 LOAD_CONST               7 ('^\\s*#{1,6}\\s+')
+             72 LOAD_NAME                3 (re)
+             74 LOAD_ATTR                7 (MULTILINE)
+             76 CALL_METHOD              2
+             78 STORE_NAME              10 (_RE_HEADING)
+
+ 26          80 LOAD_NAME                3 (re)
+             82 LOAD_METHOD              4 (compile)
+             84 LOAD_CONST               8 ('^\\s*(?:[-*+]|\\d+[.)])\\s+')
+             86 LOAD_NAME                3 (re)
+             88 LOAD_ATTR                7 (MULTILINE)
+             90 CALL_METHOD              2
+             92 STORE_NAME              11 (_RE_LIST_MARK)
+
+ 28          94 LOAD_NAME                3 (re)
+             96 LOAD_METHOD              4 (compile)
+             98 LOAD_CONST               9 ('^\\s*>+\\s?')
+            100 LOAD_NAME                3 (re)
+            102 LOAD_ATTR                7 (MULTILINE)
+            104 CALL_METHOD              2
+            106 STORE_NAME              12 (_RE_QUOTE_MARK)
+
+ 32         108 LOAD_NAME                3 (re)
+            110 LOAD_METHOD              4 (compile)
+            112 LOAD_CONST              10 ('!\\[[^\\]]*\\]\\([^)]*\\)')
+            114 CALL_METHOD              1
+            116 STORE_NAME              13 (_RE_IMAGE)
+
+ 34         118 LOAD_NAME                3 (re)
+            120 LOAD_METHOD              4 (compile)
+            122 LOAD_CONST              11 ('\\[([^\\]]+)\\]\\([^)]*\\)')
+            124 CALL_METHOD              1
+            126 STORE_NAME              14 (_RE_LINK)
+
+ 36         128 LOAD_NAME                3 (re)
+            130 LOAD_METHOD              4 (compile)
+            132 LOAD_CONST              12 ('\\[([^\\]]+)\\]\\[[^\\]]*\\]')
+            134 CALL_METHOD              1
+            136 STORE_NAME              15 (_RE_REF_LINK)
+
+ 38         138 LOAD_NAME                3 (re)
+            140 LOAD_METHOD              4 (compile)
+            142 LOAD_CONST              13 ('`+([^`\\n]+?)`+')
+            144 CALL_METHOD              1
+            146 STORE_NAME              16 (_RE_INLINE_CODE)
+
+ 40         148 LOAD_NAME                3 (re)
+            150 LOAD_METHOD              4 (compile)
+            152 LOAD_CONST              14 ('\\*\\*([^*\\n]+?)\\*\\*')
+            154 CALL_METHOD              1
+            156 STORE_NAME              17 (_RE_BOLD_AST)
+
+ 41         158 LOAD_NAME                3 (re)
+            160 LOAD_METHOD              4 (compile)
+            162 LOAD_CONST              15 ('__([^_\\n]+?)__')
+            164 CALL_METHOD              1
+            166 STORE_NAME              18 (_RE_BOLD_UND)
+
+ 43         168 LOAD_NAME                3 (re)
+            170 LOAD_METHOD              4 (compile)
+            172 LOAD_CONST              16 ('(?<![*\\w])\\*([^*\\n]+?)\\*(?![*\\w])')
+            174 CALL_METHOD              1
+            176 STORE_NAME              19 (_RE_ITAL_AST)
+
+ 44         178 LOAD_NAME                3 (re)
+            180 LOAD_METHOD              4 (compile)
+            182 LOAD_CONST              17 ('(?<![_\\w])_([^_\\n]+?)_(?![_\\w])')
+            184 CALL_METHOD              1
+            186 STORE_NAME              20 (_RE_ITAL_UND)
+
+ 46         188 LOAD_NAME                3 (re)
+            190 LOAD_METHOD              4 (compile)
+            192 LOAD_CONST              18 ('~~([^~\\n]+?)~~')
+            194 CALL_METHOD              1
+            196 STORE_NAME              21 (_RE_STRIKE)
+
+ 50         198 LOAD_NAME                3 (re)
+            200 LOAD_METHOD              4 (compile)
+            202 LOAD_CONST              19 ('<[^>\\n]{1,200}>')
+            204 CALL_METHOD              1
+            206 STORE_NAME              22 (_RE_HTML)
+
+ 52         208 LOAD_NAME                3 (re)
+            210 LOAD_METHOD              4 (compile)
+            212 LOAD_CONST              20 ('https?://[^\\s<>"\\\']+')
+            214 CALL_METHOD              1
+            216 STORE_NAME              23 (_RE_URL)
+
+ 54         218 LOAD_NAME                3 (re)
+            220 LOAD_METHOD              4 (compile)
+            222 LOAD_CONST              21 ('[ \\t]*\\|[ \\t]*')
+            224 CALL_METHOD              1
+            226 STORE_NAME              24 (_RE_TABLE_PIPE)
+
+ 56         228 LOAD_NAME                3 (re)
+            230 LOAD_METHOD              4 (compile)
+            232 LOAD_CONST              22 ('\\n{3,}')
+            234 CALL_METHOD              1
+            236 STORE_NAME              25 (_RE_MULTI_NL)
+
+ 57         238 LOAD_NAME                3 (re)
+            240 LOAD_METHOD              4 (compile)
+            242 LOAD_CONST              23 ('[ \\t]{2,}')
+            244 CALL_METHOD              1
+            246 STORE_NAME              26 (_RE_MULTI_SPACE)
+
+ 59         248 LOAD_NAME                3 (re)
+            250 LOAD_METHOD              4 (compile)
+            252 LOAD_CONST              24 ('^[ \\t\\-*_=>|`]+|[ \\t\\-*_=>|`]+$')
+            254 LOAD_NAME                3 (re)
+            256 LOAD_ATTR                7 (MULTILINE)
+            258 CALL_METHOD              2
+            260 STORE_NAME              27 (_RE_TRAILING_PUNCT)
+
+ 63         262 LOAD_NAME                3 (re)
+            264 LOAD_METHOD              4 (compile)
+            266 LOAD_CONST              20 ('https?://[^\\s<>"\\\']+')
+            268 LOAD_NAME                3 (re)
+            270 LOAD_ATTR               28 (IGNORECASE)
+            272 CALL_METHOD              2
+            274 STORE_NAME              29 (_RE_DETECT_HTTP)
+
+ 64         276 LOAD_NAME                3 (re)
+            278 LOAD_METHOD              4 (compile)
+            280 LOAD_CONST              25 ('\\bwww\\.[\\w\\-]+\\.[a-z]{2,}')
+            282 LOAD_NAME                3 (re)
+            284 LOAD_ATTR               28 (IGNORECASE)
+            286 CALL_METHOD              2
+            288 STORE_NAME              30 (_RE_DETECT_WWW)
+
+ 67         290 LOAD_CONST              26 ('str')
+            292 LOAD_CONST              27 ('bool')
+            294 LOAD_CONST              28 (('text', 'return'))
+            296 BUILD_CONST_KEY_MAP      2
+            298 LOAD_CONST              29 (<code object contains_actionable_url at 0x1073aaf50, file "WeRobotCore/services/voice/text_sanitizer.py", line 67>)
+            300 LOAD_CONST              30 ('contains_actionable_url')
+            302 MAKE_FUNCTION            4 (annotations)
+            304 STORE_NAME              31 (contains_actionable_url)
+
+ 79         306 LOAD_CONST              26 ('str')
+            308 LOAD_CONST              26 ('str')
+            310 LOAD_CONST              28 (('text', 'return'))
+            312 BUILD_CONST_KEY_MAP      2
+            314 LOAD_CONST              31 (<code object sanitize_for_tts at 0x1073aa920, file "WeRobotCore/services/voice/text_sanitizer.py", line 79>)
+            316 LOAD_CONST              32 ('sanitize_for_tts')
+            318 MAKE_FUNCTION            4 (annotations)
+            320 STORE_NAME              32 (sanitize_for_tts)
+            322 LOAD_CONST               3 (None)
+            324 RETURN_VALUE
+
+Disassembly of <code object contains_actionable_url at 0x1073aaf50, file "WeRobotCore/services/voice/text_sanitizer.py", line 67>:
+ 74           0 LOAD_FAST                0 (text)
+              2 POP_JUMP_IF_FALSE       14
+              4 LOAD_GLOBAL              0 (isinstance)
+              6 LOAD_FAST                0 (text)
+              8 LOAD_GLOBAL              1 (str)
+             10 CALL_FUNCTION            2
+             12 POP_JUMP_IF_TRUE        18
+
+ 75     >>   14 LOAD_CONST               1 (False)
+             16 RETURN_VALUE
+
+ 76     >>   18 LOAD_GLOBAL              2 (bool)
+             20 LOAD_GLOBAL              3 (_RE_DETECT_HTTP)
+             22 LOAD_METHOD              4 (search)
+             24 LOAD_FAST                0 (text)
+             26 CALL_METHOD              1
+             28 JUMP_IF_TRUE_OR_POP     38
+             30 LOAD_GLOBAL              5 (_RE_DETECT_WWW)
+             32 LOAD_METHOD              4 (search)
+             34 LOAD_FAST                0 (text)
+             36 CALL_METHOD              1
+        >>   38 CALL_FUNCTION            1
+             40 RETURN_VALUE
+
+Disassembly of <code object sanitize_for_tts at 0x1073aa920, file "WeRobotCore/services/voice/text_sanitizer.py", line 79>:
+ 81           0 LOAD_FAST                0 (text)
+              2 POP_JUMP_IF_FALSE       14
+              4 LOAD_GLOBAL              0 (isinstance)
+              6 LOAD_FAST                0 (text)
+              8 LOAD_GLOBAL              1 (str)
+             10 CALL_FUNCTION            2
+             12 POP_JUMP_IF_TRUE        18
+
+ 82     >>   14 LOAD_CONST               1 ('')
+             16 RETURN_VALUE
+
+ 84     >>   18 LOAD_FAST                0 (text)
+             20 STORE_FAST               1 (s)
+
+ 87          22 LOAD_GLOBAL              2 (_RE_CODE_FENCE)
+             24 LOAD_METHOD              3 (sub)
+             26 LOAD_CONST               2 (<code object <lambda> at 0x1073aa9d0, file "WeRobotCore/services/voice/text_sanitizer.py", line 87>)
+             28 LOAD_CONST               3 ('sanitize_for_tts.<locals>.<lambda>')
+             30 MAKE_FUNCTION            0
+             32 LOAD_FAST                1 (s)
+             34 CALL_METHOD              2
+             36 STORE_FAST               1 (s)
+
+ 88          38 LOAD_GLOBAL              4 (_RE_TABLE_SEP)
+             40 LOAD_METHOD              3 (sub)
+             42 LOAD_CONST               1 ('')
+             44 LOAD_FAST                1 (s)
+             46 CALL_METHOD              2
+             48 STORE_FAST               1 (s)
+
+ 89          50 LOAD_GLOBAL              5 (_RE_HR)
+             52 LOAD_METHOD              3 (sub)
+             54 LOAD_CONST               1 ('')
+             56 LOAD_FAST                1 (s)
+             58 CALL_METHOD              2
+             60 STORE_FAST               1 (s)
+
+ 90          62 LOAD_GLOBAL              6 (_RE_HEADING)
+             64 LOAD_METHOD              3 (sub)
+             66 LOAD_CONST               1 ('')
+             68 LOAD_FAST                1 (s)
+             70 CALL_METHOD              2
+             72 STORE_FAST               1 (s)
+
+ 91          74 LOAD_GLOBAL              7 (_RE_LIST_MARK)
+             76 LOAD_METHOD              3 (sub)
+             78 LOAD_CONST               1 ('')
+             80 LOAD_FAST                1 (s)
+             82 CALL_METHOD              2
+             84 STORE_FAST               1 (s)
+
+ 92          86 LOAD_GLOBAL              8 (_RE_QUOTE_MARK)
+             88 LOAD_METHOD              3 (sub)
+             90 LOAD_CONST               1 ('')
+             92 LOAD_FAST                1 (s)
+             94 CALL_METHOD              2
+             96 STORE_FAST               1 (s)
+
+ 95          98 LOAD_GLOBAL              9 (_RE_IMAGE)
+            100 LOAD_METHOD              3 (sub)
+            102 LOAD_CONST               1 ('')
+            104 LOAD_FAST                1 (s)
+            106 CALL_METHOD              2
+            108 STORE_FAST               1 (s)
+
+ 96         110 LOAD_GLOBAL             10 (_RE_LINK)
+            112 LOAD_METHOD              3 (sub)
+            114 LOAD_CONST               4 ('\\1')
+            116 LOAD_FAST                1 (s)
+            118 CALL_METHOD              2
+            120 STORE_FAST               1 (s)
+
+ 97         122 LOAD_GLOBAL             11 (_RE_REF_LINK)
+            124 LOAD_METHOD              3 (sub)
+            126 LOAD_CONST               4 ('\\1')
+            128 LOAD_FAST                1 (s)
+            130 CALL_METHOD              2
+            132 STORE_FAST               1 (s)
+
+100         134 LOAD_GLOBAL             12 (_RE_INLINE_CODE)
+            136 LOAD_METHOD              3 (sub)
+            138 LOAD_CONST               4 ('\\1')
+            140 LOAD_FAST                1 (s)
+            142 CALL_METHOD              2
+            144 STORE_FAST               1 (s)
+
+101         146 LOAD_GLOBAL             13 (_RE_BOLD_AST)
+            148 LOAD_METHOD              3 (sub)
+            150 LOAD_CONST               4 ('\\1')
+            152 LOAD_FAST                1 (s)
+            154 CALL_METHOD              2
+            156 STORE_FAST               1 (s)
+
+102         158 LOAD_GLOBAL             14 (_RE_BOLD_UND)
+            160 LOAD_METHOD              3 (sub)
+            162 LOAD_CONST               4 ('\\1')
+            164 LOAD_FAST                1 (s)
+            166 CALL_METHOD              2
+            168 STORE_FAST               1 (s)
+
+103         170 LOAD_GLOBAL             15 (_RE_ITAL_AST)
+            172 LOAD_METHOD              3 (sub)
+            174 LOAD_CONST               4 ('\\1')
+            176 LOAD_FAST                1 (s)
+            178 CALL_METHOD              2
+            180 STORE_FAST               1 (s)
+
+104         182 LOAD_GLOBAL             16 (_RE_ITAL_UND)
+            184 LOAD_METHOD              3 (sub)
+            186 LOAD_CONST               4 ('\\1')
+            188 LOAD_FAST                1 (s)
+            190 CALL_METHOD              2
+            192 STORE_FAST               1 (s)
+
+105         194 LOAD_GLOBAL             17 (_RE_STRIKE)
+            196 LOAD_METHOD              3 (sub)
+            198 LOAD_CONST               4 ('\\1')
+            200 LOAD_FAST                1 (s)
+            202 CALL_METHOD              2
+            204 STORE_FAST               1 (s)
+
+108         206 LOAD_GLOBAL             18 (_RE_HTML)
+            208 LOAD_METHOD              3 (sub)
+            210 LOAD_CONST               1 ('')
+            212 LOAD_FAST                1 (s)
+            214 CALL_METHOD              2
+            216 STORE_FAST               1 (s)
+
+109         218 LOAD_GLOBAL             19 (_RE_URL)
+            220 LOAD_METHOD              3 (sub)
+            222 LOAD_CONST               1 ('')
+            224 LOAD_FAST                1 (s)
+            226 CALL_METHOD              2
+            228 STORE_FAST               1 (s)
+
+110         230 LOAD_GLOBAL             20 (_RE_TABLE_PIPE)
+            232 LOAD_METHOD              3 (sub)
+            234 LOAD_CONST               5 (' ')
+            236 LOAD_FAST                1 (s)
+            238 CALL_METHOD              2
+            240 STORE_FAST               1 (s)
+
+113         242 LOAD_GLOBAL             21 (_RE_MULTI_NL)
+            244 LOAD_METHOD              3 (sub)
+            246 LOAD_CONST               6 ('\n\n')
+            248 LOAD_FAST                1 (s)
+            250 CALL_METHOD              2
+            252 STORE_FAST               1 (s)
+
+114         254 LOAD_GLOBAL             22 (_RE_MULTI_SPACE)
+            256 LOAD_METHOD              3 (sub)
+            258 LOAD_CONST               5 (' ')
+            260 LOAD_FAST                1 (s)
+            262 CALL_METHOD              2
+            264 STORE_FAST               1 (s)
+
+115         266 LOAD_GLOBAL             23 (_RE_TRAILING_PUNCT)
+            268 LOAD_METHOD              3 (sub)
+            270 LOAD_CONST               1 ('')
+            272 LOAD_FAST                1 (s)
+            274 CALL_METHOD              2
+            276 STORE_FAST               1 (s)
+
+117         278 LOAD_FAST                1 (s)
+            280 LOAD_METHOD             24 (strip)
+            282 CALL_METHOD              0
+            284 RETURN_VALUE
+
+Disassembly of <code object <lambda> at 0x1073aa9d0, file "WeRobotCore/services/voice/text_sanitizer.py", line 87>:
+ 87           0 LOAD_FAST                0 (m)
+              2 LOAD_METHOD              0 (group)
+              4 LOAD_CONST               1 (1)
+              6 CALL_METHOD              1
+              8 RETURN_VALUE

@@ -1,0 +1,2861 @@
+  1           0 LOAD_CONST               0 ('Explicit-path SQLite storage for normalized macOS contact snapshots.\n\nThe schema intentionally preserves the mature ``friends`` and ``groups``\ncolumns consumed by AutoReply matching.  Unlike ``WeChatDBManager``, this\nadapter never consults ``DataManager`` and construction performs no I/O.\n')
+              2 STORE_NAME               0 (__doc__)
+
+  8           4 LOAD_CONST               1 (0)
+              6 LOAD_CONST               2 (('annotations',))
+              8 IMPORT_NAME              1 (__future__)
+             10 IMPORT_FROM              2 (annotations)
+             12 STORE_NAME               2 (annotations)
+             14 POP_TOP
+
+ 10          16 LOAD_CONST               1 (0)
+             18 LOAD_CONST               3 (None)
+             20 IMPORT_NAME              3 (asyncio)
+             22 STORE_NAME               3 (asyncio)
+
+ 11          24 LOAD_CONST               1 (0)
+             26 LOAD_CONST               4 (('closing',))
+             28 IMPORT_NAME              4 (contextlib)
+             30 IMPORT_FROM              5 (closing)
+             32 STORE_NAME               5 (closing)
+             34 POP_TOP
+
+ 12          36 LOAD_CONST               1 (0)
+             38 LOAD_CONST               5 (('datetime',))
+             40 IMPORT_NAME              6 (datetime)
+             42 IMPORT_FROM              6 (datetime)
+             44 STORE_NAME               6 (datetime)
+             46 POP_TOP
+
+ 13          48 LOAD_CONST               1 (0)
+             50 LOAD_CONST               6 (('Path',))
+             52 IMPORT_NAME              7 (pathlib)
+             54 IMPORT_FROM              8 (Path)
+             56 STORE_NAME               8 (Path)
+             58 POP_TOP
+
+ 14          60 LOAD_CONST               1 (0)
+             62 LOAD_CONST               3 (None)
+             64 IMPORT_NAME              9 (sqlite3)
+             66 STORE_NAME               9 (sqlite3)
+
+ 15          68 LOAD_CONST               1 (0)
+             70 LOAD_CONST               7 (('Any', 'Mapping', 'Sequence', 'Tuple'))
+             72 IMPORT_NAME             10 (typing)
+             74 IMPORT_FROM             11 (Any)
+             76 STORE_NAME              11 (Any)
+             78 IMPORT_FROM             12 (Mapping)
+             80 STORE_NAME              12 (Mapping)
+             82 IMPORT_FROM             13 (Sequence)
+             84 STORE_NAME              13 (Sequence)
+             86 IMPORT_FROM             14 (Tuple)
+             88 STORE_NAME              14 (Tuple)
+             90 POP_TOP
+
+ 17          92 LOAD_CONST               1 (0)
+             94 LOAD_CONST               8 (('ContactRecord', 'GroupRecord'))
+             96 IMPORT_NAME             15 (WeRobotCore.domain)
+             98 IMPORT_FROM             16 (ContactRecord)
+            100 STORE_NAME              16 (ContactRecord)
+            102 IMPORT_FROM             17 (GroupRecord)
+            104 STORE_NAME              17 (GroupRecord)
+            106 POP_TOP
+
+ 20         108 LOAD_BUILD_CLASS
+            110 LOAD_CONST               9 (<code object ExplicitPathContactStore at 0x1073abbe0, file "WeRobotCore/adapters/contact_storage/explicit_path.py", line 20>)
+            112 LOAD_CONST              10 ('ExplicitPathContactStore')
+            114 MAKE_FUNCTION            0
+            116 LOAD_CONST              10 ('ExplicitPathContactStore')
+            118 CALL_FUNCTION            2
+            120 STORE_NAME              18 (ExplicitPathContactStore)
+
+704         122 LOAD_CONST              10 ('ExplicitPathContactStore')
+            124 BUILD_LIST               1
+            126 STORE_NAME              19 (__all__)
+            128 LOAD_CONST               3 (None)
+            130 RETURN_VALUE
+
+Disassembly of <code object ExplicitPathContactStore at 0x1073abbe0, file "WeRobotCore/adapters/contact_storage/explicit_path.py", line 20>:
+ 20           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('ExplicitPathContactStore')
+              6 STORE_NAME               2 (__qualname__)
+
+ 21           8 LOAD_CONST               1 ('Full-snapshot Store and read-only AutoReply contact facts.')
+             10 STORE_NAME               3 (__doc__)
+
+ 23          12 LOAD_CONST               2 ('Path')
+             14 LOAD_CONST               3 ('None')
+             16 LOAD_CONST               4 (('database_path', 'return'))
+             18 BUILD_CONST_KEY_MAP      2
+             20 LOAD_CONST               5 (<code object __init__ at 0x1072e0ea0, file "WeRobotCore/adapters/contact_storage/explicit_path.py", line 23>)
+             22 LOAD_CONST               6 ('ExplicitPathContactStore.__init__')
+             24 MAKE_FUNCTION            4 (annotations)
+             26 STORE_NAME               4 (__init__)
+
+ 32          28 LOAD_NAME                5 (property)
+
+ 33          30 LOAD_CONST               2 ('Path')
+             32 LOAD_CONST               7 (('return',))
+             34 BUILD_CONST_KEY_MAP      1
+             36 LOAD_CONST               8 (<code object database_path at 0x1072e0df0, file "WeRobotCore/adapters/contact_storage/explicit_path.py", line 32>)
+             38 LOAD_CONST               9 ('ExplicitPathContactStore.database_path')
+             40 MAKE_FUNCTION            4 (annotations)
+             42 CALL_FUNCTION            1
+             44 STORE_NAME               6 (database_path)
+
+ 36          46 LOAD_NAME                7 (staticmethod)
+
+ 37          48 LOAD_CONST              10 ('str')
+             50 LOAD_CONST              10 ('str')
+             52 LOAD_CONST              11 (('account_id', 'return'))
+             54 BUILD_CONST_KEY_MAP      2
+             56 LOAD_CONST              12 (<code object _account_id at 0x1072e0710, file "WeRobotCore/adapters/contact_storage/explicit_path.py", line 36>)
+             58 LOAD_CONST              13 ('ExplicitPathContactStore._account_id')
+             60 MAKE_FUNCTION            4 (annotations)
+             62 CALL_FUNCTION            1
+             64 STORE_NAME               8 (_account_id)
+
+ 42          66 LOAD_NAME                7 (staticmethod)
+
+ 43          68 LOAD_CONST              10 ('str')
+             70 LOAD_CONST              14 ('Sequence[Any]')
+             72 LOAD_CONST              15 ('Tuple[Any, ...]')
+             74 LOAD_CONST              16 (('account_id', 'records', 'return'))
+             76 BUILD_CONST_KEY_MAP      3
+             78 LOAD_CONST              17 (<code object _records at 0x1072e0b30, file "WeRobotCore/adapters/contact_storage/explicit_path.py", line 42>)
+             80 LOAD_CONST              18 ('ExplicitPathContactStore._records')
+             82 MAKE_FUNCTION            4 (annotations)
+             84 CALL_FUNCTION            1
+             86 STORE_NAME               9 (_records)
+
+ 58          88 LOAD_CONST              19 ('bool')
+             90 LOAD_CONST               7 (('return',))
+             92 BUILD_CONST_KEY_MAP      1
+             94 LOAD_CONST              20 (<code object _readable_database at 0x1072e0be0, file "WeRobotCore/adapters/contact_storage/explicit_path.py", line 58>)
+             96 LOAD_CONST              21 ('ExplicitPathContactStore._readable_database')
+             98 MAKE_FUNCTION            4 (annotations)
+            100 STORE_NAME              10 (_readable_database)
+
+ 64         102 LOAD_CONST              22 ('sqlite3.Connection')
+            104 LOAD_CONST               7 (('return',))
+            106 BUILD_CONST_KEY_MAP      1
+            108 LOAD_CONST              23 (<code object _connect_read_only at 0x1072e0d40, file "WeRobotCore/adapters/contact_storage/explicit_path.py", line 64>)
+            110 LOAD_CONST              24 ('ExplicitPathContactStore._connect_read_only')
+            112 MAKE_FUNCTION            4 (annotations)
+            114 STORE_NAME              11 (_connect_read_only)
+
+ 76         116 LOAD_CONST              22 ('sqlite3.Connection')
+            118 LOAD_CONST               7 (('return',))
+            120 BUILD_CONST_KEY_MAP      1
+            122 LOAD_CONST              25 (<code object _connect_for_write at 0x1072e0f50, file "WeRobotCore/adapters/contact_storage/explicit_path.py", line 76>)
+            124 LOAD_CONST              26 ('ExplicitPathContactStore._connect_for_write')
+            126 MAKE_FUNCTION            4 (annotations)
+            128 STORE_NAME              12 (_connect_for_write)
+
+ 87         130 LOAD_NAME                7 (staticmethod)
+
+ 88         132 LOAD_CONST              22 ('sqlite3.Connection')
+            134 LOAD_CONST               3 ('None')
+            136 LOAD_CONST              27 (('connection', 'return'))
+            138 BUILD_CONST_KEY_MAP      2
+            140 LOAD_CONST              28 (<code object _ensure_schema at 0x1073aaf50, file "WeRobotCore/adapters/contact_storage/explicit_path.py", line 87>)
+            142 LOAD_CONST              29 ('ExplicitPathContactStore._ensure_schema')
+            144 MAKE_FUNCTION            4 (annotations)
+            146 CALL_FUNCTION            1
+            148 STORE_NAME              13 (_ensure_schema)
+
+119         150 LOAD_NAME                7 (staticmethod)
+
+120         152 LOAD_CONST              30 ('Sequence[str]')
+            154 LOAD_CONST              10 ('str')
+            156 LOAD_CONST              31 (('tags', 'return'))
+            158 BUILD_CONST_KEY_MAP      2
+            160 LOAD_CONST              32 (<code object _tag_text at 0x1073aabe0, file "WeRobotCore/adapters/contact_storage/explicit_path.py", line 119>)
+            162 LOAD_CONST              33 ('ExplicitPathContactStore._tag_text')
+            164 MAKE_FUNCTION            4 (annotations)
+            166 CALL_FUNCTION            1
+            168 STORE_NAME              14 (_tag_text)
+
+123         170 LOAD_CONST              10 ('str')
+            172 LOAD_CONST              34 ('Tuple[ContactRecord, ...]')
+            174 LOAD_CONST              35 ('Mapping[str, Any]')
+            176 LOAD_CONST              36 (('account_id', 'contacts', 'return'))
+            178 BUILD_CONST_KEY_MAP      3
+            180 LOAD_CONST              37 (<code object _replace_contacts_sync at 0x1073aadf0, file "WeRobotCore/adapters/contact_storage/explicit_path.py", line 123>)
+            182 LOAD_CONST              38 ('ExplicitPathContactStore._replace_contacts_sync')
+            184 MAKE_FUNCTION            4 (annotations)
+            186 STORE_NAME              15 (_replace_contacts_sync)
+
+170         188 LOAD_CONST              10 ('str')
+            190 LOAD_CONST              39 ('Tuple[GroupRecord, ...]')
+            192 LOAD_CONST              35 ('Mapping[str, Any]')
+            194 LOAD_CONST              40 (('account_id', 'groups', 'return'))
+            196 BUILD_CONST_KEY_MAP      3
+            198 LOAD_CONST              41 (<code object _replace_groups_sync at 0x1073aa450, file "WeRobotCore/adapters/contact_storage/explicit_path.py", line 170>)
+            200 LOAD_CONST              42 ('ExplicitPathContactStore._replace_groups_sync')
+            202 MAKE_FUNCTION            4 (annotations)
+            204 STORE_NAME              16 (_replace_groups_sync)
+
+221         206 LOAD_CONST              10 ('str')
+            208 LOAD_CONST              43 ('Sequence[ContactRecord]')
+            210 LOAD_CONST              35 ('Mapping[str, Any]')
+            212 LOAD_CONST              36 (('account_id', 'contacts', 'return'))
+            214 BUILD_CONST_KEY_MAP      3
+            216 LOAD_CONST              44 (<code object replace_contacts at 0x1073aa0e0, file "WeRobotCore/adapters/contact_storage/explicit_path.py", line 221>)
+            218 LOAD_CONST              45 ('ExplicitPathContactStore.replace_contacts')
+            220 MAKE_FUNCTION            4 (annotations)
+            222 STORE_NAME              17 (replace_contacts)
+
+236         224 LOAD_CONST              10 ('str')
+            226 LOAD_CONST              46 ('ContactRecord')
+            228 LOAD_CONST              35 ('Mapping[str, Any]')
+            230 LOAD_CONST              47 (('account_id', 'contact', 'return'))
+            232 BUILD_CONST_KEY_MAP      3
+            234 LOAD_CONST              48 (<code object _upsert_contact_sync at 0x1073aa190, file "WeRobotCore/adapters/contact_storage/explicit_path.py", line 236>)
+            236 LOAD_CONST              49 ('ExplicitPathContactStore._upsert_contact_sync')
+            238 MAKE_FUNCTION            4 (annotations)
+            240 STORE_NAME              18 (_upsert_contact_sync)
+
+312         242 LOAD_CONST              10 ('str')
+            244 LOAD_CONST              46 ('ContactRecord')
+            246 LOAD_CONST              35 ('Mapping[str, Any]')
+            248 LOAD_CONST              47 (('account_id', 'contact', 'return'))
+            250 BUILD_CONST_KEY_MAP      3
+            252 LOAD_CONST              50 (<code object upsert_contact at 0x1073aa240, file "WeRobotCore/adapters/contact_storage/explicit_path.py", line 312>)
+            254 LOAD_CONST              51 ('ExplicitPathContactStore.upsert_contact')
+            256 MAKE_FUNCTION            4 (annotations)
+            258 STORE_NAME              19 (upsert_contact)
+
+330         260 LOAD_CONST              10 ('str')
+            262 LOAD_CONST              52 ('Sequence[GroupRecord]')
+            264 LOAD_CONST              35 ('Mapping[str, Any]')
+            266 LOAD_CONST              40 (('account_id', 'groups', 'return'))
+            268 BUILD_CONST_KEY_MAP      3
+            270 LOAD_CONST              53 (<code object replace_groups at 0x1073aa5b0, file "WeRobotCore/adapters/contact_storage/explicit_path.py", line 330>)
+            272 LOAD_CONST              54 ('ExplicitPathContactStore.replace_groups')
+            274 MAKE_FUNCTION            4 (annotations)
+            276 STORE_NAME              20 (replace_groups)
+
+345         278 LOAD_CONST              10 ('str')
+            280 LOAD_CONST              10 ('str')
+            282 LOAD_CONST              10 ('str')
+            284 LOAD_CONST              55 ('Tuple[Mapping[str, Any], ...]')
+            286 LOAD_CONST              56 (('account_id', 'tag', 'keyword', 'return'))
+            288 BUILD_CONST_KEY_MAP      4
+            290 LOAD_CONST              57 (<code object _list_contacts_sync at 0x1073aa710, file "WeRobotCore/adapters/contact_storage/explicit_path.py", line 345>)
+            292 LOAD_CONST              58 ('ExplicitPathContactStore._list_contacts_sync')
+            294 MAKE_FUNCTION            4 (annotations)
+            296 STORE_NAME              21 (_list_contacts_sync)
+
+402         298 LOAD_CONST              59 ('')
+
+403         300 LOAD_CONST              59 ('')
+
+398         302 LOAD_CONST              60 (('tag', 'keyword'))
+            304 BUILD_CONST_KEY_MAP      2
+            306 LOAD_CONST              10 ('str')
+            308 LOAD_CONST              10 ('str')
+            310 LOAD_CONST              10 ('str')
+            312 LOAD_CONST              55 ('Tuple[Mapping[str, Any], ...]')
+            314 LOAD_CONST              56 (('account_id', 'tag', 'keyword', 'return'))
+            316 BUILD_CONST_KEY_MAP      4
+            318 LOAD_CONST              61 (<code object list_contacts at 0x1073aa660, file "WeRobotCore/adapters/contact_storage/explicit_path.py", line 398>)
+            320 LOAD_CONST              62 ('ExplicitPathContactStore.list_contacts')
+            322 MAKE_FUNCTION            6 (kwdefaults, annotations)
+            324 STORE_NAME              22 (list_contacts)
+
+417         326 LOAD_CONST              10 ('str')
+            328 LOAD_CONST              10 ('str')
+            330 LOAD_CONST              55 ('Tuple[Mapping[str, Any], ...]')
+            332 LOAD_CONST              63 (('account_id', 'keyword', 'return'))
+            334 BUILD_CONST_KEY_MAP      3
+            336 LOAD_CONST              64 (<code object _list_groups_sync at 0x1073aa7c0, file "WeRobotCore/adapters/contact_storage/explicit_path.py", line 417>)
+            338 LOAD_CONST              65 ('ExplicitPathContactStore._list_groups_sync')
+            340 MAKE_FUNCTION            4 (annotations)
+            342 STORE_NAME              23 (_list_groups_sync)
+
+462         344 LOAD_CONST              59 ('')
+
+458         346 LOAD_CONST              66 (('keyword',))
+            348 BUILD_CONST_KEY_MAP      1
+            350 LOAD_CONST              10 ('str')
+            352 LOAD_CONST              10 ('str')
+            354 LOAD_CONST              55 ('Tuple[Mapping[str, Any], ...]')
+            356 LOAD_CONST              63 (('account_id', 'keyword', 'return'))
+            358 BUILD_CONST_KEY_MAP      3
+            360 LOAD_CONST              67 (<code object list_groups at 0x1073aaa80, file "WeRobotCore/adapters/contact_storage/explicit_path.py", line 458>)
+            362 LOAD_CONST              68 ('ExplicitPathContactStore.list_groups')
+            364 MAKE_FUNCTION            6 (kwdefaults, annotations)
+            366 STORE_NAME              24 (list_groups)
+
+475         368 LOAD_CONST              10 ('str')
+            370 LOAD_CONST              69 ('Tuple[str, ...]')
+            372 LOAD_CONST              10 ('str')
+            374 LOAD_CONST              35 ('Mapping[str, Any]')
+            376 LOAD_CONST              70 (('account_id', 'group_names', 'tag', 'return'))
+            378 BUILD_CONST_KEY_MAP      4
+            380 LOAD_CONST              71 (<code object _update_group_tags_sync at 0x1073ab190, file "WeRobotCore/adapters/contact_storage/explicit_path.py", line 475>)
+            382 LOAD_CONST              72 ('ExplicitPathContactStore._update_group_tags_sync')
+            384 MAKE_FUNCTION            4 (annotations)
+            386 STORE_NAME              25 (_update_group_tags_sync)
+
+515         388 LOAD_CONST              10 ('str')
+            390 LOAD_CONST              30 ('Sequence[str]')
+            392 LOAD_CONST              10 ('str')
+            394 LOAD_CONST              35 ('Mapping[str, Any]')
+            396 LOAD_CONST              70 (('account_id', 'group_names', 'tag', 'return'))
+            398 BUILD_CONST_KEY_MAP      4
+            400 LOAD_CONST              73 (<code object update_group_tags at 0x1073ab240, file "WeRobotCore/adapters/contact_storage/explicit_path.py", line 515>)
+            402 LOAD_CONST              74 ('ExplicitPathContactStore.update_group_tags')
+            404 MAKE_FUNCTION            4 (annotations)
+            406 STORE_NAME              26 (update_group_tags)
+
+549         408 LOAD_CONST              10 ('str')
+            410 LOAD_CONST              19 ('bool')
+            412 LOAD_CONST              55 ('Tuple[Mapping[str, Any], ...]')
+            414 LOAD_CONST              40 (('account_id', 'groups', 'return'))
+            416 BUILD_CONST_KEY_MAP      3
+            418 LOAD_CONST              75 (<code object _tag_statistics_sync at 0x1073ab500, file "WeRobotCore/adapters/contact_storage/explicit_path.py", line 549>)
+            420 LOAD_CONST              76 ('ExplicitPathContactStore._tag_statistics_sync')
+            422 MAKE_FUNCTION            4 (annotations)
+            424 STORE_NAME              27 (_tag_statistics_sync)
+
+592         426 LOAD_CONST              10 ('str')
+            428 LOAD_CONST              55 ('Tuple[Mapping[str, Any], ...]')
+            430 LOAD_CONST              11 (('account_id', 'return'))
+            432 BUILD_CONST_KEY_MAP      2
+            434 LOAD_CONST              77 (<code object list_contact_tags at 0x1073ab5b0, file "WeRobotCore/adapters/contact_storage/explicit_path.py", line 592>)
+            436 LOAD_CONST              78 ('ExplicitPathContactStore.list_contact_tags')
+            438 MAKE_FUNCTION            4 (annotations)
+            440 STORE_NAME              28 (list_contact_tags)
+
+603         442 LOAD_CONST              10 ('str')
+            444 LOAD_CONST              55 ('Tuple[Mapping[str, Any], ...]')
+            446 LOAD_CONST              11 (('account_id', 'return'))
+            448 BUILD_CONST_KEY_MAP      2
+            450 LOAD_CONST              79 (<code object list_group_tags at 0x1073ab660, file "WeRobotCore/adapters/contact_storage/explicit_path.py", line 603>)
+            452 LOAD_CONST              80 ('ExplicitPathContactStore.list_group_tags')
+            454 MAKE_FUNCTION            4 (annotations)
+            456 STORE_NAME              29 (list_group_tags)
+
+614         458 LOAD_CONST              10 ('str')
+            460 LOAD_CONST              81 ('Mapping[str, int]')
+            462 LOAD_CONST              11 (('account_id', 'return'))
+            464 BUILD_CONST_KEY_MAP      2
+            466 LOAD_CONST              82 (<code object _counts_sync at 0x1073ab710, file "WeRobotCore/adapters/contact_storage/explicit_path.py", line 614>)
+            468 LOAD_CONST              83 ('ExplicitPathContactStore._counts_sync')
+            470 MAKE_FUNCTION            4 (annotations)
+            472 STORE_NAME              30 (_counts_sync)
+
+631         474 LOAD_CONST              10 ('str')
+            476 LOAD_CONST              81 ('Mapping[str, int]')
+            478 LOAD_CONST              11 (('account_id', 'return'))
+            480 BUILD_CONST_KEY_MAP      2
+            482 LOAD_CONST              84 (<code object get_counts at 0x1073ab7c0, file "WeRobotCore/adapters/contact_storage/explicit_path.py", line 631>)
+            484 LOAD_CONST              85 ('ExplicitPathContactStore.get_counts')
+            486 MAKE_FUNCTION            4 (annotations)
+            488 STORE_NAME              31 (get_counts)
+
+635         490 LOAD_CONST              10 ('str')
+            492 LOAD_CONST              10 ('str')
+            494 LOAD_CONST              86 (('account_id', 'name'))
+            496 BUILD_CONST_KEY_MAP      2
+            498 LOAD_CONST              87 (<code object get_contact_tags at 0x1073ab9d0, file "WeRobotCore/adapters/contact_storage/explicit_path.py", line 635>)
+            500 LOAD_CONST              88 ('ExplicitPathContactStore.get_contact_tags')
+            502 MAKE_FUNCTION            4 (annotations)
+            504 STORE_NAME              32 (get_contact_tags)
+
+667         506 LOAD_CONST              10 ('str')
+            508 LOAD_CONST              10 ('str')
+            510 LOAD_CONST              86 (('account_id', 'name'))
+            512 BUILD_CONST_KEY_MAP      2
+            514 LOAD_CONST              89 (<code object get_group_tag at 0x1073aba80, file "WeRobotCore/adapters/contact_storage/explicit_path.py", line 667>)
+            516 LOAD_CONST              90 ('ExplicitPathContactStore.get_group_tag')
+            518 MAKE_FUNCTION            4 (annotations)
+            520 STORE_NAME              33 (get_group_tag)
+
+685         522 LOAD_CONST              10 ('str')
+            524 LOAD_CONST              10 ('str')
+            526 LOAD_CONST              19 ('bool')
+            528 LOAD_CONST              91 (('account_id', 'name', 'return'))
+            530 BUILD_CONST_KEY_MAP      3
+            532 LOAD_CONST              92 (<code object is_group_chat at 0x1073abb30, file "WeRobotCore/adapters/contact_storage/explicit_path.py", line 685>)
+            534 LOAD_CONST              93 ('ExplicitPathContactStore.is_group_chat')
+            536 MAKE_FUNCTION            4 (annotations)
+            538 STORE_NAME              34 (is_group_chat)
+            540 LOAD_CONST              94 (None)
+            542 RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x1072e0ea0, file "WeRobotCore/adapters/contact_storage/explicit_path.py", line 23>:
+ 24           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                1 (database_path)
+              4 LOAD_GLOBAL              1 (Path)
+              6 CALL_FUNCTION            2
+              8 POP_JUMP_IF_TRUE        18
+
+ 25          10 LOAD_GLOBAL              2 (TypeError)
+             12 LOAD_CONST               1 ('database_path must be a pathlib.Path')
+             14 CALL_FUNCTION            1
+             16 RAISE_VARARGS            1
+
+ 26     >>   18 LOAD_FAST                1 (database_path)
+             20 LOAD_METHOD              3 (is_absolute)
+             22 CALL_METHOD              0
+             24 POP_JUMP_IF_TRUE        34
+
+ 27          26 LOAD_GLOBAL              4 (ValueError)
+             28 LOAD_CONST               2 ('database_path must be absolute')
+             30 CALL_FUNCTION            1
+             32 RAISE_VARARGS            1
+
+ 28     >>   34 LOAD_FAST                1 (database_path)
+             36 LOAD_ATTR                5 (name)
+             38 LOAD_CONST               3 (('', '.', '..'))
+             40 CONTAINS_OP              0
+             42 POP_JUMP_IF_FALSE       52
+
+ 29          44 LOAD_GLOBAL              4 (ValueError)
+             46 LOAD_CONST               4 ('database_path must identify a file')
+             48 CALL_FUNCTION            1
+             50 RAISE_VARARGS            1
+
+ 30     >>   52 LOAD_FAST                1 (database_path)
+             54 LOAD_FAST                0 (self)
+             56 STORE_ATTR               6 (_database_path)
+             58 LOAD_CONST               0 (None)
+             60 RETURN_VALUE
+
+Disassembly of <code object database_path at 0x1072e0df0, file "WeRobotCore/adapters/contact_storage/explicit_path.py", line 32>:
+ 34           0 LOAD_FAST                0 (self)
+              2 LOAD_ATTR                0 (_database_path)
+              4 RETURN_VALUE
+
+Disassembly of <code object _account_id at 0x1072e0710, file "WeRobotCore/adapters/contact_storage/explicit_path.py", line 36>:
+ 38           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                0 (account_id)
+              4 LOAD_GLOBAL              1 (str)
+              6 CALL_FUNCTION            2
+              8 POP_JUMP_IF_FALSE       18
+             10 LOAD_FAST                0 (account_id)
+             12 LOAD_METHOD              2 (strip)
+             14 CALL_METHOD              0
+             16 POP_JUMP_IF_TRUE        26
+
+ 39     >>   18 LOAD_GLOBAL              3 (ValueError)
+             20 LOAD_CONST               1 ('account_id must be a non-empty string')
+             22 CALL_FUNCTION            1
+             24 RAISE_VARARGS            1
+
+ 40     >>   26 LOAD_FAST                0 (account_id)
+             28 LOAD_METHOD              2 (strip)
+             30 CALL_METHOD              0
+             32 RETURN_VALUE
+
+Disassembly of <code object _records at 0x1072e0b30, file "WeRobotCore/adapters/contact_storage/explicit_path.py", line 42>:
+ 48           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                1 (records)
+              4 LOAD_GLOBAL              1 (str)
+              6 LOAD_GLOBAL              2 (bytes)
+              8 BUILD_TUPLE              2
+             10 CALL_FUNCTION            2
+             12 POP_JUMP_IF_TRUE        24
+             14 LOAD_GLOBAL              0 (isinstance)
+             16 LOAD_FAST                1 (records)
+             18 LOAD_GLOBAL              3 (Sequence)
+             20 CALL_FUNCTION            2
+             22 POP_JUMP_IF_TRUE        32
+
+ 49     >>   24 LOAD_GLOBAL              4 (TypeError)
+             26 LOAD_CONST               1 ('snapshot records must be a sequence')
+             28 CALL_FUNCTION            1
+             30 RAISE_VARARGS            1
+
+ 50     >>   32 LOAD_GLOBAL              5 (tuple)
+             34 LOAD_FAST                1 (records)
+             36 CALL_FUNCTION            1
+             38 STORE_FAST               3 (normalized)
+
+ 51          40 LOAD_FAST                3 (normalized)
+             42 GET_ITER
+        >>   44 FOR_ITER                40 (to 86)
+             46 STORE_FAST               4 (record)
+
+ 52          48 LOAD_GLOBAL              0 (isinstance)
+             50 LOAD_FAST                4 (record)
+             52 LOAD_FAST                2 (record_type)
+             54 CALL_FUNCTION            2
+             56 POP_JUMP_IF_TRUE        66
+
+ 53          58 LOAD_GLOBAL              4 (TypeError)
+             60 LOAD_CONST               2 ('snapshot contains an invalid record')
+             62 CALL_FUNCTION            1
+             64 RAISE_VARARGS            1
+
+ 54     >>   66 LOAD_FAST                4 (record)
+             68 LOAD_ATTR                6 (account_id)
+             70 LOAD_FAST                0 (account_id)
+             72 COMPARE_OP               3 (!=)
+             74 POP_JUMP_IF_FALSE       44
+
+ 55          76 LOAD_GLOBAL              7 (ValueError)
+             78 LOAD_CONST               3 ('snapshot crossed account boundaries')
+             80 CALL_FUNCTION            1
+             82 RAISE_VARARGS            1
+             84 JUMP_ABSOLUTE           44
+
+ 56     >>   86 LOAD_FAST                3 (normalized)
+             88 RETURN_VALUE
+
+Disassembly of <code object _readable_database at 0x1072e0be0, file "WeRobotCore/adapters/contact_storage/explicit_path.py", line 58>:
+ 59           0 SETUP_FINALLY           24 (to 26)
+
+ 60           2 LOAD_FAST                0 (self)
+              4 LOAD_ATTR                0 (_database_path)
+              6 LOAD_METHOD              1 (is_file)
+              8 CALL_METHOD              0
+             10 JUMP_IF_FALSE_OR_POP    22
+             12 LOAD_FAST                0 (self)
+             14 LOAD_ATTR                0 (_database_path)
+             16 LOAD_METHOD              2 (is_symlink)
+             18 CALL_METHOD              0
+             20 UNARY_NOT
+        >>   22 POP_BLOCK
+             24 RETURN_VALUE
+
+ 61     >>   26 DUP_TOP
+             28 LOAD_GLOBAL              3 (OSError)
+             30 JUMP_IF_NOT_EXC_MATCH    44
+             32 POP_TOP
+             34 POP_TOP
+             36 POP_TOP
+
+ 62          38 POP_EXCEPT
+             40 LOAD_CONST               1 (False)
+             42 RETURN_VALUE
+        >>   44 RERAISE
+             46 LOAD_CONST               0 (None)
+             48 RETURN_VALUE
+
+Disassembly of <code object _connect_read_only at 0x1072e0d40, file "WeRobotCore/adapters/contact_storage/explicit_path.py", line 64>:
+ 65           0 LOAD_FAST                0 (self)
+              2 LOAD_METHOD              0 (_readable_database)
+              4 CALL_METHOD              0
+              6 POP_JUMP_IF_TRUE        22
+
+ 66           8 LOAD_GLOBAL              1 (FileNotFoundError)
+             10 LOAD_GLOBAL              2 (str)
+             12 LOAD_FAST                0 (self)
+             14 LOAD_ATTR                3 (_database_path)
+             16 CALL_FUNCTION            1
+             18 CALL_FUNCTION            1
+             20 RAISE_VARARGS            1
+
+ 67     >>   22 LOAD_GLOBAL              4 (sqlite3)
+             24 LOAD_ATTR                5 (connect)
+
+ 68          26 LOAD_CONST               1 ('{}?mode=ro')
+             28 LOAD_METHOD              6 (format)
+             30 LOAD_FAST                0 (self)
+             32 LOAD_ATTR                3 (_database_path)
+             34 LOAD_METHOD              7 (as_uri)
+             36 CALL_METHOD              0
+             38 CALL_METHOD              1
+
+ 69          40 LOAD_CONST               2 (True)
+
+ 70          42 LOAD_CONST               3 (5.0)
+
+ 67          44 LOAD_CONST               4 (('uri', 'timeout'))
+             46 CALL_FUNCTION_KW         3
+             48 STORE_FAST               1 (connection)
+
+ 72          50 LOAD_FAST                1 (connection)
+             52 LOAD_METHOD              8 (execute)
+             54 LOAD_CONST               5 ('PRAGMA query_only = ON')
+             56 CALL_METHOD              1
+             58 POP_TOP
+
+ 73          60 LOAD_FAST                1 (connection)
+             62 LOAD_METHOD              8 (execute)
+             64 LOAD_CONST               6 ('PRAGMA busy_timeout = 5000')
+             66 CALL_METHOD              1
+             68 POP_TOP
+
+ 74          70 LOAD_FAST                1 (connection)
+             72 RETURN_VALUE
+
+Disassembly of <code object _connect_for_write at 0x1072e0f50, file "WeRobotCore/adapters/contact_storage/explicit_path.py", line 76>:
+ 77           0 LOAD_FAST                0 (self)
+              2 LOAD_ATTR                0 (_database_path)
+              4 LOAD_ATTR                1 (parent)
+              6 STORE_FAST               1 (parent)
+
+ 78           8 LOAD_FAST                1 (parent)
+             10 LOAD_ATTR                2 (mkdir)
+             12 LOAD_CONST               1 (True)
+             14 LOAD_CONST               1 (True)
+             16 LOAD_CONST               2 (('parents', 'exist_ok'))
+             18 CALL_FUNCTION_KW         2
+             20 POP_TOP
+
+ 79          22 LOAD_FAST                0 (self)
+             24 LOAD_ATTR                0 (_database_path)
+             26 LOAD_METHOD              3 (exists)
+             28 CALL_METHOD              0
+             30 POP_JUMP_IF_FALSE       50
+             32 LOAD_FAST                0 (self)
+             34 LOAD_ATTR                0 (_database_path)
+             36 LOAD_METHOD              4 (is_symlink)
+             38 CALL_METHOD              0
+             40 POP_JUMP_IF_FALSE       50
+
+ 80          42 LOAD_GLOBAL              5 (ValueError)
+             44 LOAD_CONST               3 ('contact database must not be a symbolic link')
+             46 CALL_FUNCTION            1
+             48 RAISE_VARARGS            1
+
+ 81     >>   50 LOAD_GLOBAL              6 (sqlite3)
+             52 LOAD_ATTR                7 (connect)
+             54 LOAD_GLOBAL              8 (str)
+             56 LOAD_FAST                0 (self)
+             58 LOAD_ATTR                0 (_database_path)
+             60 CALL_FUNCTION            1
+             62 LOAD_CONST               4 (30.0)
+             64 LOAD_CONST               5 (('timeout',))
+             66 CALL_FUNCTION_KW         2
+             68 STORE_FAST               2 (connection)
+
+ 82          70 LOAD_FAST                2 (connection)
+             72 LOAD_METHOD              9 (execute)
+             74 LOAD_CONST               6 ('PRAGMA foreign_keys = ON')
+             76 CALL_METHOD              1
+             78 POP_TOP
+
+ 83          80 LOAD_FAST                2 (connection)
+             82 LOAD_METHOD              9 (execute)
+             84 LOAD_CONST               7 ('PRAGMA busy_timeout = 30000')
+             86 CALL_METHOD              1
+             88 POP_TOP
+
+ 84          90 LOAD_FAST                0 (self)
+             92 LOAD_METHOD             10 (_ensure_schema)
+             94 LOAD_FAST                2 (connection)
+             96 CALL_METHOD              1
+             98 POP_TOP
+
+ 85         100 LOAD_FAST                2 (connection)
+            102 RETURN_VALUE
+
+Disassembly of <code object _ensure_schema at 0x1073aaf50, file "WeRobotCore/adapters/contact_storage/explicit_path.py", line 87>:
+ 89           0 LOAD_FAST                0 (connection)
+              2 LOAD_METHOD              0 (execute)
+
+ 90           4 LOAD_CONST               1 ('\n            CREATE TABLE IF NOT EXISTS friends (\n                id INTEGER PRIMARY KEY AUTOINCREMENT,\n                account_id TEXT NOT NULL,\n                wxid TEXT NOT NULL,\n                name TEXT NOT NULL,\n                nickname TEXT,\n                remark TEXT,\n                tag TEXT,\n                is_new INTEGER DEFAULT 0,\n                created_at DATETIME DEFAULT CURRENT_TIMESTAMP,\n                last_updated DATETIME,\n                UNIQUE(account_id, wxid, tag)\n            )\n            ')
+
+ 89           6 CALL_METHOD              1
+              8 POP_TOP
+
+106          10 LOAD_FAST                0 (connection)
+             12 LOAD_METHOD              0 (execute)
+
+107          14 LOAD_CONST               2 ("\n            CREATE TABLE IF NOT EXISTS groups (\n                id INTEGER PRIMARY KEY AUTOINCREMENT,\n                account_id TEXT NOT NULL,\n                name TEXT NOT NULL,\n                tag TEXT DEFAULT '',\n                last_updated DATETIME,\n                UNIQUE(account_id, name)\n            )\n            ")
+
+106          16 CALL_METHOD              1
+             18 POP_TOP
+             20 LOAD_CONST               0 (None)
+             22 RETURN_VALUE
+
+Disassembly of <code object _tag_text at 0x1073aabe0, file "WeRobotCore/adapters/contact_storage/explicit_path.py", line 119>:
+121           0 LOAD_CONST               1 (',')
+              2 LOAD_METHOD              0 (join)
+              4 LOAD_GLOBAL              1 (sorted)
+              6 LOAD_CONST               2 (<code object <setcomp> at 0x1073aaea0, file "WeRobotCore/adapters/contact_storage/explicit_path.py", line 121>)
+              8 LOAD_CONST               3 ('ExplicitPathContactStore._tag_text.<locals>.<setcomp>')
+             10 MAKE_FUNCTION            0
+             12 LOAD_FAST                0 (tags)
+             14 GET_ITER
+             16 CALL_FUNCTION            1
+             18 CALL_FUNCTION            1
+             20 CALL_METHOD              1
+             22 RETURN_VALUE
+
+Disassembly of <code object <setcomp> at 0x1073aaea0, file "WeRobotCore/adapters/contact_storage/explicit_path.py", line 121>:
+121           0 BUILD_SET                0
+              2 LOAD_FAST                0 (.0)
+        >>    4 FOR_ITER                20 (to 26)
+              6 STORE_FAST               1 (item)
+              8 LOAD_FAST                1 (item)
+             10 LOAD_METHOD              0 (strip)
+             12 CALL_METHOD              0
+             14 POP_JUMP_IF_FALSE        4
+             16 LOAD_FAST                1 (item)
+             18 LOAD_METHOD              0 (strip)
+             20 CALL_METHOD              0
+             22 SET_ADD                  2
+             24 JUMP_ABSOLUTE            4
+        >>   26 RETURN_VALUE
+
+Disassembly of <code object _replace_contacts_sync at 0x1073aadf0, file "WeRobotCore/adapters/contact_storage/explicit_path.py", line 123>:
+128           0 LOAD_DEREF               2 (self)
+              2 LOAD_METHOD              0 (_connect_for_write)
+              4 CALL_METHOD              0
+              6 STORE_FAST               3 (connection)
+
+129           8 SETUP_FINALLY          124 (to 134)
+             10 SETUP_FINALLY           82 (to 94)
+
+130          12 LOAD_GLOBAL              1 (datetime)
+             14 LOAD_METHOD              2 (now)
+             16 CALL_METHOD              0
+             18 LOAD_ATTR                3 (isoformat)
+             20 LOAD_CONST               1 ('seconds')
+             22 LOAD_CONST               2 (('timespec',))
+             24 CALL_FUNCTION_KW         1
+             26 STORE_DEREF              1 (now)
+
+131          28 LOAD_FAST                3 (connection)
+             30 LOAD_METHOD              4 (execute)
+             32 LOAD_CONST               3 ('BEGIN IMMEDIATE')
+             34 CALL_METHOD              1
+             36 POP_TOP
+
+132          38 LOAD_FAST                3 (connection)
+             40 LOAD_METHOD              4 (execute)
+
+133          42 LOAD_CONST               4 ('DELETE FROM friends WHERE account_id = ?')
+
+134          44 LOAD_DEREF               0 (account_id)
+             46 BUILD_TUPLE              1
+
+132          48 CALL_METHOD              2
+             50 POP_TOP
+
+136          52 LOAD_FAST                3 (connection)
+             54 LOAD_METHOD              5 (executemany)
+
+137          56 LOAD_CONST               5 ('\n                INSERT INTO friends (\n                    account_id, wxid, name, nickname, remark, tag,\n                    is_new, created_at, last_updated\n                ) VALUES (?, ?, ?, ?, ?, ?, 0, ?, ?)\n                ')
+
+143          58 LOAD_CLOSURE             0 (account_id)
+             60 LOAD_CLOSURE             1 (now)
+             62 LOAD_CLOSURE             2 (self)
+             64 BUILD_TUPLE              3
+             66 LOAD_CONST               6 (<code object <genexpr> at 0x1073aac90, file "WeRobotCore/adapters/contact_storage/explicit_path.py", line 143>)
+             68 LOAD_CONST               7 ('ExplicitPathContactStore._replace_contacts_sync.<locals>.<genexpr>')
+             70 MAKE_FUNCTION            8 (closure)
+
+154          72 LOAD_FAST                2 (contacts)
+
+143          74 GET_ITER
+             76 CALL_FUNCTION            1
+
+136          78 CALL_METHOD              2
+             80 POP_TOP
+
+157          82 LOAD_FAST                3 (connection)
+             84 LOAD_METHOD              6 (commit)
+             86 CALL_METHOD              0
+             88 POP_TOP
+             90 POP_BLOCK
+             92 JUMP_FORWARD            28 (to 122)
+
+158     >>   94 DUP_TOP
+             96 LOAD_GLOBAL              7 (Exception)
+             98 JUMP_IF_NOT_EXC_MATCH   120
+            100 POP_TOP
+            102 POP_TOP
+            104 POP_TOP
+
+159         106 LOAD_FAST                3 (connection)
+            108 LOAD_METHOD              8 (rollback)
+            110 CALL_METHOD              0
+            112 POP_TOP
+
+160         114 RAISE_VARARGS            0
+            116 POP_EXCEPT
+            118 JUMP_FORWARD             2 (to 122)
+        >>  120 RERAISE
+        >>  122 POP_BLOCK
+
+162         124 LOAD_FAST                3 (connection)
+            126 LOAD_METHOD              9 (close)
+            128 CALL_METHOD              0
+            130 POP_TOP
+            132 JUMP_FORWARD            10 (to 144)
+        >>  134 LOAD_FAST                3 (connection)
+            136 LOAD_METHOD              9 (close)
+            138 CALL_METHOD              0
+            140 POP_TOP
+            142 RERAISE
+
+164     >>  144 LOAD_GLOBAL             10 (len)
+            146 LOAD_FAST                2 (contacts)
+            148 CALL_FUNCTION            1
+
+165         150 LOAD_CONST               8 (0)
+
+166         152 LOAD_CONST               8 (0)
+
+167         154 LOAD_GLOBAL             10 (len)
+            156 LOAD_FAST                2 (contacts)
+            158 CALL_FUNCTION            1
+
+163         160 LOAD_CONST               9 (('inserted', 'updated', 'deleted', 'total_synced'))
+            162 BUILD_CONST_KEY_MAP      4
+            164 RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x1073aac90, file "WeRobotCore/adapters/contact_storage/explicit_path.py", line 143>:
+143           0 LOAD_FAST                0 (.0)
+        >>    2 FOR_ITER                62 (to 66)
+
+154           4 STORE_FAST               1 (item)
+
+145           6 LOAD_DEREF               0 (account_id)
+
+146           8 LOAD_FAST                1 (item)
+             10 LOAD_ATTR                0 (contact_id)
+
+147          12 LOAD_FAST                1 (item)
+             14 LOAD_ATTR                1 (name)
+
+148          16 LOAD_GLOBAL              2 (str)
+             18 LOAD_FAST                1 (item)
+             20 LOAD_ATTR                3 (metadata)
+             22 LOAD_METHOD              4 (get)
+             24 LOAD_CONST               0 ('nickname')
+             26 CALL_METHOD              1
+             28 JUMP_IF_TRUE_OR_POP     34
+             30 LOAD_FAST                1 (item)
+             32 LOAD_ATTR                1 (name)
+        >>   34 CALL_FUNCTION            1
+
+149          36 LOAD_FAST                1 (item)
+             38 LOAD_ATTR                5 (remark)
+             40 JUMP_IF_TRUE_OR_POP     44
+             42 LOAD_CONST               1 ('')
+
+150     >>   44 LOAD_DEREF               2 (self)
+             46 LOAD_METHOD              6 (_tag_text)
+             48 LOAD_FAST                1 (item)
+             50 LOAD_ATTR                7 (tags)
+             52 CALL_METHOD              1
+
+151          54 LOAD_DEREF               1 (now)
+
+152          56 LOAD_DEREF               1 (now)
+
+144          58 BUILD_TUPLE              8
+             60 YIELD_VALUE
+             62 POP_TOP
+             64 JUMP_ABSOLUTE            2
+        >>   66 LOAD_CONST               2 (None)
+             68 RETURN_VALUE
+
+Disassembly of <code object _replace_groups_sync at 0x1073aa450, file "WeRobotCore/adapters/contact_storage/explicit_path.py", line 170>:
+175           0 LOAD_DEREF               3 (self)
+              2 LOAD_METHOD              0 (_connect_for_write)
+              4 CALL_METHOD              0
+              6 STORE_FAST               3 (connection)
+
+176           8 SETUP_FINALLY          186 (to 196)
+             10 SETUP_FINALLY          144 (to 156)
+
+177          12 LOAD_GLOBAL              1 (datetime)
+             14 LOAD_METHOD              2 (now)
+             16 CALL_METHOD              0
+             18 LOAD_ATTR                3 (isoformat)
+             20 LOAD_CONST               1 ('seconds')
+             22 LOAD_CONST               2 (('timespec',))
+             24 CALL_FUNCTION_KW         1
+             26 STORE_DEREF              2 (now)
+
+178          28 LOAD_FAST                3 (connection)
+             30 LOAD_METHOD              4 (execute)
+             32 LOAD_CONST               3 ('BEGIN IMMEDIATE')
+             34 CALL_METHOD              1
+             36 POP_TOP
+
+179          38 LOAD_CONST               4 (<code object <dictcomp> at 0x1073aab30, file "WeRobotCore/adapters/contact_storage/explicit_path.py", line 179>)
+             40 LOAD_CONST               5 ('ExplicitPathContactStore._replace_groups_sync.<locals>.<dictcomp>')
+             42 MAKE_FUNCTION            0
+
+181          44 LOAD_FAST                3 (connection)
+             46 LOAD_METHOD              4 (execute)
+
+182          48 LOAD_CONST               6 ('SELECT name, tag FROM groups WHERE account_id = ?')
+
+183          50 LOAD_DEREF               0 (account_id)
+             52 BUILD_TUPLE              1
+
+181          54 CALL_METHOD              2
+             56 LOAD_METHOD              5 (fetchall)
+             58 CALL_METHOD              0
+
+179          60 GET_ITER
+             62 CALL_FUNCTION            1
+             64 STORE_DEREF              1 (existing)
+
+186          66 LOAD_CONST               7 (<code object <setcomp> at 0x1073aa870, file "WeRobotCore/adapters/contact_storage/explicit_path.py", line 186>)
+             68 LOAD_CONST               8 ('ExplicitPathContactStore._replace_groups_sync.<locals>.<setcomp>')
+             70 MAKE_FUNCTION            0
+             72 LOAD_FAST                2 (groups)
+             74 GET_ITER
+             76 CALL_FUNCTION            1
+             78 STORE_FAST               4 (latest_names)
+
+187          80 LOAD_GLOBAL              6 (len)
+             82 LOAD_GLOBAL              7 (set)
+             84 LOAD_DEREF               1 (existing)
+             86 CALL_FUNCTION            1
+             88 LOAD_METHOD              8 (difference)
+             90 LOAD_FAST                4 (latest_names)
+             92 CALL_METHOD              1
+             94 CALL_FUNCTION            1
+             96 STORE_FAST               5 (deleted)
+
+188          98 LOAD_FAST                3 (connection)
+            100 LOAD_METHOD              4 (execute)
+
+189         102 LOAD_CONST               9 ('DELETE FROM groups WHERE account_id = ?')
+
+190         104 LOAD_DEREF               0 (account_id)
+            106 BUILD_TUPLE              1
+
+188         108 CALL_METHOD              2
+            110 POP_TOP
+
+192         112 LOAD_FAST                3 (connection)
+            114 LOAD_METHOD              9 (executemany)
+
+193         116 LOAD_CONST              10 ('\n                INSERT INTO groups (account_id, name, tag, last_updated)\n                VALUES (?, ?, ?, ?)\n                ')
+
+197         118 LOAD_CLOSURE             0 (account_id)
+            120 LOAD_CLOSURE             1 (existing)
+            122 LOAD_CLOSURE             2 (now)
+            124 LOAD_CLOSURE             3 (self)
+            126 BUILD_TUPLE              4
+            128 LOAD_CONST              11 (<code object <genexpr> at 0x1073aa030, file "WeRobotCore/adapters/contact_storage/explicit_path.py", line 197>)
+            130 LOAD_CONST              12 ('ExplicitPathContactStore._replace_groups_sync.<locals>.<genexpr>')
+            132 MAKE_FUNCTION            8 (closure)
+
+204         134 LOAD_FAST                2 (groups)
+
+197         136 GET_ITER
+            138 CALL_FUNCTION            1
+
+192         140 CALL_METHOD              2
+            142 POP_TOP
+
+207         144 LOAD_FAST                3 (connection)
+            146 LOAD_METHOD             10 (commit)
+            148 CALL_METHOD              0
+            150 POP_TOP
+            152 POP_BLOCK
+            154 JUMP_FORWARD            28 (to 184)
+
+208     >>  156 DUP_TOP
+            158 LOAD_GLOBAL             11 (Exception)
+            160 JUMP_IF_NOT_EXC_MATCH   182
+            162 POP_TOP
+            164 POP_TOP
+            166 POP_TOP
+
+209         168 LOAD_FAST                3 (connection)
+            170 LOAD_METHOD             12 (rollback)
+            172 CALL_METHOD              0
+            174 POP_TOP
+
+210         176 RAISE_VARARGS            0
+            178 POP_EXCEPT
+            180 JUMP_FORWARD             2 (to 184)
+        >>  182 RERAISE
+        >>  184 POP_BLOCK
+
+212         186 LOAD_FAST                3 (connection)
+            188 LOAD_METHOD             13 (close)
+            190 CALL_METHOD              0
+            192 POP_TOP
+            194 JUMP_FORWARD            10 (to 206)
+        >>  196 LOAD_FAST                3 (connection)
+            198 LOAD_METHOD             13 (close)
+            200 CALL_METHOD              0
+            202 POP_TOP
+            204 RERAISE
+
+213     >>  206 LOAD_GLOBAL              6 (len)
+            208 LOAD_FAST                4 (latest_names)
+            210 LOAD_METHOD              8 (difference)
+            212 LOAD_DEREF               1 (existing)
+            214 CALL_METHOD              1
+            216 CALL_FUNCTION            1
+            218 STORE_FAST               6 (inserted)
+
+215         220 LOAD_FAST                6 (inserted)
+
+216         222 LOAD_CONST              13 (0)
+
+217         224 LOAD_FAST                5 (deleted)
+
+218         226 LOAD_GLOBAL              6 (len)
+            228 LOAD_FAST                2 (groups)
+            230 CALL_FUNCTION            1
+
+214         232 LOAD_CONST              14 (('inserted', 'updated', 'deleted', 'total_synced'))
+            234 BUILD_CONST_KEY_MAP      4
+            236 RETURN_VALUE
+
+Disassembly of <code object <dictcomp> at 0x1073aab30, file "WeRobotCore/adapters/contact_storage/explicit_path.py", line 179>:
+179           0 BUILD_MAP                0
+              2 LOAD_FAST                0 (.0)
+        >>    4 FOR_ITER                26 (to 32)
+
+181           6 STORE_FAST               1 (row)
+
+180           8 LOAD_FAST                1 (row)
+             10 LOAD_CONST               0 (0)
+             12 BINARY_SUBSCR
+             14 LOAD_GLOBAL              0 (str)
+             16 LOAD_FAST                1 (row)
+             18 LOAD_CONST               1 (1)
+             20 BINARY_SUBSCR
+             22 JUMP_IF_TRUE_OR_POP     26
+             24 LOAD_CONST               2 ('')
+        >>   26 CALL_FUNCTION            1
+             28 MAP_ADD                  2
+             30 JUMP_ABSOLUTE            4
+        >>   32 RETURN_VALUE
+
+Disassembly of <code object <setcomp> at 0x1073aa870, file "WeRobotCore/adapters/contact_storage/explicit_path.py", line 186>:
+186           0 BUILD_SET                0
+              2 LOAD_FAST                0 (.0)
+        >>    4 FOR_ITER                10 (to 16)
+              6 STORE_FAST               1 (item)
+              8 LOAD_FAST                1 (item)
+             10 LOAD_ATTR                0 (name)
+             12 SET_ADD                  2
+             14 JUMP_ABSOLUTE            4
+        >>   16 RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x1073aa030, file "WeRobotCore/adapters/contact_storage/explicit_path.py", line 197>:
+197           0 LOAD_FAST                0 (.0)
+        >>    2 FOR_ITER                38 (to 42)
+
+204           4 STORE_FAST               1 (item)
+
+199           6 LOAD_DEREF               0 (account_id)
+
+200           8 LOAD_FAST                1 (item)
+             10 LOAD_ATTR                0 (name)
+
+201          12 LOAD_DEREF               1 (existing)
+             14 LOAD_METHOD              1 (get)
+             16 LOAD_FAST                1 (item)
+             18 LOAD_ATTR                0 (name)
+             20 LOAD_DEREF               3 (self)
+             22 LOAD_METHOD              2 (_tag_text)
+             24 LOAD_FAST                1 (item)
+             26 LOAD_ATTR                3 (tags)
+             28 CALL_METHOD              1
+             30 CALL_METHOD              2
+
+202          32 LOAD_DEREF               2 (now)
+
+198          34 BUILD_TUPLE              4
+             36 YIELD_VALUE
+             38 POP_TOP
+             40 JUMP_ABSOLUTE            2
+        >>   42 LOAD_CONST               0 (None)
+             44 RETURN_VALUE
+
+Disassembly of <code object replace_contacts at 0x1073aa0e0, file "WeRobotCore/adapters/contact_storage/explicit_path.py", line 221>:
+226           0 LOAD_FAST                0 (self)
+              2 LOAD_METHOD              0 (_account_id)
+              4 LOAD_FAST                1 (account_id)
+              6 CALL_METHOD              1
+              8 STORE_FAST               3 (normalized_account)
+
+227          10 LOAD_FAST                0 (self)
+             12 LOAD_METHOD              1 (_records)
+             14 LOAD_FAST                3 (normalized_account)
+             16 LOAD_FAST                2 (contacts)
+             18 LOAD_GLOBAL              2 (ContactRecord)
+             20 CALL_METHOD              3
+             22 STORE_FAST               4 (snapshot)
+
+228          24 LOAD_FAST                4 (snapshot)
+             26 POP_JUMP_IF_TRUE        38
+
+229          28 LOAD_CONST               1 (True)
+             30 LOAD_CONST               2 (0)
+             32 LOAD_CONST               3 (('skipped_empty', 'total_synced'))
+             34 BUILD_CONST_KEY_MAP      2
+             36 RETURN_VALUE
+
+230     >>   38 LOAD_GLOBAL              3 (asyncio)
+             40 LOAD_METHOD              4 (to_thread)
+
+231          42 LOAD_FAST                0 (self)
+             44 LOAD_ATTR                5 (_replace_contacts_sync)
+
+232          46 LOAD_FAST                3 (normalized_account)
+
+233          48 LOAD_FAST                4 (snapshot)
+
+230          50 CALL_METHOD              3
+             52 GET_AWAITABLE
+             54 LOAD_CONST               0 (None)
+             56 YIELD_FROM
+             58 RETURN_VALUE
+
+Disassembly of <code object _upsert_contact_sync at 0x1073aa190, file "WeRobotCore/adapters/contact_storage/explicit_path.py", line 236>:
+243           0 LOAD_FAST                0 (self)
+              2 LOAD_METHOD              0 (_connect_for_write)
+              4 CALL_METHOD              0
+              6 STORE_FAST               3 (connection)
+
+244           8 SETUP_FINALLY          234 (to 244)
+             10 SETUP_FINALLY          192 (to 204)
+
+245          12 LOAD_GLOBAL              1 (datetime)
+             14 LOAD_METHOD              2 (now)
+             16 CALL_METHOD              0
+             18 LOAD_ATTR                3 (isoformat)
+             20 LOAD_CONST               1 ('seconds')
+             22 LOAD_CONST               2 (('timespec',))
+             24 CALL_FUNCTION_KW         1
+             26 STORE_FAST               4 (now)
+
+246          28 LOAD_FAST                3 (connection)
+             30 LOAD_METHOD              4 (execute)
+             32 LOAD_CONST               3 ('BEGIN IMMEDIATE')
+             34 CALL_METHOD              1
+             36 POP_TOP
+
+247          38 LOAD_FAST                3 (connection)
+             40 LOAD_METHOD              4 (execute)
+
+248          42 LOAD_CONST               4 ('\n                SELECT id, created_at\n                FROM friends\n                WHERE account_id = ? AND wxid = ?\n                ORDER BY id\n                LIMIT 1\n                ')
+
+255          44 LOAD_FAST                1 (account_id)
+             46 LOAD_FAST                2 (contact)
+             48 LOAD_ATTR                5 (contact_id)
+             50 BUILD_TUPLE              2
+
+247          52 CALL_METHOD              2
+             54 LOAD_METHOD              6 (fetchone)
+             56 CALL_METHOD              0
+             58 STORE_FAST               5 (existing)
+
+257          60 LOAD_GLOBAL              7 (str)
+             62 LOAD_FAST                2 (contact)
+             64 LOAD_ATTR                8 (metadata)
+             66 LOAD_METHOD              9 (get)
+             68 LOAD_CONST               5 ('nickname')
+             70 CALL_METHOD              1
+             72 JUMP_IF_TRUE_OR_POP     78
+             74 LOAD_FAST                2 (contact)
+             76 LOAD_ATTR               10 (name)
+        >>   78 CALL_FUNCTION            1
+             80 STORE_FAST               6 (nickname)
+
+258          82 LOAD_FAST                2 (contact)
+             84 LOAD_ATTR               11 (remark)
+             86 JUMP_IF_TRUE_OR_POP     90
+             88 LOAD_CONST               6 ('')
+        >>   90 STORE_FAST               7 (remark)
+
+259          92 LOAD_FAST                0 (self)
+             94 LOAD_METHOD             12 (_tag_text)
+             96 LOAD_FAST                2 (contact)
+             98 LOAD_ATTR               13 (tags)
+            100 CALL_METHOD              1
+            102 STORE_FAST               8 (tag)
+
+260         104 LOAD_FAST                5 (existing)
+            106 LOAD_CONST               7 (None)
+            108 IS_OP                    0
+            110 POP_JUMP_IF_FALSE      154
+
+261         112 LOAD_FAST                3 (connection)
+            114 LOAD_METHOD              4 (execute)
+
+262         116 LOAD_CONST               8 ('\n                    INSERT INTO friends (\n                        account_id, wxid, name, nickname, remark, tag,\n                        is_new, created_at, last_updated\n                    ) VALUES (?, ?, ?, ?, ?, ?, 1, ?, ?)\n                    ')
+
+269         118 LOAD_FAST                1 (account_id)
+
+270         120 LOAD_FAST                2 (contact)
+            122 LOAD_ATTR                5 (contact_id)
+
+271         124 LOAD_FAST                2 (contact)
+            126 LOAD_ATTR               10 (name)
+
+272         128 LOAD_FAST                6 (nickname)
+
+273         130 LOAD_FAST                7 (remark)
+
+274         132 LOAD_FAST                8 (tag)
+
+275         134 LOAD_FAST                4 (now)
+
+276         136 LOAD_FAST                4 (now)
+
+268         138 BUILD_TUPLE              8
+
+261         140 CALL_METHOD              2
+            142 POP_TOP
+
+279         144 LOAD_CONST               9 (1)
+            146 STORE_FAST               9 (inserted)
+
+280         148 LOAD_CONST              10 (0)
+            150 STORE_FAST              10 (updated)
+            152 JUMP_FORWARD            38 (to 192)
+
+282     >>  154 LOAD_FAST                3 (connection)
+            156 LOAD_METHOD              4 (execute)
+
+283         158 LOAD_CONST              11 ('\n                    UPDATE friends\n                    SET name = ?, nickname = ?, remark = ?, tag = ?,\n                        is_new = 0, last_updated = ?\n                    WHERE id = ?\n                    ')
+
+290         160 LOAD_FAST                2 (contact)
+            162 LOAD_ATTR               10 (name)
+
+291         164 LOAD_FAST                6 (nickname)
+
+292         166 LOAD_FAST                7 (remark)
+
+293         168 LOAD_FAST                8 (tag)
+
+294         170 LOAD_FAST                4 (now)
+
+295         172 LOAD_FAST                5 (existing)
+            174 LOAD_CONST              10 (0)
+            176 BINARY_SUBSCR
+
+289         178 BUILD_TUPLE              6
+
+282         180 CALL_METHOD              2
+            182 POP_TOP
+
+298         184 LOAD_CONST              10 (0)
+            186 STORE_FAST               9 (inserted)
+
+299         188 LOAD_CONST               9 (1)
+            190 STORE_FAST              10 (updated)
+
+300     >>  192 LOAD_FAST                3 (connection)
+            194 LOAD_METHOD             14 (commit)
+            196 CALL_METHOD              0
+            198 POP_TOP
+            200 POP_BLOCK
+            202 JUMP_FORWARD            28 (to 232)
+
+301     >>  204 DUP_TOP
+            206 LOAD_GLOBAL             15 (Exception)
+            208 JUMP_IF_NOT_EXC_MATCH   230
+            210 POP_TOP
+            212 POP_TOP
+            214 POP_TOP
+
+302         216 LOAD_FAST                3 (connection)
+            218 LOAD_METHOD             16 (rollback)
+            220 CALL_METHOD              0
+            222 POP_TOP
+
+303         224 RAISE_VARARGS            0
+            226 POP_EXCEPT
+            228 JUMP_FORWARD             2 (to 232)
+        >>  230 RERAISE
+        >>  232 POP_BLOCK
+
+305         234 LOAD_FAST                3 (connection)
+            236 LOAD_METHOD             17 (close)
+            238 CALL_METHOD              0
+            240 POP_TOP
+            242 JUMP_FORWARD            10 (to 254)
+        >>  244 LOAD_FAST                3 (connection)
+            246 LOAD_METHOD             17 (close)
+            248 CALL_METHOD              0
+            250 POP_TOP
+            252 RERAISE
+
+307     >>  254 LOAD_FAST                9 (inserted)
+
+308         256 LOAD_FAST               10 (updated)
+
+309         258 LOAD_FAST                2 (contact)
+            260 LOAD_ATTR                5 (contact_id)
+
+306         262 LOAD_CONST              12 (('inserted', 'updated', 'contact_id'))
+            264 BUILD_CONST_KEY_MAP      3
+            266 RETURN_VALUE
+
+Disassembly of <code object upsert_contact at 0x1073aa240, file "WeRobotCore/adapters/contact_storage/explicit_path.py", line 312>:
+319           0 LOAD_FAST                0 (self)
+              2 LOAD_METHOD              0 (_account_id)
+              4 LOAD_FAST                1 (account_id)
+              6 CALL_METHOD              1
+              8 STORE_FAST               3 (normalized_account)
+
+320          10 LOAD_GLOBAL              1 (isinstance)
+             12 LOAD_FAST                2 (contact)
+             14 LOAD_GLOBAL              2 (ContactRecord)
+             16 CALL_FUNCTION            2
+             18 POP_JUMP_IF_TRUE        28
+
+321          20 LOAD_GLOBAL              3 (TypeError)
+             22 LOAD_CONST               1 ('contact must be a ContactRecord')
+             24 CALL_FUNCTION            1
+             26 RAISE_VARARGS            1
+
+322     >>   28 LOAD_FAST                2 (contact)
+             30 LOAD_ATTR                4 (account_id)
+             32 LOAD_FAST                3 (normalized_account)
+             34 COMPARE_OP               3 (!=)
+             36 POP_JUMP_IF_FALSE       46
+
+323          38 LOAD_GLOBAL              5 (ValueError)
+             40 LOAD_CONST               2 ('contact crossed account boundaries')
+             42 CALL_FUNCTION            1
+             44 RAISE_VARARGS            1
+
+324     >>   46 LOAD_GLOBAL              6 (asyncio)
+             48 LOAD_METHOD              7 (to_thread)
+
+325          50 LOAD_FAST                0 (self)
+             52 LOAD_ATTR                8 (_upsert_contact_sync)
+
+326          54 LOAD_FAST                3 (normalized_account)
+
+327          56 LOAD_FAST                2 (contact)
+
+324          58 CALL_METHOD              3
+             60 GET_AWAITABLE
+             62 LOAD_CONST               3 (None)
+             64 YIELD_FROM
+             66 RETURN_VALUE
+
+Disassembly of <code object replace_groups at 0x1073aa5b0, file "WeRobotCore/adapters/contact_storage/explicit_path.py", line 330>:
+335           0 LOAD_FAST                0 (self)
+              2 LOAD_METHOD              0 (_account_id)
+              4 LOAD_FAST                1 (account_id)
+              6 CALL_METHOD              1
+              8 STORE_FAST               3 (normalized_account)
+
+336          10 LOAD_FAST                0 (self)
+             12 LOAD_METHOD              1 (_records)
+             14 LOAD_FAST                3 (normalized_account)
+             16 LOAD_FAST                2 (groups)
+             18 LOAD_GLOBAL              2 (GroupRecord)
+             20 CALL_METHOD              3
+             22 STORE_FAST               4 (snapshot)
+
+337          24 LOAD_FAST                4 (snapshot)
+             26 POP_JUMP_IF_TRUE        38
+
+338          28 LOAD_CONST               1 (True)
+             30 LOAD_CONST               2 (0)
+             32 LOAD_CONST               3 (('skipped_empty', 'total_synced'))
+             34 BUILD_CONST_KEY_MAP      2
+             36 RETURN_VALUE
+
+339     >>   38 LOAD_GLOBAL              3 (asyncio)
+             40 LOAD_METHOD              4 (to_thread)
+
+340          42 LOAD_FAST                0 (self)
+             44 LOAD_ATTR                5 (_replace_groups_sync)
+
+341          46 LOAD_FAST                3 (normalized_account)
+
+342          48 LOAD_FAST                4 (snapshot)
+
+339          50 CALL_METHOD              3
+             52 GET_AWAITABLE
+             54 LOAD_CONST               0 (None)
+             56 YIELD_FROM
+             58 RETURN_VALUE
+
+Disassembly of <code object _list_contacts_sync at 0x1073aa710, file "WeRobotCore/adapters/contact_storage/explicit_path.py", line 345>:
+351           0 LOAD_FAST                0 (self)
+              2 LOAD_METHOD              0 (_readable_database)
+              4 CALL_METHOD              0
+              6 POP_JUMP_IF_TRUE        12
+
+352           8 LOAD_CONST               1 (())
+             10 RETURN_VALUE
+
+353     >>   12 LOAD_GLOBAL              1 (closing)
+             14 LOAD_FAST                0 (self)
+             16 LOAD_METHOD              2 (_connect_read_only)
+             18 CALL_METHOD              0
+             20 CALL_FUNCTION            1
+             22 SETUP_WITH              34 (to 58)
+             24 STORE_FAST               4 (connection)
+
+354          26 LOAD_FAST                4 (connection)
+             28 LOAD_METHOD              3 (execute)
+
+355          30 LOAD_CONST               2 ('\n                SELECT wxid, name, tag, is_new, last_updated\n                FROM friends\n                WHERE account_id = ?\n                ORDER BY name COLLATE NOCASE, wxid\n                ')
+
+361          32 LOAD_FAST                1 (account_id)
+             34 BUILD_TUPLE              1
+
+354          36 CALL_METHOD              2
+             38 LOAD_METHOD              4 (fetchall)
+             40 CALL_METHOD              0
+             42 STORE_FAST               5 (rows)
+             44 POP_BLOCK
+             46 LOAD_CONST               0 (None)
+             48 DUP_TOP
+             50 DUP_TOP
+             52 CALL_FUNCTION            3
+             54 POP_TOP
+             56 JUMP_FORWARD            16 (to 74)
+        >>   58 WITH_EXCEPT_START
+             60 POP_JUMP_IF_TRUE        64
+             62 RERAISE
+        >>   64 POP_TOP
+             66 POP_TOP
+             68 POP_TOP
+             70 POP_EXCEPT
+             72 POP_TOP
+
+363     >>   74 BUILD_LIST               0
+             76 STORE_FAST               6 (result)
+
+364          78 LOAD_FAST                3 (keyword)
+             80 LOAD_METHOD              5 (casefold)
+             82 CALL_METHOD              0
+             84 STORE_FAST               7 (normalized_keyword)
+
+365          86 LOAD_FAST                5 (rows)
+             88 GET_ITER
+        >>   90 FOR_ITER               170 (to 262)
+             92 UNPACK_SEQUENCE          5
+             94 STORE_FAST               8 (wxid)
+             96 STORE_FAST               9 (name)
+             98 STORE_FAST              10 (tag_text)
+            100 STORE_FAST              11 (is_new)
+            102 STORE_FAST              12 (last_updated)
+
+366         104 LOAD_GLOBAL              6 (str)
+            106 LOAD_FAST                9 (name)
+            108 JUMP_IF_TRUE_OR_POP    112
+            110 LOAD_CONST               3 ('')
+        >>  112 CALL_FUNCTION            1
+            114 LOAD_METHOD              7 (strip)
+            116 CALL_METHOD              0
+            118 STORE_FAST              13 (normalized_name)
+
+367         120 LOAD_FAST               13 (normalized_name)
+            122 POP_JUMP_IF_TRUE       126
+
+368         124 JUMP_ABSOLUTE           90
+
+369     >>  126 LOAD_GLOBAL              8 (tuple)
+            128 LOAD_CONST               4 (<code object <genexpr> at 0x1073aa2f0, file "WeRobotCore/adapters/contact_storage/explicit_path.py", line 369>)
+            130 LOAD_CONST               5 ('ExplicitPathContactStore._list_contacts_sync.<locals>.<genexpr>')
+            132 MAKE_FUNCTION            0
+
+371         134 LOAD_GLOBAL              6 (str)
+            136 LOAD_FAST               10 (tag_text)
+            138 JUMP_IF_TRUE_OR_POP    142
+            140 LOAD_CONST               3 ('')
+        >>  142 CALL_FUNCTION            1
+            144 LOAD_METHOD              9 (split)
+            146 LOAD_CONST               6 (',')
+            148 CALL_METHOD              1
+
+369         150 GET_ITER
+            152 CALL_FUNCTION            1
+            154 CALL_FUNCTION            1
+            156 STORE_FAST              14 (tags)
+
+374         158 LOAD_FAST                2 (tag)
+            160 POP_JUMP_IF_FALSE      188
+
+375         162 LOAD_FAST                2 (tag)
+            164 LOAD_CONST               7 ('untagged')
+            166 COMPARE_OP               2 (==)
+            168 POP_JUMP_IF_FALSE      178
+
+376         170 LOAD_FAST               14 (tags)
+            172 POP_JUMP_IF_FALSE      188
+
+377         174 JUMP_ABSOLUTE           90
+            176 JUMP_FORWARD            10 (to 188)
+
+378     >>  178 LOAD_FAST                2 (tag)
+            180 LOAD_FAST               14 (tags)
+            182 CONTAINS_OP              1
+            184 POP_JUMP_IF_FALSE      188
+
+379         186 JUMP_ABSOLUTE           90
+
+381     >>  188 LOAD_FAST                7 (normalized_keyword)
+
+380         190 POP_JUMP_IF_FALSE      206
+
+382         192 LOAD_FAST                7 (normalized_keyword)
+            194 LOAD_FAST               13 (normalized_name)
+            196 LOAD_METHOD              5 (casefold)
+            198 CALL_METHOD              0
+            200 CONTAINS_OP              1
+
+380         202 POP_JUMP_IF_FALSE      206
+
+384         204 JUMP_ABSOLUTE           90
+
+385     >>  206 LOAD_FAST                6 (result)
+            208 LOAD_METHOD             10 (append)
+
+387         210 LOAD_GLOBAL              6 (str)
+            212 LOAD_FAST                8 (wxid)
+            214 JUMP_IF_TRUE_OR_POP    218
+            216 LOAD_CONST               3 ('')
+        >>  218 CALL_FUNCTION            1
+
+388         220 LOAD_FAST               13 (normalized_name)
+
+389         222 LOAD_GLOBAL             11 (list)
+            224 LOAD_FAST               14 (tags)
+            226 CALL_FUNCTION            1
+
+390         228 LOAD_GLOBAL             12 (bool)
+            230 LOAD_FAST               11 (is_new)
+            232 CALL_FUNCTION            1
+
+392         234 LOAD_FAST               12 (last_updated)
+            236 LOAD_CONST               0 (None)
+            238 IS_OP                    0
+            240 POP_JUMP_IF_FALSE      246
+            242 LOAD_CONST               0 (None)
+            244 JUMP_FORWARD             6 (to 252)
+        >>  246 LOAD_GLOBAL              6 (str)
+            248 LOAD_FAST               12 (last_updated)
+            250 CALL_FUNCTION            1
+
+386     >>  252 LOAD_CONST               8 (('wxid', 'name', 'tags', 'is_new', 'last_updated'))
+            254 BUILD_CONST_KEY_MAP      5
+
+385         256 CALL_METHOD              1
+            258 POP_TOP
+            260 JUMP_ABSOLUTE           90
+
+396     >>  262 LOAD_GLOBAL              8 (tuple)
+            264 LOAD_FAST                6 (result)
+            266 CALL_FUNCTION            1
+            268 RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x1073aa2f0, file "WeRobotCore/adapters/contact_storage/explicit_path.py", line 369>:
+369           0 LOAD_FAST                0 (.0)
+        >>    2 FOR_ITER                22 (to 26)
+
+371           4 STORE_FAST               1 (item)
+
+372           6 LOAD_FAST                1 (item)
+              8 LOAD_METHOD              0 (strip)
+             10 CALL_METHOD              0
+             12 POP_JUMP_IF_FALSE        2
+
+370          14 LOAD_FAST                1 (item)
+             16 LOAD_METHOD              0 (strip)
+             18 CALL_METHOD              0
+             20 YIELD_VALUE
+             22 POP_TOP
+             24 JUMP_ABSOLUTE            2
+        >>   26 LOAD_CONST               0 (None)
+             28 RETURN_VALUE
+
+Disassembly of <code object list_contacts at 0x1073aa660, file "WeRobotCore/adapters/contact_storage/explicit_path.py", line 398>:
+407           0 LOAD_FAST                0 (self)
+              2 LOAD_METHOD              0 (_account_id)
+              4 LOAD_FAST                1 (account_id)
+              6 CALL_METHOD              1
+              8 STORE_FAST               4 (normalized_account)
+
+408          10 LOAD_GLOBAL              1 (isinstance)
+             12 LOAD_FAST                2 (tag)
+             14 LOAD_GLOBAL              2 (str)
+             16 CALL_FUNCTION            2
+             18 POP_JUMP_IF_FALSE       30
+             20 LOAD_GLOBAL              1 (isinstance)
+             22 LOAD_FAST                3 (keyword)
+             24 LOAD_GLOBAL              2 (str)
+             26 CALL_FUNCTION            2
+             28 POP_JUMP_IF_TRUE        38
+
+409     >>   30 LOAD_GLOBAL              3 (TypeError)
+             32 LOAD_CONST               1 ('tag and keyword must be strings')
+             34 CALL_FUNCTION            1
+             36 RAISE_VARARGS            1
+
+410     >>   38 LOAD_GLOBAL              4 (asyncio)
+             40 LOAD_METHOD              5 (to_thread)
+
+411          42 LOAD_FAST                0 (self)
+             44 LOAD_ATTR                6 (_list_contacts_sync)
+
+412          46 LOAD_FAST                4 (normalized_account)
+
+413          48 LOAD_FAST                2 (tag)
+             50 LOAD_METHOD              7 (strip)
+             52 CALL_METHOD              0
+
+414          54 LOAD_FAST                3 (keyword)
+             56 LOAD_METHOD              7 (strip)
+             58 CALL_METHOD              0
+
+410          60 CALL_METHOD              4
+             62 GET_AWAITABLE
+             64 LOAD_CONST               2 (None)
+             66 YIELD_FROM
+             68 RETURN_VALUE
+
+Disassembly of <code object _list_groups_sync at 0x1073aa7c0, file "WeRobotCore/adapters/contact_storage/explicit_path.py", line 417>:
+422           0 LOAD_FAST                0 (self)
+              2 LOAD_METHOD              0 (_readable_database)
+              4 CALL_METHOD              0
+              6 POP_JUMP_IF_TRUE        12
+
+423           8 LOAD_CONST               1 (())
+             10 RETURN_VALUE
+
+424     >>   12 LOAD_GLOBAL              1 (closing)
+             14 LOAD_FAST                0 (self)
+             16 LOAD_METHOD              2 (_connect_read_only)
+             18 CALL_METHOD              0
+             20 CALL_FUNCTION            1
+             22 SETUP_WITH              34 (to 58)
+             24 STORE_FAST               3 (connection)
+
+425          26 LOAD_FAST                3 (connection)
+             28 LOAD_METHOD              3 (execute)
+
+426          30 LOAD_CONST               2 ('\n                SELECT name, tag, last_updated\n                FROM groups\n                WHERE account_id = ?\n                ORDER BY name COLLATE NOCASE\n                ')
+
+432          32 LOAD_FAST                1 (account_id)
+             34 BUILD_TUPLE              1
+
+425          36 CALL_METHOD              2
+             38 LOAD_METHOD              4 (fetchall)
+             40 CALL_METHOD              0
+             42 STORE_FAST               4 (rows)
+             44 POP_BLOCK
+             46 LOAD_CONST               0 (None)
+             48 DUP_TOP
+             50 DUP_TOP
+             52 CALL_FUNCTION            3
+             54 POP_TOP
+             56 JUMP_FORWARD            16 (to 74)
+        >>   58 WITH_EXCEPT_START
+             60 POP_JUMP_IF_TRUE        64
+             62 RERAISE
+        >>   64 POP_TOP
+             66 POP_TOP
+             68 POP_TOP
+             70 POP_EXCEPT
+             72 POP_TOP
+
+434     >>   74 LOAD_FAST                2 (keyword)
+             76 LOAD_METHOD              5 (casefold)
+             78 CALL_METHOD              0
+             80 STORE_FAST               5 (normalized_keyword)
+
+435          82 BUILD_LIST               0
+             84 STORE_FAST               6 (result)
+
+436          86 LOAD_FAST                4 (rows)
+             88 GET_ITER
+        >>   90 FOR_ITER               106 (to 198)
+             92 UNPACK_SEQUENCE          3
+             94 STORE_FAST               7 (name)
+             96 STORE_FAST               8 (tag)
+             98 STORE_FAST               9 (last_updated)
+
+437         100 LOAD_GLOBAL              6 (str)
+            102 LOAD_FAST                7 (name)
+            104 JUMP_IF_TRUE_OR_POP    108
+            106 LOAD_CONST               3 ('')
+        >>  108 CALL_FUNCTION            1
+            110 LOAD_METHOD              7 (strip)
+            112 CALL_METHOD              0
+            114 STORE_FAST              10 (normalized_name)
+
+438         116 LOAD_FAST               10 (normalized_name)
+            118 POP_JUMP_IF_TRUE       122
+
+439         120 JUMP_ABSOLUTE           90
+
+441     >>  122 LOAD_FAST                5 (normalized_keyword)
+
+440         124 POP_JUMP_IF_FALSE      140
+
+442         126 LOAD_FAST                5 (normalized_keyword)
+            128 LOAD_FAST               10 (normalized_name)
+            130 LOAD_METHOD              5 (casefold)
+            132 CALL_METHOD              0
+            134 CONTAINS_OP              1
+
+440         136 POP_JUMP_IF_FALSE      140
+
+444         138 JUMP_ABSOLUTE           90
+
+445     >>  140 LOAD_GLOBAL              6 (str)
+            142 LOAD_FAST                8 (tag)
+            144 JUMP_IF_TRUE_OR_POP    148
+            146 LOAD_CONST               3 ('')
+        >>  148 CALL_FUNCTION            1
+            150 LOAD_METHOD              7 (strip)
+            152 CALL_METHOD              0
+            154 STORE_FAST              11 (normalized_tag)
+
+446         156 LOAD_FAST                6 (result)
+            158 LOAD_METHOD              8 (append)
+
+448         160 LOAD_FAST               10 (normalized_name)
+
+449         162 LOAD_FAST               11 (normalized_tag)
+
+450         164 LOAD_FAST               11 (normalized_tag)
+            166 JUMP_IF_TRUE_OR_POP    170
+            168 LOAD_CONST               4 ('group')
+
+452     >>  170 LOAD_FAST                9 (last_updated)
+            172 LOAD_CONST               0 (None)
+            174 IS_OP                    0
+            176 POP_JUMP_IF_FALSE      182
+            178 LOAD_CONST               0 (None)
+            180 JUMP_FORWARD             6 (to 188)
+        >>  182 LOAD_GLOBAL              6 (str)
+            184 LOAD_FAST                9 (last_updated)
+            186 CALL_FUNCTION            1
+
+447     >>  188 LOAD_CONST               5 (('name', 'tag', 'type', 'last_updated'))
+            190 BUILD_CONST_KEY_MAP      4
+
+446         192 CALL_METHOD              1
+            194 POP_TOP
+            196 JUMP_ABSOLUTE           90
+
+456     >>  198 LOAD_GLOBAL              9 (tuple)
+            200 LOAD_FAST                6 (result)
+            202 CALL_FUNCTION            1
+            204 RETURN_VALUE
+
+Disassembly of <code object list_groups at 0x1073aaa80, file "WeRobotCore/adapters/contact_storage/explicit_path.py", line 458>:
+466           0 LOAD_FAST                0 (self)
+              2 LOAD_METHOD              0 (_account_id)
+              4 LOAD_FAST                1 (account_id)
+              6 CALL_METHOD              1
+              8 STORE_FAST               3 (normalized_account)
+
+467          10 LOAD_GLOBAL              1 (isinstance)
+             12 LOAD_FAST                2 (keyword)
+             14 LOAD_GLOBAL              2 (str)
+             16 CALL_FUNCTION            2
+             18 POP_JUMP_IF_TRUE        28
+
+468          20 LOAD_GLOBAL              3 (TypeError)
+             22 LOAD_CONST               1 ('keyword must be a string')
+             24 CALL_FUNCTION            1
+             26 RAISE_VARARGS            1
+
+469     >>   28 LOAD_GLOBAL              4 (asyncio)
+             30 LOAD_METHOD              5 (to_thread)
+
+470          32 LOAD_FAST                0 (self)
+             34 LOAD_ATTR                6 (_list_groups_sync)
+
+471          36 LOAD_FAST                3 (normalized_account)
+
+472          38 LOAD_FAST                2 (keyword)
+             40 LOAD_METHOD              7 (strip)
+             42 CALL_METHOD              0
+
+469          44 CALL_METHOD              3
+             46 GET_AWAITABLE
+             48 LOAD_CONST               2 (None)
+             50 YIELD_FROM
+             52 RETURN_VALUE
+
+Disassembly of <code object _update_group_tags_sync at 0x1073ab190, file "WeRobotCore/adapters/contact_storage/explicit_path.py", line 475>:
+481           0 LOAD_FAST                0 (self)
+              2 LOAD_METHOD              0 (_connect_for_write)
+              4 CALL_METHOD              0
+              6 STORE_FAST               4 (connection)
+
+482           8 SETUP_FINALLY          182 (to 192)
+             10 SETUP_FINALLY          140 (to 152)
+
+483          12 LOAD_GLOBAL              1 (datetime)
+             14 LOAD_METHOD              2 (now)
+             16 CALL_METHOD              0
+             18 LOAD_ATTR                3 (isoformat)
+             20 LOAD_CONST               1 ('seconds')
+             22 LOAD_CONST               2 (('timespec',))
+             24 CALL_FUNCTION_KW         1
+             26 STORE_DEREF              2 (now)
+
+484          28 LOAD_FAST                4 (connection)
+             30 LOAD_METHOD              4 (execute)
+             32 LOAD_CONST               3 ('BEGIN IMMEDIATE')
+             34 CALL_METHOD              1
+             36 POP_TOP
+
+485          38 LOAD_CONST               4 (<code object <setcomp> at 0x1073aa920, file "WeRobotCore/adapters/contact_storage/explicit_path.py", line 485>)
+             40 LOAD_CONST               5 ('ExplicitPathContactStore._update_group_tags_sync.<locals>.<setcomp>')
+             42 MAKE_FUNCTION            0
+
+487          44 LOAD_FAST                4 (connection)
+             46 LOAD_METHOD              4 (execute)
+
+488          48 LOAD_CONST               6 ('SELECT name FROM groups WHERE account_id = ?')
+
+489          50 LOAD_DEREF               0 (account_id)
+             52 BUILD_TUPLE              1
+
+487          54 CALL_METHOD              2
+             56 LOAD_METHOD              5 (fetchall)
+             58 CALL_METHOD              0
+
+485          60 GET_ITER
+             62 CALL_FUNCTION            1
+             64 STORE_DEREF              1 (existing)
+
+493          66 LOAD_GLOBAL              6 (tuple)
+             68 LOAD_CLOSURE             1 (existing)
+             70 BUILD_TUPLE              1
+             72 LOAD_CONST               7 (<code object <genexpr> at 0x1073aa9d0, file "WeRobotCore/adapters/contact_storage/explicit_path.py", line 493>)
+             74 LOAD_CONST               8 ('ExplicitPathContactStore._update_group_tags_sync.<locals>.<genexpr>')
+             76 MAKE_FUNCTION            8 (closure)
+             78 LOAD_FAST                2 (group_names)
+             80 GET_ITER
+             82 CALL_FUNCTION            1
+             84 CALL_FUNCTION            1
+             86 STORE_FAST               5 (to_update)
+
+494          88 LOAD_GLOBAL              6 (tuple)
+             90 LOAD_CLOSURE             1 (existing)
+             92 BUILD_TUPLE              1
+             94 LOAD_CONST               9 (<code object <genexpr> at 0x1073ab030, file "WeRobotCore/adapters/contact_storage/explicit_path.py", line 494>)
+             96 LOAD_CONST               8 ('ExplicitPathContactStore._update_group_tags_sync.<locals>.<genexpr>')
+             98 MAKE_FUNCTION            8 (closure)
+            100 LOAD_FAST                2 (group_names)
+            102 GET_ITER
+            104 CALL_FUNCTION            1
+            106 CALL_FUNCTION            1
+            108 STORE_FAST               6 (not_found)
+
+495         110 LOAD_FAST                4 (connection)
+            112 LOAD_METHOD              7 (executemany)
+
+496         114 LOAD_CONST              10 ('\n                UPDATE groups\n                SET tag = ?, last_updated = ?\n                WHERE account_id = ? AND name = ?\n                ')
+
+501         116 LOAD_CLOSURE             0 (account_id)
+            118 LOAD_CLOSURE             2 (now)
+            120 LOAD_CLOSURE             3 (tag)
+            122 BUILD_TUPLE              3
+            124 LOAD_CONST              11 (<code object <genexpr> at 0x1073ab0e0, file "WeRobotCore/adapters/contact_storage/explicit_path.py", line 501>)
+            126 LOAD_CONST               8 ('ExplicitPathContactStore._update_group_tags_sync.<locals>.<genexpr>')
+            128 MAKE_FUNCTION            8 (closure)
+            130 LOAD_FAST                5 (to_update)
+            132 GET_ITER
+            134 CALL_FUNCTION            1
+
+495         136 CALL_METHOD              2
+            138 POP_TOP
+
+503         140 LOAD_FAST                4 (connection)
+            142 LOAD_METHOD              8 (commit)
+            144 CALL_METHOD              0
+            146 POP_TOP
+            148 POP_BLOCK
+            150 JUMP_FORWARD            28 (to 180)
+
+504     >>  152 DUP_TOP
+            154 LOAD_GLOBAL              9 (Exception)
+            156 JUMP_IF_NOT_EXC_MATCH   178
+            158 POP_TOP
+            160 POP_TOP
+            162 POP_TOP
+
+505         164 LOAD_FAST                4 (connection)
+            166 LOAD_METHOD             10 (rollback)
+            168 CALL_METHOD              0
+            170 POP_TOP
+
+506         172 RAISE_VARARGS            0
+            174 POP_EXCEPT
+            176 JUMP_FORWARD             2 (to 180)
+        >>  178 RERAISE
+        >>  180 POP_BLOCK
+
+508         182 LOAD_FAST                4 (connection)
+            184 LOAD_METHOD             11 (close)
+            186 CALL_METHOD              0
+            188 POP_TOP
+            190 JUMP_FORWARD            10 (to 202)
+        >>  192 LOAD_FAST                4 (connection)
+            194 LOAD_METHOD             11 (close)
+            196 CALL_METHOD              0
+            198 POP_TOP
+            200 RERAISE
+
+510     >>  202 LOAD_CONST              12 (True)
+
+511         204 LOAD_GLOBAL             12 (len)
+            206 LOAD_FAST                5 (to_update)
+            208 CALL_FUNCTION            1
+
+512         210 LOAD_GLOBAL             13 (list)
+            212 LOAD_FAST                6 (not_found)
+            214 CALL_FUNCTION            1
+
+509         216 LOAD_CONST              13 (('success', 'updated', 'not_found'))
+            218 BUILD_CONST_KEY_MAP      3
+            220 RETURN_VALUE
+
+Disassembly of <code object <setcomp> at 0x1073aa920, file "WeRobotCore/adapters/contact_storage/explicit_path.py", line 485>:
+485           0 BUILD_SET                0
+              2 LOAD_FAST                0 (.0)
+        >>    4 FOR_ITER                28 (to 34)
+
+487           6 STORE_FAST               1 (row)
+
+491           8 LOAD_FAST                1 (row)
+             10 POP_JUMP_IF_FALSE        4
+             12 LOAD_FAST                1 (row)
+             14 LOAD_CONST               0 (0)
+             16 BINARY_SUBSCR
+             18 POP_JUMP_IF_FALSE        4
+
+486          20 LOAD_GLOBAL              0 (str)
+             22 LOAD_FAST                1 (row)
+             24 LOAD_CONST               0 (0)
+             26 BINARY_SUBSCR
+             28 CALL_FUNCTION            1
+             30 SET_ADD                  2
+             32 JUMP_ABSOLUTE            4
+        >>   34 RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x1073aa9d0, file "WeRobotCore/adapters/contact_storage/explicit_path.py", line 493>:
+493           0 LOAD_FAST                0 (.0)
+        >>    2 FOR_ITER                18 (to 22)
+              4 STORE_FAST               1 (name)
+              6 LOAD_FAST                1 (name)
+              8 LOAD_DEREF               0 (existing)
+             10 CONTAINS_OP              0
+             12 POP_JUMP_IF_FALSE        2
+             14 LOAD_FAST                1 (name)
+             16 YIELD_VALUE
+             18 POP_TOP
+             20 JUMP_ABSOLUTE            2
+        >>   22 LOAD_CONST               0 (None)
+             24 RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x1073ab030, file "WeRobotCore/adapters/contact_storage/explicit_path.py", line 494>:
+494           0 LOAD_FAST                0 (.0)
+        >>    2 FOR_ITER                18 (to 22)
+              4 STORE_FAST               1 (name)
+              6 LOAD_FAST                1 (name)
+              8 LOAD_DEREF               0 (existing)
+             10 CONTAINS_OP              1
+             12 POP_JUMP_IF_FALSE        2
+             14 LOAD_FAST                1 (name)
+             16 YIELD_VALUE
+             18 POP_TOP
+             20 JUMP_ABSOLUTE            2
+        >>   22 LOAD_CONST               0 (None)
+             24 RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x1073ab0e0, file "WeRobotCore/adapters/contact_storage/explicit_path.py", line 501>:
+501           0 LOAD_FAST                0 (.0)
+        >>    2 FOR_ITER                18 (to 22)
+              4 STORE_FAST               1 (name)
+              6 LOAD_DEREF               2 (tag)
+              8 LOAD_DEREF               1 (now)
+             10 LOAD_DEREF               0 (account_id)
+             12 LOAD_FAST                1 (name)
+             14 BUILD_TUPLE              4
+             16 YIELD_VALUE
+             18 POP_TOP
+             20 JUMP_ABSOLUTE            2
+        >>   22 LOAD_CONST               0 (None)
+             24 RETURN_VALUE
+
+Disassembly of <code object update_group_tags at 0x1073ab240, file "WeRobotCore/adapters/contact_storage/explicit_path.py", line 515>:
+523           0 LOAD_FAST                0 (self)
+              2 LOAD_METHOD              0 (_account_id)
+              4 LOAD_FAST                1 (account_id)
+              6 CALL_METHOD              1
+              8 STORE_FAST               4 (normalized_account)
+
+524          10 LOAD_GLOBAL              1 (isinstance)
+             12 LOAD_FAST                2 (group_names)
+             14 LOAD_GLOBAL              2 (str)
+             16 LOAD_GLOBAL              3 (bytes)
+             18 BUILD_TUPLE              2
+             20 CALL_FUNCTION            2
+             22 POP_JUMP_IF_TRUE        34
+             24 LOAD_GLOBAL              1 (isinstance)
+
+525          26 LOAD_FAST                2 (group_names)
+
+526          28 LOAD_GLOBAL              4 (Sequence)
+
+524          30 CALL_FUNCTION            2
+             32 POP_JUMP_IF_TRUE        42
+
+528     >>   34 LOAD_GLOBAL              5 (TypeError)
+             36 LOAD_CONST               1 ('group_names must be a sequence')
+             38 CALL_FUNCTION            1
+             40 RAISE_VARARGS            1
+
+529     >>   42 LOAD_GLOBAL              1 (isinstance)
+             44 LOAD_FAST                3 (tag)
+             46 LOAD_GLOBAL              2 (str)
+             48 CALL_FUNCTION            2
+             50 POP_JUMP_IF_FALSE       60
+             52 LOAD_FAST                3 (tag)
+             54 LOAD_METHOD              6 (strip)
+             56 CALL_METHOD              0
+             58 POP_JUMP_IF_TRUE        68
+
+530     >>   60 LOAD_GLOBAL              7 (ValueError)
+             62 LOAD_CONST               2 ('tag must be a non-empty string')
+             64 CALL_FUNCTION            1
+             66 RAISE_VARARGS            1
+
+531     >>   68 BUILD_LIST               0
+             70 STORE_FAST               5 (ordered_names)
+
+532          72 LOAD_GLOBAL              8 (set)
+             74 CALL_FUNCTION            0
+             76 STORE_FAST               6 (seen)
+
+533          78 LOAD_FAST                2 (group_names)
+             80 GET_ITER
+        >>   82 FOR_ITER                62 (to 146)
+             84 STORE_FAST               7 (value)
+
+534          86 LOAD_GLOBAL              1 (isinstance)
+             88 LOAD_FAST                7 (value)
+             90 LOAD_GLOBAL              2 (str)
+             92 CALL_FUNCTION            2
+             94 POP_JUMP_IF_TRUE       104
+
+535          96 LOAD_GLOBAL              5 (TypeError)
+             98 LOAD_CONST               3 ('group names must be strings')
+            100 CALL_FUNCTION            1
+            102 RAISE_VARARGS            1
+
+536     >>  104 LOAD_FAST                7 (value)
+            106 LOAD_METHOD              6 (strip)
+            108 CALL_METHOD              0
+            110 STORE_FAST               8 (name)
+
+537         112 LOAD_FAST                8 (name)
+            114 POP_JUMP_IF_FALSE       82
+            116 LOAD_FAST                8 (name)
+            118 LOAD_FAST                6 (seen)
+            120 CONTAINS_OP              1
+            122 POP_JUMP_IF_FALSE       82
+
+538         124 LOAD_FAST                6 (seen)
+            126 LOAD_METHOD              9 (add)
+            128 LOAD_FAST                8 (name)
+            130 CALL_METHOD              1
+            132 POP_TOP
+
+539         134 LOAD_FAST                5 (ordered_names)
+            136 LOAD_METHOD             10 (append)
+            138 LOAD_FAST                8 (name)
+            140 CALL_METHOD              1
+            142 POP_TOP
+            144 JUMP_ABSOLUTE           82
+
+540     >>  146 LOAD_FAST                5 (ordered_names)
+            148 POP_JUMP_IF_TRUE       158
+
+541         150 LOAD_GLOBAL              7 (ValueError)
+            152 LOAD_CONST               4 ('at least one group name is required')
+            154 CALL_FUNCTION            1
+            156 RAISE_VARARGS            1
+
+542     >>  158 LOAD_GLOBAL             11 (asyncio)
+            160 LOAD_METHOD             12 (to_thread)
+
+543         162 LOAD_FAST                0 (self)
+            164 LOAD_ATTR               13 (_update_group_tags_sync)
+
+544         166 LOAD_FAST                4 (normalized_account)
+
+545         168 LOAD_GLOBAL             14 (tuple)
+            170 LOAD_FAST                5 (ordered_names)
+            172 CALL_FUNCTION            1
+
+546         174 LOAD_FAST                3 (tag)
+            176 LOAD_METHOD              6 (strip)
+            178 CALL_METHOD              0
+
+542         180 CALL_METHOD              4
+            182 GET_AWAITABLE
+            184 LOAD_CONST               5 (None)
+            186 YIELD_FROM
+            188 RETURN_VALUE
+
+Disassembly of <code object _tag_statistics_sync at 0x1073ab500, file "WeRobotCore/adapters/contact_storage/explicit_path.py", line 549>:
+555           0 LOAD_FAST                0 (self)
+              2 LOAD_METHOD              0 (_readable_database)
+              4 CALL_METHOD              0
+              6 POP_JUMP_IF_TRUE        12
+
+556           8 LOAD_CONST               1 (())
+             10 RETURN_VALUE
+
+557     >>   12 LOAD_FAST                2 (groups)
+             14 POP_JUMP_IF_FALSE       20
+             16 LOAD_CONST               2 ('groups')
+             18 JUMP_FORWARD             2 (to 22)
+        >>   20 LOAD_CONST               3 ('friends')
+        >>   22 STORE_FAST               3 (table)
+
+558          24 LOAD_GLOBAL              1 (closing)
+             26 LOAD_FAST                0 (self)
+             28 LOAD_METHOD              2 (_connect_read_only)
+             30 CALL_METHOD              0
+             32 CALL_FUNCTION            1
+             34 SETUP_WITH              40 (to 76)
+             36 STORE_FAST               4 (connection)
+
+559          38 LOAD_FAST                4 (connection)
+             40 LOAD_METHOD              3 (execute)
+
+560          42 LOAD_CONST               4 ('SELECT tag FROM {} WHERE account_id = ?')
+             44 LOAD_METHOD              4 (format)
+             46 LOAD_FAST                3 (table)
+             48 CALL_METHOD              1
+
+561          50 LOAD_FAST                1 (account_id)
+             52 BUILD_TUPLE              1
+
+559          54 CALL_METHOD              2
+             56 LOAD_METHOD              5 (fetchall)
+             58 CALL_METHOD              0
+             60 STORE_FAST               5 (rows)
+             62 POP_BLOCK
+             64 LOAD_CONST               0 (None)
+             66 DUP_TOP
+             68 DUP_TOP
+             70 CALL_FUNCTION            3
+             72 POP_TOP
+             74 JUMP_FORWARD            16 (to 92)
+        >>   76 WITH_EXCEPT_START
+             78 POP_JUMP_IF_TRUE        82
+             80 RERAISE
+        >>   82 POP_TOP
+             84 POP_TOP
+             86 POP_TOP
+             88 POP_EXCEPT
+             90 POP_TOP
+
+563     >>   92 BUILD_MAP                0
+             94 STORE_FAST               6 (counts)
+
+564          96 LOAD_CONST               5 (0)
+             98 STORE_FAST               7 (untagged)
+
+565         100 LOAD_FAST                5 (rows)
+            102 GET_ITER
+        >>  104 FOR_ITER                88 (to 194)
+            106 STORE_FAST               8 (row)
+
+566         108 LOAD_GLOBAL              6 (tuple)
+            110 LOAD_CONST               6 (<code object <genexpr> at 0x1073ab2f0, file "WeRobotCore/adapters/contact_storage/explicit_path.py", line 566>)
+            112 LOAD_CONST               7 ('ExplicitPathContactStore._tag_statistics_sync.<locals>.<genexpr>')
+            114 MAKE_FUNCTION            0
+
+568         116 LOAD_GLOBAL              7 (str)
+            118 LOAD_FAST                8 (row)
+            120 LOAD_CONST               5 (0)
+            122 BINARY_SUBSCR
+            124 JUMP_IF_TRUE_OR_POP    128
+            126 LOAD_CONST               8 ('')
+        >>  128 CALL_FUNCTION            1
+            130 LOAD_METHOD              8 (split)
+            132 LOAD_CONST               9 (',')
+            134 CALL_METHOD              1
+
+566         136 GET_ITER
+            138 CALL_FUNCTION            1
+            140 CALL_FUNCTION            1
+            142 STORE_FAST               9 (tags)
+
+571         144 LOAD_FAST                9 (tags)
+            146 POP_JUMP_IF_TRUE       158
+
+572         148 LOAD_FAST                7 (untagged)
+            150 LOAD_CONST              10 (1)
+            152 INPLACE_ADD
+            154 STORE_FAST               7 (untagged)
+
+573         156 JUMP_ABSOLUTE          104
+
+574     >>  158 LOAD_GLOBAL              9 (set)
+            160 LOAD_FAST                9 (tags)
+            162 CALL_FUNCTION            1
+            164 GET_ITER
+        >>  166 FOR_ITER                24 (to 192)
+            168 STORE_FAST              10 (item)
+
+575         170 LOAD_FAST                6 (counts)
+            172 LOAD_METHOD             10 (get)
+            174 LOAD_FAST               10 (item)
+            176 LOAD_CONST               5 (0)
+            178 CALL_METHOD              2
+            180 LOAD_CONST              10 (1)
+            182 BINARY_ADD
+            184 LOAD_FAST                6 (counts)
+            186 LOAD_FAST               10 (item)
+            188 STORE_SUBSCR
+            190 JUMP_ABSOLUTE          166
+        >>  192 JUMP_ABSOLUTE          104
+
+578     >>  194 LOAD_CONST              11 ('untagged')
+
+579         196 LOAD_FAST                2 (groups)
+            198 POP_JUMP_IF_FALSE      204
+            200 LOAD_CONST              12 ('无标签')
+            202 JUMP_FORWARD             2 (to 206)
+        >>  204 LOAD_CONST              13 ('未分组')
+
+580     >>  206 LOAD_FAST                7 (untagged)
+
+577         208 LOAD_CONST              14 (('id', 'name', 'count'))
+            210 BUILD_CONST_KEY_MAP      3
+
+576         212 BUILD_LIST               1
+            214 STORE_FAST              11 (result)
+
+583         216 LOAD_FAST               11 (result)
+            218 LOAD_METHOD             11 (extend)
+            220 LOAD_CONST              15 (<code object <genexpr> at 0x1073ab3a0, file "WeRobotCore/adapters/contact_storage/explicit_path.py", line 583>)
+            222 LOAD_CONST               7 ('ExplicitPathContactStore._tag_statistics_sync.<locals>.<genexpr>')
+            224 MAKE_FUNCTION            0
+
+585         226 LOAD_GLOBAL             12 (sorted)
+
+586         228 LOAD_FAST                6 (counts)
+            230 LOAD_METHOD             13 (items)
+            232 CALL_METHOD              0
+
+587         234 LOAD_CONST              16 (<code object <lambda> at 0x1073ab450, file "WeRobotCore/adapters/contact_storage/explicit_path.py", line 587>)
+            236 LOAD_CONST              17 ('ExplicitPathContactStore._tag_statistics_sync.<locals>.<lambda>')
+            238 MAKE_FUNCTION            0
+
+585         240 LOAD_CONST              18 (('key',))
+            242 CALL_FUNCTION_KW         2
+
+583         244 GET_ITER
+            246 CALL_FUNCTION            1
+            248 CALL_METHOD              1
+            250 POP_TOP
+
+590         252 LOAD_GLOBAL              6 (tuple)
+            254 LOAD_FAST               11 (result)
+            256 CALL_FUNCTION            1
+            258 RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x1073ab2f0, file "WeRobotCore/adapters/contact_storage/explicit_path.py", line 566>:
+566           0 LOAD_FAST                0 (.0)
+        >>    2 FOR_ITER                22 (to 26)
+
+568           4 STORE_FAST               1 (item)
+
+569           6 LOAD_FAST                1 (item)
+              8 LOAD_METHOD              0 (strip)
+             10 CALL_METHOD              0
+             12 POP_JUMP_IF_FALSE        2
+
+567          14 LOAD_FAST                1 (item)
+             16 LOAD_METHOD              0 (strip)
+             18 CALL_METHOD              0
+             20 YIELD_VALUE
+             22 POP_TOP
+             24 JUMP_ABSOLUTE            2
+        >>   26 LOAD_CONST               0 (None)
+             28 RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x1073ab3a0, file "WeRobotCore/adapters/contact_storage/explicit_path.py", line 583>:
+583           0 LOAD_FAST                0 (.0)
+        >>    2 FOR_ITER                22 (to 26)
+
+585           4 UNPACK_SEQUENCE          2
+              6 STORE_FAST               1 (name)
+              8 STORE_FAST               2 (count)
+
+584          10 LOAD_FAST                1 (name)
+             12 LOAD_FAST                1 (name)
+             14 LOAD_FAST                2 (count)
+             16 LOAD_CONST               0 (('id', 'name', 'count'))
+             18 BUILD_CONST_KEY_MAP      3
+             20 YIELD_VALUE
+             22 POP_TOP
+             24 JUMP_ABSOLUTE            2
+        >>   26 LOAD_CONST               1 (None)
+             28 RETURN_VALUE
+
+Disassembly of <code object <lambda> at 0x1073ab450, file "WeRobotCore/adapters/contact_storage/explicit_path.py", line 587>:
+587           0 LOAD_FAST                0 (item)
+              2 LOAD_CONST               1 (1)
+              4 BINARY_SUBSCR
+              6 UNARY_NEGATIVE
+              8 LOAD_FAST                0 (item)
+             10 LOAD_CONST               2 (0)
+             12 BINARY_SUBSCR
+             14 BUILD_TUPLE              2
+             16 RETURN_VALUE
+
+Disassembly of <code object list_contact_tags at 0x1073ab5b0, file "WeRobotCore/adapters/contact_storage/explicit_path.py", line 592>:
+596           0 LOAD_FAST                0 (self)
+              2 LOAD_METHOD              0 (_account_id)
+              4 LOAD_FAST                1 (account_id)
+              6 CALL_METHOD              1
+              8 STORE_FAST               2 (normalized_account)
+
+597          10 LOAD_GLOBAL              1 (asyncio)
+             12 LOAD_ATTR                2 (to_thread)
+
+598          14 LOAD_FAST                0 (self)
+             16 LOAD_ATTR                3 (_tag_statistics_sync)
+
+599          18 LOAD_FAST                2 (normalized_account)
+
+600          20 LOAD_CONST               1 (False)
+
+597          22 LOAD_CONST               2 (('groups',))
+             24 CALL_FUNCTION_KW         3
+             26 GET_AWAITABLE
+             28 LOAD_CONST               0 (None)
+             30 YIELD_FROM
+             32 RETURN_VALUE
+
+Disassembly of <code object list_group_tags at 0x1073ab660, file "WeRobotCore/adapters/contact_storage/explicit_path.py", line 603>:
+607           0 LOAD_FAST                0 (self)
+              2 LOAD_METHOD              0 (_account_id)
+              4 LOAD_FAST                1 (account_id)
+              6 CALL_METHOD              1
+              8 STORE_FAST               2 (normalized_account)
+
+608          10 LOAD_GLOBAL              1 (asyncio)
+             12 LOAD_ATTR                2 (to_thread)
+
+609          14 LOAD_FAST                0 (self)
+             16 LOAD_ATTR                3 (_tag_statistics_sync)
+
+610          18 LOAD_FAST                2 (normalized_account)
+
+611          20 LOAD_CONST               1 (True)
+
+608          22 LOAD_CONST               2 (('groups',))
+             24 CALL_FUNCTION_KW         3
+             26 GET_AWAITABLE
+             28 LOAD_CONST               0 (None)
+             30 YIELD_FROM
+             32 RETURN_VALUE
+
+Disassembly of <code object _counts_sync at 0x1073ab710, file "WeRobotCore/adapters/contact_storage/explicit_path.py", line 614>:
+615           0 LOAD_FAST                0 (self)
+              2 LOAD_METHOD              0 (_readable_database)
+              4 CALL_METHOD              0
+              6 POP_JUMP_IF_TRUE        18
+
+616           8 LOAD_CONST               1 (0)
+             10 LOAD_CONST               1 (0)
+             12 LOAD_CONST               2 (('friend_count', 'group_count'))
+             14 BUILD_CONST_KEY_MAP      2
+             16 RETURN_VALUE
+
+617     >>   18 LOAD_GLOBAL              1 (closing)
+             20 LOAD_FAST                0 (self)
+             22 LOAD_METHOD              2 (_connect_read_only)
+             24 CALL_METHOD              0
+             26 CALL_FUNCTION            1
+             28 SETUP_WITH              60 (to 90)
+             30 STORE_FAST               2 (connection)
+
+618          32 LOAD_FAST                2 (connection)
+             34 LOAD_METHOD              3 (execute)
+
+619          36 LOAD_CONST               3 ('SELECT COUNT(*) FROM friends WHERE account_id = ?')
+
+620          38 LOAD_FAST                1 (account_id)
+             40 BUILD_TUPLE              1
+
+618          42 CALL_METHOD              2
+             44 LOAD_METHOD              4 (fetchone)
+             46 CALL_METHOD              0
+
+621          48 LOAD_CONST               1 (0)
+
+618          50 BINARY_SUBSCR
+             52 STORE_FAST               3 (friend_count)
+
+622          54 LOAD_FAST                2 (connection)
+             56 LOAD_METHOD              3 (execute)
+
+623          58 LOAD_CONST               4 ('SELECT COUNT(*) FROM groups WHERE account_id = ?')
+
+624          60 LOAD_FAST                1 (account_id)
+             62 BUILD_TUPLE              1
+
+622          64 CALL_METHOD              2
+             66 LOAD_METHOD              4 (fetchone)
+             68 CALL_METHOD              0
+
+625          70 LOAD_CONST               1 (0)
+
+622          72 BINARY_SUBSCR
+             74 STORE_FAST               4 (group_count)
+             76 POP_BLOCK
+             78 LOAD_CONST               0 (None)
+             80 DUP_TOP
+             82 DUP_TOP
+             84 CALL_FUNCTION            3
+             86 POP_TOP
+             88 JUMP_FORWARD            16 (to 106)
+        >>   90 WITH_EXCEPT_START
+             92 POP_JUMP_IF_TRUE        96
+             94 RERAISE
+        >>   96 POP_TOP
+             98 POP_TOP
+            100 POP_TOP
+            102 POP_EXCEPT
+            104 POP_TOP
+
+627     >>  106 LOAD_GLOBAL              5 (int)
+            108 LOAD_FAST                3 (friend_count)
+            110 CALL_FUNCTION            1
+
+628         112 LOAD_GLOBAL              5 (int)
+            114 LOAD_FAST                4 (group_count)
+            116 CALL_FUNCTION            1
+
+626         118 LOAD_CONST               2 (('friend_count', 'group_count'))
+            120 BUILD_CONST_KEY_MAP      2
+            122 RETURN_VALUE
+
+Disassembly of <code object get_counts at 0x1073ab7c0, file "WeRobotCore/adapters/contact_storage/explicit_path.py", line 631>:
+632           0 LOAD_FAST                0 (self)
+              2 LOAD_METHOD              0 (_account_id)
+              4 LOAD_FAST                1 (account_id)
+              6 CALL_METHOD              1
+              8 STORE_FAST               2 (normalized_account)
+
+633          10 LOAD_GLOBAL              1 (asyncio)
+             12 LOAD_METHOD              2 (to_thread)
+             14 LOAD_FAST                0 (self)
+             16 LOAD_ATTR                3 (_counts_sync)
+             18 LOAD_FAST                2 (normalized_account)
+             20 CALL_METHOD              2
+             22 GET_AWAITABLE
+             24 LOAD_CONST               0 (None)
+             26 YIELD_FROM
+             28 RETURN_VALUE
+
+Disassembly of <code object get_contact_tags at 0x1073ab9d0, file "WeRobotCore/adapters/contact_storage/explicit_path.py", line 635>:
+636           0 LOAD_FAST                0 (self)
+              2 LOAD_METHOD              0 (_account_id)
+              4 LOAD_FAST                1 (account_id)
+              6 CALL_METHOD              1
+              8 STORE_FAST               3 (normalized_account)
+
+637          10 LOAD_GLOBAL              1 (isinstance)
+             12 LOAD_FAST                2 (name)
+             14 LOAD_GLOBAL              2 (str)
+             16 CALL_FUNCTION            2
+             18 POP_JUMP_IF_FALSE       28
+             20 LOAD_FAST                2 (name)
+             22 LOAD_METHOD              3 (strip)
+             24 CALL_METHOD              0
+             26 POP_JUMP_IF_TRUE        32
+
+638     >>   28 LOAD_CONST               1 (())
+             30 RETURN_VALUE
+
+639     >>   32 LOAD_FAST                0 (self)
+             34 LOAD_METHOD              4 (_readable_database)
+             36 CALL_METHOD              0
+             38 POP_JUMP_IF_TRUE        44
+
+640          40 LOAD_CONST               1 (())
+             42 RETURN_VALUE
+
+641     >>   44 SETUP_FINALLY           90 (to 136)
+
+642          46 LOAD_GLOBAL              5 (closing)
+
+643          48 LOAD_GLOBAL              6 (sqlite3)
+             50 LOAD_ATTR                7 (connect)
+             52 LOAD_GLOBAL              2 (str)
+             54 LOAD_FAST                0 (self)
+             56 LOAD_ATTR                8 (_database_path)
+             58 CALL_FUNCTION            1
+             60 LOAD_CONST               2 (5.0)
+             62 LOAD_CONST               3 (('timeout',))
+             64 CALL_FUNCTION_KW         2
+
+642          66 CALL_FUNCTION            1
+             68 SETUP_WITH              46 (to 116)
+
+644          70 STORE_FAST               4 (connection)
+
+645          72 LOAD_FAST                4 (connection)
+             74 LOAD_METHOD              9 (execute)
+
+646          76 LOAD_CONST               4 ("\n                    SELECT name, tag FROM friends\n                    WHERE account_id = ? AND (\n                        (remark IS NOT NULL AND remark != '' AND remark = ?)\n                        OR ((remark IS NULL OR remark = '') AND nickname = ?)\n                    )\n                    LIMIT 1\n                    ")
+
+654          78 LOAD_FAST                3 (normalized_account)
+             80 LOAD_FAST                2 (name)
+             82 LOAD_METHOD              3 (strip)
+             84 CALL_METHOD              0
+             86 LOAD_FAST                2 (name)
+             88 LOAD_METHOD              3 (strip)
+             90 CALL_METHOD              0
+             92 BUILD_TUPLE              3
+
+645          94 CALL_METHOD              2
+             96 LOAD_METHOD             10 (fetchone)
+             98 CALL_METHOD              0
+            100 STORE_DEREF              0 (row)
+            102 POP_BLOCK
+            104 LOAD_CONST               0 (None)
+            106 DUP_TOP
+            108 DUP_TOP
+            110 CALL_FUNCTION            3
+            112 POP_TOP
+            114 JUMP_FORWARD            16 (to 132)
+        >>  116 WITH_EXCEPT_START
+            118 POP_JUMP_IF_TRUE       122
+            120 RERAISE
+        >>  122 POP_TOP
+            124 POP_TOP
+            126 POP_TOP
+            128 POP_EXCEPT
+            130 POP_TOP
+        >>  132 POP_BLOCK
+            134 JUMP_FORWARD            26 (to 162)
+
+656     >>  136 DUP_TOP
+            138 LOAD_GLOBAL             11 (OSError)
+            140 LOAD_GLOBAL              6 (sqlite3)
+            142 LOAD_ATTR               12 (Error)
+            144 BUILD_TUPLE              2
+            146 JUMP_IF_NOT_EXC_MATCH   160
+            148 POP_TOP
+            150 POP_TOP
+            152 POP_TOP
+
+657         154 POP_EXCEPT
+            156 LOAD_CONST               1 (())
+            158 RETURN_VALUE
+        >>  160 RERAISE
+
+658     >>  162 LOAD_DEREF               0 (row)
+            164 LOAD_CONST               0 (None)
+            166 IS_OP                    0
+            168 POP_JUMP_IF_FALSE      174
+
+659         170 LOAD_CONST               1 (())
+            172 RETURN_VALUE
+
+660     >>  174 LOAD_GLOBAL             13 (tuple)
+            176 LOAD_CONST               5 (<code object <genexpr> at 0x1073ab870, file "WeRobotCore/adapters/contact_storage/explicit_path.py", line 660>)
+            178 LOAD_CONST               6 ('ExplicitPathContactStore.get_contact_tags.<locals>.<genexpr>')
+            180 MAKE_FUNCTION            0
+
+662         182 LOAD_GLOBAL              2 (str)
+            184 LOAD_DEREF               0 (row)
+            186 LOAD_CONST               7 (1)
+            188 BINARY_SUBSCR
+            190 JUMP_IF_TRUE_OR_POP    194
+            192 LOAD_CONST               8 ('')
+        >>  194 CALL_FUNCTION            1
+            196 LOAD_METHOD             14 (split)
+            198 LOAD_CONST               9 (',')
+            200 CALL_METHOD              1
+
+660         202 GET_ITER
+            204 CALL_FUNCTION            1
+            206 CALL_FUNCTION            1
+            208 STORE_FAST               5 (tags)
+
+665         210 LOAD_GLOBAL             13 (tuple)
+            212 LOAD_CLOSURE             0 (row)
+            214 BUILD_TUPLE              1
+            216 LOAD_CONST              10 (<code object <genexpr> at 0x1073ab920, file "WeRobotCore/adapters/contact_storage/explicit_path.py", line 665>)
+            218 LOAD_CONST               6 ('ExplicitPathContactStore.get_contact_tags.<locals>.<genexpr>')
+            220 MAKE_FUNCTION            8 (closure)
+            222 LOAD_FAST                5 (tags)
+            224 GET_ITER
+            226 CALL_FUNCTION            1
+            228 CALL_FUNCTION            1
+            230 JUMP_IF_TRUE_OR_POP    248
+            232 LOAD_GLOBAL              2 (str)
+            234 LOAD_DEREF               0 (row)
+            236 LOAD_CONST              11 (0)
+            238 BINARY_SUBSCR
+            240 CALL_FUNCTION            1
+            242 LOAD_CONST               8 ('')
+            244 BUILD_TUPLE              2
+            246 BUILD_TUPLE              1
+        >>  248 RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x1073ab870, file "WeRobotCore/adapters/contact_storage/explicit_path.py", line 660>:
+660           0 LOAD_FAST                0 (.0)
+        >>    2 FOR_ITER                22 (to 26)
+
+662           4 STORE_FAST               1 (item)
+
+663           6 LOAD_FAST                1 (item)
+              8 LOAD_METHOD              0 (strip)
+             10 CALL_METHOD              0
+             12 POP_JUMP_IF_FALSE        2
+
+661          14 LOAD_FAST                1 (item)
+             16 LOAD_METHOD              0 (strip)
+             18 CALL_METHOD              0
+             20 YIELD_VALUE
+             22 POP_TOP
+             24 JUMP_ABSOLUTE            2
+        >>   26 LOAD_CONST               0 (None)
+             28 RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x1073ab920, file "WeRobotCore/adapters/contact_storage/explicit_path.py", line 665>:
+665           0 LOAD_FAST                0 (.0)
+        >>    2 FOR_ITER                22 (to 26)
+              4 STORE_FAST               1 (item)
+              6 LOAD_GLOBAL              0 (str)
+              8 LOAD_DEREF               0 (row)
+             10 LOAD_CONST               0 (0)
+             12 BINARY_SUBSCR
+             14 CALL_FUNCTION            1
+             16 LOAD_FAST                1 (item)
+             18 BUILD_TUPLE              2
+             20 YIELD_VALUE
+             22 POP_TOP
+             24 JUMP_ABSOLUTE            2
+        >>   26 LOAD_CONST               1 (None)
+             28 RETURN_VALUE
+
+Disassembly of <code object get_group_tag at 0x1073aba80, file "WeRobotCore/adapters/contact_storage/explicit_path.py", line 667>:
+668           0 LOAD_FAST                0 (self)
+              2 LOAD_METHOD              0 (_account_id)
+              4 LOAD_FAST                1 (account_id)
+              6 CALL_METHOD              1
+              8 STORE_FAST               3 (normalized_account)
+
+669          10 LOAD_GLOBAL              1 (isinstance)
+             12 LOAD_FAST                2 (name)
+             14 LOAD_GLOBAL              2 (str)
+             16 CALL_FUNCTION            2
+             18 POP_JUMP_IF_FALSE       28
+             20 LOAD_FAST                2 (name)
+             22 LOAD_METHOD              3 (strip)
+             24 CALL_METHOD              0
+             26 POP_JUMP_IF_TRUE        32
+
+670     >>   28 LOAD_CONST               0 (None)
+             30 RETURN_VALUE
+
+671     >>   32 LOAD_FAST                0 (self)
+             34 LOAD_METHOD              4 (_readable_database)
+             36 CALL_METHOD              0
+             38 POP_JUMP_IF_TRUE        44
+
+672          40 LOAD_CONST               0 (None)
+             42 RETURN_VALUE
+
+673     >>   44 SETUP_FINALLY           84 (to 130)
+
+674          46 LOAD_GLOBAL              5 (closing)
+
+675          48 LOAD_GLOBAL              6 (sqlite3)
+             50 LOAD_ATTR                7 (connect)
+             52 LOAD_GLOBAL              2 (str)
+             54 LOAD_FAST                0 (self)
+             56 LOAD_ATTR                8 (_database_path)
+             58 CALL_FUNCTION            1
+             60 LOAD_CONST               1 (5.0)
+             62 LOAD_CONST               2 (('timeout',))
+             64 CALL_FUNCTION_KW         2
+
+674          66 CALL_FUNCTION            1
+             68 SETUP_WITH              40 (to 110)
+
+676          70 STORE_FAST               4 (connection)
+
+677          72 LOAD_FAST                4 (connection)
+             74 LOAD_METHOD              9 (execute)
+
+678          76 LOAD_CONST               3 ('SELECT tag FROM groups WHERE account_id = ? AND name = ? LIMIT 1')
+
+679          78 LOAD_FAST                3 (normalized_account)
+             80 LOAD_FAST                2 (name)
+             82 LOAD_METHOD              3 (strip)
+             84 CALL_METHOD              0
+             86 BUILD_TUPLE              2
+
+677          88 CALL_METHOD              2
+             90 LOAD_METHOD             10 (fetchone)
+             92 CALL_METHOD              0
+             94 STORE_FAST               5 (row)
+             96 POP_BLOCK
+             98 LOAD_CONST               0 (None)
+            100 DUP_TOP
+            102 DUP_TOP
+            104 CALL_FUNCTION            3
+            106 POP_TOP
+            108 JUMP_FORWARD            16 (to 126)
+        >>  110 WITH_EXCEPT_START
+            112 POP_JUMP_IF_TRUE       116
+            114 RERAISE
+        >>  116 POP_TOP
+            118 POP_TOP
+            120 POP_TOP
+            122 POP_EXCEPT
+            124 POP_TOP
+        >>  126 POP_BLOCK
+            128 JUMP_FORWARD            26 (to 156)
+
+681     >>  130 DUP_TOP
+            132 LOAD_GLOBAL             11 (OSError)
+            134 LOAD_GLOBAL              6 (sqlite3)
+            136 LOAD_ATTR               12 (Error)
+            138 BUILD_TUPLE              2
+            140 JUMP_IF_NOT_EXC_MATCH   154
+            142 POP_TOP
+            144 POP_TOP
+            146 POP_TOP
+
+682         148 POP_EXCEPT
+            150 LOAD_CONST               0 (None)
+            152 RETURN_VALUE
+        >>  154 RERAISE
+
+683     >>  156 LOAD_FAST                5 (row)
+            158 LOAD_CONST               0 (None)
+            160 IS_OP                    0
+            162 POP_JUMP_IF_FALSE      168
+            164 LOAD_CONST               0 (None)
+            166 RETURN_VALUE
+        >>  168 LOAD_GLOBAL              2 (str)
+            170 LOAD_FAST                5 (row)
+            172 LOAD_CONST               4 (0)
+            174 BINARY_SUBSCR
+            176 JUMP_IF_TRUE_OR_POP    180
+            178 LOAD_CONST               5 ('')
+        >>  180 CALL_FUNCTION            1
+            182 LOAD_METHOD              3 (strip)
+            184 CALL_METHOD              0
+            186 RETURN_VALUE
+
+Disassembly of <code object is_group_chat at 0x1073abb30, file "WeRobotCore/adapters/contact_storage/explicit_path.py", line 685>:
+686           0 LOAD_FAST                0 (self)
+              2 LOAD_METHOD              0 (_account_id)
+              4 LOAD_FAST                1 (account_id)
+              6 CALL_METHOD              1
+              8 STORE_FAST               3 (normalized_account)
+
+687          10 LOAD_GLOBAL              1 (isinstance)
+             12 LOAD_FAST                2 (name)
+             14 LOAD_GLOBAL              2 (str)
+             16 CALL_FUNCTION            2
+             18 POP_JUMP_IF_FALSE       28
+             20 LOAD_FAST                2 (name)
+             22 LOAD_METHOD              3 (strip)
+             24 CALL_METHOD              0
+             26 POP_JUMP_IF_TRUE        32
+
+688     >>   28 LOAD_CONST               1 (False)
+             30 RETURN_VALUE
+
+689     >>   32 LOAD_FAST                0 (self)
+             34 LOAD_METHOD              4 (_readable_database)
+             36 CALL_METHOD              0
+             38 POP_JUMP_IF_TRUE        44
+
+690          40 LOAD_CONST               1 (False)
+             42 RETURN_VALUE
+
+691     >>   44 SETUP_FINALLY           84 (to 130)
+
+692          46 LOAD_GLOBAL              5 (closing)
+
+693          48 LOAD_GLOBAL              6 (sqlite3)
+             50 LOAD_ATTR                7 (connect)
+             52 LOAD_GLOBAL              2 (str)
+             54 LOAD_FAST                0 (self)
+             56 LOAD_ATTR                8 (_database_path)
+             58 CALL_FUNCTION            1
+             60 LOAD_CONST               2 (5.0)
+             62 LOAD_CONST               3 (('timeout',))
+             64 CALL_FUNCTION_KW         2
+
+692          66 CALL_FUNCTION            1
+             68 SETUP_WITH              40 (to 110)
+
+694          70 STORE_FAST               4 (connection)
+
+695          72 LOAD_FAST                4 (connection)
+             74 LOAD_METHOD              9 (execute)
+
+696          76 LOAD_CONST               4 ('SELECT 1 FROM groups WHERE account_id = ? AND name = ? LIMIT 1')
+
+697          78 LOAD_FAST                3 (normalized_account)
+             80 LOAD_FAST                2 (name)
+             82 LOAD_METHOD              3 (strip)
+             84 CALL_METHOD              0
+             86 BUILD_TUPLE              2
+
+695          88 CALL_METHOD              2
+             90 LOAD_METHOD             10 (fetchone)
+             92 CALL_METHOD              0
+             94 STORE_FAST               5 (row)
+             96 POP_BLOCK
+             98 LOAD_CONST               0 (None)
+            100 DUP_TOP
+            102 DUP_TOP
+            104 CALL_FUNCTION            3
+            106 POP_TOP
+            108 JUMP_FORWARD            16 (to 126)
+        >>  110 WITH_EXCEPT_START
+            112 POP_JUMP_IF_TRUE       116
+            114 RERAISE
+        >>  116 POP_TOP
+            118 POP_TOP
+            120 POP_TOP
+            122 POP_EXCEPT
+            124 POP_TOP
+        >>  126 POP_BLOCK
+            128 JUMP_FORWARD            26 (to 156)
+
+699     >>  130 DUP_TOP
+            132 LOAD_GLOBAL             11 (OSError)
+            134 LOAD_GLOBAL              6 (sqlite3)
+            136 LOAD_ATTR               12 (Error)
+            138 BUILD_TUPLE              2
+            140 JUMP_IF_NOT_EXC_MATCH   154
+            142 POP_TOP
+            144 POP_TOP
+            146 POP_TOP
+
+700         148 POP_EXCEPT
+            150 LOAD_CONST               1 (False)
+            152 RETURN_VALUE
+        >>  154 RERAISE
+
+701     >>  156 LOAD_FAST                5 (row)
+            158 LOAD_CONST               0 (None)
+            160 IS_OP                    1
+            162 RETURN_VALUE

@@ -1,0 +1,1442 @@
+  1           0 LOAD_CONST               0 ('Process-owned, still-default-off macOS Control product composition.\n\nThis owner joins the shared managers with explicit macOS storage and one\nsigned product graph.  It exposes the two callbacks consumed by\n``prepare_macos_control_runtime`` but never reads secrets, starts the Helper,\nopens a socket, or selects a capability release wave by itself.\n')
+              2 STORE_NAME               0 (__doc__)
+
+  9           4 LOAD_CONST               1 (0)
+              6 LOAD_CONST               2 (('annotations',))
+              8 IMPORT_NAME              1 (__future__)
+             10 IMPORT_FROM              2 (annotations)
+             12 STORE_NAME               2 (annotations)
+             14 POP_TOP
+
+ 11          16 LOAD_CONST               1 (0)
+             18 LOAD_CONST               3 (('Path',))
+             20 IMPORT_NAME              3 (pathlib)
+             22 IMPORT_FROM              4 (Path)
+             24 STORE_NAME               4 (Path)
+             26 POP_TOP
+
+ 12          28 LOAD_CONST               1 (0)
+             30 LOAD_CONST               4 (('Callable', 'Iterable', 'Mapping', 'Optional', 'Sequence'))
+             32 IMPORT_NAME              5 (typing)
+             34 IMPORT_FROM              6 (Callable)
+             36 STORE_NAME               6 (Callable)
+             38 IMPORT_FROM              7 (Iterable)
+             40 STORE_NAME               7 (Iterable)
+             42 IMPORT_FROM              8 (Mapping)
+             44 STORE_NAME               8 (Mapping)
+             46 IMPORT_FROM              9 (Optional)
+             48 STORE_NAME               9 (Optional)
+             50 IMPORT_FROM             10 (Sequence)
+             52 STORE_NAME              10 (Sequence)
+             54 POP_TOP
+
+ 14          56 LOAD_CONST               1 (0)
+             58 LOAD_CONST               5 (('MacKeychainBackend', 'MacOSApplicationFacade', 'MacOSAppPaths', 'MacOSInstalledApplicationResolver', 'MacOSProcessFacade'))
+             60 IMPORT_NAME             11 (WeRobotCore.adapters.platform)
+             62 IMPORT_FROM             12 (MacKeychainBackend)
+             64 STORE_NAME              12 (MacKeychainBackend)
+             66 IMPORT_FROM             13 (MacOSApplicationFacade)
+             68 STORE_NAME              13 (MacOSApplicationFacade)
+             70 IMPORT_FROM             14 (MacOSAppPaths)
+             72 STORE_NAME              14 (MacOSAppPaths)
+             74 IMPORT_FROM             15 (MacOSInstalledApplicationResolver)
+             76 STORE_NAME              15 (MacOSInstalledApplicationResolver)
+             78 IMPORT_FROM             16 (MacOSProcessFacade)
+             80 STORE_NAME              16 (MacOSProcessFacade)
+             82 POP_TOP
+
+ 21          84 LOAD_CONST               1 (0)
+             86 LOAD_CONST               6 (('MacOSNativeHelperBackend',))
+             88 IMPORT_NAME             17 (WeRobotCore.adapters.wechat.macos_ax)
+             90 IMPORT_FROM             18 (MacOSNativeHelperBackend)
+             92 STORE_NAME              18 (MacOSNativeHelperBackend)
+             94 POP_TOP
+
+ 22          96 LOAD_CONST               1 (0)
+             98 LOAD_CONST               7 (('AutoReplyControlService', 'AutoReplyManagerBindingTarget', 'AutoReplyMonitorBindingTarget'))
+            100 IMPORT_NAME             19 (WeRobotCore.application.auto_reply)
+            102 IMPORT_FROM             20 (AutoReplyControlService)
+            104 STORE_NAME              20 (AutoReplyControlService)
+            106 IMPORT_FROM             21 (AutoReplyManagerBindingTarget)
+            108 STORE_NAME              21 (AutoReplyManagerBindingTarget)
+            110 IMPORT_FROM             22 (AutoReplyMonitorBindingTarget)
+            112 STORE_NAME              22 (AutoReplyMonitorBindingTarget)
+            114 POP_TOP
+
+ 27         116 LOAD_CONST               1 (0)
+            118 LOAD_CONST               8 (('PrivateAgentCapabilityProbe',))
+            120 IMPORT_NAME             23 (WeRobotCore.application.auto_reply.config_readiness)
+            122 IMPORT_FROM             24 (PrivateAgentCapabilityProbe)
+            124 STORE_NAME              24 (PrivateAgentCapabilityProbe)
+            126 POP_TOP
+
+ 30         128 LOAD_CONST               1 (0)
+            130 LOAD_CONST               9 (('ProductRuntimeRegistration',))
+            132 IMPORT_NAME             25 (WeRobotCore.application.product_runtime)
+            134 IMPORT_FROM             26 (ProductRuntimeRegistration)
+            136 STORE_NAME              26 (ProductRuntimeRegistration)
+            138 POP_TOP
+
+ 31         140 LOAD_CONST               1 (0)
+            142 LOAD_CONST              10 (('RuntimeCapabilityCatalog',))
+            144 IMPORT_NAME             27 (WeRobotCore.application.runtime)
+            146 IMPORT_FROM             28 (RuntimeCapabilityCatalog)
+            148 STORE_NAME              28 (RuntimeCapabilityCatalog)
+            150 POP_TOP
+
+ 32         152 LOAD_CONST               1 (0)
+            154 LOAD_CONST              11 (('StartupWorkflowRegistration',))
+            156 IMPORT_NAME             29 (WeRobotCore.application.startup)
+            158 IMPORT_FROM             30 (StartupWorkflowRegistration)
+            160 STORE_NAME              30 (StartupWorkflowRegistration)
+            162 POP_TOP
+
+ 34         164 LOAD_CONST              12 (1)
+            166 LOAD_CONST              13 (('create_macos_mvp_capability_catalog',))
+            168 IMPORT_NAME             31 (macos_capabilities)
+            170 IMPORT_FROM             32 (create_macos_mvp_capability_catalog)
+            172 STORE_NAME              32 (create_macos_mvp_capability_catalog)
+            174 POP_TOP
+
+ 35         176 LOAD_CONST              12 (1)
+            178 LOAD_CONST              14 (('create_macos_auto_reply_config_factory', 'create_macos_auto_reply_control_service', 'create_macos_auto_reply_control_state', 'create_macos_auto_reply_history_factory', 'create_macos_contact_store'))
+            180 IMPORT_NAME             33 (macos_control)
+            182 IMPORT_FROM             34 (create_macos_auto_reply_config_factory)
+            184 STORE_NAME              34 (create_macos_auto_reply_config_factory)
+            186 IMPORT_FROM             35 (create_macos_auto_reply_control_service)
+            188 STORE_NAME              35 (create_macos_auto_reply_control_service)
+            190 IMPORT_FROM             36 (create_macos_auto_reply_control_state)
+            192 STORE_NAME              36 (create_macos_auto_reply_control_state)
+            194 IMPORT_FROM             37 (create_macos_auto_reply_history_factory)
+            196 STORE_NAME              37 (create_macos_auto_reply_history_factory)
+            198 IMPORT_FROM             38 (create_macos_contact_store)
+            200 STORE_NAME              38 (create_macos_contact_store)
+            202 POP_TOP
+
+ 42         204 LOAD_CONST              12 (1)
+            206 LOAD_CONST              15 (('MacOSProductCompositionCandidate', 'create_macos_product_composition_candidate'))
+            208 IMPORT_NAME             39 (macos_product)
+            210 IMPORT_FROM             40 (MacOSProductCompositionCandidate)
+            212 STORE_NAME              40 (MacOSProductCompositionCandidate)
+            214 IMPORT_FROM             41 (create_macos_product_composition_candidate)
+            216 STORE_NAME              41 (create_macos_product_composition_candidate)
+            218 POP_TOP
+
+ 46         220 LOAD_CONST              12 (1)
+            222 LOAD_CONST              16 (('MacOSProductStartupPublication', 'MacOSProductStartupRegistration'))
+            224 IMPORT_NAME             42 (macos_product_startup)
+            226 IMPORT_FROM             43 (MacOSProductStartupPublication)
+            228 STORE_NAME              43 (MacOSProductStartupPublication)
+            230 IMPORT_FROM             44 (MacOSProductStartupRegistration)
+            232 STORE_NAME              44 (MacOSProductStartupRegistration)
+            234 POP_TOP
+
+ 52         236 LOAD_BUILD_CLASS
+            238 LOAD_CONST              17 (<code object MacOSControlProductOwner at 0x10924b3a0, file "WeRobotCore/bootstrap/macos_control_product.py", line 52>)
+            240 LOAD_CONST              18 ('MacOSControlProductOwner')
+            242 MAKE_FUNCTION            0
+            244 LOAD_CONST              18 ('MacOSControlProductOwner')
+            246 CALL_FUNCTION            2
+            248 STORE_NAME              45 (MacOSControlProductOwner)
+
+406         250 LOAD_CONST              18 ('MacOSControlProductOwner')
+            252 BUILD_LIST               1
+            254 STORE_NAME              46 (__all__)
+            256 LOAD_CONST              19 (None)
+            258 RETURN_VALUE
+
+Disassembly of <code object MacOSControlProductOwner at 0x10924b3a0, file "WeRobotCore/bootstrap/macos_control_product.py", line 52>:
+ 52           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('MacOSControlProductOwner')
+              6 STORE_NAME               2 (__qualname__)
+
+ 53           8 LOAD_CONST               1 ('Own exactly one closed-Capability product publication per process.')
+             10 STORE_NAME               3 (__doc__)
+
+ 59          12 LOAD_CONST               2 (None)
+
+ 64          14 LOAD_CONST               2 (None)
+
+ 65          16 LOAD_CONST               2 (None)
+
+ 66          18 LOAD_CONST               2 (None)
+
+ 67          20 LOAD_CONST               2 (None)
+
+ 68          22 LOAD_CONST               2 (None)
+
+ 69          24 LOAD_CONST               2 (None)
+
+ 70          26 LOAD_CONST               2 (None)
+
+ 71          28 LOAD_CONST               2 (None)
+
+ 72          30 LOAD_CONST               2 (None)
+
+ 73          32 LOAD_CONST               2 (None)
+
+ 74          34 LOAD_CONST               2 (None)
+
+ 75          36 LOAD_CONST               2 (None)
+
+ 76          38 LOAD_CONST               2 (None)
+
+ 77          40 LOAD_CONST               2 (None)
+
+ 78          42 LOAD_CONST               2 (None)
+
+ 79          44 LOAD_CONST               2 (None)
+
+ 80          46 LOAD_CONST               3 (())
+
+ 55          48 LOAD_CONST               4 (('runtime_helper_bundle_path', 'mass_sending_manager', 'auto_follow_manager', 'moment_comment_manager', 'moment_post_manager', 'add_friend_manager', 'friend_request_manager', 'sync_contacts_manager', 'application_paths', 'application_resolver', 'secret_backend', 'process_facade', 'application_facade', 'native_backend', 'architecture', 'python_search_paths', 'user_site_path', 'experimental_capabilities'))
+             50 BUILD_CONST_KEY_MAP     18
+             52 LOAD_CONST               5 ('Path')
+             54 LOAD_CONST               6 ('Optional[Path]')
+             56 LOAD_CONST               5 ('Path')
+             58 LOAD_CONST               7 ('AutoReplyManagerBindingTarget')
+             60 LOAD_CONST               8 ('AutoReplyMonitorBindingTarget')
+             62 LOAD_CONST               9 ('PrivateAgentCapabilityProbe')
+             64 LOAD_CONST              10 ('Optional[Mapping[str, Path]]')
+             66 LOAD_CONST              11 ('Optional[MacOSInstalledApplicationResolver]')
+             68 LOAD_CONST              12 ('Optional[MacKeychainBackend]')
+             70 LOAD_CONST              13 ('Optional[MacOSProcessFacade]')
+             72 LOAD_CONST              14 ('Optional[MacOSApplicationFacade]')
+             74 LOAD_CONST              15 ('Optional[MacOSNativeHelperBackend]')
+             76 LOAD_CONST              16 ('Optional[str]')
+             78 LOAD_CONST              17 ('Optional[Sequence[str]]')
+             80 LOAD_CONST               6 ('Optional[Path]')
+             82 LOAD_CONST              18 ('Iterable[str]')
+             84 LOAD_CONST              19 ('None')
+             86 LOAD_CONST              20 (('control_bundle_path', 'runtime_helper_bundle_path', 'home_dir', 'auto_reply_manager', 'multi_chat_monitor', 'private_agent_probe', 'application_paths', 'application_resolver', 'secret_backend', 'process_facade', 'application_facade', 'native_backend', 'architecture', 'python_search_paths', 'user_site_path', 'experimental_capabilities', 'return'))
+             88 BUILD_CONST_KEY_MAP     17
+             90 LOAD_CONST              21 (<code object __init__ at 0x10924cb30, file "WeRobotCore/bootstrap/macos_control_product.py", line 55>)
+             92 LOAD_CONST              22 ('MacOSControlProductOwner.__init__')
+             94 MAKE_FUNCTION            6 (kwdefaults, annotations)
+             96 STORE_NAME               4 (__init__)
+
+171          98 LOAD_NAME                5 (property)
+
+172         100 LOAD_CONST              23 ('MacOSAppPaths')
+            102 LOAD_CONST              24 (('return',))
+            104 BUILD_CONST_KEY_MAP      1
+            106 LOAD_CONST              25 (<code object paths at 0x10924c030, file "WeRobotCore/bootstrap/macos_control_product.py", line 171>)
+            108 LOAD_CONST              26 ('MacOSControlProductOwner.paths')
+            110 MAKE_FUNCTION            4 (annotations)
+            112 CALL_FUNCTION            1
+            114 STORE_NAME               6 (paths)
+
+175         116 LOAD_NAME                5 (property)
+
+176         118 LOAD_CONST              27 ('RuntimeCapabilityCatalog')
+            120 LOAD_CONST              24 (('return',))
+            122 BUILD_CONST_KEY_MAP      1
+            124 LOAD_CONST              28 (<code object capability_catalog at 0x10924cc90, file "WeRobotCore/bootstrap/macos_control_product.py", line 175>)
+            126 LOAD_CONST              29 ('MacOSControlProductOwner.capability_catalog')
+            128 MAKE_FUNCTION            4 (annotations)
+            130 CALL_FUNCTION            1
+            132 STORE_NAME               7 (capability_catalog)
+
+179         134 LOAD_NAME                5 (property)
+
+180         136 LOAD_CONST              30 (<code object contact_store at 0x10924c7c0, file "WeRobotCore/bootstrap/macos_control_product.py", line 179>)
+            138 LOAD_CONST              31 ('MacOSControlProductOwner.contact_store')
+            140 MAKE_FUNCTION            0
+            142 CALL_FUNCTION            1
+            144 STORE_NAME               8 (contact_store)
+
+183         146 LOAD_NAME                5 (property)
+
+184         148 LOAD_CONST              32 (<code object configuration_factory at 0x10924cf50, file "WeRobotCore/bootstrap/macos_control_product.py", line 183>)
+            150 LOAD_CONST              33 ('MacOSControlProductOwner.configuration_factory')
+            152 MAKE_FUNCTION            0
+            154 CALL_FUNCTION            1
+            156 STORE_NAME               9 (configuration_factory)
+
+187         158 LOAD_NAME                5 (property)
+
+188         160 LOAD_CONST               7 ('AutoReplyManagerBindingTarget')
+            162 LOAD_CONST              24 (('return',))
+            164 BUILD_CONST_KEY_MAP      1
+            166 LOAD_CONST              34 (<code object auto_reply_manager at 0x1092445b0, file "WeRobotCore/bootstrap/macos_control_product.py", line 187>)
+            168 LOAD_CONST              35 ('MacOSControlProductOwner.auto_reply_manager')
+            170 MAKE_FUNCTION            4 (annotations)
+            172 CALL_FUNCTION            1
+            174 STORE_NAME              10 (auto_reply_manager)
+
+191         176 LOAD_NAME                5 (property)
+
+192         178 LOAD_CONST               8 ('AutoReplyMonitorBindingTarget')
+            180 LOAD_CONST              24 (('return',))
+            182 BUILD_CONST_KEY_MAP      1
+            184 LOAD_CONST              36 (<code object multi_chat_monitor at 0x109244b30, file "WeRobotCore/bootstrap/macos_control_product.py", line 191>)
+            186 LOAD_CONST              37 ('MacOSControlProductOwner.multi_chat_monitor')
+            188 MAKE_FUNCTION            4 (annotations)
+            190 CALL_FUNCTION            1
+            192 STORE_NAME              11 (multi_chat_monitor)
+
+195         194 LOAD_NAME                5 (property)
+
+196         196 LOAD_CONST               9 ('PrivateAgentCapabilityProbe')
+            198 LOAD_CONST              24 (('return',))
+            200 BUILD_CONST_KEY_MAP      1
+            202 LOAD_CONST              38 (<code object private_agent_probe at 0x10924bb30, file "WeRobotCore/bootstrap/macos_control_product.py", line 195>)
+            204 LOAD_CONST              39 ('MacOSControlProductOwner.private_agent_probe')
+            206 MAKE_FUNCTION            4 (annotations)
+            208 CALL_FUNCTION            1
+            210 STORE_NAME              12 (private_agent_probe)
+
+199         212 LOAD_NAME                5 (property)
+
+200         214 LOAD_CONST              40 (<code object control_state at 0x10924b240, file "WeRobotCore/bootstrap/macos_control_product.py", line 199>)
+            216 LOAD_CONST              41 ('MacOSControlProductOwner.control_state')
+            218 MAKE_FUNCTION            0
+            220 CALL_FUNCTION            1
+            222 STORE_NAME              13 (control_state)
+
+203         224 LOAD_NAME                5 (property)
+
+204         226 LOAD_CONST              42 (<code object history_factory at 0x10924b660, file "WeRobotCore/bootstrap/macos_control_product.py", line 203>)
+            228 LOAD_CONST              43 ('MacOSControlProductOwner.history_factory')
+            230 MAKE_FUNCTION            0
+            232 CALL_FUNCTION            1
+            234 STORE_NAME              14 (history_factory)
+
+208         236 LOAD_NAME                5 (property)
+
+209         238 LOAD_CONST              44 ('Optional[MacOSProductStartupPublication]')
+            240 LOAD_CONST              24 (('return',))
+            242 BUILD_CONST_KEY_MAP      1
+            244 LOAD_CONST              45 (<code object publication at 0x10924bd40, file "WeRobotCore/bootstrap/macos_control_product.py", line 208>)
+            246 LOAD_CONST              46 ('MacOSControlProductOwner.publication')
+            248 MAKE_FUNCTION            4 (annotations)
+            250 CALL_FUNCTION            1
+            252 STORE_NAME              15 (publication)
+
+212         254 LOAD_CONST              47 (<code object _configuration_for at 0x10924b190, file "WeRobotCore/bootstrap/macos_control_product.py", line 212>)
+            256 LOAD_CONST              48 ('MacOSControlProductOwner._configuration_for')
+            258 MAKE_FUNCTION            0
+            260 STORE_NAME              16 (_configuration_for)
+
+221         262 LOAD_CONST              49 ('MacOSProductCompositionCandidate')
+            264 LOAD_CONST              24 (('return',))
+            266 BUILD_CONST_KEY_MAP      1
+            268 LOAD_CONST              50 (<code object _candidate at 0x10924b500, file "WeRobotCore/bootstrap/macos_control_product.py", line 221>)
+            270 LOAD_CONST              51 ('MacOSControlProductOwner._candidate')
+            272 MAKE_FUNCTION            4 (annotations)
+            274 STORE_NAME              17 (_candidate)
+
+244         276 LOAD_CONST              52 ('Callable[[str], Optional[str]]')
+            278 LOAD_CONST              53 ('MacOSProductStartupPublication')
+            280 LOAD_CONST              54 (('secret_resolver', 'return'))
+            282 BUILD_CONST_KEY_MAP      2
+            284 LOAD_CONST              55 (<code object publication_factory at 0x10924b2f0, file "WeRobotCore/bootstrap/macos_control_product.py", line 244>)
+            286 LOAD_CONST              56 ('MacOSControlProductOwner.publication_factory')
+            288 MAKE_FUNCTION            4 (annotations)
+            290 STORE_NAME              18 (publication_factory)
+
+381         292 LOAD_CONST              52 ('Callable[[str], Optional[str]]')
+            294 LOAD_CONST              57 (('secret_resolver',))
+            296 BUILD_CONST_KEY_MAP      1
+            298 LOAD_CONST              58 (<code object auto_reply_service_factory_builder at 0x10924ba80, file "WeRobotCore/bootstrap/macos_control_product.py", line 381>)
+            300 LOAD_CONST              59 ('MacOSControlProductOwner.auto_reply_service_factory_builder')
+            302 MAKE_FUNCTION            4 (annotations)
+            304 STORE_NAME              19 (auto_reply_service_factory_builder)
+            306 LOAD_CONST               2 (None)
+            308 RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x10924cb30, file "WeRobotCore/bootstrap/macos_control_product.py", line 55>:
+ 82           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                1 (control_bundle_path)
+              4 LOAD_GLOBAL              1 (Path)
+              6 CALL_FUNCTION            2
+              8 POP_JUMP_IF_TRUE        18
+
+ 83          10 LOAD_GLOBAL              2 (TypeError)
+             12 LOAD_CONST               1 ('control_bundle_path must be a pathlib.Path')
+             14 CALL_FUNCTION            1
+             16 RAISE_VARARGS            1
+
+ 84     >>   18 LOAD_GLOBAL              0 (isinstance)
+             20 LOAD_FAST                3 (home_dir)
+             22 LOAD_GLOBAL              1 (Path)
+             24 CALL_FUNCTION            2
+             26 POP_JUMP_IF_FALSE       36
+             28 LOAD_FAST                3 (home_dir)
+             30 LOAD_METHOD              3 (is_absolute)
+             32 CALL_METHOD              0
+             34 POP_JUMP_IF_TRUE        44
+
+ 85     >>   36 LOAD_GLOBAL              4 (ValueError)
+             38 LOAD_CONST               2 ('home_dir must be an absolute pathlib.Path')
+             40 CALL_FUNCTION            1
+             42 RAISE_VARARGS            1
+
+ 86     >>   44 LOAD_GLOBAL              0 (isinstance)
+             46 LOAD_FAST                4 (auto_reply_manager)
+             48 LOAD_GLOBAL              5 (AutoReplyManagerBindingTarget)
+             50 CALL_FUNCTION            2
+             52 POP_JUMP_IF_TRUE        62
+
+ 87          54 LOAD_GLOBAL              2 (TypeError)
+
+ 88          56 LOAD_CONST               3 ('auto_reply_manager must implement AutoReplyManagerBindingTarget')
+
+ 87          58 CALL_FUNCTION            1
+             60 RAISE_VARARGS            1
+
+ 90     >>   62 LOAD_GLOBAL              0 (isinstance)
+             64 LOAD_FAST                5 (multi_chat_monitor)
+             66 LOAD_GLOBAL              6 (AutoReplyMonitorBindingTarget)
+             68 CALL_FUNCTION            2
+             70 POP_JUMP_IF_TRUE        80
+
+ 91          72 LOAD_GLOBAL              2 (TypeError)
+
+ 92          74 LOAD_CONST               4 ('multi_chat_monitor must implement AutoReplyMonitorBindingTarget')
+
+ 91          76 CALL_FUNCTION            1
+             78 RAISE_VARARGS            1
+
+ 94     >>   80 LOAD_GLOBAL              7 (callable)
+             82 LOAD_FAST                6 (private_agent_probe)
+             84 CALL_FUNCTION            1
+             86 POP_JUMP_IF_TRUE        96
+
+ 95          88 LOAD_GLOBAL              2 (TypeError)
+             90 LOAD_CONST               5 ('private_agent_probe must be callable')
+             92 CALL_FUNCTION            1
+             94 RAISE_VARARGS            1
+
+ 96     >>   96 LOAD_FAST                7 (mass_sending_manager)
+             98 LOAD_CONST               0 (None)
+            100 IS_OP                    1
+            102 POP_JUMP_IF_FALSE      128
+            104 LOAD_GLOBAL              7 (callable)
+
+ 97         106 LOAD_GLOBAL              8 (getattr)
+            108 LOAD_FAST                7 (mass_sending_manager)
+            110 LOAD_CONST               6 ('bind_runtime')
+            112 LOAD_CONST               0 (None)
+            114 CALL_FUNCTION            3
+
+ 96         116 CALL_FUNCTION            1
+            118 POP_JUMP_IF_TRUE       128
+
+ 99         120 LOAD_GLOBAL              2 (TypeError)
+            122 LOAD_CONST               7 ('mass_sending_manager must expose bind_runtime()')
+            124 CALL_FUNCTION            1
+            126 RAISE_VARARGS            1
+
+100     >>  128 LOAD_FAST                8 (auto_follow_manager)
+            130 LOAD_CONST               0 (None)
+            132 IS_OP                    1
+            134 POP_JUMP_IF_FALSE      160
+            136 LOAD_GLOBAL              7 (callable)
+
+101         138 LOAD_GLOBAL              8 (getattr)
+            140 LOAD_FAST                8 (auto_follow_manager)
+            142 LOAD_CONST               6 ('bind_runtime')
+            144 LOAD_CONST               0 (None)
+            146 CALL_FUNCTION            3
+
+100         148 CALL_FUNCTION            1
+            150 POP_JUMP_IF_TRUE       160
+
+103         152 LOAD_GLOBAL              2 (TypeError)
+            154 LOAD_CONST               8 ('auto_follow_manager must expose bind_runtime()')
+            156 CALL_FUNCTION            1
+            158 RAISE_VARARGS            1
+
+104     >>  160 LOAD_FAST                9 (moment_comment_manager)
+            162 LOAD_CONST               0 (None)
+            164 IS_OP                    1
+            166 POP_JUMP_IF_FALSE      192
+            168 LOAD_GLOBAL              7 (callable)
+
+105         170 LOAD_GLOBAL              8 (getattr)
+            172 LOAD_FAST                9 (moment_comment_manager)
+            174 LOAD_CONST               6 ('bind_runtime')
+            176 LOAD_CONST               0 (None)
+            178 CALL_FUNCTION            3
+
+104         180 CALL_FUNCTION            1
+            182 POP_JUMP_IF_TRUE       192
+
+107         184 LOAD_GLOBAL              2 (TypeError)
+            186 LOAD_CONST               9 ('moment_comment_manager must expose bind_runtime()')
+            188 CALL_FUNCTION            1
+            190 RAISE_VARARGS            1
+
+108     >>  192 LOAD_FAST               10 (moment_post_manager)
+            194 LOAD_CONST               0 (None)
+            196 IS_OP                    1
+            198 POP_JUMP_IF_FALSE      224
+            200 LOAD_GLOBAL              7 (callable)
+
+109         202 LOAD_GLOBAL              8 (getattr)
+            204 LOAD_FAST               10 (moment_post_manager)
+            206 LOAD_CONST               6 ('bind_runtime')
+            208 LOAD_CONST               0 (None)
+            210 CALL_FUNCTION            3
+
+108         212 CALL_FUNCTION            1
+            214 POP_JUMP_IF_TRUE       224
+
+111         216 LOAD_GLOBAL              2 (TypeError)
+            218 LOAD_CONST              10 ('moment_post_manager must expose bind_runtime()')
+            220 CALL_FUNCTION            1
+            222 RAISE_VARARGS            1
+
+112     >>  224 LOAD_FAST               11 (add_friend_manager)
+            226 LOAD_CONST               0 (None)
+            228 IS_OP                    1
+            230 EXTENDED_ARG             1
+            232 POP_JUMP_IF_FALSE      274
+
+113         234 LOAD_CONST              11 (('bind_runtime', 'bind_configuration_factory'))
+            236 GET_ITER
+        >>  238 FOR_ITER                34 (to 274)
+            240 STORE_FAST              24 (method)
+
+114         242 LOAD_GLOBAL              7 (callable)
+            244 LOAD_GLOBAL              8 (getattr)
+            246 LOAD_FAST               11 (add_friend_manager)
+            248 LOAD_FAST               24 (method)
+            250 LOAD_CONST               0 (None)
+            252 CALL_FUNCTION            3
+            254 CALL_FUNCTION            1
+            256 POP_JUMP_IF_TRUE       238
+
+115         258 LOAD_GLOBAL              2 (TypeError)
+
+116         260 LOAD_CONST              12 ('add_friend_manager must expose {}()')
+            262 LOAD_METHOD              9 (format)
+            264 LOAD_FAST               24 (method)
+            266 CALL_METHOD              1
+
+115         268 CALL_FUNCTION            1
+            270 RAISE_VARARGS            1
+            272 JUMP_ABSOLUTE          238
+
+118     >>  274 LOAD_FAST               12 (friend_request_manager)
+            276 LOAD_CONST               0 (None)
+            278 IS_OP                    1
+            280 EXTENDED_ARG             1
+            282 POP_JUMP_IF_FALSE      328
+
+119         284 LOAD_CONST              11 (('bind_runtime', 'bind_configuration_factory'))
+            286 GET_ITER
+        >>  288 FOR_ITER                38 (to 328)
+            290 STORE_FAST              24 (method)
+
+120         292 LOAD_GLOBAL              7 (callable)
+            294 LOAD_GLOBAL              8 (getattr)
+            296 LOAD_FAST               12 (friend_request_manager)
+            298 LOAD_FAST               24 (method)
+            300 LOAD_CONST               0 (None)
+            302 CALL_FUNCTION            3
+            304 CALL_FUNCTION            1
+            306 EXTENDED_ARG             1
+            308 POP_JUMP_IF_TRUE       288
+
+121         310 LOAD_GLOBAL              2 (TypeError)
+
+122         312 LOAD_CONST              13 ('friend_request_manager must expose {}()')
+            314 LOAD_METHOD              9 (format)
+            316 LOAD_FAST               24 (method)
+            318 CALL_METHOD              1
+
+121         320 CALL_FUNCTION            1
+            322 RAISE_VARARGS            1
+            324 EXTENDED_ARG             1
+            326 JUMP_ABSOLUTE          288
+
+124     >>  328 LOAD_FAST               13 (sync_contacts_manager)
+            330 LOAD_CONST               0 (None)
+            332 IS_OP                    1
+            334 EXTENDED_ARG             1
+            336 POP_JUMP_IF_FALSE      364
+            338 LOAD_GLOBAL              7 (callable)
+
+125         340 LOAD_GLOBAL              8 (getattr)
+            342 LOAD_FAST               13 (sync_contacts_manager)
+            344 LOAD_CONST               6 ('bind_runtime')
+            346 LOAD_CONST               0 (None)
+            348 CALL_FUNCTION            3
+
+124         350 CALL_FUNCTION            1
+            352 EXTENDED_ARG             1
+            354 POP_JUMP_IF_TRUE       364
+
+127         356 LOAD_GLOBAL              2 (TypeError)
+            358 LOAD_CONST              14 ('sync_contacts_manager must expose bind_runtime()')
+            360 CALL_FUNCTION            1
+            362 RAISE_VARARGS            1
+
+129     >>  364 LOAD_FAST                1 (control_bundle_path)
+            366 LOAD_FAST                0 (self)
+            368 STORE_ATTR              10 (_control_bundle_path)
+
+130         370 LOAD_FAST                2 (runtime_helper_bundle_path)
+            372 LOAD_FAST                0 (self)
+            374 STORE_ATTR              11 (_runtime_helper_bundle_path)
+
+131         376 LOAD_FAST                3 (home_dir)
+            378 LOAD_FAST                0 (self)
+            380 STORE_ATTR              12 (_home_dir)
+
+132         382 LOAD_GLOBAL             13 (MacOSAppPaths)
+            384 LOAD_METHOD             14 (from_home)
+            386 LOAD_FAST                3 (home_dir)
+            388 CALL_METHOD              1
+            390 LOAD_FAST                0 (self)
+            392 STORE_ATTR              15 (_paths)
+
+133         394 LOAD_FAST                4 (auto_reply_manager)
+            396 LOAD_FAST                0 (self)
+            398 STORE_ATTR              16 (_auto_reply_manager)
+
+134         400 LOAD_FAST                5 (multi_chat_monitor)
+            402 LOAD_FAST                0 (self)
+            404 STORE_ATTR              17 (_multi_chat_monitor)
+
+135         406 LOAD_FAST                6 (private_agent_probe)
+            408 LOAD_FAST                0 (self)
+            410 STORE_ATTR              18 (_private_agent_probe)
+
+136         412 LOAD_FAST                7 (mass_sending_manager)
+            414 LOAD_FAST                0 (self)
+            416 STORE_ATTR              19 (_mass_sending_manager)
+
+137         418 LOAD_FAST                8 (auto_follow_manager)
+            420 LOAD_FAST                0 (self)
+            422 STORE_ATTR              20 (_auto_follow_manager)
+
+138         424 LOAD_FAST                9 (moment_comment_manager)
+            426 LOAD_FAST                0 (self)
+            428 STORE_ATTR              21 (_moment_comment_manager)
+
+139         430 LOAD_FAST               10 (moment_post_manager)
+            432 LOAD_FAST                0 (self)
+            434 STORE_ATTR              22 (_moment_post_manager)
+
+140         436 LOAD_FAST               11 (add_friend_manager)
+            438 LOAD_FAST                0 (self)
+            440 STORE_ATTR              23 (_add_friend_manager)
+
+141         442 LOAD_FAST               12 (friend_request_manager)
+            444 LOAD_FAST                0 (self)
+            446 STORE_ATTR              24 (_friend_request_manager)
+
+142         448 LOAD_FAST               13 (sync_contacts_manager)
+            450 LOAD_FAST                0 (self)
+            452 STORE_ATTR              25 (_sync_contacts_manager)
+
+143         454 LOAD_FAST               14 (application_paths)
+            456 LOAD_FAST                0 (self)
+            458 STORE_ATTR              26 (_application_paths)
+
+144         460 LOAD_FAST               15 (application_resolver)
+            462 LOAD_FAST                0 (self)
+            464 STORE_ATTR              27 (_application_resolver)
+
+145         466 LOAD_FAST               16 (secret_backend)
+            468 LOAD_FAST                0 (self)
+            470 STORE_ATTR              28 (_secret_backend)
+
+146         472 LOAD_FAST               17 (process_facade)
+            474 LOAD_FAST                0 (self)
+            476 STORE_ATTR              29 (_process_facade)
+
+147         478 LOAD_FAST               18 (application_facade)
+            480 LOAD_FAST                0 (self)
+            482 STORE_ATTR              30 (_application_facade)
+
+148         484 LOAD_FAST               19 (native_backend)
+            486 LOAD_FAST                0 (self)
+            488 STORE_ATTR              31 (_native_backend)
+
+149         490 LOAD_FAST               20 (architecture)
+            492 LOAD_FAST                0 (self)
+            494 STORE_ATTR              32 (_architecture)
+
+150         496 LOAD_FAST               21 (python_search_paths)
+            498 LOAD_FAST                0 (self)
+            500 STORE_ATTR              33 (_python_search_paths)
+
+151         502 LOAD_FAST               22 (user_site_path)
+            504 LOAD_FAST                0 (self)
+            506 STORE_ATTR              34 (_user_site_path)
+
+156         508 LOAD_GLOBAL             35 (create_macos_mvp_capability_catalog)
+
+157         510 LOAD_FAST               23 (experimental_capabilities)
+
+156         512 CALL_FUNCTION            1
+            514 LOAD_FAST                0 (self)
+            516 STORE_ATTR              36 (_capability_catalog)
+
+159         518 LOAD_GLOBAL             37 (create_macos_contact_store)
+            520 LOAD_FAST                0 (self)
+            522 LOAD_ATTR               15 (_paths)
+            524 LOAD_CONST              15 (('paths',))
+            526 CALL_FUNCTION_KW         1
+            528 LOAD_FAST                0 (self)
+            530 STORE_ATTR              38 (_contact_store)
+
+160         532 LOAD_GLOBAL             39 (create_macos_auto_reply_control_state)
+            534 LOAD_FAST                0 (self)
+            536 LOAD_ATTR               15 (_paths)
+            538 CALL_FUNCTION            1
+            540 LOAD_FAST                0 (self)
+            542 STORE_ATTR              40 (_control_state)
+
+161         544 LOAD_GLOBAL             41 (create_macos_auto_reply_history_factory)
+
+162         546 LOAD_FAST                0 (self)
+            548 LOAD_ATTR               15 (_paths)
+
+161         550 LOAD_CONST              15 (('paths',))
+            552 CALL_FUNCTION_KW         1
+            554 LOAD_FAST                0 (self)
+            556 STORE_ATTR              42 (_history_factory)
+
+164         558 LOAD_GLOBAL             43 (ProductRuntimeRegistration)
+            560 CALL_FUNCTION            0
+            562 LOAD_FAST                0 (self)
+            564 STORE_ATTR              44 (_product_registration)
+
+165         566 LOAD_GLOBAL             45 (StartupWorkflowRegistration)
+            568 CALL_FUNCTION            0
+            570 LOAD_FAST                0 (self)
+            572 STORE_ATTR              46 (_startup_registration)
+
+166         574 LOAD_GLOBAL             47 (MacOSProductStartupRegistration)
+            576 CALL_FUNCTION            0
+            578 LOAD_FAST                0 (self)
+            580 STORE_ATTR              48 (_publication_registration)
+
+167         582 LOAD_CONST               0 (None)
+            584 LOAD_FAST                0 (self)
+            586 STORE_ATTR              49 (_publication)
+
+168         588 LOAD_CONST               0 (None)
+            590 LOAD_FAST                0 (self)
+            592 STORE_ATTR              50 (_secret_resolver)
+
+169         594 LOAD_CONST               0 (None)
+            596 LOAD_FAST                0 (self)
+            598 STORE_ATTR              51 (_configuration_factory)
+            600 LOAD_CONST               0 (None)
+            602 RETURN_VALUE
+
+Disassembly of <code object paths at 0x10924c030, file "WeRobotCore/bootstrap/macos_control_product.py", line 171>:
+173           0 LOAD_FAST                0 (self)
+              2 LOAD_ATTR                0 (_paths)
+              4 RETURN_VALUE
+
+Disassembly of <code object capability_catalog at 0x10924cc90, file "WeRobotCore/bootstrap/macos_control_product.py", line 175>:
+177           0 LOAD_FAST                0 (self)
+              2 LOAD_ATTR                0 (_capability_catalog)
+              4 RETURN_VALUE
+
+Disassembly of <code object contact_store at 0x10924c7c0, file "WeRobotCore/bootstrap/macos_control_product.py", line 179>:
+181           0 LOAD_FAST                0 (self)
+              2 LOAD_ATTR                0 (_contact_store)
+              4 RETURN_VALUE
+
+Disassembly of <code object configuration_factory at 0x10924cf50, file "WeRobotCore/bootstrap/macos_control_product.py", line 183>:
+185           0 LOAD_FAST                0 (self)
+              2 LOAD_ATTR                0 (_configuration_factory)
+              4 RETURN_VALUE
+
+Disassembly of <code object auto_reply_manager at 0x1092445b0, file "WeRobotCore/bootstrap/macos_control_product.py", line 187>:
+189           0 LOAD_FAST                0 (self)
+              2 LOAD_ATTR                0 (_auto_reply_manager)
+              4 RETURN_VALUE
+
+Disassembly of <code object multi_chat_monitor at 0x109244b30, file "WeRobotCore/bootstrap/macos_control_product.py", line 191>:
+193           0 LOAD_FAST                0 (self)
+              2 LOAD_ATTR                0 (_multi_chat_monitor)
+              4 RETURN_VALUE
+
+Disassembly of <code object private_agent_probe at 0x10924bb30, file "WeRobotCore/bootstrap/macos_control_product.py", line 195>:
+197           0 LOAD_FAST                0 (self)
+              2 LOAD_ATTR                0 (_private_agent_probe)
+              4 RETURN_VALUE
+
+Disassembly of <code object control_state at 0x10924b240, file "WeRobotCore/bootstrap/macos_control_product.py", line 199>:
+201           0 LOAD_FAST                0 (self)
+              2 LOAD_ATTR                0 (_control_state)
+              4 RETURN_VALUE
+
+Disassembly of <code object history_factory at 0x10924b660, file "WeRobotCore/bootstrap/macos_control_product.py", line 203>:
+206           0 LOAD_FAST                0 (self)
+              2 LOAD_ATTR                0 (_history_factory)
+              4 RETURN_VALUE
+
+Disassembly of <code object publication at 0x10924bd40, file "WeRobotCore/bootstrap/macos_control_product.py", line 208>:
+210           0 LOAD_FAST                0 (self)
+              2 LOAD_ATTR                0 (_publication)
+              4 RETURN_VALUE
+
+Disassembly of <code object _configuration_for at 0x10924b190, file "WeRobotCore/bootstrap/macos_control_product.py", line 212>:
+213           0 LOAD_FAST                0 (self)
+              2 LOAD_ATTR                0 (_configuration_factory)
+              4 LOAD_CONST               0 (None)
+              6 IS_OP                    0
+              8 POP_JUMP_IF_FALSE       30
+
+214          10 LOAD_GLOBAL              1 (create_macos_auto_reply_config_factory)
+
+215          12 LOAD_FAST                0 (self)
+             14 LOAD_ATTR                2 (_paths)
+
+216          16 LOAD_FAST                1 (resolver)
+
+217          18 LOAD_FAST                0 (self)
+             20 LOAD_ATTR                3 (_contact_store)
+
+214          22 LOAD_CONST               1 (('paths', 'agent_secret_resolver', 'contact_facts'))
+             24 CALL_FUNCTION_KW         3
+             26 LOAD_FAST                0 (self)
+             28 STORE_ATTR               0 (_configuration_factory)
+
+219     >>   30 LOAD_FAST                0 (self)
+             32 LOAD_ATTR                0 (_configuration_factory)
+             34 RETURN_VALUE
+
+Disassembly of <code object _candidate at 0x10924b500, file "WeRobotCore/bootstrap/macos_control_product.py", line 221>:
+222           0 LOAD_DEREF               0 (self)
+              2 LOAD_METHOD              0 (_configuration_for)
+              4 LOAD_FAST                1 (resolver)
+              6 CALL_METHOD              1
+              8 STORE_FAST               2 (configuration_factory)
+
+223          10 LOAD_GLOBAL              1 (create_macos_product_composition_candidate)
+
+224          12 LOAD_DEREF               0 (self)
+             14 LOAD_ATTR                2 (_control_bundle_path)
+
+225          16 LOAD_DEREF               0 (self)
+             18 LOAD_ATTR                3 (_runtime_helper_bundle_path)
+
+226          20 LOAD_DEREF               0 (self)
+             22 LOAD_ATTR                4 (_application_paths)
+
+227          24 LOAD_DEREF               0 (self)
+             26 LOAD_ATTR                5 (_application_resolver)
+
+228          28 LOAD_DEREF               0 (self)
+             30 LOAD_ATTR                6 (_history_factory)
+
+229          32 LOAD_CLOSURE             0 (self)
+             34 BUILD_TUPLE              1
+             36 LOAD_CONST               1 (<code object <lambda> at 0x10924b870, file "WeRobotCore/bootstrap/macos_control_product.py", line 229>)
+             38 LOAD_CONST               2 ('MacOSControlProductOwner._candidate.<locals>.<lambda>')
+             40 MAKE_FUNCTION            8 (closure)
+
+230          42 LOAD_DEREF               0 (self)
+             44 LOAD_ATTR                7 (_capability_catalog)
+
+231          46 LOAD_DEREF               0 (self)
+             48 LOAD_ATTR                8 (_home_dir)
+
+232          50 LOAD_DEREF               0 (self)
+             52 LOAD_ATTR                9 (_secret_backend)
+
+233          54 LOAD_DEREF               0 (self)
+             56 LOAD_ATTR               10 (_process_facade)
+
+234          58 LOAD_DEREF               0 (self)
+             60 LOAD_ATTR               11 (_application_facade)
+
+235          62 LOAD_DEREF               0 (self)
+             64 LOAD_ATTR               12 (_native_backend)
+
+236          66 LOAD_DEREF               0 (self)
+             68 LOAD_ATTR               13 (_architecture)
+
+237          70 LOAD_DEREF               0 (self)
+             72 LOAD_ATTR               14 (_python_search_paths)
+
+238          74 LOAD_DEREF               0 (self)
+             76 LOAD_ATTR               15 (_user_site_path)
+
+239          78 LOAD_FAST                2 (configuration_factory)
+
+240          80 LOAD_DEREF               0 (self)
+             82 LOAD_ATTR                6 (_history_factory)
+
+241          84 LOAD_DEREF               0 (self)
+             86 LOAD_ATTR               16 (_contact_store)
+             88 LOAD_ATTR               17 (is_group_chat)
+
+223          90 LOAD_CONST               3 (('control_bundle_path', 'runtime_helper_bundle_path', 'application_paths', 'application_resolver', 'history_store_factory', 'contact_store_factory', 'capability_catalog', 'home_dir', 'secret_backend', 'process_facade', 'application_facade', 'native_backend', 'architecture', 'python_search_paths', 'user_site_path', 'auto_reply_configuration_factory', 'auto_reply_task_history_factory', 'monitor_group_chat_lookup'))
+             92 CALL_FUNCTION_KW        18
+             94 RETURN_VALUE
+
+Disassembly of <code object <lambda> at 0x10924b870, file "WeRobotCore/bootstrap/macos_control_product.py", line 229>:
+229           0 LOAD_DEREF               0 (self)
+              2 LOAD_ATTR                0 (_contact_store)
+              4 RETURN_VALUE
+
+Disassembly of <code object publication_factory at 0x10924b2f0, file "WeRobotCore/bootstrap/macos_control_product.py", line 244>:
+248           0 LOAD_GLOBAL              0 (callable)
+              2 LOAD_DEREF               0 (secret_resolver)
+              4 CALL_FUNCTION            1
+              6 POP_JUMP_IF_TRUE        16
+
+249           8 LOAD_GLOBAL              1 (TypeError)
+             10 LOAD_CONST               1 ('secret_resolver must be callable')
+             12 CALL_FUNCTION            1
+             14 RAISE_VARARGS            1
+
+250     >>   16 LOAD_DEREF               1 (self)
+             18 LOAD_ATTR                2 (_publication)
+             20 LOAD_CONST               0 (None)
+             22 IS_OP                    1
+             24 POP_JUMP_IF_FALSE       50
+
+251          26 LOAD_DEREF               0 (secret_resolver)
+             28 LOAD_DEREF               1 (self)
+             30 LOAD_ATTR                3 (_secret_resolver)
+             32 IS_OP                    1
+             34 POP_JUMP_IF_FALSE       44
+
+252          36 LOAD_GLOBAL              4 (RuntimeError)
+             38 LOAD_CONST               2 ('macOS product is bound to another secret snapshot')
+             40 CALL_FUNCTION            1
+             42 RAISE_VARARGS            1
+
+253     >>   44 LOAD_DEREF               1 (self)
+             46 LOAD_ATTR                2 (_publication)
+             48 RETURN_VALUE
+
+255     >>   50 LOAD_DEREF               0 (secret_resolver)
+             52 LOAD_DEREF               1 (self)
+             54 STORE_ATTR               3 (_secret_resolver)
+
+256          56 LOAD_DEREF               1 (self)
+             58 LOAD_ATTR                5 (_publication_registration)
+             60 LOAD_ATTR                6 (register_if_enabled)
+
+257          62 LOAD_CONST               3 (True)
+
+258          64 LOAD_DEREF               1 (self)
+             66 LOAD_ATTR                7 (_product_registration)
+
+259          68 LOAD_DEREF               1 (self)
+             70 LOAD_ATTR                8 (_startup_registration)
+
+260          72 LOAD_CLOSURE             0 (secret_resolver)
+             74 LOAD_CLOSURE             1 (self)
+             76 BUILD_TUPLE              2
+             78 LOAD_CONST               4 (<code object <lambda> at 0x10924bf50, file "WeRobotCore/bootstrap/macos_control_product.py", line 260>)
+             80 LOAD_CONST               5 ('MacOSControlProductOwner.publication_factory.<locals>.<lambda>')
+             82 MAKE_FUNCTION            8 (closure)
+
+261          84 LOAD_DEREF               1 (self)
+             86 LOAD_ATTR                9 (_auto_reply_manager)
+
+262          88 LOAD_DEREF               1 (self)
+             90 LOAD_ATTR               10 (_multi_chat_monitor)
+
+256          92 LOAD_CONST               6 (('product_registration', 'startup_registration', 'composition_factory', 'auto_reply_manager', 'multi_chat_monitor'))
+             94 CALL_FUNCTION_KW         6
+             96 STORE_FAST               2 (publication)
+
+264          98 LOAD_GLOBAL             11 (isinstance)
+            100 LOAD_FAST                2 (publication)
+            102 LOAD_GLOBAL             12 (MacOSProductStartupPublication)
+            104 CALL_FUNCTION            2
+            106 POP_JUMP_IF_TRUE       116
+
+265         108 LOAD_GLOBAL              4 (RuntimeError)
+            110 LOAD_CONST               7 ('macOS product publication was not created')
+            112 CALL_FUNCTION            1
+            114 RAISE_VARARGS            1
+
+267     >>  116 LOAD_DEREF               1 (self)
+            118 LOAD_ATTR               13 (_mass_sending_manager)
+            120 LOAD_CONST               0 (None)
+            122 IS_OP                    1
+
+266         124 POP_JUMP_IF_TRUE       188
+
+268         126 LOAD_DEREF               1 (self)
+            128 LOAD_ATTR               14 (_auto_follow_manager)
+            130 LOAD_CONST               0 (None)
+            132 IS_OP                    1
+
+266         134 POP_JUMP_IF_TRUE       188
+
+269         136 LOAD_DEREF               1 (self)
+            138 LOAD_ATTR               15 (_moment_comment_manager)
+            140 LOAD_CONST               0 (None)
+            142 IS_OP                    1
+
+266         144 POP_JUMP_IF_TRUE       188
+
+270         146 LOAD_DEREF               1 (self)
+            148 LOAD_ATTR               16 (_moment_post_manager)
+            150 LOAD_CONST               0 (None)
+            152 IS_OP                    1
+
+266         154 POP_JUMP_IF_TRUE       188
+
+271         156 LOAD_DEREF               1 (self)
+            158 LOAD_ATTR               17 (_add_friend_manager)
+            160 LOAD_CONST               0 (None)
+            162 IS_OP                    1
+
+266         164 POP_JUMP_IF_TRUE       188
+
+272         166 LOAD_DEREF               1 (self)
+            168 LOAD_ATTR               18 (_friend_request_manager)
+            170 LOAD_CONST               0 (None)
+            172 IS_OP                    1
+
+266         174 POP_JUMP_IF_TRUE       188
+
+273         176 LOAD_DEREF               1 (self)
+            178 LOAD_ATTR               19 (_sync_contacts_manager)
+            180 LOAD_CONST               0 (None)
+            182 IS_OP                    1
+
+266         184 EXTENDED_ARG             2
+            186 POP_JUMP_IF_FALSE      688
+
+275     >>  188 LOAD_CONST               8 (0)
+            190 LOAD_CONST               9 (('MacOSMassSendingRuntime',))
+            192 IMPORT_NAME             20 (WeRobotCore.adapters.mass_sending)
+            194 IMPORT_FROM             21 (MacOSMassSendingRuntime)
+            196 STORE_FAST               3 (MacOSMassSendingRuntime)
+            198 POP_TOP
+
+277         200 LOAD_FAST                2 (publication)
+            202 LOAD_ATTR               22 (composition)
+            204 LOAD_ATTR               23 (runtime_bundle)
+            206 STORE_FAST               4 (bundle)
+
+278         208 LOAD_FAST                4 (bundle)
+            210 LOAD_ATTR               24 (greeting_sender)
+            212 STORE_FAST               5 (greeting_sender)
+
+279         214 LOAD_FAST                5 (greeting_sender)
+            216 LOAD_CONST               0 (None)
+            218 IS_OP                    0
+            220 POP_JUMP_IF_FALSE      230
+
+280         222 LOAD_GLOBAL              4 (RuntimeError)
+            224 LOAD_CONST              10 ('macOS runtime has no greeting message sender')
+            226 CALL_FUNCTION            1
+            228 RAISE_VARARGS            1
+
+281     >>  230 LOAD_FAST                3 (MacOSMassSendingRuntime)
+
+282         232 LOAD_FAST                4 (bundle)
+            234 LOAD_ATTR               25 (gateway)
+
+283         236 LOAD_FAST                4 (bundle)
+            238 LOAD_ATTR               26 (driver)
+
+284         240 LOAD_DEREF               1 (self)
+            242 LOAD_ATTR               27 (_contact_store)
+
+285         244 LOAD_DEREF               1 (self)
+            246 LOAD_ATTR               28 (_configuration_factory)
+
+286         248 LOAD_FAST                5 (greeting_sender)
+
+281         250 LOAD_CONST              11 (('gateway', 'driver', 'contact_store', 'configuration_factory', 'message_sender'))
+            252 CALL_FUNCTION_KW         5
+            254 STORE_FAST               6 (outbound_runtime)
+
+288         256 LOAD_DEREF               1 (self)
+            258 LOAD_ATTR               13 (_mass_sending_manager)
+            260 LOAD_CONST               0 (None)
+            262 IS_OP                    1
+            264 EXTENDED_ARG             1
+            266 POP_JUMP_IF_FALSE      280
+
+289         268 LOAD_DEREF               1 (self)
+            270 LOAD_ATTR               13 (_mass_sending_manager)
+            272 LOAD_METHOD             29 (bind_runtime)
+            274 LOAD_FAST                6 (outbound_runtime)
+            276 CALL_METHOD              1
+            278 POP_TOP
+
+290     >>  280 LOAD_DEREF               1 (self)
+            282 LOAD_ATTR               14 (_auto_follow_manager)
+            284 LOAD_CONST               0 (None)
+            286 IS_OP                    1
+            288 EXTENDED_ARG             1
+            290 POP_JUMP_IF_FALSE      372
+
+291         292 LOAD_CONST               8 (0)
+            294 LOAD_CONST              12 (('MacOSAutoFollowRuntime',))
+            296 IMPORT_NAME             30 (WeRobotCore.adapters.auto_follow)
+            298 IMPORT_FROM             31 (MacOSAutoFollowRuntime)
+            300 STORE_FAST               7 (MacOSAutoFollowRuntime)
+            302 POP_TOP
+
+292         304 LOAD_CONST               8 (0)
+            306 LOAD_CONST              13 (('AutomationContextAutoReplyHistoryRecorder',))
+            308 IMPORT_NAME             32 (WeRobotCore.application.auto_reply)
+            310 IMPORT_FROM             33 (AutomationContextAutoReplyHistoryRecorder)
+            312 STORE_FAST               8 (AutomationContextAutoReplyHistoryRecorder)
+            314 POP_TOP
+
+296         316 LOAD_DEREF               1 (self)
+            318 LOAD_ATTR               14 (_auto_follow_manager)
+            320 LOAD_METHOD             29 (bind_runtime)
+
+297         322 LOAD_FAST                7 (MacOSAutoFollowRuntime)
+
+298         324 LOAD_FAST                6 (outbound_runtime)
+
+299         326 LOAD_DEREF               1 (self)
+            328 LOAD_ATTR               27 (_contact_store)
+
+300         330 LOAD_FAST                4 (bundle)
+            332 LOAD_ATTR               34 (auto_reply_conversations)
+
+301         334 LOAD_FAST                8 (AutomationContextAutoReplyHistoryRecorder)
+
+302         336 LOAD_FAST                4 (bundle)
+            338 LOAD_ATTR               25 (gateway)
+
+303         340 LOAD_DEREF               1 (self)
+            342 LOAD_ATTR               35 (_history_factory)
+
+301         344 CALL_FUNCTION            2
+
+305         346 LOAD_DEREF               1 (self)
+            348 LOAD_ATTR               35 (_history_factory)
+
+306         350 LOAD_DEREF               1 (self)
+            352 LOAD_ATTR                9 (_auto_reply_manager)
+
+307         354 LOAD_DEREF               1 (self)
+            356 LOAD_ATTR               36 (_paths)
+            358 LOAD_ATTR               37 (data_root)
+            360 LOAD_CONST              14 ('file_library')
+            362 BINARY_TRUE_DIVIDE
+
+297         364 LOAD_CONST              15 (('outbound_runtime', 'contact_store', 'conversation_reader', 'history_recorder', 'history_factory', 'auto_reply_manager', 'file_library_root'))
+            366 CALL_FUNCTION_KW         7
+
+296         368 CALL_METHOD              1
+            370 POP_TOP
+
+310     >>  372 LOAD_DEREF               1 (self)
+            374 LOAD_ATTR               15 (_moment_comment_manager)
+            376 LOAD_CONST               0 (None)
+            378 IS_OP                    1
+            380 EXTENDED_ARG             1
+            382 POP_JUMP_IF_FALSE      438
+
+311         384 LOAD_CONST               8 (0)
+            386 LOAD_CONST              16 (('MacOSMomentCommentRuntime',))
+            388 IMPORT_NAME             38 (WeRobotCore.adapters.moments)
+            390 IMPORT_FROM             39 (MacOSMomentCommentRuntime)
+            392 STORE_FAST               9 (MacOSMomentCommentRuntime)
+            394 POP_TOP
+
+315         396 LOAD_DEREF               1 (self)
+            398 LOAD_ATTR               15 (_moment_comment_manager)
+            400 LOAD_METHOD             29 (bind_runtime)
+
+316         402 LOAD_FAST                9 (MacOSMomentCommentRuntime)
+
+317         404 LOAD_FAST                4 (bundle)
+            406 LOAD_ATTR               25 (gateway)
+
+318         408 LOAD_FAST                4 (bundle)
+            410 LOAD_ATTR               26 (driver)
+
+319         412 LOAD_DEREF               1 (self)
+            414 LOAD_ATTR               27 (_contact_store)
+
+320         416 LOAD_DEREF               1 (self)
+            418 LOAD_ATTR               28 (_configuration_factory)
+
+321         420 LOAD_DEREF               1 (self)
+            422 LOAD_ATTR               36 (_paths)
+            424 LOAD_ATTR               37 (data_root)
+            426 LOAD_CONST              17 ('moments')
+            428 BINARY_TRUE_DIVIDE
+
+316         430 LOAD_CONST              18 (('gateway', 'driver', 'contact_store', 'configuration_factory', 'state_root'))
+            432 CALL_FUNCTION_KW         5
+
+315         434 CALL_METHOD              1
+            436 POP_TOP
+
+324     >>  438 LOAD_DEREF               1 (self)
+            440 LOAD_ATTR               16 (_moment_post_manager)
+            442 LOAD_CONST               0 (None)
+            444 IS_OP                    1
+            446 EXTENDED_ARG             1
+            448 POP_JUMP_IF_FALSE      486
+
+325         450 LOAD_CONST               8 (0)
+            452 LOAD_CONST              19 (('MacOSMomentPostRuntime',))
+            454 IMPORT_NAME             38 (WeRobotCore.adapters.moments)
+            456 IMPORT_FROM             40 (MacOSMomentPostRuntime)
+            458 STORE_FAST              10 (MacOSMomentPostRuntime)
+            460 POP_TOP
+
+327         462 LOAD_DEREF               1 (self)
+            464 LOAD_ATTR               16 (_moment_post_manager)
+            466 LOAD_METHOD             29 (bind_runtime)
+
+328         468 LOAD_FAST               10 (MacOSMomentPostRuntime)
+
+329         470 LOAD_FAST                4 (bundle)
+            472 LOAD_ATTR               25 (gateway)
+
+330         474 LOAD_FAST                4 (bundle)
+            476 LOAD_ATTR               26 (driver)
+
+328         478 LOAD_CONST              20 (('gateway', 'driver'))
+            480 CALL_FUNCTION_KW         2
+
+327         482 CALL_METHOD              1
+            484 POP_TOP
+
+333     >>  486 LOAD_DEREF               1 (self)
+            488 LOAD_ATTR               17 (_add_friend_manager)
+            490 LOAD_CONST               0 (None)
+            492 IS_OP                    1
+            494 EXTENDED_ARG             2
+            496 POP_JUMP_IF_FALSE      548
+
+334         498 LOAD_CONST               8 (0)
+            500 LOAD_CONST              21 (('MacOSAddFriendRuntime',))
+            502 IMPORT_NAME             41 (WeRobotCore.adapters.add_friend)
+            504 IMPORT_FROM             42 (MacOSAddFriendRuntime)
+            506 STORE_FAST              11 (MacOSAddFriendRuntime)
+            508 POP_TOP
+
+336         510 LOAD_DEREF               1 (self)
+            512 LOAD_ATTR               17 (_add_friend_manager)
+            514 LOAD_METHOD             29 (bind_runtime)
+
+337         516 LOAD_FAST               11 (MacOSAddFriendRuntime)
+
+338         518 LOAD_FAST                4 (bundle)
+            520 LOAD_ATTR               25 (gateway)
+
+339         522 LOAD_FAST                4 (bundle)
+            524 LOAD_ATTR               26 (driver)
+
+337         526 LOAD_CONST              20 (('gateway', 'driver'))
+            528 CALL_FUNCTION_KW         2
+
+336         530 CALL_METHOD              1
+            532 POP_TOP
+
+342         534 LOAD_DEREF               1 (self)
+            536 LOAD_ATTR               17 (_add_friend_manager)
+            538 LOAD_METHOD             43 (bind_configuration_factory)
+
+343         540 LOAD_DEREF               1 (self)
+            542 LOAD_ATTR               28 (_configuration_factory)
+
+342         544 CALL_METHOD              1
+            546 POP_TOP
+
+345     >>  548 LOAD_DEREF               1 (self)
+            550 LOAD_ATTR               18 (_friend_request_manager)
+            552 LOAD_CONST               0 (None)
+            554 IS_OP                    1
+            556 EXTENDED_ARG             2
+            558 POP_JUMP_IF_FALSE      612
+
+346         560 LOAD_CONST               8 (0)
+            562 LOAD_CONST              22 (('MacOSFriendRequestRuntime',))
+            564 IMPORT_NAME             44 (WeRobotCore.adapters.friend_request)
+            566 IMPORT_FROM             45 (MacOSFriendRequestRuntime)
+            568 STORE_FAST              12 (MacOSFriendRequestRuntime)
+            570 POP_TOP
+
+350         572 LOAD_DEREF               1 (self)
+            574 LOAD_ATTR               18 (_friend_request_manager)
+            576 LOAD_METHOD             29 (bind_runtime)
+
+351         578 LOAD_FAST               12 (MacOSFriendRequestRuntime)
+
+352         580 LOAD_FAST                4 (bundle)
+            582 LOAD_ATTR               25 (gateway)
+
+353         584 LOAD_FAST                4 (bundle)
+            586 LOAD_ATTR               26 (driver)
+
+354         588 LOAD_FAST                6 (outbound_runtime)
+
+351         590 LOAD_CONST              23 (('gateway', 'driver', 'outbound_runtime'))
+            592 CALL_FUNCTION_KW         3
+
+350         594 CALL_METHOD              1
+            596 POP_TOP
+
+357         598 LOAD_DEREF               1 (self)
+            600 LOAD_ATTR               18 (_friend_request_manager)
+            602 LOAD_METHOD             43 (bind_configuration_factory)
+
+358         604 LOAD_DEREF               1 (self)
+            606 LOAD_ATTR               28 (_configuration_factory)
+
+357         608 CALL_METHOD              1
+            610 POP_TOP
+
+360     >>  612 LOAD_DEREF               1 (self)
+            614 LOAD_ATTR               19 (_sync_contacts_manager)
+            616 LOAD_CONST               0 (None)
+            618 IS_OP                    1
+            620 EXTENDED_ARG             2
+            622 POP_JUMP_IF_FALSE      688
+
+361         624 LOAD_CONST               8 (0)
+            626 LOAD_CONST              24 (('MacOSScheduledContactSyncRuntime',))
+            628 IMPORT_NAME             46 (WeRobotCore.adapters.contact_sync)
+            630 IMPORT_FROM             47 (MacOSScheduledContactSyncRuntime)
+            632 STORE_FAST              13 (MacOSScheduledContactSyncRuntime)
+            634 POP_TOP
+
+364         636 LOAD_CONST               8 (0)
+            638 LOAD_CONST              25 (('ExplicitPathAutoReplyConfigurationStore',))
+            640 IMPORT_NAME             48 (WeRobotCore.adapters.control)
+            642 IMPORT_FROM             49 (ExplicitPathAutoReplyConfigurationStore)
+            644 STORE_FAST              14 (ExplicitPathAutoReplyConfigurationStore)
+            646 POP_TOP
+
+368         648 LOAD_DEREF               1 (self)
+            650 LOAD_ATTR               19 (_sync_contacts_manager)
+            652 LOAD_METHOD             29 (bind_runtime)
+
+369         654 LOAD_FAST               13 (MacOSScheduledContactSyncRuntime)
+
+370         656 LOAD_FAST                4 (bundle)
+            658 LOAD_ATTR               25 (gateway)
+
+371         660 LOAD_FAST                2 (publication)
+            662 LOAD_ATTR               22 (composition)
+            664 LOAD_ATTR               50 (contact_sync)
+
+372         666 LOAD_FAST               14 (ExplicitPathAutoReplyConfigurationStore)
+
+373         668 LOAD_DEREF               1 (self)
+            670 LOAD_ATTR               36 (_paths)
+            672 LOAD_ATTR               51 (config_root)
+
+372         674 CALL_FUNCTION            1
+
+375         676 LOAD_DEREF               1 (self)
+            678 LOAD_ATTR               10 (_multi_chat_monitor)
+
+369         680 LOAD_CONST              26 (('gateway', 'sync_service', 'config_store', 'monitor'))
+            682 CALL_FUNCTION_KW         4
+
+368         684 CALL_METHOD              1
+            686 POP_TOP
+
+378     >>  688 LOAD_FAST                2 (publication)
+            690 LOAD_DEREF               1 (self)
+            692 STORE_ATTR               2 (_publication)
+
+379         694 LOAD_FAST                2 (publication)
+            696 RETURN_VALUE
+
+Disassembly of <code object <lambda> at 0x10924bf50, file "WeRobotCore/bootstrap/macos_control_product.py", line 260>:
+260           0 LOAD_DEREF               1 (self)
+              2 LOAD_METHOD              0 (_candidate)
+              4 LOAD_DEREF               0 (secret_resolver)
+              6 CALL_METHOD              1
+              8 RETURN_VALUE
+
+Disassembly of <code object auto_reply_service_factory_builder at 0x10924ba80, file "WeRobotCore/bootstrap/macos_control_product.py", line 381>:
+385           0 LOAD_DEREF               1 (self)
+              2 LOAD_ATTR                0 (_publication)
+              4 LOAD_CONST               0 (None)
+              6 IS_OP                    0
+              8 POP_JUMP_IF_TRUE        20
+             10 LOAD_DEREF               1 (self)
+             12 LOAD_ATTR                1 (_configuration_factory)
+             14 LOAD_CONST               0 (None)
+             16 IS_OP                    0
+             18 POP_JUMP_IF_FALSE       28
+
+386     >>   20 LOAD_GLOBAL              2 (RuntimeError)
+             22 LOAD_CONST               1 ('macOS product must be published before its service')
+             24 CALL_FUNCTION            1
+             26 RAISE_VARARGS            1
+
+387     >>   28 LOAD_FAST                1 (secret_resolver)
+             30 LOAD_DEREF               1 (self)
+             32 LOAD_ATTR                3 (_secret_resolver)
+             34 IS_OP                    1
+             36 POP_JUMP_IF_FALSE       46
+
+388          38 LOAD_GLOBAL              2 (RuntimeError)
+             40 LOAD_CONST               2 ('auto reply service received another secret snapshot')
+             42 CALL_FUNCTION            1
+             44 RAISE_VARARGS            1
+
+389     >>   46 LOAD_DEREF               1 (self)
+             48 LOAD_ATTR                0 (_publication)
+             50 LOAD_ATTR                4 (composition)
+             52 LOAD_ATTR                5 (runtime_bundle)
+             54 STORE_DEREF              0 (expected_bundle)
+
+391          56 LOAD_CONST               3 ('AutoReplyControlService')
+             58 LOAD_CONST               4 (('return',))
+             60 BUILD_CONST_KEY_MAP      1
+             62 LOAD_CLOSURE             0 (expected_bundle)
+             64 LOAD_CLOSURE             1 (self)
+             66 BUILD_TUPLE              2
+             68 LOAD_CONST               5 (<code object create_service at 0x10924bdf0, file "WeRobotCore/bootstrap/macos_control_product.py", line 391>)
+             70 LOAD_CONST               6 ('MacOSControlProductOwner.auto_reply_service_factory_builder.<locals>.create_service')
+             72 MAKE_FUNCTION           12 (annotations, closure)
+             74 STORE_FAST               2 (create_service)
+
+403          76 LOAD_FAST                2 (create_service)
+             78 RETURN_VALUE
+
+Disassembly of <code object create_service at 0x10924bdf0, file "WeRobotCore/bootstrap/macos_control_product.py", line 391>:
+392           0 LOAD_FAST                0 (bundle)
+              2 LOAD_DEREF               0 (expected_bundle)
+              4 IS_OP                    1
+              6 POP_JUMP_IF_FALSE       16
+
+393           8 LOAD_GLOBAL              0 (ValueError)
+             10 LOAD_CONST               1 ('auto reply service received another runtime bundle')
+             12 CALL_FUNCTION            1
+             14 RAISE_VARARGS            1
+
+394     >>   16 LOAD_GLOBAL              1 (create_macos_auto_reply_control_service)
+
+395          18 LOAD_FAST                0 (bundle)
+
+396          20 LOAD_DEREF               1 (self)
+             22 LOAD_ATTR                2 (_configuration_factory)
+
+397          24 LOAD_DEREF               1 (self)
+             26 LOAD_ATTR                3 (_private_agent_probe)
+
+398          28 LOAD_DEREF               1 (self)
+             30 LOAD_ATTR                4 (_multi_chat_monitor)
+
+399          32 LOAD_DEREF               1 (self)
+             34 LOAD_ATTR                5 (_control_state)
+
+400          36 LOAD_DEREF               1 (self)
+             38 LOAD_ATTR                5 (_control_state)
+
+394          40 LOAD_CONST               2 (('bundle', 'config_factory', 'private_agent_probe', 'monitor', 'desired_state', 'reporter'))
+             42 CALL_FUNCTION_KW         6
+             44 RETURN_VALUE

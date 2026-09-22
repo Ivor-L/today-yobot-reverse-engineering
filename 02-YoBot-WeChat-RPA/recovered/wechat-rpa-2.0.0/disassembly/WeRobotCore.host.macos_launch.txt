@@ -1,0 +1,1316 @@
+  1           0 LOAD_CONST               0 ('Pure launch contract for the still-default-off macOS Control Host.\n\nThis module translates the existing YokoAgent process contract into explicit\nmacOS product inputs.  It never reads ``os.environ`` or ``Path.home()`` by\nitself, accesses Keychain, creates directories, opens a socket, or starts the\nControl Host.  The future signed entry point must provide the argument vector,\nenvironment snapshot and home directory explicitly.\n\nThe local ``X-API-Key`` is a legacy loopback compatibility credential shared\nwith the existing YokoAgent client.  It is deliberately kept separate from\n``YOKO_RPA_TOKEN`` and other business secrets owned by ``SecretStore``.\n')
+              2 STORE_NAME               0 (__doc__)
+
+ 14           4 LOAD_CONST               1 (0)
+              6 LOAD_CONST               2 (('annotations',))
+              8 IMPORT_NAME              1 (__future__)
+             10 IMPORT_FROM              2 (annotations)
+             12 STORE_NAME               2 (annotations)
+             14 POP_TOP
+
+ 16          16 LOAD_CONST               1 (0)
+             18 LOAD_CONST               3 (('dataclass', 'field'))
+             20 IMPORT_NAME              3 (dataclasses)
+             22 IMPORT_FROM              4 (dataclass)
+             24 STORE_NAME               4 (dataclass)
+             26 IMPORT_FROM              5 (field)
+             28 STORE_NAME               5 (field)
+             30 POP_TOP
+
+ 17          32 LOAD_CONST               1 (0)
+             34 LOAD_CONST               4 (None)
+             36 IMPORT_NAME              6 (os)
+             38 STORE_NAME               6 (os)
+
+ 18          40 LOAD_CONST               1 (0)
+             42 LOAD_CONST               5 (('Path',))
+             44 IMPORT_NAME              7 (pathlib)
+             46 IMPORT_FROM              8 (Path)
+             48 STORE_NAME               8 (Path)
+             50 POP_TOP
+
+ 19          52 LOAD_CONST               1 (0)
+             54 LOAD_CONST               4 (None)
+             56 IMPORT_NAME              9 (re)
+             58 STORE_NAME               9 (re)
+
+ 20          60 LOAD_CONST               1 (0)
+             62 LOAD_CONST               6 (('Mapping', 'Optional', 'Sequence'))
+             64 IMPORT_NAME             10 (typing)
+             66 IMPORT_FROM             11 (Mapping)
+             68 STORE_NAME              11 (Mapping)
+             70 IMPORT_FROM             12 (Optional)
+             72 STORE_NAME              12 (Optional)
+             74 IMPORT_FROM             13 (Sequence)
+             76 STORE_NAME              13 (Sequence)
+             78 POP_TOP
+
+ 21          80 LOAD_CONST               1 (0)
+             82 LOAD_CONST               7 (('urlsplit', 'urlunsplit'))
+             84 IMPORT_NAME             14 (urllib.parse)
+             86 IMPORT_FROM             15 (urlsplit)
+             88 STORE_NAME              15 (urlsplit)
+             90 IMPORT_FROM             16 (urlunsplit)
+             92 STORE_NAME              16 (urlunsplit)
+             94 POP_TOP
+
+ 23          96 LOAD_CONST               1 (0)
+             98 LOAD_CONST               8 (('MacOSAppPaths',))
+            100 IMPORT_NAME             17 (WeRobotCore.adapters.platform.macos_native)
+            102 IMPORT_FROM             18 (MacOSAppPaths)
+            104 STORE_NAME              18 (MacOSAppPaths)
+            106 POP_TOP
+
+ 24         108 LOAD_CONST               1 (0)
+            110 LOAD_CONST               9 (('ControlAccessAuthorizer',))
+            112 IMPORT_NAME             19 (WeRobotCore.application.control_access)
+            114 IMPORT_FROM             20 (ControlAccessAuthorizer)
+            116 STORE_NAME              20 (ControlAccessAuthorizer)
+            118 POP_TOP
+
+ 25         120 LOAD_CONST               1 (0)
+            122 LOAD_CONST              10 (('ControlRuntimeIdentity',))
+            124 IMPORT_NAME             21 (WeRobotCore.application.control_runtime_identity)
+            126 IMPORT_FROM             22 (ControlRuntimeIdentity)
+            128 STORE_NAME              22 (ControlRuntimeIdentity)
+            130 POP_TOP
+
+ 28         132 LOAD_CONST               1 (0)
+            134 LOAD_CONST              11 (('MacOSProductStartupPublication',))
+            136 IMPORT_NAME             23 (WeRobotCore.bootstrap.macos_product_startup)
+            138 IMPORT_FROM             24 (MacOSProductStartupPublication)
+            140 STORE_NAME              24 (MacOSProductStartupPublication)
+            142 POP_TOP
+
+ 32         144 LOAD_CONST              12 (1)
+            146 LOAD_CONST              13 (('FrontendDirectory',))
+            148 IMPORT_NAME             25 (control_app)
+            150 IMPORT_FROM             26 (FrontendDirectory)
+            152 STORE_NAME              26 (FrontendDirectory)
+            154 POP_TOP
+
+ 33         156 LOAD_CONST              12 (1)
+            158 LOAD_CONST              14 (('MacOSAutoReplyServiceFactory', 'MacOSControlHostCandidate', 'create_macos_control_host_candidate'))
+            160 IMPORT_NAME             27 (macos_candidate)
+            162 IMPORT_FROM             28 (MacOSAutoReplyServiceFactory)
+            164 STORE_NAME              28 (MacOSAutoReplyServiceFactory)
+            166 IMPORT_FROM             29 (MacOSControlHostCandidate)
+            168 STORE_NAME              29 (MacOSControlHostCandidate)
+            170 IMPORT_FROM             30 (create_macos_control_host_candidate)
+            172 STORE_NAME              30 (create_macos_control_host_candidate)
+            174 POP_TOP
+
+ 38         176 LOAD_CONST              12 (1)
+            178 LOAD_CONST              15 (('ControlHostServerSettings',))
+            180 IMPORT_NAME             31 (server)
+            182 IMPORT_FROM             32 (ControlHostServerSettings)
+            184 STORE_NAME              32 (ControlHostServerSettings)
+            186 POP_TOP
+
+ 41         188 LOAD_CONST              16 ('agent_generic')
+            190 STORE_NAME              33 (MACOS_AGENT_DEFAULT_CHANNEL_ID)
+
+ 42         192 LOAD_CONST              17 (9922)
+            194 STORE_NAME              34 (MACOS_AGENT_DEFAULT_PORT)
+
+ 43         196 LOAD_CONST              18 ('yoko_test')
+            198 STORE_NAME              35 (MACOS_LEGACY_LOCAL_API_KEY)
+
+ 45         200 LOAD_CONST              19 (128)
+            202 STORE_NAME              36 (_MAX_CHANNEL_ID_LENGTH)
+
+ 46         204 LOAD_NAME                9 (re)
+            206 LOAD_METHOD             37 (compile)
+
+ 47         208 LOAD_CONST              20 ('^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$')
+
+ 49         210 LOAD_NAME                9 (re)
+            212 LOAD_ATTR               38 (IGNORECASE)
+
+ 46         214 CALL_METHOD              2
+            216 STORE_NAME              39 (_RUNTIME_ID)
+
+ 53         218 LOAD_CONST              21 ('str')
+            220 LOAD_CONST              22 ('object')
+            222 LOAD_CONST              21 ('str')
+            224 LOAD_CONST              23 (('name', 'value', 'return'))
+            226 BUILD_CONST_KEY_MAP      3
+            228 LOAD_CONST              24 (<code object _nonempty_text at 0x1072cfbe0, file "WeRobotCore/host/macos_launch.py", line 53>)
+            230 LOAD_CONST              25 ('_nonempty_text')
+            232 MAKE_FUNCTION            4 (annotations)
+            234 STORE_NAME              40 (_nonempty_text)
+
+ 59         236 LOAD_CONST              21 ('str')
+            238 LOAD_CONST              22 ('object')
+            240 LOAD_CONST              26 ('Optional[str]')
+            242 LOAD_CONST              23 (('name', 'value', 'return'))
+            244 BUILD_CONST_KEY_MAP      3
+            246 LOAD_CONST              27 (<code object _optional_text at 0x1073aab30, file "WeRobotCore/host/macos_launch.py", line 59>)
+            248 LOAD_CONST              28 ('_optional_text')
+            250 MAKE_FUNCTION            4 (annotations)
+            252 STORE_NAME              41 (_optional_text)
+
+ 65         254 LOAD_CONST              22 ('object')
+            256 LOAD_CONST              26 ('Optional[str]')
+            258 LOAD_CONST              29 (('value', 'return'))
+            260 BUILD_CONST_KEY_MAP      2
+            262 LOAD_CONST              30 (<code object _optional_runtime_id at 0x1073aaf50, file "WeRobotCore/host/macos_launch.py", line 65>)
+            264 LOAD_CONST              31 ('_optional_runtime_id')
+            266 MAKE_FUNCTION            4 (annotations)
+            268 STORE_NAME              42 (_optional_runtime_id)
+
+ 74         270 LOAD_CONST              22 ('object')
+            272 LOAD_CONST              32 ('bool')
+            274 LOAD_CONST              26 ('Optional[str]')
+            276 LOAD_CONST              33 (('value', 'backend_mode', 'return'))
+            278 BUILD_CONST_KEY_MAP      3
+            280 LOAD_CONST              34 (<code object _optional_remote_api_base at 0x1073aa240, file "WeRobotCore/host/macos_launch.py", line 74>)
+            282 LOAD_CONST              35 ('_optional_remote_api_base')
+            284 MAKE_FUNCTION            4 (annotations)
+            286 STORE_NAME              43 (_optional_remote_api_base)
+
+107         288 LOAD_CONST              22 ('object')
+            290 LOAD_CONST              36 ('int')
+            292 LOAD_CONST              29 (('value', 'return'))
+            294 BUILD_CONST_KEY_MAP      2
+            296 LOAD_CONST              37 (<code object _parse_port at 0x1073aa190, file "WeRobotCore/host/macos_launch.py", line 107>)
+            298 LOAD_CONST              38 ('_parse_port')
+            300 MAKE_FUNCTION            4 (annotations)
+            302 STORE_NAME              44 (_parse_port)
+
+121         304 LOAD_CONST              39 ('Sequence[str]')
+            306 LOAD_CONST              40 ('tuple[bool, Optional[str]]')
+            308 LOAD_CONST              41 (('arguments', 'return'))
+            310 BUILD_CONST_KEY_MAP      2
+            312 LOAD_CONST              42 (<code object _parse_agent_arguments at 0x1073aabe0, file "WeRobotCore/host/macos_launch.py", line 121>)
+            314 LOAD_CONST              43 ('_parse_agent_arguments')
+            316 MAKE_FUNCTION            4 (annotations)
+            318 STORE_NAME              45 (_parse_agent_arguments)
+
+158         320 LOAD_CONST              21 ('str')
+            322 LOAD_CONST              21 ('str')
+            324 LOAD_CONST              29 (('value', 'return'))
+            326 BUILD_CONST_KEY_MAP      2
+            328 LOAD_CONST              44 (<code object _validate_channel_id at 0x1073aa450, file "WeRobotCore/host/macos_launch.py", line 158>)
+            330 LOAD_CONST              45 ('_validate_channel_id')
+            332 MAKE_FUNCTION            4 (annotations)
+            334 STORE_NAME              46 (_validate_channel_id)
+
+167         336 LOAD_NAME                4 (dataclass)
+            338 LOAD_CONST              46 (True)
+            340 LOAD_CONST              47 (('frozen',))
+            342 CALL_FUNCTION_KW         1
+
+168         344 LOAD_BUILD_CLASS
+            346 LOAD_CONST              48 (<code object MacOSControlProcessCredentials at 0x1073aa920, file "WeRobotCore/host/macos_launch.py", line 167>)
+            348 LOAD_CONST              49 ('MacOSControlProcessCredentials')
+            350 MAKE_FUNCTION            0
+            352 LOAD_CONST              49 ('MacOSControlProcessCredentials')
+            354 CALL_FUNCTION            2
+            356 CALL_FUNCTION            1
+            358 STORE_NAME              47 (MacOSControlProcessCredentials)
+
+184         360 LOAD_NAME                4 (dataclass)
+            362 LOAD_CONST              46 (True)
+            364 LOAD_CONST              47 (('frozen',))
+            366 CALL_FUNCTION_KW         1
+
+185         368 LOAD_BUILD_CLASS
+            370 LOAD_CONST              50 (<code object MacOSControlLaunchInputs at 0x1073aa2f0, file "WeRobotCore/host/macos_launch.py", line 184>)
+            372 LOAD_CONST              51 ('MacOSControlLaunchInputs')
+            374 MAKE_FUNCTION            0
+            376 LOAD_CONST              51 ('MacOSControlLaunchInputs')
+            378 CALL_FUNCTION            2
+            380 CALL_FUNCTION            1
+            382 STORE_NAME              48 (MacOSControlLaunchInputs)
+
+234         384 LOAD_NAME                4 (dataclass)
+            386 LOAD_CONST              46 (True)
+            388 LOAD_CONST              47 (('frozen',))
+            390 CALL_FUNCTION_KW         1
+
+235         392 LOAD_BUILD_CLASS
+            394 LOAD_CONST              52 (<code object MacOSControlHostLaunchPlan at 0x1073b9c90, file "WeRobotCore/host/macos_launch.py", line 234>)
+            396 LOAD_CONST              53 ('MacOSControlHostLaunchPlan')
+            398 MAKE_FUNCTION            0
+            400 LOAD_CONST              53 ('MacOSControlHostLaunchPlan')
+            402 CALL_FUNCTION            2
+            404 CALL_FUNCTION            1
+            406 STORE_NAME              49 (MacOSControlHostLaunchPlan)
+
+248         408 LOAD_CONST              39 ('Sequence[str]')
+            410 LOAD_CONST              54 ('Mapping[str, str]')
+            412 LOAD_CONST              55 ('Path')
+            414 LOAD_CONST              51 ('MacOSControlLaunchInputs')
+            416 LOAD_CONST              56 (('arguments', 'environment', 'home_dir', 'return'))
+            418 BUILD_CONST_KEY_MAP      4
+            420 LOAD_CONST              57 (<code object resolve_macos_control_launch_inputs at 0x1073b9b30, file "WeRobotCore/host/macos_launch.py", line 248>)
+            422 LOAD_CONST              58 ('resolve_macos_control_launch_inputs')
+            424 MAKE_FUNCTION            4 (annotations)
+            426 STORE_NAME              50 (resolve_macos_control_launch_inputs)
+
+305         428 LOAD_CONST               4 (None)
+
+306         430 LOAD_CONST               4 (None)
+
+299         432 LOAD_CONST              59 (('frontend_directory', 'license_service'))
+            434 BUILD_CONST_KEY_MAP      2
+            436 LOAD_CONST              60 ('MacOSProductStartupPublication')
+            438 LOAD_CONST              51 ('MacOSControlLaunchInputs')
+            440 LOAD_CONST              61 ('ControlAccessAuthorizer')
+            442 LOAD_CONST              62 ('MacOSAutoReplyServiceFactory')
+            444 LOAD_CONST              63 ('FrontendDirectory')
+            446 LOAD_CONST              53 ('MacOSControlHostLaunchPlan')
+            448 LOAD_CONST              64 (('publication', 'inputs', 'access_authorizer', 'auto_reply_service_factory', 'frontend_directory', 'return'))
+            450 BUILD_CONST_KEY_MAP      6
+            452 LOAD_CONST              65 (<code object prepare_macos_control_host_launch at 0x1073b9030, file "WeRobotCore/host/macos_launch.py", line 299>)
+            454 LOAD_CONST              66 ('prepare_macos_control_host_launch')
+            456 MAKE_FUNCTION            6 (kwdefaults, annotations)
+            458 STORE_NAME              51 (prepare_macos_control_host_launch)
+
+334         460 BUILD_LIST               0
+            462 LOAD_CONST              67 (('MACOS_AGENT_DEFAULT_CHANNEL_ID', 'MACOS_AGENT_DEFAULT_PORT', 'MACOS_LEGACY_LOCAL_API_KEY', 'MacOSControlHostLaunchPlan', 'MacOSControlLaunchInputs', 'MacOSControlProcessCredentials', 'prepare_macos_control_host_launch', 'resolve_macos_control_launch_inputs'))
+            464 LIST_EXTEND              1
+            466 STORE_NAME              52 (__all__)
+            468 LOAD_CONST               4 (None)
+            470 RETURN_VALUE
+
+Disassembly of <code object _nonempty_text at 0x1072cfbe0, file "WeRobotCore/host/macos_launch.py", line 53>:
+ 54           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                1 (value)
+              4 LOAD_GLOBAL              1 (str)
+              6 CALL_FUNCTION            2
+              8 POP_JUMP_IF_FALSE       18
+             10 LOAD_FAST                1 (value)
+             12 LOAD_METHOD              2 (strip)
+             14 CALL_METHOD              0
+             16 POP_JUMP_IF_TRUE        32
+
+ 55     >>   18 LOAD_GLOBAL              3 (ValueError)
+             20 LOAD_CONST               1 ('{} must be a non-empty string')
+             22 LOAD_METHOD              4 (format)
+             24 LOAD_FAST                0 (name)
+             26 CALL_METHOD              1
+             28 CALL_FUNCTION            1
+             30 RAISE_VARARGS            1
+
+ 56     >>   32 LOAD_FAST                1 (value)
+             34 LOAD_METHOD              2 (strip)
+             36 CALL_METHOD              0
+             38 RETURN_VALUE
+
+Disassembly of <code object _optional_text at 0x1073aab30, file "WeRobotCore/host/macos_launch.py", line 59>:
+ 60           0 LOAD_FAST                1 (value)
+              2 LOAD_CONST               0 (None)
+              4 IS_OP                    0
+              6 POP_JUMP_IF_FALSE       12
+
+ 61           8 LOAD_CONST               0 (None)
+             10 RETURN_VALUE
+
+ 62     >>   12 LOAD_GLOBAL              0 (_nonempty_text)
+             14 LOAD_FAST                0 (name)
+             16 LOAD_FAST                1 (value)
+             18 CALL_FUNCTION            2
+             20 RETURN_VALUE
+
+Disassembly of <code object _optional_runtime_id at 0x1073aaf50, file "WeRobotCore/host/macos_launch.py", line 65>:
+ 66           0 LOAD_FAST                0 (value)
+              2 LOAD_CONST               0 (None)
+              4 IS_OP                    0
+              6 POP_JUMP_IF_FALSE       12
+
+ 67           8 LOAD_CONST               0 (None)
+             10 RETURN_VALUE
+
+ 68     >>   12 LOAD_GLOBAL              0 (_nonempty_text)
+             14 LOAD_CONST               1 ('YOKO_RPA_RUNTIME_ID')
+             16 LOAD_FAST                0 (value)
+             18 CALL_FUNCTION            2
+             20 STORE_FAST               1 (runtime_id)
+
+ 69          22 LOAD_GLOBAL              1 (_RUNTIME_ID)
+             24 LOAD_METHOD              2 (fullmatch)
+             26 LOAD_FAST                1 (runtime_id)
+             28 CALL_METHOD              1
+             30 LOAD_CONST               0 (None)
+             32 IS_OP                    0
+             34 POP_JUMP_IF_FALSE       44
+
+ 70          36 LOAD_GLOBAL              3 (ValueError)
+             38 LOAD_CONST               2 ('YOKO_RPA_RUNTIME_ID must be a UUID')
+             40 CALL_FUNCTION            1
+             42 RAISE_VARARGS            1
+
+ 71     >>   44 LOAD_FAST                1 (runtime_id)
+             46 RETURN_VALUE
+
+Disassembly of <code object _optional_remote_api_base at 0x1073aa240, file "WeRobotCore/host/macos_launch.py", line 74>:
+ 79           0 LOAD_FAST                0 (value)
+              2 LOAD_CONST               0 (None)
+              4 IS_OP                    0
+              6 POP_JUMP_IF_FALSE       12
+
+ 80           8 LOAD_CONST               0 (None)
+             10 RETURN_VALUE
+
+ 81     >>   12 LOAD_GLOBAL              0 (_nonempty_text)
+             14 LOAD_CONST               1 ('YOKO_API_BASE')
+             16 LOAD_FAST                0 (value)
+             18 CALL_FUNCTION            2
+             20 LOAD_METHOD              1 (rstrip)
+             22 LOAD_CONST               2 ('/')
+             24 CALL_METHOD              1
+             26 STORE_FAST               2 (api_base)
+
+ 82          28 LOAD_FAST                1 (backend_mode)
+             30 POP_JUMP_IF_TRUE        36
+
+ 83          32 LOAD_FAST                2 (api_base)
+             34 RETURN_VALUE
+
+ 84     >>   36 LOAD_GLOBAL              2 (urlsplit)
+             38 LOAD_FAST                2 (api_base)
+             40 CALL_FUNCTION            1
+             42 STORE_FAST               3 (parsed)
+
+ 86          44 LOAD_FAST                3 (parsed)
+             46 LOAD_ATTR                3 (scheme)
+             48 LOAD_CONST               3 (('http', 'https'))
+             50 CONTAINS_OP              1
+
+ 85          52 POP_JUMP_IF_TRUE        92
+
+ 87          54 LOAD_FAST                3 (parsed)
+             56 LOAD_ATTR                4 (netloc)
+
+ 85          58 POP_JUMP_IF_FALSE       92
+
+ 88          60 LOAD_FAST                3 (parsed)
+             62 LOAD_ATTR                5 (username)
+             64 LOAD_CONST               0 (None)
+             66 IS_OP                    1
+
+ 85          68 POP_JUMP_IF_TRUE        92
+
+ 89          70 LOAD_FAST                3 (parsed)
+             72 LOAD_ATTR                6 (password)
+             74 LOAD_CONST               0 (None)
+             76 IS_OP                    1
+
+ 85          78 POP_JUMP_IF_TRUE        92
+
+ 90          80 LOAD_FAST                3 (parsed)
+             82 LOAD_ATTR                7 (query)
+
+ 85          84 POP_JUMP_IF_TRUE        92
+
+ 91          86 LOAD_FAST                3 (parsed)
+             88 LOAD_ATTR                8 (fragment)
+
+ 85          90 POP_JUMP_IF_FALSE      100
+
+ 93     >>   92 LOAD_GLOBAL              9 (ValueError)
+
+ 94          94 LOAD_CONST               4 ('YOKO_API_BASE must be an HTTP(S) origin or path in Agent plugin mode')
+
+ 93          96 CALL_FUNCTION            1
+             98 RAISE_VARARGS            1
+
+ 96     >>  100 LOAD_GLOBAL             10 (urlunsplit)
+
+ 98         102 LOAD_FAST                3 (parsed)
+            104 LOAD_ATTR                3 (scheme)
+
+ 99         106 LOAD_FAST                3 (parsed)
+            108 LOAD_ATTR                4 (netloc)
+
+100         110 LOAD_FAST                3 (parsed)
+            112 LOAD_ATTR               11 (path)
+            114 LOAD_METHOD              1 (rstrip)
+            116 LOAD_CONST               2 ('/')
+            118 CALL_METHOD              1
+
+101         120 LOAD_CONST               5 ('')
+
+102         122 LOAD_CONST               5 ('')
+
+ 97         124 BUILD_TUPLE              5
+
+ 96         126 CALL_FUNCTION            1
+            128 RETURN_VALUE
+
+Disassembly of <code object _parse_port at 0x1073aa190, file "WeRobotCore/host/macos_launch.py", line 107>:
+108           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                0 (value)
+              4 LOAD_GLOBAL              1 (bool)
+              6 CALL_FUNCTION            2
+              8 POP_JUMP_IF_FALSE       18
+
+109          10 LOAD_GLOBAL              2 (ValueError)
+             12 LOAD_CONST               1 ('YOKO_RPA_PORT must be an integer between 1 and 65535')
+             14 CALL_FUNCTION            1
+             16 RAISE_VARARGS            1
+
+110     >>   18 SETUP_FINALLY           12 (to 32)
+
+111          20 LOAD_GLOBAL              3 (int)
+             22 LOAD_FAST                0 (value)
+             24 CALL_FUNCTION            1
+             26 STORE_FAST               1 (port)
+             28 POP_BLOCK
+             30 JUMP_FORWARD            50 (to 82)
+
+112     >>   32 DUP_TOP
+             34 LOAD_GLOBAL              4 (TypeError)
+             36 LOAD_GLOBAL              2 (ValueError)
+             38 BUILD_TUPLE              2
+             40 JUMP_IF_NOT_EXC_MATCH    80
+             42 POP_TOP
+             44 STORE_FAST               2 (exc)
+             46 POP_TOP
+             48 SETUP_FINALLY           22 (to 72)
+
+113          50 LOAD_GLOBAL              2 (ValueError)
+
+114          52 LOAD_CONST               1 ('YOKO_RPA_PORT must be an integer between 1 and 65535')
+
+113          54 CALL_FUNCTION            1
+
+115          56 LOAD_FAST                2 (exc)
+
+113          58 RAISE_VARARGS            2
+             60 POP_BLOCK
+             62 POP_EXCEPT
+             64 LOAD_CONST               0 (None)
+             66 STORE_FAST               2 (exc)
+             68 DELETE_FAST              2 (exc)
+             70 JUMP_FORWARD            10 (to 82)
+        >>   72 LOAD_CONST               0 (None)
+             74 STORE_FAST               2 (exc)
+             76 DELETE_FAST              2 (exc)
+             78 RERAISE
+        >>   80 RERAISE
+
+116     >>   82 LOAD_CONST               2 (1)
+             84 LOAD_FAST                1 (port)
+             86 DUP_TOP
+             88 ROT_THREE
+             90 COMPARE_OP               1 (<=)
+             92 POP_JUMP_IF_FALSE      102
+             94 LOAD_CONST               3 (65535)
+             96 COMPARE_OP               1 (<=)
+             98 POP_JUMP_IF_TRUE       112
+            100 JUMP_FORWARD             2 (to 104)
+        >>  102 POP_TOP
+
+117     >>  104 LOAD_GLOBAL              2 (ValueError)
+            106 LOAD_CONST               1 ('YOKO_RPA_PORT must be an integer between 1 and 65535')
+            108 CALL_FUNCTION            1
+            110 RAISE_VARARGS            1
+
+118     >>  112 LOAD_FAST                1 (port)
+            114 RETURN_VALUE
+
+Disassembly of <code object _parse_agent_arguments at 0x1073aabe0, file "WeRobotCore/host/macos_launch.py", line 121>:
+122           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                0 (arguments)
+              4 LOAD_GLOBAL              1 (str)
+              6 LOAD_GLOBAL              2 (bytes)
+              8 BUILD_TUPLE              2
+             10 CALL_FUNCTION            2
+             12 POP_JUMP_IF_FALSE       22
+
+123          14 LOAD_GLOBAL              3 (TypeError)
+             16 LOAD_CONST               1 ('arguments must be a sequence of strings')
+             18 CALL_FUNCTION            1
+             20 RAISE_VARARGS            1
+
+124     >>   22 LOAD_CONST               2 (False)
+             24 STORE_FAST               1 (backend_mode)
+
+125          26 LOAD_CONST               0 (None)
+             28 STORE_FAST               2 (channel_id)
+
+126          30 LOAD_CONST               3 (0)
+             32 STORE_FAST               3 (index)
+
+127     >>   34 LOAD_FAST                3 (index)
+             36 LOAD_GLOBAL              4 (len)
+             38 LOAD_FAST                0 (arguments)
+             40 CALL_FUNCTION            1
+             42 COMPARE_OP               0 (<)
+             44 POP_JUMP_IF_FALSE      254
+
+128          46 LOAD_FAST                0 (arguments)
+             48 LOAD_FAST                3 (index)
+             50 BINARY_SUBSCR
+             52 STORE_FAST               4 (argument)
+
+129          54 LOAD_GLOBAL              0 (isinstance)
+             56 LOAD_FAST                4 (argument)
+             58 LOAD_GLOBAL              1 (str)
+             60 CALL_FUNCTION            2
+             62 POP_JUMP_IF_TRUE        72
+
+130          64 LOAD_GLOBAL              3 (TypeError)
+             66 LOAD_CONST               4 ('arguments must contain only strings')
+             68 CALL_FUNCTION            1
+             70 RAISE_VARARGS            1
+
+131     >>   72 LOAD_FAST                4 (argument)
+             74 LOAD_CONST               5 ('--no-ui')
+             76 COMPARE_OP               2 (==)
+             78 POP_JUMP_IF_FALSE      106
+
+132          80 LOAD_FAST                1 (backend_mode)
+             82 POP_JUMP_IF_FALSE       92
+
+133          84 LOAD_GLOBAL              5 (ValueError)
+             86 LOAD_CONST               6 ('--no-ui may be provided only once')
+             88 CALL_FUNCTION            1
+             90 RAISE_VARARGS            1
+
+134     >>   92 LOAD_CONST               7 (True)
+             94 STORE_FAST               1 (backend_mode)
+
+135          96 LOAD_FAST                3 (index)
+             98 LOAD_CONST               8 (1)
+            100 INPLACE_ADD
+            102 STORE_FAST               3 (index)
+
+136         104 JUMP_ABSOLUTE           34
+
+137     >>  106 LOAD_FAST                4 (argument)
+            108 LOAD_CONST               9 ('--channel-id')
+            110 COMPARE_OP               2 (==)
+            112 POP_JUMP_IF_FALSE      182
+
+138         114 LOAD_FAST                2 (channel_id)
+            116 LOAD_CONST               0 (None)
+            118 IS_OP                    1
+            120 POP_JUMP_IF_FALSE      130
+
+139         122 LOAD_GLOBAL              5 (ValueError)
+            124 LOAD_CONST              10 ('--channel-id may be provided only once')
+            126 CALL_FUNCTION            1
+            128 RAISE_VARARGS            1
+
+140     >>  130 LOAD_FAST                3 (index)
+            132 LOAD_CONST               8 (1)
+            134 BINARY_ADD
+            136 LOAD_GLOBAL              4 (len)
+            138 LOAD_FAST                0 (arguments)
+            140 CALL_FUNCTION            1
+            142 COMPARE_OP               5 (>=)
+            144 POP_JUMP_IF_FALSE      154
+
+141         146 LOAD_GLOBAL              5 (ValueError)
+            148 LOAD_CONST              11 ('--channel-id requires a value')
+            150 CALL_FUNCTION            1
+            152 RAISE_VARARGS            1
+
+142     >>  154 LOAD_GLOBAL              6 (_nonempty_text)
+            156 LOAD_CONST              12 ('channel_id')
+            158 LOAD_FAST                0 (arguments)
+            160 LOAD_FAST                3 (index)
+            162 LOAD_CONST               8 (1)
+            164 BINARY_ADD
+            166 BINARY_SUBSCR
+            168 CALL_FUNCTION            2
+            170 STORE_FAST               2 (channel_id)
+
+143         172 LOAD_FAST                3 (index)
+            174 LOAD_CONST              13 (2)
+            176 INPLACE_ADD
+            178 STORE_FAST               3 (index)
+
+144         180 JUMP_ABSOLUTE           34
+
+145     >>  182 LOAD_FAST                4 (argument)
+            184 LOAD_METHOD              7 (startswith)
+            186 LOAD_CONST              14 ('--channel-id=')
+            188 CALL_METHOD              1
+            190 POP_JUMP_IF_FALSE      238
+
+146         192 LOAD_FAST                2 (channel_id)
+            194 LOAD_CONST               0 (None)
+            196 IS_OP                    1
+            198 POP_JUMP_IF_FALSE      208
+
+147         200 LOAD_GLOBAL              5 (ValueError)
+            202 LOAD_CONST              10 ('--channel-id may be provided only once')
+            204 CALL_FUNCTION            1
+            206 RAISE_VARARGS            1
+
+148     >>  208 LOAD_GLOBAL              6 (_nonempty_text)
+
+149         210 LOAD_CONST              12 ('channel_id')
+
+150         212 LOAD_FAST                4 (argument)
+            214 LOAD_METHOD              8 (partition)
+            216 LOAD_CONST              15 ('=')
+            218 CALL_METHOD              1
+            220 LOAD_CONST              13 (2)
+            222 BINARY_SUBSCR
+
+148         224 CALL_FUNCTION            2
+            226 STORE_FAST               2 (channel_id)
+
+152         228 LOAD_FAST                3 (index)
+            230 LOAD_CONST               8 (1)
+            232 INPLACE_ADD
+            234 STORE_FAST               3 (index)
+
+153         236 JUMP_ABSOLUTE           34
+
+154     >>  238 LOAD_GLOBAL              5 (ValueError)
+            240 LOAD_CONST              16 ('unsupported macOS Control argument: {}')
+            242 LOAD_METHOD              9 (format)
+            244 LOAD_FAST                4 (argument)
+            246 CALL_METHOD              1
+            248 CALL_FUNCTION            1
+            250 RAISE_VARARGS            1
+            252 JUMP_ABSOLUTE           34
+
+155     >>  254 LOAD_FAST                1 (backend_mode)
+            256 LOAD_FAST                2 (channel_id)
+            258 BUILD_TUPLE              2
+            260 RETURN_VALUE
+
+Disassembly of <code object _validate_channel_id at 0x1073aa450, file "WeRobotCore/host/macos_launch.py", line 158>:
+159           0 LOAD_GLOBAL              0 (_nonempty_text)
+              2 LOAD_CONST               1 ('channel_id')
+              4 LOAD_FAST                0 (value)
+              6 CALL_FUNCTION            2
+              8 STORE_FAST               1 (channel_id)
+
+160          10 LOAD_GLOBAL              1 (len)
+             12 LOAD_FAST                1 (channel_id)
+             14 CALL_FUNCTION            1
+             16 LOAD_GLOBAL              2 (_MAX_CHANNEL_ID_LENGTH)
+             18 COMPARE_OP               4 (>)
+             20 POP_JUMP_IF_FALSE       30
+
+161          22 LOAD_GLOBAL              3 (ValueError)
+             24 LOAD_CONST               2 ('channel_id exceeds the 128-character limit')
+             26 CALL_FUNCTION            1
+             28 RAISE_VARARGS            1
+
+162     >>   30 LOAD_GLOBAL              4 (any)
+             32 LOAD_CONST               3 (<code object <genexpr> at 0x1073aa870, file "WeRobotCore/host/macos_launch.py", line 162>)
+             34 LOAD_CONST               4 ('_validate_channel_id.<locals>.<genexpr>')
+             36 MAKE_FUNCTION            0
+             38 LOAD_FAST                1 (channel_id)
+             40 GET_ITER
+             42 CALL_FUNCTION            1
+             44 CALL_FUNCTION            1
+             46 POP_JUMP_IF_FALSE       56
+
+163          48 LOAD_GLOBAL              3 (ValueError)
+             50 LOAD_CONST               5 ('channel_id must not contain control characters')
+             52 CALL_FUNCTION            1
+             54 RAISE_VARARGS            1
+
+164     >>   56 LOAD_FAST                1 (channel_id)
+             58 RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x1073aa870, file "WeRobotCore/host/macos_launch.py", line 162>:
+162           0 LOAD_FAST                0 (.0)
+        >>    2 FOR_ITER                30 (to 34)
+              4 STORE_FAST               1 (character)
+              6 LOAD_GLOBAL              0 (ord)
+              8 LOAD_FAST                1 (character)
+             10 CALL_FUNCTION            1
+             12 LOAD_CONST               0 (32)
+             14 COMPARE_OP               0 (<)
+             16 JUMP_IF_TRUE_OR_POP     28
+             18 LOAD_GLOBAL              0 (ord)
+             20 LOAD_FAST                1 (character)
+             22 CALL_FUNCTION            1
+             24 LOAD_CONST               1 (127)
+             26 COMPARE_OP               2 (==)
+        >>   28 YIELD_VALUE
+             30 POP_TOP
+             32 JUMP_ABSOLUTE            2
+        >>   34 LOAD_CONST               2 (None)
+             36 RETURN_VALUE
+
+Disassembly of <code object MacOSControlProcessCredentials at 0x1073aa920, file "WeRobotCore/host/macos_launch.py", line 167>:
+167           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('MacOSControlProcessCredentials')
+              6 STORE_NAME               2 (__qualname__)
+              8 SETUP_ANNOTATIONS
+
+169          10 LOAD_CONST               1 ('Credentials separated by ownership and disclosure rules.')
+             12 STORE_NAME               3 (__doc__)
+
+171          14 LOAD_NAME                4 (field)
+             16 LOAD_CONST               2 (False)
+             18 LOAD_CONST               3 (('repr',))
+             20 CALL_FUNCTION_KW         1
+             22 STORE_NAME               5 (local_api_key)
+             24 LOAD_CONST               4 ('str')
+             26 LOAD_NAME                6 (__annotations__)
+             28 LOAD_CONST               5 ('local_api_key')
+             30 STORE_SUBSCR
+
+172          32 LOAD_NAME                4 (field)
+             34 LOAD_CONST               6 (None)
+             36 LOAD_CONST               2 (False)
+             38 LOAD_CONST               7 (('default', 'repr'))
+             40 CALL_FUNCTION_KW         2
+             42 STORE_NAME               7 (rpa_token)
+             44 LOAD_CONST               8 ('Optional[str]')
+             46 LOAD_NAME                6 (__annotations__)
+             48 LOAD_CONST               9 ('rpa_token')
+             50 STORE_SUBSCR
+
+174          52 LOAD_CONST              10 ('None')
+             54 LOAD_CONST              11 (('return',))
+             56 BUILD_CONST_KEY_MAP      1
+             58 LOAD_CONST              12 (<code object __post_init__ at 0x1073aa660, file "WeRobotCore/host/macos_launch.py", line 174>)
+             60 LOAD_CONST              13 ('MacOSControlProcessCredentials.__post_init__')
+             62 MAKE_FUNCTION            4 (annotations)
+             64 STORE_NAME               8 (__post_init__)
+             66 LOAD_CONST               6 (None)
+             68 RETURN_VALUE
+
+Disassembly of <code object __post_init__ at 0x1073aa660, file "WeRobotCore/host/macos_launch.py", line 174>:
+175           0 LOAD_GLOBAL              0 (object)
+              2 LOAD_METHOD              1 (__setattr__)
+
+176           4 LOAD_FAST                0 (self)
+
+177           6 LOAD_CONST               1 ('local_api_key')
+
+178           8 LOAD_GLOBAL              2 (_nonempty_text)
+             10 LOAD_CONST               1 ('local_api_key')
+             12 LOAD_FAST                0 (self)
+             14 LOAD_ATTR                3 (local_api_key)
+             16 CALL_FUNCTION            2
+
+175          18 CALL_METHOD              3
+             20 POP_TOP
+
+180          22 LOAD_FAST                0 (self)
+             24 LOAD_ATTR                4 (rpa_token)
+             26 LOAD_CONST               0 (None)
+             28 IS_OP                    1
+             30 POP_JUMP_IF_FALSE       44
+
+181          32 LOAD_GLOBAL              2 (_nonempty_text)
+             34 LOAD_CONST               2 ('rpa_token')
+             36 LOAD_FAST                0 (self)
+             38 LOAD_ATTR                4 (rpa_token)
+             40 CALL_FUNCTION            2
+             42 POP_TOP
+        >>   44 LOAD_CONST               0 (None)
+             46 RETURN_VALUE
+
+Disassembly of <code object MacOSControlLaunchInputs at 0x1073aa2f0, file "WeRobotCore/host/macos_launch.py", line 184>:
+184           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('MacOSControlLaunchInputs')
+              6 STORE_NAME               2 (__qualname__)
+              8 SETUP_ANNOTATIONS
+
+186          10 LOAD_CONST               1 ('Resolved process inputs; creating this value performs no I/O.')
+             12 STORE_NAME               3 (__doc__)
+
+188          14 LOAD_CONST               2 ('bool')
+             16 LOAD_NAME                4 (__annotations__)
+             18 LOAD_CONST               3 ('backend_mode')
+             20 STORE_SUBSCR
+
+189          22 LOAD_CONST               4 ('str')
+             24 LOAD_NAME                4 (__annotations__)
+             26 LOAD_CONST               5 ('channel_id')
+             28 STORE_SUBSCR
+
+190          30 LOAD_CONST               6 ('ControlHostServerSettings')
+             32 LOAD_NAME                4 (__annotations__)
+             34 LOAD_CONST               7 ('server_settings')
+             36 STORE_SUBSCR
+
+191          38 LOAD_CONST               8 ('MacOSAppPaths')
+             40 LOAD_NAME                4 (__annotations__)
+             42 LOAD_CONST               9 ('app_paths')
+             44 STORE_SUBSCR
+
+192          46 LOAD_CONST              10 ('MacOSControlProcessCredentials')
+             48 LOAD_NAME                4 (__annotations__)
+             50 LOAD_CONST              11 ('credentials')
+             52 STORE_SUBSCR
+
+193          54 LOAD_CONST              12 (None)
+             56 STORE_NAME               5 (remote_api_base)
+             58 LOAD_CONST              13 ('Optional[str]')
+             60 LOAD_NAME                4 (__annotations__)
+             62 LOAD_CONST              14 ('remote_api_base')
+             64 STORE_SUBSCR
+
+194          66 LOAD_CONST              12 (None)
+             68 STORE_NAME               6 (runtime_id)
+             70 LOAD_CONST              13 ('Optional[str]')
+             72 LOAD_NAME                4 (__annotations__)
+             74 LOAD_CONST              15 ('runtime_id')
+             76 STORE_SUBSCR
+
+195          78 LOAD_CONST              12 (None)
+             80 STORE_NAME               7 (machine_code)
+             82 LOAD_CONST              13 ('Optional[str]')
+             84 LOAD_NAME                4 (__annotations__)
+             86 LOAD_CONST              16 ('machine_code')
+             88 STORE_SUBSCR
+
+196          90 LOAD_CONST              17 ('disabled')
+             92 STORE_NAME               8 (session_v2_mode)
+             94 LOAD_CONST               4 ('str')
+             96 LOAD_NAME                4 (__annotations__)
+             98 LOAD_CONST              18 ('session_v2_mode')
+            100 STORE_SUBSCR
+
+198         102 LOAD_CONST              19 ('None')
+            104 LOAD_CONST              20 (('return',))
+            106 BUILD_CONST_KEY_MAP      1
+            108 LOAD_CONST              21 (<code object __post_init__ at 0x1073aa7c0, file "WeRobotCore/host/macos_launch.py", line 198>)
+            110 LOAD_CONST              22 ('MacOSControlLaunchInputs.__post_init__')
+            112 MAKE_FUNCTION            4 (annotations)
+            114 STORE_NAME               9 (__post_init__)
+            116 LOAD_CONST              12 (None)
+            118 RETURN_VALUE
+
+Disassembly of <code object __post_init__ at 0x1073aa7c0, file "WeRobotCore/host/macos_launch.py", line 198>:
+199           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                0 (self)
+              4 LOAD_ATTR                1 (backend_mode)
+              6 LOAD_GLOBAL              2 (bool)
+              8 CALL_FUNCTION            2
+             10 POP_JUMP_IF_TRUE        20
+
+200          12 LOAD_GLOBAL              3 (TypeError)
+             14 LOAD_CONST               1 ('backend_mode must be a boolean')
+             16 CALL_FUNCTION            1
+             18 RAISE_VARARGS            1
+
+201     >>   20 LOAD_FAST                0 (self)
+             22 LOAD_ATTR                4 (machine_code)
+             24 LOAD_CONST               0 (None)
+             26 IS_OP                    1
+             28 POP_JUMP_IF_FALSE       68
+
+202          30 LOAD_GLOBAL              0 (isinstance)
+             32 LOAD_FAST                0 (self)
+             34 LOAD_ATTR                4 (machine_code)
+             36 LOAD_GLOBAL              5 (str)
+             38 CALL_FUNCTION            2
+
+201          40 POP_JUMP_IF_FALSE       60
+
+203          42 LOAD_GLOBAL              6 (re)
+             44 LOAD_METHOD              7 (fullmatch)
+             46 LOAD_CONST               2 ('[0-9A-F]{4}(?:-[0-9A-F]{4}){3}')
+             48 LOAD_FAST                0 (self)
+             50 LOAD_ATTR                4 (machine_code)
+             52 CALL_METHOD              2
+             54 LOAD_CONST               0 (None)
+             56 IS_OP                    0
+
+201          58 POP_JUMP_IF_FALSE       68
+
+205     >>   60 LOAD_GLOBAL              8 (ValueError)
+             62 LOAD_CONST               3 ('YOKO_RPA_MACHINE_CODE is invalid')
+             64 CALL_FUNCTION            1
+             66 RAISE_VARARGS            1
+
+206     >>   68 LOAD_FAST                0 (self)
+             70 LOAD_ATTR                9 (session_v2_mode)
+             72 LOAD_CONST               4 (frozenset({'optional', 'disabled', 'required'}))
+             74 CONTAINS_OP              1
+             76 POP_JUMP_IF_FALSE       86
+
+207          78 LOAD_GLOBAL              8 (ValueError)
+             80 LOAD_CONST               5 ('AGENT_SESSION_V2_MODE is invalid')
+             82 CALL_FUNCTION            1
+             84 RAISE_VARARGS            1
+
+208     >>   86 LOAD_GLOBAL             10 (object)
+             88 LOAD_METHOD             11 (__setattr__)
+             90 LOAD_FAST                0 (self)
+             92 LOAD_CONST               6 ('channel_id')
+             94 LOAD_GLOBAL             12 (_validate_channel_id)
+             96 LOAD_FAST                0 (self)
+             98 LOAD_ATTR               13 (channel_id)
+            100 CALL_FUNCTION            1
+            102 CALL_METHOD              3
+            104 POP_TOP
+
+209         106 LOAD_GLOBAL              0 (isinstance)
+            108 LOAD_FAST                0 (self)
+            110 LOAD_ATTR               14 (server_settings)
+            112 LOAD_GLOBAL             15 (ControlHostServerSettings)
+            114 CALL_FUNCTION            2
+            116 POP_JUMP_IF_TRUE       126
+
+210         118 LOAD_GLOBAL              3 (TypeError)
+            120 LOAD_CONST               7 ('server_settings must be ControlHostServerSettings')
+            122 CALL_FUNCTION            1
+            124 RAISE_VARARGS            1
+
+211     >>  126 LOAD_GLOBAL              0 (isinstance)
+            128 LOAD_FAST                0 (self)
+            130 LOAD_ATTR               16 (app_paths)
+            132 LOAD_GLOBAL             17 (MacOSAppPaths)
+            134 CALL_FUNCTION            2
+            136 POP_JUMP_IF_TRUE       146
+
+212         138 LOAD_GLOBAL              3 (TypeError)
+            140 LOAD_CONST               8 ('app_paths must be MacOSAppPaths')
+            142 CALL_FUNCTION            1
+            144 RAISE_VARARGS            1
+
+213     >>  146 LOAD_GLOBAL              0 (isinstance)
+            148 LOAD_FAST                0 (self)
+            150 LOAD_ATTR               18 (credentials)
+            152 LOAD_GLOBAL             19 (MacOSControlProcessCredentials)
+            154 CALL_FUNCTION            2
+            156 POP_JUMP_IF_TRUE       166
+
+214         158 LOAD_GLOBAL              3 (TypeError)
+            160 LOAD_CONST               9 ('credentials must be MacOSControlProcessCredentials')
+            162 CALL_FUNCTION            1
+            164 RAISE_VARARGS            1
+
+215     >>  166 LOAD_GLOBAL             10 (object)
+            168 LOAD_METHOD             11 (__setattr__)
+
+216         170 LOAD_FAST                0 (self)
+
+217         172 LOAD_CONST              10 ('remote_api_base')
+
+218         174 LOAD_GLOBAL             20 (_optional_remote_api_base)
+
+219         176 LOAD_FAST                0 (self)
+            178 LOAD_ATTR               21 (remote_api_base)
+
+220         180 LOAD_FAST                0 (self)
+            182 LOAD_ATTR                1 (backend_mode)
+
+218         184 LOAD_CONST              11 (('backend_mode',))
+            186 CALL_FUNCTION_KW         2
+
+215         188 CALL_METHOD              3
+            190 POP_TOP
+
+223         192 LOAD_GLOBAL             10 (object)
+            194 LOAD_METHOD             11 (__setattr__)
+
+224         196 LOAD_FAST                0 (self)
+
+225         198 LOAD_CONST              12 ('runtime_id')
+
+226         200 LOAD_GLOBAL             22 (_optional_runtime_id)
+            202 LOAD_FAST                0 (self)
+            204 LOAD_ATTR               23 (runtime_id)
+            206 CALL_FUNCTION            1
+
+223         208 CALL_METHOD              3
+            210 POP_TOP
+
+228         212 LOAD_FAST                0 (self)
+            214 LOAD_ATTR                1 (backend_mode)
+            216 POP_JUMP_IF_TRUE       236
+            218 LOAD_FAST                0 (self)
+            220 LOAD_ATTR               23 (runtime_id)
+            222 LOAD_CONST               0 (None)
+            224 IS_OP                    1
+            226 POP_JUMP_IF_FALSE      236
+
+229         228 LOAD_GLOBAL              8 (ValueError)
+
+230         230 LOAD_CONST              13 ('YOKO_RPA_RUNTIME_ID is reserved for Agent plugin mode')
+
+229         232 CALL_FUNCTION            1
+            234 RAISE_VARARGS            1
+        >>  236 LOAD_CONST               0 (None)
+            238 RETURN_VALUE
+
+Disassembly of <code object MacOSControlHostLaunchPlan at 0x1073b9c90, file "WeRobotCore/host/macos_launch.py", line 234>:
+234           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('MacOSControlHostLaunchPlan')
+              6 STORE_NAME               2 (__qualname__)
+              8 SETUP_ANNOTATIONS
+
+236          10 LOAD_CONST               1 ('A fully composed Host plus settings that have not been served.')
+             12 STORE_NAME               3 (__doc__)
+
+238          14 LOAD_CONST               2 ('MacOSControlHostCandidate')
+             16 LOAD_NAME                4 (__annotations__)
+             18 LOAD_CONST               3 ('host')
+             20 STORE_SUBSCR
+
+239          22 LOAD_CONST               4 ('MacOSControlLaunchInputs')
+             24 LOAD_NAME                4 (__annotations__)
+             26 LOAD_CONST               5 ('inputs')
+             28 STORE_SUBSCR
+
+241          30 LOAD_CONST               6 ('None')
+             32 LOAD_CONST               7 (('return',))
+             34 BUILD_CONST_KEY_MAP      1
+             36 LOAD_CONST               8 (<code object __post_init__ at 0x1073b90e0, file "WeRobotCore/host/macos_launch.py", line 241>)
+             38 LOAD_CONST               9 ('MacOSControlHostLaunchPlan.__post_init__')
+             40 MAKE_FUNCTION            4 (annotations)
+             42 STORE_NAME               5 (__post_init__)
+             44 LOAD_CONST              10 (None)
+             46 RETURN_VALUE
+
+Disassembly of <code object __post_init__ at 0x1073b90e0, file "WeRobotCore/host/macos_launch.py", line 241>:
+242           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                0 (self)
+              4 LOAD_ATTR                1 (host)
+              6 LOAD_GLOBAL              2 (MacOSControlHostCandidate)
+              8 CALL_FUNCTION            2
+             10 POP_JUMP_IF_TRUE        20
+
+243          12 LOAD_GLOBAL              3 (TypeError)
+             14 LOAD_CONST               1 ('host must be MacOSControlHostCandidate')
+             16 CALL_FUNCTION            1
+             18 RAISE_VARARGS            1
+
+244     >>   20 LOAD_GLOBAL              0 (isinstance)
+             22 LOAD_FAST                0 (self)
+             24 LOAD_ATTR                4 (inputs)
+             26 LOAD_GLOBAL              5 (MacOSControlLaunchInputs)
+             28 CALL_FUNCTION            2
+             30 POP_JUMP_IF_TRUE        40
+
+245          32 LOAD_GLOBAL              3 (TypeError)
+             34 LOAD_CONST               2 ('inputs must be MacOSControlLaunchInputs')
+             36 CALL_FUNCTION            1
+             38 RAISE_VARARGS            1
+        >>   40 LOAD_CONST               0 (None)
+             42 RETURN_VALUE
+
+Disassembly of <code object resolve_macos_control_launch_inputs at 0x1073b9b30, file "WeRobotCore/host/macos_launch.py", line 248>:
+261           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                1 (environment)
+              4 LOAD_GLOBAL              1 (Mapping)
+              6 CALL_FUNCTION            2
+              8 POP_JUMP_IF_TRUE        18
+
+262          10 LOAD_GLOBAL              2 (TypeError)
+             12 LOAD_CONST               1 ('environment must be a mapping')
+             14 CALL_FUNCTION            1
+             16 RAISE_VARARGS            1
+
+263     >>   18 LOAD_GLOBAL              0 (isinstance)
+             20 LOAD_FAST                2 (home_dir)
+             22 LOAD_GLOBAL              3 (Path)
+             24 CALL_FUNCTION            2
+             26 POP_JUMP_IF_TRUE        36
+
+264          28 LOAD_GLOBAL              2 (TypeError)
+             30 LOAD_CONST               2 ('home_dir must be a pathlib.Path')
+             32 CALL_FUNCTION            1
+             34 RAISE_VARARGS            1
+
+266     >>   36 LOAD_GLOBAL              4 (_parse_agent_arguments)
+             38 LOAD_FAST                0 (arguments)
+             40 CALL_FUNCTION            1
+             42 UNPACK_SEQUENCE          2
+             44 STORE_FAST               3 (backend_mode)
+             46 STORE_FAST               4 (argument_channel_id)
+
+268          48 LOAD_FAST                1 (environment)
+             50 LOAD_METHOD              5 (get)
+             52 LOAD_CONST               3 ('YOKO_CHANNEL_ID')
+             54 CALL_METHOD              1
+             56 JUMP_IF_TRUE_OR_POP     70
+
+269          58 LOAD_FAST                1 (environment)
+             60 LOAD_METHOD              5 (get)
+             62 LOAD_CONST               4 ('VITE_CHANNEL_ID')
+             64 CALL_METHOD              1
+
+268          66 JUMP_IF_TRUE_OR_POP     70
+
+270          68 LOAD_GLOBAL              6 (MACOS_AGENT_DEFAULT_CHANNEL_ID)
+
+267     >>   70 STORE_FAST               5 (environment_channel_id)
+
+272          72 LOAD_GLOBAL              7 (_validate_channel_id)
+
+273          74 LOAD_FAST                4 (argument_channel_id)
+             76 JUMP_IF_TRUE_OR_POP     80
+             78 LOAD_FAST                5 (environment_channel_id)
+
+272     >>   80 CALL_FUNCTION            1
+             82 STORE_FAST               6 (channel_id)
+
+275          84 LOAD_GLOBAL              8 (_parse_port)
+
+276          86 LOAD_FAST                1 (environment)
+             88 LOAD_METHOD              5 (get)
+             90 LOAD_CONST               5 ('YOKO_RPA_PORT')
+             92 LOAD_GLOBAL              9 (str)
+             94 LOAD_GLOBAL             10 (MACOS_AGENT_DEFAULT_PORT)
+             96 CALL_FUNCTION            1
+             98 CALL_METHOD              2
+
+275         100 CALL_FUNCTION            1
+            102 STORE_FAST               7 (port)
+
+278         104 LOAD_FAST                1 (environment)
+            106 LOAD_METHOD              5 (get)
+
+279         108 LOAD_CONST               6 ('WEBOT_API_KEY')
+
+280         110 LOAD_GLOBAL             11 (MACOS_LEGACY_LOCAL_API_KEY)
+
+278         112 CALL_METHOD              2
+            114 STORE_FAST               8 (local_api_key)
+
+282         116 LOAD_GLOBAL             12 (MacOSControlProcessCredentials)
+
+283         118 LOAD_FAST                8 (local_api_key)
+
+284         120 LOAD_FAST                1 (environment)
+            122 LOAD_METHOD              5 (get)
+            124 LOAD_CONST               7 ('YOKO_RPA_TOKEN')
+            126 CALL_METHOD              1
+
+282         128 LOAD_CONST               8 (('local_api_key', 'rpa_token'))
+            130 CALL_FUNCTION_KW         2
+            132 STORE_FAST               9 (credentials)
+
+286         134 LOAD_GLOBAL             13 (MacOSControlLaunchInputs)
+
+287         136 LOAD_FAST                3 (backend_mode)
+
+288         138 LOAD_FAST                6 (channel_id)
+
+289         140 LOAD_GLOBAL             14 (ControlHostServerSettings)
+            142 LOAD_FAST                7 (port)
+            144 LOAD_CONST               9 (('port',))
+            146 CALL_FUNCTION_KW         1
+
+290         148 LOAD_GLOBAL             15 (MacOSAppPaths)
+            150 LOAD_METHOD             16 (from_home)
+            152 LOAD_FAST                2 (home_dir)
+            154 CALL_METHOD              1
+
+291         156 LOAD_FAST                9 (credentials)
+
+292         158 LOAD_FAST                1 (environment)
+            160 LOAD_METHOD              5 (get)
+            162 LOAD_CONST              10 ('YOKO_API_BASE')
+            164 CALL_METHOD              1
+
+293         166 LOAD_FAST                1 (environment)
+            168 LOAD_METHOD              5 (get)
+            170 LOAD_CONST              11 ('YOKO_RPA_RUNTIME_ID')
+            172 CALL_METHOD              1
+
+294         174 LOAD_FAST                1 (environment)
+            176 LOAD_METHOD              5 (get)
+            178 LOAD_CONST              12 ('YOKO_RPA_MACHINE_CODE')
+            180 CALL_METHOD              1
+
+295         182 LOAD_FAST                1 (environment)
+            184 LOAD_METHOD              5 (get)
+            186 LOAD_CONST              13 ('AGENT_SESSION_V2_MODE')
+            188 LOAD_CONST              14 ('disabled')
+            190 CALL_METHOD              2
+
+286         192 LOAD_CONST              15 (('backend_mode', 'channel_id', 'server_settings', 'app_paths', 'credentials', 'remote_api_base', 'runtime_id', 'machine_code', 'session_v2_mode'))
+            194 CALL_FUNCTION_KW         9
+            196 RETURN_VALUE
+
+Disassembly of <code object prepare_macos_control_host_launch at 0x1073b9030, file "WeRobotCore/host/macos_launch.py", line 299>:
+310           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_DEREF               0 (inputs)
+              4 LOAD_GLOBAL              1 (MacOSControlLaunchInputs)
+              6 CALL_FUNCTION            2
+              8 POP_JUMP_IF_TRUE        18
+
+311          10 LOAD_GLOBAL              2 (TypeError)
+             12 LOAD_CONST               1 ('inputs must be MacOSControlLaunchInputs')
+             14 CALL_FUNCTION            1
+             16 RAISE_VARARGS            1
+
+312     >>   18 LOAD_GLOBAL              3 (create_macos_control_host_candidate)
+
+313          20 LOAD_FAST                0 (publication)
+
+314          22 LOAD_DEREF               0 (inputs)
+             24 LOAD_ATTR                4 (credentials)
+             26 LOAD_ATTR                5 (local_api_key)
+
+315          28 LOAD_FAST                2 (access_authorizer)
+
+316          30 LOAD_FAST                3 (auto_reply_service_factory)
+
+317          32 LOAD_CLOSURE             0 (inputs)
+             34 BUILD_TUPLE              1
+             36 LOAD_CONST               2 (<code object <lambda> at 0x1073b9450, file "WeRobotCore/host/macos_launch.py", line 317>)
+             38 LOAD_CONST               3 ('prepare_macos_control_host_launch.<locals>.<lambda>')
+             40 MAKE_FUNCTION            8 (closure)
+
+326          42 LOAD_DEREF               0 (inputs)
+             44 LOAD_ATTR                6 (runtime_id)
+             46 LOAD_CONST               4 (None)
+             48 IS_OP                    1
+
+318          50 POP_JUMP_IF_FALSE       64
+
+319          52 LOAD_CLOSURE             0 (inputs)
+             54 BUILD_TUPLE              1
+             56 LOAD_CONST               5 (<code object <lambda> at 0x1073b93a0, file "WeRobotCore/host/macos_launch.py", line 319>)
+             58 LOAD_CONST               3 ('prepare_macos_control_host_launch.<locals>.<lambda>')
+             60 MAKE_FUNCTION            8 (closure)
+
+318          62 JUMP_FORWARD             2 (to 66)
+
+327     >>   64 LOAD_CONST               4 (None)
+
+328     >>   66 LOAD_FAST                4 (frontend_directory)
+
+329          68 LOAD_FAST                5 (license_service)
+
+312          70 LOAD_CONST               6 (('publication', 'api_key', 'access_authorizer', 'auto_reply_service_factory', 'backend_mode_provider', 'runtime_identity_provider', 'frontend_directory', 'license_service'))
+             72 CALL_FUNCTION_KW         8
+             74 STORE_FAST               6 (host)
+
+331          76 LOAD_GLOBAL              7 (MacOSControlHostLaunchPlan)
+             78 LOAD_FAST                6 (host)
+             80 LOAD_DEREF               0 (inputs)
+             82 LOAD_CONST               7 (('host', 'inputs'))
+             84 CALL_FUNCTION_KW         2
+             86 RETURN_VALUE
+
+Disassembly of <code object <lambda> at 0x1073b9450, file "WeRobotCore/host/macos_launch.py", line 317>:
+317           0 LOAD_DEREF               0 (inputs)
+              2 LOAD_ATTR                0 (backend_mode)
+              4 RETURN_VALUE
+
+Disassembly of <code object <lambda> at 0x1073b93a0, file "WeRobotCore/host/macos_launch.py", line 319>:
+319           0 LOAD_GLOBAL              0 (ControlRuntimeIdentity)
+
+320           2 LOAD_DEREF               0 (inputs)
+              4 LOAD_ATTR                1 (runtime_id)
+
+321           6 LOAD_GLOBAL              2 (os)
+              8 LOAD_METHOD              3 (getpid)
+             10 CALL_METHOD              0
+
+322          12 LOAD_DEREF               0 (inputs)
+             14 LOAD_ATTR                4 (channel_id)
+
+323          16 LOAD_CONST               1 (True)
+
+319          18 LOAD_CONST               2 (('runtime_id', 'process_id', 'channel_id', 'backend_mode'))
+             20 CALL_FUNCTION_KW         4
+             22 RETURN_VALUE

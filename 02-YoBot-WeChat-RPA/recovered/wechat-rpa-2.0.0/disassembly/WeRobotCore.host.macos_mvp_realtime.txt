@@ -1,0 +1,1100 @@
+  1           0 LOAD_CONST               0 ('Realtime adapter for the shared Vue application and Agent plugin.\n\nThe mature monitor and task system already publish UI events through their\nexisting ``WebSocketManager``. The macOS Host binds that owner to the\nestablished ``/ws`` transport and exposes the existing manual-review toggle.\n')
+              2 STORE_NAME               0 (__doc__)
+
+  8           4 LOAD_CONST               1 (0)
+              6 LOAD_CONST               2 (('annotations',))
+              8 IMPORT_NAME              1 (__future__)
+             10 IMPORT_FROM              2 (annotations)
+             12 STORE_NAME               2 (annotations)
+             14 POP_TOP
+
+ 10          16 LOAD_CONST               1 (0)
+             18 LOAD_CONST               3 (None)
+             20 IMPORT_NAME              3 (asyncio)
+             22 STORE_NAME               3 (asyncio)
+
+ 11          24 LOAD_CONST               1 (0)
+             26 LOAD_CONST               3 (None)
+             28 IMPORT_NAME              4 (hmac)
+             30 STORE_NAME               4 (hmac)
+
+ 12          32 LOAD_CONST               1 (0)
+             34 LOAD_CONST               3 (None)
+             36 IMPORT_NAME              5 (os)
+             38 STORE_NAME               5 (os)
+
+ 13          40 LOAD_CONST               1 (0)
+             42 LOAD_CONST               3 (None)
+             44 IMPORT_NAME              6 (time)
+             46 STORE_NAME               6 (time)
+
+ 14          48 LOAD_CONST               1 (0)
+             50 LOAD_CONST               3 (None)
+             52 IMPORT_NAME              7 (uuid)
+             54 STORE_NAME               7 (uuid)
+
+ 15          56 LOAD_CONST               1 (0)
+             58 LOAD_CONST               4 (('Any', 'Mapping', 'Optional', 'Protocol'))
+             60 IMPORT_NAME              8 (typing)
+             62 IMPORT_FROM              9 (Any)
+             64 STORE_NAME               9 (Any)
+             66 IMPORT_FROM             10 (Mapping)
+             68 STORE_NAME              10 (Mapping)
+             70 IMPORT_FROM             11 (Optional)
+             72 STORE_NAME              11 (Optional)
+             74 IMPORT_FROM             12 (Protocol)
+             76 STORE_NAME              12 (Protocol)
+             78 POP_TOP
+
+ 17          80 LOAD_CONST               1 (0)
+             82 LOAD_CONST               5 (('APIRouter', 'HTTPException', 'Security', 'WebSocket'))
+             84 IMPORT_NAME             13 (fastapi)
+             86 IMPORT_FROM             14 (APIRouter)
+             88 STORE_NAME              14 (APIRouter)
+             90 IMPORT_FROM             15 (HTTPException)
+             92 STORE_NAME              15 (HTTPException)
+             94 IMPORT_FROM             16 (Security)
+             96 STORE_NAME              16 (Security)
+             98 IMPORT_FROM             17 (WebSocket)
+            100 STORE_NAME              17 (WebSocket)
+            102 POP_TOP
+
+ 18         104 LOAD_CONST               1 (0)
+            106 LOAD_CONST               6 (('APIKeyHeader',))
+            108 IMPORT_NAME             18 (fastapi.security)
+            110 IMPORT_FROM             19 (APIKeyHeader)
+            112 STORE_NAME              19 (APIKeyHeader)
+            114 POP_TOP
+
+ 19         116 LOAD_CONST               1 (0)
+            118 LOAD_CONST               7 (('BaseModel', 'ConfigDict', 'StrictBool'))
+            120 IMPORT_NAME             20 (pydantic)
+            122 IMPORT_FROM             21 (BaseModel)
+            124 STORE_NAME              21 (BaseModel)
+            126 IMPORT_FROM             22 (ConfigDict)
+            128 STORE_NAME              22 (ConfigDict)
+            130 IMPORT_FROM             23 (StrictBool)
+            132 STORE_NAME              23 (StrictBool)
+            134 POP_TOP
+
+ 20         136 LOAD_CONST               1 (0)
+            138 LOAD_CONST               8 (('WebSocketDisconnect',))
+            140 IMPORT_NAME             24 (starlette.websockets)
+            142 IMPORT_FROM             25 (WebSocketDisconnect)
+            144 STORE_NAME              25 (WebSocketDisconnect)
+            146 POP_TOP
+
+ 22         148 LOAD_CONST               1 (0)
+            150 LOAD_CONST               9 (('MACOS_MVP_CAPABILITY_NAMES',))
+            152 IMPORT_NAME             26 (WeRobotCore.bootstrap.macos_capabilities)
+            154 IMPORT_FROM             27 (MACOS_MVP_CAPABILITY_NAMES)
+            156 STORE_NAME              27 (MACOS_MVP_CAPABILITY_NAMES)
+            158 POP_TOP
+
+ 24         160 LOAD_CONST              10 (1)
+            162 LOAD_CONST              11 (('MacOSControlProcessRuntime',))
+            164 IMPORT_NAME             28 (macos_process)
+            166 IMPORT_FROM             29 (MacOSControlProcessRuntime)
+            168 STORE_NAME              29 (MacOSControlProcessRuntime)
+            170 POP_TOP
+
+ 27         172 LOAD_CONST              12 ('/ws')
+            174 STORE_NAME              30 (MACOS_MVP_WEBSOCKET_PATH)
+
+ 28         176 LOAD_CONST              13 ('/api/chat/monitor/manual-review')
+            178 STORE_NAME              31 (MACOS_MVP_MANUAL_REVIEW_PATH)
+
+ 29         180 LOAD_CONST              14 ('yokowebot_macos_mvp_realtime_installed')
+            182 STORE_NAME              32 (_INSTALLATION_STATE_KEY)
+
+ 32         184 LOAD_BUILD_CLASS
+            186 LOAD_CONST              15 (<code object MacOSMvpManualReviewRequest at 0x1072cfbe0, file "WeRobotCore/host/macos_mvp_realtime.py", line 32>)
+            188 LOAD_CONST              16 ('MacOSMvpManualReviewRequest')
+            190 MAKE_FUNCTION            0
+            192 LOAD_CONST              16 ('MacOSMvpManualReviewRequest')
+            194 LOAD_NAME               21 (BaseModel)
+            196 CALL_FUNCTION            3
+            198 STORE_NAME              33 (MacOSMvpManualReviewRequest)
+
+ 38         200 LOAD_BUILD_CLASS
+            202 LOAD_CONST              17 (<code object MacOSMvpWebSocketManager at 0x1073aaea0, file "WeRobotCore/host/macos_mvp_realtime.py", line 38>)
+            204 LOAD_CONST              18 ('MacOSMvpWebSocketManager')
+            206 MAKE_FUNCTION            0
+            208 LOAD_CONST              18 ('MacOSMvpWebSocketManager')
+            210 LOAD_NAME               12 (Protocol)
+            212 CALL_FUNCTION            3
+            214 STORE_NAME              34 (MacOSMvpWebSocketManager)
+
+ 60         216 LOAD_BUILD_CLASS
+            218 LOAD_CONST              19 (<code object MacOSMvpManualReviewMonitor at 0x1073aa920, file "WeRobotCore/host/macos_mvp_realtime.py", line 60>)
+            220 LOAD_CONST              20 ('MacOSMvpManualReviewMonitor')
+            222 MAKE_FUNCTION            0
+            224 LOAD_CONST              20 ('MacOSMvpManualReviewMonitor')
+            226 LOAD_NAME               12 (Protocol)
+            228 CALL_FUNCTION            3
+            230 STORE_NAME              35 (MacOSMvpManualReviewMonitor)
+
+ 70         232 LOAD_CONST              21 (60.0)
+
+ 71         234 LOAD_CONST              22 (False)
+
+ 72         236 LOAD_CONST               3 (None)
+
+ 65         238 LOAD_CONST              23 (('receive_timeout_seconds', 'allow_agent_registration', 'server_version'))
+            240 BUILD_CONST_KEY_MAP      3
+            242 LOAD_CONST              18 ('MacOSMvpWebSocketManager')
+            244 LOAD_CONST              20 ('MacOSMvpManualReviewMonitor')
+            246 LOAD_CONST              24 ('str')
+            248 LOAD_CONST              25 ('float')
+            250 LOAD_CONST              26 ('bool')
+            252 LOAD_CONST              27 ('Optional[str]')
+            254 LOAD_CONST              28 ('APIRouter')
+            256 LOAD_CONST              29 (('websocket_manager', 'monitor', 'api_key', 'receive_timeout_seconds', 'allow_agent_registration', 'server_version', 'return'))
+            258 BUILD_CONST_KEY_MAP      7
+            260 LOAD_CONST              30 (<code object create_macos_mvp_realtime_router at 0x1073b9df0, file "WeRobotCore/host/macos_mvp_realtime.py", line 65>)
+            262 LOAD_CONST              31 ('create_macos_mvp_realtime_router')
+            264 MAKE_FUNCTION            6 (kwdefaults, annotations)
+            266 STORE_NAME              36 (create_macos_mvp_realtime_router)
+
+200         268 LOAD_CONST              32 ('MacOSControlProcessRuntime')
+            270 LOAD_CONST              33 ('None')
+            272 LOAD_CONST              34 (('runtime', 'return'))
+            274 BUILD_CONST_KEY_MAP      2
+            276 LOAD_CONST              35 (<code object install_macos_mvp_realtime_routes at 0x1073b92f0, file "WeRobotCore/host/macos_mvp_realtime.py", line 200>)
+            278 LOAD_CONST              36 ('install_macos_mvp_realtime_routes')
+            280 MAKE_FUNCTION            4 (annotations)
+            282 STORE_NAME              37 (install_macos_mvp_realtime_routes)
+
+254         284 BUILD_LIST               0
+            286 LOAD_CONST              37 (('MACOS_MVP_MANUAL_REVIEW_PATH', 'MACOS_MVP_WEBSOCKET_PATH', 'MacOSMvpManualReviewRequest', 'create_macos_mvp_realtime_router', 'install_macos_mvp_realtime_routes'))
+            288 LIST_EXTEND              1
+            290 STORE_NAME              38 (__all__)
+            292 LOAD_CONST               3 (None)
+            294 RETURN_VALUE
+
+Disassembly of <code object MacOSMvpManualReviewRequest at 0x1072cfbe0, file "WeRobotCore/host/macos_mvp_realtime.py", line 32>:
+ 32           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('MacOSMvpManualReviewRequest')
+              6 STORE_NAME               2 (__qualname__)
+              8 SETUP_ANNOTATIONS
+
+ 33          10 LOAD_NAME                3 (ConfigDict)
+             12 LOAD_CONST               1 ('forbid')
+             14 LOAD_CONST               2 (('extra',))
+             16 CALL_FUNCTION_KW         1
+             18 STORE_NAME               4 (model_config)
+
+ 35          20 LOAD_CONST               3 ('StrictBool')
+             22 LOAD_NAME                5 (__annotations__)
+             24 LOAD_CONST               4 ('enabled')
+             26 STORE_SUBSCR
+             28 LOAD_CONST               5 (None)
+             30 RETURN_VALUE
+
+Disassembly of <code object MacOSMvpWebSocketManager at 0x1073aaea0, file "WeRobotCore/host/macos_mvp_realtime.py", line 38>:
+ 38           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('MacOSMvpWebSocketManager')
+              6 STORE_NAME               2 (__qualname__)
+
+ 39           8 LOAD_CONST               1 ('WebSocket')
+             10 LOAD_CONST               2 ('None')
+             12 LOAD_CONST               3 (('websocket', 'return'))
+             14 BUILD_CONST_KEY_MAP      2
+             16 LOAD_CONST               4 (<code object connect at 0x1073aa710, file "WeRobotCore/host/macos_mvp_realtime.py", line 39>)
+             18 LOAD_CONST               5 ('MacOSMvpWebSocketManager.connect')
+             20 MAKE_FUNCTION            4 (annotations)
+             22 STORE_NAME               3 (connect)
+
+ 42          24 LOAD_CONST               1 ('WebSocket')
+             26 LOAD_CONST               2 ('None')
+             28 LOAD_CONST               3 (('websocket', 'return'))
+             30 BUILD_CONST_KEY_MAP      2
+             32 LOAD_CONST               6 (<code object disconnect at 0x1073aa030, file "WeRobotCore/host/macos_mvp_realtime.py", line 42>)
+             34 LOAD_CONST               7 ('MacOSMvpWebSocketManager.disconnect')
+             36 MAKE_FUNCTION            4 (annotations)
+             38 STORE_NAME               4 (disconnect)
+
+ 45          40 LOAD_CONST               1 ('WebSocket')
+             42 LOAD_CONST               8 ('str')
+             44 LOAD_CONST               9 ('list[str]')
+             46 LOAD_CONST              10 ('Any')
+             48 LOAD_CONST              11 (('websocket', 'client_id', 'subscribe', 'return'))
+             50 BUILD_CONST_KEY_MAP      4
+             52 LOAD_CONST              12 (<code object register_agent_connection at 0x1073aa9d0, file "WeRobotCore/host/macos_mvp_realtime.py", line 45>)
+             54 LOAD_CONST              13 ('MacOSMvpWebSocketManager.register_agent_connection')
+             56 MAKE_FUNCTION            4 (annotations)
+             58 STORE_NAME               5 (register_agent_connection)
+
+ 53          60 LOAD_CONST               2 ('None')
+             62 LOAD_CONST              14 (('return',))
+             64 BUILD_CONST_KEY_MAP      1
+             66 LOAD_CONST              15 (<code object enable_agent_push at 0x1073aac90, file "WeRobotCore/host/macos_mvp_realtime.py", line 53>)
+             68 LOAD_CONST              16 ('MacOSMvpWebSocketManager.enable_agent_push')
+             70 MAKE_FUNCTION            4 (annotations)
+             72 STORE_NAME               6 (enable_agent_push)
+
+ 56          74 LOAD_CONST               2 ('None')
+             76 LOAD_CONST              14 (('return',))
+             78 BUILD_CONST_KEY_MAP      1
+             80 LOAD_CONST              17 (<code object bind_agent_push_event_loop at 0x1073aa500, file "WeRobotCore/host/macos_mvp_realtime.py", line 56>)
+             82 LOAD_CONST              18 ('MacOSMvpWebSocketManager.bind_agent_push_event_loop')
+             84 MAKE_FUNCTION            4 (annotations)
+             86 STORE_NAME               7 (bind_agent_push_event_loop)
+             88 LOAD_CONST              19 (None)
+             90 RETURN_VALUE
+
+Disassembly of <code object connect at 0x1073aa710, file "WeRobotCore/host/macos_mvp_realtime.py", line 39>:
+ 40           0 LOAD_CONST               0 (None)
+              2 RETURN_VALUE
+
+Disassembly of <code object disconnect at 0x1073aa030, file "WeRobotCore/host/macos_mvp_realtime.py", line 42>:
+ 43           0 LOAD_CONST               0 (None)
+              2 RETURN_VALUE
+
+Disassembly of <code object register_agent_connection at 0x1073aa9d0, file "WeRobotCore/host/macos_mvp_realtime.py", line 45>:
+ 51           0 LOAD_CONST               0 (None)
+              2 RETURN_VALUE
+
+Disassembly of <code object enable_agent_push at 0x1073aac90, file "WeRobotCore/host/macos_mvp_realtime.py", line 53>:
+ 54           0 LOAD_CONST               0 (None)
+              2 RETURN_VALUE
+
+Disassembly of <code object bind_agent_push_event_loop at 0x1073aa500, file "WeRobotCore/host/macos_mvp_realtime.py", line 56>:
+ 57           0 LOAD_CONST               0 (None)
+              2 RETURN_VALUE
+
+Disassembly of <code object MacOSMvpManualReviewMonitor at 0x1073aa920, file "WeRobotCore/host/macos_mvp_realtime.py", line 60>:
+ 60           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('MacOSMvpManualReviewMonitor')
+              6 STORE_NAME               2 (__qualname__)
+
+ 61           8 LOAD_CONST               1 ('bool')
+             10 LOAD_CONST               2 ('None')
+             12 LOAD_CONST               3 (('enabled', 'return'))
+             14 BUILD_CONST_KEY_MAP      2
+             16 LOAD_CONST               4 (<code object set_manual_review_enabled at 0x1073aa660, file "WeRobotCore/host/macos_mvp_realtime.py", line 61>)
+             18 LOAD_CONST               5 ('MacOSMvpManualReviewMonitor.set_manual_review_enabled')
+             20 MAKE_FUNCTION            4 (annotations)
+             22 STORE_NAME               3 (set_manual_review_enabled)
+             24 LOAD_CONST               6 (None)
+             26 RETURN_VALUE
+
+Disassembly of <code object set_manual_review_enabled at 0x1073aa660, file "WeRobotCore/host/macos_mvp_realtime.py", line 61>:
+ 62           0 LOAD_CONST               0 (None)
+              2 RETURN_VALUE
+
+Disassembly of <code object create_macos_mvp_realtime_router at 0x1073b9df0, file "WeRobotCore/host/macos_mvp_realtime.py", line 65>:
+ 80           0 LOAD_GLOBAL              0 (callable)
+              2 LOAD_GLOBAL              1 (getattr)
+              4 LOAD_DEREF               5 (websocket_manager)
+              6 LOAD_CONST               1 ('connect')
+              8 LOAD_CONST               2 (None)
+             10 CALL_FUNCTION            3
+             12 CALL_FUNCTION            1
+             14 POP_JUMP_IF_FALSE       32
+             16 LOAD_GLOBAL              0 (callable)
+
+ 81          18 LOAD_GLOBAL              1 (getattr)
+             20 LOAD_DEREF               5 (websocket_manager)
+             22 LOAD_CONST               3 ('disconnect')
+             24 LOAD_CONST               2 (None)
+             26 CALL_FUNCTION            3
+
+ 80          28 CALL_FUNCTION            1
+             30 POP_JUMP_IF_TRUE        40
+
+ 83     >>   32 LOAD_GLOBAL              2 (TypeError)
+             34 LOAD_CONST               4 ('websocket_manager does not implement the UI contract')
+             36 CALL_FUNCTION            1
+             38 RAISE_VARARGS            1
+
+ 84     >>   40 LOAD_GLOBAL              0 (callable)
+             42 LOAD_GLOBAL              1 (getattr)
+             44 LOAD_DEREF               2 (monitor)
+             46 LOAD_CONST               5 ('set_manual_review_enabled')
+             48 LOAD_CONST               2 (None)
+             50 CALL_FUNCTION            3
+             52 CALL_FUNCTION            1
+             54 POP_JUMP_IF_TRUE        64
+
+ 85          56 LOAD_GLOBAL              2 (TypeError)
+             58 LOAD_CONST               6 ('monitor does not implement manual review control')
+             60 CALL_FUNCTION            1
+             62 RAISE_VARARGS            1
+
+ 86     >>   64 LOAD_GLOBAL              3 (isinstance)
+             66 LOAD_DEREF               1 (api_key)
+             68 LOAD_GLOBAL              4 (str)
+             70 CALL_FUNCTION            2
+             72 POP_JUMP_IF_FALSE       82
+             74 LOAD_DEREF               1 (api_key)
+             76 LOAD_METHOD              5 (strip)
+             78 CALL_METHOD              0
+             80 POP_JUMP_IF_TRUE        90
+
+ 87     >>   82 LOAD_GLOBAL              6 (ValueError)
+             84 LOAD_CONST               7 ('api_key must be a non-empty string')
+             86 CALL_FUNCTION            1
+             88 RAISE_VARARGS            1
+
+ 88     >>   90 LOAD_GLOBAL              3 (isinstance)
+             92 LOAD_DEREF               3 (receive_timeout_seconds)
+             94 LOAD_GLOBAL              7 (int)
+             96 LOAD_GLOBAL              8 (float)
+             98 BUILD_TUPLE              2
+            100 CALL_FUNCTION            2
+            102 POP_JUMP_IF_FALSE      114
+            104 LOAD_GLOBAL              3 (isinstance)
+
+ 89         106 LOAD_DEREF               3 (receive_timeout_seconds)
+
+ 90         108 LOAD_GLOBAL              9 (bool)
+
+ 88         110 CALL_FUNCTION            2
+            112 POP_JUMP_IF_FALSE      122
+
+ 92     >>  114 LOAD_GLOBAL              2 (TypeError)
+            116 LOAD_CONST               8 ('receive_timeout_seconds must be numeric')
+            118 CALL_FUNCTION            1
+            120 RAISE_VARARGS            1
+
+ 93     >>  122 LOAD_CONST               9 (1)
+            124 LOAD_GLOBAL              8 (float)
+            126 LOAD_DEREF               3 (receive_timeout_seconds)
+            128 CALL_FUNCTION            1
+            130 DUP_TOP
+            132 ROT_THREE
+            134 COMPARE_OP               1 (<=)
+            136 POP_JUMP_IF_FALSE      146
+            138 LOAD_CONST              10 (120)
+            140 COMPARE_OP               1 (<=)
+            142 POP_JUMP_IF_TRUE       156
+            144 JUMP_FORWARD             2 (to 148)
+        >>  146 POP_TOP
+
+ 94     >>  148 LOAD_GLOBAL              6 (ValueError)
+            150 LOAD_CONST              11 ('receive_timeout_seconds must be between 1 and 120')
+            152 CALL_FUNCTION            1
+            154 RAISE_VARARGS            1
+
+ 95     >>  156 LOAD_GLOBAL              3 (isinstance)
+            158 LOAD_DEREF               0 (allow_agent_registration)
+            160 LOAD_GLOBAL              9 (bool)
+            162 CALL_FUNCTION            2
+            164 POP_JUMP_IF_TRUE       174
+
+ 96         166 LOAD_GLOBAL              2 (TypeError)
+            168 LOAD_CONST              12 ('allow_agent_registration must be a boolean')
+            170 CALL_FUNCTION            1
+            172 RAISE_VARARGS            1
+
+ 97     >>  174 LOAD_DEREF               0 (allow_agent_registration)
+            176 POP_JUMP_IF_FALSE      202
+            178 LOAD_GLOBAL              0 (callable)
+
+ 98         180 LOAD_GLOBAL              1 (getattr)
+            182 LOAD_DEREF               5 (websocket_manager)
+            184 LOAD_CONST              13 ('register_agent_connection')
+            186 LOAD_CONST               2 (None)
+            188 CALL_FUNCTION            3
+
+ 97         190 CALL_FUNCTION            1
+            192 POP_JUMP_IF_TRUE       202
+
+100         194 LOAD_GLOBAL              2 (TypeError)
+            196 LOAD_CONST              14 ('websocket_manager does not implement Agent registration')
+            198 CALL_FUNCTION            1
+            200 RAISE_VARARGS            1
+
+103     >>  202 LOAD_FAST                5 (server_version)
+            204 LOAD_CONST               2 (None)
+            206 IS_OP                    0
+
+102         208 POP_JUMP_IF_FALSE      224
+            210 LOAD_GLOBAL             10 (os)
+            212 LOAD_ATTR               11 (environ)
+            214 LOAD_METHOD             12 (get)
+            216 LOAD_CONST              15 ('APP_VERSION')
+            218 LOAD_CONST              16 ('unknown')
+            220 CALL_METHOD              2
+            222 JUMP_FORWARD             2 (to 226)
+
+104     >>  224 LOAD_FAST                5 (server_version)
+
+101     >>  226 STORE_DEREF              4 (reported_server_version)
+
+106         228 LOAD_GLOBAL              3 (isinstance)
+            230 LOAD_DEREF               4 (reported_server_version)
+            232 LOAD_GLOBAL              4 (str)
+            234 CALL_FUNCTION            2
+            236 POP_JUMP_IF_TRUE       246
+
+107         238 LOAD_GLOBAL              2 (TypeError)
+            240 LOAD_CONST              17 ('server_version must be a string or None')
+            242 CALL_FUNCTION            1
+            244 RAISE_VARARGS            1
+
+109     >>  246 LOAD_GLOBAL             13 (APIKeyHeader)
+            248 LOAD_CONST              18 ('X-API-Key')
+            250 LOAD_CONST              19 (False)
+            252 LOAD_CONST              20 (('name', 'auto_error'))
+            254 CALL_FUNCTION_KW         2
+            256 STORE_FAST               6 (api_key_header)
+
+112         258 LOAD_GLOBAL             14 (Security)
+            260 LOAD_FAST                6 (api_key_header)
+            262 CALL_FUNCTION            1
+
+111         264 BUILD_TUPLE              1
+            266 LOAD_CONST              21 ('Optional[str]')
+            268 LOAD_CONST              22 ('str')
+            270 LOAD_CONST              23 (('presented_key', 'return'))
+            272 BUILD_CONST_KEY_MAP      2
+            274 LOAD_CLOSURE             1 (api_key)
+            276 BUILD_TUPLE              1
+            278 LOAD_CONST              24 (<code object authenticate at 0x1073aa7c0, file "WeRobotCore/host/macos_mvp_realtime.py", line 111>)
+            280 LOAD_CONST              25 ('create_macos_mvp_realtime_router.<locals>.authenticate')
+            282 MAKE_FUNCTION           13 (defaults, annotations, closure)
+            284 STORE_FAST               7 (authenticate)
+
+118         286 LOAD_GLOBAL             15 (APIRouter)
+            288 CALL_FUNCTION            0
+            290 STORE_FAST               8 (router)
+
+120         292 LOAD_FAST                8 (router)
+            294 LOAD_ATTR               16 (websocket)
+            296 LOAD_GLOBAL             17 (MACOS_MVP_WEBSOCKET_PATH)
+            298 LOAD_CONST              26 ('macos_mvp_ui_websocket')
+            300 LOAD_CONST              27 (('name',))
+            302 CALL_FUNCTION_KW         2
+
+121         304 LOAD_CONST              28 ('WebSocket')
+            306 LOAD_CONST              29 ('None')
+            308 LOAD_CONST              30 (('websocket', 'return'))
+            310 BUILD_CONST_KEY_MAP      2
+            312 LOAD_CLOSURE             0 (allow_agent_registration)
+            314 LOAD_CLOSURE             3 (receive_timeout_seconds)
+            316 LOAD_CLOSURE             4 (reported_server_version)
+            318 LOAD_CLOSURE             5 (websocket_manager)
+            320 BUILD_TUPLE              4
+            322 LOAD_CONST              31 (<code object macos_mvp_ui_websocket at 0x1073b9870, file "WeRobotCore/host/macos_mvp_realtime.py", line 120>)
+            324 LOAD_CONST              32 ('create_macos_mvp_realtime_router.<locals>.macos_mvp_ui_websocket')
+            326 MAKE_FUNCTION           12 (annotations, closure)
+            328 CALL_FUNCTION            1
+            330 STORE_FAST               9 (macos_mvp_ui_websocket)
+
+175         332 LOAD_FAST                8 (router)
+            334 LOAD_ATTR               18 (post)
+
+176         336 LOAD_GLOBAL             19 (MACOS_MVP_MANUAL_REVIEW_PATH)
+
+177         338 LOAD_CONST              33 ('set_macos_mvp_manual_review')
+
+175         340 LOAD_CONST              27 (('name',))
+            342 CALL_FUNCTION_KW         2
+
+181         344 LOAD_GLOBAL             14 (Security)
+            346 LOAD_FAST                7 (authenticate)
+            348 CALL_FUNCTION            1
+
+179         350 BUILD_TUPLE              1
+            352 LOAD_CONST              34 ('MacOSMvpManualReviewRequest')
+            354 LOAD_CONST              22 ('str')
+            356 LOAD_CONST              35 ('Mapping[str, Any]')
+            358 LOAD_CONST              36 (('request', '_api_key', 'return'))
+            360 BUILD_CONST_KEY_MAP      3
+            362 LOAD_CLOSURE             2 (monitor)
+            364 BUILD_TUPLE              1
+            366 LOAD_CONST              37 (<code object set_macos_mvp_manual_review at 0x1073b9920, file "WeRobotCore/host/macos_mvp_realtime.py", line 175>)
+            368 LOAD_CONST              38 ('create_macos_mvp_realtime_router.<locals>.set_macos_mvp_manual_review')
+            370 MAKE_FUNCTION           13 (defaults, annotations, closure)
+            372 CALL_FUNCTION            1
+            374 STORE_FAST              10 (set_macos_mvp_manual_review)
+
+197         376 LOAD_FAST                8 (router)
+            378 RETURN_VALUE
+
+Disassembly of <code object authenticate at 0x1073aa7c0, file "WeRobotCore/host/macos_mvp_realtime.py", line 111>:
+114           0 LOAD_GLOBAL              0 (hmac)
+              2 LOAD_METHOD              1 (compare_digest)
+              4 LOAD_FAST                0 (presented_key)
+              6 JUMP_IF_TRUE_OR_POP     10
+              8 LOAD_CONST               1 ('')
+        >>   10 LOAD_DEREF               0 (api_key)
+             12 CALL_METHOD              2
+             14 POP_JUMP_IF_TRUE        28
+
+115          16 LOAD_GLOBAL              2 (HTTPException)
+             18 LOAD_CONST               2 (403)
+             20 LOAD_CONST               3 ('invalid API key')
+             22 LOAD_CONST               4 (('status_code', 'detail'))
+             24 CALL_FUNCTION_KW         2
+             26 RAISE_VARARGS            1
+
+116     >>   28 LOAD_GLOBAL              3 (str)
+             30 LOAD_FAST                0 (presented_key)
+             32 CALL_FUNCTION            1
+             34 RETURN_VALUE
+
+Disassembly of <code object macos_mvp_ui_websocket at 0x1073b9870, file "WeRobotCore/host/macos_mvp_realtime.py", line 120>:
+122           0 LOAD_DEREF               3 (websocket_manager)
+              2 LOAD_METHOD              0 (connect)
+              4 LOAD_FAST                0 (websocket)
+              6 CALL_METHOD              1
+              8 GET_AWAITABLE
+             10 LOAD_CONST               0 (None)
+             12 YIELD_FROM
+             14 POP_TOP
+
+123          16 EXTENDED_ARG             1
+             18 SETUP_FINALLY          372 (to 392)
+             20 EXTENDED_ARG             1
+             22 SETUP_FINALLY          334 (to 358)
+
+125     >>   24 SETUP_FINALLY           32 (to 58)
+
+126          26 LOAD_GLOBAL              1 (asyncio)
+             28 LOAD_ATTR                2 (wait_for)
+
+127          30 LOAD_FAST                0 (websocket)
+             32 LOAD_METHOD              3 (receive_json)
+             34 CALL_METHOD              0
+
+128          36 LOAD_GLOBAL              4 (float)
+             38 LOAD_DEREF               1 (receive_timeout_seconds)
+             40 CALL_FUNCTION            1
+
+126          42 LOAD_CONST               1 (('timeout',))
+             44 CALL_FUNCTION_KW         2
+             46 GET_AWAITABLE
+             48 LOAD_CONST               0 (None)
+             50 YIELD_FROM
+             52 STORE_FAST               1 (message)
+             54 POP_BLOCK
+             56 JUMP_FORWARD            44 (to 102)
+
+130     >>   58 DUP_TOP
+             60 LOAD_GLOBAL              1 (asyncio)
+             62 LOAD_ATTR                5 (TimeoutError)
+             64 JUMP_IF_NOT_EXC_MATCH   100
+             66 POP_TOP
+             68 POP_TOP
+             70 POP_TOP
+
+131          72 LOAD_FAST                0 (websocket)
+             74 LOAD_METHOD              6 (send_json)
+             76 LOAD_CONST               2 ('type')
+             78 LOAD_CONST               3 ('ping')
+             80 BUILD_MAP                1
+             82 CALL_METHOD              1
+             84 GET_AWAITABLE
+             86 LOAD_CONST               0 (None)
+             88 YIELD_FROM
+             90 POP_TOP
+
+132          92 POP_EXCEPT
+             94 JUMP_ABSOLUTE           24
+             96 POP_EXCEPT
+             98 JUMP_FORWARD             2 (to 102)
+        >>  100 RERAISE
+
+133     >>  102 LOAD_GLOBAL              7 (isinstance)
+            104 LOAD_FAST                1 (message)
+            106 LOAD_GLOBAL              8 (Mapping)
+            108 CALL_FUNCTION            2
+            110 POP_JUMP_IF_FALSE      148
+            112 LOAD_FAST                1 (message)
+            114 LOAD_METHOD              9 (get)
+            116 LOAD_CONST               2 ('type')
+            118 CALL_METHOD              1
+            120 LOAD_CONST               3 ('ping')
+            122 COMPARE_OP               2 (==)
+            124 POP_JUMP_IF_FALSE      148
+
+134         126 LOAD_FAST                0 (websocket)
+            128 LOAD_METHOD              6 (send_json)
+            130 LOAD_CONST               2 ('type')
+            132 LOAD_CONST               4 ('pong')
+            134 BUILD_MAP                1
+            136 CALL_METHOD              1
+            138 GET_AWAITABLE
+            140 LOAD_CONST               0 (None)
+            142 YIELD_FROM
+            144 POP_TOP
+
+135         146 JUMP_ABSOLUTE           24
+
+137     >>  148 LOAD_DEREF               0 (allow_agent_registration)
+
+136         150 POP_JUMP_IF_FALSE       24
+
+138         152 LOAD_GLOBAL              7 (isinstance)
+            154 LOAD_FAST                1 (message)
+            156 LOAD_GLOBAL              8 (Mapping)
+            158 CALL_FUNCTION            2
+
+136         160 POP_JUMP_IF_FALSE       24
+
+139         162 LOAD_FAST                1 (message)
+            164 LOAD_METHOD              9 (get)
+            166 LOAD_CONST               2 ('type')
+            168 CALL_METHOD              1
+            170 LOAD_CONST               5 ('register')
+            172 COMPARE_OP               2 (==)
+
+136         174 POP_JUMP_IF_FALSE       24
+
+140         176 LOAD_FAST                1 (message)
+            178 LOAD_METHOD              9 (get)
+            180 LOAD_CONST               6 ('clientType')
+            182 LOAD_CONST               7 ('ui')
+            184 CALL_METHOD              2
+            186 LOAD_CONST               8 ('agent')
+            188 COMPARE_OP               2 (==)
+
+136         190 POP_JUMP_IF_FALSE       24
+
+142         192 LOAD_FAST                1 (message)
+            194 LOAD_METHOD              9 (get)
+            196 LOAD_CONST               9 ('clientId')
+            198 CALL_METHOD              1
+            200 STORE_FAST               2 (raw_client_id)
+
+145         202 LOAD_GLOBAL              7 (isinstance)
+            204 LOAD_FAST                2 (raw_client_id)
+            206 LOAD_GLOBAL             10 (str)
+            208 CALL_FUNCTION            2
+
+144         210 POP_JUMP_IF_FALSE      228
+
+145         212 LOAD_FAST                2 (raw_client_id)
+            214 LOAD_METHOD             11 (strip)
+            216 CALL_METHOD              0
+
+144         218 POP_JUMP_IF_FALSE      228
+            220 LOAD_FAST                2 (raw_client_id)
+            222 LOAD_METHOD             11 (strip)
+            224 CALL_METHOD              0
+            226 JUMP_FORWARD            22 (to 250)
+
+146     >>  228 LOAD_CONST              10 ('agent_{}')
+            230 LOAD_METHOD             12 (format)
+            232 LOAD_GLOBAL             13 (uuid)
+            234 LOAD_METHOD             14 (uuid4)
+            236 CALL_METHOD              0
+            238 LOAD_ATTR               15 (hex)
+            240 LOAD_CONST               0 (None)
+            242 LOAD_CONST              11 (8)
+            244 BUILD_SLICE              2
+            246 BINARY_SUBSCR
+            248 CALL_METHOD              1
+
+143     >>  250 STORE_FAST               3 (client_id)
+
+148         252 LOAD_FAST                1 (message)
+            254 LOAD_METHOD              9 (get)
+            256 LOAD_CONST              12 ('subscribe')
+            258 BUILD_LIST               0
+            260 CALL_METHOD              2
+            262 STORE_FAST               4 (raw_subscribe)
+
+151         264 LOAD_GLOBAL              7 (isinstance)
+            266 LOAD_FAST                4 (raw_subscribe)
+            268 LOAD_GLOBAL             16 (list)
+            270 CALL_FUNCTION            2
+
+150         272 EXTENDED_ARG             1
+            274 POP_JUMP_IF_FALSE      290
+            276 LOAD_CONST              13 (<code object <listcomp> at 0x1073aa2f0, file "WeRobotCore/host/macos_mvp_realtime.py", line 150>)
+            278 LOAD_CONST              14 ('create_macos_mvp_realtime_router.<locals>.macos_mvp_ui_websocket.<locals>.<listcomp>')
+            280 MAKE_FUNCTION            0
+            282 LOAD_FAST                4 (raw_subscribe)
+            284 GET_ITER
+            286 CALL_FUNCTION            1
+            288 JUMP_FORWARD             2 (to 292)
+
+152     >>  290 BUILD_LIST               0
+
+149     >>  292 STORE_FAST               5 (subscribe)
+
+154         294 LOAD_DEREF               3 (websocket_manager)
+            296 LOAD_METHOD             17 (register_agent_connection)
+
+155         298 LOAD_FAST                0 (websocket)
+
+156         300 LOAD_FAST                3 (client_id)
+
+157         302 LOAD_FAST                5 (subscribe)
+
+154         304 CALL_METHOD              3
+            306 STORE_FAST               6 (info)
+
+159         308 LOAD_FAST                0 (websocket)
+            310 LOAD_METHOD              6 (send_json)
+
+161         312 LOAD_CONST              15 ('registered')
+
+162         314 LOAD_FAST                6 (info)
+            316 LOAD_ATTR               18 (client_id)
+
+163         318 LOAD_FAST                6 (info)
+            320 LOAD_ATTR               19 (session_id)
+
+164         322 LOAD_DEREF               2 (reported_server_version)
+
+165         324 LOAD_GLOBAL             20 (int)
+            326 LOAD_GLOBAL             21 (time)
+            328 LOAD_METHOD             21 (time)
+            330 CALL_METHOD              0
+            332 LOAD_CONST              16 (1000)
+            334 BINARY_MULTIPLY
+            336 CALL_FUNCTION            1
+
+160         338 LOAD_CONST              17 (('type', 'clientId', 'sessionId', 'serverVersion', 'timestamp'))
+            340 BUILD_CONST_KEY_MAP      5
+
+159         342 CALL_METHOD              1
+            344 GET_AWAITABLE
+            346 LOAD_CONST               0 (None)
+            348 YIELD_FROM
+            350 POP_TOP
+            352 JUMP_ABSOLUTE           24
+            354 POP_BLOCK
+            356 JUMP_FORWARD            20 (to 378)
+
+170     >>  358 DUP_TOP
+            360 LOAD_GLOBAL             22 (WebSocketDisconnect)
+            362 EXTENDED_ARG             1
+            364 JUMP_IF_NOT_EXC_MATCH   376
+            366 POP_TOP
+            368 POP_TOP
+            370 POP_TOP
+
+171         372 POP_EXCEPT
+            374 JUMP_FORWARD             2 (to 378)
+        >>  376 RERAISE
+        >>  378 POP_BLOCK
+
+173         380 LOAD_DEREF               3 (websocket_manager)
+            382 LOAD_METHOD             23 (disconnect)
+            384 LOAD_FAST                0 (websocket)
+            386 CALL_METHOD              1
+            388 POP_TOP
+            390 JUMP_FORWARD            12 (to 404)
+        >>  392 LOAD_DEREF               3 (websocket_manager)
+            394 LOAD_METHOD             23 (disconnect)
+            396 LOAD_FAST                0 (websocket)
+            398 CALL_METHOD              1
+            400 POP_TOP
+            402 RERAISE
+        >>  404 LOAD_CONST               0 (None)
+            406 RETURN_VALUE
+
+Disassembly of <code object <listcomp> at 0x1073aa2f0, file "WeRobotCore/host/macos_mvp_realtime.py", line 150>:
+150           0 BUILD_LIST               0
+              2 LOAD_FAST                0 (.0)
+        >>    4 FOR_ITER                18 (to 24)
+              6 STORE_FAST               1 (item)
+              8 LOAD_GLOBAL              0 (isinstance)
+             10 LOAD_FAST                1 (item)
+             12 LOAD_GLOBAL              1 (str)
+             14 CALL_FUNCTION            2
+             16 POP_JUMP_IF_FALSE        4
+             18 LOAD_FAST                1 (item)
+             20 LIST_APPEND              2
+             22 JUMP_ABSOLUTE            4
+        >>   24 RETURN_VALUE
+
+Disassembly of <code object set_macos_mvp_manual_review at 0x1073b9920, file "WeRobotCore/host/macos_mvp_realtime.py", line 175>:
+183           0 SETUP_FINALLY           20 (to 22)
+
+184           2 LOAD_DEREF               0 (monitor)
+              4 LOAD_METHOD              0 (set_manual_review_enabled)
+              6 LOAD_GLOBAL              1 (bool)
+              8 LOAD_FAST                0 (request)
+             10 LOAD_ATTR                2 (enabled)
+             12 CALL_FUNCTION            1
+             14 CALL_METHOD              1
+             16 POP_TOP
+             18 POP_BLOCK
+             20 JUMP_FORWARD            28 (to 50)
+
+185     >>   22 DUP_TOP
+             24 LOAD_GLOBAL              3 (Exception)
+             26 JUMP_IF_NOT_EXC_MATCH    48
+             28 POP_TOP
+             30 POP_TOP
+             32 POP_TOP
+
+187          34 LOAD_CONST               1 (False)
+
+188          36 LOAD_CONST               2 ('manual review state could not be updated')
+
+186          38 LOAD_CONST               3 (('success', 'error'))
+             40 BUILD_CONST_KEY_MAP      2
+             42 ROT_FOUR
+             44 POP_EXCEPT
+             46 RETURN_VALUE
+        >>   48 RERAISE
+
+191     >>   50 LOAD_CONST               4 (True)
+
+192          52 LOAD_CONST               5 ('全局人工复核状态已更新为: {}')
+             54 LOAD_METHOD              4 (format)
+
+193          56 LOAD_GLOBAL              1 (bool)
+             58 LOAD_FAST                0 (request)
+             60 LOAD_ATTR                2 (enabled)
+             62 CALL_FUNCTION            1
+
+192          64 CALL_METHOD              1
+
+190          66 LOAD_CONST               6 (('success', 'message'))
+             68 BUILD_CONST_KEY_MAP      2
+             70 RETURN_VALUE
+
+Disassembly of <code object install_macos_mvp_realtime_routes at 0x1073b92f0, file "WeRobotCore/host/macos_mvp_realtime.py", line 200>:
+205           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                0 (runtime)
+              4 LOAD_GLOBAL              1 (MacOSControlProcessRuntime)
+              6 CALL_FUNCTION            2
+              8 POP_JUMP_IF_TRUE        18
+
+206          10 LOAD_GLOBAL              2 (TypeError)
+             12 LOAD_CONST               1 ('runtime must be a MacOSControlProcessRuntime')
+             14 CALL_FUNCTION            1
+             16 RAISE_VARARGS            1
+
+207     >>   18 LOAD_FAST                0 (runtime)
+             20 LOAD_ATTR                3 (app)
+             22 STORE_FAST               1 (app)
+
+208          24 LOAD_GLOBAL              4 (getattr)
+             26 LOAD_FAST                1 (app)
+             28 LOAD_ATTR                5 (state)
+             30 LOAD_GLOBAL              6 (_INSTALLATION_STATE_KEY)
+             32 LOAD_CONST               2 (False)
+             34 CALL_FUNCTION            3
+             36 POP_JUMP_IF_FALSE       46
+
+209          38 LOAD_GLOBAL              7 (RuntimeError)
+             40 LOAD_CONST               3 ('the macOS MVP realtime routes are already installed')
+             42 CALL_FUNCTION            1
+             44 RAISE_VARARGS            1
+
+210     >>   46 LOAD_FAST                0 (runtime)
+             48 LOAD_ATTR                8 (preparation)
+             50 LOAD_ATTR                9 (launch_plan)
+             52 LOAD_ATTR               10 (inputs)
+             54 STORE_FAST               2 (inputs)
+
+211          56 LOAD_FAST                0 (runtime)
+             58 LOAD_ATTR               11 (product_owner)
+             60 LOAD_ATTR               12 (capability_catalog)
+             62 LOAD_METHOD             13 (snapshot_capabilities)
+             64 CALL_METHOD              0
+             66 STORE_FAST               3 (states)
+
+212          68 LOAD_GLOBAL             14 (set)
+             70 LOAD_FAST                3 (states)
+             72 CALL_FUNCTION            1
+             74 LOAD_GLOBAL             14 (set)
+             76 LOAD_GLOBAL             15 (MACOS_MVP_CAPABILITY_NAMES)
+             78 CALL_FUNCTION            1
+             80 COMPARE_OP               3 (!=)
+             82 POP_JUMP_IF_TRUE       106
+             84 LOAD_GLOBAL             16 (all)
+             86 LOAD_CONST               4 (<code object <genexpr> at 0x1073b9f50, file "WeRobotCore/host/macos_mvp_realtime.py", line 212>)
+             88 LOAD_CONST               5 ('install_macos_mvp_realtime_routes.<locals>.<genexpr>')
+             90 MAKE_FUNCTION            0
+
+213          92 LOAD_FAST                3 (states)
+             94 LOAD_METHOD             17 (values)
+             96 CALL_METHOD              0
+
+212          98 GET_ITER
+            100 CALL_FUNCTION            1
+            102 CALL_FUNCTION            1
+            104 POP_JUMP_IF_TRUE       114
+
+215     >>  106 LOAD_GLOBAL              7 (RuntimeError)
+
+216         108 LOAD_CONST               6 ('macOS realtime routes require the complete capability catalog')
+
+215         110 CALL_FUNCTION            1
+            112 RAISE_VARARGS            1
+
+219     >>  114 LOAD_CONST               7 (0)
+            116 LOAD_CONST               8 (('websocket_manager',))
+            118 IMPORT_NAME             18 (WeRobotCore.task_system_v2.websocket_manager)
+            120 IMPORT_FROM             19 (websocket_manager)
+            122 STORE_DEREF              0 (websocket_manager)
+            124 POP_TOP
+
+221         126 LOAD_FAST                2 (inputs)
+            128 LOAD_ATTR               20 (backend_mode)
+            130 POP_JUMP_IF_FALSE      170
+
+222         132 LOAD_DEREF               0 (websocket_manager)
+            134 LOAD_METHOD             21 (enable_agent_push)
+            136 CALL_METHOD              0
+            138 POP_TOP
+
+224         140 LOAD_CONST               9 ('None')
+            142 LOAD_CONST              10 (('return',))
+            144 BUILD_CONST_KEY_MAP      1
+            146 LOAD_CLOSURE             0 (websocket_manager)
+            148 BUILD_TUPLE              1
+            150 LOAD_CONST              11 (<code object bind_agent_push_event_loop at 0x1073b9a80, file "WeRobotCore/host/macos_mvp_realtime.py", line 224>)
+            152 LOAD_CONST              12 ('install_macos_mvp_realtime_routes.<locals>.bind_agent_push_event_loop')
+            154 MAKE_FUNCTION           12 (annotations, closure)
+            156 STORE_FAST               4 (bind_agent_push_event_loop)
+
+229         158 LOAD_FAST                1 (app)
+            160 LOAD_METHOD             22 (add_event_handler)
+            162 LOAD_CONST              13 ('startup')
+            164 LOAD_FAST                4 (bind_agent_push_event_loop)
+            166 CALL_METHOD              2
+            168 POP_TOP
+
+231     >>  170 LOAD_GLOBAL             23 (tuple)
+            172 LOAD_CONST              14 (<code object <genexpr> at 0x1073b9be0, file "WeRobotCore/host/macos_mvp_realtime.py", line 231>)
+            174 LOAD_CONST               5 ('install_macos_mvp_realtime_routes.<locals>.<genexpr>')
+            176 MAKE_FUNCTION            0
+
+233         178 LOAD_FAST                1 (app)
+            180 LOAD_ATTR               24 (router)
+            182 LOAD_ATTR               25 (routes)
+
+231         184 GET_ITER
+            186 CALL_FUNCTION            1
+            188 CALL_FUNCTION            1
+            190 STORE_FAST               5 (frontend_routes)
+
+236         192 LOAD_GLOBAL             26 (len)
+            194 LOAD_FAST                5 (frontend_routes)
+            196 CALL_FUNCTION            1
+            198 LOAD_CONST              15 (1)
+            200 COMPARE_OP               4 (>)
+            202 POP_JUMP_IF_FALSE      212
+
+237         204 LOAD_GLOBAL              7 (RuntimeError)
+            206 LOAD_CONST              16 ('the Control Host has multiple frontend mounts')
+            208 CALL_FUNCTION            1
+            210 RAISE_VARARGS            1
+
+238     >>  212 LOAD_FAST                5 (frontend_routes)
+            214 POP_JUMP_IF_FALSE      224
+            216 LOAD_FAST                5 (frontend_routes)
+            218 LOAD_CONST               7 (0)
+            220 BINARY_SUBSCR
+            222 JUMP_FORWARD             2 (to 226)
+        >>  224 LOAD_CONST              17 (None)
+        >>  226 STORE_FAST               6 (frontend_route)
+
+239         228 LOAD_FAST                6 (frontend_route)
+            230 LOAD_CONST              17 (None)
+            232 IS_OP                    1
+            234 POP_JUMP_IF_FALSE      250
+
+240         236 LOAD_FAST                1 (app)
+            238 LOAD_ATTR               24 (router)
+            240 LOAD_ATTR               25 (routes)
+            242 LOAD_METHOD             27 (remove)
+            244 LOAD_FAST                6 (frontend_route)
+            246 CALL_METHOD              1
+            248 POP_TOP
+
+241     >>  250 LOAD_FAST                1 (app)
+            252 LOAD_METHOD             28 (include_router)
+
+242         254 LOAD_GLOBAL             29 (create_macos_mvp_realtime_router)
+
+243         256 LOAD_DEREF               0 (websocket_manager)
+
+244         258 LOAD_FAST                0 (runtime)
+            260 LOAD_ATTR               11 (product_owner)
+            262 LOAD_ATTR               30 (multi_chat_monitor)
+
+245         264 LOAD_FAST                2 (inputs)
+            266 LOAD_ATTR               31 (credentials)
+            268 LOAD_ATTR               32 (local_api_key)
+
+246         270 LOAD_FAST                2 (inputs)
+            272 LOAD_ATTR               20 (backend_mode)
+
+242         274 LOAD_CONST              18 (('websocket_manager', 'monitor', 'api_key', 'allow_agent_registration'))
+            276 CALL_FUNCTION_KW         4
+
+241         278 CALL_METHOD              1
+            280 POP_TOP
+
+249         282 LOAD_FAST                6 (frontend_route)
+            284 LOAD_CONST              17 (None)
+            286 IS_OP                    1
+            288 EXTENDED_ARG             1
+            290 POP_JUMP_IF_FALSE      306
+
+250         292 LOAD_FAST                1 (app)
+            294 LOAD_ATTR               24 (router)
+            296 LOAD_ATTR               25 (routes)
+            298 LOAD_METHOD             33 (append)
+            300 LOAD_FAST                6 (frontend_route)
+            302 CALL_METHOD              1
+            304 POP_TOP
+
+251     >>  306 LOAD_GLOBAL             34 (setattr)
+            308 LOAD_FAST                1 (app)
+            310 LOAD_ATTR                5 (state)
+            312 LOAD_GLOBAL              6 (_INSTALLATION_STATE_KEY)
+            314 LOAD_CONST              19 (True)
+            316 CALL_FUNCTION            3
+            318 POP_TOP
+            320 LOAD_CONST              17 (None)
+            322 RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x1073b9f50, file "WeRobotCore/host/macos_mvp_realtime.py", line 212>:
+212           0 LOAD_FAST                0 (.0)
+        >>    2 FOR_ITER                12 (to 16)
+
+213           4 STORE_FAST               1 (state)
+              6 LOAD_FAST                1 (state)
+              8 LOAD_ATTR                0 (available)
+             10 YIELD_VALUE
+             12 POP_TOP
+             14 JUMP_ABSOLUTE            2
+        >>   16 LOAD_CONST               0 (None)
+             18 RETURN_VALUE
+
+Disassembly of <code object bind_agent_push_event_loop at 0x1073b9a80, file "WeRobotCore/host/macos_mvp_realtime.py", line 224>:
+225           0 LOAD_DEREF               0 (websocket_manager)
+              2 LOAD_METHOD              0 (bind_agent_push_event_loop)
+              4 CALL_METHOD              0
+              6 POP_TOP
+              8 LOAD_CONST               0 (None)
+             10 RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x1073b9be0, file "WeRobotCore/host/macos_mvp_realtime.py", line 231>:
+231           0 LOAD_FAST                0 (.0)
+        >>    2 FOR_ITER                26 (to 30)
+
+233           4 STORE_FAST               1 (route)
+
+234           6 LOAD_GLOBAL              0 (getattr)
+              8 LOAD_FAST                1 (route)
+             10 LOAD_CONST               0 ('name')
+             12 LOAD_CONST               1 (None)
+             14 CALL_FUNCTION            3
+             16 LOAD_CONST               2 ('unified_frontend')
+             18 COMPARE_OP               2 (==)
+             20 POP_JUMP_IF_FALSE        2
+
+232          22 LOAD_FAST                1 (route)
+             24 YIELD_VALUE
+             26 POP_TOP
+             28 JUMP_ABSOLUTE            2
+        >>   30 LOAD_CONST               1 (None)
+             32 RETURN_VALUE

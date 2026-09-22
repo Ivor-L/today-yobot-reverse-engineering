@@ -1,0 +1,134 @@
+  1           0 LOAD_CONST               0 ('Platform-neutral recognition rules for WeChat group invitation cards.')
+              2 STORE_NAME               0 (__doc__)
+
+  3           4 LOAD_CONST               1 (0)
+              6 LOAD_CONST               2 (None)
+              8 IMPORT_NAME              1 (re)
+             10 STORE_NAME               1 (re)
+
+  4          12 LOAD_CONST               1 (0)
+             14 LOAD_CONST               3 (('Optional',))
+             16 IMPORT_NAME              2 (typing)
+             18 IMPORT_FROM              3 (Optional)
+             20 STORE_NAME               3 (Optional)
+             22 POP_TOP
+
+ 11          24 LOAD_NAME                1 (re)
+             26 LOAD_METHOD              4 (compile)
+             28 LOAD_CONST               4 ('邀请你加入群聊')
+             30 CALL_METHOD              1
+
+ 12          32 LOAD_NAME                1 (re)
+             34 LOAD_METHOD              4 (compile)
+             36 LOAD_CONST               5 ('进入可查看详情')
+             38 CALL_METHOD              1
+
+ 10          40 BUILD_TUPLE              2
+             42 STORE_NAME               5 (_GROUP_INVITE_CARD_PATTERNS)
+
+ 14          44 LOAD_NAME                1 (re)
+             46 LOAD_METHOD              4 (compile)
+
+ 15          48 LOAD_CONST               6 ('邀请你加入群聊\\s*[“\\"\'](.+?)[”\\"\']')
+
+ 14          50 CALL_METHOD              1
+             52 STORE_NAME               6 (_GROUP_INVITE_NAME_PATTERN)
+
+ 19          54 LOAD_NAME                7 (str)
+             56 LOAD_NAME                8 (bool)
+             58 LOAD_CONST               7 (('text', 'return'))
+             60 BUILD_CONST_KEY_MAP      2
+             62 LOAD_CONST               8 (<code object is_group_invite_card_text at 0x1073b9b30, file "WeRobotCore/application/group_invite.py", line 19>)
+             64 LOAD_CONST               9 ('is_group_invite_card_text')
+             66 MAKE_FUNCTION            4 (annotations)
+             68 STORE_NAME               9 (is_group_invite_card_text)
+
+ 28          70 LOAD_NAME                7 (str)
+             72 LOAD_NAME                3 (Optional)
+             74 LOAD_NAME                7 (str)
+             76 BINARY_SUBSCR
+             78 LOAD_CONST               7 (('text', 'return'))
+             80 BUILD_CONST_KEY_MAP      2
+             82 LOAD_CONST              10 (<code object extract_group_invite_name at 0x1073b9030, file "WeRobotCore/application/group_invite.py", line 28>)
+             84 LOAD_CONST              11 ('extract_group_invite_name')
+             86 MAKE_FUNCTION            4 (annotations)
+             88 STORE_NAME              10 (extract_group_invite_name)
+
+ 38          90 LOAD_CONST              11 ('extract_group_invite_name')
+             92 LOAD_CONST               9 ('is_group_invite_card_text')
+             94 BUILD_LIST               2
+             96 STORE_NAME              11 (__all__)
+             98 LOAD_CONST               2 (None)
+            100 RETURN_VALUE
+
+Disassembly of <code object is_group_invite_card_text at 0x1073b9b30, file "WeRobotCore/application/group_invite.py", line 19>:
+ 22           0 LOAD_FAST                0 (text)
+              2 JUMP_IF_TRUE_OR_POP      6
+              4 LOAD_CONST               1 ('')
+        >>    6 LOAD_METHOD              0 (strip)
+              8 CALL_METHOD              0
+             10 STORE_DEREF              0 (value)
+
+ 23          12 LOAD_GLOBAL              1 (bool)
+             14 LOAD_DEREF               0 (value)
+             16 CALL_FUNCTION            1
+             18 JUMP_IF_FALSE_OR_POP    40
+             20 LOAD_GLOBAL              2 (all)
+             22 LOAD_CLOSURE             0 (value)
+             24 BUILD_TUPLE              1
+             26 LOAD_CONST               2 (<code object <genexpr> at 0x1072cfbe0, file "WeRobotCore/application/group_invite.py", line 23>)
+             28 LOAD_CONST               3 ('is_group_invite_card_text.<locals>.<genexpr>')
+             30 MAKE_FUNCTION            8 (closure)
+
+ 24          32 LOAD_GLOBAL              3 (_GROUP_INVITE_CARD_PATTERNS)
+
+ 23          34 GET_ITER
+             36 CALL_FUNCTION            1
+             38 CALL_FUNCTION            1
+        >>   40 RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x1072cfbe0, file "WeRobotCore/application/group_invite.py", line 23>:
+ 23           0 LOAD_FAST                0 (.0)
+        >>    2 FOR_ITER                16 (to 20)
+
+ 24           4 STORE_FAST               1 (pattern)
+              6 LOAD_FAST                1 (pattern)
+              8 LOAD_METHOD              0 (search)
+             10 LOAD_DEREF               0 (value)
+             12 CALL_METHOD              1
+             14 YIELD_VALUE
+             16 POP_TOP
+             18 JUMP_ABSOLUTE            2
+        >>   20 LOAD_CONST               0 (None)
+             22 RETURN_VALUE
+
+Disassembly of <code object extract_group_invite_name at 0x1073b9030, file "WeRobotCore/application/group_invite.py", line 28>:
+ 31           0 LOAD_FAST                0 (text)
+              2 JUMP_IF_TRUE_OR_POP      6
+              4 LOAD_CONST               1 ('')
+        >>    6 LOAD_METHOD              0 (strip)
+              8 CALL_METHOD              0
+             10 STORE_FAST               1 (value)
+
+ 32          12 LOAD_FAST                1 (value)
+             14 POP_JUMP_IF_TRUE        20
+
+ 33          16 LOAD_CONST               2 (None)
+             18 RETURN_VALUE
+
+ 34     >>   20 LOAD_GLOBAL              1 (_GROUP_INVITE_NAME_PATTERN)
+             22 LOAD_METHOD              2 (findall)
+             24 LOAD_FAST                1 (value)
+             26 CALL_METHOD              1
+             28 STORE_FAST               2 (matches)
+
+ 35          30 LOAD_FAST                2 (matches)
+             32 POP_JUMP_IF_FALSE       46
+             34 LOAD_FAST                2 (matches)
+             36 LOAD_CONST               3 (-1)
+             38 BINARY_SUBSCR
+             40 LOAD_METHOD              0 (strip)
+             42 CALL_METHOD              0
+             44 RETURN_VALUE
+        >>   46 LOAD_CONST               2 (None)
+             48 RETURN_VALUE

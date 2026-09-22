@@ -1,0 +1,143 @@
+  1           0 LOAD_CONST               0 ('Protected Agent ownership route for one already-composed Control.')
+              2 STORE_NAME               0 (__doc__)
+
+  3           4 LOAD_CONST               1 (0)
+              6 LOAD_CONST               2 (('annotations',))
+              8 IMPORT_NAME              1 (__future__)
+             10 IMPORT_FROM              2 (annotations)
+             12 STORE_NAME               2 (annotations)
+             14 POP_TOP
+
+  5          16 LOAD_CONST               1 (0)
+             18 LOAD_CONST               3 (('Any', 'Callable', 'Dict'))
+             20 IMPORT_NAME              3 (typing)
+             22 IMPORT_FROM              4 (Any)
+             24 STORE_NAME               4 (Any)
+             26 IMPORT_FROM              5 (Callable)
+             28 STORE_NAME               5 (Callable)
+             30 IMPORT_FROM              6 (Dict)
+             32 STORE_NAME               6 (Dict)
+             34 POP_TOP
+
+  7          36 LOAD_CONST               1 (0)
+             38 LOAD_CONST               4 (('APIRouter', 'Security'))
+             40 IMPORT_NAME              7 (fastapi)
+             42 IMPORT_FROM              8 (APIRouter)
+             44 STORE_NAME               8 (APIRouter)
+             46 IMPORT_FROM              9 (Security)
+             48 STORE_NAME               9 (Security)
+             50 POP_TOP
+
+  9          52 LOAD_CONST               1 (0)
+             54 LOAD_CONST               5 (('ControlRuntimeIdentity',))
+             56 IMPORT_NAME             10 (WeRobotCore.application.control_runtime_identity)
+             58 IMPORT_FROM             11 (ControlRuntimeIdentity)
+             60 STORE_NAME              11 (ControlRuntimeIdentity)
+             62 POP_TOP
+
+ 14          64 LOAD_NAME                5 (Callable)
+             66 BUILD_LIST               0
+             68 LOAD_NAME               11 (ControlRuntimeIdentity)
+             70 BUILD_TUPLE              2
+             72 BINARY_SUBSCR
+             74 STORE_NAME              12 (RuntimeIdentityProvider)
+
+ 17          76 LOAD_CONST               6 ('RuntimeIdentityProvider')
+             78 LOAD_CONST               7 ('Callable[..., Any]')
+             80 LOAD_CONST               8 ('APIRouter')
+             82 LOAD_CONST               9 (('identity_provider', 'auth_dependency', 'return'))
+             84 BUILD_CONST_KEY_MAP      3
+             86 LOAD_CONST              10 (<code object create_agent_runtime_identity_router at 0x10924bdf0, file "WeRobotCore/route_packs/agent_runtime_identity.py", line 17>)
+             88 LOAD_CONST              11 ('create_agent_runtime_identity_router')
+             90 MAKE_FUNCTION            4 (annotations)
+             92 STORE_NAME              13 (create_agent_runtime_identity_router)
+
+ 49          94 LOAD_CONST               6 ('RuntimeIdentityProvider')
+
+ 50          96 LOAD_CONST              11 ('create_agent_runtime_identity_router')
+
+ 48          98 BUILD_LIST               2
+            100 STORE_NAME              14 (__all__)
+            102 LOAD_CONST              12 (None)
+            104 RETURN_VALUE
+
+Disassembly of <code object create_agent_runtime_identity_router at 0x10924bdf0, file "WeRobotCore/route_packs/agent_runtime_identity.py", line 17>:
+ 24           0 LOAD_GLOBAL              0 (callable)
+              2 LOAD_DEREF               0 (identity_provider)
+              4 CALL_FUNCTION            1
+              6 POP_JUMP_IF_TRUE        16
+
+ 25           8 LOAD_GLOBAL              1 (TypeError)
+             10 LOAD_CONST               1 ('identity_provider must be callable')
+             12 CALL_FUNCTION            1
+             14 RAISE_VARARGS            1
+
+ 26     >>   16 LOAD_GLOBAL              0 (callable)
+             18 LOAD_FAST                1 (auth_dependency)
+             20 CALL_FUNCTION            1
+             22 POP_JUMP_IF_TRUE        32
+
+ 27          24 LOAD_GLOBAL              1 (TypeError)
+             26 LOAD_CONST               2 ('auth_dependency must be callable')
+             28 CALL_FUNCTION            1
+             30 RAISE_VARARGS            1
+
+ 29     >>   32 LOAD_GLOBAL              2 (APIRouter)
+             34 CALL_FUNCTION            0
+             36 STORE_FAST               2 (router)
+
+ 31          38 LOAD_FAST                2 (router)
+             40 LOAD_ATTR                3 (get)
+
+ 32          42 LOAD_CONST               3 ('/api/agent/runtime-identity')
+
+ 33          44 LOAD_CONST               4 ('get_agent_runtime_identity')
+
+ 31          46 LOAD_CONST               5 (('name',))
+             48 CALL_FUNCTION_KW         2
+
+ 36          50 LOAD_GLOBAL              4 (Security)
+             52 LOAD_FAST                1 (auth_dependency)
+             54 CALL_FUNCTION            1
+
+ 35          56 BUILD_TUPLE              1
+             58 LOAD_CONST               6 ('Any')
+             60 LOAD_CONST               7 ('Dict[str, Any]')
+             62 LOAD_CONST               8 (('_api_key', 'return'))
+             64 BUILD_CONST_KEY_MAP      2
+             66 LOAD_CLOSURE             0 (identity_provider)
+             68 BUILD_TUPLE              1
+             70 LOAD_CONST               9 (<code object get_agent_runtime_identity at 0x10924b450, file "WeRobotCore/route_packs/agent_runtime_identity.py", line 31>)
+             72 LOAD_CONST              10 ('create_agent_runtime_identity_router.<locals>.get_agent_runtime_identity')
+             74 MAKE_FUNCTION           13 (defaults, annotations, closure)
+             76 CALL_FUNCTION            1
+             78 STORE_FAST               3 (get_agent_runtime_identity)
+
+ 45          80 LOAD_FAST                2 (router)
+             82 RETURN_VALUE
+
+Disassembly of <code object get_agent_runtime_identity at 0x10924b450, file "WeRobotCore/route_packs/agent_runtime_identity.py", line 31>:
+ 38           0 LOAD_DEREF               0 (identity_provider)
+              2 CALL_FUNCTION            0
+              4 STORE_FAST               1 (identity)
+
+ 39           6 LOAD_GLOBAL              0 (isinstance)
+              8 LOAD_FAST                1 (identity)
+             10 LOAD_GLOBAL              1 (ControlRuntimeIdentity)
+             12 CALL_FUNCTION            2
+             14 POP_JUMP_IF_TRUE        24
+
+ 40          16 LOAD_GLOBAL              2 (TypeError)
+
+ 41          18 LOAD_CONST               1 ('identity_provider must return ControlRuntimeIdentity')
+
+ 40          20 CALL_FUNCTION            1
+             22 RAISE_VARARGS            1
+
+ 43     >>   24 LOAD_CONST               2 (True)
+             26 LOAD_FAST                1 (identity)
+             28 LOAD_METHOD              3 (to_agent_dict)
+             30 CALL_METHOD              0
+             32 LOAD_CONST               3 (('success', 'data'))
+             34 BUILD_CONST_KEY_MAP      2
+             36 RETURN_VALUE

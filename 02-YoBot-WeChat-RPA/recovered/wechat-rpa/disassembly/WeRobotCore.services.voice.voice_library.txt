@@ -1,0 +1,744 @@
+  1           0 LOAD_CONST               0 ('\n音色库本地存储。\n\n豆包侧不提供"列出我所有 speaker"接口，所以软件端必须自己记账已克隆音色，\n包括处于训练中的"半成品"——这样用户重启软件后还能看到进度、补点试听。\n\n存储位置：~/.yokowebot/voice_library.json\n全局共享（不绑微信账号；账号选用哪个音色由 voice_assignment.json 决定，Sprint 3）\n\n线程安全：所有读写都包在 _lock 里；并发写场景不多但保守起见加上。\n')
+              2 STORE_NAME               0 (__doc__)
+
+ 12           4 LOAD_CONST               1 (0)
+              6 LOAD_CONST               2 (('annotations',))
+              8 IMPORT_NAME              1 (__future__)
+             10 IMPORT_FROM              2 (annotations)
+             12 STORE_NAME               2 (annotations)
+             14 POP_TOP
+
+ 14          16 LOAD_CONST               1 (0)
+             18 LOAD_CONST               3 (None)
+             20 IMPORT_NAME              3 (json)
+             22 STORE_NAME               3 (json)
+
+ 15          24 LOAD_CONST               1 (0)
+             26 LOAD_CONST               3 (None)
+             28 IMPORT_NAME              4 (os)
+             30 STORE_NAME               4 (os)
+
+ 16          32 LOAD_CONST               1 (0)
+             34 LOAD_CONST               3 (None)
+             36 IMPORT_NAME              5 (threading)
+             38 STORE_NAME               5 (threading)
+
+ 17          40 LOAD_CONST               1 (0)
+             42 LOAD_CONST               3 (None)
+             44 IMPORT_NAME              6 (time)
+             46 STORE_NAME               6 (time)
+
+ 18          48 LOAD_CONST               1 (0)
+             50 LOAD_CONST               4 (('Path',))
+             52 IMPORT_NAME              7 (pathlib)
+             54 IMPORT_FROM              8 (Path)
+             56 STORE_NAME               8 (Path)
+             58 POP_TOP
+
+ 19          60 LOAD_CONST               1 (0)
+             62 LOAD_CONST               5 (('Dict', 'List', 'Optional'))
+             64 IMPORT_NAME              9 (typing)
+             66 IMPORT_FROM             10 (Dict)
+             68 STORE_NAME              10 (Dict)
+             70 IMPORT_FROM             11 (List)
+             72 STORE_NAME              11 (List)
+             74 IMPORT_FROM             12 (Optional)
+             76 STORE_NAME              12 (Optional)
+             78 POP_TOP
+
+ 22          80 LOAD_NAME                8 (Path)
+             82 LOAD_METHOD             13 (home)
+             84 CALL_METHOD              0
+             86 LOAD_CONST               6 ('.yokowebot')
+             88 BINARY_TRUE_DIVIDE
+             90 LOAD_CONST               7 ('voice_library.json')
+             92 BINARY_TRUE_DIVIDE
+             94 STORE_NAME              14 (_FILE)
+
+ 23          96 LOAD_NAME                5 (threading)
+             98 LOAD_METHOD             15 (Lock)
+            100 CALL_METHOD              0
+            102 STORE_NAME              16 (_lock)
+
+ 26         104 LOAD_CONST               8 ('pending')
+            106 STORE_NAME              17 (STATUS_PENDING)
+
+ 27         108 LOAD_CONST               9 ('training')
+            110 STORE_NAME              18 (STATUS_TRAINING)
+
+ 28         112 LOAD_CONST              10 ('active')
+            114 STORE_NAME              19 (STATUS_ACTIVE)
+
+ 29         116 LOAD_CONST              11 ('failed')
+            118 STORE_NAME              20 (STATUS_FAILED)
+
+ 30         120 LOAD_CONST              12 ('gone')
+            122 STORE_NAME              21 (STATUS_REMOTE_DELETED)
+
+ 33         124 LOAD_NAME               17 (STATUS_PENDING)
+            126 LOAD_NAME               18 (STATUS_TRAINING)
+            128 LOAD_NAME               19 (STATUS_ACTIVE)
+            130 LOAD_NAME               20 (STATUS_FAILED)
+            132 LOAD_NAME               21 (STATUS_REMOTE_DELETED)
+
+ 32         134 BUILD_SET                5
+            136 STORE_NAME              22 (VALID_STATUSES)
+
+ 37         138 LOAD_CONST              13 ('Dict')
+            140 LOAD_CONST              14 (('return',))
+            142 BUILD_CONST_KEY_MAP      1
+            144 LOAD_CONST              15 (<code object _load at 0x10924b190, file "WeRobotCore/services/voice/voice_library.py", line 37>)
+            146 LOAD_CONST              16 ('_load')
+            148 MAKE_FUNCTION            4 (annotations)
+            150 STORE_NAME              23 (_load)
+
+ 52         152 LOAD_CONST              13 ('Dict')
+            154 LOAD_CONST              17 ('None')
+            156 LOAD_CONST              18 (('data', 'return'))
+            158 BUILD_CONST_KEY_MAP      2
+            160 LOAD_CONST              19 (<code object _save at 0x10924b3a0, file "WeRobotCore/services/voice/voice_library.py", line 52>)
+            162 LOAD_CONST              20 ('_save')
+            164 MAKE_FUNCTION            4 (annotations)
+            166 STORE_NAME              24 (_save)
+
+ 60         168 LOAD_CONST              21 ('List[Dict]')
+            170 LOAD_CONST              14 (('return',))
+            172 BUILD_CONST_KEY_MAP      1
+            174 LOAD_CONST              22 (<code object list_voices at 0x10924b2f0, file "WeRobotCore/services/voice/voice_library.py", line 60>)
+            176 LOAD_CONST              23 ('list_voices')
+            178 MAKE_FUNCTION            4 (annotations)
+            180 STORE_NAME              25 (list_voices)
+
+ 65         182 LOAD_CONST              24 ('str')
+            184 LOAD_CONST              25 ('Optional[Dict]')
+            186 LOAD_CONST              26 (('voice_id', 'return'))
+            188 BUILD_CONST_KEY_MAP      2
+            190 LOAD_CONST              27 (<code object get_voice at 0x10924b9d0, file "WeRobotCore/services/voice/voice_library.py", line 65>)
+            192 LOAD_CONST              28 ('get_voice')
+            194 MAKE_FUNCTION            4 (annotations)
+            196 STORE_NAME              26 (get_voice)
+
+ 78         198 LOAD_CONST              29 ('zh')
+
+ 79         200 LOAD_CONST              30 ('')
+
+ 80         202 LOAD_NAME               17 (STATUS_PENDING)
+
+ 75         204 BUILD_TUPLE              3
+            206 LOAD_CONST              24 ('str')
+            208 LOAD_CONST              24 ('str')
+            210 LOAD_CONST              24 ('str')
+            212 LOAD_CONST              24 ('str')
+            214 LOAD_CONST              24 ('str')
+            216 LOAD_CONST              13 ('Dict')
+            218 LOAD_CONST              31 (('voice_id', 'name', 'language', 'sample_filename', 'status', 'return'))
+            220 BUILD_CONST_KEY_MAP      6
+            222 LOAD_CONST              32 (<code object add_voice at 0x10925d710, file "WeRobotCore/services/voice/voice_library.py", line 75>)
+            224 LOAD_CONST              33 ('add_voice')
+            226 MAKE_FUNCTION            5 (defaults, annotations)
+            228 STORE_NAME              27 (add_voice)
+
+111         230 LOAD_CONST              41 ((None, None))
+            232 LOAD_CONST              24 ('str')
+            234 LOAD_CONST              24 ('str')
+            236 LOAD_CONST              34 ('Optional[str]')
+            238 LOAD_CONST              34 ('Optional[str]')
+            240 LOAD_CONST              25 ('Optional[Dict]')
+            242 LOAD_CONST              35 (('voice_id', 'status', 'demo_audio_url', 'message', 'return'))
+            244 BUILD_CONST_KEY_MAP      5
+            246 LOAD_CONST              36 (<code object update_status at 0x10925d0e0, file "WeRobotCore/services/voice/voice_library.py", line 111>)
+            248 LOAD_CONST              37 ('update_status')
+            250 MAKE_FUNCTION            5 (defaults, annotations)
+            252 STORE_NAME              28 (update_status)
+
+136         254 LOAD_CONST              24 ('str')
+            256 LOAD_CONST              38 ('bool')
+            258 LOAD_CONST              26 (('voice_id', 'return'))
+            260 BUILD_CONST_KEY_MAP      2
+            262 LOAD_CONST              39 (<code object delete_voice at 0x10925d3a0, file "WeRobotCore/services/voice/voice_library.py", line 136>)
+            264 LOAD_CONST              40 ('delete_voice')
+            266 MAKE_FUNCTION            4 (annotations)
+            268 STORE_NAME              29 (delete_voice)
+            270 LOAD_CONST               3 (None)
+            272 RETURN_VALUE
+
+Disassembly of <code object _load at 0x10924b190, file "WeRobotCore/services/voice/voice_library.py", line 37>:
+ 38           0 LOAD_GLOBAL              0 (_FILE)
+              2 LOAD_METHOD              1 (exists)
+              4 CALL_METHOD              0
+              6 POP_JUMP_IF_TRUE        18
+
+ 39           8 LOAD_CONST               1 (1)
+             10 BUILD_LIST               0
+             12 LOAD_CONST               2 (('version', 'voices'))
+             14 BUILD_CONST_KEY_MAP      2
+             16 RETURN_VALUE
+
+ 40     >>   18 SETUP_FINALLY          108 (to 128)
+
+ 41          20 LOAD_GLOBAL              2 (open)
+             22 LOAD_GLOBAL              0 (_FILE)
+             24 LOAD_CONST               3 ('r')
+             26 LOAD_CONST               4 ('utf-8')
+             28 LOAD_CONST               5 (('encoding',))
+             30 CALL_FUNCTION_KW         3
+             32 SETUP_WITH              26 (to 60)
+             34 STORE_FAST               0 (f)
+
+ 42          36 LOAD_GLOBAL              3 (json)
+             38 LOAD_METHOD              4 (load)
+             40 LOAD_FAST                0 (f)
+             42 CALL_METHOD              1
+             44 STORE_FAST               1 (data)
+             46 POP_BLOCK
+             48 LOAD_CONST               0 (None)
+             50 DUP_TOP
+             52 DUP_TOP
+             54 CALL_FUNCTION            3
+             56 POP_TOP
+             58 JUMP_FORWARD            16 (to 76)
+        >>   60 WITH_EXCEPT_START
+             62 POP_JUMP_IF_TRUE        66
+             64 RERAISE
+        >>   66 POP_TOP
+             68 POP_TOP
+             70 POP_TOP
+             72 POP_EXCEPT
+             74 POP_TOP
+
+ 43     >>   76 LOAD_GLOBAL              5 (isinstance)
+             78 LOAD_FAST                1 (data)
+             80 LOAD_GLOBAL              6 (dict)
+             82 CALL_FUNCTION            2
+             84 POP_JUMP_IF_TRUE        98
+
+ 44          86 LOAD_CONST               1 (1)
+             88 BUILD_LIST               0
+             90 LOAD_CONST               2 (('version', 'voices'))
+             92 BUILD_CONST_KEY_MAP      2
+             94 POP_BLOCK
+             96 RETURN_VALUE
+
+ 45     >>   98 LOAD_FAST                1 (data)
+            100 LOAD_METHOD              7 (setdefault)
+            102 LOAD_CONST               6 ('version')
+            104 LOAD_CONST               1 (1)
+            106 CALL_METHOD              2
+            108 POP_TOP
+
+ 46         110 LOAD_FAST                1 (data)
+            112 LOAD_METHOD              7 (setdefault)
+            114 LOAD_CONST               7 ('voices')
+            116 BUILD_LIST               0
+            118 CALL_METHOD              2
+            120 POP_TOP
+
+ 47         122 LOAD_FAST                1 (data)
+            124 POP_BLOCK
+            126 RETURN_VALUE
+
+ 48     >>  128 DUP_TOP
+            130 LOAD_GLOBAL              8 (Exception)
+            132 JUMP_IF_NOT_EXC_MATCH   154
+            134 POP_TOP
+            136 POP_TOP
+            138 POP_TOP
+
+ 49         140 LOAD_CONST               1 (1)
+            142 BUILD_LIST               0
+            144 LOAD_CONST               2 (('version', 'voices'))
+            146 BUILD_CONST_KEY_MAP      2
+            148 ROT_FOUR
+            150 POP_EXCEPT
+            152 RETURN_VALUE
+        >>  154 RERAISE
+            156 LOAD_CONST               0 (None)
+            158 RETURN_VALUE
+
+Disassembly of <code object _save at 0x10924b3a0, file "WeRobotCore/services/voice/voice_library.py", line 52>:
+ 53           0 LOAD_GLOBAL              0 (_FILE)
+              2 LOAD_ATTR                1 (parent)
+              4 LOAD_ATTR                2 (mkdir)
+              6 LOAD_CONST               1 (True)
+              8 LOAD_CONST               1 (True)
+             10 LOAD_CONST               2 (('parents', 'exist_ok'))
+             12 CALL_FUNCTION_KW         2
+             14 POP_TOP
+
+ 54          16 LOAD_GLOBAL              0 (_FILE)
+             18 LOAD_METHOD              3 (with_suffix)
+             20 LOAD_CONST               3 ('.json.tmp')
+             22 CALL_METHOD              1
+             24 STORE_FAST               1 (tmp)
+
+ 55          26 LOAD_GLOBAL              4 (open)
+             28 LOAD_FAST                1 (tmp)
+             30 LOAD_CONST               4 ('w')
+             32 LOAD_CONST               5 ('utf-8')
+             34 LOAD_CONST               6 (('encoding',))
+             36 CALL_FUNCTION_KW         3
+             38 SETUP_WITH              34 (to 74)
+             40 STORE_FAST               2 (f)
+
+ 56          42 LOAD_GLOBAL              5 (json)
+             44 LOAD_ATTR                6 (dump)
+             46 LOAD_FAST                0 (data)
+             48 LOAD_FAST                2 (f)
+             50 LOAD_CONST               7 (False)
+             52 LOAD_CONST               8 (2)
+             54 LOAD_CONST               9 (('ensure_ascii', 'indent'))
+             56 CALL_FUNCTION_KW         4
+             58 POP_TOP
+             60 POP_BLOCK
+             62 LOAD_CONST               0 (None)
+             64 DUP_TOP
+             66 DUP_TOP
+             68 CALL_FUNCTION            3
+             70 POP_TOP
+             72 JUMP_FORWARD            16 (to 90)
+        >>   74 WITH_EXCEPT_START
+             76 POP_JUMP_IF_TRUE        80
+             78 RERAISE
+        >>   80 POP_TOP
+             82 POP_TOP
+             84 POP_TOP
+             86 POP_EXCEPT
+             88 POP_TOP
+
+ 57     >>   90 LOAD_GLOBAL              7 (os)
+             92 LOAD_METHOD              8 (replace)
+             94 LOAD_FAST                1 (tmp)
+             96 LOAD_GLOBAL              0 (_FILE)
+             98 CALL_METHOD              2
+            100 POP_TOP
+            102 LOAD_CONST               0 (None)
+            104 RETURN_VALUE
+
+Disassembly of <code object list_voices at 0x10924b2f0, file "WeRobotCore/services/voice/voice_library.py", line 60>:
+ 61           0 LOAD_GLOBAL              0 (_lock)
+              2 SETUP_WITH              34 (to 38)
+              4 POP_TOP
+
+ 62           6 LOAD_GLOBAL              1 (list)
+              8 LOAD_GLOBAL              2 (_load)
+             10 CALL_FUNCTION            0
+             12 LOAD_METHOD              3 (get)
+             14 LOAD_CONST               1 ('voices')
+             16 BUILD_LIST               0
+             18 CALL_METHOD              2
+             20 CALL_FUNCTION            1
+             22 POP_BLOCK
+             24 ROT_TWO
+             26 LOAD_CONST               0 (None)
+             28 DUP_TOP
+             30 DUP_TOP
+             32 CALL_FUNCTION            3
+             34 POP_TOP
+             36 RETURN_VALUE
+        >>   38 WITH_EXCEPT_START
+             40 POP_JUMP_IF_TRUE        44
+             42 RERAISE
+        >>   44 POP_TOP
+             46 POP_TOP
+             48 POP_TOP
+             50 POP_EXCEPT
+             52 POP_TOP
+             54 LOAD_CONST               0 (None)
+             56 RETURN_VALUE
+
+Disassembly of <code object get_voice at 0x10924b9d0, file "WeRobotCore/services/voice/voice_library.py", line 65>:
+ 66           0 LOAD_FAST                0 (voice_id)
+              2 POP_JUMP_IF_TRUE         8
+
+ 67           4 LOAD_CONST               0 (None)
+              6 RETURN_VALUE
+
+ 68     >>    8 LOAD_GLOBAL              0 (_lock)
+             10 SETUP_WITH              76 (to 88)
+             12 POP_TOP
+
+ 69          14 LOAD_GLOBAL              1 (_load)
+             16 CALL_FUNCTION            0
+             18 LOAD_METHOD              2 (get)
+             20 LOAD_CONST               1 ('voices')
+             22 BUILD_LIST               0
+             24 CALL_METHOD              2
+             26 GET_ITER
+        >>   28 FOR_ITER                44 (to 74)
+             30 STORE_FAST               1 (v)
+
+ 70          32 LOAD_FAST                1 (v)
+             34 LOAD_METHOD              2 (get)
+             36 LOAD_CONST               2 ('voice_id')
+             38 CALL_METHOD              1
+             40 LOAD_FAST                0 (voice_id)
+             42 COMPARE_OP               2 (==)
+             44 POP_JUMP_IF_FALSE       28
+
+ 71          46 LOAD_GLOBAL              3 (dict)
+             48 LOAD_FAST                1 (v)
+             50 CALL_FUNCTION            1
+             52 ROT_TWO
+             54 POP_TOP
+             56 POP_BLOCK
+             58 ROT_TWO
+             60 LOAD_CONST               0 (None)
+             62 DUP_TOP
+             64 DUP_TOP
+             66 CALL_FUNCTION            3
+             68 POP_TOP
+             70 RETURN_VALUE
+             72 JUMP_ABSOLUTE           28
+        >>   74 POP_BLOCK
+             76 LOAD_CONST               0 (None)
+             78 DUP_TOP
+             80 DUP_TOP
+             82 CALL_FUNCTION            3
+             84 POP_TOP
+             86 JUMP_FORWARD            16 (to 104)
+        >>   88 WITH_EXCEPT_START
+             90 POP_JUMP_IF_TRUE        94
+             92 RERAISE
+        >>   94 POP_TOP
+             96 POP_TOP
+             98 POP_TOP
+            100 POP_EXCEPT
+            102 POP_TOP
+
+ 72     >>  104 LOAD_CONST               0 (None)
+            106 RETURN_VALUE
+
+Disassembly of <code object add_voice at 0x10925d710, file "WeRobotCore/services/voice/voice_library.py", line 75>:
+ 83           0 LOAD_DEREF               0 (voice_id)
+              2 POP_JUMP_IF_TRUE        12
+
+ 84           4 LOAD_GLOBAL              0 (ValueError)
+              6 LOAD_CONST               1 ('voice_id 必填')
+              8 CALL_FUNCTION            1
+             10 RAISE_VARARGS            1
+
+ 85     >>   12 LOAD_FAST                4 (status)
+             14 LOAD_GLOBAL              1 (VALID_STATUSES)
+             16 CONTAINS_OP              1
+             18 POP_JUMP_IF_FALSE       34
+
+ 86          20 LOAD_GLOBAL              0 (ValueError)
+             22 LOAD_CONST               2 ('非法 status: ')
+             24 LOAD_FAST                4 (status)
+             26 FORMAT_VALUE             0
+             28 BUILD_STRING             2
+             30 CALL_FUNCTION            1
+             32 RAISE_VARARGS            1
+
+ 88     >>   34 LOAD_GLOBAL              2 (int)
+             36 LOAD_GLOBAL              3 (time)
+             38 LOAD_METHOD              3 (time)
+             40 CALL_METHOD              0
+             42 CALL_FUNCTION            1
+             44 STORE_FAST               5 (now)
+
+ 90          46 LOAD_DEREF               0 (voice_id)
+
+ 91          48 LOAD_FAST                1 (name)
+             50 JUMP_IF_TRUE_OR_POP     54
+             52 LOAD_DEREF               0 (voice_id)
+
+ 92     >>   54 LOAD_FAST                2 (language)
+
+ 93          56 LOAD_FAST                3 (sample_filename)
+
+ 94          58 LOAD_FAST                4 (status)
+
+ 95          60 LOAD_FAST                5 (now)
+
+ 96          62 LOAD_FAST                5 (now)
+
+ 97          64 LOAD_CONST               3 (None)
+
+ 98          66 LOAD_CONST               4 ('')
+
+ 89          68 LOAD_CONST               5 (('voice_id', 'name', 'language', 'sample_filename', 'status', 'created_at', 'last_synced_at', 'demo_audio_url', 'message'))
+             70 BUILD_CONST_KEY_MAP      9
+             72 STORE_FAST               6 (record)
+
+100          74 LOAD_GLOBAL              4 (_lock)
+             76 SETUP_WITH              78 (to 156)
+             78 POP_TOP
+
+101          80 LOAD_GLOBAL              5 (_load)
+             82 CALL_FUNCTION            0
+             84 STORE_FAST               7 (data)
+
+102          86 LOAD_FAST                7 (data)
+             88 LOAD_METHOD              6 (get)
+             90 LOAD_CONST               6 ('voices')
+             92 BUILD_LIST               0
+             94 CALL_METHOD              2
+             96 STORE_FAST               8 (voices)
+
+104          98 LOAD_CLOSURE             0 (voice_id)
+            100 BUILD_TUPLE              1
+            102 LOAD_CONST               7 (<code object <listcomp> at 0x10924b870, file "WeRobotCore/services/voice/voice_library.py", line 104>)
+            104 LOAD_CONST               8 ('add_voice.<locals>.<listcomp>')
+            106 MAKE_FUNCTION            8 (closure)
+            108 LOAD_FAST                8 (voices)
+            110 GET_ITER
+            112 CALL_FUNCTION            1
+            114 STORE_FAST               8 (voices)
+
+105         116 LOAD_FAST                8 (voices)
+            118 LOAD_METHOD              7 (append)
+            120 LOAD_FAST                6 (record)
+            122 CALL_METHOD              1
+            124 POP_TOP
+
+106         126 LOAD_FAST                8 (voices)
+            128 LOAD_FAST                7 (data)
+            130 LOAD_CONST               6 ('voices')
+            132 STORE_SUBSCR
+
+107         134 LOAD_GLOBAL              8 (_save)
+            136 LOAD_FAST                7 (data)
+            138 CALL_FUNCTION            1
+            140 POP_TOP
+            142 POP_BLOCK
+            144 LOAD_CONST               3 (None)
+            146 DUP_TOP
+            148 DUP_TOP
+            150 CALL_FUNCTION            3
+            152 POP_TOP
+            154 JUMP_FORWARD            16 (to 172)
+        >>  156 WITH_EXCEPT_START
+            158 POP_JUMP_IF_TRUE       162
+            160 RERAISE
+        >>  162 POP_TOP
+            164 POP_TOP
+            166 POP_TOP
+            168 POP_EXCEPT
+            170 POP_TOP
+
+108     >>  172 LOAD_GLOBAL              9 (dict)
+            174 LOAD_FAST                6 (record)
+            176 CALL_FUNCTION            1
+            178 RETURN_VALUE
+
+Disassembly of <code object <listcomp> at 0x10924b870, file "WeRobotCore/services/voice/voice_library.py", line 104>:
+104           0 BUILD_LIST               0
+              2 LOAD_FAST                0 (.0)
+        >>    4 FOR_ITER                22 (to 28)
+              6 STORE_FAST               1 (v)
+              8 LOAD_FAST                1 (v)
+             10 LOAD_METHOD              0 (get)
+             12 LOAD_CONST               0 ('voice_id')
+             14 CALL_METHOD              1
+             16 LOAD_DEREF               0 (voice_id)
+             18 COMPARE_OP               3 (!=)
+             20 POP_JUMP_IF_FALSE        4
+             22 LOAD_FAST                1 (v)
+             24 LIST_APPEND              2
+             26 JUMP_ABSOLUTE            4
+        >>   28 RETURN_VALUE
+
+Disassembly of <code object update_status at 0x10925d0e0, file "WeRobotCore/services/voice/voice_library.py", line 111>:
+118           0 LOAD_FAST                1 (status)
+              2 LOAD_GLOBAL              0 (VALID_STATUSES)
+              4 CONTAINS_OP              1
+              6 POP_JUMP_IF_FALSE       22
+
+119           8 LOAD_GLOBAL              1 (ValueError)
+             10 LOAD_CONST               1 ('非法 status: ')
+             12 LOAD_FAST                1 (status)
+             14 FORMAT_VALUE             0
+             16 BUILD_STRING             2
+             18 CALL_FUNCTION            1
+             20 RAISE_VARARGS            1
+
+120     >>   22 LOAD_GLOBAL              2 (_lock)
+             24 SETUP_WITH             148 (to 174)
+             26 POP_TOP
+
+121          28 LOAD_GLOBAL              3 (_load)
+             30 CALL_FUNCTION            0
+             32 STORE_FAST               4 (data)
+
+122          34 LOAD_FAST                4 (data)
+             36 LOAD_METHOD              4 (get)
+             38 LOAD_CONST               2 ('voices')
+             40 BUILD_LIST               0
+             42 CALL_METHOD              2
+             44 STORE_FAST               5 (voices)
+
+123          46 LOAD_FAST                5 (voices)
+             48 GET_ITER
+        >>   50 FOR_ITER               108 (to 160)
+             52 STORE_FAST               6 (v)
+
+124          54 LOAD_FAST                6 (v)
+             56 LOAD_METHOD              4 (get)
+             58 LOAD_CONST               3 ('voice_id')
+             60 CALL_METHOD              1
+             62 LOAD_FAST                0 (voice_id)
+             64 COMPARE_OP               2 (==)
+             66 POP_JUMP_IF_FALSE       50
+
+125          68 LOAD_FAST                1 (status)
+             70 LOAD_FAST                6 (v)
+             72 LOAD_CONST               4 ('status')
+             74 STORE_SUBSCR
+
+126          76 LOAD_GLOBAL              5 (int)
+             78 LOAD_GLOBAL              6 (time)
+             80 LOAD_METHOD              6 (time)
+             82 CALL_METHOD              0
+             84 CALL_FUNCTION            1
+             86 LOAD_FAST                6 (v)
+             88 LOAD_CONST               5 ('last_synced_at')
+             90 STORE_SUBSCR
+
+127          92 LOAD_FAST                2 (demo_audio_url)
+             94 LOAD_CONST               6 (None)
+             96 IS_OP                    1
+             98 POP_JUMP_IF_FALSE      108
+
+128         100 LOAD_FAST                2 (demo_audio_url)
+            102 LOAD_FAST                6 (v)
+            104 LOAD_CONST               7 ('demo_audio_url')
+            106 STORE_SUBSCR
+
+129     >>  108 LOAD_FAST                3 (message)
+            110 LOAD_CONST               6 (None)
+            112 IS_OP                    1
+            114 POP_JUMP_IF_FALSE      124
+
+130         116 LOAD_FAST                3 (message)
+            118 LOAD_FAST                6 (v)
+            120 LOAD_CONST               8 ('message')
+            122 STORE_SUBSCR
+
+131     >>  124 LOAD_GLOBAL              7 (_save)
+            126 LOAD_FAST                4 (data)
+            128 CALL_FUNCTION            1
+            130 POP_TOP
+
+132         132 LOAD_GLOBAL              8 (dict)
+            134 LOAD_FAST                6 (v)
+            136 CALL_FUNCTION            1
+            138 ROT_TWO
+            140 POP_TOP
+            142 POP_BLOCK
+            144 ROT_TWO
+            146 LOAD_CONST               6 (None)
+            148 DUP_TOP
+            150 DUP_TOP
+            152 CALL_FUNCTION            3
+            154 POP_TOP
+            156 RETURN_VALUE
+            158 JUMP_ABSOLUTE           50
+        >>  160 POP_BLOCK
+            162 LOAD_CONST               6 (None)
+            164 DUP_TOP
+            166 DUP_TOP
+            168 CALL_FUNCTION            3
+            170 POP_TOP
+            172 JUMP_FORWARD            16 (to 190)
+        >>  174 WITH_EXCEPT_START
+            176 POP_JUMP_IF_TRUE       180
+            178 RERAISE
+        >>  180 POP_TOP
+            182 POP_TOP
+            184 POP_TOP
+            186 POP_EXCEPT
+            188 POP_TOP
+
+133     >>  190 LOAD_CONST               6 (None)
+            192 RETURN_VALUE
+
+Disassembly of <code object delete_voice at 0x10925d3a0, file "WeRobotCore/services/voice/voice_library.py", line 136>:
+138           0 LOAD_GLOBAL              0 (_lock)
+              2 SETUP_WITH             102 (to 106)
+              4 POP_TOP
+
+139           6 LOAD_GLOBAL              1 (_load)
+              8 CALL_FUNCTION            0
+             10 STORE_FAST               1 (data)
+
+140          12 LOAD_FAST                1 (data)
+             14 LOAD_METHOD              2 (get)
+             16 LOAD_CONST               1 ('voices')
+             18 BUILD_LIST               0
+             20 CALL_METHOD              2
+             22 STORE_FAST               2 (voices)
+
+141          24 LOAD_CLOSURE             0 (voice_id)
+             26 BUILD_TUPLE              1
+             28 LOAD_CONST               2 (<code object <listcomp> at 0x10925d190, file "WeRobotCore/services/voice/voice_library.py", line 141>)
+             30 LOAD_CONST               3 ('delete_voice.<locals>.<listcomp>')
+             32 MAKE_FUNCTION            8 (closure)
+             34 LOAD_FAST                2 (voices)
+             36 GET_ITER
+             38 CALL_FUNCTION            1
+             40 STORE_FAST               3 (new_voices)
+
+142          42 LOAD_GLOBAL              3 (len)
+             44 LOAD_FAST                3 (new_voices)
+             46 CALL_FUNCTION            1
+             48 LOAD_GLOBAL              3 (len)
+             50 LOAD_FAST                2 (voices)
+             52 CALL_FUNCTION            1
+             54 COMPARE_OP               2 (==)
+             56 POP_JUMP_IF_FALSE       74
+
+143          58 POP_BLOCK
+             60 LOAD_CONST               4 (None)
+             62 DUP_TOP
+             64 DUP_TOP
+             66 CALL_FUNCTION            3
+             68 POP_TOP
+             70 LOAD_CONST               5 (False)
+             72 RETURN_VALUE
+
+144     >>   74 LOAD_FAST                3 (new_voices)
+             76 LOAD_FAST                1 (data)
+             78 LOAD_CONST               1 ('voices')
+             80 STORE_SUBSCR
+
+145          82 LOAD_GLOBAL              4 (_save)
+             84 LOAD_FAST                1 (data)
+             86 CALL_FUNCTION            1
+             88 POP_TOP
+
+146          90 POP_BLOCK
+             92 LOAD_CONST               4 (None)
+             94 DUP_TOP
+             96 DUP_TOP
+             98 CALL_FUNCTION            3
+            100 POP_TOP
+            102 LOAD_CONST               6 (True)
+            104 RETURN_VALUE
+        >>  106 WITH_EXCEPT_START
+            108 POP_JUMP_IF_TRUE       112
+            110 RERAISE
+        >>  112 POP_TOP
+            114 POP_TOP
+            116 POP_TOP
+            118 POP_EXCEPT
+            120 POP_TOP
+            122 LOAD_CONST               4 (None)
+            124 RETURN_VALUE
+
+Disassembly of <code object <listcomp> at 0x10925d190, file "WeRobotCore/services/voice/voice_library.py", line 141>:
+141           0 BUILD_LIST               0
+              2 LOAD_FAST                0 (.0)
+        >>    4 FOR_ITER                22 (to 28)
+              6 STORE_FAST               1 (v)
+              8 LOAD_FAST                1 (v)
+             10 LOAD_METHOD              0 (get)
+             12 LOAD_CONST               0 ('voice_id')
+             14 CALL_METHOD              1
+             16 LOAD_DEREF               0 (voice_id)
+             18 COMPARE_OP               3 (!=)
+             20 POP_JUMP_IF_FALSE        4
+             22 LOAD_FAST                1 (v)
+             24 LIST_APPEND              2
+             26 JUMP_ABSOLUTE            4
+        >>   28 RETURN_VALUE

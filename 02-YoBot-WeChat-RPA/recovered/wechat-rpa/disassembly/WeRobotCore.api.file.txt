@@ -1,0 +1,1045 @@
+  1           0 LOAD_CONST               0 (0)
+              2 LOAD_CONST               1 (None)
+              4 IMPORT_NAME              0 (os)
+              6 STORE_NAME               0 (os)
+
+  2           8 LOAD_CONST               0 (0)
+             10 LOAD_CONST               1 (None)
+             12 IMPORT_NAME              1 (sys)
+             14 STORE_NAME               1 (sys)
+
+  3          16 LOAD_CONST               0 (0)
+             18 LOAD_CONST               1 (None)
+             20 IMPORT_NAME              2 (subprocess)
+             22 STORE_NAME               2 (subprocess)
+
+  4          24 LOAD_CONST               0 (0)
+             26 LOAD_CONST               2 (('Optional',))
+             28 IMPORT_NAME              3 (typing)
+             30 IMPORT_FROM              4 (Optional)
+             32 STORE_NAME               4 (Optional)
+             34 POP_TOP
+
+  5          36 LOAD_CONST               0 (0)
+             38 LOAD_CONST               1 (None)
+             40 IMPORT_NAME              5 (time)
+             42 STORE_NAME               5 (time)
+
+  6          44 LOAD_CONST               0 (0)
+             46 LOAD_CONST               3 (('UploadFile', 'File', 'HTTPException'))
+             48 IMPORT_NAME              6 (fastapi)
+             50 IMPORT_FROM              7 (UploadFile)
+             52 STORE_NAME               7 (UploadFile)
+             54 IMPORT_FROM              8 (File)
+             56 STORE_NAME               8 (File)
+             58 IMPORT_FROM              9 (HTTPException)
+             60 STORE_NAME               9 (HTTPException)
+             62 POP_TOP
+
+  7          64 LOAD_CONST               0 (0)
+             66 LOAD_CONST               4 (('FileResponse',))
+             68 IMPORT_NAME             10 (fastapi.responses)
+             70 IMPORT_FROM             11 (FileResponse)
+             72 STORE_NAME              11 (FileResponse)
+             74 POP_TOP
+
+  8          76 LOAD_CONST               0 (0)
+             78 LOAD_CONST               1 (None)
+             80 IMPORT_NAME             12 (uiautomation)
+             82 STORE_NAME              13 (ui_Coder)
+
+  9          84 LOAD_CONST               0 (0)
+             86 LOAD_CONST               5 (('WeChat',))
+             88 IMPORT_NAME             14 (WeRobotCore.core.WeChatType)
+             90 IMPORT_FROM             15 (WeChat)
+             92 STORE_NAME              15 (WeChat)
+             94 POP_TOP
+
+ 10          96 LOAD_CONST               0 (0)
+             98 LOAD_CONST               6 (('Path',))
+            100 IMPORT_NAME             16 (pathlib)
+            102 IMPORT_FROM             17 (Path)
+            104 STORE_NAME              17 (Path)
+            106 POP_TOP
+
+ 11         108 LOAD_CONST               0 (0)
+            110 LOAD_CONST               7 (('MomentMaterialManager',))
+            112 IMPORT_NAME             18 (WeRobotCore.utils.moment_material_manager)
+            114 IMPORT_FROM             19 (MomentMaterialManager)
+            116 STORE_NAME              19 (MomentMaterialManager)
+            118 POP_TOP
+
+ 12         120 LOAD_CONST               0 (0)
+            122 LOAD_CONST               8 (('DataManager',))
+            124 IMPORT_NAME             20 (WeRobotCore.utils.data_manager)
+            126 IMPORT_FROM             21 (DataManager)
+            128 STORE_NAME              21 (DataManager)
+            130 POP_TOP
+
+ 13         132 LOAD_CONST               0 (0)
+            134 LOAD_CONST               1 (None)
+            136 IMPORT_NAME             22 (csv)
+            138 STORE_NAME              22 (csv)
+
+ 15         140 LOAD_NAME                0 (os)
+            142 LOAD_ATTR               23 (path)
+            144 LOAD_METHOD             24 (join)
+            146 LOAD_NAME               21 (DataManager)
+            148 LOAD_METHOD             25 (get_data_dir_str)
+            150 CALL_METHOD              0
+            152 LOAD_CONST               9 ('uploads')
+            154 LOAD_CONST              10 ('greetings')
+            156 CALL_METHOD              3
+            158 STORE_NAME              26 (UPLOAD_DIR)
+
+ 16         160 LOAD_NAME                0 (os)
+            162 LOAD_ATTR               27 (makedirs)
+            164 LOAD_NAME               26 (UPLOAD_DIR)
+            166 LOAD_CONST              11 (True)
+            168 LOAD_CONST              12 (('exist_ok',))
+            170 CALL_FUNCTION_KW         2
+            172 POP_TOP
+
+ 17         174 LOAD_NAME               26 (UPLOAD_DIR)
+            176 BUILD_TUPLE              1
+            178 LOAD_NAME                7 (UploadFile)
+            180 LOAD_NAME               28 (str)
+            182 LOAD_NAME               28 (str)
+            184 LOAD_CONST              13 (('file', 'str_dir', 'return'))
+            186 BUILD_CONST_KEY_MAP      3
+            188 LOAD_CONST              14 (<code object save_uploaded_file at 0x109244a80, file "WeRobotCore/api/file.py", line 17>)
+            190 LOAD_CONST              15 ('save_uploaded_file')
+            192 MAKE_FUNCTION            5 (defaults, annotations)
+            194 STORE_NAME              29 (save_uploaded_file)
+
+ 56         196 LOAD_NAME               15 (WeChat)
+            198 LOAD_NAME               28 (str)
+            200 LOAD_NAME               28 (str)
+            202 LOAD_CONST              16 (('wx', 'user', 'file'))
+            204 BUILD_CONST_KEY_MAP      3
+            206 LOAD_CONST              17 (<code object send_file at 0x109244c90, file "WeRobotCore/api/file.py", line 56>)
+            208 LOAD_CONST              18 ('send_file')
+            210 MAKE_FUNCTION            4 (annotations)
+            212 STORE_NAME              30 (send_file)
+
+ 66         214 LOAD_NAME               15 (WeChat)
+            216 LOAD_NAME               28 (str)
+            218 LOAD_NAME               28 (str)
+            220 LOAD_CONST              19 (('wx', 'user', 'keyword'))
+            222 BUILD_CONST_KEY_MAP      3
+            224 LOAD_CONST              20 (<code object send_favorite at 0x109244660, file "WeRobotCore/api/file.py", line 66>)
+            226 LOAD_CONST              21 ('send_favorite')
+            228 MAKE_FUNCTION            4 (annotations)
+            230 STORE_NAME              31 (send_favorite)
+
+ 75         232 LOAD_NAME               32 (list)
+            234 LOAD_CONST              22 (('return',))
+            236 BUILD_CONST_KEY_MAP      1
+            238 LOAD_CONST              23 (<code object list_moment_plans at 0x109244500, file "WeRobotCore/api/file.py", line 75>)
+            240 LOAD_CONST              24 ('list_moment_plans')
+            242 MAKE_FUNCTION            4 (annotations)
+            244 STORE_NAME              33 (list_moment_plans)
+
+ 80         246 LOAD_NAME               28 (str)
+            248 LOAD_NAME               32 (list)
+            250 LOAD_CONST              25 (('plan_name', 'return'))
+            252 BUILD_CONST_KEY_MAP      2
+            254 LOAD_CONST              26 (<code object list_moment_groups at 0x1092442f0, file "WeRobotCore/api/file.py", line 80>)
+            256 LOAD_CONST              27 ('list_moment_groups')
+            258 MAKE_FUNCTION            4 (annotations)
+            260 STORE_NAME              34 (list_moment_groups)
+
+ 84         262 LOAD_CONST              37 ((None,))
+            264 LOAD_NAME                4 (Optional)
+            266 LOAD_NAME               28 (str)
+            268 BINARY_SUBSCR
+            270 LOAD_NAME               35 (dict)
+            272 LOAD_CONST              28 (('start_dir', 'return'))
+            274 BUILD_CONST_KEY_MAP      2
+            276 LOAD_CONST              29 (<code object select_moment_folder_and_groups at 0x109244710, file "WeRobotCore/api/file.py", line 84>)
+            278 LOAD_CONST              30 ('select_moment_folder_and_groups')
+            280 MAKE_FUNCTION            5 (defaults, annotations)
+            282 STORE_NAME              36 (select_moment_folder_and_groups)
+
+145         284 LOAD_NAME               28 (str)
+            286 LOAD_NAME               35 (dict)
+            288 LOAD_CONST              31 (('path', 'return'))
+            290 BUILD_CONST_KEY_MAP      2
+            292 LOAD_CONST              32 (<code object open_folder at 0x109244920, file "WeRobotCore/api/file.py", line 145>)
+            294 LOAD_CONST              33 ('open_folder')
+            296 MAKE_FUNCTION            4 (annotations)
+            298 STORE_NAME              37 (open_folder)
+
+157         300 LOAD_CONST              38 ((None, None))
+            302 LOAD_NAME               28 (str)
+            304 LOAD_NAME               28 (str)
+            306 LOAD_NAME               28 (str)
+            308 LOAD_CONST              34 (('status', 'tag', 'return'))
+            310 BUILD_CONST_KEY_MAP      3
+            312 LOAD_CONST              35 (<code object export_friend_list_file at 0x109244df0, file "WeRobotCore/api/file.py", line 157>)
+            314 LOAD_CONST              36 ('export_friend_list_file')
+            316 MAKE_FUNCTION            5 (defaults, annotations)
+            318 STORE_NAME              38 (export_friend_list_file)
+            320 LOAD_CONST               1 (None)
+            322 RETURN_VALUE
+
+Disassembly of <code object save_uploaded_file at 0x109244a80, file "WeRobotCore/api/file.py", line 17>:
+ 19           0 SETUP_FINALLY          218 (to 220)
+
+ 21           2 LOAD_FAST                0 (file)
+              4 LOAD_ATTR                0 (filename)
+              6 POP_JUMP_IF_TRUE        16
+
+ 22           8 LOAD_GLOBAL              1 (ValueError)
+             10 LOAD_CONST               1 ('文件名不能为空')
+             12 CALL_FUNCTION            1
+             14 RAISE_VARARGS            1
+
+ 25     >>   16 LOAD_FAST                0 (file)
+             18 LOAD_ATTR                0 (filename)
+             20 STORE_FAST               2 (filename)
+
+ 26          22 LOAD_GLOBAL              2 (os)
+             24 LOAD_ATTR                3 (path)
+             26 LOAD_METHOD              4 (splitext)
+             28 LOAD_FAST                2 (filename)
+             30 CALL_METHOD              1
+             32 UNPACK_SEQUENCE          2
+             34 STORE_FAST               3 (file_name_without_ext)
+             36 STORE_FAST               4 (file_ext)
+
+ 29          38 LOAD_GLOBAL              2 (os)
+             40 LOAD_ATTR                5 (makedirs)
+             42 LOAD_FAST                1 (str_dir)
+             44 LOAD_CONST               2 (True)
+             46 LOAD_CONST               3 (('exist_ok',))
+             48 CALL_FUNCTION_KW         2
+             50 POP_TOP
+
+ 32          52 LOAD_GLOBAL              2 (os)
+             54 LOAD_ATTR                3 (path)
+             56 LOAD_METHOD              6 (join)
+             58 LOAD_FAST                1 (str_dir)
+             60 LOAD_FAST                2 (filename)
+             62 CALL_METHOD              2
+             64 STORE_FAST               5 (save_path)
+
+ 35          66 LOAD_CONST               4 (1)
+             68 STORE_FAST               6 (counter)
+
+ 36     >>   70 LOAD_GLOBAL              2 (os)
+             72 LOAD_ATTR                3 (path)
+             74 LOAD_METHOD              7 (exists)
+             76 LOAD_FAST                5 (save_path)
+             78 CALL_METHOD              1
+             80 POP_JUMP_IF_FALSE      124
+
+ 37          82 LOAD_FAST                3 (file_name_without_ext)
+             84 FORMAT_VALUE             0
+             86 LOAD_CONST               5 ('_')
+             88 LOAD_FAST                6 (counter)
+             90 FORMAT_VALUE             0
+             92 LOAD_FAST                4 (file_ext)
+             94 FORMAT_VALUE             0
+             96 BUILD_STRING             4
+             98 STORE_FAST               7 (new_filename)
+
+ 38         100 LOAD_GLOBAL              2 (os)
+            102 LOAD_ATTR                3 (path)
+            104 LOAD_METHOD              6 (join)
+            106 LOAD_FAST                1 (str_dir)
+            108 LOAD_FAST                7 (new_filename)
+            110 CALL_METHOD              2
+            112 STORE_FAST               5 (save_path)
+
+ 39         114 LOAD_FAST                6 (counter)
+            116 LOAD_CONST               4 (1)
+            118 INPLACE_ADD
+            120 STORE_FAST               6 (counter)
+            122 JUMP_ABSOLUTE           70
+
+ 42     >>  124 LOAD_FAST                0 (file)
+            126 LOAD_METHOD              8 (read)
+            128 CALL_METHOD              0
+            130 GET_AWAITABLE
+            132 LOAD_CONST               6 (None)
+            134 YIELD_FROM
+            136 STORE_FAST               8 (content)
+
+ 43         138 LOAD_FAST                8 (content)
+            140 POP_JUMP_IF_TRUE       150
+
+ 44         142 LOAD_GLOBAL              1 (ValueError)
+            144 LOAD_CONST               7 ('文件内容为空')
+            146 CALL_FUNCTION            1
+            148 RAISE_VARARGS            1
+
+ 46     >>  150 LOAD_GLOBAL              9 (open)
+            152 LOAD_FAST                5 (save_path)
+            154 LOAD_CONST               8 ('wb')
+            156 CALL_FUNCTION            2
+            158 SETUP_WITH              26 (to 186)
+            160 STORE_FAST               9 (buffer)
+
+ 47         162 LOAD_FAST                9 (buffer)
+            164 LOAD_METHOD             10 (write)
+            166 LOAD_FAST                8 (content)
+            168 CALL_METHOD              1
+            170 POP_TOP
+            172 POP_BLOCK
+            174 LOAD_CONST               6 (None)
+            176 DUP_TOP
+            178 DUP_TOP
+            180 CALL_FUNCTION            3
+            182 POP_TOP
+            184 JUMP_FORWARD            16 (to 202)
+        >>  186 WITH_EXCEPT_START
+            188 POP_JUMP_IF_TRUE       192
+            190 RERAISE
+        >>  192 POP_TOP
+            194 POP_TOP
+            196 POP_TOP
+            198 POP_EXCEPT
+            200 POP_TOP
+
+ 49     >>  202 LOAD_GLOBAL             11 (str)
+            204 LOAD_GLOBAL             12 (Path)
+            206 LOAD_FAST                5 (save_path)
+            208 CALL_FUNCTION            1
+            210 LOAD_METHOD             13 (resolve)
+            212 CALL_METHOD              0
+            214 CALL_FUNCTION            1
+            216 POP_BLOCK
+            218 RETURN_VALUE
+
+ 51     >>  220 DUP_TOP
+            222 LOAD_GLOBAL             14 (Exception)
+            224 EXTENDED_ARG             1
+            226 JUMP_IF_NOT_EXC_MATCH   278
+            228 POP_TOP
+            230 STORE_FAST              10 (e)
+            232 POP_TOP
+            234 SETUP_FINALLY           34 (to 270)
+
+ 52         236 LOAD_GLOBAL             15 (HTTPException)
+
+ 53         238 LOAD_CONST               9 (500)
+
+ 54         240 LOAD_CONST              10 ('文件保存失败: ')
+            242 LOAD_GLOBAL             11 (str)
+            244 LOAD_FAST               10 (e)
+            246 CALL_FUNCTION            1
+            248 FORMAT_VALUE             0
+            250 BUILD_STRING             2
+
+ 52         252 LOAD_CONST              11 (('status_code', 'detail'))
+            254 CALL_FUNCTION_KW         2
+            256 RAISE_VARARGS            1
+            258 POP_BLOCK
+            260 POP_EXCEPT
+            262 LOAD_CONST               6 (None)
+            264 STORE_FAST              10 (e)
+            266 DELETE_FAST             10 (e)
+            268 JUMP_FORWARD            10 (to 280)
+        >>  270 LOAD_CONST               6 (None)
+            272 STORE_FAST              10 (e)
+            274 DELETE_FAST             10 (e)
+            276 RERAISE
+        >>  278 RERAISE
+        >>  280 LOAD_CONST               6 (None)
+            282 RETURN_VALUE
+
+Disassembly of <code object send_file at 0x109244c90, file "WeRobotCore/api/file.py", line 56>:
+ 63           0 LOAD_FAST                0 (wx)
+              2 LOAD_ATTR                0 (SendFiles)
+              4 LOAD_FAST                1 (user)
+              6 LOAD_FAST                2 (file)
+              8 LOAD_CONST               1 (('who', 'filepath'))
+             10 CALL_FUNCTION_KW         2
+             12 STORE_FAST               3 (result)
+
+ 64          14 LOAD_FAST                3 (result)
+             16 POP_JUMP_IF_FALSE       26
+             18 LOAD_CONST               2 ('success')
+             20 LOAD_CONST               3 (True)
+             22 BUILD_MAP                1
+             24 RETURN_VALUE
+        >>   26 LOAD_CONST               4 (False)
+             28 LOAD_CONST               5 ('发送失败')
+             30 LOAD_CONST               6 (('success', 'message'))
+             32 BUILD_CONST_KEY_MAP      2
+             34 RETURN_VALUE
+
+Disassembly of <code object send_favorite at 0x109244660, file "WeRobotCore/api/file.py", line 66>:
+ 73           0 LOAD_FAST                0 (wx)
+              2 LOAD_ATTR                0 (SendFavorite)
+              4 LOAD_FAST                1 (user)
+              6 LOAD_FAST                2 (keyword)
+              8 LOAD_CONST               1 (('who', 'keyword'))
+             10 CALL_FUNCTION_KW         2
+             12 RETURN_VALUE
+
+Disassembly of <code object list_moment_plans at 0x109244500, file "WeRobotCore/api/file.py", line 75>:
+ 76           0 LOAD_GLOBAL              0 (DataManager)
+              2 LOAD_METHOD              1 (get_data_dir)
+              4 CALL_METHOD              0
+              6 LOAD_CONST               1 ('moment_material')
+              8 BINARY_TRUE_DIVIDE
+             10 STORE_FAST               0 (base)
+
+ 77          12 LOAD_FAST                0 (base)
+             14 LOAD_ATTR                2 (mkdir)
+             16 LOAD_CONST               2 (True)
+             18 LOAD_CONST               2 (True)
+             20 LOAD_CONST               3 (('parents', 'exist_ok'))
+             22 CALL_FUNCTION_KW         2
+             24 POP_TOP
+
+ 78          26 LOAD_CONST               4 (<code object <listcomp> at 0x1092445b0, file "WeRobotCore/api/file.py", line 78>)
+             28 LOAD_CONST               5 ('list_moment_plans.<locals>.<listcomp>')
+             30 MAKE_FUNCTION            0
+             32 LOAD_FAST                0 (base)
+             34 LOAD_METHOD              3 (iterdir)
+             36 CALL_METHOD              0
+             38 GET_ITER
+             40 CALL_FUNCTION            1
+             42 RETURN_VALUE
+
+Disassembly of <code object <listcomp> at 0x1092445b0, file "WeRobotCore/api/file.py", line 78>:
+ 78           0 BUILD_LIST               0
+              2 LOAD_FAST                0 (.0)
+        >>    4 FOR_ITER                18 (to 24)
+              6 STORE_FAST               1 (p)
+              8 LOAD_FAST                1 (p)
+             10 LOAD_METHOD              0 (is_dir)
+             12 CALL_METHOD              0
+             14 POP_JUMP_IF_FALSE        4
+             16 LOAD_FAST                1 (p)
+             18 LOAD_ATTR                1 (name)
+             20 LIST_APPEND              2
+             22 JUMP_ABSOLUTE            4
+        >>   24 RETURN_VALUE
+
+Disassembly of <code object list_moment_groups at 0x1092442f0, file "WeRobotCore/api/file.py", line 80>:
+ 81           0 LOAD_GLOBAL              0 (MomentMaterialManager)
+              2 CALL_FUNCTION            0
+              4 STORE_FAST               1 (mgr)
+
+ 82           6 LOAD_FAST                1 (mgr)
+              8 LOAD_METHOD              1 (list_groups)
+             10 LOAD_FAST                0 (plan_name)
+             12 CALL_METHOD              1
+             14 RETURN_VALUE
+
+Disassembly of <code object select_moment_folder_and_groups at 0x109244710, file "WeRobotCore/api/file.py", line 84>:
+ 85           0 EXTENDED_ARG             2
+              2 SETUP_FINALLY          528 (to 532)
+
+ 86           4 LOAD_GLOBAL              0 (DataManager)
+              6 LOAD_METHOD              1 (get_data_dir)
+              8 CALL_METHOD              0
+             10 LOAD_CONST               1 ('moment_material')
+             12 BINARY_TRUE_DIVIDE
+             14 STORE_FAST               1 (base)
+
+ 87          16 LOAD_FAST                1 (base)
+             18 LOAD_ATTR                2 (mkdir)
+             20 LOAD_CONST               2 (True)
+             22 LOAD_CONST               2 (True)
+             24 LOAD_CONST               3 (('parents', 'exist_ok'))
+             26 CALL_FUNCTION_KW         2
+             28 POP_TOP
+
+ 88          30 LOAD_FAST                0 (start_dir)
+             32 POP_JUMP_IF_FALSE       42
+             34 LOAD_GLOBAL              3 (Path)
+             36 LOAD_FAST                0 (start_dir)
+             38 CALL_FUNCTION            1
+             40 JUMP_FORWARD             2 (to 44)
+        >>   42 LOAD_FAST                1 (base)
+        >>   44 STORE_FAST               2 (initial)
+
+ 89          46 EXTENDED_ARG             1
+             48 SETUP_FINALLY          360 (to 410)
+
+ 90          50 LOAD_CONST               4 (0)
+             52 LOAD_CONST               0 (None)
+             54 IMPORT_NAME              4 (webview)
+             56 STORE_FAST               3 (webview)
+
+ 91          58 LOAD_CONST               0 (None)
+             60 STORE_FAST               4 (wnd)
+
+ 92          62 SETUP_FINALLY           30 (to 94)
+
+ 93          64 LOAD_GLOBAL              5 (getattr)
+             66 LOAD_FAST                3 (webview)
+             68 LOAD_CONST               5 ('windows')
+             70 LOAD_CONST               0 (None)
+             72 CALL_FUNCTION            3
+             74 POP_JUMP_IF_FALSE       86
+             76 LOAD_FAST                3 (webview)
+             78 LOAD_ATTR                6 (windows)
+             80 LOAD_CONST               4 (0)
+             82 BINARY_SUBSCR
+             84 JUMP_FORWARD             2 (to 88)
+        >>   86 LOAD_CONST               0 (None)
+        >>   88 STORE_FAST               4 (wnd)
+             90 POP_BLOCK
+             92 JUMP_FORWARD            22 (to 116)
+
+ 94     >>   94 DUP_TOP
+             96 LOAD_GLOBAL              7 (Exception)
+             98 JUMP_IF_NOT_EXC_MATCH   114
+            100 POP_TOP
+            102 POP_TOP
+            104 POP_TOP
+
+ 95         106 LOAD_CONST               0 (None)
+            108 STORE_FAST               4 (wnd)
+            110 POP_EXCEPT
+            112 JUMP_FORWARD             2 (to 116)
+        >>  114 RERAISE
+
+ 96     >>  116 LOAD_FAST                4 (wnd)
+            118 POP_JUMP_IF_FALSE      194
+
+ 97         120 LOAD_FAST                4 (wnd)
+            122 LOAD_ATTR                8 (create_file_dialog)
+            124 LOAD_FAST                3 (webview)
+            126 LOAD_ATTR                9 (FOLDER_DIALOG)
+            128 LOAD_GLOBAL             10 (str)
+            130 LOAD_FAST                2 (initial)
+            132 LOAD_METHOD             11 (resolve)
+            134 CALL_METHOD              0
+            136 CALL_FUNCTION            1
+            138 LOAD_CONST               6 (False)
+            140 LOAD_CONST               7 (('directory', 'allow_multiple'))
+            142 CALL_FUNCTION_KW         3
+            144 STORE_FAST               5 (result)
+
+ 98         146 LOAD_FAST                5 (result)
+            148 POP_JUMP_IF_FALSE      188
+            150 LOAD_GLOBAL             12 (isinstance)
+            152 LOAD_FAST                5 (result)
+            154 LOAD_GLOBAL             13 (list)
+            156 LOAD_GLOBAL             14 (tuple)
+            158 BUILD_TUPLE              2
+            160 CALL_FUNCTION            2
+            162 POP_JUMP_IF_FALSE      188
+            164 LOAD_GLOBAL             15 (len)
+            166 LOAD_FAST                5 (result)
+            168 CALL_FUNCTION            1
+            170 LOAD_CONST               4 (0)
+            172 COMPARE_OP               4 (>)
+            174 POP_JUMP_IF_FALSE      188
+            176 LOAD_GLOBAL              3 (Path)
+            178 LOAD_FAST                5 (result)
+            180 LOAD_CONST               4 (0)
+            182 BINARY_SUBSCR
+            184 CALL_FUNCTION            1
+            186 JUMP_FORWARD             2 (to 190)
+        >>  188 LOAD_CONST               0 (None)
+        >>  190 STORE_FAST               6 (sel_path)
+            192 JUMP_FORWARD           192 (to 386)
+
+101     >>  194 SETUP_FINALLY          124 (to 320)
+
+102         196 LOAD_CONST               4 (0)
+            198 LOAD_CONST               0 (None)
+            200 IMPORT_NAME             16 (subprocess)
+            202 STORE_FAST               7 (subprocess)
+
+104         204 LOAD_GLOBAL             10 (str)
+            206 LOAD_FAST                2 (initial)
+            208 LOAD_METHOD             11 (resolve)
+            210 CALL_METHOD              0
+            212 CALL_FUNCTION            1
+            214 STORE_FAST               8 (initial_dir)
+
+105         216 LOAD_CONST               8 ("\n                    Add-Type -AssemblyName System.Windows.Forms\n                    $f = New-Object System.Windows.Forms.FolderBrowserDialog\n                    $f.SelectedPath = '")
+
+108         218 LOAD_FAST                8 (initial_dir)
+
+105         220 FORMAT_VALUE             0
+            222 LOAD_CONST               9 ("'\n                    $f.ShowNewFolderButton = $true\n                    $f.Description = '请选择素材文件夹'\n                    if ($f.ShowDialog() -eq 'OK') {\n                        Write-Output $f.SelectedPath\n                    }\n                    ")
+            224 BUILD_STRING             3
+            226 STORE_FAST               9 (ps_script)
+
+117         228 LOAD_FAST                7 (subprocess)
+            230 LOAD_ATTR               17 (run)
+
+118         232 LOAD_CONST              10 ('powershell')
+            234 LOAD_CONST              11 ('-NoProfile')
+            236 LOAD_CONST              12 ('-Command')
+            238 LOAD_FAST                9 (ps_script)
+            240 BUILD_LIST               4
+
+119         242 LOAD_CONST               2 (True)
+
+120         244 LOAD_CONST               2 (True)
+
+121         246 LOAD_GLOBAL             18 (sys)
+            248 LOAD_ATTR               19 (platform)
+            250 LOAD_CONST              13 ('win32')
+            252 COMPARE_OP               2 (==)
+            254 EXTENDED_ARG             1
+            256 POP_JUMP_IF_FALSE      264
+            258 LOAD_FAST                7 (subprocess)
+            260 LOAD_ATTR               20 (CREATE_NO_WINDOW)
+            262 JUMP_FORWARD             2 (to 266)
+        >>  264 LOAD_CONST               4 (0)
+
+117     >>  266 LOAD_CONST              14 (('capture_output', 'text', 'creationflags'))
+            268 CALL_FUNCTION_KW         4
+            270 STORE_FAST               5 (result)
+
+124         272 LOAD_FAST                5 (result)
+            274 LOAD_ATTR               21 (returncode)
+            276 LOAD_CONST               4 (0)
+            278 COMPARE_OP               2 (==)
+            280 EXTENDED_ARG             1
+            282 POP_JUMP_IF_FALSE      312
+            284 LOAD_FAST                5 (result)
+            286 LOAD_ATTR               22 (stdout)
+            288 LOAD_METHOD             23 (strip)
+            290 CALL_METHOD              0
+            292 EXTENDED_ARG             1
+            294 POP_JUMP_IF_FALSE      312
+
+125         296 LOAD_GLOBAL              3 (Path)
+            298 LOAD_FAST                5 (result)
+            300 LOAD_ATTR               22 (stdout)
+            302 LOAD_METHOD             23 (strip)
+            304 CALL_METHOD              0
+            306 CALL_FUNCTION            1
+            308 STORE_FAST               6 (sel_path)
+            310 JUMP_FORWARD             4 (to 316)
+
+127     >>  312 LOAD_CONST               0 (None)
+            314 STORE_FAST               6 (sel_path)
+        >>  316 POP_BLOCK
+            318 JUMP_FORWARD            66 (to 386)
+
+128     >>  320 DUP_TOP
+            322 LOAD_GLOBAL              7 (Exception)
+            324 EXTENDED_ARG             1
+            326 JUMP_IF_NOT_EXC_MATCH   384
+            328 POP_TOP
+            330 STORE_FAST              10 (ex)
+            332 POP_TOP
+            334 SETUP_FINALLY           40 (to 376)
+
+129         336 LOAD_GLOBAL             24 (print)
+            338 LOAD_CONST              15 ('Fallback folder selection failed: ')
+            340 LOAD_FAST               10 (ex)
+            342 FORMAT_VALUE             0
+            344 BUILD_STRING             2
+            346 CALL_FUNCTION            1
+            348 POP_TOP
+
+130         350 LOAD_CONST               6 (False)
+            352 LOAD_CONST              16 ('窗口未初始化且无法打开系统对话框')
+            354 LOAD_CONST              17 (('success', 'error'))
+            356 BUILD_CONST_KEY_MAP      2
+            358 POP_BLOCK
+            360 ROT_FOUR
+            362 POP_EXCEPT
+            364 LOAD_CONST               0 (None)
+            366 STORE_FAST              10 (ex)
+            368 DELETE_FAST             10 (ex)
+            370 POP_BLOCK
+            372 POP_BLOCK
+            374 RETURN_VALUE
+        >>  376 LOAD_CONST               0 (None)
+            378 STORE_FAST              10 (ex)
+            380 DELETE_FAST             10 (ex)
+            382 RERAISE
+        >>  384 RERAISE
+
+132     >>  386 LOAD_FAST                6 (sel_path)
+            388 EXTENDED_ARG             1
+            390 POP_JUMP_IF_TRUE       406
+
+133         392 LOAD_CONST               6 (False)
+            394 LOAD_CONST              18 ('用户取消选择')
+            396 LOAD_CONST              17 (('success', 'error'))
+            398 BUILD_CONST_KEY_MAP      2
+            400 POP_BLOCK
+            402 POP_BLOCK
+            404 RETURN_VALUE
+        >>  406 POP_BLOCK
+            408 JUMP_FORWARD            54 (to 464)
+
+134     >>  410 DUP_TOP
+            412 LOAD_GLOBAL              7 (Exception)
+            414 EXTENDED_ARG             1
+            416 JUMP_IF_NOT_EXC_MATCH   462
+            418 POP_TOP
+            420 STORE_FAST              11 (e)
+            422 POP_TOP
+            424 SETUP_FINALLY           28 (to 454)
+
+135         426 LOAD_GLOBAL             25 (HTTPException)
+            428 LOAD_CONST              19 (500)
+            430 LOAD_GLOBAL             10 (str)
+            432 LOAD_FAST               11 (e)
+            434 CALL_FUNCTION            1
+            436 LOAD_CONST              20 (('status_code', 'detail'))
+            438 CALL_FUNCTION_KW         2
+            440 RAISE_VARARGS            1
+            442 POP_BLOCK
+            444 POP_EXCEPT
+            446 LOAD_CONST               0 (None)
+            448 STORE_FAST              11 (e)
+            450 DELETE_FAST             11 (e)
+            452 JUMP_FORWARD            10 (to 464)
+        >>  454 LOAD_CONST               0 (None)
+            456 STORE_FAST              11 (e)
+            458 DELETE_FAST             11 (e)
+            460 RERAISE
+        >>  462 RERAISE
+
+136     >>  464 LOAD_FAST                6 (sel_path)
+            466 LOAD_METHOD             26 (exists)
+            468 CALL_METHOD              0
+            470 EXTENDED_ARG             1
+            472 POP_JUMP_IF_FALSE      484
+            474 LOAD_FAST                6 (sel_path)
+            476 LOAD_METHOD             27 (is_dir)
+            478 CALL_METHOD              0
+            480 EXTENDED_ARG             1
+            482 POP_JUMP_IF_TRUE       496
+
+137     >>  484 LOAD_CONST               6 (False)
+            486 LOAD_CONST              21 ('选择的路径无效')
+            488 LOAD_CONST              17 (('success', 'error'))
+            490 BUILD_CONST_KEY_MAP      2
+            492 POP_BLOCK
+            494 RETURN_VALUE
+
+138     >>  496 LOAD_CONST              22 (<code object <listcomp> at 0x109244030, file "WeRobotCore/api/file.py", line 138>)
+            498 LOAD_CONST              23 ('select_moment_folder_and_groups.<locals>.<listcomp>')
+            500 MAKE_FUNCTION            0
+            502 LOAD_FAST                6 (sel_path)
+            504 LOAD_METHOD             28 (iterdir)
+            506 CALL_METHOD              0
+            508 GET_ITER
+            510 CALL_FUNCTION            1
+            512 STORE_FAST              12 (groups)
+
+139         514 LOAD_CONST               2 (True)
+            516 LOAD_GLOBAL             10 (str)
+            518 LOAD_FAST                6 (sel_path)
+            520 CALL_FUNCTION            1
+            522 LOAD_FAST               12 (groups)
+            524 LOAD_CONST              24 (('success', 'selected', 'groups'))
+            526 BUILD_CONST_KEY_MAP      3
+            528 POP_BLOCK
+            530 RETURN_VALUE
+
+140     >>  532 DUP_TOP
+            534 LOAD_GLOBAL             25 (HTTPException)
+            536 EXTENDED_ARG             2
+            538 JUMP_IF_NOT_EXC_MATCH   552
+            540 POP_TOP
+            542 POP_TOP
+            544 POP_TOP
+
+141         546 RAISE_VARARGS            0
+            548 POP_EXCEPT
+            550 JUMP_FORWARD            54 (to 606)
+
+142     >>  552 DUP_TOP
+            554 LOAD_GLOBAL              7 (Exception)
+            556 EXTENDED_ARG             2
+            558 JUMP_IF_NOT_EXC_MATCH   604
+            560 POP_TOP
+            562 STORE_FAST              11 (e)
+            564 POP_TOP
+            566 SETUP_FINALLY           28 (to 596)
+
+143         568 LOAD_GLOBAL             25 (HTTPException)
+            570 LOAD_CONST              19 (500)
+            572 LOAD_GLOBAL             10 (str)
+            574 LOAD_FAST               11 (e)
+            576 CALL_FUNCTION            1
+            578 LOAD_CONST              20 (('status_code', 'detail'))
+            580 CALL_FUNCTION_KW         2
+            582 RAISE_VARARGS            1
+            584 POP_BLOCK
+            586 POP_EXCEPT
+            588 LOAD_CONST               0 (None)
+            590 STORE_FAST              11 (e)
+            592 DELETE_FAST             11 (e)
+            594 JUMP_FORWARD            10 (to 606)
+        >>  596 LOAD_CONST               0 (None)
+            598 STORE_FAST              11 (e)
+            600 DELETE_FAST             11 (e)
+            602 RERAISE
+        >>  604 RERAISE
+        >>  606 LOAD_CONST               0 (None)
+            608 RETURN_VALUE
+
+Disassembly of <code object <listcomp> at 0x109244030, file "WeRobotCore/api/file.py", line 138>:
+138           0 BUILD_LIST               0
+              2 LOAD_FAST                0 (.0)
+        >>    4 FOR_ITER                18 (to 24)
+              6 STORE_FAST               1 (p)
+              8 LOAD_FAST                1 (p)
+             10 LOAD_METHOD              0 (is_dir)
+             12 CALL_METHOD              0
+             14 POP_JUMP_IF_FALSE        4
+             16 LOAD_FAST                1 (p)
+             18 LOAD_ATTR                1 (name)
+             20 LIST_APPEND              2
+             22 JUMP_ABSOLUTE            4
+        >>   24 RETURN_VALUE
+
+Disassembly of <code object open_folder at 0x109244920, file "WeRobotCore/api/file.py", line 145>:
+146           0 SETUP_FINALLY           68 (to 70)
+
+147           2 LOAD_FAST                0 (path)
+              4 POP_JUMP_IF_TRUE        18
+
+148           6 LOAD_CONST               1 (False)
+              8 LOAD_CONST               2 ('路径为空')
+             10 LOAD_CONST               3 (('success', 'error'))
+             12 BUILD_CONST_KEY_MAP      2
+             14 POP_BLOCK
+             16 RETURN_VALUE
+
+149     >>   18 LOAD_GLOBAL              0 (Path)
+             20 LOAD_FAST                0 (path)
+             22 CALL_FUNCTION            1
+             24 STORE_FAST               1 (p)
+
+150          26 LOAD_FAST                1 (p)
+             28 LOAD_METHOD              1 (exists)
+             30 CALL_METHOD              0
+             32 POP_JUMP_IF_TRUE        46
+
+151          34 LOAD_CONST               1 (False)
+             36 LOAD_CONST               4 ('路径不存在')
+             38 LOAD_CONST               3 (('success', 'error'))
+             40 BUILD_CONST_KEY_MAP      2
+             42 POP_BLOCK
+             44 RETURN_VALUE
+
+152     >>   46 LOAD_GLOBAL              2 (os)
+             48 LOAD_METHOD              3 (startfile)
+             50 LOAD_GLOBAL              4 (str)
+             52 LOAD_FAST                1 (p)
+             54 CALL_FUNCTION            1
+             56 CALL_METHOD              1
+             58 POP_TOP
+
+153          60 LOAD_CONST               5 ('success')
+             62 LOAD_CONST               6 (True)
+             64 BUILD_MAP                1
+             66 POP_BLOCK
+             68 RETURN_VALUE
+
+154     >>   70 DUP_TOP
+             72 LOAD_GLOBAL              5 (Exception)
+             74 JUMP_IF_NOT_EXC_MATCH   120
+             76 POP_TOP
+             78 STORE_FAST               2 (e)
+             80 POP_TOP
+             82 SETUP_FINALLY           28 (to 112)
+
+155          84 LOAD_GLOBAL              6 (HTTPException)
+             86 LOAD_CONST               7 (500)
+             88 LOAD_GLOBAL              4 (str)
+             90 LOAD_FAST                2 (e)
+             92 CALL_FUNCTION            1
+             94 LOAD_CONST               8 (('status_code', 'detail'))
+             96 CALL_FUNCTION_KW         2
+             98 RAISE_VARARGS            1
+            100 POP_BLOCK
+            102 POP_EXCEPT
+            104 LOAD_CONST               0 (None)
+            106 STORE_FAST               2 (e)
+            108 DELETE_FAST              2 (e)
+            110 JUMP_FORWARD            10 (to 122)
+        >>  112 LOAD_CONST               0 (None)
+            114 STORE_FAST               2 (e)
+            116 DELETE_FAST              2 (e)
+            118 RERAISE
+        >>  120 RERAISE
+        >>  122 LOAD_CONST               0 (None)
+            124 RETURN_VALUE
+
+Disassembly of <code object export_friend_list_file at 0x109244df0, file "WeRobotCore/api/file.py", line 157>:
+158           0 EXTENDED_ARG             0
+              2 SETUP_FINALLY          254 (to 258)
+
+159           4 LOAD_GLOBAL              0 (WeChat)
+              6 CALL_FUNCTION            0
+              8 STORE_FAST               2 (wx)
+
+160          10 LOAD_FAST                2 (wx)
+             12 LOAD_ATTR                1 (db_manager)
+             14 LOAD_ATTR                2 (filter_friend_list)
+             16 LOAD_FAST                0 (status)
+             18 LOAD_FAST                1 (tag)
+             20 LOAD_CONST               1 (10000)
+             22 LOAD_CONST               2 (('status', 'tag', 'limit'))
+             24 CALL_FUNCTION_KW         3
+             26 STORE_FAST               3 (data)
+
+161          28 LOAD_GLOBAL              3 (DataManager)
+             30 LOAD_METHOD              4 (get_data_dir)
+             32 CALL_METHOD              0
+             34 LOAD_CONST               3 ('exports')
+             36 BINARY_TRUE_DIVIDE
+             38 STORE_FAST               4 (export_dir)
+
+162          40 LOAD_FAST                4 (export_dir)
+             42 LOAD_ATTR                5 (mkdir)
+             44 LOAD_CONST               4 (True)
+             46 LOAD_CONST               4 (True)
+             48 LOAD_CONST               5 (('parents', 'exist_ok'))
+             50 CALL_FUNCTION_KW         2
+             52 POP_TOP
+
+163          54 LOAD_CONST               6 ('friend_list_')
+             56 LOAD_GLOBAL              6 (int)
+             58 LOAD_GLOBAL              7 (time)
+             60 LOAD_METHOD              7 (time)
+             62 CALL_METHOD              0
+             64 CALL_FUNCTION            1
+             66 FORMAT_VALUE             0
+             68 LOAD_CONST               7 ('.csv')
+             70 BUILD_STRING             3
+             72 STORE_FAST               5 (filename)
+
+164          74 LOAD_FAST                4 (export_dir)
+             76 LOAD_FAST                5 (filename)
+             78 BINARY_TRUE_DIVIDE
+             80 STORE_FAST               6 (file_path)
+
+166          82 LOAD_GLOBAL              8 (open)
+             84 LOAD_FAST                6 (file_path)
+             86 LOAD_CONST               8 ('w')
+             88 LOAD_CONST               9 ('')
+             90 LOAD_CONST              10 ('utf-8-sig')
+             92 LOAD_CONST              11 (('newline', 'encoding'))
+             94 CALL_FUNCTION_KW         4
+             96 SETUP_WITH             130 (to 228)
+             98 STORE_FAST               7 (f)
+
+167         100 LOAD_GLOBAL              9 (csv)
+            102 LOAD_METHOD             10 (writer)
+            104 LOAD_FAST                7 (f)
+            106 CALL_METHOD              1
+            108 STORE_FAST               8 (w)
+
+168         110 LOAD_FAST                8 (w)
+            112 LOAD_METHOD             11 (writerow)
+            114 BUILD_LIST               0
+            116 LOAD_CONST              12 (('手机号', '备注', '标签', '昵称', '状态', '分流账号', '错误信息'))
+            118 LIST_EXTEND              1
+            120 CALL_METHOD              1
+            122 POP_TOP
+
+169         124 LOAD_FAST                3 (data)
+            126 GET_ITER
+        >>  128 FOR_ITER                84 (to 214)
+            130 STORE_FAST               9 (item)
+
+170         132 LOAD_FAST                8 (w)
+            134 LOAD_METHOD             11 (writerow)
+            136 LOAD_FAST                9 (item)
+            138 LOAD_METHOD             12 (get)
+            140 LOAD_CONST              13 ('wxid')
+            142 LOAD_CONST               9 ('')
+            144 CALL_METHOD              2
+            146 LOAD_FAST                9 (item)
+            148 LOAD_METHOD             12 (get)
+            150 LOAD_CONST              14 ('remark')
+            152 LOAD_CONST               9 ('')
+            154 CALL_METHOD              2
+            156 LOAD_FAST                9 (item)
+            158 LOAD_METHOD             12 (get)
+            160 LOAD_CONST              15 ('tags')
+            162 LOAD_CONST               9 ('')
+            164 CALL_METHOD              2
+            166 LOAD_FAST                9 (item)
+            168 LOAD_METHOD             12 (get)
+            170 LOAD_CONST              16 ('nickname')
+            172 LOAD_CONST               9 ('')
+            174 CALL_METHOD              2
+            176 LOAD_FAST                9 (item)
+            178 LOAD_METHOD             12 (get)
+            180 LOAD_CONST              17 ('status')
+            182 LOAD_CONST               9 ('')
+            184 CALL_METHOD              2
+            186 LOAD_FAST                9 (item)
+            188 LOAD_METHOD             12 (get)
+            190 LOAD_CONST              18 ('account_id')
+            192 LOAD_CONST               9 ('')
+            194 CALL_METHOD              2
+            196 LOAD_FAST                9 (item)
+            198 LOAD_METHOD             12 (get)
+            200 LOAD_CONST              19 ('error')
+            202 LOAD_CONST               9 ('')
+            204 CALL_METHOD              2
+            206 BUILD_LIST               7
+            208 CALL_METHOD              1
+            210 POP_TOP
+            212 JUMP_ABSOLUTE          128
+        >>  214 POP_BLOCK
+            216 LOAD_CONST               0 (None)
+            218 DUP_TOP
+            220 DUP_TOP
+            222 CALL_FUNCTION            3
+            224 POP_TOP
+            226 JUMP_FORWARD            16 (to 244)
+        >>  228 WITH_EXCEPT_START
+            230 POP_JUMP_IF_TRUE       234
+            232 RERAISE
+        >>  234 POP_TOP
+            236 POP_TOP
+            238 POP_TOP
+            240 POP_EXCEPT
+            242 POP_TOP
+
+171     >>  244 LOAD_GLOBAL             13 (str)
+            246 LOAD_FAST                6 (file_path)
+            248 LOAD_METHOD             14 (resolve)
+            250 CALL_METHOD              0
+            252 CALL_FUNCTION            1
+            254 POP_BLOCK
+            256 RETURN_VALUE
+
+172     >>  258 DUP_TOP
+            260 LOAD_GLOBAL             15 (Exception)
+            262 EXTENDED_ARG             1
+            264 JUMP_IF_NOT_EXC_MATCH   310
+            266 POP_TOP
+            268 STORE_FAST              10 (e)
+            270 POP_TOP
+            272 SETUP_FINALLY           28 (to 302)
+
+173         274 LOAD_GLOBAL             16 (HTTPException)
+            276 LOAD_CONST              20 (500)
+            278 LOAD_GLOBAL             13 (str)
+            280 LOAD_FAST               10 (e)
+            282 CALL_FUNCTION            1
+            284 LOAD_CONST              21 (('status_code', 'detail'))
+            286 CALL_FUNCTION_KW         2
+            288 RAISE_VARARGS            1
+            290 POP_BLOCK
+            292 POP_EXCEPT
+            294 LOAD_CONST               0 (None)
+            296 STORE_FAST              10 (e)
+            298 DELETE_FAST             10 (e)
+            300 JUMP_FORWARD            10 (to 312)
+        >>  302 LOAD_CONST               0 (None)
+            304 STORE_FAST              10 (e)
+            306 DELETE_FAST             10 (e)
+            308 RERAISE
+        >>  310 RERAISE
+        >>  312 LOAD_CONST               0 (None)
+            314 RETURN_VALUE

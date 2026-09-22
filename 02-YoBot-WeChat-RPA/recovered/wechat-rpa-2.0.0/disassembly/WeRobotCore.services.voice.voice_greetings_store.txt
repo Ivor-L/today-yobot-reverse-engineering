@@ -1,0 +1,745 @@
+  1           0 LOAD_CONST               0 ('\n话术组语音持久化存储。\n\n与 preview_store 的区别：\n- preview_store：试听短期缓存，3 天 / 50 个 自动 GC\n- 本模块：话术组永久素材，生命周期跟 greeting_config 引用绑定\n\n位置：~/.yokowebot/voice_greetings/<uuid>.mp3\n')
+              2 STORE_NAME               0 (__doc__)
+
+ 10           4 LOAD_CONST               1 (0)
+              6 LOAD_CONST               2 (('annotations',))
+              8 IMPORT_NAME              1 (__future__)
+             10 IMPORT_FROM              2 (annotations)
+             12 STORE_NAME               2 (annotations)
+             14 POP_TOP
+
+ 12          16 LOAD_CONST               1 (0)
+             18 LOAD_CONST               3 (None)
+             20 IMPORT_NAME              3 (os)
+             22 STORE_NAME               3 (os)
+
+ 13          24 LOAD_CONST               1 (0)
+             26 LOAD_CONST               3 (None)
+             28 IMPORT_NAME              4 (subprocess)
+             30 STORE_NAME               4 (subprocess)
+
+ 14          32 LOAD_CONST               1 (0)
+             34 LOAD_CONST               3 (None)
+             36 IMPORT_NAME              5 (uuid)
+             38 STORE_NAME               5 (uuid)
+
+ 15          40 LOAD_CONST               1 (0)
+             42 LOAD_CONST               4 (('Path',))
+             44 IMPORT_NAME              6 (pathlib)
+             46 IMPORT_FROM              7 (Path)
+             48 STORE_NAME               7 (Path)
+             50 POP_TOP
+
+ 16          52 LOAD_CONST               1 (0)
+             54 LOAD_CONST               5 (('List', 'Optional', 'Set', 'Tuple'))
+             56 IMPORT_NAME              8 (typing)
+             58 IMPORT_FROM              9 (List)
+             60 STORE_NAME               9 (List)
+             62 IMPORT_FROM             10 (Optional)
+             64 STORE_NAME              10 (Optional)
+             66 IMPORT_FROM             11 (Set)
+             68 STORE_NAME              11 (Set)
+             70 IMPORT_FROM             12 (Tuple)
+             72 STORE_NAME              12 (Tuple)
+             74 POP_TOP
+
+ 19          76 LOAD_NAME                7 (Path)
+             78 LOAD_METHOD             13 (home)
+             80 CALL_METHOD              0
+             82 LOAD_CONST               6 ('.yokowebot')
+             84 BINARY_TRUE_DIVIDE
+             86 LOAD_CONST               7 ('voice_greetings')
+             88 BINARY_TRUE_DIVIDE
+             90 STORE_NAME              14 (_DIR)
+
+ 22          92 LOAD_CONST               8 (60.0)
+             94 STORE_NAME              15 (MAX_DURATION_SEC)
+
+ 25          96 LOAD_CONST               9 ('None')
+             98 LOAD_CONST              10 (('return',))
+            100 BUILD_CONST_KEY_MAP      1
+            102 LOAD_CONST              11 (<code object _ensure_dir at 0x1072cfbe0, file "WeRobotCore/services/voice/voice_greetings_store.py", line 25>)
+            104 LOAD_CONST              12 ('_ensure_dir')
+            106 MAKE_FUNCTION            4 (annotations)
+            108 STORE_NAME              16 (_ensure_dir)
+
+ 29         110 LOAD_CONST              13 ('Path')
+            112 LOAD_CONST              10 (('return',))
+            114 BUILD_CONST_KEY_MAP      1
+            116 LOAD_CONST              14 (<code object storage_dir at 0x1073aa2f0, file "WeRobotCore/services/voice/voice_greetings_store.py", line 29>)
+            118 LOAD_CONST              15 ('storage_dir')
+            120 MAKE_FUNCTION            4 (annotations)
+            122 STORE_NAME              17 (storage_dir)
+
+ 34         124 LOAD_CONST              53 (('.mp3',))
+            126 LOAD_CONST              17 ('str')
+            128 LOAD_CONST              18 ('Tuple[str, Path]')
+            130 LOAD_CONST              19 (('extension', 'return'))
+            132 BUILD_CONST_KEY_MAP      2
+            134 LOAD_CONST              20 (<code object reserve_path at 0x1073aaa80, file "WeRobotCore/services/voice/voice_greetings_store.py", line 34>)
+            136 LOAD_CONST              21 ('reserve_path')
+            138 MAKE_FUNCTION            5 (defaults, annotations)
+            140 STORE_NAME              18 (reserve_path)
+
+ 43         142 LOAD_CONST              17 ('str')
+            144 LOAD_CONST              22 ('bool')
+            146 LOAD_CONST              23 (('path', 'return'))
+            148 BUILD_CONST_KEY_MAP      2
+            150 LOAD_CONST              24 (<code object is_managed_path at 0x1073aa500, file "WeRobotCore/services/voice/voice_greetings_store.py", line 43>)
+            152 LOAD_CONST              25 ('is_managed_path')
+            154 MAKE_FUNCTION            4 (annotations)
+            156 STORE_NAME              19 (is_managed_path)
+
+ 53         158 LOAD_CONST              17 ('str')
+            160 LOAD_CONST              26 ('Optional[Path]')
+            162 LOAD_CONST              27 (('filename', 'return'))
+            164 BUILD_CONST_KEY_MAP      2
+            166 LOAD_CONST              28 (<code object get_path_by_filename at 0x1073aa5b0, file "WeRobotCore/services/voice/voice_greetings_store.py", line 53>)
+            168 LOAD_CONST              29 ('get_path_by_filename')
+            170 MAKE_FUNCTION            4 (annotations)
+            172 STORE_NAME              20 (get_path_by_filename)
+
+ 68         174 LOAD_CONST              17 ('str')
+            176 LOAD_CONST              22 ('bool')
+            178 LOAD_CONST              27 (('filename', 'return'))
+            180 BUILD_CONST_KEY_MAP      2
+            182 LOAD_CONST              30 (<code object delete_file at 0x1073aa450, file "WeRobotCore/services/voice/voice_greetings_store.py", line 68>)
+            184 LOAD_CONST              31 ('delete_file')
+            186 MAKE_FUNCTION            4 (annotations)
+            188 STORE_NAME              21 (delete_file)
+
+ 80         190 LOAD_CONST              32 ('List[str]')
+            192 LOAD_CONST              10 (('return',))
+            194 BUILD_CONST_KEY_MAP      1
+            196 LOAD_CONST              33 (<code object list_all_files at 0x1073aa660, file "WeRobotCore/services/voice/voice_greetings_store.py", line 80>)
+            198 LOAD_CONST              34 ('list_all_files')
+            200 MAKE_FUNCTION            4 (annotations)
+            202 STORE_NAME              22 (list_all_files)
+
+ 86         204 LOAD_CONST              35 (134217728)
+            206 STORE_NAME              23 (_CREATE_NO_WINDOW)
+
+ 89         208 LOAD_CONST              36 ('dict')
+            210 LOAD_CONST              10 (('return',))
+            212 BUILD_CONST_KEY_MAP      1
+            214 LOAD_CONST              37 (<code object _hidden_subprocess_kwargs at 0x1073aa0e0, file "WeRobotCore/services/voice/voice_greetings_store.py", line 89>)
+            216 LOAD_CONST              38 ('_hidden_subprocess_kwargs')
+            218 MAKE_FUNCTION            4 (annotations)
+            220 STORE_NAME              24 (_hidden_subprocess_kwargs)
+
+102         222 LOAD_CONST              17 ('str')
+            224 LOAD_CONST              39 ('float')
+            226 LOAD_CONST              40 (('file_path', 'return'))
+            228 BUILD_CONST_KEY_MAP      2
+            230 LOAD_CONST              41 (<code object get_duration_sec at 0x1073aac90, file "WeRobotCore/services/voice/voice_greetings_store.py", line 102>)
+            232 LOAD_CONST              42 ('get_duration_sec')
+            234 MAKE_FUNCTION            4 (annotations)
+            236 STORE_NAME              25 (get_duration_sec)
+
+134         238 LOAD_CONST              54 ((30.0,))
+            240 LOAD_CONST              17 ('str')
+            242 LOAD_CONST              17 ('str')
+            244 LOAD_CONST              39 ('float')
+            246 LOAD_CONST              44 ('Tuple[bool, str]')
+            248 LOAD_CONST              45 (('input_path', 'output_path', 'timeout_sec', 'return'))
+            250 BUILD_CONST_KEY_MAP      4
+            252 LOAD_CONST              46 (<code object convert_to_mp3 at 0x1073aab30, file "WeRobotCore/services/voice/voice_greetings_store.py", line 134>)
+            254 LOAD_CONST              47 ('convert_to_mp3')
+            256 MAKE_FUNCTION            5 (defaults, annotations)
+            258 STORE_NAME              26 (convert_to_mp3)
+
+159         260 LOAD_CONST              48 ('Set[str]')
+            262 LOAD_CONST              49 ('int')
+            264 LOAD_CONST              50 (('referenced_filenames', 'return'))
+            266 BUILD_CONST_KEY_MAP      2
+            268 LOAD_CONST              51 (<code object sweep_orphans at 0x1073aa240, file "WeRobotCore/services/voice/voice_greetings_store.py", line 159>)
+            270 LOAD_CONST              52 ('sweep_orphans')
+            272 MAKE_FUNCTION            4 (annotations)
+            274 STORE_NAME              27 (sweep_orphans)
+            276 LOAD_CONST               3 (None)
+            278 RETURN_VALUE
+
+Disassembly of <code object _ensure_dir at 0x1072cfbe0, file "WeRobotCore/services/voice/voice_greetings_store.py", line 25>:
+ 26           0 LOAD_GLOBAL              0 (_DIR)
+              2 LOAD_ATTR                1 (mkdir)
+              4 LOAD_CONST               1 (True)
+              6 LOAD_CONST               1 (True)
+              8 LOAD_CONST               2 (('parents', 'exist_ok'))
+             10 CALL_FUNCTION_KW         2
+             12 POP_TOP
+             14 LOAD_CONST               0 (None)
+             16 RETURN_VALUE
+
+Disassembly of <code object storage_dir at 0x1073aa2f0, file "WeRobotCore/services/voice/voice_greetings_store.py", line 29>:
+ 30           0 LOAD_GLOBAL              0 (_ensure_dir)
+              2 CALL_FUNCTION            0
+              4 POP_TOP
+
+ 31           6 LOAD_GLOBAL              1 (_DIR)
+              8 RETURN_VALUE
+
+Disassembly of <code object reserve_path at 0x1073aaa80, file "WeRobotCore/services/voice/voice_greetings_store.py", line 34>:
+ 36           0 LOAD_GLOBAL              0 (_ensure_dir)
+              2 CALL_FUNCTION            0
+              4 POP_TOP
+
+ 37           6 LOAD_FAST                0 (extension)
+              8 LOAD_METHOD              1 (startswith)
+             10 LOAD_CONST               1 ('.')
+             12 CALL_METHOD              1
+             14 POP_JUMP_IF_TRUE        24
+
+ 38          16 LOAD_CONST               1 ('.')
+             18 LOAD_FAST                0 (extension)
+             20 BINARY_ADD
+             22 STORE_FAST               0 (extension)
+
+ 39     >>   24 LOAD_GLOBAL              2 (uuid)
+             26 LOAD_METHOD              3 (uuid4)
+             28 CALL_METHOD              0
+             30 LOAD_ATTR                4 (hex)
+             32 FORMAT_VALUE             0
+             34 LOAD_FAST                0 (extension)
+             36 FORMAT_VALUE             0
+             38 BUILD_STRING             2
+             40 STORE_FAST               1 (filename)
+
+ 40          42 LOAD_FAST                1 (filename)
+             44 LOAD_GLOBAL              5 (_DIR)
+             46 LOAD_FAST                1 (filename)
+             48 BINARY_TRUE_DIVIDE
+             50 BUILD_TUPLE              2
+             52 RETURN_VALUE
+
+Disassembly of <code object is_managed_path at 0x1073aa500, file "WeRobotCore/services/voice/voice_greetings_store.py", line 43>:
+ 45           0 SETUP_FINALLY           36 (to 38)
+
+ 46           2 LOAD_GLOBAL              0 (Path)
+              4 LOAD_FAST                0 (path)
+              6 CALL_FUNCTION            1
+              8 LOAD_METHOD              1 (resolve)
+             10 CALL_METHOD              0
+             12 STORE_FAST               1 (p)
+
+ 47          14 LOAD_FAST                1 (p)
+             16 LOAD_METHOD              2 (relative_to)
+             18 LOAD_GLOBAL              3 (_DIR)
+             20 LOAD_METHOD              1 (resolve)
+             22 CALL_METHOD              0
+             24 CALL_METHOD              1
+             26 POP_TOP
+
+ 48          28 LOAD_FAST                1 (p)
+             30 LOAD_METHOD              4 (is_file)
+             32 CALL_METHOD              0
+             34 POP_BLOCK
+             36 RETURN_VALUE
+
+ 49     >>   38 DUP_TOP
+             40 LOAD_GLOBAL              5 (Exception)
+             42 JUMP_IF_NOT_EXC_MATCH    56
+             44 POP_TOP
+             46 POP_TOP
+             48 POP_TOP
+
+ 50          50 POP_EXCEPT
+             52 LOAD_CONST               1 (False)
+             54 RETURN_VALUE
+        >>   56 RERAISE
+             58 LOAD_CONST               2 (None)
+             60 RETURN_VALUE
+
+Disassembly of <code object get_path_by_filename at 0x1073aa5b0, file "WeRobotCore/services/voice/voice_greetings_store.py", line 53>:
+ 55           0 LOAD_FAST                0 (filename)
+              2 POP_JUMP_IF_FALSE       28
+              4 LOAD_CONST               1 ('/')
+              6 LOAD_FAST                0 (filename)
+              8 CONTAINS_OP              0
+             10 POP_JUMP_IF_TRUE        28
+             12 LOAD_CONST               2 ('\\')
+             14 LOAD_FAST                0 (filename)
+             16 CONTAINS_OP              0
+             18 POP_JUMP_IF_TRUE        28
+             20 LOAD_CONST               3 ('..')
+             22 LOAD_FAST                0 (filename)
+             24 CONTAINS_OP              0
+             26 POP_JUMP_IF_FALSE       32
+
+ 56     >>   28 LOAD_CONST               4 (None)
+             30 RETURN_VALUE
+
+ 57     >>   32 LOAD_GLOBAL              0 (_ensure_dir)
+             34 CALL_FUNCTION            0
+             36 POP_TOP
+
+ 58          38 LOAD_GLOBAL              1 (_DIR)
+             40 LOAD_FAST                0 (filename)
+             42 BINARY_TRUE_DIVIDE
+             44 STORE_FAST               1 (p)
+
+ 59          46 LOAD_FAST                1 (p)
+             48 LOAD_METHOD              2 (is_file)
+             50 CALL_METHOD              0
+             52 POP_JUMP_IF_TRUE        58
+
+ 60          54 LOAD_CONST               4 (None)
+             56 RETURN_VALUE
+
+ 61     >>   58 SETUP_FINALLY           22 (to 82)
+
+ 62          60 LOAD_FAST                1 (p)
+             62 LOAD_METHOD              3 (resolve)
+             64 CALL_METHOD              0
+             66 LOAD_METHOD              4 (relative_to)
+             68 LOAD_GLOBAL              1 (_DIR)
+             70 LOAD_METHOD              3 (resolve)
+             72 CALL_METHOD              0
+             74 CALL_METHOD              1
+             76 POP_TOP
+             78 POP_BLOCK
+             80 JUMP_FORWARD            20 (to 102)
+
+ 63     >>   82 DUP_TOP
+             84 LOAD_GLOBAL              5 (Exception)
+             86 JUMP_IF_NOT_EXC_MATCH   100
+             88 POP_TOP
+             90 POP_TOP
+             92 POP_TOP
+
+ 64          94 POP_EXCEPT
+             96 LOAD_CONST               4 (None)
+             98 RETURN_VALUE
+        >>  100 RERAISE
+
+ 65     >>  102 LOAD_FAST                1 (p)
+            104 RETURN_VALUE
+
+Disassembly of <code object delete_file at 0x1073aa450, file "WeRobotCore/services/voice/voice_greetings_store.py", line 68>:
+ 70           0 LOAD_GLOBAL              0 (get_path_by_filename)
+              2 LOAD_FAST                0 (filename)
+              4 CALL_FUNCTION            1
+              6 STORE_FAST               1 (p)
+
+ 71           8 LOAD_FAST                1 (p)
+             10 LOAD_CONST               1 (None)
+             12 IS_OP                    0
+             14 POP_JUMP_IF_FALSE       20
+
+ 72          16 LOAD_CONST               2 (False)
+             18 RETURN_VALUE
+
+ 73     >>   20 SETUP_FINALLY           14 (to 36)
+
+ 74          22 LOAD_FAST                1 (p)
+             24 LOAD_METHOD              1 (unlink)
+             26 CALL_METHOD              0
+             28 POP_TOP
+
+ 75          30 POP_BLOCK
+             32 LOAD_CONST               3 (True)
+             34 RETURN_VALUE
+
+ 76     >>   36 DUP_TOP
+             38 LOAD_GLOBAL              2 (Exception)
+             40 JUMP_IF_NOT_EXC_MATCH    54
+             42 POP_TOP
+             44 POP_TOP
+             46 POP_TOP
+
+ 77          48 POP_EXCEPT
+             50 LOAD_CONST               2 (False)
+             52 RETURN_VALUE
+        >>   54 RERAISE
+             56 LOAD_CONST               1 (None)
+             58 RETURN_VALUE
+
+Disassembly of <code object list_all_files at 0x1073aa660, file "WeRobotCore/services/voice/voice_greetings_store.py", line 80>:
+ 82           0 LOAD_GLOBAL              0 (_ensure_dir)
+              2 CALL_FUNCTION            0
+              4 POP_TOP
+
+ 83           6 LOAD_CONST               1 (<code object <listcomp> at 0x1073aa190, file "WeRobotCore/services/voice/voice_greetings_store.py", line 83>)
+              8 LOAD_CONST               2 ('list_all_files.<locals>.<listcomp>')
+             10 MAKE_FUNCTION            0
+             12 LOAD_GLOBAL              1 (_DIR)
+             14 LOAD_METHOD              2 (iterdir)
+             16 CALL_METHOD              0
+             18 GET_ITER
+             20 CALL_FUNCTION            1
+             22 RETURN_VALUE
+
+Disassembly of <code object <listcomp> at 0x1073aa190, file "WeRobotCore/services/voice/voice_greetings_store.py", line 83>:
+ 83           0 BUILD_LIST               0
+              2 LOAD_FAST                0 (.0)
+        >>    4 FOR_ITER                18 (to 24)
+              6 STORE_FAST               1 (p)
+              8 LOAD_FAST                1 (p)
+             10 LOAD_METHOD              0 (is_file)
+             12 CALL_METHOD              0
+             14 POP_JUMP_IF_FALSE        4
+             16 LOAD_FAST                1 (p)
+             18 LOAD_ATTR                1 (name)
+             20 LIST_APPEND              2
+             22 JUMP_ABSOLUTE            4
+        >>   24 RETURN_VALUE
+
+Disassembly of <code object _hidden_subprocess_kwargs at 0x1073aa0e0, file "WeRobotCore/services/voice/voice_greetings_store.py", line 89>:
+ 91           0 LOAD_GLOBAL              0 (os)
+              2 LOAD_ATTR                1 (name)
+              4 LOAD_CONST               1 ('nt')
+              6 COMPARE_OP               3 (!=)
+              8 POP_JUMP_IF_FALSE       14
+
+ 92          10 BUILD_MAP                0
+             12 RETURN_VALUE
+
+ 93     >>   14 LOAD_GLOBAL              2 (subprocess)
+             16 LOAD_METHOD              3 (STARTUPINFO)
+             18 CALL_METHOD              0
+             20 STORE_FAST               0 (startupinfo)
+
+ 94          22 LOAD_FAST                0 (startupinfo)
+             24 DUP_TOP
+             26 LOAD_ATTR                4 (dwFlags)
+             28 LOAD_GLOBAL              2 (subprocess)
+             30 LOAD_ATTR                5 (STARTF_USESHOWWINDOW)
+             32 INPLACE_OR
+             34 ROT_TWO
+             36 STORE_ATTR               4 (dwFlags)
+
+ 95          38 LOAD_CONST               2 (0)
+             40 LOAD_FAST                0 (startupinfo)
+             42 STORE_ATTR               6 (wShowWindow)
+
+ 97          44 LOAD_GLOBAL              7 (_CREATE_NO_WINDOW)
+
+ 98          46 LOAD_FAST                0 (startupinfo)
+
+ 96          48 LOAD_CONST               3 (('creationflags', 'startupinfo'))
+             50 BUILD_CONST_KEY_MAP      2
+             52 RETURN_VALUE
+
+Disassembly of <code object get_duration_sec at 0x1073aac90, file "WeRobotCore/services/voice/voice_greetings_store.py", line 102>:
+105           0 LOAD_GLOBAL              0 (os)
+              2 LOAD_ATTR                1 (path)
+              4 LOAD_METHOD              2 (exists)
+              6 LOAD_FAST                0 (file_path)
+              8 CALL_METHOD              1
+             10 POP_JUMP_IF_TRUE        16
+
+106          12 LOAD_CONST               1 (0.0)
+             14 RETURN_VALUE
+
+108     >>   16 SETUP_FINALLY           98 (to 116)
+
+110          18 LOAD_CONST               2 ('ffprobe')
+             20 LOAD_CONST               3 ('-v')
+             22 LOAD_CONST               4 ('error')
+
+111          24 LOAD_CONST               5 ('-show_entries')
+             26 LOAD_CONST               6 ('format=duration')
+
+112          28 LOAD_CONST               7 ('-of')
+             30 LOAD_CONST               8 ('csv=p=0')
+
+113          32 LOAD_FAST                0 (file_path)
+
+109          34 BUILD_LIST               8
+             36 STORE_FAST               1 (cmd)
+
+115          38 LOAD_GLOBAL              3 (subprocess)
+             40 LOAD_ATTR                4 (run)
+
+116          42 LOAD_FAST                1 (cmd)
+
+115          44 BUILD_TUPLE              1
+
+116          46 LOAD_CONST               9 (True)
+             48 LOAD_CONST              10 (5)
+
+115          50 LOAD_CONST              11 (('capture_output', 'timeout'))
+             52 BUILD_CONST_KEY_MAP      2
+
+117          54 LOAD_GLOBAL              5 (_hidden_subprocess_kwargs)
+             56 CALL_FUNCTION            0
+
+115          58 DICT_MERGE               1
+             60 CALL_FUNCTION_EX         1
+             62 STORE_FAST               2 (result)
+
+119          64 LOAD_FAST                2 (result)
+             66 LOAD_ATTR                6 (returncode)
+             68 LOAD_CONST              12 (0)
+             70 COMPARE_OP               2 (==)
+             72 POP_JUMP_IF_FALSE      112
+
+120          74 LOAD_FAST                2 (result)
+             76 LOAD_ATTR                7 (stdout)
+             78 JUMP_IF_TRUE_OR_POP     82
+             80 LOAD_CONST              13 (b'')
+        >>   82 LOAD_ATTR                8 (decode)
+             84 LOAD_CONST              14 ('utf-8')
+             86 LOAD_CONST              15 ('replace')
+             88 LOAD_CONST              16 (('errors',))
+             90 CALL_FUNCTION_KW         2
+             92 LOAD_METHOD              9 (strip)
+             94 CALL_METHOD              0
+             96 STORE_FAST               3 (out)
+
+121          98 LOAD_FAST                3 (out)
+            100 POP_JUMP_IF_FALSE      112
+
+122         102 LOAD_GLOBAL             10 (float)
+            104 LOAD_FAST                3 (out)
+            106 CALL_FUNCTION            1
+            108 POP_BLOCK
+            110 RETURN_VALUE
+        >>  112 POP_BLOCK
+            114 JUMP_FORWARD            18 (to 134)
+
+123     >>  116 DUP_TOP
+            118 LOAD_GLOBAL             11 (Exception)
+            120 JUMP_IF_NOT_EXC_MATCH   132
+            122 POP_TOP
+            124 POP_TOP
+            126 POP_TOP
+
+124         128 POP_EXCEPT
+            130 JUMP_FORWARD             2 (to 134)
+        >>  132 RERAISE
+
+126     >>  134 SETUP_FINALLY           36 (to 172)
+
+127         136 LOAD_CONST              12 (0)
+            138 LOAD_CONST              17 (('AudioSegment',))
+            140 IMPORT_NAME             12 (pydub)
+            142 IMPORT_FROM             13 (AudioSegment)
+            144 STORE_FAST               4 (AudioSegment)
+            146 POP_TOP
+
+128         148 LOAD_FAST                4 (AudioSegment)
+            150 LOAD_METHOD             14 (from_file)
+            152 LOAD_FAST                0 (file_path)
+            154 CALL_METHOD              1
+            156 STORE_FAST               5 (audio)
+
+129         158 LOAD_GLOBAL             15 (len)
+            160 LOAD_FAST                5 (audio)
+            162 CALL_FUNCTION            1
+            164 LOAD_CONST              18 (1000.0)
+            166 BINARY_TRUE_DIVIDE
+            168 POP_BLOCK
+            170 RETURN_VALUE
+
+130     >>  172 DUP_TOP
+            174 LOAD_GLOBAL             11 (Exception)
+            176 JUMP_IF_NOT_EXC_MATCH   190
+            178 POP_TOP
+            180 POP_TOP
+            182 POP_TOP
+
+131         184 POP_EXCEPT
+            186 LOAD_CONST               1 (0.0)
+            188 RETURN_VALUE
+        >>  190 RERAISE
+            192 LOAD_CONST              19 (None)
+            194 RETURN_VALUE
+
+Disassembly of <code object convert_to_mp3 at 0x1073aab30, file "WeRobotCore/services/voice/voice_greetings_store.py", line 134>:
+139           0 LOAD_GLOBAL              0 (os)
+              2 LOAD_ATTR                1 (path)
+              4 LOAD_METHOD              2 (exists)
+              6 LOAD_FAST                0 (input_path)
+              8 CALL_METHOD              1
+             10 POP_JUMP_IF_TRUE        26
+
+140          12 LOAD_CONST               1 (False)
+             14 LOAD_CONST               2 ('输入文件不存在: ')
+             16 LOAD_FAST                0 (input_path)
+             18 FORMAT_VALUE             0
+             20 BUILD_STRING             2
+             22 BUILD_TUPLE              2
+             24 RETURN_VALUE
+
+141     >>   26 SETUP_FINALLY          106 (to 134)
+
+142          28 LOAD_GLOBAL              3 (subprocess)
+             30 LOAD_ATTR                4 (run)
+
+143          32 LOAD_CONST               3 ('ffmpeg')
+             34 LOAD_CONST               4 ('-y')
+             36 LOAD_CONST               5 ('-i')
+             38 LOAD_FAST                0 (input_path)
+             40 LOAD_CONST               6 ('-vn')
+             42 LOAD_CONST               7 ('-acodec')
+             44 LOAD_CONST               8 ('libmp3lame')
+             46 LOAD_CONST               9 ('-b:a')
+             48 LOAD_CONST              10 ('128k')
+             50 LOAD_FAST                1 (output_path)
+             52 BUILD_LIST              10
+
+142          54 BUILD_TUPLE              1
+
+144          56 LOAD_CONST              11 (True)
+             58 LOAD_FAST                2 (timeout_sec)
+
+142          60 LOAD_CONST              12 (('capture_output', 'timeout'))
+             62 BUILD_CONST_KEY_MAP      2
+
+145          64 LOAD_GLOBAL              5 (_hidden_subprocess_kwargs)
+             66 CALL_FUNCTION            0
+
+142          68 DICT_MERGE               1
+             70 CALL_FUNCTION_EX         1
+             72 STORE_FAST               3 (result)
+
+147          74 LOAD_FAST                3 (result)
+             76 LOAD_ATTR                6 (returncode)
+             78 LOAD_CONST              13 (0)
+             80 COMPARE_OP               3 (!=)
+             82 POP_JUMP_IF_FALSE      128
+
+148          84 LOAD_FAST                3 (result)
+             86 LOAD_ATTR                7 (stderr)
+             88 JUMP_IF_TRUE_OR_POP     92
+             90 LOAD_CONST              14 (b'')
+        >>   92 LOAD_ATTR                8 (decode)
+             94 LOAD_CONST              15 ('utf-8')
+             96 LOAD_CONST              16 ('replace')
+             98 LOAD_CONST              17 (('errors',))
+            100 CALL_FUNCTION_KW         2
+            102 LOAD_CONST              18 (None)
+            104 LOAD_CONST              19 (300)
+            106 BUILD_SLICE              2
+            108 BINARY_SUBSCR
+            110 STORE_FAST               4 (err)
+
+149         112 LOAD_CONST               1 (False)
+            114 LOAD_CONST              20 ('ffmpeg 失败: ')
+            116 LOAD_FAST                4 (err)
+            118 FORMAT_VALUE             0
+            120 BUILD_STRING             2
+            122 BUILD_TUPLE              2
+            124 POP_BLOCK
+            126 RETURN_VALUE
+
+150     >>  128 POP_BLOCK
+            130 LOAD_CONST              21 ((True, ''))
+            132 RETURN_VALUE
+
+151     >>  134 DUP_TOP
+            136 LOAD_GLOBAL              3 (subprocess)
+            138 LOAD_ATTR                9 (TimeoutExpired)
+            140 JUMP_IF_NOT_EXC_MATCH   168
+            142 POP_TOP
+            144 POP_TOP
+            146 POP_TOP
+
+152         148 LOAD_CONST               1 (False)
+            150 LOAD_CONST              22 ('ffmpeg 超时（')
+            152 LOAD_FAST                2 (timeout_sec)
+            154 FORMAT_VALUE             0
+            156 LOAD_CONST              23 ('s）')
+            158 BUILD_STRING             3
+            160 BUILD_TUPLE              2
+            162 ROT_FOUR
+            164 POP_EXCEPT
+            166 RETURN_VALUE
+
+153     >>  168 DUP_TOP
+            170 LOAD_GLOBAL             10 (FileNotFoundError)
+            172 JUMP_IF_NOT_EXC_MATCH   186
+            174 POP_TOP
+            176 POP_TOP
+            178 POP_TOP
+
+154         180 POP_EXCEPT
+            182 LOAD_CONST              24 ((False, 'ffmpeg 未安装或不在 PATH'))
+            184 RETURN_VALUE
+
+155     >>  186 DUP_TOP
+            188 LOAD_GLOBAL             11 (Exception)
+            190 EXTENDED_ARG             0
+            192 JUMP_IF_NOT_EXC_MATCH   236
+            194 POP_TOP
+            196 STORE_FAST               5 (e)
+            198 POP_TOP
+            200 SETUP_FINALLY           26 (to 228)
+
+156         202 LOAD_CONST               1 (False)
+            204 LOAD_CONST              25 ('转码异常: ')
+            206 LOAD_FAST                5 (e)
+            208 FORMAT_VALUE             0
+            210 BUILD_STRING             2
+            212 BUILD_TUPLE              2
+            214 POP_BLOCK
+            216 ROT_FOUR
+            218 POP_EXCEPT
+            220 LOAD_CONST              18 (None)
+            222 STORE_FAST               5 (e)
+            224 DELETE_FAST              5 (e)
+            226 RETURN_VALUE
+        >>  228 LOAD_CONST              18 (None)
+            230 STORE_FAST               5 (e)
+            232 DELETE_FAST              5 (e)
+            234 RERAISE
+        >>  236 RERAISE
+            238 LOAD_CONST              18 (None)
+            240 RETURN_VALUE
+
+Disassembly of <code object sweep_orphans at 0x1073aa240, file "WeRobotCore/services/voice/voice_greetings_store.py", line 159>:
+165           0 LOAD_GLOBAL              0 (_ensure_dir)
+              2 CALL_FUNCTION            0
+              4 POP_TOP
+
+166           6 LOAD_CONST               1 (0)
+              8 STORE_FAST               1 (deleted)
+
+167          10 LOAD_GLOBAL              1 (_DIR)
+             12 LOAD_METHOD              2 (iterdir)
+             14 CALL_METHOD              0
+             16 GET_ITER
+        >>   18 FOR_ITER                64 (to 84)
+             20 STORE_FAST               2 (p)
+
+168          22 LOAD_FAST                2 (p)
+             24 LOAD_METHOD              3 (is_file)
+             26 CALL_METHOD              0
+             28 POP_JUMP_IF_TRUE        32
+
+169          30 JUMP_ABSOLUTE           18
+
+170     >>   32 LOAD_FAST                2 (p)
+             34 LOAD_ATTR                4 (name)
+             36 LOAD_FAST                0 (referenced_filenames)
+             38 CONTAINS_OP              1
+             40 POP_JUMP_IF_FALSE       18
+
+171          42 SETUP_FINALLY           20 (to 64)
+
+172          44 LOAD_FAST                2 (p)
+             46 LOAD_METHOD              5 (unlink)
+             48 CALL_METHOD              0
+             50 POP_TOP
+
+173          52 LOAD_FAST                1 (deleted)
+             54 LOAD_CONST               2 (1)
+             56 INPLACE_ADD
+             58 STORE_FAST               1 (deleted)
+             60 POP_BLOCK
+             62 JUMP_ABSOLUTE           18
+
+174     >>   64 DUP_TOP
+             66 LOAD_GLOBAL              6 (Exception)
+             68 JUMP_IF_NOT_EXC_MATCH    80
+             70 POP_TOP
+             72 POP_TOP
+             74 POP_TOP
+
+175          76 POP_EXCEPT
+             78 JUMP_ABSOLUTE           18
+        >>   80 RERAISE
+             82 JUMP_ABSOLUTE           18
+
+176     >>   84 LOAD_FAST                1 (deleted)
+             86 RETURN_VALUE

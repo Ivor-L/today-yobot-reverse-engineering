@@ -1,0 +1,149 @@
+{
+  "tools": [
+    {
+      "name": "wechat_list_history_sessions",
+      "description": "列出本机已采集聊天记录的会话索引；不是完整微信历史。返回的账号和 session_id 用于读取消息。",
+      "annotations": {
+        "readOnlyHint": true
+      },
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "wechat_get_history_messages",
+      "description": "读取指定账号与会话的已保存聊天记录，不保证完整历史。session_id 必须来自会话索引。",
+      "annotations": {
+        "readOnlyHint": true
+      },
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "account_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128
+          },
+          "session_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 512
+          }
+        },
+        "required": [
+          "account_id",
+          "session_id"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "wechat_send_message",
+      "description": "向指定好友或群发送文字。仅在用户明确要求发送时调用，明确发送账号、准确收件人名称和正文。超时后不要自动重发，先核实是否送达。",
+      "annotations": {
+        "readOnlyHint": false,
+        "destructiveHint": true,
+        "idempotentHint": false
+      },
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "account_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128
+          },
+          "user": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 256
+          },
+          "message": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 10000
+          }
+        },
+        "required": [
+          "account_id",
+          "user",
+          "message"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "wechat_status",
+      "description": "读取本机微信账号与 RPA 状态。",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "wechat_list_contacts",
+      "description": "读取已经同步到本机的好友列表。",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "account_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128
+          }
+        },
+        "required": [
+          "account_id"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "wechat_list_groups",
+      "description": "读取已经同步到本机的群聊列表。",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "account_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128
+          }
+        },
+        "required": [
+          "account_id"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "wechat_sync_contacts",
+      "description": "通过桌面微信同步通讯录，会操作微信界面；失败时返回真实错误，勿与其他桌面操作同时运行。",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "account_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "friend",
+              "group"
+            ]
+          }
+        },
+        "required": [
+          "account_id",
+          "type"
+        ],
+        "additionalProperties": false
+      }
+    }
+  ]
+}

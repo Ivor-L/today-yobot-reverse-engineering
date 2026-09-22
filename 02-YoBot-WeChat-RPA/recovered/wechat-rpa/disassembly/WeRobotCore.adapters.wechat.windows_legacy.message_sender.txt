@@ -1,0 +1,564 @@
+  1           0 LOAD_CONST               0 ('Text sender delegating Windows UI work to the mature Legacy chat facade.')
+              2 STORE_NAME               0 (__doc__)
+
+  3           4 LOAD_CONST               1 (0)
+              6 LOAD_CONST               2 (('replace',))
+              8 IMPORT_NAME              1 (dataclasses)
+             10 IMPORT_FROM              2 (replace)
+             12 STORE_NAME               2 (replace)
+             14 POP_TOP
+
+  4          16 LOAD_CONST               1 (0)
+             18 LOAD_CONST               3 (('Optional',))
+             20 IMPORT_NAME              3 (typing)
+             22 IMPORT_FROM              4 (Optional)
+             24 STORE_NAME               4 (Optional)
+             26 POP_TOP
+
+  6          28 LOAD_CONST               1 (0)
+             30 LOAD_CONST               4 (('AutomationError', 'ErrorCode', 'InstanceId', 'OperationResult'))
+             32 IMPORT_NAME              5 (WeRobotCore.domain)
+             34 IMPORT_FROM              6 (AutomationError)
+             36 STORE_NAME               6 (AutomationError)
+             38 IMPORT_FROM              7 (ErrorCode)
+             40 STORE_NAME               7 (ErrorCode)
+             42 IMPORT_FROM              8 (InstanceId)
+             44 STORE_NAME               8 (InstanceId)
+             46 IMPORT_FROM              9 (OperationResult)
+             48 STORE_NAME               9 (OperationResult)
+             50 POP_TOP
+
+ 12          52 LOAD_CONST               1 (0)
+             54 LOAD_CONST               5 (('InstanceRegistry',))
+             56 IMPORT_NAME             10 (WeRobotCore.ports.wechat)
+             58 IMPORT_FROM             11 (InstanceRegistry)
+             60 STORE_NAME              11 (InstanceRegistry)
+             62 POP_TOP
+
+ 14          64 LOAD_CONST               6 (1)
+             66 LOAD_CONST               7 (('LegacySessionIndex', 'require_ready_account'))
+             68 IMPORT_NAME             12 (bindings)
+             70 IMPORT_FROM             13 (LegacySessionIndex)
+             72 STORE_NAME              13 (LegacySessionIndex)
+             74 IMPORT_FROM             14 (require_ready_account)
+             76 STORE_NAME              14 (require_ready_account)
+             78 POP_TOP
+
+ 15          80 LOAD_CONST               6 (1)
+             82 LOAD_CONST               8 (('LegacyTextMessageFacade',))
+             84 IMPORT_NAME             15 (facades)
+             86 IMPORT_FROM             16 (LegacyTextMessageFacade)
+             88 STORE_NAME              16 (LegacyTextMessageFacade)
+             90 POP_TOP
+
+ 16          92 LOAD_CONST               6 (1)
+             94 LOAD_CONST               9 (('map_legacy_operation',))
+             96 IMPORT_NAME             17 (mappers)
+             98 IMPORT_FROM             18 (map_legacy_operation)
+            100 STORE_NAME              18 (map_legacy_operation)
+            102 POP_TOP
+
+ 19         104 LOAD_BUILD_CLASS
+            106 LOAD_CONST              10 (<code object WindowsLegacyTextMessageSenderAdapter at 0x10924b660, file "WeRobotCore/adapters/wechat/windows_legacy/message_sender.py", line 19>)
+            108 LOAD_CONST              11 ('WindowsLegacyTextMessageSenderAdapter')
+            110 MAKE_FUNCTION            0
+            112 LOAD_CONST              11 ('WindowsLegacyTextMessageSenderAdapter')
+            114 CALL_FUNCTION            2
+            116 STORE_NAME              19 (WindowsLegacyTextMessageSenderAdapter)
+            118 LOAD_CONST              12 (None)
+            120 RETURN_VALUE
+
+Disassembly of <code object WindowsLegacyTextMessageSenderAdapter at 0x10924b660, file "WeRobotCore/adapters/wechat/windows_legacy/message_sender.py", line 19>:
+ 19           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('WindowsLegacyTextMessageSenderAdapter')
+              6 STORE_NAME               2 (__qualname__)
+
+ 20           8 LOAD_CONST               1 ('Send text through ``api.chat.async_send_message`` without new UIA code.')
+             10 STORE_NAME               3 (__doc__)
+
+ 24          12 LOAD_NAME                4 (InstanceRegistry)
+
+ 25          14 LOAD_NAME                5 (LegacyTextMessageFacade)
+
+ 26          16 LOAD_NAME                6 (LegacySessionIndex)
+
+ 27          18 LOAD_CONST               2 (None)
+
+ 22          20 LOAD_CONST               3 (('instances', 'chat', 'session_index', 'return'))
+             22 BUILD_CONST_KEY_MAP      4
+             24 LOAD_CONST               4 (<code object __init__ at 0x10924b9d0, file "WeRobotCore/adapters/wechat/windows_legacy/message_sender.py", line 22>)
+             26 LOAD_CONST               5 ('WindowsLegacyTextMessageSenderAdapter.__init__')
+             28 MAKE_FUNCTION            4 (annotations)
+             30 STORE_NAME               7 (__init__)
+
+ 34          32 LOAD_NAME                8 (staticmethod)
+
+ 35          34 LOAD_NAME                9 (AutomationError)
+             36 LOAD_NAME               10 (OperationResult)
+             38 LOAD_CONST               6 (('exc', 'return'))
+             40 BUILD_CONST_KEY_MAP      2
+             42 LOAD_CONST               7 (<code object _failure_from_error at 0x10924bd40, file "WeRobotCore/adapters/wechat/windows_legacy/message_sender.py", line 34>)
+             44 LOAD_CONST               8 ('WindowsLegacyTextMessageSenderAdapter._failure_from_error')
+             46 MAKE_FUNCTION            4 (annotations)
+             48 CALL_FUNCTION            1
+             50 STORE_NAME              11 (_failure_from_error)
+
+ 42          52 LOAD_NAME                8 (staticmethod)
+
+ 44          54 LOAD_NAME               12 (str)
+
+ 45          56 LOAD_NAME               12 (str)
+
+ 46          58 LOAD_NAME               13 (Optional)
+             60 LOAD_NAME               12 (str)
+             62 BINARY_SUBSCR
+
+ 47          64 LOAD_NAME               13 (Optional)
+             66 LOAD_NAME               10 (OperationResult)
+             68 BINARY_SUBSCR
+
+ 43          70 LOAD_CONST               9 (('session_id', 'content', 'quote_message_id', 'return'))
+             72 BUILD_CONST_KEY_MAP      4
+             74 LOAD_CONST              10 (<code object _validate_text_arguments at 0x10924b030, file "WeRobotCore/adapters/wechat/windows_legacy/message_sender.py", line 42>)
+             76 LOAD_CONST              11 ('WindowsLegacyTextMessageSenderAdapter._validate_text_arguments')
+             78 MAKE_FUNCTION            4 (annotations)
+             80 CALL_FUNCTION            1
+             82 STORE_NAME              14 (_validate_text_arguments)
+
+ 67          84 LOAD_NAME                8 (staticmethod)
+
+ 69          86 LOAD_NAME               10 (OperationResult)
+
+ 70          88 LOAD_NAME               15 (InstanceId)
+
+ 71          90 LOAD_NAME               12 (str)
+
+ 72          92 LOAD_NAME               10 (OperationResult)
+
+ 68          94 LOAD_CONST              12 (('result', 'instance_id', 'session_id', 'return'))
+             96 BUILD_CONST_KEY_MAP      4
+             98 LOAD_CONST              13 (<code object _add_context at 0x10924b450, file "WeRobotCore/adapters/wechat/windows_legacy/message_sender.py", line 67>)
+            100 LOAD_CONST              14 ('WindowsLegacyTextMessageSenderAdapter._add_context')
+            102 MAKE_FUNCTION            4 (annotations)
+            104 CALL_FUNCTION            1
+            106 STORE_NAME              16 (_add_context)
+
+ 82         108 LOAD_CONST              23 ((None,))
+
+ 84         110 LOAD_NAME               15 (InstanceId)
+
+ 85         112 LOAD_NAME               12 (str)
+
+ 86         114 LOAD_NAME               12 (str)
+
+ 87         116 LOAD_NAME               13 (Optional)
+            118 LOAD_NAME               12 (str)
+            120 BINARY_SUBSCR
+
+ 88         122 LOAD_NAME               10 (OperationResult)
+
+ 82         124 LOAD_CONST              15 (('instance_id', 'session_id', 'content', 'quote_message_id', 'return'))
+            126 BUILD_CONST_KEY_MAP      5
+            128 LOAD_CONST              16 (<code object send_text at 0x10924b710, file "WeRobotCore/adapters/wechat/windows_legacy/message_sender.py", line 82>)
+            130 LOAD_CONST              17 ('WindowsLegacyTextMessageSenderAdapter.send_text')
+            132 MAKE_FUNCTION            5 (defaults, annotations)
+            134 STORE_NAME              17 (send_text)
+
+131         136 LOAD_NAME               15 (InstanceId)
+
+132         138 LOAD_NAME               12 (str)
+
+133         140 LOAD_NAME               12 (str)
+
+134         142 LOAD_NAME               10 (OperationResult)
+
+129         144 LOAD_CONST              18 (('instance_id', 'session_id', 'asset_id', 'return'))
+            146 BUILD_CONST_KEY_MAP      4
+            148 LOAD_CONST              19 (<code object send_image at 0x10924b190, file "WeRobotCore/adapters/wechat/windows_legacy/message_sender.py", line 129>)
+            150 LOAD_CONST              20 ('WindowsLegacyTextMessageSenderAdapter.send_image')
+            152 MAKE_FUNCTION            4 (annotations)
+            154 STORE_NAME              18 (send_image)
+
+143         156 LOAD_NAME               15 (InstanceId)
+
+144         158 LOAD_NAME               12 (str)
+
+145         160 LOAD_NAME               12 (str)
+
+146         162 LOAD_NAME               10 (OperationResult)
+
+141         164 LOAD_CONST              18 (('instance_id', 'session_id', 'asset_id', 'return'))
+            166 BUILD_CONST_KEY_MAP      4
+            168 LOAD_CONST              21 (<code object send_file at 0x10924bf50, file "WeRobotCore/adapters/wechat/windows_legacy/message_sender.py", line 141>)
+            170 LOAD_CONST              22 ('WindowsLegacyTextMessageSenderAdapter.send_file')
+            172 MAKE_FUNCTION            4 (annotations)
+            174 STORE_NAME              19 (send_file)
+            176 LOAD_CONST               2 (None)
+            178 RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x10924b9d0, file "WeRobotCore/adapters/wechat/windows_legacy/message_sender.py", line 22>:
+ 28           0 LOAD_FAST                1 (instances)
+              2 LOAD_CONST               0 (None)
+              4 IS_OP                    0
+              6 POP_JUMP_IF_TRUE        24
+              8 LOAD_FAST                2 (chat)
+             10 LOAD_CONST               0 (None)
+             12 IS_OP                    0
+             14 POP_JUMP_IF_TRUE        24
+             16 LOAD_FAST                3 (session_index)
+             18 LOAD_CONST               0 (None)
+             20 IS_OP                    0
+             22 POP_JUMP_IF_FALSE       32
+
+ 29     >>   24 LOAD_GLOBAL              0 (ValueError)
+             26 LOAD_CONST               1 ('instances, chat and session_index must be provided')
+             28 CALL_FUNCTION            1
+             30 RAISE_VARARGS            1
+
+ 30     >>   32 LOAD_FAST                1 (instances)
+             34 LOAD_FAST                0 (self)
+             36 STORE_ATTR               1 (_instances)
+
+ 31          38 LOAD_FAST                2 (chat)
+             40 LOAD_FAST                0 (self)
+             42 STORE_ATTR               2 (_chat)
+
+ 32          44 LOAD_FAST                3 (session_index)
+             46 LOAD_FAST                0 (self)
+             48 STORE_ATTR               3 (_session_index)
+             50 LOAD_CONST               0 (None)
+             52 RETURN_VALUE
+
+Disassembly of <code object _failure_from_error at 0x10924bd40, file "WeRobotCore/adapters/wechat/windows_legacy/message_sender.py", line 34>:
+ 36           0 LOAD_GLOBAL              0 (OperationResult)
+              2 LOAD_ATTR                1 (failed)
+
+ 37           4 LOAD_FAST                0 (exc)
+              6 LOAD_ATTR                2 (code)
+
+ 38           8 LOAD_GLOBAL              3 (str)
+             10 LOAD_FAST                0 (exc)
+             12 CALL_FUNCTION            1
+
+ 39          14 LOAD_FAST                0 (exc)
+             16 LOAD_ATTR                4 (retryable)
+
+ 36          18 LOAD_CONST               1 (('retryable',))
+             20 CALL_FUNCTION_KW         3
+             22 RETURN_VALUE
+
+Disassembly of <code object _validate_text_arguments at 0x10924b030, file "WeRobotCore/adapters/wechat/windows_legacy/message_sender.py", line 42>:
+ 48           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                0 (session_id)
+              4 LOAD_GLOBAL              1 (str)
+              6 CALL_FUNCTION            2
+              8 POP_JUMP_IF_FALSE       18
+             10 LOAD_FAST                0 (session_id)
+             12 LOAD_METHOD              2 (strip)
+             14 CALL_METHOD              0
+             16 POP_JUMP_IF_TRUE        32
+
+ 49     >>   18 LOAD_GLOBAL              3 (OperationResult)
+             20 LOAD_METHOD              4 (failed)
+
+ 50          22 LOAD_GLOBAL              5 (ErrorCode)
+             24 LOAD_ATTR                6 (INVALID_ARGUMENT)
+
+ 51          26 LOAD_CONST               1 ('session_id must be a non-empty string')
+
+ 49          28 CALL_METHOD              2
+             30 RETURN_VALUE
+
+ 53     >>   32 LOAD_GLOBAL              0 (isinstance)
+             34 LOAD_FAST                1 (content)
+             36 LOAD_GLOBAL              1 (str)
+             38 CALL_FUNCTION            2
+             40 POP_JUMP_IF_FALSE       50
+             42 LOAD_FAST                1 (content)
+             44 LOAD_METHOD              2 (strip)
+             46 CALL_METHOD              0
+             48 POP_JUMP_IF_TRUE        64
+
+ 54     >>   50 LOAD_GLOBAL              3 (OperationResult)
+             52 LOAD_METHOD              4 (failed)
+
+ 55          54 LOAD_GLOBAL              5 (ErrorCode)
+             56 LOAD_ATTR                6 (INVALID_ARGUMENT)
+
+ 56          58 LOAD_CONST               2 ('text content must be non-empty')
+
+ 54          60 CALL_METHOD              2
+             62 RETURN_VALUE
+
+ 58     >>   64 LOAD_FAST                2 (quote_message_id)
+             66 LOAD_CONST               0 (None)
+             68 IS_OP                    1
+             70 POP_JUMP_IF_FALSE      104
+
+ 59          72 LOAD_GLOBAL              0 (isinstance)
+             74 LOAD_FAST                2 (quote_message_id)
+             76 LOAD_GLOBAL              1 (str)
+             78 CALL_FUNCTION            2
+
+ 58          80 POP_JUMP_IF_FALSE       90
+
+ 59          82 LOAD_FAST                2 (quote_message_id)
+             84 LOAD_METHOD              2 (strip)
+             86 CALL_METHOD              0
+
+ 58          88 POP_JUMP_IF_TRUE       104
+
+ 61     >>   90 LOAD_GLOBAL              3 (OperationResult)
+             92 LOAD_METHOD              4 (failed)
+
+ 62          94 LOAD_GLOBAL              5 (ErrorCode)
+             96 LOAD_ATTR                6 (INVALID_ARGUMENT)
+
+ 63          98 LOAD_CONST               3 ('quote_message_id must be non-empty text or None')
+
+ 61         100 CALL_METHOD              2
+            102 RETURN_VALUE
+
+ 65     >>  104 LOAD_CONST               0 (None)
+            106 RETURN_VALUE
+
+Disassembly of <code object _add_context at 0x10924b450, file "WeRobotCore/adapters/wechat/windows_legacy/message_sender.py", line 67>:
+ 73           0 LOAD_GLOBAL              0 (dict)
+              2 LOAD_FAST                0 (result)
+              4 LOAD_ATTR                1 (data)
+              6 CALL_FUNCTION            1
+              8 STORE_FAST               3 (data)
+
+ 74          10 LOAD_FAST                3 (data)
+             12 LOAD_METHOD              2 (update)
+
+ 76          14 LOAD_FAST                1 (instance_id)
+             16 LOAD_ATTR                3 (value)
+
+ 77          18 LOAD_FAST                2 (session_id)
+
+ 75          20 LOAD_CONST               1 (('instance_id', 'session_id'))
+             22 BUILD_CONST_KEY_MAP      2
+
+ 74          24 CALL_METHOD              1
+             26 POP_TOP
+
+ 80          28 LOAD_GLOBAL              4 (replace)
+             30 LOAD_FAST                0 (result)
+             32 LOAD_FAST                3 (data)
+             34 LOAD_CONST               2 (('data',))
+             36 CALL_FUNCTION_KW         2
+             38 RETURN_VALUE
+
+Disassembly of <code object send_text at 0x10924b710, file "WeRobotCore/adapters/wechat/windows_legacy/message_sender.py", line 82>:
+ 89           0 LOAD_FAST                0 (self)
+              2 LOAD_METHOD              0 (_validate_text_arguments)
+
+ 90           4 LOAD_FAST                2 (session_id)
+
+ 91           6 LOAD_FAST                3 (content)
+
+ 92           8 LOAD_FAST                4 (quote_message_id)
+
+ 89          10 CALL_METHOD              3
+             12 STORE_FAST               5 (invalid)
+
+ 94          14 LOAD_FAST                5 (invalid)
+             16 LOAD_CONST               0 (None)
+             18 IS_OP                    1
+             20 POP_JUMP_IF_FALSE       26
+
+ 95          22 LOAD_FAST                5 (invalid)
+             24 RETURN_VALUE
+
+ 96     >>   26 LOAD_GLOBAL              1 (isinstance)
+             28 LOAD_FAST                1 (instance_id)
+             30 LOAD_GLOBAL              2 (InstanceId)
+             32 CALL_FUNCTION            2
+             34 POP_JUMP_IF_TRUE        50
+
+ 97          36 LOAD_GLOBAL              3 (OperationResult)
+             38 LOAD_METHOD              4 (failed)
+
+ 98          40 LOAD_GLOBAL              5 (ErrorCode)
+             42 LOAD_ATTR                6 (INVALID_ARGUMENT)
+
+ 99          44 LOAD_CONST               1 ('instance_id must be an InstanceId')
+
+ 97          46 CALL_METHOD              2
+             48 RETURN_VALUE
+
+101     >>   50 LOAD_FAST                2 (session_id)
+             52 LOAD_METHOD              7 (strip)
+             54 CALL_METHOD              0
+             56 STORE_FAST               6 (normalized_session_id)
+
+102          58 SETUP_FINALLY           22 (to 82)
+
+103          60 LOAD_GLOBAL              8 (require_ready_account)
+             62 LOAD_FAST                0 (self)
+             64 LOAD_ATTR                9 (_instances)
+             66 LOAD_FAST                1 (instance_id)
+             68 CALL_FUNCTION            2
+             70 GET_AWAITABLE
+             72 LOAD_CONST               0 (None)
+             74 YIELD_FROM
+             76 STORE_FAST               7 (instance)
+             78 POP_BLOCK
+             80 JUMP_FORWARD            46 (to 128)
+
+104     >>   82 DUP_TOP
+             84 LOAD_GLOBAL             10 (AutomationError)
+             86 JUMP_IF_NOT_EXC_MATCH   126
+             88 POP_TOP
+             90 STORE_FAST               8 (exc)
+             92 POP_TOP
+             94 SETUP_FINALLY           22 (to 118)
+
+105          96 LOAD_FAST                0 (self)
+             98 LOAD_METHOD             11 (_failure_from_error)
+            100 LOAD_FAST                8 (exc)
+            102 CALL_METHOD              1
+            104 POP_BLOCK
+            106 ROT_FOUR
+            108 POP_EXCEPT
+            110 LOAD_CONST               0 (None)
+            112 STORE_FAST               8 (exc)
+            114 DELETE_FAST              8 (exc)
+            116 RETURN_VALUE
+        >>  118 LOAD_CONST               0 (None)
+            120 STORE_FAST               8 (exc)
+            122 DELETE_FAST              8 (exc)
+            124 RERAISE
+        >>  126 RERAISE
+
+106     >>  128 LOAD_FAST                0 (self)
+            130 LOAD_ATTR               12 (_session_index)
+            132 LOAD_METHOD             13 (resolve)
+
+107         134 LOAD_FAST                1 (instance_id)
+
+108         136 LOAD_FAST                6 (normalized_session_id)
+
+106         138 CALL_METHOD              2
+            140 STORE_FAST               9 (session_name)
+
+110         142 LOAD_FAST                9 (session_name)
+            144 LOAD_CONST               0 (None)
+            146 IS_OP                    0
+            148 POP_JUMP_IF_FALSE      170
+
+111         150 LOAD_GLOBAL              3 (OperationResult)
+            152 LOAD_METHOD              4 (failed)
+
+112         154 LOAD_GLOBAL              5 (ErrorCode)
+            156 LOAD_ATTR               14 (ELEMENT_NOT_FOUND)
+
+113         158 LOAD_CONST               2 ('session is not indexed; list_sessions must run first: {}')
+            160 LOAD_METHOD             15 (format)
+
+114         162 LOAD_FAST                6 (normalized_session_id)
+
+113         164 CALL_METHOD              1
+
+111         166 CALL_METHOD              2
+            168 RETURN_VALUE
+
+117     >>  170 SETUP_FINALLY           32 (to 204)
+
+118         172 LOAD_FAST                0 (self)
+            174 LOAD_ATTR               16 (_chat)
+            176 LOAD_ATTR               17 (async_send_message)
+
+119         178 LOAD_FAST                9 (session_name)
+
+120         180 LOAD_FAST                3 (content)
+
+121         182 LOAD_FAST                7 (instance)
+            184 LOAD_ATTR               18 (account_id)
+
+122         186 LOAD_FAST                4 (quote_message_id)
+
+118         188 LOAD_CONST               3 (('user', 'message', 'account_id', 'quote_msg_id'))
+            190 CALL_FUNCTION_KW         4
+            192 GET_AWAITABLE
+            194 LOAD_CONST               0 (None)
+            196 YIELD_FROM
+            198 STORE_FAST              10 (raw)
+            200 POP_BLOCK
+            202 JUMP_FORWARD            40 (to 244)
+
+124     >>  204 DUP_TOP
+            206 LOAD_GLOBAL             19 (Exception)
+            208 JUMP_IF_NOT_EXC_MATCH   242
+            210 POP_TOP
+            212 STORE_FAST               8 (exc)
+            214 POP_TOP
+            216 SETUP_FINALLY           16 (to 234)
+
+125         218 LOAD_FAST                8 (exc)
+            220 STORE_FAST              10 (raw)
+            222 POP_BLOCK
+            224 POP_EXCEPT
+            226 LOAD_CONST               0 (None)
+            228 STORE_FAST               8 (exc)
+            230 DELETE_FAST              8 (exc)
+            232 JUMP_FORWARD            10 (to 244)
+        >>  234 LOAD_CONST               0 (None)
+            236 STORE_FAST               8 (exc)
+            238 DELETE_FAST              8 (exc)
+            240 RERAISE
+        >>  242 RERAISE
+
+126     >>  244 LOAD_GLOBAL             20 (map_legacy_operation)
+            246 LOAD_FAST               10 (raw)
+            248 LOAD_CONST               4 ('send_text')
+            250 LOAD_CONST               5 (False)
+            252 LOAD_CONST               6 (('verified',))
+            254 CALL_FUNCTION_KW         3
+            256 STORE_FAST              11 (result)
+
+127         258 LOAD_FAST                0 (self)
+            260 LOAD_METHOD             21 (_add_context)
+            262 LOAD_FAST               11 (result)
+            264 LOAD_FAST                1 (instance_id)
+            266 LOAD_FAST                6 (normalized_session_id)
+            268 CALL_METHOD              3
+            270 RETURN_VALUE
+
+Disassembly of <code object send_image at 0x10924b190, file "WeRobotCore/adapters/wechat/windows_legacy/message_sender.py", line 129>:
+135           0 LOAD_GLOBAL              0 (OperationResult)
+              2 LOAD_ATTR                1 (failed)
+
+136           4 LOAD_GLOBAL              2 (ErrorCode)
+              6 LOAD_ATTR                3 (CAPABILITY_UNAVAILABLE)
+
+137           8 LOAD_CONST               1 ('Windows image sending is not part of the text sender adapter')
+
+138          10 LOAD_CONST               2 ('send_image')
+             12 LOAD_FAST                2 (session_id)
+             14 LOAD_CONST               3 (('operation', 'session_id'))
+             16 BUILD_CONST_KEY_MAP      2
+
+135          18 LOAD_CONST               4 (('data',))
+             20 CALL_FUNCTION_KW         3
+             22 RETURN_VALUE
+
+Disassembly of <code object send_file at 0x10924bf50, file "WeRobotCore/adapters/wechat/windows_legacy/message_sender.py", line 141>:
+147           0 LOAD_GLOBAL              0 (OperationResult)
+              2 LOAD_ATTR                1 (failed)
+
+148           4 LOAD_GLOBAL              2 (ErrorCode)
+              6 LOAD_ATTR                3 (CAPABILITY_UNAVAILABLE)
+
+149           8 LOAD_CONST               1 ('Windows file sending is not part of the text sender adapter')
+
+150          10 LOAD_CONST               2 ('send_file')
+             12 LOAD_FAST                2 (session_id)
+             14 LOAD_CONST               3 (('operation', 'session_id'))
+             16 BUILD_CONST_KEY_MAP      2
+
+147          18 LOAD_CONST               4 (('data',))
+             20 CALL_FUNCTION_KW         3
+             22 RETURN_VALUE

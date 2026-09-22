@@ -1,0 +1,384 @@
+  1           0 LOAD_CONST               0 ('Explicit build-level capability declarations for runtime discovery.\n\nThe catalog answers what a packaged YokoWebot runtime deliberately exposes to\nthe shared UI and Agent contract.  It is not an execution authorization gate:\naccount-scoped operations must still check ``AccountInstance.capabilities``\nimmediately before calling a Driver.\n\nNo capability is inferred from implemented Protocol methods, migrated Driver\nports, the operating-system name, or a sibling platform catalog.  A platform\ncomposition root must declare every state it wants to publish.\n')
+              2 STORE_NAME               0 (__doc__)
+
+ 13           4 LOAD_CONST               1 (0)
+              6 LOAD_CONST               2 (('MappingProxyType',))
+              8 IMPORT_NAME              1 (types)
+             10 IMPORT_FROM              2 (MappingProxyType)
+             12 STORE_NAME               2 (MappingProxyType)
+             14 POP_TOP
+
+ 14          16 LOAD_CONST               1 (0)
+             18 LOAD_CONST               3 (('Dict', 'Iterable', 'Mapping', 'Tuple'))
+             20 IMPORT_NAME              3 (typing)
+             22 IMPORT_FROM              4 (Dict)
+             24 STORE_NAME               4 (Dict)
+             26 IMPORT_FROM              5 (Iterable)
+             28 STORE_NAME               5 (Iterable)
+             30 IMPORT_FROM              6 (Mapping)
+             32 STORE_NAME               6 (Mapping)
+             34 IMPORT_FROM              7 (Tuple)
+             36 STORE_NAME               7 (Tuple)
+             38 POP_TOP
+
+ 16          40 LOAD_CONST               1 (0)
+             42 LOAD_CONST               4 (('CapabilityName', 'CapabilityState', 'CapabilityStatus'))
+             44 IMPORT_NAME              8 (WeRobotCore.domain)
+             46 IMPORT_FROM              9 (CapabilityName)
+             48 STORE_NAME               9 (CapabilityName)
+             50 IMPORT_FROM             10 (CapabilityState)
+             52 STORE_NAME              10 (CapabilityState)
+             54 IMPORT_FROM             11 (CapabilityStatus)
+             56 STORE_NAME              11 (CapabilityStatus)
+             58 POP_TOP
+
+ 19          60 LOAD_NAME               12 (frozenset)
+             62 LOAD_CONST               5 (<code object <genexpr> at 0x109244c90, file "WeRobotCore/application/runtime/catalog.py", line 19>)
+             64 LOAD_CONST               6 ('<genexpr>')
+             66 MAKE_FUNCTION            0
+             68 LOAD_NAME                9 (CapabilityName)
+             70 GET_ITER
+             72 CALL_FUNCTION            1
+             74 CALL_FUNCTION            1
+             76 STORE_NAME              13 (_KNOWN_CAPABILITY_NAMES)
+
+ 22          78 LOAD_BUILD_CLASS
+             80 LOAD_CONST               7 (<code object RuntimeCapabilityCatalog at 0x109244710, file "WeRobotCore/application/runtime/catalog.py", line 22>)
+             82 LOAD_CONST               8 ('RuntimeCapabilityCatalog')
+             84 MAKE_FUNCTION            0
+             86 LOAD_CONST               8 ('RuntimeCapabilityCatalog')
+             88 CALL_FUNCTION            2
+             90 STORE_NAME              14 (RuntimeCapabilityCatalog)
+             92 LOAD_CONST               9 (None)
+             94 RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x109244c90, file "WeRobotCore/application/runtime/catalog.py", line 19>:
+ 19           0 LOAD_FAST                0 (.0)
+        >>    2 FOR_ITER                12 (to 16)
+              4 STORE_FAST               1 (item)
+              6 LOAD_FAST                1 (item)
+              8 LOAD_ATTR                0 (value)
+             10 YIELD_VALUE
+             12 POP_TOP
+             14 JUMP_ABSOLUTE            2
+        >>   16 LOAD_CONST               0 (None)
+             18 RETURN_VALUE
+
+Disassembly of <code object RuntimeCapabilityCatalog at 0x109244710, file "WeRobotCore/application/runtime/catalog.py", line 22>:
+ 22           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('RuntimeCapabilityCatalog')
+              6 STORE_NAME               2 (__qualname__)
+
+ 23           8 LOAD_CONST               1 ('Immutable, explicit provider for build-level capability discovery.')
+             10 STORE_NAME               3 (__doc__)
+
+ 25          12 LOAD_CONST               2 (('_capabilities',))
+             14 STORE_NAME               4 (__slots__)
+
+ 27          16 LOAD_NAME                5 (Iterable)
+             18 LOAD_NAME                6 (CapabilityState)
+             20 BINARY_SUBSCR
+             22 LOAD_CONST               3 (None)
+             24 LOAD_CONST               4 (('declarations', 'return'))
+             26 BUILD_CONST_KEY_MAP      2
+             28 LOAD_CONST               5 (<code object __init__ at 0x1092447c0, file "WeRobotCore/application/runtime/catalog.py", line 27>)
+             30 LOAD_CONST               6 ('RuntimeCapabilityCatalog.__init__')
+             32 MAKE_FUNCTION            4 (annotations)
+             34 STORE_NAME               7 (__init__)
+
+ 54          36 LOAD_NAME                8 (staticmethod)
+
+ 55          38 LOAD_NAME                6 (CapabilityState)
+             40 LOAD_CONST               3 (None)
+             42 LOAD_CONST               7 (('state', 'return'))
+             44 BUILD_CONST_KEY_MAP      2
+             46 LOAD_CONST               8 (<code object _validate_state at 0x109244030, file "WeRobotCore/application/runtime/catalog.py", line 54>)
+             48 LOAD_CONST               9 ('RuntimeCapabilityCatalog._validate_state')
+             50 MAKE_FUNCTION            4 (annotations)
+             52 CALL_FUNCTION            1
+             54 STORE_NAME               9 (_validate_state)
+
+ 82          56 LOAD_NAME               10 (property)
+
+ 83          58 LOAD_NAME               11 (Tuple)
+             60 LOAD_NAME               12 (str)
+             62 LOAD_CONST              10 (Ellipsis)
+             64 BUILD_TUPLE              2
+             66 BINARY_SUBSCR
+             68 LOAD_CONST              11 (('return',))
+             70 BUILD_CONST_KEY_MAP      1
+             72 LOAD_CONST              12 (<code object declared_names at 0x109244870, file "WeRobotCore/application/runtime/catalog.py", line 82>)
+             74 LOAD_CONST              13 ('RuntimeCapabilityCatalog.declared_names')
+             76 MAKE_FUNCTION            4 (annotations)
+             78 CALL_FUNCTION            1
+             80 STORE_NAME              13 (declared_names)
+
+ 86          82 LOAD_NAME               14 (Mapping)
+             84 LOAD_NAME               12 (str)
+             86 LOAD_NAME                6 (CapabilityState)
+             88 BUILD_TUPLE              2
+             90 BINARY_SUBSCR
+             92 LOAD_CONST              11 (('return',))
+             94 BUILD_CONST_KEY_MAP      1
+             96 LOAD_CONST              14 (<code object snapshot_capabilities at 0x1092449d0, file "WeRobotCore/application/runtime/catalog.py", line 86>)
+             98 LOAD_CONST              15 ('RuntimeCapabilityCatalog.snapshot_capabilities')
+            100 MAKE_FUNCTION            4 (annotations)
+            102 STORE_NAME              15 (snapshot_capabilities)
+            104 LOAD_CONST               3 (None)
+            106 RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x1092447c0, file "WeRobotCore/application/runtime/catalog.py", line 27>:
+ 28           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                1 (declarations)
+              4 LOAD_GLOBAL              1 (Mapping)
+              6 CALL_FUNCTION            2
+              8 POP_JUMP_IF_TRUE        24
+             10 LOAD_GLOBAL              0 (isinstance)
+
+ 29          12 LOAD_FAST                1 (declarations)
+             14 LOAD_GLOBAL              2 (str)
+             16 LOAD_GLOBAL              3 (bytes)
+             18 BUILD_TUPLE              2
+
+ 28          20 CALL_FUNCTION            2
+             22 POP_JUMP_IF_FALSE       32
+
+ 31     >>   24 LOAD_GLOBAL              4 (TypeError)
+             26 LOAD_CONST               1 ('declarations must be an iterable of CapabilityState')
+             28 CALL_FUNCTION            1
+             30 RAISE_VARARGS            1
+
+ 32     >>   32 SETUP_FINALLY           12 (to 46)
+
+ 33          34 LOAD_GLOBAL              5 (tuple)
+             36 LOAD_FAST                1 (declarations)
+             38 CALL_FUNCTION            1
+             40 STORE_FAST               2 (states)
+             42 POP_BLOCK
+             44 JUMP_FORWARD            46 (to 92)
+
+ 34     >>   46 DUP_TOP
+             48 LOAD_GLOBAL              4 (TypeError)
+             50 JUMP_IF_NOT_EXC_MATCH    90
+             52 POP_TOP
+             54 STORE_FAST               3 (exc)
+             56 POP_TOP
+             58 SETUP_FINALLY           22 (to 82)
+
+ 35          60 LOAD_GLOBAL              4 (TypeError)
+
+ 36          62 LOAD_CONST               1 ('declarations must be an iterable of CapabilityState')
+
+ 35          64 CALL_FUNCTION            1
+
+ 37          66 LOAD_FAST                3 (exc)
+
+ 35          68 RAISE_VARARGS            2
+             70 POP_BLOCK
+             72 POP_EXCEPT
+             74 LOAD_CONST               0 (None)
+             76 STORE_FAST               3 (exc)
+             78 DELETE_FAST              3 (exc)
+             80 JUMP_FORWARD            10 (to 92)
+        >>   82 LOAD_CONST               0 (None)
+             84 STORE_FAST               3 (exc)
+             86 DELETE_FAST              3 (exc)
+             88 RERAISE
+        >>   90 RERAISE
+
+ 39     >>   92 BUILD_MAP                0
+             94 STORE_FAST               4 (capabilities)
+
+ 40          96 LOAD_FAST                2 (states)
+             98 GET_ITER
+        >>  100 FOR_ITER                94 (to 196)
+            102 STORE_FAST               5 (state)
+
+ 41         104 LOAD_GLOBAL              0 (isinstance)
+            106 LOAD_FAST                5 (state)
+            108 LOAD_GLOBAL              6 (CapabilityState)
+            110 CALL_FUNCTION            2
+            112 POP_JUMP_IF_TRUE       122
+
+ 42         114 LOAD_GLOBAL              4 (TypeError)
+            116 LOAD_CONST               2 ('declarations must contain CapabilityState values')
+            118 CALL_FUNCTION            1
+            120 RAISE_VARARGS            1
+
+ 43     >>  122 LOAD_FAST                5 (state)
+            124 LOAD_ATTR                7 (name)
+            126 LOAD_GLOBAL              8 (_KNOWN_CAPABILITY_NAMES)
+            128 CONTAINS_OP              1
+            130 POP_JUMP_IF_FALSE      148
+
+ 44         132 LOAD_GLOBAL              9 (ValueError)
+            134 LOAD_CONST               3 ('unknown runtime capability: {}')
+            136 LOAD_METHOD             10 (format)
+            138 LOAD_FAST                5 (state)
+            140 LOAD_ATTR                7 (name)
+            142 CALL_METHOD              1
+            144 CALL_FUNCTION            1
+            146 RAISE_VARARGS            1
+
+ 45     >>  148 LOAD_FAST                5 (state)
+            150 LOAD_ATTR                7 (name)
+            152 LOAD_FAST                4 (capabilities)
+            154 CONTAINS_OP              0
+            156 POP_JUMP_IF_FALSE      174
+
+ 46         158 LOAD_GLOBAL              9 (ValueError)
+
+ 47         160 LOAD_CONST               4 ('duplicate runtime capability declaration: {}')
+            162 LOAD_METHOD             10 (format)
+            164 LOAD_FAST                5 (state)
+            166 LOAD_ATTR                7 (name)
+            168 CALL_METHOD              1
+
+ 46         170 CALL_FUNCTION            1
+            172 RAISE_VARARGS            1
+
+ 49     >>  174 LOAD_FAST                0 (self)
+            176 LOAD_METHOD             11 (_validate_state)
+            178 LOAD_FAST                5 (state)
+            180 CALL_METHOD              1
+            182 POP_TOP
+
+ 50         184 LOAD_FAST                5 (state)
+            186 LOAD_FAST                4 (capabilities)
+            188 LOAD_FAST                5 (state)
+            190 LOAD_ATTR                7 (name)
+            192 STORE_SUBSCR
+            194 JUMP_ABSOLUTE          100
+
+ 52     >>  196 LOAD_GLOBAL             12 (MappingProxyType)
+            198 LOAD_GLOBAL             13 (dict)
+            200 LOAD_GLOBAL             14 (sorted)
+            202 LOAD_FAST                4 (capabilities)
+            204 LOAD_METHOD             15 (items)
+            206 CALL_METHOD              0
+            208 CALL_FUNCTION            1
+            210 CALL_FUNCTION            1
+            212 CALL_FUNCTION            1
+            214 LOAD_FAST                0 (self)
+            216 STORE_ATTR              16 (_capabilities)
+            218 LOAD_CONST               0 (None)
+            220 RETURN_VALUE
+
+Disassembly of <code object _validate_state at 0x109244030, file "WeRobotCore/application/runtime/catalog.py", line 54>:
+ 56           0 LOAD_FAST                0 (state)
+              2 LOAD_ATTR                0 (reason_code)
+              4 LOAD_CONST               0 (None)
+              6 IS_OP                    1
+              8 POP_JUMP_IF_FALSE       40
+
+ 57          10 LOAD_GLOBAL              1 (isinstance)
+             12 LOAD_FAST                0 (state)
+             14 LOAD_ATTR                0 (reason_code)
+             16 LOAD_GLOBAL              2 (str)
+             18 CALL_FUNCTION            2
+
+ 56          20 POP_JUMP_IF_FALSE       32
+
+ 57          22 LOAD_FAST                0 (state)
+             24 LOAD_ATTR                0 (reason_code)
+             26 LOAD_METHOD              3 (strip)
+             28 CALL_METHOD              0
+
+ 56          30 POP_JUMP_IF_TRUE        40
+
+ 59     >>   32 LOAD_GLOBAL              4 (ValueError)
+             34 LOAD_CONST               1 ('reason_code must be a non-empty string when provided')
+             36 CALL_FUNCTION            1
+             38 RAISE_VARARGS            1
+
+ 60     >>   40 LOAD_FAST                0 (state)
+             42 LOAD_ATTR                5 (status)
+             44 LOAD_GLOBAL              6 (CapabilityStatus)
+             46 LOAD_ATTR                7 (SUPPORTED)
+             48 IS_OP                    1
+             50 POP_JUMP_IF_FALSE       74
+             52 LOAD_FAST                0 (state)
+             54 LOAD_ATTR                0 (reason_code)
+             56 POP_JUMP_IF_TRUE        74
+
+ 61          58 LOAD_GLOBAL              4 (ValueError)
+
+ 62          60 LOAD_CONST               2 ('non-supported capability states require a reason_code: {}')
+             62 LOAD_METHOD              8 (format)
+
+ 63          64 LOAD_FAST                0 (state)
+             66 LOAD_ATTR                9 (name)
+
+ 62          68 CALL_METHOD              1
+
+ 61          70 CALL_FUNCTION            1
+             72 RAISE_VARARGS            1
+
+ 67     >>   74 LOAD_FAST                0 (state)
+             76 LOAD_ATTR                5 (status)
+             78 LOAD_GLOBAL              6 (CapabilityStatus)
+             80 LOAD_ATTR               10 (PERMISSION_REQUIRED)
+             82 IS_OP                    0
+
+ 66          84 POP_JUMP_IF_FALSE      108
+
+ 68          86 LOAD_FAST                0 (state)
+             88 LOAD_ATTR               11 (required_permissions)
+
+ 66          90 POP_JUMP_IF_TRUE       108
+
+ 70          92 LOAD_GLOBAL              4 (ValueError)
+
+ 71          94 LOAD_CONST               3 ('permission_required capabilities require permissions: {}')
+             96 LOAD_METHOD              8 (format)
+
+ 72          98 LOAD_FAST                0 (state)
+            100 LOAD_ATTR                9 (name)
+
+ 71         102 CALL_METHOD              1
+
+ 70         104 CALL_FUNCTION            1
+            106 RAISE_VARARGS            1
+
+ 75     >>  108 LOAD_GLOBAL             12 (len)
+            110 LOAD_GLOBAL             13 (set)
+            112 LOAD_FAST                0 (state)
+            114 LOAD_ATTR               11 (required_permissions)
+            116 CALL_FUNCTION            1
+            118 CALL_FUNCTION            1
+            120 LOAD_GLOBAL             12 (len)
+            122 LOAD_FAST                0 (state)
+            124 LOAD_ATTR               11 (required_permissions)
+            126 CALL_FUNCTION            1
+            128 COMPARE_OP               3 (!=)
+            130 POP_JUMP_IF_FALSE      148
+
+ 76         132 LOAD_GLOBAL              4 (ValueError)
+
+ 77         134 LOAD_CONST               4 ('required_permissions cannot contain duplicates: {}')
+            136 LOAD_METHOD              8 (format)
+
+ 78         138 LOAD_FAST                0 (state)
+            140 LOAD_ATTR                9 (name)
+
+ 77         142 CALL_METHOD              1
+
+ 76         144 CALL_FUNCTION            1
+            146 RAISE_VARARGS            1
+        >>  148 LOAD_CONST               0 (None)
+            150 RETURN_VALUE
+
+Disassembly of <code object declared_names at 0x109244870, file "WeRobotCore/application/runtime/catalog.py", line 82>:
+ 84           0 LOAD_GLOBAL              0 (tuple)
+              2 LOAD_FAST                0 (self)
+              4 LOAD_ATTR                1 (_capabilities)
+              6 CALL_FUNCTION            1
+              8 RETURN_VALUE
+
+Disassembly of <code object snapshot_capabilities at 0x1092449d0, file "WeRobotCore/application/runtime/catalog.py", line 86>:
+ 89           0 LOAD_GLOBAL              0 (dict)
+              2 LOAD_FAST                0 (self)
+              4 LOAD_ATTR                1 (_capabilities)
+              6 CALL_FUNCTION            1
+              8 RETURN_VALUE

@@ -1,0 +1,253 @@
+  1           0 LOAD_CONST               0 ('Immutable identity for one Agent-managed Control process.')
+              2 STORE_NAME               0 (__doc__)
+
+  3           4 LOAD_CONST               1 (0)
+              6 LOAD_CONST               2 (('annotations',))
+              8 IMPORT_NAME              1 (__future__)
+             10 IMPORT_FROM              2 (annotations)
+             12 STORE_NAME               2 (annotations)
+             14 POP_TOP
+
+  5          16 LOAD_CONST               1 (0)
+             18 LOAD_CONST               3 (('dataclass',))
+             20 IMPORT_NAME              3 (dataclasses)
+             22 IMPORT_FROM              4 (dataclass)
+             24 STORE_NAME               4 (dataclass)
+             26 POP_TOP
+
+  6          28 LOAD_CONST               1 (0)
+             30 LOAD_CONST               4 (None)
+             32 IMPORT_NAME              5 (re)
+             34 STORE_NAME               5 (re)
+
+  7          36 LOAD_CONST               1 (0)
+             38 LOAD_CONST               5 (('Any', 'Dict'))
+             40 IMPORT_NAME              6 (typing)
+             42 IMPORT_FROM              7 (Any)
+             44 STORE_NAME               7 (Any)
+             46 IMPORT_FROM              8 (Dict)
+             48 STORE_NAME               8 (Dict)
+             50 POP_TOP
+
+ 10          52 LOAD_NAME                5 (re)
+             54 LOAD_METHOD              9 (compile)
+
+ 11          56 LOAD_CONST               6 ('^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$')
+
+ 13          58 LOAD_NAME                5 (re)
+             60 LOAD_ATTR               10 (IGNORECASE)
+
+ 10          62 CALL_METHOD              2
+             64 STORE_NAME              11 (_RUNTIME_ID)
+
+ 17          66 LOAD_NAME                4 (dataclass)
+             68 LOAD_CONST               7 (True)
+             70 LOAD_CONST               8 (('frozen',))
+             72 CALL_FUNCTION_KW         1
+
+ 18          74 LOAD_BUILD_CLASS
+             76 LOAD_CONST               9 (<code object ControlRuntimeIdentity at 0x10924c450, file "WeRobotCore/application/control_runtime_identity.py", line 17>)
+             78 LOAD_CONST              10 ('ControlRuntimeIdentity')
+             80 MAKE_FUNCTION            0
+             82 LOAD_CONST              10 ('ControlRuntimeIdentity')
+             84 CALL_FUNCTION            2
+             86 CALL_FUNCTION            1
+             88 STORE_NAME              12 (ControlRuntimeIdentity)
+
+ 62          90 LOAD_CONST              10 ('ControlRuntimeIdentity')
+             92 BUILD_LIST               1
+             94 STORE_NAME              13 (__all__)
+             96 LOAD_CONST               4 (None)
+             98 RETURN_VALUE
+
+Disassembly of <code object ControlRuntimeIdentity at 0x10924c450, file "WeRobotCore/application/control_runtime_identity.py", line 17>:
+ 17           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('ControlRuntimeIdentity')
+              6 STORE_NAME               2 (__qualname__)
+              8 SETUP_ANNOTATIONS
+
+ 19          10 LOAD_CONST               1 ('Facts that let YokoAgent bind loopback HTTP to its process owner.')
+             12 STORE_NAME               3 (__doc__)
+
+ 21          14 LOAD_CONST               2 ('str')
+             16 LOAD_NAME                4 (__annotations__)
+             18 LOAD_CONST               3 ('runtime_id')
+             20 STORE_SUBSCR
+
+ 22          22 LOAD_CONST               4 ('int')
+             24 LOAD_NAME                4 (__annotations__)
+             26 LOAD_CONST               5 ('process_id')
+             28 STORE_SUBSCR
+
+ 23          30 LOAD_CONST               2 ('str')
+             32 LOAD_NAME                4 (__annotations__)
+             34 LOAD_CONST               6 ('channel_id')
+             36 STORE_SUBSCR
+
+ 24          38 LOAD_CONST               7 ('bool')
+             40 LOAD_NAME                4 (__annotations__)
+             42 LOAD_CONST               8 ('backend_mode')
+             44 STORE_SUBSCR
+
+ 26          46 LOAD_CONST               9 ('None')
+             48 LOAD_CONST              10 (('return',))
+             50 BUILD_CONST_KEY_MAP      1
+             52 LOAD_CONST              11 (<code object __post_init__ at 0x10924c7c0, file "WeRobotCore/application/control_runtime_identity.py", line 26>)
+             54 LOAD_CONST              12 ('ControlRuntimeIdentity.__post_init__')
+             56 MAKE_FUNCTION            4 (annotations)
+             58 STORE_NAME               5 (__post_init__)
+
+ 50          60 LOAD_CONST              13 ('Dict[str, Any]')
+             62 LOAD_CONST              10 (('return',))
+             64 BUILD_CONST_KEY_MAP      1
+             66 LOAD_CONST              14 (<code object to_agent_dict at 0x10924c030, file "WeRobotCore/application/control_runtime_identity.py", line 50>)
+             68 LOAD_CONST              15 ('ControlRuntimeIdentity.to_agent_dict')
+             70 MAKE_FUNCTION            4 (annotations)
+             72 STORE_NAME               6 (to_agent_dict)
+             74 LOAD_CONST              16 (None)
+             76 RETURN_VALUE
+
+Disassembly of <code object __post_init__ at 0x10924c7c0, file "WeRobotCore/application/control_runtime_identity.py", line 26>:
+ 27           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                0 (self)
+              4 LOAD_ATTR                1 (runtime_id)
+              6 LOAD_GLOBAL              2 (str)
+              8 CALL_FUNCTION            2
+             10 POP_JUMP_IF_FALSE       24
+             12 LOAD_GLOBAL              3 (_RUNTIME_ID)
+             14 LOAD_METHOD              4 (fullmatch)
+
+ 28          16 LOAD_FAST                0 (self)
+             18 LOAD_ATTR                1 (runtime_id)
+
+ 27          20 CALL_METHOD              1
+             22 POP_JUMP_IF_TRUE        32
+
+ 30     >>   24 LOAD_GLOBAL              5 (ValueError)
+             26 LOAD_CONST               1 ('runtime_id must be a UUID')
+             28 CALL_FUNCTION            1
+             30 RAISE_VARARGS            1
+
+ 32     >>   32 LOAD_GLOBAL              0 (isinstance)
+             34 LOAD_FAST                0 (self)
+             36 LOAD_ATTR                6 (process_id)
+             38 LOAD_GLOBAL              7 (int)
+             40 CALL_FUNCTION            2
+
+ 31          42 POP_JUMP_IF_FALSE       66
+
+ 33          44 LOAD_GLOBAL              0 (isinstance)
+             46 LOAD_FAST                0 (self)
+             48 LOAD_ATTR                6 (process_id)
+             50 LOAD_GLOBAL              8 (bool)
+             52 CALL_FUNCTION            2
+
+ 31          54 POP_JUMP_IF_TRUE        66
+
+ 34          56 LOAD_FAST                0 (self)
+             58 LOAD_ATTR                6 (process_id)
+             60 LOAD_CONST               2 (0)
+             62 COMPARE_OP               1 (<=)
+
+ 31          64 POP_JUMP_IF_FALSE       74
+
+ 36     >>   66 LOAD_GLOBAL              5 (ValueError)
+             68 LOAD_CONST               3 ('process_id must be a positive integer')
+             70 CALL_FUNCTION            1
+             72 RAISE_VARARGS            1
+
+ 38     >>   74 LOAD_GLOBAL              0 (isinstance)
+             76 LOAD_FAST                0 (self)
+             78 LOAD_ATTR                9 (channel_id)
+             80 LOAD_GLOBAL              2 (str)
+             82 CALL_FUNCTION            2
+
+ 37          84 POP_JUMP_IF_FALSE      126
+
+ 39          86 LOAD_FAST                0 (self)
+             88 LOAD_ATTR                9 (channel_id)
+
+ 37          90 POP_JUMP_IF_FALSE      126
+
+ 40          92 LOAD_GLOBAL             10 (len)
+             94 LOAD_FAST                0 (self)
+             96 LOAD_ATTR                9 (channel_id)
+             98 CALL_FUNCTION            1
+            100 LOAD_CONST               4 (128)
+            102 COMPARE_OP               4 (>)
+
+ 37         104 POP_JUMP_IF_TRUE       126
+
+ 41         106 LOAD_GLOBAL             11 (any)
+            108 LOAD_CONST               5 (<code object <genexpr> at 0x10924ca80, file "WeRobotCore/application/control_runtime_identity.py", line 41>)
+            110 LOAD_CONST               6 ('ControlRuntimeIdentity.__post_init__.<locals>.<genexpr>')
+            112 MAKE_FUNCTION            0
+
+ 43         114 LOAD_FAST                0 (self)
+            116 LOAD_ATTR                9 (channel_id)
+
+ 41         118 GET_ITER
+            120 CALL_FUNCTION            1
+            122 CALL_FUNCTION            1
+
+ 37         124 POP_JUMP_IF_FALSE      134
+
+ 46     >>  126 LOAD_GLOBAL              5 (ValueError)
+            128 LOAD_CONST               7 ('channel_id is invalid')
+            130 CALL_FUNCTION            1
+            132 RAISE_VARARGS            1
+
+ 47     >>  134 LOAD_FAST                0 (self)
+            136 LOAD_ATTR               12 (backend_mode)
+            138 LOAD_CONST               8 (True)
+            140 IS_OP                    1
+            142 POP_JUMP_IF_FALSE      152
+
+ 48         144 LOAD_GLOBAL              5 (ValueError)
+            146 LOAD_CONST               9 ('runtime identity is reserved for backend mode')
+            148 CALL_FUNCTION            1
+            150 RAISE_VARARGS            1
+        >>  152 LOAD_CONST               0 (None)
+            154 RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x10924ca80, file "WeRobotCore/application/control_runtime_identity.py", line 41>:
+ 41           0 LOAD_FAST                0 (.0)
+        >>    2 FOR_ITER                30 (to 34)
+
+ 43           4 STORE_FAST               1 (character)
+
+ 42           6 LOAD_GLOBAL              0 (ord)
+              8 LOAD_FAST                1 (character)
+             10 CALL_FUNCTION            1
+             12 LOAD_CONST               0 (32)
+             14 COMPARE_OP               0 (<)
+             16 JUMP_IF_TRUE_OR_POP     28
+             18 LOAD_GLOBAL              0 (ord)
+             20 LOAD_FAST                1 (character)
+             22 CALL_FUNCTION            1
+             24 LOAD_CONST               1 (127)
+             26 COMPARE_OP               2 (==)
+        >>   28 YIELD_VALUE
+             30 POP_TOP
+             32 JUMP_ABSOLUTE            2
+        >>   34 LOAD_CONST               2 (None)
+             36 RETURN_VALUE
+
+Disassembly of <code object to_agent_dict at 0x10924c030, file "WeRobotCore/application/control_runtime_identity.py", line 50>:
+ 54           0 LOAD_CONST               1 (1)
+
+ 55           2 LOAD_FAST                0 (self)
+              4 LOAD_ATTR                0 (runtime_id)
+
+ 56           6 LOAD_FAST                0 (self)
+              8 LOAD_ATTR                1 (process_id)
+
+ 57          10 LOAD_FAST                0 (self)
+             12 LOAD_ATTR                2 (channel_id)
+
+ 58          14 LOAD_CONST               2 (True)
+
+ 53          16 LOAD_CONST               3 (('schemaVersion', 'runtimeId', 'pid', 'channelId', 'backendMode'))
+             18 BUILD_CONST_KEY_MAP      5
+             20 RETURN_VALUE

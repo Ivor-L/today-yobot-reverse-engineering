@@ -1,0 +1,240 @@
+  1           0 LOAD_CONST               0 ('Control-plane account inventory over shared monitor runtime facts.')
+              2 STORE_NAME               0 (__doc__)
+
+  3           4 LOAD_CONST               1 (0)
+              6 LOAD_CONST               2 (('AutoReplyAccount',))
+              8 IMPORT_NAME              1 (WeRobotCore.application.auto_reply)
+             10 IMPORT_FROM              2 (AutoReplyAccount)
+             12 STORE_NAME               2 (AutoReplyAccount)
+             14 POP_TOP
+
+  4          16 LOAD_CONST               1 (0)
+             18 LOAD_CONST               3 (('MonitorAccount', 'MonitorRuntimeSource'))
+             20 IMPORT_NAME              3 (WeRobotCore.application.monitoring)
+             22 IMPORT_FROM              4 (MonitorAccount)
+             24 STORE_NAME               4 (MonitorAccount)
+             26 IMPORT_FROM              5 (MonitorRuntimeSource)
+             28 STORE_NAME               5 (MonitorRuntimeSource)
+             30 POP_TOP
+
+  7          32 LOAD_BUILD_CLASS
+             34 LOAD_CONST               4 (<code object MonitorRuntimeAutoReplyAccountInventory at 0x1073b9df0, file "WeRobotCore/adapters/control/runtime.py", line 7>)
+             36 LOAD_CONST               5 ('MonitorRuntimeAutoReplyAccountInventory')
+             38 MAKE_FUNCTION            0
+             40 LOAD_CONST               5 ('MonitorRuntimeAutoReplyAccountInventory')
+             42 CALL_FUNCTION            2
+             44 STORE_NAME               6 (MonitorRuntimeAutoReplyAccountInventory)
+
+ 47          46 LOAD_CONST               5 ('MonitorRuntimeAutoReplyAccountInventory')
+             48 BUILD_LIST               1
+             50 STORE_NAME               7 (__all__)
+             52 LOAD_CONST               6 (None)
+             54 RETURN_VALUE
+
+Disassembly of <code object MonitorRuntimeAutoReplyAccountInventory at 0x1073b9df0, file "WeRobotCore/adapters/control/runtime.py", line 7>:
+  7           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('MonitorRuntimeAutoReplyAccountInventory')
+              6 STORE_NAME               2 (__qualname__)
+
+  8           8 LOAD_CONST               1 ('Map one Driver/runtime account snapshot into control-plane identities.\n\n    The source already owns platform health checks.  This adapter does not\n    discover instances, attach accounts, inspect native UI or mutate monitor\n    state while a user asks to start automatic replies.\n    ')
+             10 STORE_NAME               3 (__doc__)
+
+ 15          12 LOAD_NAME                4 (MonitorRuntimeSource)
+             14 LOAD_CONST               2 (None)
+             16 LOAD_CONST               3 (('source', 'return'))
+             18 BUILD_CONST_KEY_MAP      2
+             20 LOAD_CONST               4 (<code object __init__ at 0x1072e0ea0, file "WeRobotCore/adapters/control/runtime.py", line 15>)
+             22 LOAD_CONST               5 ('MonitorRuntimeAutoReplyAccountInventory.__init__')
+             24 MAKE_FUNCTION            4 (annotations)
+             26 STORE_NAME               5 (__init__)
+
+ 20          28 LOAD_CONST               6 (<code object list_valid_accounts at 0x1073b9c90, file "WeRobotCore/adapters/control/runtime.py", line 20>)
+             30 LOAD_CONST               7 ('MonitorRuntimeAutoReplyAccountInventory.list_valid_accounts')
+             32 MAKE_FUNCTION            0
+             34 STORE_NAME               6 (list_valid_accounts)
+             36 LOAD_CONST               2 (None)
+             38 RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x1072e0ea0, file "WeRobotCore/adapters/control/runtime.py", line 15>:
+ 16           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                1 (source)
+              4 LOAD_GLOBAL              1 (MonitorRuntimeSource)
+              6 CALL_FUNCTION            2
+              8 POP_JUMP_IF_TRUE        18
+
+ 17          10 LOAD_GLOBAL              2 (TypeError)
+             12 LOAD_CONST               1 ('source must implement MonitorRuntimeSource')
+             14 CALL_FUNCTION            1
+             16 RAISE_VARARGS            1
+
+ 18     >>   18 LOAD_FAST                1 (source)
+             20 LOAD_FAST                0 (self)
+             22 STORE_ATTR               3 (_source)
+             24 LOAD_CONST               0 (None)
+             26 RETURN_VALUE
+
+Disassembly of <code object list_valid_accounts at 0x1073b9c90, file "WeRobotCore/adapters/control/runtime.py", line 20>:
+ 21           0 LOAD_FAST                0 (self)
+              2 LOAD_ATTR                0 (_source)
+              4 LOAD_METHOD              1 (list_ready_accounts)
+              6 CALL_METHOD              0
+              8 GET_AWAITABLE
+             10 LOAD_CONST               0 (None)
+             12 YIELD_FROM
+             14 STORE_FAST               1 (accounts)
+
+ 22          16 LOAD_GLOBAL              2 (isinstance)
+             18 LOAD_FAST                1 (accounts)
+             20 LOAD_GLOBAL              3 (str)
+             22 LOAD_GLOBAL              4 (bytes)
+             24 BUILD_TUPLE              2
+             26 CALL_FUNCTION            2
+             28 POP_JUMP_IF_FALSE       38
+
+ 23          30 LOAD_GLOBAL              5 (TypeError)
+             32 LOAD_CONST               1 ('monitor runtime accounts must be a sequence')
+             34 CALL_FUNCTION            1
+             36 RAISE_VARARGS            1
+
+ 24     >>   38 SETUP_FINALLY           12 (to 52)
+
+ 25          40 LOAD_GLOBAL              6 (tuple)
+             42 LOAD_FAST                1 (accounts)
+             44 CALL_FUNCTION            1
+             46 STORE_FAST               2 (values)
+             48 POP_BLOCK
+             50 JUMP_FORWARD            46 (to 98)
+
+ 26     >>   52 DUP_TOP
+             54 LOAD_GLOBAL              5 (TypeError)
+             56 JUMP_IF_NOT_EXC_MATCH    96
+             58 POP_TOP
+             60 STORE_FAST               3 (exc)
+             62 POP_TOP
+             64 SETUP_FINALLY           22 (to 88)
+
+ 27          66 LOAD_GLOBAL              5 (TypeError)
+
+ 28          68 LOAD_CONST               1 ('monitor runtime accounts must be a sequence')
+
+ 27          70 CALL_FUNCTION            1
+
+ 29          72 LOAD_FAST                3 (exc)
+
+ 27          74 RAISE_VARARGS            2
+             76 POP_BLOCK
+             78 POP_EXCEPT
+             80 LOAD_CONST               0 (None)
+             82 STORE_FAST               3 (exc)
+             84 DELETE_FAST              3 (exc)
+             86 JUMP_FORWARD            10 (to 98)
+        >>   88 LOAD_CONST               0 (None)
+             90 STORE_FAST               3 (exc)
+             92 DELETE_FAST              3 (exc)
+             94 RERAISE
+        >>   96 RERAISE
+
+ 30     >>   98 LOAD_GLOBAL              7 (any)
+            100 LOAD_CONST               2 (<code object <genexpr> at 0x1073b9f50, file "WeRobotCore/adapters/control/runtime.py", line 30>)
+            102 LOAD_CONST               3 ('MonitorRuntimeAutoReplyAccountInventory.list_valid_accounts.<locals>.<genexpr>')
+            104 MAKE_FUNCTION            0
+            106 LOAD_FAST                2 (values)
+            108 GET_ITER
+            110 CALL_FUNCTION            1
+            112 CALL_FUNCTION            1
+            114 POP_JUMP_IF_FALSE      124
+
+ 31         116 LOAD_GLOBAL              5 (TypeError)
+
+ 32         118 LOAD_CONST               4 ('monitor runtime accounts must contain MonitorAccount values')
+
+ 31         120 CALL_FUNCTION            1
+            122 RAISE_VARARGS            1
+
+ 35     >>  124 LOAD_GLOBAL              6 (tuple)
+            126 LOAD_CONST               5 (<code object <genexpr> at 0x1073b9d40, file "WeRobotCore/adapters/control/runtime.py", line 35>)
+            128 LOAD_CONST               3 ('MonitorRuntimeAutoReplyAccountInventory.list_valid_accounts.<locals>.<genexpr>')
+            130 MAKE_FUNCTION            0
+            132 LOAD_FAST                2 (values)
+            134 GET_ITER
+            136 CALL_FUNCTION            1
+            138 CALL_FUNCTION            1
+            140 STORE_FAST               4 (account_ids)
+
+ 36         142 LOAD_GLOBAL              8 (len)
+            144 LOAD_FAST                4 (account_ids)
+            146 CALL_FUNCTION            1
+            148 LOAD_GLOBAL              8 (len)
+            150 LOAD_GLOBAL              9 (set)
+            152 LOAD_FAST                4 (account_ids)
+            154 CALL_FUNCTION            1
+            156 CALL_FUNCTION            1
+            158 COMPARE_OP               3 (!=)
+            160 POP_JUMP_IF_FALSE      170
+
+ 37         162 LOAD_GLOBAL             10 (ValueError)
+            164 LOAD_CONST               6 ('monitor runtime account ids must be unique')
+            166 CALL_FUNCTION            1
+            168 RAISE_VARARGS            1
+
+ 38     >>  170 LOAD_GLOBAL              6 (tuple)
+            172 LOAD_CONST               7 (<code object <genexpr> at 0x1073b9be0, file "WeRobotCore/adapters/control/runtime.py", line 38>)
+            174 LOAD_CONST               3 ('MonitorRuntimeAutoReplyAccountInventory.list_valid_accounts.<locals>.<genexpr>')
+            176 MAKE_FUNCTION            0
+
+ 43         178 LOAD_FAST                2 (values)
+
+ 38         180 GET_ITER
+            182 CALL_FUNCTION            1
+            184 CALL_FUNCTION            1
+            186 RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x1073b9f50, file "WeRobotCore/adapters/control/runtime.py", line 30>:
+ 30           0 LOAD_FAST                0 (.0)
+        >>    2 FOR_ITER                18 (to 22)
+              4 STORE_FAST               1 (account)
+              6 LOAD_GLOBAL              0 (isinstance)
+              8 LOAD_FAST                1 (account)
+             10 LOAD_GLOBAL              1 (MonitorAccount)
+             12 CALL_FUNCTION            2
+             14 UNARY_NOT
+             16 YIELD_VALUE
+             18 POP_TOP
+             20 JUMP_ABSOLUTE            2
+        >>   22 LOAD_CONST               0 (None)
+             24 RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x1073b9d40, file "WeRobotCore/adapters/control/runtime.py", line 35>:
+ 35           0 LOAD_FAST                0 (.0)
+        >>    2 FOR_ITER                12 (to 16)
+              4 STORE_FAST               1 (account)
+              6 LOAD_FAST                1 (account)
+              8 LOAD_ATTR                0 (account_id)
+             10 YIELD_VALUE
+             12 POP_TOP
+             14 JUMP_ABSOLUTE            2
+        >>   16 LOAD_CONST               0 (None)
+             18 RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x1073b9be0, file "WeRobotCore/adapters/control/runtime.py", line 38>:
+ 38           0 LOAD_FAST                0 (.0)
+        >>    2 FOR_ITER                22 (to 26)
+
+ 43           4 STORE_FAST               1 (account)
+
+ 39           6 LOAD_GLOBAL              0 (AutoReplyAccount)
+
+ 40           8 LOAD_FAST                1 (account)
+             10 LOAD_ATTR                1 (account_id)
+
+ 41          12 LOAD_FAST                1 (account)
+             14 LOAD_ATTR                2 (nickname)
+
+ 39          16 LOAD_CONST               0 (('account_id', 'nickname'))
+             18 CALL_FUNCTION_KW         2
+             20 YIELD_VALUE
+             22 POP_TOP
+             24 JUMP_ABSOLUTE            2
+        >>   26 LOAD_CONST               1 (None)
+             28 RETURN_VALUE

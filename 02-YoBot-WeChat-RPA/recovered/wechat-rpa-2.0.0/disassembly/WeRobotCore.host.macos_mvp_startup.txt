@@ -1,0 +1,817 @@
+  1           0 LOAD_CONST               0 ('Classic Startup compatibility over the shared Startup service.\n\nThe shared Vue Startup page keeps the mature Windows HTTP contract.  This\nadapter projects only its single-instance launch and initialization calls onto\nthe platform-neutral Startup workflow already owned by the macOS Control.  It\ncontains no AX/native automation and is never installed by Windows.\n')
+              2 STORE_NAME               0 (__doc__)
+
+  9           4 LOAD_CONST               1 (0)
+              6 LOAD_CONST               2 (('annotations',))
+              8 IMPORT_NAME              1 (__future__)
+             10 IMPORT_FROM              2 (annotations)
+             12 STORE_NAME               2 (annotations)
+             14 POP_TOP
+
+ 11          16 LOAD_CONST               1 (0)
+             18 LOAD_CONST               3 (None)
+             20 IMPORT_NAME              3 (hmac)
+             22 STORE_NAME               3 (hmac)
+
+ 12          24 LOAD_CONST               1 (0)
+             26 LOAD_CONST               4 (('Any', 'Dict', 'Optional'))
+             28 IMPORT_NAME              4 (typing)
+             30 IMPORT_FROM              5 (Any)
+             32 STORE_NAME               5 (Any)
+             34 IMPORT_FROM              6 (Dict)
+             36 STORE_NAME               6 (Dict)
+             38 IMPORT_FROM              7 (Optional)
+             40 STORE_NAME               7 (Optional)
+             42 POP_TOP
+
+ 14          44 LOAD_CONST               1 (0)
+             46 LOAD_CONST               5 (('APIRouter', 'HTTPException', 'Security', 'status'))
+             48 IMPORT_NAME              8 (fastapi)
+             50 IMPORT_FROM              9 (APIRouter)
+             52 STORE_NAME               9 (APIRouter)
+             54 IMPORT_FROM             10 (HTTPException)
+             56 STORE_NAME              10 (HTTPException)
+             58 IMPORT_FROM             11 (Security)
+             60 STORE_NAME              11 (Security)
+             62 IMPORT_FROM             12 (status)
+             64 STORE_NAME              12 (status)
+             66 POP_TOP
+
+ 15          68 LOAD_CONST               1 (0)
+             70 LOAD_CONST               6 (('APIKeyHeader',))
+             72 IMPORT_NAME             13 (fastapi.security)
+             74 IMPORT_FROM             14 (APIKeyHeader)
+             76 STORE_NAME              14 (APIKeyHeader)
+             78 POP_TOP
+
+ 16          80 LOAD_CONST               1 (0)
+             82 LOAD_CONST               7 (('BaseModel', 'Field'))
+             84 IMPORT_NAME             15 (pydantic)
+             86 IMPORT_FROM             16 (BaseModel)
+             88 STORE_NAME              16 (BaseModel)
+             90 IMPORT_FROM             17 (Field)
+             92 STORE_NAME              17 (Field)
+             94 POP_TOP
+
+ 18          96 LOAD_CONST               1 (0)
+             98 LOAD_CONST               8 (('StartupAction', 'StartupCommand', 'StartupExecutionResult', 'StartupWorkflowService'))
+            100 IMPORT_NAME             18 (WeRobotCore.application.startup)
+            102 IMPORT_FROM             19 (StartupAction)
+            104 STORE_NAME              19 (StartupAction)
+            106 IMPORT_FROM             20 (StartupCommand)
+            108 STORE_NAME              20 (StartupCommand)
+            110 IMPORT_FROM             21 (StartupExecutionResult)
+            112 STORE_NAME              21 (StartupExecutionResult)
+            114 IMPORT_FROM             22 (StartupWorkflowService)
+            116 STORE_NAME              22 (StartupWorkflowService)
+            118 POP_TOP
+
+ 24         120 LOAD_CONST               1 (0)
+            122 LOAD_CONST               9 (('MACOS_MVP_CAPABILITY_NAMES',))
+            124 IMPORT_NAME             23 (WeRobotCore.bootstrap.macos_capabilities)
+            126 IMPORT_FROM             24 (MACOS_MVP_CAPABILITY_NAMES)
+            128 STORE_NAME              24 (MACOS_MVP_CAPABILITY_NAMES)
+            130 POP_TOP
+
+ 26         132 LOAD_CONST              10 (1)
+            134 LOAD_CONST              11 (('MacOSControlProcessRuntime',))
+            136 IMPORT_NAME             25 (macos_process)
+            138 IMPORT_FROM             26 (MacOSControlProcessRuntime)
+            140 STORE_NAME              26 (MacOSControlProcessRuntime)
+            142 POP_TOP
+
+ 29         144 LOAD_CONST              12 ('/api/init/multi')
+            146 STORE_NAME              27 (MACOS_MVP_INITIALIZE_PATH)
+
+ 30         148 LOAD_CONST              13 ('/api/system/wechat/launch')
+            150 STORE_NAME              28 (MACOS_MVP_LAUNCH_PATH)
+
+ 31         152 LOAD_CONST              14 ('yokowebot_macos_mvp_startup_installed')
+            154 STORE_NAME              29 (_INSTALLATION_STATE_KEY)
+
+ 34         156 LOAD_BUILD_CLASS
+            158 LOAD_CONST              15 (<code object MacOSMvpLaunchRequest at 0x1073aaa80, file "WeRobotCore/host/macos_mvp_startup.py", line 34>)
+            160 LOAD_CONST              16 ('MacOSMvpLaunchRequest')
+            162 MAKE_FUNCTION            0
+            164 LOAD_CONST              16 ('MacOSMvpLaunchRequest')
+            166 LOAD_NAME               16 (BaseModel)
+            168 CALL_FUNCTION            3
+            170 STORE_NAME              30 (MacOSMvpLaunchRequest)
+
+ 40         172 LOAD_CONST              17 ('StartupExecutionResult')
+            174 LOAD_CONST              18 ('Optional[Dict[str, Any]]')
+            176 LOAD_CONST              19 (('result', 'return'))
+            178 BUILD_CONST_KEY_MAP      2
+            180 LOAD_CONST              20 (<code object _guidance at 0x1073aa870, file "WeRobotCore/host/macos_mvp_startup.py", line 40>)
+            182 LOAD_CONST              21 ('_guidance')
+            184 MAKE_FUNCTION            4 (annotations)
+            186 STORE_NAME              31 (_guidance)
+
+ 54         188 LOAD_CONST              17 ('StartupExecutionResult')
+            190 LOAD_CONST              22 ('Dict[str, Any]')
+            192 LOAD_CONST              19 (('result', 'return'))
+            194 BUILD_CONST_KEY_MAP      2
+            196 LOAD_CONST              23 (<code object _initialization_payload at 0x1073aab30, file "WeRobotCore/host/macos_mvp_startup.py", line 54>)
+            198 LOAD_CONST              24 ('_initialization_payload')
+            200 MAKE_FUNCTION            4 (annotations)
+            202 STORE_NAME              32 (_initialization_payload)
+
+ 98         204 LOAD_CONST              25 ('StartupWorkflowService')
+            206 LOAD_CONST              26 ('str')
+            208 LOAD_CONST              27 ('APIRouter')
+            210 LOAD_CONST              28 (('service', 'api_key', 'return'))
+            212 BUILD_CONST_KEY_MAP      3
+            214 LOAD_CONST              29 (<code object create_macos_mvp_startup_router at 0x1073aaf50, file "WeRobotCore/host/macos_mvp_startup.py", line 98>)
+            216 LOAD_CONST              30 ('create_macos_mvp_startup_router')
+            218 MAKE_FUNCTION            4 (annotations)
+            220 STORE_NAME              33 (create_macos_mvp_startup_router)
+
+166         222 LOAD_CONST              31 ('MacOSControlProcessRuntime')
+            224 LOAD_CONST              32 ('None')
+            226 LOAD_CONST              33 (('runtime', 'return'))
+            228 BUILD_CONST_KEY_MAP      2
+            230 LOAD_CONST              34 (<code object install_macos_mvp_startup_routes at 0x1073b95b0, file "WeRobotCore/host/macos_mvp_startup.py", line 166>)
+            232 LOAD_CONST              35 ('install_macos_mvp_startup_routes')
+            234 MAKE_FUNCTION            4 (annotations)
+            236 STORE_NAME              34 (install_macos_mvp_startup_routes)
+
+209         238 BUILD_LIST               0
+            240 LOAD_CONST              36 (('MACOS_MVP_INITIALIZE_PATH', 'MACOS_MVP_LAUNCH_PATH', 'MacOSMvpLaunchRequest', 'create_macos_mvp_startup_router', 'install_macos_mvp_startup_routes'))
+            242 LIST_EXTEND              1
+            244 STORE_NAME              35 (__all__)
+            246 LOAD_CONST               3 (None)
+            248 RETURN_VALUE
+
+Disassembly of <code object MacOSMvpLaunchRequest at 0x1073aaa80, file "WeRobotCore/host/macos_mvp_startup.py", line 34>:
+ 34           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('MacOSMvpLaunchRequest')
+              6 STORE_NAME               2 (__qualname__)
+              8 SETUP_ANNOTATIONS
+
+ 35          10 LOAD_NAME                3 (Field)
+             12 LOAD_CONST               1 (1)
+             14 LOAD_CONST               1 (1)
+             16 LOAD_CONST               2 (10)
+             18 LOAD_CONST               3 (('default', 'ge', 'le'))
+             20 CALL_FUNCTION_KW         3
+             22 STORE_NAME               4 (count)
+             24 LOAD_CONST               4 ('int')
+             26 LOAD_NAME                5 (__annotations__)
+             28 LOAD_CONST               5 ('count')
+             30 STORE_SUBSCR
+
+ 36          32 LOAD_CONST               6 (False)
+             34 STORE_NAME               6 (close_existing)
+             36 LOAD_CONST               7 ('bool')
+             38 LOAD_NAME                5 (__annotations__)
+             40 LOAD_CONST               8 ('close_existing')
+             42 STORE_SUBSCR
+
+ 37          44 LOAD_CONST               6 (False)
+             46 STORE_NAME               7 (enable_narrator)
+             48 LOAD_CONST               7 ('bool')
+             50 LOAD_NAME                5 (__annotations__)
+             52 LOAD_CONST               9 ('enable_narrator')
+             54 STORE_SUBSCR
+             56 LOAD_CONST              10 (None)
+             58 RETURN_VALUE
+
+Disassembly of <code object _guidance at 0x1073aa870, file "WeRobotCore/host/macos_mvp_startup.py", line 40>:
+ 41           0 LOAD_FAST                0 (result)
+              2 LOAD_ATTR                0 (snapshot)
+              4 STORE_FAST               1 (snapshot)
+
+ 42           6 LOAD_FAST                1 (snapshot)
+              8 LOAD_CONST               0 (None)
+             10 IS_OP                    0
+             12 POP_JUMP_IF_TRUE        24
+             14 LOAD_FAST                1 (snapshot)
+             16 LOAD_ATTR                1 (guidance)
+             18 LOAD_CONST               0 (None)
+             20 IS_OP                    0
+             22 POP_JUMP_IF_FALSE       28
+
+ 43     >>   24 LOAD_CONST               0 (None)
+             26 RETURN_VALUE
+
+ 44     >>   28 LOAD_FAST                1 (snapshot)
+             30 LOAD_ATTR                1 (guidance)
+             32 STORE_FAST               2 (guidance)
+
+ 46          34 LOAD_FAST                2 (guidance)
+             36 LOAD_ATTR                2 (title)
+
+ 47          38 LOAD_FAST                2 (guidance)
+             40 LOAD_ATTR                3 (reason)
+
+ 48          42 LOAD_GLOBAL              4 (list)
+             44 LOAD_FAST                2 (guidance)
+             46 LOAD_ATTR                5 (steps)
+             48 CALL_FUNCTION            1
+
+ 49          50 LOAD_FAST                2 (guidance)
+             52 LOAD_ATTR                6 (action_url)
+
+ 50          54 LOAD_FAST                2 (guidance)
+             56 LOAD_ATTR                7 (action_label)
+
+ 45          58 LOAD_CONST               1 (('title', 'reason', 'fix_steps', 'download_url', 'download_label'))
+             60 BUILD_CONST_KEY_MAP      5
+             62 RETURN_VALUE
+
+Disassembly of <code object _initialization_payload at 0x1073aab30, file "WeRobotCore/host/macos_mvp_startup.py", line 54>:
+ 55           0 LOAD_FAST                0 (result)
+              2 LOAD_ATTR                0 (snapshot)
+              4 STORE_FAST               1 (snapshot)
+
+ 56           6 LOAD_FAST                0 (result)
+              8 LOAD_ATTR                1 (success)
+             10 POP_JUMP_IF_FALSE       26
+             12 LOAD_FAST                1 (snapshot)
+             14 POP_JUMP_IF_FALSE       26
+             16 LOAD_GLOBAL              2 (tuple)
+             18 LOAD_FAST                1 (snapshot)
+             20 LOAD_ATTR                3 (instances)
+             22 CALL_FUNCTION            1
+             24 JUMP_FORWARD             2 (to 28)
+        >>   26 LOAD_CONST               1 (())
+        >>   28 STORE_DEREF              0 (ready)
+
+ 57          30 LOAD_CLOSURE             0 (ready)
+             32 BUILD_TUPLE              1
+             34 LOAD_CONST               2 (<code object <listcomp> at 0x1073aa5b0, file "WeRobotCore/host/macos_mvp_startup.py", line 57>)
+             36 LOAD_CONST               3 ('_initialization_payload.<locals>.<listcomp>')
+             38 MAKE_FUNCTION            8 (closure)
+
+ 75          40 LOAD_DEREF               0 (ready)
+
+ 57          42 GET_ITER
+             44 CALL_FUNCTION            1
+             46 STORE_FAST               2 (instances)
+
+ 78          48 LOAD_FAST                0 (result)
+             50 LOAD_ATTR                1 (success)
+
+ 79          52 LOAD_FAST                0 (result)
+             54 LOAD_ATTR                4 (message)
+
+ 80          56 LOAD_FAST                2 (instances)
+
+ 82          58 LOAD_FAST                1 (snapshot)
+             60 POP_JUMP_IF_FALSE       72
+             62 LOAD_GLOBAL              5 (len)
+             64 LOAD_FAST                1 (snapshot)
+             66 LOAD_ATTR                3 (instances)
+             68 CALL_FUNCTION            1
+             70 JUMP_FORWARD             2 (to 74)
+        >>   72 LOAD_CONST               4 (0)
+
+ 83     >>   74 LOAD_GLOBAL              5 (len)
+             76 LOAD_FAST                2 (instances)
+             78 CALL_FUNCTION            1
+
+ 85          80 LOAD_FAST                1 (snapshot)
+             82 POP_JUMP_IF_FALSE      102
+             84 LOAD_GLOBAL              5 (len)
+             86 LOAD_FAST                1 (snapshot)
+             88 LOAD_ATTR                3 (instances)
+             90 CALL_FUNCTION            1
+             92 LOAD_GLOBAL              5 (len)
+             94 LOAD_FAST                2 (instances)
+             96 CALL_FUNCTION            1
+             98 BINARY_SUBTRACT
+            100 JUMP_FORWARD             2 (to 104)
+        >>  102 LOAD_CONST               4 (0)
+
+ 81     >>  104 LOAD_CONST               5 (('total', 'success', 'failed'))
+            106 BUILD_CONST_KEY_MAP      3
+
+ 77         108 LOAD_CONST               6 (('success', 'message', 'instances', 'init_summary'))
+            110 BUILD_CONST_KEY_MAP      4
+            112 STORE_FAST               3 (payload)
+
+ 89         114 LOAD_FAST                0 (result)
+            116 LOAD_ATTR                1 (success)
+            118 POP_JUMP_IF_TRUE       148
+
+ 90         120 LOAD_FAST                0 (result)
+            122 LOAD_ATTR                6 (reason_code)
+            124 JUMP_IF_TRUE_OR_POP    132
+            126 LOAD_FAST                0 (result)
+            128 LOAD_ATTR                7 (code)
+            130 LOAD_ATTR                8 (value)
+        >>  132 LOAD_FAST                3 (payload)
+            134 LOAD_CONST               7 ('code')
+            136 STORE_SUBSCR
+
+ 91         138 LOAD_FAST                0 (result)
+            140 LOAD_ATTR                4 (message)
+            142 LOAD_FAST                3 (payload)
+            144 LOAD_CONST               8 ('error_detail')
+            146 STORE_SUBSCR
+
+ 92     >>  148 LOAD_GLOBAL              9 (_guidance)
+            150 LOAD_FAST                0 (result)
+            152 CALL_FUNCTION            1
+            154 STORE_FAST               4 (guidance)
+
+ 93         156 LOAD_FAST                4 (guidance)
+            158 LOAD_CONST               0 (None)
+            160 IS_OP                    1
+            162 POP_JUMP_IF_FALSE      172
+
+ 94         164 LOAD_FAST                4 (guidance)
+            166 LOAD_FAST                3 (payload)
+            168 LOAD_CONST               9 ('guidance')
+            170 STORE_SUBSCR
+
+ 95     >>  172 LOAD_FAST                3 (payload)
+            174 RETURN_VALUE
+
+Disassembly of <code object <listcomp> at 0x1073aa5b0, file "WeRobotCore/host/macos_mvp_startup.py", line 57>:
+ 57           0 BUILD_LIST               0
+              2 LOAD_FAST                0 (.0)
+        >>    4 FOR_ITER                54 (to 60)
+
+ 75           6 STORE_FAST               1 (item)
+
+ 59           8 LOAD_FAST                1 (item)
+             10 LOAD_ATTR                0 (instance_id)
+
+ 62          12 LOAD_CONST               0 (0)
+
+ 63          14 LOAD_CONST               0 (0)
+
+ 64          16 LOAD_FAST                1 (item)
+             18 LOAD_ATTR                1 (nickname)
+
+ 65          20 LOAD_FAST                1 (item)
+             22 LOAD_ATTR                2 (account_id)
+
+ 67          24 LOAD_FAST                1 (item)
+             26 LOAD_ATTR                1 (nickname)
+
+ 68          28 LOAD_FAST                1 (item)
+             30 LOAD_ATTR                2 (account_id)
+
+ 66          32 LOAD_CONST               1 (('nickname', 'account_id'))
+             34 BUILD_CONST_KEY_MAP      2
+
+ 70          36 LOAD_GLOBAL              3 (len)
+             38 LOAD_DEREF               0 (ready)
+             40 CALL_FUNCTION            1
+             42 LOAD_CONST               2 (1)
+             44 COMPARE_OP               2 (==)
+
+ 71          46 LOAD_CONST               3 (True)
+
+ 72          48 LOAD_CONST               4 (False)
+
+ 73          50 LOAD_CONST               5 ('macos_ax_hot_attach')
+
+ 58          52 LOAD_CONST               6 (('instance_id', 'window_handle', 'api_port', 'nickname', 'account_id', 'account_info', 'is_active', 'is_connected', 'manually_exited', 'accessibility_method'))
+             54 BUILD_CONST_KEY_MAP     10
+             56 LIST_APPEND              2
+             58 JUMP_ABSOLUTE            4
+        >>   60 RETURN_VALUE
+
+Disassembly of <code object create_macos_mvp_startup_router at 0x1073aaf50, file "WeRobotCore/host/macos_mvp_startup.py", line 98>:
+105           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_DEREF               1 (service)
+              4 LOAD_GLOBAL              1 (StartupWorkflowService)
+              6 CALL_FUNCTION            2
+              8 POP_JUMP_IF_TRUE        18
+
+106          10 LOAD_GLOBAL              2 (TypeError)
+             12 LOAD_CONST               1 ('service must be a StartupWorkflowService')
+             14 CALL_FUNCTION            1
+             16 RAISE_VARARGS            1
+
+107     >>   18 LOAD_GLOBAL              0 (isinstance)
+             20 LOAD_DEREF               0 (api_key)
+             22 LOAD_GLOBAL              3 (str)
+             24 CALL_FUNCTION            2
+             26 POP_JUMP_IF_FALSE       36
+             28 LOAD_DEREF               0 (api_key)
+             30 LOAD_METHOD              4 (strip)
+             32 CALL_METHOD              0
+             34 POP_JUMP_IF_TRUE        44
+
+108     >>   36 LOAD_GLOBAL              5 (ValueError)
+             38 LOAD_CONST               2 ('api_key must be a non-empty string')
+             40 CALL_FUNCTION            1
+             42 RAISE_VARARGS            1
+
+110     >>   44 LOAD_GLOBAL              6 (APIKeyHeader)
+             46 LOAD_CONST               3 ('X-API-Key')
+             48 LOAD_CONST               4 (False)
+             50 LOAD_CONST               5 (('name', 'auto_error'))
+             52 CALL_FUNCTION_KW         2
+             54 STORE_FAST               2 (api_key_header)
+
+113          56 LOAD_GLOBAL              7 (Security)
+             58 LOAD_FAST                2 (api_key_header)
+             60 CALL_FUNCTION            1
+
+112          62 BUILD_TUPLE              1
+             64 LOAD_CONST               6 ('str')
+             66 LOAD_CONST               6 ('str')
+             68 LOAD_CONST               7 (('presented_key', 'return'))
+             70 BUILD_CONST_KEY_MAP      2
+             72 LOAD_CLOSURE             0 (api_key)
+             74 BUILD_TUPLE              1
+             76 LOAD_CONST               8 (<code object authenticate at 0x1073aa240, file "WeRobotCore/host/macos_mvp_startup.py", line 112>)
+             78 LOAD_CONST               9 ('create_macos_mvp_startup_router.<locals>.authenticate')
+             80 MAKE_FUNCTION           13 (defaults, annotations, closure)
+             82 STORE_FAST               3 (authenticate)
+
+122          84 LOAD_GLOBAL              8 (APIRouter)
+             86 CALL_FUNCTION            0
+             88 STORE_FAST               4 (router)
+
+124          90 LOAD_FAST                4 (router)
+             92 LOAD_ATTR                9 (post)
+             94 LOAD_GLOBAL             10 (MACOS_MVP_INITIALIZE_PATH)
+             96 LOAD_CONST              10 ('initialize_macos_mvp_wechat')
+             98 LOAD_CONST              11 (('name',))
+            100 CALL_FUNCTION_KW         2
+
+127         102 LOAD_GLOBAL              7 (Security)
+            104 LOAD_FAST                3 (authenticate)
+            106 CALL_FUNCTION            1
+
+125         108 BUILD_TUPLE              1
+            110 LOAD_CONST              12 ('Dict[str, Any]')
+            112 LOAD_CONST               6 ('str')
+            114 LOAD_CONST              12 ('Dict[str, Any]')
+            116 LOAD_CONST              13 (('_request', '_api_key', 'return'))
+            118 BUILD_CONST_KEY_MAP      3
+            120 LOAD_CLOSURE             1 (service)
+            122 BUILD_TUPLE              1
+            124 LOAD_CONST              14 (<code object initialize_macos_mvp_wechat at 0x1073aabe0, file "WeRobotCore/host/macos_mvp_startup.py", line 124>)
+            126 LOAD_CONST              15 ('create_macos_mvp_startup_router.<locals>.initialize_macos_mvp_wechat')
+            128 MAKE_FUNCTION           13 (defaults, annotations, closure)
+            130 CALL_FUNCTION            1
+            132 STORE_FAST               5 (initialize_macos_mvp_wechat)
+
+134         134 LOAD_FAST                4 (router)
+            136 LOAD_ATTR                9 (post)
+            138 LOAD_GLOBAL             11 (MACOS_MVP_LAUNCH_PATH)
+            140 LOAD_CONST              16 ('launch_macos_mvp_wechat')
+            142 LOAD_CONST              11 (('name',))
+            144 CALL_FUNCTION_KW         2
+
+137         146 LOAD_GLOBAL              7 (Security)
+            148 LOAD_FAST                3 (authenticate)
+            150 CALL_FUNCTION            1
+
+135         152 BUILD_TUPLE              1
+            154 LOAD_CONST              17 ('MacOSMvpLaunchRequest')
+            156 LOAD_CONST               6 ('str')
+            158 LOAD_CONST              12 ('Dict[str, Any]')
+            160 LOAD_CONST              18 (('request', '_api_key', 'return'))
+            162 BUILD_CONST_KEY_MAP      3
+            164 LOAD_CLOSURE             1 (service)
+            166 BUILD_TUPLE              1
+            168 LOAD_CONST              19 (<code object launch_macos_mvp_wechat at 0x1073aa190, file "WeRobotCore/host/macos_mvp_startup.py", line 134>)
+            170 LOAD_CONST              20 ('create_macos_mvp_startup_router.<locals>.launch_macos_mvp_wechat')
+            172 MAKE_FUNCTION           13 (defaults, annotations, closure)
+            174 CALL_FUNCTION            1
+            176 STORE_FAST               6 (launch_macos_mvp_wechat)
+
+163         178 LOAD_FAST                4 (router)
+            180 RETURN_VALUE
+
+Disassembly of <code object authenticate at 0x1073aa240, file "WeRobotCore/host/macos_mvp_startup.py", line 112>:
+115           0 LOAD_GLOBAL              0 (hmac)
+              2 LOAD_METHOD              1 (compare_digest)
+              4 LOAD_FAST                0 (presented_key)
+              6 JUMP_IF_TRUE_OR_POP     10
+              8 LOAD_CONST               1 ('')
+        >>   10 LOAD_DEREF               0 (api_key)
+             12 CALL_METHOD              2
+             14 POP_JUMP_IF_TRUE        30
+
+116          16 LOAD_GLOBAL              2 (HTTPException)
+
+117          18 LOAD_GLOBAL              3 (status)
+             20 LOAD_ATTR                4 (HTTP_403_FORBIDDEN)
+
+118          22 LOAD_CONST               2 ('invalid API key')
+
+116          24 LOAD_CONST               3 (('status_code', 'detail'))
+             26 CALL_FUNCTION_KW         2
+             28 RAISE_VARARGS            1
+
+120     >>   30 LOAD_FAST                0 (presented_key)
+             32 RETURN_VALUE
+
+Disassembly of <code object initialize_macos_mvp_wechat at 0x1073aabe0, file "WeRobotCore/host/macos_mvp_startup.py", line 124>:
+129           0 LOAD_DEREF               0 (service)
+              2 LOAD_METHOD              0 (execute)
+
+130           4 LOAD_GLOBAL              1 (StartupCommand)
+              6 LOAD_GLOBAL              2 (StartupAction)
+              8 LOAD_ATTR                3 (INITIALIZE)
+             10 LOAD_CONST               1 (('action',))
+             12 CALL_FUNCTION_KW         1
+
+129          14 CALL_METHOD              1
+             16 GET_AWAITABLE
+             18 LOAD_CONST               0 (None)
+             20 YIELD_FROM
+             22 STORE_FAST               2 (result)
+
+132          24 LOAD_GLOBAL              4 (_initialization_payload)
+             26 LOAD_FAST                2 (result)
+             28 CALL_FUNCTION            1
+             30 RETURN_VALUE
+
+Disassembly of <code object launch_macos_mvp_wechat at 0x1073aa190, file "WeRobotCore/host/macos_mvp_startup.py", line 134>:
+139           0 LOAD_FAST                0 (request)
+              2 LOAD_ATTR                0 (enable_narrator)
+              4 POP_JUMP_IF_FALSE       18
+
+141           6 LOAD_CONST               1 ('error')
+
+142           8 LOAD_CONST               2 ('MACOS_COMPATIBILITY_CONFIGURATION_UNAVAILABLE')
+
+143          10 LOAD_CONST               3 ('Mac 不使用 Windows 讲述人兼容配置')
+
+140          12 LOAD_CONST               4 (('status', 'code', 'message'))
+             14 BUILD_CONST_KEY_MAP      3
+             16 RETURN_VALUE
+
+145     >>   18 LOAD_DEREF               0 (service)
+             20 LOAD_METHOD              1 (execute)
+
+146          22 LOAD_GLOBAL              2 (StartupCommand)
+
+147          24 LOAD_GLOBAL              3 (StartupAction)
+             26 LOAD_ATTR                4 (LAUNCH)
+
+148          28 LOAD_FAST                0 (request)
+             30 LOAD_ATTR                5 (count)
+
+149          32 LOAD_FAST                0 (request)
+             34 LOAD_ATTR                6 (close_existing)
+
+146          36 LOAD_CONST               5 (('action', 'launch_count', 'close_existing'))
+             38 CALL_FUNCTION_KW         3
+
+145          40 CALL_METHOD              1
+             42 GET_AWAITABLE
+             44 LOAD_CONST               0 (None)
+             46 YIELD_FROM
+             48 STORE_FAST               2 (result)
+
+153          50 LOAD_FAST                2 (result)
+             52 LOAD_ATTR                7 (success)
+             54 POP_JUMP_IF_FALSE       60
+             56 LOAD_CONST               6 ('launched')
+             58 JUMP_FORWARD             2 (to 62)
+        >>   60 LOAD_CONST               1 ('error')
+
+154     >>   62 LOAD_FAST                2 (result)
+             64 LOAD_ATTR                7 (success)
+             66 POP_JUMP_IF_FALSE       72
+             68 LOAD_CONST               0 (None)
+             70 JUMP_FORWARD            12 (to 84)
+
+155     >>   72 LOAD_FAST                2 (result)
+             74 LOAD_ATTR                8 (reason_code)
+             76 JUMP_IF_TRUE_OR_POP     84
+             78 LOAD_FAST                2 (result)
+             80 LOAD_ATTR                9 (code)
+             82 LOAD_ATTR               10 (value)
+
+157     >>   84 LOAD_FAST                2 (result)
+             86 LOAD_ATTR                7 (success)
+             88 POP_JUMP_IF_FALSE       96
+             90 LOAD_FAST                0 (request)
+             92 LOAD_ATTR                5 (count)
+             94 JUMP_FORWARD             2 (to 98)
+        >>   96 LOAD_CONST               7 (0)
+
+158     >>   98 LOAD_CONST               7 (0)
+
+159         100 LOAD_CONST               8 (False)
+
+160         102 LOAD_FAST                2 (result)
+            104 LOAD_ATTR               11 (message)
+
+152         106 LOAD_CONST               9 (('status', 'code', 'launched_count', 'closed_count', 'enable_narrator', 'message'))
+            108 BUILD_CONST_KEY_MAP      6
+            110 RETURN_VALUE
+
+Disassembly of <code object install_macos_mvp_startup_routes at 0x1073b95b0, file "WeRobotCore/host/macos_mvp_startup.py", line 166>:
+171           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                0 (runtime)
+              4 LOAD_GLOBAL              1 (MacOSControlProcessRuntime)
+              6 CALL_FUNCTION            2
+              8 POP_JUMP_IF_TRUE        18
+
+172          10 LOAD_GLOBAL              2 (TypeError)
+             12 LOAD_CONST               1 ('runtime must be a MacOSControlProcessRuntime')
+             14 CALL_FUNCTION            1
+             16 RAISE_VARARGS            1
+
+173     >>   18 LOAD_FAST                0 (runtime)
+             20 LOAD_ATTR                3 (app)
+             22 STORE_FAST               1 (app)
+
+174          24 LOAD_GLOBAL              4 (getattr)
+             26 LOAD_FAST                1 (app)
+             28 LOAD_ATTR                5 (state)
+             30 LOAD_GLOBAL              6 (_INSTALLATION_STATE_KEY)
+             32 LOAD_CONST               2 (False)
+             34 CALL_FUNCTION            3
+             36 POP_JUMP_IF_FALSE       46
+
+175          38 LOAD_GLOBAL              7 (RuntimeError)
+             40 LOAD_CONST               3 ('the macOS MVP startup routes are already installed')
+             42 CALL_FUNCTION            1
+             44 RAISE_VARARGS            1
+
+176     >>   46 LOAD_FAST                0 (runtime)
+             48 LOAD_ATTR                8 (preparation)
+             50 LOAD_ATTR                9 (launch_plan)
+             52 LOAD_ATTR               10 (inputs)
+             54 STORE_FAST               2 (inputs)
+
+177          56 LOAD_FAST                0 (runtime)
+             58 LOAD_ATTR               11 (product_owner)
+             60 LOAD_ATTR               12 (capability_catalog)
+             62 LOAD_METHOD             13 (snapshot_capabilities)
+             64 CALL_METHOD              0
+             66 STORE_FAST               3 (states)
+
+178          68 LOAD_GLOBAL             14 (set)
+             70 LOAD_FAST                3 (states)
+             72 CALL_FUNCTION            1
+             74 LOAD_GLOBAL             14 (set)
+             76 LOAD_GLOBAL             15 (MACOS_MVP_CAPABILITY_NAMES)
+             78 CALL_FUNCTION            1
+             80 COMPARE_OP               3 (!=)
+             82 POP_JUMP_IF_TRUE       106
+             84 LOAD_GLOBAL             16 (all)
+             86 LOAD_CONST               4 (<code object <genexpr> at 0x1073aa450, file "WeRobotCore/host/macos_mvp_startup.py", line 178>)
+             88 LOAD_CONST               5 ('install_macos_mvp_startup_routes.<locals>.<genexpr>')
+             90 MAKE_FUNCTION            0
+
+179          92 LOAD_FAST                3 (states)
+             94 LOAD_METHOD             17 (values)
+             96 CALL_METHOD              0
+
+178          98 GET_ITER
+            100 CALL_FUNCTION            1
+            102 CALL_FUNCTION            1
+            104 POP_JUMP_IF_TRUE       114
+
+181     >>  106 LOAD_GLOBAL              7 (RuntimeError)
+
+182         108 LOAD_CONST               6 ('macOS startup routes require the complete capability catalog')
+
+181         110 CALL_FUNCTION            1
+            112 RAISE_VARARGS            1
+
+184     >>  114 LOAD_FAST                0 (runtime)
+            116 LOAD_ATTR               11 (product_owner)
+            118 LOAD_ATTR               18 (publication)
+            120 STORE_FAST               4 (publication)
+
+185         122 LOAD_FAST                4 (publication)
+            124 LOAD_CONST               7 (None)
+            126 IS_OP                    0
+            128 POP_JUMP_IF_FALSE      138
+
+186         130 LOAD_GLOBAL              7 (RuntimeError)
+            132 LOAD_CONST               8 ('the macOS product is not published')
+            134 CALL_FUNCTION            1
+            136 RAISE_VARARGS            1
+
+188     >>  138 LOAD_GLOBAL             19 (tuple)
+            140 LOAD_CONST               9 (<code object <genexpr> at 0x1073b99d0, file "WeRobotCore/host/macos_mvp_startup.py", line 188>)
+            142 LOAD_CONST               5 ('install_macos_mvp_startup_routes.<locals>.<genexpr>')
+            144 MAKE_FUNCTION            0
+
+190         146 LOAD_FAST                1 (app)
+            148 LOAD_ATTR               20 (router)
+            150 LOAD_ATTR               21 (routes)
+
+188         152 GET_ITER
+            154 CALL_FUNCTION            1
+            156 CALL_FUNCTION            1
+            158 STORE_FAST               5 (frontend_routes)
+
+193         160 LOAD_GLOBAL             22 (len)
+            162 LOAD_FAST                5 (frontend_routes)
+            164 CALL_FUNCTION            1
+            166 LOAD_CONST              10 (1)
+            168 COMPARE_OP               4 (>)
+            170 POP_JUMP_IF_FALSE      180
+
+194         172 LOAD_GLOBAL              7 (RuntimeError)
+            174 LOAD_CONST              11 ('the Control Host has multiple frontend mounts')
+            176 CALL_FUNCTION            1
+            178 RAISE_VARARGS            1
+
+195     >>  180 LOAD_FAST                5 (frontend_routes)
+            182 POP_JUMP_IF_FALSE      192
+            184 LOAD_FAST                5 (frontend_routes)
+            186 LOAD_CONST              12 (0)
+            188 BINARY_SUBSCR
+            190 JUMP_FORWARD             2 (to 194)
+        >>  192 LOAD_CONST               7 (None)
+        >>  194 STORE_FAST               6 (frontend_route)
+
+196         196 LOAD_FAST                6 (frontend_route)
+            198 LOAD_CONST               7 (None)
+            200 IS_OP                    1
+            202 POP_JUMP_IF_FALSE      218
+
+197         204 LOAD_FAST                1 (app)
+            206 LOAD_ATTR               20 (router)
+            208 LOAD_ATTR               21 (routes)
+            210 LOAD_METHOD             23 (remove)
+            212 LOAD_FAST                6 (frontend_route)
+            214 CALL_METHOD              1
+            216 POP_TOP
+
+198     >>  218 LOAD_FAST                1 (app)
+            220 LOAD_METHOD             24 (include_router)
+
+199         222 LOAD_GLOBAL             25 (create_macos_mvp_startup_router)
+
+200         224 LOAD_FAST                4 (publication)
+            226 LOAD_ATTR               26 (startup_workflow)
+
+201         228 LOAD_FAST                2 (inputs)
+            230 LOAD_ATTR               27 (credentials)
+            232 LOAD_ATTR               28 (local_api_key)
+
+199         234 LOAD_CONST              13 (('service', 'api_key'))
+            236 CALL_FUNCTION_KW         2
+
+198         238 CALL_METHOD              1
+            240 POP_TOP
+
+204         242 LOAD_FAST                6 (frontend_route)
+            244 LOAD_CONST               7 (None)
+            246 IS_OP                    1
+            248 EXTENDED_ARG             1
+            250 POP_JUMP_IF_FALSE      266
+
+205         252 LOAD_FAST                1 (app)
+            254 LOAD_ATTR               20 (router)
+            256 LOAD_ATTR               21 (routes)
+            258 LOAD_METHOD             29 (append)
+            260 LOAD_FAST                6 (frontend_route)
+            262 CALL_METHOD              1
+            264 POP_TOP
+
+206     >>  266 LOAD_GLOBAL             30 (setattr)
+            268 LOAD_FAST                1 (app)
+            270 LOAD_ATTR                5 (state)
+            272 LOAD_GLOBAL              6 (_INSTALLATION_STATE_KEY)
+            274 LOAD_CONST              14 (True)
+            276 CALL_FUNCTION            3
+            278 POP_TOP
+            280 LOAD_CONST               7 (None)
+            282 RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x1073aa450, file "WeRobotCore/host/macos_mvp_startup.py", line 178>:
+178           0 LOAD_FAST                0 (.0)
+        >>    2 FOR_ITER                12 (to 16)
+
+179           4 STORE_FAST               1 (state)
+              6 LOAD_FAST                1 (state)
+              8 LOAD_ATTR                0 (available)
+             10 YIELD_VALUE
+             12 POP_TOP
+             14 JUMP_ABSOLUTE            2
+        >>   16 LOAD_CONST               0 (None)
+             18 RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x1073b99d0, file "WeRobotCore/host/macos_mvp_startup.py", line 188>:
+188           0 LOAD_FAST                0 (.0)
+        >>    2 FOR_ITER                26 (to 30)
+
+190           4 STORE_FAST               1 (route)
+
+191           6 LOAD_GLOBAL              0 (getattr)
+              8 LOAD_FAST                1 (route)
+             10 LOAD_CONST               0 ('name')
+             12 LOAD_CONST               1 (None)
+             14 CALL_FUNCTION            3
+             16 LOAD_CONST               2 ('unified_frontend')
+             18 COMPARE_OP               2 (==)
+             20 POP_JUMP_IF_FALSE        2
+
+189          22 LOAD_FAST                1 (route)
+             24 YIELD_VALUE
+             26 POP_TOP
+             28 JUMP_ABSOLUTE            2
+        >>   30 LOAD_CONST               1 (None)
+             32 RETURN_VALUE

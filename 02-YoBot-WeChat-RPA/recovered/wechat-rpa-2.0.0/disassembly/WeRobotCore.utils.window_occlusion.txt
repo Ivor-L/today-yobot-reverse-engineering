@@ -1,0 +1,2497 @@
+  1           0 LOAD_CONST               0 ('Conservative top-level window occlusion detection for Windows.\n\nThe detector intentionally fails open: only a confidently computed near-zero\nvisible area is reported as fully occluded.  Unsupported platforms, stale\nwindow handles, transparent-window ambiguity, API failures, and time-budget\nexhaustion all produce ``UNKNOWN`` so callers can preserve existing behavior.\n\nNo UI Automation API is used here.  The implementation only reads User32,\nDWM, and GDI window metadata.\n')
+              2 STORE_NAME               0 (__doc__)
+
+ 12           4 LOAD_CONST               1 (0)
+              6 LOAD_CONST               2 (('annotations',))
+              8 IMPORT_NAME              1 (__future__)
+             10 IMPORT_FROM              2 (annotations)
+             12 STORE_NAME               2 (annotations)
+             14 POP_TOP
+
+ 14          16 LOAD_CONST               1 (0)
+             18 LOAD_CONST               3 (None)
+             20 IMPORT_NAME              3 (ctypes)
+             22 STORE_NAME               3 (ctypes)
+
+ 15          24 LOAD_CONST               1 (0)
+             26 LOAD_CONST               3 (None)
+             28 IMPORT_NAME              4 (os)
+             30 STORE_NAME               4 (os)
+
+ 16          32 LOAD_CONST               1 (0)
+             34 LOAD_CONST               3 (None)
+             36 IMPORT_NAME              5 (time)
+             38 STORE_NAME               5 (time)
+
+ 17          40 LOAD_CONST               1 (0)
+             42 LOAD_CONST               4 (('wintypes',))
+             44 IMPORT_NAME              3 (ctypes)
+             46 IMPORT_FROM              6 (wintypes)
+             48 STORE_NAME               6 (wintypes)
+             50 POP_TOP
+
+ 18          52 LOAD_CONST               1 (0)
+             54 LOAD_CONST               5 (('dataclass',))
+             56 IMPORT_NAME              7 (dataclasses)
+             58 IMPORT_FROM              8 (dataclass)
+             60 STORE_NAME               8 (dataclass)
+             62 POP_TOP
+
+ 19          64 LOAD_CONST               1 (0)
+             66 LOAD_CONST               6 (('Enum',))
+             68 IMPORT_NAME              9 (enum)
+             70 IMPORT_FROM             10 (Enum)
+             72 STORE_NAME              10 (Enum)
+             74 POP_TOP
+
+ 20          76 LOAD_CONST               1 (0)
+             78 LOAD_CONST               7 (('Iterable', 'List', 'Optional', 'Sequence', 'Tuple'))
+             80 IMPORT_NAME             11 (typing)
+             82 IMPORT_FROM             12 (Iterable)
+             84 STORE_NAME              12 (Iterable)
+             86 IMPORT_FROM             13 (List)
+             88 STORE_NAME              13 (List)
+             90 IMPORT_FROM             14 (Optional)
+             92 STORE_NAME              14 (Optional)
+             94 IMPORT_FROM             15 (Sequence)
+             96 STORE_NAME              15 (Sequence)
+             98 IMPORT_FROM             16 (Tuple)
+            100 STORE_NAME              16 (Tuple)
+            102 POP_TOP
+
+ 23         104 LOAD_NAME               16 (Tuple)
+            106 LOAD_NAME               17 (int)
+            108 LOAD_NAME               17 (int)
+            110 LOAD_NAME               17 (int)
+            112 LOAD_NAME               17 (int)
+            114 BUILD_TUPLE              4
+            116 BINARY_SUBSCR
+            118 STORE_NAME              18 (Rect)
+
+ 26         120 LOAD_BUILD_CLASS
+            122 LOAD_CONST               8 (<code object WindowOcclusionState at 0x1072e0b30, file "WeRobotCore/utils/window_occlusion.py", line 26>)
+            124 LOAD_CONST               9 ('WindowOcclusionState')
+            126 MAKE_FUNCTION            0
+            128 LOAD_CONST               9 ('WindowOcclusionState')
+            130 LOAD_NAME               19 (str)
+            132 LOAD_NAME               10 (Enum)
+            134 CALL_FUNCTION            4
+            136 STORE_NAME              20 (WindowOcclusionState)
+
+ 32         138 LOAD_NAME                8 (dataclass)
+            140 LOAD_CONST              10 (True)
+            142 LOAD_CONST              11 (('frozen',))
+            144 CALL_FUNCTION_KW         1
+
+ 33         146 LOAD_BUILD_CLASS
+            148 LOAD_CONST              12 (<code object WindowOcclusionResult at 0x1072e0df0, file "WeRobotCore/utils/window_occlusion.py", line 32>)
+            150 LOAD_CONST              13 ('WindowOcclusionResult')
+            152 MAKE_FUNCTION            0
+            154 LOAD_CONST              13 ('WindowOcclusionResult')
+            156 CALL_FUNCTION            2
+            158 CALL_FUNCTION            1
+            160 STORE_NAME              21 (WindowOcclusionResult)
+
+ 43         162 LOAD_CONST              14 ('Rect')
+            164 LOAD_CONST              14 ('Rect')
+            166 LOAD_CONST              15 ('Optional[Rect]')
+            168 LOAD_CONST              16 (('first', 'second', 'return'))
+            170 BUILD_CONST_KEY_MAP      3
+            172 LOAD_CONST              17 (<code object _intersection at 0x1072e0ea0, file "WeRobotCore/utils/window_occlusion.py", line 43>)
+            174 LOAD_CONST              18 ('_intersection')
+            176 MAKE_FUNCTION            4 (annotations)
+            178 STORE_NAME              22 (_intersection)
+
+ 53         180 LOAD_CONST              14 ('Rect')
+            182 LOAD_CONST              19 ('int')
+            184 LOAD_CONST              20 (('rect', 'return'))
+            186 BUILD_CONST_KEY_MAP      2
+            188 LOAD_CONST              21 (<code object _rect_area at 0x1072e0d40, file "WeRobotCore/utils/window_occlusion.py", line 53>)
+            190 LOAD_CONST              22 ('_rect_area')
+            192 MAKE_FUNCTION            4 (annotations)
+            194 STORE_NAME              23 (_rect_area)
+
+ 57         196 LOAD_CONST              23 ('Sequence[Rect]')
+            198 LOAD_CONST              19 ('int')
+            200 LOAD_CONST              24 (('rects', 'return'))
+            202 BUILD_CONST_KEY_MAP      2
+            204 LOAD_CONST              25 (<code object _rect_union_area at 0x1073b9df0, file "WeRobotCore/utils/window_occlusion.py", line 57>)
+            206 LOAD_CONST              26 ('_rect_union_area')
+            208 MAKE_FUNCTION            4 (annotations)
+            210 STORE_NAME              24 (_rect_union_area)
+
+ 88         212 LOAD_CONST              23 ('Sequence[Rect]')
+            214 LOAD_CONST              23 ('Sequence[Rect]')
+            216 LOAD_CONST              27 ('Tuple[int, int, int, float]')
+            218 LOAD_CONST              28 (('target_rects', 'occluder_rects', 'return'))
+            220 BUILD_CONST_KEY_MAP      3
+            222 LOAD_CONST              29 (<code object _calculate_visible_area at 0x1073b9ea0, file "WeRobotCore/utils/window_occlusion.py", line 88>)
+            224 LOAD_CONST              30 ('_calculate_visible_area')
+            226 MAKE_FUNCTION            4 (annotations)
+            228 STORE_NAME              25 (_calculate_visible_area)
+
+116         230 LOAD_BUILD_CLASS
+            232 LOAD_CONST              31 (<code object _RECT at 0x1073b9d40, file "WeRobotCore/utils/window_occlusion.py", line 116>)
+            234 LOAD_CONST              32 ('_RECT')
+            236 MAKE_FUNCTION            0
+            238 LOAD_CONST              32 ('_RECT')
+            240 LOAD_NAME                3 (ctypes)
+            242 LOAD_ATTR               26 (Structure)
+            244 CALL_FUNCTION            3
+            246 STORE_NAME              27 (_RECT)
+
+125         248 LOAD_BUILD_CLASS
+            250 LOAD_CONST              33 (<code object _RGNDATAHEADER at 0x1073b9030, file "WeRobotCore/utils/window_occlusion.py", line 125>)
+            252 LOAD_CONST              34 ('_RGNDATAHEADER')
+            254 MAKE_FUNCTION            0
+            256 LOAD_CONST              34 ('_RGNDATAHEADER')
+            258 LOAD_NAME                3 (ctypes)
+            260 LOAD_ATTR               26 (Structure)
+            262 CALL_FUNCTION            3
+            264 STORE_NAME              28 (_RGNDATAHEADER)
+
+135         266 LOAD_BUILD_CLASS
+            268 LOAD_CONST              35 (<code object _Win32OcclusionBackend at 0x1073ca870, file "WeRobotCore/utils/window_occlusion.py", line 135>)
+            270 LOAD_CONST              36 ('_Win32OcclusionBackend')
+            272 MAKE_FUNCTION            0
+            274 LOAD_CONST              36 ('_Win32OcclusionBackend')
+            276 CALL_FUNCTION            2
+            278 STORE_NAME              29 (_Win32OcclusionBackend)
+
+361         280 LOAD_CONST              37 ('str')
+            282 LOAD_CONST              38 ('float')
+            284 LOAD_CONST              13 ('WindowOcclusionResult')
+            286 LOAD_CONST              39 (('reason', 'started_at', 'return'))
+            288 BUILD_CONST_KEY_MAP      3
+            290 LOAD_CONST              40 (<code object _unknown at 0x1073cabe0, file "WeRobotCore/utils/window_occlusion.py", line 361>)
+            292 LOAD_CONST              41 ('_unknown')
+            294 MAKE_FUNCTION            4 (annotations)
+            296 STORE_NAME              30 (_unknown)
+
+373         298 LOAD_CONST              48 ((0.03, 512, 20.0, None))
+            300 LOAD_CONST              19 ('int')
+            302 LOAD_CONST              38 ('float')
+            304 LOAD_CONST              19 ('int')
+            306 LOAD_CONST              38 ('float')
+            308 LOAD_CONST              13 ('WindowOcclusionResult')
+            310 LOAD_CONST              45 (('hwnd', 'min_visible_ratio', 'max_windows', 'time_budget_ms', 'return'))
+            312 BUILD_CONST_KEY_MAP      5
+            314 LOAD_CONST              46 (<code object calculate_window_occlusion at 0x1073ca9d0, file "WeRobotCore/utils/window_occlusion.py", line 373>)
+            316 LOAD_CONST              47 ('calculate_window_occlusion')
+            318 MAKE_FUNCTION            5 (defaults, annotations)
+            320 STORE_NAME              31 (calculate_window_occlusion)
+            322 LOAD_CONST               3 (None)
+            324 RETURN_VALUE
+
+Disassembly of <code object WindowOcclusionState at 0x1072e0b30, file "WeRobotCore/utils/window_occlusion.py", line 26>:
+ 26           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('WindowOcclusionState')
+              6 STORE_NAME               2 (__qualname__)
+
+ 27           8 LOAD_CONST               1 ('visible')
+             10 STORE_NAME               3 (VISIBLE)
+
+ 28          12 LOAD_CONST               2 ('fully_occluded')
+             14 STORE_NAME               4 (FULLY_OCCLUDED)
+
+ 29          16 LOAD_CONST               3 ('unknown')
+             18 STORE_NAME               5 (UNKNOWN)
+             20 LOAD_CONST               4 (None)
+             22 RETURN_VALUE
+
+Disassembly of <code object WindowOcclusionResult at 0x1072e0df0, file "WeRobotCore/utils/window_occlusion.py", line 32>:
+ 32           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('WindowOcclusionResult')
+              6 STORE_NAME               2 (__qualname__)
+              8 SETUP_ANNOTATIONS
+
+ 34          10 LOAD_CONST               1 ('WindowOcclusionState')
+             12 LOAD_NAME                3 (__annotations__)
+             14 LOAD_CONST               2 ('state')
+             16 STORE_SUBSCR
+
+ 35          18 LOAD_CONST               3 ('Optional[float]')
+             20 LOAD_NAME                3 (__annotations__)
+             22 LOAD_CONST               4 ('visible_ratio')
+             24 STORE_SUBSCR
+
+ 36          26 LOAD_CONST               5 ('int')
+             28 LOAD_NAME                3 (__annotations__)
+             30 LOAD_CONST               6 ('target_area')
+             32 STORE_SUBSCR
+
+ 37          34 LOAD_CONST               5 ('int')
+             36 LOAD_NAME                3 (__annotations__)
+             38 LOAD_CONST               7 ('visible_area')
+             40 STORE_SUBSCR
+
+ 38          42 LOAD_CONST               5 ('int')
+             44 LOAD_NAME                3 (__annotations__)
+             46 LOAD_CONST               8 ('occluding_window_count')
+             48 STORE_SUBSCR
+
+ 39          50 LOAD_CONST               9 ('str')
+             52 LOAD_NAME                3 (__annotations__)
+             54 LOAD_CONST              10 ('reason')
+             56 STORE_SUBSCR
+
+ 40          58 LOAD_CONST              11 ('float')
+             60 LOAD_NAME                3 (__annotations__)
+             62 LOAD_CONST              12 ('elapsed_ms')
+             64 STORE_SUBSCR
+             66 LOAD_CONST              13 (None)
+             68 RETURN_VALUE
+
+Disassembly of <code object _intersection at 0x1072e0ea0, file "WeRobotCore/utils/window_occlusion.py", line 43>:
+ 44           0 LOAD_GLOBAL              0 (max)
+              2 LOAD_FAST                0 (first)
+              4 LOAD_CONST               1 (0)
+              6 BINARY_SUBSCR
+              8 LOAD_FAST                1 (second)
+             10 LOAD_CONST               1 (0)
+             12 BINARY_SUBSCR
+             14 CALL_FUNCTION            2
+             16 STORE_FAST               2 (left)
+
+ 45          18 LOAD_GLOBAL              0 (max)
+             20 LOAD_FAST                0 (first)
+             22 LOAD_CONST               2 (1)
+             24 BINARY_SUBSCR
+             26 LOAD_FAST                1 (second)
+             28 LOAD_CONST               2 (1)
+             30 BINARY_SUBSCR
+             32 CALL_FUNCTION            2
+             34 STORE_FAST               3 (top)
+
+ 46          36 LOAD_GLOBAL              1 (min)
+             38 LOAD_FAST                0 (first)
+             40 LOAD_CONST               3 (2)
+             42 BINARY_SUBSCR
+             44 LOAD_FAST                1 (second)
+             46 LOAD_CONST               3 (2)
+             48 BINARY_SUBSCR
+             50 CALL_FUNCTION            2
+             52 STORE_FAST               4 (right)
+
+ 47          54 LOAD_GLOBAL              1 (min)
+             56 LOAD_FAST                0 (first)
+             58 LOAD_CONST               4 (3)
+             60 BINARY_SUBSCR
+             62 LOAD_FAST                1 (second)
+             64 LOAD_CONST               4 (3)
+             66 BINARY_SUBSCR
+             68 CALL_FUNCTION            2
+             70 STORE_FAST               5 (bottom)
+
+ 48          72 LOAD_FAST                4 (right)
+             74 LOAD_FAST                2 (left)
+             76 COMPARE_OP               1 (<=)
+             78 POP_JUMP_IF_TRUE        88
+             80 LOAD_FAST                5 (bottom)
+             82 LOAD_FAST                3 (top)
+             84 COMPARE_OP               1 (<=)
+             86 POP_JUMP_IF_FALSE       92
+
+ 49     >>   88 LOAD_CONST               0 (None)
+             90 RETURN_VALUE
+
+ 50     >>   92 LOAD_FAST                2 (left)
+             94 LOAD_FAST                3 (top)
+             96 LOAD_FAST                4 (right)
+             98 LOAD_FAST                5 (bottom)
+            100 BUILD_TUPLE              4
+            102 RETURN_VALUE
+
+Disassembly of <code object _rect_area at 0x1072e0d40, file "WeRobotCore/utils/window_occlusion.py", line 53>:
+ 54           0 LOAD_GLOBAL              0 (max)
+              2 LOAD_CONST               1 (0)
+              4 LOAD_FAST                0 (rect)
+              6 LOAD_CONST               2 (2)
+              8 BINARY_SUBSCR
+             10 LOAD_FAST                0 (rect)
+             12 LOAD_CONST               1 (0)
+             14 BINARY_SUBSCR
+             16 BINARY_SUBTRACT
+             18 CALL_FUNCTION            2
+             20 LOAD_GLOBAL              0 (max)
+             22 LOAD_CONST               1 (0)
+             24 LOAD_FAST                0 (rect)
+             26 LOAD_CONST               3 (3)
+             28 BINARY_SUBSCR
+             30 LOAD_FAST                0 (rect)
+             32 LOAD_CONST               4 (1)
+             34 BINARY_SUBSCR
+             36 BINARY_SUBTRACT
+             38 CALL_FUNCTION            2
+             40 BINARY_MULTIPLY
+             42 RETURN_VALUE
+
+Disassembly of <code object _rect_union_area at 0x1073b9df0, file "WeRobotCore/utils/window_occlusion.py", line 57>:
+ 59           0 LOAD_FAST                0 (rects)
+              2 POP_JUMP_IF_TRUE         8
+
+ 60           4 LOAD_CONST               1 (0)
+              6 RETURN_VALUE
+
+ 62     >>    8 LOAD_GLOBAL              0 (sorted)
+             10 LOAD_CONST               2 (<code object <setcomp> at 0x1072e0be0, file "WeRobotCore/utils/window_occlusion.py", line 62>)
+             12 LOAD_CONST               3 ('_rect_union_area.<locals>.<setcomp>')
+             14 MAKE_FUNCTION            0
+             16 LOAD_FAST                0 (rects)
+             18 GET_ITER
+             20 CALL_FUNCTION            1
+             22 CALL_FUNCTION            1
+             24 STORE_FAST               1 (x_points)
+
+ 63          26 LOAD_CONST               1 (0)
+             28 STORE_FAST               2 (total)
+
+ 64          30 LOAD_GLOBAL              1 (zip)
+             32 LOAD_FAST                1 (x_points)
+             34 LOAD_FAST                1 (x_points)
+             36 LOAD_CONST               4 (1)
+             38 LOAD_CONST               5 (None)
+             40 BUILD_SLICE              2
+             42 BINARY_SUBSCR
+             44 CALL_FUNCTION            2
+             46 GET_ITER
+        >>   48 FOR_ITER               156 (to 206)
+             50 UNPACK_SEQUENCE          2
+             52 STORE_DEREF              0 (left)
+             54 STORE_DEREF              1 (right)
+
+ 65          56 LOAD_DEREF               1 (right)
+             58 LOAD_DEREF               0 (left)
+             60 COMPARE_OP               1 (<=)
+             62 POP_JUMP_IF_FALSE       66
+
+ 66          64 JUMP_ABSOLUTE           48
+
+ 67     >>   66 LOAD_GLOBAL              0 (sorted)
+             68 LOAD_CLOSURE             0 (left)
+             70 LOAD_CLOSURE             1 (right)
+             72 BUILD_TUPLE              2
+             74 LOAD_CONST               6 (<code object <genexpr> at 0x1072e0a80, file "WeRobotCore/utils/window_occlusion.py", line 67>)
+             76 LOAD_CONST               7 ('_rect_union_area.<locals>.<genexpr>')
+             78 MAKE_FUNCTION            8 (closure)
+
+ 69          80 LOAD_FAST                0 (rects)
+
+ 67          82 GET_ITER
+             84 CALL_FUNCTION            1
+             86 CALL_FUNCTION            1
+             88 STORE_FAST               3 (y_intervals)
+
+ 72          90 LOAD_FAST                3 (y_intervals)
+             92 POP_JUMP_IF_TRUE        96
+
+ 73          94 JUMP_ABSOLUTE           48
+
+ 75     >>   96 LOAD_FAST                3 (y_intervals)
+             98 LOAD_CONST               1 (0)
+            100 BINARY_SUBSCR
+            102 UNPACK_SEQUENCE          2
+            104 STORE_FAST               4 (interval_top)
+            106 STORE_FAST               5 (interval_bottom)
+
+ 76         108 LOAD_CONST               1 (0)
+            110 STORE_FAST               6 (covered_y)
+
+ 77         112 LOAD_FAST                3 (y_intervals)
+            114 LOAD_CONST               4 (1)
+            116 LOAD_CONST               5 (None)
+            118 BUILD_SLICE              2
+            120 BINARY_SUBSCR
+            122 GET_ITER
+        >>  124 FOR_ITER                50 (to 176)
+            126 UNPACK_SEQUENCE          2
+            128 STORE_FAST               7 (top)
+            130 STORE_FAST               8 (bottom)
+
+ 78         132 LOAD_FAST                7 (top)
+            134 LOAD_FAST                5 (interval_bottom)
+            136 COMPARE_OP               1 (<=)
+            138 POP_JUMP_IF_FALSE      152
+
+ 79         140 LOAD_GLOBAL              2 (max)
+            142 LOAD_FAST                5 (interval_bottom)
+            144 LOAD_FAST                8 (bottom)
+            146 CALL_FUNCTION            2
+            148 STORE_FAST               5 (interval_bottom)
+            150 JUMP_ABSOLUTE          124
+
+ 81     >>  152 LOAD_FAST                6 (covered_y)
+            154 LOAD_FAST                5 (interval_bottom)
+            156 LOAD_FAST                4 (interval_top)
+            158 BINARY_SUBTRACT
+            160 INPLACE_ADD
+            162 STORE_FAST               6 (covered_y)
+
+ 82         164 LOAD_FAST                7 (top)
+            166 LOAD_FAST                8 (bottom)
+            168 ROT_TWO
+            170 STORE_FAST               4 (interval_top)
+            172 STORE_FAST               5 (interval_bottom)
+            174 JUMP_ABSOLUTE          124
+
+ 83     >>  176 LOAD_FAST                6 (covered_y)
+            178 LOAD_FAST                5 (interval_bottom)
+            180 LOAD_FAST                4 (interval_top)
+            182 BINARY_SUBTRACT
+            184 INPLACE_ADD
+            186 STORE_FAST               6 (covered_y)
+
+ 84         188 LOAD_FAST                2 (total)
+            190 LOAD_DEREF               1 (right)
+            192 LOAD_DEREF               0 (left)
+            194 BINARY_SUBTRACT
+            196 LOAD_FAST                6 (covered_y)
+            198 BINARY_MULTIPLY
+            200 INPLACE_ADD
+            202 STORE_FAST               2 (total)
+            204 JUMP_ABSOLUTE           48
+
+ 85     >>  206 LOAD_FAST                2 (total)
+            208 RETURN_VALUE
+
+Disassembly of <code object <setcomp> at 0x1072e0be0, file "WeRobotCore/utils/window_occlusion.py", line 62>:
+ 62           0 BUILD_SET                0
+              2 LOAD_FAST                0 (.0)
+        >>    4 FOR_ITER                30 (to 36)
+              6 STORE_FAST               1 (rect)
+              8 LOAD_FAST                1 (rect)
+             10 LOAD_CONST               0 (0)
+             12 BINARY_SUBSCR
+             14 LOAD_FAST                1 (rect)
+             16 LOAD_CONST               1 (2)
+             18 BINARY_SUBSCR
+             20 BUILD_TUPLE              2
+             22 GET_ITER
+        >>   24 FOR_ITER                 8 (to 34)
+             26 STORE_FAST               2 (x)
+             28 LOAD_FAST                2 (x)
+             30 SET_ADD                  3
+             32 JUMP_ABSOLUTE           24
+        >>   34 JUMP_ABSOLUTE            4
+        >>   36 RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x1072e0a80, file "WeRobotCore/utils/window_occlusion.py", line 67>:
+ 67           0 LOAD_FAST                0 (.0)
+        >>    2 FOR_ITER                46 (to 50)
+
+ 69           4 STORE_FAST               1 (rect)
+
+ 70           6 LOAD_FAST                1 (rect)
+              8 LOAD_CONST               0 (0)
+             10 BINARY_SUBSCR
+             12 LOAD_DEREF               1 (right)
+             14 COMPARE_OP               0 (<)
+             16 POP_JUMP_IF_FALSE        2
+             18 LOAD_FAST                1 (rect)
+             20 LOAD_CONST               1 (2)
+             22 BINARY_SUBSCR
+             24 LOAD_DEREF               0 (left)
+             26 COMPARE_OP               4 (>)
+             28 POP_JUMP_IF_FALSE        2
+
+ 68          30 LOAD_FAST                1 (rect)
+             32 LOAD_CONST               2 (1)
+             34 BINARY_SUBSCR
+             36 LOAD_FAST                1 (rect)
+             38 LOAD_CONST               3 (3)
+             40 BINARY_SUBSCR
+             42 BUILD_TUPLE              2
+             44 YIELD_VALUE
+             46 POP_TOP
+             48 JUMP_ABSOLUTE            2
+        >>   50 LOAD_CONST               4 (None)
+             52 RETURN_VALUE
+
+Disassembly of <code object _calculate_visible_area at 0x1073b9ea0, file "WeRobotCore/utils/window_occlusion.py", line 88>:
+ 98           0 LOAD_GLOBAL              0 (sum)
+              2 LOAD_CONST               1 (<code object <genexpr> at 0x1073b9500, file "WeRobotCore/utils/window_occlusion.py", line 98>)
+              4 LOAD_CONST               2 ('_calculate_visible_area.<locals>.<genexpr>')
+              6 MAKE_FUNCTION            0
+              8 LOAD_FAST                0 (target_rects)
+             10 GET_ITER
+             12 CALL_FUNCTION            1
+             14 CALL_FUNCTION            1
+             16 STORE_FAST               2 (target_area)
+
+ 99          18 LOAD_FAST                2 (target_area)
+             20 LOAD_CONST               3 (0)
+             22 COMPARE_OP               1 (<=)
+             24 POP_JUMP_IF_FALSE       30
+
+100          26 LOAD_CONST               4 ((0, 0, 0, 0.0))
+             28 RETURN_VALUE
+
+102     >>   30 LOAD_CONST               3 (0)
+             32 STORE_FAST               3 (covered_area)
+
+103          34 LOAD_FAST                0 (target_rects)
+             36 GET_ITER
+        >>   38 FOR_ITER                58 (to 98)
+             40 STORE_FAST               4 (target_rect)
+
+104          42 BUILD_LIST               0
+             44 STORE_FAST               5 (intersections)
+
+105          46 LOAD_FAST                1 (occluder_rects)
+             48 GET_ITER
+        >>   50 FOR_ITER                32 (to 84)
+             52 STORE_FAST               6 (occluder_rect)
+
+106          54 LOAD_GLOBAL              1 (_intersection)
+             56 LOAD_FAST                4 (target_rect)
+             58 LOAD_FAST                6 (occluder_rect)
+             60 CALL_FUNCTION            2
+             62 STORE_FAST               7 (overlap)
+
+107          64 LOAD_FAST                7 (overlap)
+             66 LOAD_CONST               5 (None)
+             68 IS_OP                    1
+             70 POP_JUMP_IF_FALSE       50
+
+108          72 LOAD_FAST                5 (intersections)
+             74 LOAD_METHOD              2 (append)
+             76 LOAD_FAST                7 (overlap)
+             78 CALL_METHOD              1
+             80 POP_TOP
+             82 JUMP_ABSOLUTE           50
+
+109     >>   84 LOAD_FAST                3 (covered_area)
+             86 LOAD_GLOBAL              3 (_rect_union_area)
+             88 LOAD_FAST                5 (intersections)
+             90 CALL_FUNCTION            1
+             92 INPLACE_ADD
+             94 STORE_FAST               3 (covered_area)
+             96 JUMP_ABSOLUTE           38
+
+111     >>   98 LOAD_GLOBAL              4 (min)
+            100 LOAD_FAST                2 (target_area)
+            102 LOAD_FAST                3 (covered_area)
+            104 CALL_FUNCTION            2
+            106 STORE_FAST               3 (covered_area)
+
+112         108 LOAD_GLOBAL              5 (max)
+            110 LOAD_CONST               3 (0)
+            112 LOAD_FAST                2 (target_area)
+            114 LOAD_FAST                3 (covered_area)
+            116 BINARY_SUBTRACT
+            118 CALL_FUNCTION            2
+            120 STORE_FAST               8 (visible_area)
+
+113         122 LOAD_FAST                2 (target_area)
+            124 LOAD_FAST                3 (covered_area)
+            126 LOAD_FAST                8 (visible_area)
+            128 LOAD_FAST                8 (visible_area)
+            130 LOAD_FAST                2 (target_area)
+            132 BINARY_TRUE_DIVIDE
+            134 BUILD_TUPLE              4
+            136 RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x1073b9500, file "WeRobotCore/utils/window_occlusion.py", line 98>:
+ 98           0 LOAD_FAST                0 (.0)
+        >>    2 FOR_ITER                14 (to 18)
+              4 STORE_FAST               1 (rect)
+              6 LOAD_GLOBAL              0 (_rect_area)
+              8 LOAD_FAST                1 (rect)
+             10 CALL_FUNCTION            1
+             12 YIELD_VALUE
+             14 POP_TOP
+             16 JUMP_ABSOLUTE            2
+        >>   18 LOAD_CONST               0 (None)
+             20 RETURN_VALUE
+
+Disassembly of <code object _RECT at 0x1073b9d40, file "WeRobotCore/utils/window_occlusion.py", line 116>:
+116           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('_RECT')
+              6 STORE_NAME               2 (__qualname__)
+
+118           8 LOAD_CONST               1 ('left')
+             10 LOAD_NAME                3 (ctypes)
+             12 LOAD_ATTR                4 (c_long)
+             14 BUILD_TUPLE              2
+
+119          16 LOAD_CONST               2 ('top')
+             18 LOAD_NAME                3 (ctypes)
+             20 LOAD_ATTR                4 (c_long)
+             22 BUILD_TUPLE              2
+
+120          24 LOAD_CONST               3 ('right')
+             26 LOAD_NAME                3 (ctypes)
+             28 LOAD_ATTR                4 (c_long)
+             30 BUILD_TUPLE              2
+
+121          32 LOAD_CONST               4 ('bottom')
+             34 LOAD_NAME                3 (ctypes)
+             36 LOAD_ATTR                4 (c_long)
+             38 BUILD_TUPLE              2
+
+117          40 BUILD_LIST               4
+             42 STORE_NAME               5 (_fields_)
+             44 LOAD_CONST               5 (None)
+             46 RETURN_VALUE
+
+Disassembly of <code object _RGNDATAHEADER at 0x1073b9030, file "WeRobotCore/utils/window_occlusion.py", line 125>:
+125           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('_RGNDATAHEADER')
+              6 STORE_NAME               2 (__qualname__)
+
+127           8 LOAD_CONST               1 ('dwSize')
+             10 LOAD_NAME                3 (wintypes)
+             12 LOAD_ATTR                4 (DWORD)
+             14 BUILD_TUPLE              2
+
+128          16 LOAD_CONST               2 ('iType')
+             18 LOAD_NAME                3 (wintypes)
+             20 LOAD_ATTR                4 (DWORD)
+             22 BUILD_TUPLE              2
+
+129          24 LOAD_CONST               3 ('nCount')
+             26 LOAD_NAME                3 (wintypes)
+             28 LOAD_ATTR                4 (DWORD)
+             30 BUILD_TUPLE              2
+
+130          32 LOAD_CONST               4 ('nRgnSize')
+             34 LOAD_NAME                3 (wintypes)
+             36 LOAD_ATTR                4 (DWORD)
+             38 BUILD_TUPLE              2
+
+131          40 LOAD_CONST               5 ('rcBound')
+             42 LOAD_NAME                5 (_RECT)
+             44 BUILD_TUPLE              2
+
+126          46 BUILD_LIST               5
+             48 STORE_NAME               6 (_fields_)
+             50 LOAD_CONST               6 (None)
+             52 RETURN_VALUE
+
+Disassembly of <code object _Win32OcclusionBackend at 0x1073ca870, file "WeRobotCore/utils/window_occlusion.py", line 135>:
+135           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('_Win32OcclusionBackend')
+              6 STORE_NAME               2 (__qualname__)
+
+136           8 LOAD_CONST               1 ('Small ctypes wrapper kept separate so geometry is unit-testable.')
+             10 STORE_NAME               3 (__doc__)
+
+138          12 LOAD_CONST               2 (9)
+             14 STORE_NAME               4 (DWMWA_EXTENDED_FRAME_BOUNDS)
+
+139          16 LOAD_CONST               3 (14)
+             18 STORE_NAME               5 (DWMWA_CLOAKED)
+
+140          20 LOAD_CONST               4 (3)
+             22 STORE_NAME               6 (GW_HWNDPREV)
+
+141          24 LOAD_CONST               5 (-20)
+             26 STORE_NAME               7 (GWL_EXSTYLE)
+
+142          28 LOAD_CONST               6 (32)
+             30 STORE_NAME               8 (WS_EX_TRANSPARENT)
+
+143          32 LOAD_CONST               7 (524288)
+             34 STORE_NAME               9 (WS_EX_LAYERED)
+
+144          36 LOAD_CONST               8 (1)
+             38 STORE_NAME              10 (LWA_COLORKEY)
+
+145          40 LOAD_CONST               9 (2)
+             42 STORE_NAME              11 (LWA_ALPHA)
+
+146          44 LOAD_CONST              10 (0)
+             46 STORE_NAME              12 (ERROR_REGION)
+
+147          48 LOAD_CONST               8 (1)
+             50 STORE_NAME              13 (NULL_REGION)
+
+148          52 LOAD_CONST              11 (76)
+             54 STORE_NAME              14 (SM_XVIRTUALSCREEN)
+
+149          56 LOAD_CONST              12 (77)
+             58 STORE_NAME              15 (SM_YVIRTUALSCREEN)
+
+150          60 LOAD_CONST              13 (78)
+             62 STORE_NAME              16 (SM_CXVIRTUALSCREEN)
+
+151          64 LOAD_CONST              14 (79)
+             66 STORE_NAME              17 (SM_CYVIRTUALSCREEN)
+
+152          68 LOAD_CONST              15 (1048576)
+             70 STORE_NAME              18 (MAX_REGION_DATA_BYTES)
+
+153          72 LOAD_CONST              16 (16384)
+             74 STORE_NAME              19 (MAX_REGION_RECTS)
+
+155          76 LOAD_CONST              17 ('None')
+             78 LOAD_CONST              18 (('return',))
+             80 BUILD_CONST_KEY_MAP      1
+             82 LOAD_CONST              19 (<code object __init__ at 0x1073b9240, file "WeRobotCore/utils/window_occlusion.py", line 155>)
+             84 LOAD_CONST              20 ('_Win32OcclusionBackend.__init__')
+             86 MAKE_FUNCTION            4 (annotations)
+             88 STORE_NAME              20 (__init__)
+
+216          90 LOAD_CONST              21 ('int')
+             92 LOAD_CONST              22 ('bool')
+             94 LOAD_CONST              23 (('hwnd', 'return'))
+             96 BUILD_CONST_KEY_MAP      2
+             98 LOAD_CONST              24 (<code object is_window at 0x1073b9be0, file "WeRobotCore/utils/window_occlusion.py", line 216>)
+            100 LOAD_CONST              25 ('_Win32OcclusionBackend.is_window')
+            102 MAKE_FUNCTION            4 (annotations)
+            104 STORE_NAME              21 (is_window)
+
+219         106 LOAD_CONST              21 ('int')
+            108 LOAD_CONST              22 ('bool')
+            110 LOAD_CONST              23 (('hwnd', 'return'))
+            112 BUILD_CONST_KEY_MAP      2
+            114 LOAD_CONST              26 (<code object is_visible at 0x1073b9660, file "WeRobotCore/utils/window_occlusion.py", line 219>)
+            116 LOAD_CONST              27 ('_Win32OcclusionBackend.is_visible')
+            118 MAKE_FUNCTION            4 (annotations)
+            120 STORE_NAME              22 (is_visible)
+
+222         122 LOAD_CONST              21 ('int')
+            124 LOAD_CONST              22 ('bool')
+            126 LOAD_CONST              23 (('hwnd', 'return'))
+            128 BUILD_CONST_KEY_MAP      2
+            130 LOAD_CONST              28 (<code object is_minimized at 0x1073b9920, file "WeRobotCore/utils/window_occlusion.py", line 222>)
+            132 LOAD_CONST              29 ('_Win32OcclusionBackend.is_minimized')
+            134 MAKE_FUNCTION            4 (annotations)
+            136 STORE_NAME              23 (is_minimized)
+
+225         138 LOAD_CONST              21 ('int')
+            140 LOAD_CONST              22 ('bool')
+            142 LOAD_CONST              23 (('hwnd', 'return'))
+            144 BUILD_CONST_KEY_MAP      2
+            146 LOAD_CONST              30 (<code object is_cloaked at 0x1073b9c90, file "WeRobotCore/utils/window_occlusion.py", line 225>)
+            148 LOAD_CONST              31 ('_Win32OcclusionBackend.is_cloaked')
+            150 MAKE_FUNCTION            4 (annotations)
+            152 STORE_NAME              24 (is_cloaked)
+
+236         154 LOAD_CONST              21 ('int')
+            156 LOAD_CONST              21 ('int')
+            158 LOAD_CONST              23 (('hwnd', 'return'))
+            160 BUILD_CONST_KEY_MAP      2
+            162 LOAD_CONST              32 (<code object get_pid at 0x1073b90e0, file "WeRobotCore/utils/window_occlusion.py", line 236>)
+            164 LOAD_CONST              33 ('_Win32OcclusionBackend.get_pid')
+            166 MAKE_FUNCTION            4 (annotations)
+            168 STORE_NAME              25 (get_pid)
+
+243         170 LOAD_CONST              34 ('Rect')
+            172 LOAD_CONST              18 (('return',))
+            174 BUILD_CONST_KEY_MAP      1
+            176 LOAD_CONST              35 (<code object get_virtual_screen_rect at 0x1073ca2f0, file "WeRobotCore/utils/window_occlusion.py", line 243>)
+            178 LOAD_CONST              36 ('_Win32OcclusionBackend.get_virtual_screen_rect')
+            180 MAKE_FUNCTION            4 (annotations)
+            182 STORE_NAME              26 (get_virtual_screen_rect)
+
+252         184 LOAD_CONST              21 ('int')
+            186 LOAD_CONST              34 ('Rect')
+            188 LOAD_CONST              23 (('hwnd', 'return'))
+            190 BUILD_CONST_KEY_MAP      2
+            192 LOAD_CONST              37 (<code object _get_raw_window_rect at 0x1073ca660, file "WeRobotCore/utils/window_occlusion.py", line 252>)
+            194 LOAD_CONST              38 ('_Win32OcclusionBackend._get_raw_window_rect')
+            196 MAKE_FUNCTION            4 (annotations)
+            198 STORE_NAME              27 (_get_raw_window_rect)
+
+258         200 LOAD_CONST              21 ('int')
+            202 LOAD_CONST              34 ('Rect')
+            204 LOAD_CONST              23 (('hwnd', 'return'))
+            206 BUILD_CONST_KEY_MAP      2
+            208 LOAD_CONST              39 (<code object get_window_rect at 0x1073ca920, file "WeRobotCore/utils/window_occlusion.py", line 258>)
+            210 LOAD_CONST              40 ('_Win32OcclusionBackend.get_window_rect')
+            212 MAKE_FUNCTION            4 (annotations)
+            214 STORE_NAME              28 (get_window_rect)
+
+270         216 LOAD_CONST              21 ('int')
+            218 LOAD_CONST              41 ('List[Rect]')
+            220 LOAD_CONST              42 (('region', 'return'))
+            222 BUILD_CONST_KEY_MAP      2
+            224 LOAD_CONST              43 (<code object _region_rects at 0x1073ca450, file "WeRobotCore/utils/window_occlusion.py", line 270>)
+            226 LOAD_CONST              44 ('_Win32OcclusionBackend._region_rects')
+            228 MAKE_FUNCTION            4 (annotations)
+            230 STORE_NAME              29 (_region_rects)
+
+295         232 LOAD_CONST              21 ('int')
+            234 LOAD_CONST              41 ('List[Rect]')
+            236 LOAD_CONST              23 (('hwnd', 'return'))
+            238 BUILD_CONST_KEY_MAP      2
+            240 LOAD_CONST              45 (<code object get_window_shape_rects at 0x1073caea0, file "WeRobotCore/utils/window_occlusion.py", line 295>)
+            242 LOAD_CONST              46 ('_Win32OcclusionBackend.get_window_shape_rects')
+            244 MAKE_FUNCTION            4 (annotations)
+            246 STORE_NAME              30 (get_window_shape_rects)
+
+323         248 LOAD_CONST              21 ('int')
+            250 LOAD_CONST              22 ('bool')
+            252 LOAD_CONST              23 (('hwnd', 'return'))
+            254 BUILD_CONST_KEY_MAP      2
+            256 LOAD_CONST              47 (<code object is_definitely_opaque at 0x1073ca710, file "WeRobotCore/utils/window_occlusion.py", line 323>)
+            258 LOAD_CONST              48 ('_Win32OcclusionBackend.is_definitely_opaque')
+            260 MAKE_FUNCTION            4 (annotations)
+            262 STORE_NAME              31 (is_definitely_opaque)
+
+351         264 LOAD_CONST              21 ('int')
+            266 LOAD_CONST              21 ('int')
+            268 LOAD_CONST              49 ('Iterable[int]')
+            270 LOAD_CONST              50 (('hwnd', 'limit', 'return'))
+            272 BUILD_CONST_KEY_MAP      3
+            274 LOAD_CONST              51 (<code object iter_windows_above at 0x1073ca190, file "WeRobotCore/utils/window_occlusion.py", line 351>)
+            276 LOAD_CONST              52 ('_Win32OcclusionBackend.iter_windows_above')
+            278 MAKE_FUNCTION            4 (annotations)
+            280 STORE_NAME              32 (iter_windows_above)
+            282 LOAD_CONST              53 (None)
+            284 RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x1073b9240, file "WeRobotCore/utils/window_occlusion.py", line 155>:
+156           0 LOAD_GLOBAL              0 (ctypes)
+              2 LOAD_ATTR                1 (WinDLL)
+              4 LOAD_CONST               1 ('user32')
+              6 LOAD_CONST               2 (True)
+              8 LOAD_CONST               3 (('use_last_error',))
+             10 CALL_FUNCTION_KW         2
+             12 LOAD_FAST                0 (self)
+             14 STORE_ATTR               2 (user32)
+
+157          16 LOAD_GLOBAL              0 (ctypes)
+             18 LOAD_ATTR                1 (WinDLL)
+             20 LOAD_CONST               4 ('gdi32')
+             22 LOAD_CONST               2 (True)
+             24 LOAD_CONST               3 (('use_last_error',))
+             26 CALL_FUNCTION_KW         2
+             28 LOAD_FAST                0 (self)
+             30 STORE_ATTR               3 (gdi32)
+
+158          32 LOAD_GLOBAL              0 (ctypes)
+             34 LOAD_ATTR                1 (WinDLL)
+             36 LOAD_CONST               5 ('dwmapi')
+             38 LOAD_CONST               2 (True)
+             40 LOAD_CONST               3 (('use_last_error',))
+             42 CALL_FUNCTION_KW         2
+             44 LOAD_FAST                0 (self)
+             46 STORE_ATTR               4 (dwmapi)
+
+160          48 LOAD_GLOBAL              5 (wintypes)
+             50 LOAD_ATTR                6 (HWND)
+             52 BUILD_LIST               1
+             54 LOAD_FAST                0 (self)
+             56 LOAD_ATTR                2 (user32)
+             58 LOAD_ATTR                7 (IsWindow)
+             60 STORE_ATTR               8 (argtypes)
+
+161          62 LOAD_GLOBAL              5 (wintypes)
+             64 LOAD_ATTR                9 (BOOL)
+             66 LOAD_FAST                0 (self)
+             68 LOAD_ATTR                2 (user32)
+             70 LOAD_ATTR                7 (IsWindow)
+             72 STORE_ATTR              10 (restype)
+
+162          74 LOAD_GLOBAL              5 (wintypes)
+             76 LOAD_ATTR                6 (HWND)
+             78 BUILD_LIST               1
+             80 LOAD_FAST                0 (self)
+             82 LOAD_ATTR                2 (user32)
+             84 LOAD_ATTR               11 (IsWindowVisible)
+             86 STORE_ATTR               8 (argtypes)
+
+163          88 LOAD_GLOBAL              5 (wintypes)
+             90 LOAD_ATTR                9 (BOOL)
+             92 LOAD_FAST                0 (self)
+             94 LOAD_ATTR                2 (user32)
+             96 LOAD_ATTR               11 (IsWindowVisible)
+             98 STORE_ATTR              10 (restype)
+
+164         100 LOAD_GLOBAL              5 (wintypes)
+            102 LOAD_ATTR                6 (HWND)
+            104 BUILD_LIST               1
+            106 LOAD_FAST                0 (self)
+            108 LOAD_ATTR                2 (user32)
+            110 LOAD_ATTR               12 (IsIconic)
+            112 STORE_ATTR               8 (argtypes)
+
+165         114 LOAD_GLOBAL              5 (wintypes)
+            116 LOAD_ATTR                9 (BOOL)
+            118 LOAD_FAST                0 (self)
+            120 LOAD_ATTR                2 (user32)
+            122 LOAD_ATTR               12 (IsIconic)
+            124 STORE_ATTR              10 (restype)
+
+166         126 LOAD_GLOBAL              5 (wintypes)
+            128 LOAD_ATTR                6 (HWND)
+            130 LOAD_GLOBAL              5 (wintypes)
+            132 LOAD_ATTR               13 (UINT)
+            134 BUILD_LIST               2
+            136 LOAD_FAST                0 (self)
+            138 LOAD_ATTR                2 (user32)
+            140 LOAD_ATTR               14 (GetWindow)
+            142 STORE_ATTR               8 (argtypes)
+
+167         144 LOAD_GLOBAL              5 (wintypes)
+            146 LOAD_ATTR                6 (HWND)
+            148 LOAD_FAST                0 (self)
+            150 LOAD_ATTR                2 (user32)
+            152 LOAD_ATTR               14 (GetWindow)
+            154 STORE_ATTR              10 (restype)
+
+168         156 LOAD_GLOBAL              5 (wintypes)
+            158 LOAD_ATTR                6 (HWND)
+            160 LOAD_GLOBAL              0 (ctypes)
+            162 LOAD_METHOD             15 (POINTER)
+            164 LOAD_GLOBAL             16 (_RECT)
+            166 CALL_METHOD              1
+            168 BUILD_LIST               2
+            170 LOAD_FAST                0 (self)
+            172 LOAD_ATTR                2 (user32)
+            174 LOAD_ATTR               17 (GetWindowRect)
+            176 STORE_ATTR               8 (argtypes)
+
+169         178 LOAD_GLOBAL              5 (wintypes)
+            180 LOAD_ATTR                9 (BOOL)
+            182 LOAD_FAST                0 (self)
+            184 LOAD_ATTR                2 (user32)
+            186 LOAD_ATTR               17 (GetWindowRect)
+            188 STORE_ATTR              10 (restype)
+
+171         190 LOAD_GLOBAL              5 (wintypes)
+            192 LOAD_ATTR                6 (HWND)
+
+172         194 LOAD_GLOBAL              0 (ctypes)
+            196 LOAD_METHOD             15 (POINTER)
+            198 LOAD_GLOBAL              5 (wintypes)
+            200 LOAD_ATTR               18 (DWORD)
+            202 CALL_METHOD              1
+
+170         204 BUILD_LIST               2
+            206 LOAD_FAST                0 (self)
+            208 LOAD_ATTR                2 (user32)
+            210 LOAD_ATTR               19 (GetWindowThreadProcessId)
+            212 STORE_ATTR               8 (argtypes)
+
+174         214 LOAD_GLOBAL              5 (wintypes)
+            216 LOAD_ATTR               18 (DWORD)
+            218 LOAD_FAST                0 (self)
+            220 LOAD_ATTR                2 (user32)
+            222 LOAD_ATTR               19 (GetWindowThreadProcessId)
+            224 STORE_ATTR              10 (restype)
+
+175         226 LOAD_GLOBAL              5 (wintypes)
+            228 LOAD_ATTR                6 (HWND)
+            230 LOAD_GLOBAL              5 (wintypes)
+            232 LOAD_ATTR               20 (HRGN)
+            234 BUILD_LIST               2
+            236 LOAD_FAST                0 (self)
+            238 LOAD_ATTR                2 (user32)
+            240 LOAD_ATTR               21 (GetWindowRgn)
+            242 STORE_ATTR               8 (argtypes)
+
+176         244 LOAD_GLOBAL              0 (ctypes)
+            246 LOAD_ATTR               22 (c_int)
+            248 LOAD_FAST                0 (self)
+            250 LOAD_ATTR                2 (user32)
+            252 LOAD_ATTR               21 (GetWindowRgn)
+            254 STORE_ATTR              10 (restype)
+
+178         256 LOAD_GLOBAL              5 (wintypes)
+            258 LOAD_ATTR                6 (HWND)
+
+179         260 LOAD_GLOBAL              0 (ctypes)
+            262 LOAD_METHOD             15 (POINTER)
+            264 LOAD_GLOBAL              5 (wintypes)
+            266 LOAD_ATTR               18 (DWORD)
+            268 CALL_METHOD              1
+
+180         270 LOAD_GLOBAL              0 (ctypes)
+            272 LOAD_METHOD             15 (POINTER)
+            274 LOAD_GLOBAL              0 (ctypes)
+            276 LOAD_ATTR               23 (c_ubyte)
+            278 CALL_METHOD              1
+
+181         280 LOAD_GLOBAL              0 (ctypes)
+            282 LOAD_METHOD             15 (POINTER)
+            284 LOAD_GLOBAL              5 (wintypes)
+            286 LOAD_ATTR               18 (DWORD)
+            288 CALL_METHOD              1
+
+177         290 BUILD_LIST               4
+            292 LOAD_FAST                0 (self)
+            294 LOAD_ATTR                2 (user32)
+            296 LOAD_ATTR               24 (GetLayeredWindowAttributes)
+            298 STORE_ATTR               8 (argtypes)
+
+183         300 LOAD_GLOBAL              5 (wintypes)
+            302 LOAD_ATTR                9 (BOOL)
+            304 LOAD_FAST                0 (self)
+            306 LOAD_ATTR                2 (user32)
+            308 LOAD_ATTR               24 (GetLayeredWindowAttributes)
+            310 STORE_ATTR              10 (restype)
+
+185         312 LOAD_GLOBAL             25 (getattr)
+
+186         314 LOAD_FAST                0 (self)
+            316 LOAD_ATTR                2 (user32)
+            318 LOAD_CONST               6 ('GetWindowLongPtrW')
+            320 LOAD_FAST                0 (self)
+            322 LOAD_ATTR                2 (user32)
+            324 LOAD_ATTR               26 (GetWindowLongW)
+
+185         326 CALL_FUNCTION            3
+            328 STORE_FAST               1 (get_window_long_ptr)
+
+188         330 LOAD_GLOBAL              5 (wintypes)
+            332 LOAD_ATTR                6 (HWND)
+            334 LOAD_GLOBAL              0 (ctypes)
+            336 LOAD_ATTR               22 (c_int)
+            338 BUILD_LIST               2
+            340 LOAD_FAST                1 (get_window_long_ptr)
+            342 STORE_ATTR               8 (argtypes)
+
+189         344 LOAD_GLOBAL              0 (ctypes)
+            346 LOAD_ATTR               27 (c_ssize_t)
+            348 LOAD_FAST                1 (get_window_long_ptr)
+            350 STORE_ATTR              10 (restype)
+
+190         352 LOAD_FAST                1 (get_window_long_ptr)
+            354 LOAD_FAST                0 (self)
+            356 STORE_ATTR              28 (_get_window_long_ptr)
+
+193         358 LOAD_GLOBAL              0 (ctypes)
+            360 LOAD_ATTR               22 (c_int)
+
+194         362 LOAD_GLOBAL              0 (ctypes)
+            364 LOAD_ATTR               22 (c_int)
+
+195         366 LOAD_GLOBAL              0 (ctypes)
+            368 LOAD_ATTR               22 (c_int)
+
+196         370 LOAD_GLOBAL              0 (ctypes)
+            372 LOAD_ATTR               22 (c_int)
+
+192         374 BUILD_LIST               4
+            376 LOAD_FAST                0 (self)
+            378 LOAD_ATTR                3 (gdi32)
+            380 LOAD_ATTR               29 (CreateRectRgn)
+            382 STORE_ATTR               8 (argtypes)
+
+198         384 LOAD_GLOBAL              5 (wintypes)
+            386 LOAD_ATTR               20 (HRGN)
+            388 LOAD_FAST                0 (self)
+            390 LOAD_ATTR                3 (gdi32)
+            392 LOAD_ATTR               29 (CreateRectRgn)
+            394 STORE_ATTR              10 (restype)
+
+199         396 LOAD_GLOBAL              5 (wintypes)
+            398 LOAD_ATTR               30 (HGDIOBJ)
+            400 BUILD_LIST               1
+            402 LOAD_FAST                0 (self)
+            404 LOAD_ATTR                3 (gdi32)
+            406 LOAD_ATTR               31 (DeleteObject)
+            408 STORE_ATTR               8 (argtypes)
+
+200         410 LOAD_GLOBAL              5 (wintypes)
+            412 LOAD_ATTR                9 (BOOL)
+            414 LOAD_FAST                0 (self)
+            416 LOAD_ATTR                3 (gdi32)
+            418 LOAD_ATTR               31 (DeleteObject)
+            420 STORE_ATTR              10 (restype)
+
+202         422 LOAD_GLOBAL              5 (wintypes)
+            424 LOAD_ATTR               20 (HRGN)
+
+203         426 LOAD_GLOBAL              5 (wintypes)
+            428 LOAD_ATTR               18 (DWORD)
+
+204         430 LOAD_GLOBAL              0 (ctypes)
+            432 LOAD_ATTR               32 (c_void_p)
+
+201         434 BUILD_LIST               3
+            436 LOAD_FAST                0 (self)
+            438 LOAD_ATTR                3 (gdi32)
+            440 LOAD_ATTR               33 (GetRegionData)
+            442 STORE_ATTR               8 (argtypes)
+
+206         444 LOAD_GLOBAL              5 (wintypes)
+            446 LOAD_ATTR               18 (DWORD)
+            448 LOAD_FAST                0 (self)
+            450 LOAD_ATTR                3 (gdi32)
+            452 LOAD_ATTR               33 (GetRegionData)
+            454 STORE_ATTR              10 (restype)
+
+209         456 LOAD_GLOBAL              5 (wintypes)
+            458 LOAD_ATTR                6 (HWND)
+
+210         460 LOAD_GLOBAL              5 (wintypes)
+            462 LOAD_ATTR               18 (DWORD)
+
+211         464 LOAD_GLOBAL              0 (ctypes)
+            466 LOAD_ATTR               32 (c_void_p)
+
+212         468 LOAD_GLOBAL              5 (wintypes)
+            470 LOAD_ATTR               18 (DWORD)
+
+208         472 BUILD_LIST               4
+            474 LOAD_FAST                0 (self)
+            476 LOAD_ATTR                4 (dwmapi)
+            478 LOAD_ATTR               34 (DwmGetWindowAttribute)
+            480 STORE_ATTR               8 (argtypes)
+
+214         482 LOAD_GLOBAL              0 (ctypes)
+            484 LOAD_ATTR               35 (c_long)
+            486 LOAD_FAST                0 (self)
+            488 LOAD_ATTR                4 (dwmapi)
+            490 LOAD_ATTR               34 (DwmGetWindowAttribute)
+            492 STORE_ATTR              10 (restype)
+            494 LOAD_CONST               0 (None)
+            496 RETURN_VALUE
+
+Disassembly of <code object is_window at 0x1073b9be0, file "WeRobotCore/utils/window_occlusion.py", line 216>:
+217           0 LOAD_GLOBAL              0 (bool)
+              2 LOAD_FAST                0 (self)
+              4 LOAD_ATTR                1 (user32)
+              6 LOAD_METHOD              2 (IsWindow)
+              8 LOAD_FAST                1 (hwnd)
+             10 CALL_METHOD              1
+             12 CALL_FUNCTION            1
+             14 RETURN_VALUE
+
+Disassembly of <code object is_visible at 0x1073b9660, file "WeRobotCore/utils/window_occlusion.py", line 219>:
+220           0 LOAD_GLOBAL              0 (bool)
+              2 LOAD_FAST                0 (self)
+              4 LOAD_ATTR                1 (user32)
+              6 LOAD_METHOD              2 (IsWindowVisible)
+              8 LOAD_FAST                1 (hwnd)
+             10 CALL_METHOD              1
+             12 CALL_FUNCTION            1
+             14 RETURN_VALUE
+
+Disassembly of <code object is_minimized at 0x1073b9920, file "WeRobotCore/utils/window_occlusion.py", line 222>:
+223           0 LOAD_GLOBAL              0 (bool)
+              2 LOAD_FAST                0 (self)
+              4 LOAD_ATTR                1 (user32)
+              6 LOAD_METHOD              2 (IsIconic)
+              8 LOAD_FAST                1 (hwnd)
+             10 CALL_METHOD              1
+             12 CALL_FUNCTION            1
+             14 RETURN_VALUE
+
+Disassembly of <code object is_cloaked at 0x1073b9c90, file "WeRobotCore/utils/window_occlusion.py", line 225>:
+226           0 LOAD_GLOBAL              0 (wintypes)
+              2 LOAD_METHOD              1 (DWORD)
+              4 CALL_METHOD              0
+              6 STORE_FAST               2 (cloaked)
+
+227           8 LOAD_FAST                0 (self)
+             10 LOAD_ATTR                2 (dwmapi)
+             12 LOAD_METHOD              3 (DwmGetWindowAttribute)
+
+228          14 LOAD_FAST                1 (hwnd)
+
+229          16 LOAD_FAST                0 (self)
+             18 LOAD_ATTR                4 (DWMWA_CLOAKED)
+
+230          20 LOAD_GLOBAL              5 (ctypes)
+             22 LOAD_METHOD              6 (byref)
+             24 LOAD_FAST                2 (cloaked)
+             26 CALL_METHOD              1
+
+231          28 LOAD_GLOBAL              5 (ctypes)
+             30 LOAD_METHOD              7 (sizeof)
+             32 LOAD_FAST                2 (cloaked)
+             34 CALL_METHOD              1
+
+227          36 CALL_METHOD              4
+             38 STORE_FAST               3 (hr)
+
+234          40 LOAD_FAST                3 (hr)
+             42 LOAD_CONST               1 (0)
+             44 COMPARE_OP               2 (==)
+             46 POP_JUMP_IF_FALSE       58
+             48 LOAD_GLOBAL              8 (bool)
+             50 LOAD_FAST                2 (cloaked)
+             52 LOAD_ATTR                9 (value)
+             54 CALL_FUNCTION            1
+             56 RETURN_VALUE
+        >>   58 LOAD_CONST               2 (False)
+             60 RETURN_VALUE
+
+Disassembly of <code object get_pid at 0x1073b90e0, file "WeRobotCore/utils/window_occlusion.py", line 236>:
+237           0 LOAD_GLOBAL              0 (wintypes)
+              2 LOAD_METHOD              1 (DWORD)
+              4 CALL_METHOD              0
+              6 STORE_FAST               2 (pid)
+
+238           8 LOAD_FAST                0 (self)
+             10 LOAD_ATTR                2 (user32)
+             12 LOAD_METHOD              3 (GetWindowThreadProcessId)
+             14 LOAD_FAST                1 (hwnd)
+             16 LOAD_GLOBAL              4 (ctypes)
+             18 LOAD_METHOD              5 (byref)
+             20 LOAD_FAST                2 (pid)
+             22 CALL_METHOD              1
+             24 CALL_METHOD              2
+             26 STORE_FAST               3 (thread_id)
+
+239          28 LOAD_FAST                3 (thread_id)
+             30 POP_JUMP_IF_FALSE       38
+             32 LOAD_FAST                2 (pid)
+             34 LOAD_ATTR                6 (value)
+             36 POP_JUMP_IF_TRUE        52
+
+240     >>   38 LOAD_GLOBAL              7 (OSError)
+             40 LOAD_GLOBAL              4 (ctypes)
+             42 LOAD_METHOD              8 (get_last_error)
+             44 CALL_METHOD              0
+             46 LOAD_CONST               1 ('GetWindowThreadProcessId failed')
+             48 CALL_FUNCTION            2
+             50 RAISE_VARARGS            1
+
+241     >>   52 LOAD_GLOBAL              9 (int)
+             54 LOAD_FAST                2 (pid)
+             56 LOAD_ATTR                6 (value)
+             58 CALL_FUNCTION            1
+             60 RETURN_VALUE
+
+Disassembly of <code object get_virtual_screen_rect at 0x1073ca2f0, file "WeRobotCore/utils/window_occlusion.py", line 243>:
+244           0 LOAD_GLOBAL              0 (int)
+              2 LOAD_FAST                0 (self)
+              4 LOAD_ATTR                1 (user32)
+              6 LOAD_METHOD              2 (GetSystemMetrics)
+              8 LOAD_FAST                0 (self)
+             10 LOAD_ATTR                3 (SM_XVIRTUALSCREEN)
+             12 CALL_METHOD              1
+             14 CALL_FUNCTION            1
+             16 STORE_FAST               1 (left)
+
+245          18 LOAD_GLOBAL              0 (int)
+             20 LOAD_FAST                0 (self)
+             22 LOAD_ATTR                1 (user32)
+             24 LOAD_METHOD              2 (GetSystemMetrics)
+             26 LOAD_FAST                0 (self)
+             28 LOAD_ATTR                4 (SM_YVIRTUALSCREEN)
+             30 CALL_METHOD              1
+             32 CALL_FUNCTION            1
+             34 STORE_FAST               2 (top)
+
+246          36 LOAD_GLOBAL              0 (int)
+             38 LOAD_FAST                0 (self)
+             40 LOAD_ATTR                1 (user32)
+             42 LOAD_METHOD              2 (GetSystemMetrics)
+             44 LOAD_FAST                0 (self)
+             46 LOAD_ATTR                5 (SM_CXVIRTUALSCREEN)
+             48 CALL_METHOD              1
+             50 CALL_FUNCTION            1
+             52 STORE_FAST               3 (width)
+
+247          54 LOAD_GLOBAL              0 (int)
+             56 LOAD_FAST                0 (self)
+             58 LOAD_ATTR                1 (user32)
+             60 LOAD_METHOD              2 (GetSystemMetrics)
+             62 LOAD_FAST                0 (self)
+             64 LOAD_ATTR                6 (SM_CYVIRTUALSCREEN)
+             66 CALL_METHOD              1
+             68 CALL_FUNCTION            1
+             70 STORE_FAST               4 (height)
+
+248          72 LOAD_FAST                3 (width)
+             74 LOAD_CONST               1 (0)
+             76 COMPARE_OP               1 (<=)
+             78 POP_JUMP_IF_TRUE        88
+             80 LOAD_FAST                4 (height)
+             82 LOAD_CONST               1 (0)
+             84 COMPARE_OP               1 (<=)
+             86 POP_JUMP_IF_FALSE       96
+
+249     >>   88 LOAD_GLOBAL              7 (OSError)
+             90 LOAD_CONST               2 ('virtual screen has no usable area')
+             92 CALL_FUNCTION            1
+             94 RAISE_VARARGS            1
+
+250     >>   96 LOAD_FAST                1 (left)
+             98 LOAD_FAST                2 (top)
+            100 LOAD_FAST                1 (left)
+            102 LOAD_FAST                3 (width)
+            104 BINARY_ADD
+            106 LOAD_FAST                2 (top)
+            108 LOAD_FAST                4 (height)
+            110 BINARY_ADD
+            112 BUILD_TUPLE              4
+            114 RETURN_VALUE
+
+Disassembly of <code object _get_raw_window_rect at 0x1073ca660, file "WeRobotCore/utils/window_occlusion.py", line 252>:
+253           0 LOAD_GLOBAL              0 (_RECT)
+              2 CALL_FUNCTION            0
+              4 STORE_FAST               2 (rect)
+
+254           6 LOAD_FAST                0 (self)
+              8 LOAD_ATTR                1 (user32)
+             10 LOAD_METHOD              2 (GetWindowRect)
+             12 LOAD_FAST                1 (hwnd)
+             14 LOAD_GLOBAL              3 (ctypes)
+             16 LOAD_METHOD              4 (byref)
+             18 LOAD_FAST                2 (rect)
+             20 CALL_METHOD              1
+             22 CALL_METHOD              2
+             24 POP_JUMP_IF_TRUE        40
+
+255          26 LOAD_GLOBAL              5 (OSError)
+             28 LOAD_GLOBAL              3 (ctypes)
+             30 LOAD_METHOD              6 (get_last_error)
+             32 CALL_METHOD              0
+             34 LOAD_CONST               1 ('GetWindowRect failed')
+             36 CALL_FUNCTION            2
+             38 RAISE_VARARGS            1
+
+256     >>   40 LOAD_FAST                2 (rect)
+             42 LOAD_ATTR                7 (left)
+             44 LOAD_FAST                2 (rect)
+             46 LOAD_ATTR                8 (top)
+             48 LOAD_FAST                2 (rect)
+             50 LOAD_ATTR                9 (right)
+             52 LOAD_FAST                2 (rect)
+             54 LOAD_ATTR               10 (bottom)
+             56 BUILD_TUPLE              4
+             58 RETURN_VALUE
+
+Disassembly of <code object get_window_rect at 0x1073ca920, file "WeRobotCore/utils/window_occlusion.py", line 258>:
+259           0 LOAD_GLOBAL              0 (_RECT)
+              2 CALL_FUNCTION            0
+              4 STORE_FAST               2 (rect)
+
+260           6 LOAD_FAST                0 (self)
+              8 LOAD_ATTR                1 (dwmapi)
+             10 LOAD_METHOD              2 (DwmGetWindowAttribute)
+
+261          12 LOAD_FAST                1 (hwnd)
+
+262          14 LOAD_FAST                0 (self)
+             16 LOAD_ATTR                3 (DWMWA_EXTENDED_FRAME_BOUNDS)
+
+263          18 LOAD_GLOBAL              4 (ctypes)
+             20 LOAD_METHOD              5 (byref)
+             22 LOAD_FAST                2 (rect)
+             24 CALL_METHOD              1
+
+264          26 LOAD_GLOBAL              4 (ctypes)
+             28 LOAD_METHOD              6 (sizeof)
+             30 LOAD_FAST                2 (rect)
+             32 CALL_METHOD              1
+
+260          34 CALL_METHOD              4
+             36 STORE_FAST               3 (hr)
+
+266          38 LOAD_FAST                3 (hr)
+             40 LOAD_CONST               1 (0)
+             42 COMPARE_OP               2 (==)
+             44 POP_JUMP_IF_FALSE       90
+             46 LOAD_FAST                2 (rect)
+             48 LOAD_ATTR                7 (right)
+             50 LOAD_FAST                2 (rect)
+             52 LOAD_ATTR                8 (left)
+             54 COMPARE_OP               4 (>)
+             56 POP_JUMP_IF_FALSE       90
+             58 LOAD_FAST                2 (rect)
+             60 LOAD_ATTR                9 (bottom)
+             62 LOAD_FAST                2 (rect)
+             64 LOAD_ATTR               10 (top)
+             66 COMPARE_OP               4 (>)
+             68 POP_JUMP_IF_FALSE       90
+
+267          70 LOAD_FAST                2 (rect)
+             72 LOAD_ATTR                8 (left)
+             74 LOAD_FAST                2 (rect)
+             76 LOAD_ATTR               10 (top)
+             78 LOAD_FAST                2 (rect)
+             80 LOAD_ATTR                7 (right)
+             82 LOAD_FAST                2 (rect)
+             84 LOAD_ATTR                9 (bottom)
+             86 BUILD_TUPLE              4
+             88 RETURN_VALUE
+
+268     >>   90 LOAD_FAST                0 (self)
+             92 LOAD_METHOD             11 (_get_raw_window_rect)
+             94 LOAD_FAST                1 (hwnd)
+             96 CALL_METHOD              1
+             98 RETURN_VALUE
+
+Disassembly of <code object _region_rects at 0x1073ca450, file "WeRobotCore/utils/window_occlusion.py", line 270>:
+271           0 LOAD_GLOBAL              0 (int)
+              2 LOAD_FAST                0 (self)
+              4 LOAD_ATTR                1 (gdi32)
+              6 LOAD_METHOD              2 (GetRegionData)
+              8 LOAD_FAST                1 (region)
+             10 LOAD_CONST               1 (0)
+             12 LOAD_CONST               0 (None)
+             14 CALL_METHOD              3
+             16 CALL_FUNCTION            1
+             18 STORE_FAST               2 (size)
+
+272          20 LOAD_FAST                2 (size)
+             22 LOAD_CONST               1 (0)
+             24 COMPARE_OP               1 (<=)
+             26 POP_JUMP_IF_TRUE        38
+             28 LOAD_FAST                2 (size)
+             30 LOAD_FAST                0 (self)
+             32 LOAD_ATTR                3 (MAX_REGION_DATA_BYTES)
+             34 COMPARE_OP               4 (>)
+             36 POP_JUMP_IF_FALSE       46
+
+273     >>   38 LOAD_GLOBAL              4 (OSError)
+             40 LOAD_CONST               2 ('invalid or oversized window region')
+             42 CALL_FUNCTION            1
+             44 RAISE_VARARGS            1
+
+275     >>   46 LOAD_GLOBAL              5 (ctypes)
+             48 LOAD_METHOD              6 (create_string_buffer)
+             50 LOAD_FAST                2 (size)
+             52 CALL_METHOD              1
+             54 STORE_FAST               3 (buffer)
+
+276          56 LOAD_GLOBAL              0 (int)
+             58 LOAD_FAST                0 (self)
+             60 LOAD_ATTR                1 (gdi32)
+             62 LOAD_METHOD              2 (GetRegionData)
+             64 LOAD_FAST                1 (region)
+             66 LOAD_FAST                2 (size)
+             68 LOAD_FAST                3 (buffer)
+             70 CALL_METHOD              3
+             72 CALL_FUNCTION            1
+             74 STORE_FAST               4 (written)
+
+277          76 LOAD_FAST                4 (written)
+             78 LOAD_FAST                2 (size)
+             80 COMPARE_OP               3 (!=)
+             82 POP_JUMP_IF_FALSE       92
+
+278          84 LOAD_GLOBAL              4 (OSError)
+             86 LOAD_CONST               3 ('GetRegionData returned incomplete data')
+             88 CALL_FUNCTION            1
+             90 RAISE_VARARGS            1
+
+280     >>   92 LOAD_GLOBAL              7 (_RGNDATAHEADER)
+             94 LOAD_METHOD              8 (from_buffer_copy)
+             96 LOAD_FAST                3 (buffer)
+             98 LOAD_ATTR                9 (raw)
+            100 CALL_METHOD              1
+            102 STORE_FAST               5 (header)
+
+281         104 LOAD_GLOBAL              0 (int)
+            106 LOAD_FAST                5 (header)
+            108 LOAD_ATTR               10 (nCount)
+            110 CALL_FUNCTION            1
+            112 STORE_FAST               6 (count)
+
+282         114 LOAD_FAST                6 (count)
+            116 LOAD_CONST               1 (0)
+            118 COMPARE_OP               0 (<)
+            120 POP_JUMP_IF_TRUE       132
+            122 LOAD_FAST                6 (count)
+            124 LOAD_FAST                0 (self)
+            126 LOAD_ATTR               11 (MAX_REGION_RECTS)
+            128 COMPARE_OP               4 (>)
+            130 POP_JUMP_IF_FALSE      140
+
+283     >>  132 LOAD_GLOBAL              4 (OSError)
+            134 LOAD_CONST               4 ('window region contains too many rectangles')
+            136 CALL_FUNCTION            1
+            138 RAISE_VARARGS            1
+
+284     >>  140 LOAD_FAST                6 (count)
+            142 LOAD_CONST               1 (0)
+            144 COMPARE_OP               2 (==)
+            146 POP_JUMP_IF_FALSE      152
+
+285         148 BUILD_LIST               0
+            150 RETURN_VALUE
+
+287     >>  152 LOAD_GLOBAL             12 (_RECT)
+            154 LOAD_FAST                6 (count)
+            156 BINARY_MULTIPLY
+            158 STORE_FAST               7 (rect_array_type)
+
+288         160 LOAD_FAST                7 (rect_array_type)
+            162 LOAD_METHOD              8 (from_buffer_copy)
+            164 LOAD_FAST                3 (buffer)
+            166 LOAD_ATTR                9 (raw)
+            168 LOAD_GLOBAL              0 (int)
+            170 LOAD_FAST                5 (header)
+            172 LOAD_ATTR               13 (dwSize)
+            174 CALL_FUNCTION            1
+            176 CALL_METHOD              2
+            178 STORE_FAST               8 (rect_array)
+
+289         180 LOAD_CONST               5 (<code object <listcomp> at 0x1073ca5b0, file "WeRobotCore/utils/window_occlusion.py", line 289>)
+            182 LOAD_CONST               6 ('_Win32OcclusionBackend._region_rects.<locals>.<listcomp>')
+            184 MAKE_FUNCTION            0
+
+291         186 LOAD_FAST                8 (rect_array)
+
+289         188 GET_ITER
+            190 CALL_FUNCTION            1
+            192 RETURN_VALUE
+
+Disassembly of <code object <listcomp> at 0x1073ca5b0, file "WeRobotCore/utils/window_occlusion.py", line 289>:
+289           0 BUILD_LIST               0
+              2 LOAD_FAST                0 (.0)
+        >>    4 FOR_ITER                48 (to 54)
+
+291           6 STORE_FAST               1 (rect)
+
+292           8 LOAD_FAST                1 (rect)
+             10 LOAD_ATTR                0 (right)
+             12 LOAD_FAST                1 (rect)
+             14 LOAD_ATTR                1 (left)
+             16 COMPARE_OP               4 (>)
+             18 POP_JUMP_IF_FALSE        4
+             20 LOAD_FAST                1 (rect)
+             22 LOAD_ATTR                2 (bottom)
+             24 LOAD_FAST                1 (rect)
+             26 LOAD_ATTR                3 (top)
+             28 COMPARE_OP               4 (>)
+             30 POP_JUMP_IF_FALSE        4
+
+290          32 LOAD_FAST                1 (rect)
+             34 LOAD_ATTR                1 (left)
+             36 LOAD_FAST                1 (rect)
+             38 LOAD_ATTR                3 (top)
+             40 LOAD_FAST                1 (rect)
+             42 LOAD_ATTR                0 (right)
+             44 LOAD_FAST                1 (rect)
+             46 LOAD_ATTR                2 (bottom)
+             48 BUILD_TUPLE              4
+             50 LIST_APPEND              2
+             52 JUMP_ABSOLUTE            4
+        >>   54 RETURN_VALUE
+
+Disassembly of <code object get_window_shape_rects at 0x1073caea0, file "WeRobotCore/utils/window_occlusion.py", line 295>:
+297           0 LOAD_FAST                0 (self)
+              2 LOAD_ATTR                0 (gdi32)
+              4 LOAD_METHOD              1 (CreateRectRgn)
+              6 LOAD_CONST               1 (0)
+              8 LOAD_CONST               1 (0)
+             10 LOAD_CONST               1 (0)
+             12 LOAD_CONST               1 (0)
+             14 CALL_METHOD              4
+             16 STORE_FAST               2 (region)
+
+298          18 LOAD_FAST                2 (region)
+             20 POP_JUMP_IF_TRUE        36
+
+299          22 LOAD_GLOBAL              2 (OSError)
+             24 LOAD_GLOBAL              3 (ctypes)
+             26 LOAD_METHOD              4 (get_last_error)
+             28 CALL_METHOD              0
+             30 LOAD_CONST               2 ('CreateRectRgn failed')
+             32 CALL_FUNCTION            2
+             34 RAISE_VARARGS            1
+
+300     >>   36 SETUP_FINALLY          130 (to 168)
+
+301          38 LOAD_GLOBAL              5 (int)
+             40 LOAD_FAST                0 (self)
+             42 LOAD_ATTR                6 (user32)
+             44 LOAD_METHOD              7 (GetWindowRgn)
+             46 LOAD_FAST                1 (hwnd)
+             48 LOAD_FAST                2 (region)
+             50 CALL_METHOD              2
+             52 CALL_FUNCTION            1
+             54 STORE_FAST               3 (region_type)
+
+302          56 LOAD_FAST                3 (region_type)
+             58 LOAD_FAST                0 (self)
+             60 LOAD_ATTR                8 (NULL_REGION)
+             62 COMPARE_OP               2 (==)
+             64 POP_JUMP_IF_FALSE       84
+
+303          66 BUILD_LIST               0
+             68 POP_BLOCK
+
+316          70 LOAD_FAST                0 (self)
+             72 LOAD_ATTR                0 (gdi32)
+             74 LOAD_METHOD              9 (DeleteObject)
+             76 LOAD_FAST                2 (region)
+             78 CALL_METHOD              1
+             80 POP_TOP
+
+303          82 RETURN_VALUE
+
+304     >>   84 LOAD_FAST                3 (region_type)
+             86 LOAD_FAST                0 (self)
+             88 LOAD_ATTR               10 (ERROR_REGION)
+             90 COMPARE_OP               3 (!=)
+             92 POP_JUMP_IF_FALSE      152
+
+305          94 LOAD_FAST                0 (self)
+             96 LOAD_METHOD             11 (_get_raw_window_rect)
+             98 LOAD_FAST                1 (hwnd)
+            100 CALL_METHOD              1
+            102 UNPACK_SEQUENCE          4
+            104 STORE_DEREF              0 (raw_left)
+            106 STORE_DEREF              1 (raw_top)
+            108 STORE_FAST               4 (_)
+            110 STORE_FAST               4 (_)
+
+306         112 LOAD_CLOSURE             0 (raw_left)
+            114 LOAD_CLOSURE             1 (raw_top)
+            116 BUILD_TUPLE              2
+            118 LOAD_CONST               3 (<code object <listcomp> at 0x1073ca030, file "WeRobotCore/utils/window_occlusion.py", line 306>)
+            120 LOAD_CONST               4 ('_Win32OcclusionBackend.get_window_shape_rects.<locals>.<listcomp>')
+            122 MAKE_FUNCTION            8 (closure)
+
+313         124 LOAD_FAST                0 (self)
+            126 LOAD_METHOD             12 (_region_rects)
+            128 LOAD_FAST                2 (region)
+            130 CALL_METHOD              1
+
+306         132 GET_ITER
+            134 CALL_FUNCTION            1
+            136 POP_BLOCK
+
+316         138 LOAD_FAST                0 (self)
+            140 LOAD_ATTR                0 (gdi32)
+            142 LOAD_METHOD              9 (DeleteObject)
+            144 LOAD_FAST                2 (region)
+            146 CALL_METHOD              1
+            148 POP_TOP
+
+306         150 RETURN_VALUE
+        >>  152 POP_BLOCK
+
+316         154 LOAD_FAST                0 (self)
+            156 LOAD_ATTR                0 (gdi32)
+            158 LOAD_METHOD              9 (DeleteObject)
+            160 LOAD_FAST                2 (region)
+            162 CALL_METHOD              1
+            164 POP_TOP
+            166 JUMP_FORWARD            14 (to 182)
+        >>  168 LOAD_FAST                0 (self)
+            170 LOAD_ATTR                0 (gdi32)
+            172 LOAD_METHOD              9 (DeleteObject)
+            174 LOAD_FAST                2 (region)
+            176 CALL_METHOD              1
+            178 POP_TOP
+            180 RERAISE
+
+321     >>  182 LOAD_FAST                0 (self)
+            184 LOAD_METHOD             13 (get_window_rect)
+            186 LOAD_FAST                1 (hwnd)
+            188 CALL_METHOD              1
+            190 BUILD_LIST               1
+            192 RETURN_VALUE
+
+Disassembly of <code object <listcomp> at 0x1073ca030, file "WeRobotCore/utils/window_occlusion.py", line 306>:
+306           0 BUILD_LIST               0
+              2 LOAD_FAST                0 (.0)
+        >>    4 FOR_ITER                40 (to 46)
+
+313           6 UNPACK_SEQUENCE          4
+              8 STORE_FAST               1 (left)
+             10 STORE_FAST               2 (top)
+             12 STORE_FAST               3 (right)
+             14 STORE_FAST               4 (bottom)
+
+308          16 LOAD_FAST                1 (left)
+             18 LOAD_DEREF               0 (raw_left)
+             20 BINARY_ADD
+
+309          22 LOAD_FAST                2 (top)
+             24 LOAD_DEREF               1 (raw_top)
+             26 BINARY_ADD
+
+310          28 LOAD_FAST                3 (right)
+             30 LOAD_DEREF               0 (raw_left)
+             32 BINARY_ADD
+
+311          34 LOAD_FAST                4 (bottom)
+             36 LOAD_DEREF               1 (raw_top)
+             38 BINARY_ADD
+
+307          40 BUILD_TUPLE              4
+             42 LIST_APPEND              2
+             44 JUMP_ABSOLUTE            4
+        >>   46 RETURN_VALUE
+
+Disassembly of <code object is_definitely_opaque at 0x1073ca710, file "WeRobotCore/utils/window_occlusion.py", line 323>:
+324           0 LOAD_GLOBAL              0 (ctypes)
+              2 LOAD_METHOD              1 (set_last_error)
+              4 LOAD_CONST               1 (0)
+              6 CALL_METHOD              1
+              8 POP_TOP
+
+325          10 LOAD_GLOBAL              2 (int)
+             12 LOAD_FAST                0 (self)
+             14 LOAD_METHOD              3 (_get_window_long_ptr)
+             16 LOAD_FAST                1 (hwnd)
+             18 LOAD_FAST                0 (self)
+             20 LOAD_ATTR                4 (GWL_EXSTYLE)
+             22 CALL_METHOD              2
+             24 CALL_FUNCTION            1
+             26 STORE_FAST               2 (ex_style)
+
+326          28 LOAD_FAST                2 (ex_style)
+             30 LOAD_CONST               1 (0)
+             32 COMPARE_OP               2 (==)
+             34 POP_JUMP_IF_FALSE       48
+             36 LOAD_GLOBAL              0 (ctypes)
+             38 LOAD_METHOD              5 (get_last_error)
+             40 CALL_METHOD              0
+             42 POP_JUMP_IF_FALSE       48
+
+327          44 LOAD_CONST               2 (False)
+             46 RETURN_VALUE
+
+328     >>   48 LOAD_FAST                2 (ex_style)
+             50 LOAD_FAST                0 (self)
+             52 LOAD_ATTR                6 (WS_EX_TRANSPARENT)
+             54 BINARY_AND
+             56 POP_JUMP_IF_FALSE       62
+
+329          58 LOAD_CONST               2 (False)
+             60 RETURN_VALUE
+
+330     >>   62 LOAD_FAST                2 (ex_style)
+             64 LOAD_FAST                0 (self)
+             66 LOAD_ATTR                7 (WS_EX_LAYERED)
+             68 BINARY_AND
+             70 POP_JUMP_IF_TRUE        76
+
+331          72 LOAD_CONST               3 (True)
+             74 RETURN_VALUE
+
+333     >>   76 LOAD_GLOBAL              8 (wintypes)
+             78 LOAD_METHOD              9 (DWORD)
+             80 CALL_METHOD              0
+             82 STORE_FAST               3 (color_key)
+
+334          84 LOAD_GLOBAL              0 (ctypes)
+             86 LOAD_METHOD             10 (c_ubyte)
+             88 CALL_METHOD              0
+             90 STORE_FAST               4 (alpha)
+
+335          92 LOAD_GLOBAL              8 (wintypes)
+             94 LOAD_METHOD              9 (DWORD)
+             96 CALL_METHOD              0
+             98 STORE_FAST               5 (flags)
+
+336         100 LOAD_FAST                0 (self)
+            102 LOAD_ATTR               11 (user32)
+            104 LOAD_METHOD             12 (GetLayeredWindowAttributes)
+
+337         106 LOAD_FAST                1 (hwnd)
+
+338         108 LOAD_GLOBAL              0 (ctypes)
+            110 LOAD_METHOD             13 (byref)
+            112 LOAD_FAST                3 (color_key)
+            114 CALL_METHOD              1
+
+339         116 LOAD_GLOBAL              0 (ctypes)
+            118 LOAD_METHOD             13 (byref)
+            120 LOAD_FAST                4 (alpha)
+            122 CALL_METHOD              1
+
+340         124 LOAD_GLOBAL              0 (ctypes)
+            126 LOAD_METHOD             13 (byref)
+            128 LOAD_FAST                5 (flags)
+            130 CALL_METHOD              1
+
+336         132 CALL_METHOD              4
+            134 STORE_FAST               6 (ok)
+
+344         136 LOAD_GLOBAL             14 (bool)
+
+345         138 LOAD_FAST                6 (ok)
+            140 JUMP_IF_FALSE_OR_POP   176
+
+346         142 LOAD_FAST                5 (flags)
+            144 LOAD_ATTR               15 (value)
+            146 LOAD_FAST                0 (self)
+            148 LOAD_ATTR               16 (LWA_ALPHA)
+            150 BINARY_AND
+
+345         152 JUMP_IF_FALSE_OR_POP   176
+
+347         154 LOAD_FAST                5 (flags)
+            156 LOAD_ATTR               15 (value)
+            158 LOAD_FAST                0 (self)
+            160 LOAD_ATTR               17 (LWA_COLORKEY)
+            162 BINARY_AND
+            164 UNARY_NOT
+
+345         166 JUMP_IF_FALSE_OR_POP   176
+
+348         168 LOAD_FAST                4 (alpha)
+            170 LOAD_ATTR               15 (value)
+            172 LOAD_CONST               4 (255)
+            174 COMPARE_OP               2 (==)
+
+344     >>  176 CALL_FUNCTION            1
+            178 RETURN_VALUE
+
+Disassembly of <code object iter_windows_above at 0x1073ca190, file "WeRobotCore/utils/window_occlusion.py", line 351>:
+352           0 LOAD_GLOBAL              0 (set)
+              2 CALL_FUNCTION            0
+              4 STORE_FAST               3 (seen)
+
+353           6 LOAD_FAST                0 (self)
+              8 LOAD_ATTR                1 (user32)
+             10 LOAD_METHOD              2 (GetWindow)
+             12 LOAD_FAST                1 (hwnd)
+             14 LOAD_FAST                0 (self)
+             16 LOAD_ATTR                3 (GW_HWNDPREV)
+             18 CALL_METHOD              2
+             20 STORE_FAST               4 (current)
+
+354     >>   22 LOAD_FAST                4 (current)
+             24 POP_JUMP_IF_FALSE       92
+             26 LOAD_GLOBAL              4 (int)
+             28 LOAD_FAST                4 (current)
+             30 CALL_FUNCTION            1
+             32 LOAD_FAST                3 (seen)
+             34 CONTAINS_OP              1
+             36 POP_JUMP_IF_FALSE       92
+             38 LOAD_GLOBAL              5 (len)
+             40 LOAD_FAST                3 (seen)
+             42 CALL_FUNCTION            1
+             44 LOAD_FAST                2 (limit)
+             46 COMPARE_OP               0 (<)
+             48 POP_JUMP_IF_FALSE       92
+
+355          50 LOAD_GLOBAL              4 (int)
+             52 LOAD_FAST                4 (current)
+             54 CALL_FUNCTION            1
+             56 STORE_FAST               5 (current_value)
+
+356          58 LOAD_FAST                3 (seen)
+             60 LOAD_METHOD              6 (add)
+             62 LOAD_FAST                5 (current_value)
+             64 CALL_METHOD              1
+             66 POP_TOP
+
+357          68 LOAD_FAST                5 (current_value)
+             70 YIELD_VALUE
+             72 POP_TOP
+
+358          74 LOAD_FAST                0 (self)
+             76 LOAD_ATTR                1 (user32)
+             78 LOAD_METHOD              2 (GetWindow)
+             80 LOAD_FAST                4 (current)
+             82 LOAD_FAST                0 (self)
+             84 LOAD_ATTR                3 (GW_HWNDPREV)
+             86 CALL_METHOD              2
+             88 STORE_FAST               4 (current)
+             90 JUMP_ABSOLUTE           22
+        >>   92 LOAD_CONST               0 (None)
+             94 RETURN_VALUE
+
+Disassembly of <code object _unknown at 0x1073cabe0, file "WeRobotCore/utils/window_occlusion.py", line 361>:
+362           0 LOAD_GLOBAL              0 (WindowOcclusionResult)
+
+363           2 LOAD_GLOBAL              1 (WindowOcclusionState)
+              4 LOAD_ATTR                2 (UNKNOWN)
+
+364           6 LOAD_CONST               0 (None)
+
+365           8 LOAD_CONST               1 (0)
+
+366          10 LOAD_CONST               1 (0)
+
+367          12 LOAD_CONST               1 (0)
+
+368          14 LOAD_FAST                0 (reason)
+
+369          16 LOAD_GLOBAL              3 (time)
+             18 LOAD_METHOD              4 (perf_counter)
+             20 CALL_METHOD              0
+             22 LOAD_FAST                1 (started_at)
+             24 BINARY_SUBTRACT
+             26 LOAD_CONST               2 (1000)
+             28 BINARY_MULTIPLY
+
+362          30 LOAD_CONST               3 (('state', 'visible_ratio', 'target_area', 'visible_area', 'occluding_window_count', 'reason', 'elapsed_ms'))
+             32 CALL_FUNCTION_KW         7
+             34 RETURN_VALUE
+
+Disassembly of <code object calculate_window_occlusion at 0x1073ca9d0, file "WeRobotCore/utils/window_occlusion.py", line 373>:
+386           0 LOAD_GLOBAL              0 (time)
+              2 LOAD_METHOD              1 (perf_counter)
+              4 CALL_METHOD              0
+              6 STORE_FAST               5 (started_at)
+
+387           8 EXTENDED_ARG             3
+             10 SETUP_FINALLY          816 (to 828)
+
+388          12 LOAD_CONST               1 (0)
+             14 LOAD_FAST                1 (min_visible_ratio)
+             16 DUP_TOP
+             18 ROT_THREE
+             20 COMPARE_OP               1 (<=)
+             22 POP_JUMP_IF_FALSE       32
+             24 LOAD_CONST               2 (1)
+             26 COMPARE_OP               1 (<=)
+             28 POP_JUMP_IF_TRUE        46
+             30 JUMP_FORWARD             2 (to 34)
+        >>   32 POP_TOP
+
+389     >>   34 LOAD_GLOBAL              2 (_unknown)
+             36 LOAD_CONST               3 ('invalid_visible_ratio_threshold')
+             38 LOAD_FAST                5 (started_at)
+             40 CALL_FUNCTION            2
+             42 POP_BLOCK
+             44 RETURN_VALUE
+
+390     >>   46 LOAD_FAST                2 (max_windows)
+             48 LOAD_CONST               1 (0)
+             50 COMPARE_OP               1 (<=)
+             52 POP_JUMP_IF_TRUE        62
+             54 LOAD_FAST                3 (time_budget_ms)
+             56 LOAD_CONST               1 (0)
+             58 COMPARE_OP               1 (<=)
+             60 POP_JUMP_IF_FALSE       74
+
+391     >>   62 LOAD_GLOBAL              2 (_unknown)
+             64 LOAD_CONST               4 ('invalid_detection_limits')
+             66 LOAD_FAST                5 (started_at)
+             68 CALL_FUNCTION            2
+             70 POP_BLOCK
+             72 RETURN_VALUE
+
+392     >>   74 LOAD_FAST                0 (hwnd)
+             76 POP_JUMP_IF_TRUE        90
+
+393          78 LOAD_GLOBAL              2 (_unknown)
+             80 LOAD_CONST               5 ('missing_window_handle')
+             82 LOAD_FAST                5 (started_at)
+             84 CALL_FUNCTION            2
+             86 POP_BLOCK
+             88 RETURN_VALUE
+
+394     >>   90 LOAD_FAST                4 (_backend)
+             92 LOAD_CONST               6 (None)
+             94 IS_OP                    0
+             96 POP_JUMP_IF_FALSE      126
+
+395          98 LOAD_GLOBAL              3 (os)
+            100 LOAD_ATTR                4 (name)
+            102 LOAD_CONST               7 ('nt')
+            104 COMPARE_OP               3 (!=)
+            106 POP_JUMP_IF_FALSE      120
+
+396         108 LOAD_GLOBAL              2 (_unknown)
+            110 LOAD_CONST               8 ('unsupported_platform')
+            112 LOAD_FAST                5 (started_at)
+            114 CALL_FUNCTION            2
+            116 POP_BLOCK
+            118 RETURN_VALUE
+
+397     >>  120 LOAD_GLOBAL              5 (_Win32OcclusionBackend)
+            122 CALL_FUNCTION            0
+            124 STORE_FAST               4 (_backend)
+
+398     >>  126 LOAD_FAST                4 (_backend)
+            128 LOAD_METHOD              6 (is_window)
+            130 LOAD_FAST                0 (hwnd)
+            132 CALL_METHOD              1
+            134 POP_JUMP_IF_TRUE       148
+
+399         136 LOAD_GLOBAL              2 (_unknown)
+            138 LOAD_CONST               9 ('invalid_window_handle')
+            140 LOAD_FAST                5 (started_at)
+            142 CALL_FUNCTION            2
+            144 POP_BLOCK
+            146 RETURN_VALUE
+
+401     >>  148 LOAD_FAST                4 (_backend)
+            150 LOAD_METHOD              7 (is_visible)
+            152 LOAD_FAST                0 (hwnd)
+            154 CALL_METHOD              1
+            156 POP_JUMP_IF_TRUE       194
+
+402         158 LOAD_GLOBAL              8 (WindowOcclusionResult)
+
+403         160 LOAD_GLOBAL              9 (WindowOcclusionState)
+            162 LOAD_ATTR               10 (FULLY_OCCLUDED)
+
+404         164 LOAD_CONST              10 (0.0)
+
+405         166 LOAD_CONST               1 (0)
+
+406         168 LOAD_CONST               1 (0)
+
+407         170 LOAD_CONST               1 (0)
+
+408         172 LOAD_CONST              11 ('window_hidden')
+
+409         174 LOAD_GLOBAL              0 (time)
+            176 LOAD_METHOD              1 (perf_counter)
+            178 CALL_METHOD              0
+            180 LOAD_FAST                5 (started_at)
+            182 BINARY_SUBTRACT
+            184 LOAD_CONST              12 (1000)
+            186 BINARY_MULTIPLY
+
+402         188 CALL_FUNCTION            7
+            190 POP_BLOCK
+            192 RETURN_VALUE
+
+411     >>  194 LOAD_FAST                4 (_backend)
+            196 LOAD_METHOD             11 (is_minimized)
+            198 LOAD_FAST                0 (hwnd)
+            200 CALL_METHOD              1
+            202 POP_JUMP_IF_FALSE      240
+
+412         204 LOAD_GLOBAL              8 (WindowOcclusionResult)
+
+413         206 LOAD_GLOBAL              9 (WindowOcclusionState)
+            208 LOAD_ATTR               10 (FULLY_OCCLUDED)
+
+414         210 LOAD_CONST              10 (0.0)
+
+415         212 LOAD_CONST               1 (0)
+
+416         214 LOAD_CONST               1 (0)
+
+417         216 LOAD_CONST               1 (0)
+
+418         218 LOAD_CONST              13 ('window_minimized')
+
+419         220 LOAD_GLOBAL              0 (time)
+            222 LOAD_METHOD              1 (perf_counter)
+            224 CALL_METHOD              0
+            226 LOAD_FAST                5 (started_at)
+            228 BINARY_SUBTRACT
+            230 LOAD_CONST              12 (1000)
+            232 BINARY_MULTIPLY
+
+412         234 CALL_FUNCTION            7
+            236 POP_BLOCK
+            238 RETURN_VALUE
+
+421     >>  240 LOAD_FAST                4 (_backend)
+            242 LOAD_METHOD             12 (is_cloaked)
+            244 LOAD_FAST                0 (hwnd)
+            246 CALL_METHOD              1
+            248 EXTENDED_ARG             1
+            250 POP_JUMP_IF_FALSE      288
+
+422         252 LOAD_GLOBAL              8 (WindowOcclusionResult)
+
+423         254 LOAD_GLOBAL              9 (WindowOcclusionState)
+            256 LOAD_ATTR               10 (FULLY_OCCLUDED)
+
+424         258 LOAD_CONST              10 (0.0)
+
+425         260 LOAD_CONST               1 (0)
+
+426         262 LOAD_CONST               1 (0)
+
+427         264 LOAD_CONST               1 (0)
+
+428         266 LOAD_CONST              14 ('window_cloaked')
+
+429         268 LOAD_GLOBAL              0 (time)
+            270 LOAD_METHOD              1 (perf_counter)
+            272 CALL_METHOD              0
+            274 LOAD_FAST                5 (started_at)
+            276 BINARY_SUBTRACT
+            278 LOAD_CONST              12 (1000)
+            280 BINARY_MULTIPLY
+
+422         282 CALL_FUNCTION            7
+            284 POP_BLOCK
+            286 RETURN_VALUE
+
+432     >>  288 LOAD_FAST                4 (_backend)
+            290 LOAD_METHOD             13 (get_virtual_screen_rect)
+            292 CALL_METHOD              0
+            294 STORE_FAST               6 (screen_rect)
+
+433         296 BUILD_LIST               0
+            298 STORE_FAST               7 (target_rects)
+
+434         300 LOAD_FAST                4 (_backend)
+            302 LOAD_METHOD             14 (get_window_shape_rects)
+            304 LOAD_FAST                0 (hwnd)
+            306 CALL_METHOD              1
+            308 GET_ITER
+        >>  310 FOR_ITER                36 (to 348)
+            312 STORE_FAST               8 (rect)
+
+435         314 LOAD_GLOBAL             15 (_intersection)
+            316 LOAD_FAST                8 (rect)
+            318 LOAD_FAST                6 (screen_rect)
+            320 CALL_FUNCTION            2
+            322 STORE_FAST               9 (clipped)
+
+436         324 LOAD_FAST                9 (clipped)
+            326 LOAD_CONST               6 (None)
+            328 IS_OP                    1
+            330 EXTENDED_ARG             1
+            332 POP_JUMP_IF_FALSE      310
+
+437         334 LOAD_FAST                7 (target_rects)
+            336 LOAD_METHOD             16 (append)
+            338 LOAD_FAST                9 (clipped)
+            340 CALL_METHOD              1
+            342 POP_TOP
+            344 EXTENDED_ARG             1
+            346 JUMP_ABSOLUTE          310
+
+438     >>  348 LOAD_FAST                4 (_backend)
+            350 LOAD_METHOD             17 (get_window_rect)
+            352 LOAD_FAST                0 (hwnd)
+            354 CALL_METHOD              1
+            356 STORE_FAST              10 (target_bounds)
+
+439         358 LOAD_FAST                7 (target_rects)
+            360 EXTENDED_ARG             1
+            362 POP_JUMP_IF_TRUE       400
+
+440         364 LOAD_GLOBAL              8 (WindowOcclusionResult)
+
+441         366 LOAD_GLOBAL              9 (WindowOcclusionState)
+            368 LOAD_ATTR               10 (FULLY_OCCLUDED)
+
+442         370 LOAD_CONST              10 (0.0)
+
+443         372 LOAD_CONST               1 (0)
+
+444         374 LOAD_CONST               1 (0)
+
+445         376 LOAD_CONST               1 (0)
+
+446         378 LOAD_CONST              15 ('window_offscreen_or_empty')
+
+447         380 LOAD_GLOBAL              0 (time)
+            382 LOAD_METHOD              1 (perf_counter)
+            384 CALL_METHOD              0
+            386 LOAD_FAST                5 (started_at)
+            388 BINARY_SUBTRACT
+            390 LOAD_CONST              12 (1000)
+            392 BINARY_MULTIPLY
+
+440         394 CALL_FUNCTION            7
+            396 POP_BLOCK
+            398 RETURN_VALUE
+
+450     >>  400 LOAD_FAST                4 (_backend)
+            402 LOAD_METHOD             18 (get_pid)
+            404 LOAD_FAST                0 (hwnd)
+            406 CALL_METHOD              1
+            408 STORE_FAST              11 (target_pid)
+
+451         410 BUILD_LIST               0
+            412 STORE_FAST              12 (occluder_rects)
+
+452         414 LOAD_CONST               1 (0)
+            416 STORE_FAST              13 (occluding_window_count)
+
+453         418 LOAD_FAST                4 (_backend)
+            420 LOAD_METHOD             19 (iter_windows_above)
+            422 LOAD_FAST                0 (hwnd)
+            424 LOAD_FAST                2 (max_windows)
+            426 CALL_METHOD              2
+            428 GET_ITER
+        >>  430 EXTENDED_ARG             1
+            432 FOR_ITER               268 (to 702)
+            434 STORE_FAST              14 (candidate)
+
+454         436 LOAD_GLOBAL              0 (time)
+            438 LOAD_METHOD              1 (perf_counter)
+            440 CALL_METHOD              0
+            442 LOAD_FAST                5 (started_at)
+            444 BINARY_SUBTRACT
+            446 LOAD_CONST              12 (1000)
+            448 BINARY_MULTIPLY
+            450 LOAD_FAST                3 (time_budget_ms)
+            452 COMPARE_OP               4 (>)
+            454 EXTENDED_ARG             1
+            456 POP_JUMP_IF_FALSE      474
+
+455         458 LOAD_GLOBAL              2 (_unknown)
+            460 LOAD_CONST              16 ('time_budget_exceeded')
+            462 LOAD_FAST                5 (started_at)
+            464 CALL_FUNCTION            2
+            466 ROT_TWO
+            468 POP_TOP
+            470 POP_BLOCK
+            472 RETURN_VALUE
+
+456     >>  474 SETUP_FINALLY          196 (to 672)
+
+458         476 LOAD_FAST                4 (_backend)
+            478 LOAD_METHOD              6 (is_window)
+            480 LOAD_FAST               14 (candidate)
+            482 CALL_METHOD              1
+
+457         484 EXTENDED_ARG             2
+            486 POP_JUMP_IF_FALSE      552
+
+459         488 LOAD_FAST                4 (_backend)
+            490 LOAD_METHOD              7 (is_visible)
+            492 LOAD_FAST               14 (candidate)
+            494 CALL_METHOD              1
+
+457         496 EXTENDED_ARG             2
+            498 POP_JUMP_IF_FALSE      552
+
+460         500 LOAD_FAST                4 (_backend)
+            502 LOAD_METHOD             11 (is_minimized)
+            504 LOAD_FAST               14 (candidate)
+            506 CALL_METHOD              1
+
+457         508 EXTENDED_ARG             2
+            510 POP_JUMP_IF_TRUE       552
+
+461         512 LOAD_FAST                4 (_backend)
+            514 LOAD_METHOD             12 (is_cloaked)
+            516 LOAD_FAST               14 (candidate)
+            518 CALL_METHOD              1
+
+457         520 EXTENDED_ARG             2
+            522 POP_JUMP_IF_TRUE       552
+
+462         524 LOAD_FAST                4 (_backend)
+            526 LOAD_METHOD             18 (get_pid)
+            528 LOAD_FAST               14 (candidate)
+            530 CALL_METHOD              1
+            532 LOAD_FAST               11 (target_pid)
+            534 COMPARE_OP               2 (==)
+
+457         536 EXTENDED_ARG             2
+            538 POP_JUMP_IF_TRUE       552
+
+463         540 LOAD_FAST                4 (_backend)
+            542 LOAD_METHOD             20 (is_definitely_opaque)
+            544 LOAD_FAST               14 (candidate)
+            546 CALL_METHOD              1
+
+457         548 EXTENDED_ARG             2
+            550 POP_JUMP_IF_TRUE       558
+
+465     >>  552 POP_BLOCK
+            554 EXTENDED_ARG             1
+            556 JUMP_ABSOLUTE          430
+
+467     >>  558 LOAD_FAST                4 (_backend)
+            560 LOAD_METHOD             17 (get_window_rect)
+            562 LOAD_FAST               14 (candidate)
+            564 CALL_METHOD              1
+            566 STORE_FAST              15 (candidate_bounds)
+
+468         568 LOAD_GLOBAL             15 (_intersection)
+            570 LOAD_FAST               10 (target_bounds)
+            572 LOAD_FAST               15 (candidate_bounds)
+            574 CALL_FUNCTION            2
+            576 LOAD_CONST               6 (None)
+            578 IS_OP                    0
+            580 EXTENDED_ARG             2
+            582 POP_JUMP_IF_FALSE      590
+
+469         584 POP_BLOCK
+            586 EXTENDED_ARG             1
+            588 JUMP_ABSOLUTE          430
+
+471     >>  590 LOAD_FAST                4 (_backend)
+            592 LOAD_METHOD             14 (get_window_shape_rects)
+            594 LOAD_FAST               14 (candidate)
+            596 CALL_METHOD              1
+            598 STORE_FAST              16 (candidate_rects)
+
+472         600 LOAD_CONST              17 (False)
+            602 STORE_FAST              17 (intersects_target)
+
+473         604 LOAD_FAST               16 (candidate_rects)
+            606 GET_ITER
+        >>  608 FOR_ITER                44 (to 654)
+            610 STORE_DEREF              0 (candidate_rect)
+
+474         612 LOAD_GLOBAL             21 (any)
+            614 LOAD_CLOSURE             0 (candidate_rect)
+            616 BUILD_TUPLE              1
+            618 LOAD_CONST              18 (<code object <genexpr> at 0x1073ca3a0, file "WeRobotCore/utils/window_occlusion.py", line 474>)
+            620 LOAD_CONST              19 ('calculate_window_occlusion.<locals>.<genexpr>')
+            622 MAKE_FUNCTION            8 (closure)
+
+476         624 LOAD_FAST                7 (target_rects)
+
+474         626 GET_ITER
+            628 CALL_FUNCTION            1
+            630 CALL_FUNCTION            1
+            632 EXTENDED_ARG             2
+            634 POP_JUMP_IF_FALSE      608
+
+478         636 LOAD_CONST              20 (True)
+            638 STORE_FAST              17 (intersects_target)
+
+479         640 LOAD_FAST               12 (occluder_rects)
+            642 LOAD_METHOD             16 (append)
+            644 LOAD_DEREF               0 (candidate_rect)
+            646 CALL_METHOD              1
+            648 POP_TOP
+            650 EXTENDED_ARG             2
+            652 JUMP_ABSOLUTE          608
+
+480     >>  654 LOAD_FAST               17 (intersects_target)
+            656 EXTENDED_ARG             2
+            658 POP_JUMP_IF_FALSE      668
+
+481         660 LOAD_FAST               13 (occluding_window_count)
+            662 LOAD_CONST               2 (1)
+            664 INPLACE_ADD
+            666 STORE_FAST              13 (occluding_window_count)
+        >>  668 POP_BLOCK
+            670 JUMP_FORWARD            26 (to 698)
+
+482     >>  672 DUP_TOP
+            674 LOAD_GLOBAL             22 (Exception)
+            676 EXTENDED_ARG             2
+            678 JUMP_IF_NOT_EXC_MATCH   696
+            680 POP_TOP
+            682 POP_TOP
+            684 POP_TOP
+
+485         686 POP_EXCEPT
+            688 EXTENDED_ARG             1
+            690 JUMP_ABSOLUTE          430
+            692 POP_EXCEPT
+            694 JUMP_FORWARD             2 (to 698)
+        >>  696 RERAISE
+        >>  698 EXTENDED_ARG             1
+            700 JUMP_ABSOLUTE          430
+
+487     >>  702 LOAD_GLOBAL              0 (time)
+            704 LOAD_METHOD              1 (perf_counter)
+            706 CALL_METHOD              0
+            708 LOAD_FAST                5 (started_at)
+            710 BINARY_SUBTRACT
+            712 LOAD_CONST              12 (1000)
+            714 BINARY_MULTIPLY
+            716 LOAD_FAST                3 (time_budget_ms)
+            718 COMPARE_OP               4 (>)
+            720 EXTENDED_ARG             2
+            722 POP_JUMP_IF_FALSE      736
+
+488         724 LOAD_GLOBAL              2 (_unknown)
+            726 LOAD_CONST              16 ('time_budget_exceeded')
+            728 LOAD_FAST                5 (started_at)
+            730 CALL_FUNCTION            2
+            732 POP_BLOCK
+            734 RETURN_VALUE
+
+490     >>  736 LOAD_GLOBAL             23 (_calculate_visible_area)
+
+491         738 LOAD_FAST                7 (target_rects)
+            740 LOAD_FAST               12 (occluder_rects)
+
+490         742 CALL_FUNCTION            2
+            744 UNPACK_SEQUENCE          4
+            746 STORE_FAST              18 (target_area)
+            748 STORE_FAST              19 (_)
+            750 STORE_FAST              20 (visible_area)
+            752 STORE_FAST              21 (visible_ratio)
+
+495         754 LOAD_FAST               21 (visible_ratio)
+            756 LOAD_FAST                1 (min_visible_ratio)
+            758 COMPARE_OP               1 (<=)
+
+494         760 EXTENDED_ARG             3
+            762 POP_JUMP_IF_FALSE      770
+            764 LOAD_GLOBAL              9 (WindowOcclusionState)
+            766 LOAD_ATTR               10 (FULLY_OCCLUDED)
+            768 JUMP_FORWARD             4 (to 774)
+
+496     >>  770 LOAD_GLOBAL              9 (WindowOcclusionState)
+            772 LOAD_ATTR               24 (VISIBLE)
+
+493     >>  774 STORE_FAST              22 (state)
+
+498         776 LOAD_GLOBAL              8 (WindowOcclusionResult)
+
+499         778 LOAD_FAST               22 (state)
+
+500         780 LOAD_FAST               21 (visible_ratio)
+
+501         782 LOAD_FAST               18 (target_area)
+
+502         784 LOAD_FAST               20 (visible_area)
+
+503         786 LOAD_FAST               13 (occluding_window_count)
+
+506         788 LOAD_FAST               22 (state)
+            790 LOAD_GLOBAL              9 (WindowOcclusionState)
+            792 LOAD_ATTR               10 (FULLY_OCCLUDED)
+            794 COMPARE_OP               2 (==)
+
+505         796 EXTENDED_ARG             3
+            798 POP_JUMP_IF_FALSE      804
+            800 LOAD_CONST              21 ('visible_ratio_below_threshold')
+            802 JUMP_FORWARD             2 (to 806)
+
+507     >>  804 LOAD_CONST              22 ('window_has_visible_area')
+
+509     >>  806 LOAD_GLOBAL              0 (time)
+            808 LOAD_METHOD              1 (perf_counter)
+            810 CALL_METHOD              0
+            812 LOAD_FAST                5 (started_at)
+            814 BINARY_SUBTRACT
+            816 LOAD_CONST              12 (1000)
+            818 BINARY_MULTIPLY
+
+498         820 LOAD_CONST              23 (('state', 'visible_ratio', 'target_area', 'visible_area', 'occluding_window_count', 'reason', 'elapsed_ms'))
+            822 CALL_FUNCTION_KW         7
+            824 POP_BLOCK
+            826 RETURN_VALUE
+
+511     >>  828 DUP_TOP
+            830 LOAD_GLOBAL             22 (Exception)
+            832 EXTENDED_ARG             3
+            834 JUMP_IF_NOT_EXC_MATCH   886
+            836 POP_TOP
+            838 STORE_FAST              23 (exc)
+            840 POP_TOP
+            842 SETUP_FINALLY           34 (to 878)
+
+512         844 LOAD_GLOBAL              2 (_unknown)
+            846 LOAD_CONST              24 ('detection_error:')
+            848 LOAD_GLOBAL             25 (type)
+            850 LOAD_FAST               23 (exc)
+            852 CALL_FUNCTION            1
+            854 LOAD_ATTR               26 (__name__)
+            856 FORMAT_VALUE             0
+            858 BUILD_STRING             2
+            860 LOAD_FAST                5 (started_at)
+            862 CALL_FUNCTION            2
+            864 POP_BLOCK
+            866 ROT_FOUR
+            868 POP_EXCEPT
+            870 LOAD_CONST               6 (None)
+            872 STORE_FAST              23 (exc)
+            874 DELETE_FAST             23 (exc)
+            876 RETURN_VALUE
+        >>  878 LOAD_CONST               6 (None)
+            880 STORE_FAST              23 (exc)
+            882 DELETE_FAST             23 (exc)
+            884 RERAISE
+        >>  886 RERAISE
+            888 LOAD_CONST               6 (None)
+            890 RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x1073ca3a0, file "WeRobotCore/utils/window_occlusion.py", line 474>:
+474           0 LOAD_FAST                0 (.0)
+        >>    2 FOR_ITER                20 (to 24)
+
+476           4 STORE_FAST               1 (target_rect)
+
+475           6 LOAD_GLOBAL              0 (_intersection)
+              8 LOAD_FAST                1 (target_rect)
+             10 LOAD_DEREF               0 (candidate_rect)
+             12 CALL_FUNCTION            2
+             14 LOAD_CONST               0 (None)
+             16 IS_OP                    1
+             18 YIELD_VALUE
+             20 POP_TOP
+             22 JUMP_ABSOLUTE            2
+        >>   24 LOAD_CONST               0 (None)
+             26 RETURN_VALUE

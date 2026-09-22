@@ -1,0 +1,908 @@
+  1           0 LOAD_CONST               0 ('\n自动跟单任务管理器\n采用标准的manager模式，负责AutoFollowAdapter的生命周期管理\n')
+              2 STORE_NAME               0 (__doc__)
+
+  6           4 LOAD_CONST               1 (0)
+              6 LOAD_CONST               2 (None)
+              8 IMPORT_NAME              1 (asyncio)
+             10 STORE_NAME               1 (asyncio)
+
+  7          12 LOAD_CONST               1 (0)
+             14 LOAD_CONST               3 (('Optional', 'Dict', 'Any'))
+             16 IMPORT_NAME              2 (typing)
+             18 IMPORT_FROM              3 (Optional)
+             20 STORE_NAME               3 (Optional)
+             22 IMPORT_FROM              4 (Dict)
+             24 STORE_NAME               4 (Dict)
+             26 IMPORT_FROM              5 (Any)
+             28 STORE_NAME               5 (Any)
+             30 POP_TOP
+
+  8          32 LOAD_CONST               1 (0)
+             34 LOAD_CONST               4 (('datetime',))
+             36 IMPORT_NAME              6 (datetime)
+             38 IMPORT_FROM              6 (datetime)
+             40 STORE_NAME               6 (datetime)
+             42 POP_TOP
+
+ 10          44 LOAD_CONST               1 (0)
+             46 LOAD_CONST               5 (('AutoFollowAdapter',))
+             48 IMPORT_NAME              7 (WeRobotCore.task_system_v3.auto_follow_adapter)
+             50 IMPORT_FROM              8 (AutoFollowAdapter)
+             52 STORE_NAME               8 (AutoFollowAdapter)
+             54 POP_TOP
+
+ 12          56 SETUP_FINALLY           16 (to 74)
+
+ 13          58 LOAD_CONST               1 (0)
+             60 LOAD_CONST               6 (('get_logger',))
+             62 IMPORT_NAME              9 (WeRobotCore.utils.logger)
+             64 IMPORT_FROM             10 (get_logger)
+             66 STORE_NAME              10 (get_logger)
+             68 POP_TOP
+             70 POP_BLOCK
+             72 JUMP_FORWARD            32 (to 106)
+
+ 14     >>   74 DUP_TOP
+             76 LOAD_NAME               11 (ImportError)
+             78 JUMP_IF_NOT_EXC_MATCH   104
+             80 POP_TOP
+             82 POP_TOP
+             84 POP_TOP
+
+ 15          86 LOAD_CONST               1 (0)
+             88 LOAD_CONST               2 (None)
+             90 IMPORT_NAME             12 (logging)
+             92 STORE_NAME              12 (logging)
+
+ 16          94 LOAD_NAME               12 (logging)
+             96 LOAD_ATTR               13 (getLogger)
+             98 STORE_NAME              10 (get_logger)
+            100 POP_EXCEPT
+            102 JUMP_FORWARD             2 (to 106)
+        >>  104 RERAISE
+
+ 19     >>  106 LOAD_BUILD_CLASS
+            108 LOAD_CONST               7 (<code object AutoFollowManager at 0x1072e0b30, file "WeRobotCore/task_system_v3/auto_follow_manager.py", line 19>)
+            110 LOAD_CONST               8 ('AutoFollowManager')
+            112 MAKE_FUNCTION            0
+            114 LOAD_CONST               8 ('AutoFollowManager')
+            116 CALL_FUNCTION            2
+            118 STORE_NAME              14 (AutoFollowManager)
+            120 LOAD_CONST               2 (None)
+            122 RETURN_VALUE
+
+Disassembly of <code object AutoFollowManager at 0x1072e0b30, file "WeRobotCore/task_system_v3/auto_follow_manager.py", line 19>:
+ 19           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('AutoFollowManager')
+              6 STORE_NAME               2 (__qualname__)
+
+ 20           8 LOAD_CONST               1 ('自动跟单任务管理器 - 标准版本')
+             10 STORE_NAME               3 (__doc__)
+
+ 22          12 LOAD_CONST               2 (<code object __init__ at 0x1073b9450, file "WeRobotCore/task_system_v3/auto_follow_manager.py", line 22>)
+             14 LOAD_CONST               3 ('AutoFollowManager.__init__')
+             16 MAKE_FUNCTION            0
+             18 STORE_NAME               4 (__init__)
+
+ 34          20 LOAD_CONST               4 (<code object start at 0x1073b9240, file "WeRobotCore/task_system_v3/auto_follow_manager.py", line 34>)
+             22 LOAD_CONST               5 ('AutoFollowManager.start')
+             24 MAKE_FUNCTION            0
+             26 STORE_NAME               5 (start)
+
+ 54          28 LOAD_CONST               6 (<code object stop at 0x1073ab0e0, file "WeRobotCore/task_system_v3/auto_follow_manager.py", line 54>)
+             30 LOAD_CONST               7 ('AutoFollowManager.stop')
+             32 MAKE_FUNCTION            0
+             34 STORE_NAME               6 (stop)
+
+ 75          36 LOAD_CONST               8 (<code object restart at 0x1073ab030, file "WeRobotCore/task_system_v3/auto_follow_manager.py", line 75>)
+             38 LOAD_CONST               9 ('AutoFollowManager.restart')
+             40 MAKE_FUNCTION            0
+             42 STORE_NAME               7 (restart)
+
+ 85          44 LOAD_NAME                8 (bool)
+             46 LOAD_CONST              10 (('return',))
+             48 BUILD_CONST_KEY_MAP      1
+             50 LOAD_CONST              11 (<code object is_running at 0x1073ab500, file "WeRobotCore/task_system_v3/auto_follow_manager.py", line 85>)
+             52 LOAD_CONST              12 ('AutoFollowManager.is_running')
+             54 MAKE_FUNCTION            4 (annotations)
+             56 STORE_NAME               9 (is_running)
+
+ 89          58 LOAD_NAME               10 (Dict)
+             60 LOAD_NAME               11 (str)
+             62 LOAD_NAME               12 (Any)
+             64 BUILD_TUPLE              2
+             66 BINARY_SUBSCR
+             68 LOAD_CONST              10 (('return',))
+             70 BUILD_CONST_KEY_MAP      1
+             72 LOAD_CONST              13 (<code object get_status at 0x1073ab2f0, file "WeRobotCore/task_system_v3/auto_follow_manager.py", line 89>)
+             74 LOAD_CONST              14 ('AutoFollowManager.get_status')
+             76 MAKE_FUNCTION            4 (annotations)
+             78 STORE_NAME              13 (get_status)
+
+ 97          80 LOAD_NAME               14 (Optional)
+             82 LOAD_NAME               15 (AutoFollowAdapter)
+             84 BINARY_SUBSCR
+             86 LOAD_CONST              10 (('return',))
+             88 BUILD_CONST_KEY_MAP      1
+             90 LOAD_CONST              15 (<code object get_adapter at 0x1073abd40, file "WeRobotCore/task_system_v3/auto_follow_manager.py", line 97>)
+             92 LOAD_CONST              16 ('AutoFollowManager.get_adapter')
+             94 MAKE_FUNCTION            4 (annotations)
+             96 STORE_NAME              16 (get_adapter)
+
+105          98 LOAD_NAME               10 (Dict)
+            100 LOAD_NAME               11 (str)
+            102 LOAD_NAME               12 (Any)
+            104 BUILD_TUPLE              2
+            106 BINARY_SUBSCR
+            108 LOAD_NAME               10 (Dict)
+            110 LOAD_NAME               11 (str)
+            112 LOAD_NAME               12 (Any)
+            114 BUILD_TUPLE              2
+            116 BINARY_SUBSCR
+            118 LOAD_CONST              17 (('task_request', 'return'))
+            120 BUILD_CONST_KEY_MAP      2
+            122 LOAD_CONST              18 (<code object create_auto_follow_task at 0x1073abdf0, file "WeRobotCore/task_system_v3/auto_follow_manager.py", line 105>)
+            124 LOAD_CONST              19 ('AutoFollowManager.create_auto_follow_task')
+            126 MAKE_FUNCTION            4 (annotations)
+            128 STORE_NAME              17 (create_auto_follow_task)
+
+110         130 LOAD_NAME               10 (Dict)
+            132 LOAD_NAME               11 (str)
+            134 LOAD_NAME               12 (Any)
+            136 BUILD_TUPLE              2
+            138 BINARY_SUBSCR
+            140 LOAD_NAME               10 (Dict)
+            142 LOAD_NAME               11 (str)
+            144 LOAD_NAME               12 (Any)
+            146 BUILD_TUPLE              2
+            148 BINARY_SUBSCR
+            150 LOAD_CONST              20 (('batch_request', 'return'))
+            152 BUILD_CONST_KEY_MAP      2
+            154 LOAD_CONST              21 (<code object create_batch_auto_follow_tasks at 0x1073abea0, file "WeRobotCore/task_system_v3/auto_follow_manager.py", line 110>)
+            156 LOAD_CONST              22 ('AutoFollowManager.create_batch_auto_follow_tasks')
+            158 MAKE_FUNCTION            4 (annotations)
+            160 STORE_NAME              18 (create_batch_auto_follow_tasks)
+
+115         162 LOAD_NAME               11 (str)
+            164 LOAD_NAME               10 (Dict)
+            166 LOAD_NAME               11 (str)
+            168 LOAD_NAME               12 (Any)
+            170 BUILD_TUPLE              2
+            172 BINARY_SUBSCR
+            174 LOAD_CONST              23 (('task_id', 'return'))
+            176 BUILD_CONST_KEY_MAP      2
+            178 LOAD_CONST              24 (<code object cancel_auto_follow_task at 0x1073ab190, file "WeRobotCore/task_system_v3/auto_follow_manager.py", line 115>)
+            180 LOAD_CONST              25 ('AutoFollowManager.cancel_auto_follow_task')
+            182 MAKE_FUNCTION            4 (annotations)
+            184 STORE_NAME              19 (cancel_auto_follow_task)
+
+120         186 LOAD_NAME               11 (str)
+            188 LOAD_NAME               10 (Dict)
+            190 LOAD_NAME               11 (str)
+            192 LOAD_NAME               12 (Any)
+            194 BUILD_TUPLE              2
+            196 BINARY_SUBSCR
+            198 LOAD_CONST              23 (('task_id', 'return'))
+            200 BUILD_CONST_KEY_MAP      2
+            202 LOAD_CONST              26 (<code object pause_auto_follow_task at 0x1073ab710, file "WeRobotCore/task_system_v3/auto_follow_manager.py", line 120>)
+            204 LOAD_CONST              27 ('AutoFollowManager.pause_auto_follow_task')
+            206 MAKE_FUNCTION            4 (annotations)
+            208 STORE_NAME              20 (pause_auto_follow_task)
+
+125         210 LOAD_NAME               11 (str)
+            212 LOAD_NAME               10 (Dict)
+            214 LOAD_NAME               11 (str)
+            216 LOAD_NAME               12 (Any)
+            218 BUILD_TUPLE              2
+            220 BINARY_SUBSCR
+            222 LOAD_CONST              23 (('task_id', 'return'))
+            224 BUILD_CONST_KEY_MAP      2
+            226 LOAD_CONST              28 (<code object resume_auto_follow_task at 0x1073ab660, file "WeRobotCore/task_system_v3/auto_follow_manager.py", line 125>)
+            228 LOAD_CONST              29 ('AutoFollowManager.resume_auto_follow_task')
+            230 MAKE_FUNCTION            4 (annotations)
+            232 STORE_NAME              21 (resume_auto_follow_task)
+
+130         234 LOAD_CONST              56 ((None,))
+            236 LOAD_NAME               11 (str)
+            238 LOAD_NAME               11 (str)
+            240 LOAD_NAME               10 (Dict)
+            242 LOAD_NAME               11 (str)
+            244 LOAD_NAME               12 (Any)
+            246 BUILD_TUPLE              2
+            248 BINARY_SUBSCR
+            250 LOAD_CONST              31 (('account_id', 'status', 'return'))
+            252 BUILD_CONST_KEY_MAP      3
+            254 LOAD_CONST              32 (<code object get_auto_follow_tasks_by_account at 0x1073ab870, file "WeRobotCore/task_system_v3/auto_follow_manager.py", line 130>)
+            256 LOAD_CONST              33 ('AutoFollowManager.get_auto_follow_tasks_by_account')
+            258 MAKE_FUNCTION            5 (defaults, annotations)
+            260 STORE_NAME              22 (get_auto_follow_tasks_by_account)
+
+134         262 LOAD_NAME               11 (str)
+            264 LOAD_NAME               10 (Dict)
+            266 LOAD_NAME               11 (str)
+            268 LOAD_NAME               12 (Any)
+            270 BUILD_TUPLE              2
+            272 BINARY_SUBSCR
+            274 LOAD_CONST              23 (('task_id', 'return'))
+            276 BUILD_CONST_KEY_MAP      2
+            278 LOAD_CONST              34 (<code object get_auto_follow_task_info at 0x1073abbe0, file "WeRobotCore/task_system_v3/auto_follow_manager.py", line 134>)
+            280 LOAD_CONST              35 ('AutoFollowManager.get_auto_follow_task_info')
+            282 MAKE_FUNCTION            4 (annotations)
+            284 STORE_NAME              23 (get_auto_follow_task_info)
+
+138         286 LOAD_NAME               11 (str)
+            288 LOAD_NAME               11 (str)
+            290 LOAD_NAME               10 (Dict)
+            292 LOAD_NAME               11 (str)
+            294 LOAD_NAME               12 (Any)
+            296 BUILD_TUPLE              2
+            298 BINARY_SUBSCR
+            300 LOAD_CONST              36 (('friend_wxid', 'account_id', 'return'))
+            302 BUILD_CONST_KEY_MAP      3
+            304 LOAD_CONST              37 (<code object cancel_auto_follow_tasks_by_friend at 0x1073ab7c0, file "WeRobotCore/task_system_v3/auto_follow_manager.py", line 138>)
+            306 LOAD_CONST              38 ('AutoFollowManager.cancel_auto_follow_tasks_by_friend')
+            308 MAKE_FUNCTION            4 (annotations)
+            310 STORE_NAME              24 (cancel_auto_follow_tasks_by_friend)
+
+143         312 LOAD_NAME               25 (list)
+            314 LOAD_NAME               10 (Dict)
+            316 LOAD_NAME               11 (str)
+            318 LOAD_NAME               12 (Any)
+            320 BUILD_TUPLE              2
+            322 BINARY_SUBSCR
+            324 LOAD_CONST              39 (('task_ids', 'return'))
+            326 BUILD_CONST_KEY_MAP      2
+            328 LOAD_CONST              40 (<code object batch_cancel_auto_follow_tasks at 0x1073ab240, file "WeRobotCore/task_system_v3/auto_follow_manager.py", line 143>)
+            330 LOAD_CONST              41 ('AutoFollowManager.batch_cancel_auto_follow_tasks')
+            332 MAKE_FUNCTION            4 (annotations)
+            334 STORE_NAME              26 (batch_cancel_auto_follow_tasks)
+
+148         336 LOAD_NAME               25 (list)
+            338 LOAD_NAME               11 (str)
+            340 LOAD_NAME               10 (Dict)
+            342 LOAD_NAME               11 (str)
+            344 LOAD_NAME               12 (Any)
+            346 BUILD_TUPLE              2
+            348 BINARY_SUBSCR
+            350 LOAD_CONST              42 (('task_ids', 'agent_id', 'return'))
+            352 BUILD_CONST_KEY_MAP      3
+            354 LOAD_CONST              43 (<code object batch_update_auto_follow_agent at 0x1073abc90, file "WeRobotCore/task_system_v3/auto_follow_manager.py", line 148>)
+            356 LOAD_CONST              44 ('AutoFollowManager.batch_update_auto_follow_agent')
+            358 MAKE_FUNCTION            4 (annotations)
+            360 STORE_NAME              27 (batch_update_auto_follow_agent)
+
+153         362 LOAD_CONST              57 ((None, None))
+            364 LOAD_NAME               14 (Optional)
+            366 LOAD_NAME               11 (str)
+            368 BINARY_SUBSCR
+            370 LOAD_NAME               14 (Optional)
+            372 LOAD_NAME               11 (str)
+            374 BINARY_SUBSCR
+            376 LOAD_NAME               10 (Dict)
+            378 LOAD_NAME               11 (str)
+            380 LOAD_NAME               12 (Any)
+            382 BUILD_TUPLE              2
+            384 BINARY_SUBSCR
+            386 LOAD_CONST              45 (('agent_id', 'date_str', 'return'))
+            388 BUILD_CONST_KEY_MAP      3
+            390 LOAD_CONST              46 (<code object find_auto_follow_tasks at 0x1073aba80, file "WeRobotCore/task_system_v3/auto_follow_manager.py", line 153>)
+            392 LOAD_CONST              47 ('AutoFollowManager.find_auto_follow_tasks')
+            394 MAKE_FUNCTION            5 (defaults, annotations)
+            396 STORE_NAME              28 (find_auto_follow_tasks)
+
+158         398 LOAD_CONST              58 ((None, None, None, 100))
+            400 LOAD_NAME               11 (str)
+            402 LOAD_NAME               11 (str)
+
+159         404 LOAD_NAME               11 (str)
+            406 LOAD_NAME               29 (int)
+            408 LOAD_NAME               10 (Dict)
+            410 LOAD_NAME               11 (str)
+            412 LOAD_NAME               12 (Any)
+            414 BUILD_TUPLE              2
+            416 BINARY_SUBSCR
+
+158         418 LOAD_CONST              49 (('task_id', 'account_id', 'friend_wxid', 'limit', 'return'))
+            420 BUILD_CONST_KEY_MAP      5
+            422 LOAD_CONST              50 (<code object get_auto_follow_logs at 0x1073ab920, file "WeRobotCore/task_system_v3/auto_follow_manager.py", line 158>)
+            424 LOAD_CONST              51 ('AutoFollowManager.get_auto_follow_logs')
+            426 MAKE_FUNCTION            5 (defaults, annotations)
+            428 STORE_NAME              30 (get_auto_follow_logs)
+
+164         430 LOAD_CONST              59 ((None,))
+            432 LOAD_NAME               11 (str)
+            434 LOAD_NAME               11 (str)
+            436 LOAD_NAME               10 (Dict)
+            438 LOAD_NAME               11 (str)
+            440 LOAD_NAME               12 (Any)
+            442 BUILD_TUPLE              2
+            444 BINARY_SUBSCR
+            446 LOAD_CONST              31 (('account_id', 'status', 'return'))
+            448 BUILD_CONST_KEY_MAP      3
+            450 LOAD_CONST              52 (<code object get_tasks_by_account at 0x1072e0ea0, file "WeRobotCore/task_system_v3/auto_follow_manager.py", line 164>)
+            452 LOAD_CONST              53 ('AutoFollowManager.get_tasks_by_account')
+            454 MAKE_FUNCTION            5 (defaults, annotations)
+            456 STORE_NAME              31 (get_tasks_by_account)
+
+171         458 LOAD_CONST              60 ((None, None, None, 100))
+            460 LOAD_NAME               11 (str)
+            462 LOAD_NAME               11 (str)
+
+172         464 LOAD_NAME               11 (str)
+            466 LOAD_NAME               29 (int)
+            468 LOAD_NAME               10 (Dict)
+            470 LOAD_NAME               11 (str)
+            472 LOAD_NAME               12 (Any)
+            474 BUILD_TUPLE              2
+            476 BINARY_SUBSCR
+
+171         478 LOAD_CONST              49 (('task_id', 'account_id', 'friend_wxid', 'limit', 'return'))
+            480 BUILD_CONST_KEY_MAP      5
+            482 LOAD_CONST              54 (<code object get_execution_logs at 0x1072e0d40, file "WeRobotCore/task_system_v3/auto_follow_manager.py", line 171>)
+            484 LOAD_CONST              55 ('AutoFollowManager.get_execution_logs')
+            486 MAKE_FUNCTION            5 (defaults, annotations)
+            488 STORE_NAME              32 (get_execution_logs)
+            490 LOAD_CONST              30 (None)
+            492 RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x1073b9450, file "WeRobotCore/task_system_v3/auto_follow_manager.py", line 22>:
+ 23           0 LOAD_FAST                1 (unified_scheduler)
+              2 LOAD_FAST                0 (self)
+              4 STORE_ATTR               0 (scheduler)
+
+ 24           6 LOAD_FAST                2 (permission_manager)
+              8 LOAD_FAST                0 (self)
+             10 STORE_ATTR               1 (permission_manager)
+
+ 25          12 LOAD_GLOBAL              2 (get_logger)
+             14 LOAD_CONST               1 ('auto_follow_manager')
+             16 CALL_FUNCTION            1
+             18 LOAD_FAST                0 (self)
+             20 STORE_ATTR               3 (logger)
+
+ 28          22 LOAD_CONST               0 (None)
+             24 LOAD_FAST                0 (self)
+             26 STORE_ATTR               4 (_adapter)
+
+ 29          28 LOAD_GLOBAL              5 (AutoFollowAdapter)
+             30 LOAD_FAST                0 (self)
+             32 LOAD_ATTR                0 (scheduler)
+             34 LOAD_FAST                0 (self)
+             36 LOAD_ATTR                1 (permission_manager)
+             38 CALL_FUNCTION            2
+             40 LOAD_FAST                0 (self)
+             42 STORE_ATTR               4 (_adapter)
+
+ 31          44 LOAD_CONST               2 (False)
+             46 LOAD_FAST                0 (self)
+             48 STORE_ATTR               6 (_is_running)
+
+ 32          50 LOAD_CONST               0 (None)
+             52 LOAD_FAST                0 (self)
+             54 STORE_ATTR               7 (_startup_time)
+             56 LOAD_CONST               0 (None)
+             58 RETURN_VALUE
+
+Disassembly of <code object start at 0x1073b9240, file "WeRobotCore/task_system_v3/auto_follow_manager.py", line 34>:
+ 36           0 SETUP_FINALLY           84 (to 86)
+
+ 37           2 LOAD_FAST                0 (self)
+              4 LOAD_ATTR                0 (_is_running)
+              6 POP_JUMP_IF_FALSE       14
+
+ 38           8 POP_BLOCK
+             10 LOAD_CONST               1 (True)
+             12 RETURN_VALUE
+
+ 40     >>   14 LOAD_FAST                0 (self)
+             16 LOAD_ATTR                1 (_adapter)
+             18 LOAD_METHOD              2 (start)
+             20 CALL_METHOD              0
+             22 GET_AWAITABLE
+             24 LOAD_CONST               2 (None)
+             26 YIELD_FROM
+             28 STORE_FAST               1 (success)
+
+ 41          30 LOAD_FAST                1 (success)
+             32 POP_JUMP_IF_TRUE        52
+
+ 42          34 LOAD_FAST                0 (self)
+             36 LOAD_ATTR                3 (logger)
+             38 LOAD_METHOD              4 (error)
+             40 LOAD_CONST               3 ('启动自动跟单适配器失败')
+             42 CALL_METHOD              1
+             44 POP_TOP
+
+ 43          46 POP_BLOCK
+             48 LOAD_CONST               4 (False)
+             50 RETURN_VALUE
+
+ 45     >>   52 LOAD_CONST               1 (True)
+             54 LOAD_FAST                0 (self)
+             56 STORE_ATTR               0 (_is_running)
+
+ 46          58 LOAD_GLOBAL              5 (datetime)
+             60 LOAD_METHOD              6 (now)
+             62 CALL_METHOD              0
+             64 LOAD_FAST                0 (self)
+             66 STORE_ATTR               7 (_startup_time)
+
+ 47          68 LOAD_FAST                0 (self)
+             70 LOAD_ATTR                3 (logger)
+             72 LOAD_METHOD              8 (info)
+             74 LOAD_CONST               5 ('自动跟单管理器启动成功')
+             76 CALL_METHOD              1
+             78 POP_TOP
+
+ 48          80 POP_BLOCK
+             82 LOAD_CONST               1 (True)
+             84 RETURN_VALUE
+
+ 50     >>   86 DUP_TOP
+             88 LOAD_GLOBAL              9 (Exception)
+             90 JUMP_IF_NOT_EXC_MATCH   140
+             92 POP_TOP
+             94 STORE_FAST               2 (e)
+             96 POP_TOP
+             98 SETUP_FINALLY           32 (to 132)
+
+ 51         100 LOAD_FAST                0 (self)
+            102 LOAD_ATTR                3 (logger)
+            104 LOAD_METHOD              4 (error)
+            106 LOAD_CONST               6 ('启动自动跟单管理器失败: ')
+            108 LOAD_FAST                2 (e)
+            110 FORMAT_VALUE             0
+            112 BUILD_STRING             2
+            114 CALL_METHOD              1
+            116 POP_TOP
+
+ 52         118 POP_BLOCK
+            120 POP_EXCEPT
+            122 LOAD_CONST               2 (None)
+            124 STORE_FAST               2 (e)
+            126 DELETE_FAST              2 (e)
+            128 LOAD_CONST               4 (False)
+            130 RETURN_VALUE
+        >>  132 LOAD_CONST               2 (None)
+            134 STORE_FAST               2 (e)
+            136 DELETE_FAST              2 (e)
+            138 RERAISE
+        >>  140 RERAISE
+            142 LOAD_CONST               2 (None)
+            144 RETURN_VALUE
+
+Disassembly of <code object stop at 0x1073ab0e0, file "WeRobotCore/task_system_v3/auto_follow_manager.py", line 54>:
+ 56           0 SETUP_FINALLY           82 (to 84)
+
+ 57           2 LOAD_FAST                0 (self)
+              4 LOAD_ATTR                0 (_is_running)
+              6 POP_JUMP_IF_TRUE        26
+
+ 58           8 LOAD_FAST                0 (self)
+             10 LOAD_ATTR                1 (logger)
+             12 LOAD_METHOD              2 (warning)
+             14 LOAD_CONST               1 ('自动跟单管理器未在运行')
+             16 CALL_METHOD              1
+             18 POP_TOP
+
+ 59          20 POP_BLOCK
+             22 LOAD_CONST               2 (True)
+             24 RETURN_VALUE
+
+ 62     >>   26 LOAD_FAST                0 (self)
+             28 LOAD_ATTR                3 (_adapter)
+             30 POP_JUMP_IF_FALSE       54
+
+ 63          32 LOAD_FAST                0 (self)
+             34 LOAD_ATTR                3 (_adapter)
+             36 LOAD_METHOD              4 (stop)
+             38 CALL_METHOD              0
+             40 GET_AWAITABLE
+             42 LOAD_CONST               3 (None)
+             44 YIELD_FROM
+             46 POP_TOP
+
+ 64          48 LOAD_CONST               3 (None)
+             50 LOAD_FAST                0 (self)
+             52 STORE_ATTR               3 (_adapter)
+
+ 66     >>   54 LOAD_CONST               4 (False)
+             56 LOAD_FAST                0 (self)
+             58 STORE_ATTR               0 (_is_running)
+
+ 67          60 LOAD_CONST               3 (None)
+             62 LOAD_FAST                0 (self)
+             64 STORE_ATTR               5 (_startup_time)
+
+ 68          66 LOAD_FAST                0 (self)
+             68 LOAD_ATTR                1 (logger)
+             70 LOAD_METHOD              6 (info)
+             72 LOAD_CONST               5 ('自动跟单管理器停止成功')
+             74 CALL_METHOD              1
+             76 POP_TOP
+
+ 69          78 POP_BLOCK
+             80 LOAD_CONST               2 (True)
+             82 RETURN_VALUE
+
+ 71     >>   84 DUP_TOP
+             86 LOAD_GLOBAL              7 (Exception)
+             88 JUMP_IF_NOT_EXC_MATCH   138
+             90 POP_TOP
+             92 STORE_FAST               1 (e)
+             94 POP_TOP
+             96 SETUP_FINALLY           32 (to 130)
+
+ 72          98 LOAD_FAST                0 (self)
+            100 LOAD_ATTR                1 (logger)
+            102 LOAD_METHOD              8 (error)
+            104 LOAD_CONST               6 ('停止自动跟单管理器失败: ')
+            106 LOAD_FAST                1 (e)
+            108 FORMAT_VALUE             0
+            110 BUILD_STRING             2
+            112 CALL_METHOD              1
+            114 POP_TOP
+
+ 73         116 POP_BLOCK
+            118 POP_EXCEPT
+            120 LOAD_CONST               3 (None)
+            122 STORE_FAST               1 (e)
+            124 DELETE_FAST              1 (e)
+            126 LOAD_CONST               4 (False)
+            128 RETURN_VALUE
+        >>  130 LOAD_CONST               3 (None)
+            132 STORE_FAST               1 (e)
+            134 DELETE_FAST              1 (e)
+            136 RERAISE
+        >>  138 RERAISE
+            140 LOAD_CONST               3 (None)
+            142 RETURN_VALUE
+
+Disassembly of <code object restart at 0x1073ab030, file "WeRobotCore/task_system_v3/auto_follow_manager.py", line 75>:
+ 77           0 SETUP_FINALLY           46 (to 48)
+
+ 78           2 LOAD_FAST                0 (self)
+              4 LOAD_METHOD              0 (stop)
+              6 CALL_METHOD              0
+              8 GET_AWAITABLE
+             10 LOAD_CONST               1 (None)
+             12 YIELD_FROM
+             14 POP_TOP
+
+ 79          16 LOAD_GLOBAL              1 (asyncio)
+             18 LOAD_METHOD              2 (sleep)
+             20 LOAD_CONST               2 (1)
+             22 CALL_METHOD              1
+             24 GET_AWAITABLE
+             26 LOAD_CONST               1 (None)
+             28 YIELD_FROM
+             30 POP_TOP
+
+ 80          32 LOAD_FAST                0 (self)
+             34 LOAD_METHOD              3 (start)
+             36 CALL_METHOD              0
+             38 GET_AWAITABLE
+             40 LOAD_CONST               1 (None)
+             42 YIELD_FROM
+             44 POP_BLOCK
+             46 RETURN_VALUE
+
+ 81     >>   48 DUP_TOP
+             50 LOAD_GLOBAL              4 (Exception)
+             52 JUMP_IF_NOT_EXC_MATCH   102
+             54 POP_TOP
+             56 STORE_FAST               1 (e)
+             58 POP_TOP
+             60 SETUP_FINALLY           32 (to 94)
+
+ 82          62 LOAD_FAST                0 (self)
+             64 LOAD_ATTR                5 (logger)
+             66 LOAD_METHOD              6 (error)
+             68 LOAD_CONST               3 ('重启自动跟单管理器失败: ')
+             70 LOAD_FAST                1 (e)
+             72 FORMAT_VALUE             0
+             74 BUILD_STRING             2
+             76 CALL_METHOD              1
+             78 POP_TOP
+
+ 83          80 POP_BLOCK
+             82 POP_EXCEPT
+             84 LOAD_CONST               1 (None)
+             86 STORE_FAST               1 (e)
+             88 DELETE_FAST              1 (e)
+             90 LOAD_CONST               4 (False)
+             92 RETURN_VALUE
+        >>   94 LOAD_CONST               1 (None)
+             96 STORE_FAST               1 (e)
+             98 DELETE_FAST              1 (e)
+            100 RERAISE
+        >>  102 RERAISE
+            104 LOAD_CONST               1 (None)
+            106 RETURN_VALUE
+
+Disassembly of <code object is_running at 0x1073ab500, file "WeRobotCore/task_system_v3/auto_follow_manager.py", line 85>:
+ 87           0 LOAD_FAST                0 (self)
+              2 LOAD_ATTR                0 (_is_running)
+              4 RETURN_VALUE
+
+Disassembly of <code object get_status at 0x1073ab2f0, file "WeRobotCore/task_system_v3/auto_follow_manager.py", line 89>:
+ 92           0 LOAD_FAST                0 (self)
+              2 LOAD_ATTR                0 (_is_running)
+
+ 93           4 LOAD_FAST                0 (self)
+              6 LOAD_ATTR                1 (_startup_time)
+              8 POP_JUMP_IF_FALSE       20
+             10 LOAD_FAST                0 (self)
+             12 LOAD_ATTR                1 (_startup_time)
+             14 LOAD_METHOD              2 (isoformat)
+             16 CALL_METHOD              0
+             18 JUMP_FORWARD             2 (to 22)
+        >>   20 LOAD_CONST               1 (None)
+
+ 94     >>   22 LOAD_FAST                0 (self)
+             24 LOAD_ATTR                3 (_adapter)
+             26 LOAD_CONST               1 (None)
+             28 IS_OP                    1
+
+ 91          30 LOAD_CONST               2 (('is_running', 'startup_time', 'adapter_available'))
+             32 BUILD_CONST_KEY_MAP      3
+             34 RETURN_VALUE
+
+Disassembly of <code object get_adapter at 0x1073abd40, file "WeRobotCore/task_system_v3/auto_follow_manager.py", line 97>:
+ 99           0 LOAD_FAST                0 (self)
+              2 LOAD_ATTR                0 (_is_running)
+              4 POP_JUMP_IF_FALSE       12
+              6 LOAD_FAST                0 (self)
+              8 LOAD_ATTR                1 (_adapter)
+             10 POP_JUMP_IF_TRUE        28
+
+100     >>   12 LOAD_FAST                0 (self)
+             14 LOAD_ATTR                2 (logger)
+             16 LOAD_METHOD              3 (warning)
+             18 LOAD_CONST               1 ('自动跟单管理器未运行或适配器不可用')
+             20 CALL_METHOD              1
+             22 POP_TOP
+
+101          24 LOAD_CONST               2 (None)
+             26 RETURN_VALUE
+
+102     >>   28 LOAD_FAST                0 (self)
+             30 LOAD_ATTR                1 (_adapter)
+             32 RETURN_VALUE
+
+Disassembly of <code object create_auto_follow_task at 0x1073abdf0, file "WeRobotCore/task_system_v3/auto_follow_manager.py", line 105>:
+107           0 LOAD_FAST                0 (self)
+              2 LOAD_METHOD              0 (start)
+              4 CALL_METHOD              0
+              6 GET_AWAITABLE
+              8 LOAD_CONST               1 (None)
+             10 YIELD_FROM
+             12 POP_TOP
+
+108          14 LOAD_FAST                0 (self)
+             16 LOAD_ATTR                1 (_adapter)
+             18 LOAD_METHOD              2 (create_auto_follow_task)
+             20 LOAD_FAST                1 (task_request)
+             22 CALL_METHOD              1
+             24 GET_AWAITABLE
+             26 LOAD_CONST               1 (None)
+             28 YIELD_FROM
+             30 RETURN_VALUE
+
+Disassembly of <code object create_batch_auto_follow_tasks at 0x1073abea0, file "WeRobotCore/task_system_v3/auto_follow_manager.py", line 110>:
+112           0 LOAD_FAST                0 (self)
+              2 LOAD_METHOD              0 (start)
+              4 CALL_METHOD              0
+              6 GET_AWAITABLE
+              8 LOAD_CONST               1 (None)
+             10 YIELD_FROM
+             12 POP_TOP
+
+113          14 LOAD_FAST                0 (self)
+             16 LOAD_ATTR                1 (_adapter)
+             18 LOAD_METHOD              2 (create_batch_auto_follow_tasks)
+             20 LOAD_FAST                1 (batch_request)
+             22 CALL_METHOD              1
+             24 GET_AWAITABLE
+             26 LOAD_CONST               1 (None)
+             28 YIELD_FROM
+             30 RETURN_VALUE
+
+Disassembly of <code object cancel_auto_follow_task at 0x1073ab190, file "WeRobotCore/task_system_v3/auto_follow_manager.py", line 115>:
+117           0 LOAD_FAST                0 (self)
+              2 LOAD_METHOD              0 (start)
+              4 CALL_METHOD              0
+              6 GET_AWAITABLE
+              8 LOAD_CONST               1 (None)
+             10 YIELD_FROM
+             12 POP_TOP
+
+118          14 LOAD_FAST                0 (self)
+             16 LOAD_ATTR                1 (_adapter)
+             18 LOAD_METHOD              2 (cancel_auto_follow_task)
+             20 LOAD_FAST                1 (task_id)
+             22 CALL_METHOD              1
+             24 GET_AWAITABLE
+             26 LOAD_CONST               1 (None)
+             28 YIELD_FROM
+             30 RETURN_VALUE
+
+Disassembly of <code object pause_auto_follow_task at 0x1073ab710, file "WeRobotCore/task_system_v3/auto_follow_manager.py", line 120>:
+122           0 LOAD_FAST                0 (self)
+              2 LOAD_METHOD              0 (start)
+              4 CALL_METHOD              0
+              6 GET_AWAITABLE
+              8 LOAD_CONST               1 (None)
+             10 YIELD_FROM
+             12 POP_TOP
+
+123          14 LOAD_FAST                0 (self)
+             16 LOAD_ATTR                1 (_adapter)
+             18 LOAD_METHOD              2 (pause_auto_follow_task)
+             20 LOAD_FAST                1 (task_id)
+             22 CALL_METHOD              1
+             24 GET_AWAITABLE
+             26 LOAD_CONST               1 (None)
+             28 YIELD_FROM
+             30 RETURN_VALUE
+
+Disassembly of <code object resume_auto_follow_task at 0x1073ab660, file "WeRobotCore/task_system_v3/auto_follow_manager.py", line 125>:
+127           0 LOAD_FAST                0 (self)
+              2 LOAD_METHOD              0 (start)
+              4 CALL_METHOD              0
+              6 GET_AWAITABLE
+              8 LOAD_CONST               1 (None)
+             10 YIELD_FROM
+             12 POP_TOP
+
+128          14 LOAD_FAST                0 (self)
+             16 LOAD_ATTR                1 (_adapter)
+             18 LOAD_METHOD              2 (resume_auto_follow_task)
+             20 LOAD_FAST                1 (task_id)
+             22 CALL_METHOD              1
+             24 GET_AWAITABLE
+             26 LOAD_CONST               1 (None)
+             28 YIELD_FROM
+             30 RETURN_VALUE
+
+Disassembly of <code object get_auto_follow_tasks_by_account at 0x1073ab870, file "WeRobotCore/task_system_v3/auto_follow_manager.py", line 130>:
+132           0 LOAD_FAST                0 (self)
+              2 LOAD_ATTR                0 (_adapter)
+              4 LOAD_METHOD              1 (get_auto_follow_tasks_by_account)
+              6 LOAD_FAST                1 (account_id)
+              8 LOAD_FAST                2 (status)
+             10 CALL_METHOD              2
+             12 GET_AWAITABLE
+             14 LOAD_CONST               1 (None)
+             16 YIELD_FROM
+             18 RETURN_VALUE
+
+Disassembly of <code object get_auto_follow_task_info at 0x1073abbe0, file "WeRobotCore/task_system_v3/auto_follow_manager.py", line 134>:
+136           0 LOAD_FAST                0 (self)
+              2 LOAD_ATTR                0 (_adapter)
+              4 LOAD_METHOD              1 (get_auto_follow_task_info)
+              6 LOAD_FAST                1 (task_id)
+              8 CALL_METHOD              1
+             10 GET_AWAITABLE
+             12 LOAD_CONST               1 (None)
+             14 YIELD_FROM
+             16 RETURN_VALUE
+
+Disassembly of <code object cancel_auto_follow_tasks_by_friend at 0x1073ab7c0, file "WeRobotCore/task_system_v3/auto_follow_manager.py", line 138>:
+140           0 LOAD_FAST                0 (self)
+              2 LOAD_METHOD              0 (start)
+              4 CALL_METHOD              0
+              6 GET_AWAITABLE
+              8 LOAD_CONST               1 (None)
+             10 YIELD_FROM
+             12 POP_TOP
+
+141          14 LOAD_FAST                0 (self)
+             16 LOAD_ATTR                1 (_adapter)
+             18 LOAD_METHOD              2 (cancel_auto_follow_tasks_by_friend)
+             20 LOAD_FAST                1 (friend_wxid)
+             22 LOAD_FAST                2 (account_id)
+             24 CALL_METHOD              2
+             26 GET_AWAITABLE
+             28 LOAD_CONST               1 (None)
+             30 YIELD_FROM
+             32 RETURN_VALUE
+
+Disassembly of <code object batch_cancel_auto_follow_tasks at 0x1073ab240, file "WeRobotCore/task_system_v3/auto_follow_manager.py", line 143>:
+145           0 LOAD_FAST                0 (self)
+              2 LOAD_METHOD              0 (start)
+              4 CALL_METHOD              0
+              6 GET_AWAITABLE
+              8 LOAD_CONST               1 (None)
+             10 YIELD_FROM
+             12 POP_TOP
+
+146          14 LOAD_FAST                0 (self)
+             16 LOAD_ATTR                1 (_adapter)
+             18 LOAD_METHOD              2 (batch_cancel_auto_follow_tasks)
+             20 LOAD_FAST                1 (task_ids)
+             22 CALL_METHOD              1
+             24 GET_AWAITABLE
+             26 LOAD_CONST               1 (None)
+             28 YIELD_FROM
+             30 RETURN_VALUE
+
+Disassembly of <code object batch_update_auto_follow_agent at 0x1073abc90, file "WeRobotCore/task_system_v3/auto_follow_manager.py", line 148>:
+150           0 LOAD_FAST                0 (self)
+              2 LOAD_METHOD              0 (start)
+              4 CALL_METHOD              0
+              6 GET_AWAITABLE
+              8 LOAD_CONST               1 (None)
+             10 YIELD_FROM
+             12 POP_TOP
+
+151          14 LOAD_FAST                0 (self)
+             16 LOAD_ATTR                1 (_adapter)
+             18 LOAD_METHOD              2 (batch_update_auto_follow_agent)
+             20 LOAD_FAST                1 (task_ids)
+             22 LOAD_FAST                2 (agent_id)
+             24 CALL_METHOD              2
+             26 GET_AWAITABLE
+             28 LOAD_CONST               1 (None)
+             30 YIELD_FROM
+             32 RETURN_VALUE
+
+Disassembly of <code object find_auto_follow_tasks at 0x1073aba80, file "WeRobotCore/task_system_v3/auto_follow_manager.py", line 153>:
+155           0 LOAD_FAST                0 (self)
+              2 LOAD_METHOD              0 (start)
+              4 CALL_METHOD              0
+              6 GET_AWAITABLE
+              8 LOAD_CONST               1 (None)
+             10 YIELD_FROM
+             12 POP_TOP
+
+156          14 LOAD_FAST                0 (self)
+             16 LOAD_ATTR                1 (_adapter)
+             18 LOAD_ATTR                2 (find_auto_follow_tasks)
+             20 LOAD_FAST                1 (agent_id)
+             22 LOAD_FAST                2 (date_str)
+             24 LOAD_CONST               2 (('agent_id', 'date_str'))
+             26 CALL_FUNCTION_KW         2
+             28 GET_AWAITABLE
+             30 LOAD_CONST               1 (None)
+             32 YIELD_FROM
+             34 RETURN_VALUE
+
+Disassembly of <code object get_auto_follow_logs at 0x1073ab920, file "WeRobotCore/task_system_v3/auto_follow_manager.py", line 158>:
+161           0 LOAD_FAST                0 (self)
+              2 LOAD_ATTR                0 (_adapter)
+              4 LOAD_METHOD              1 (get_auto_follow_logs)
+              6 LOAD_FAST                1 (task_id)
+              8 LOAD_FAST                2 (account_id)
+             10 LOAD_FAST                3 (friend_wxid)
+             12 LOAD_FAST                4 (limit)
+             14 CALL_METHOD              4
+             16 GET_AWAITABLE
+             18 LOAD_CONST               1 (None)
+             20 YIELD_FROM
+             22 RETURN_VALUE
+
+Disassembly of <code object get_tasks_by_account at 0x1072e0ea0, file "WeRobotCore/task_system_v3/auto_follow_manager.py", line 164>:
+169           0 LOAD_FAST                0 (self)
+              2 LOAD_METHOD              0 (get_auto_follow_tasks_by_account)
+              4 LOAD_FAST                1 (account_id)
+              6 LOAD_FAST                2 (status)
+              8 CALL_METHOD              2
+             10 GET_AWAITABLE
+             12 LOAD_CONST               1 (None)
+             14 YIELD_FROM
+             16 RETURN_VALUE
+
+Disassembly of <code object get_execution_logs at 0x1072e0d40, file "WeRobotCore/task_system_v3/auto_follow_manager.py", line 171>:
+177           0 LOAD_FAST                0 (self)
+              2 LOAD_METHOD              0 (get_auto_follow_logs)
+              4 LOAD_FAST                1 (task_id)
+              6 LOAD_FAST                2 (account_id)
+              8 LOAD_FAST                3 (friend_wxid)
+             10 LOAD_FAST                4 (limit)
+             12 CALL_METHOD              4
+             14 GET_AWAITABLE
+             16 LOAD_CONST               1 (None)
+             18 YIELD_FROM
+             20 RETURN_VALUE

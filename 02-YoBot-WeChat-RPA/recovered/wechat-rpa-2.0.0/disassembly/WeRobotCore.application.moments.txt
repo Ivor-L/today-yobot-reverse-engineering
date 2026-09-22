@@ -1,0 +1,3807 @@
+  1           0 LOAD_CONST               0 ('Platform-neutral business rules for automatic Moments interaction.\n\nThe Windows driver historically owned these parsers.  Keeping them here lets\nthe Windows UIA and macOS AX adapters apply the same filtering semantics\nwithout importing either native automation stack into the other platform.\n')
+              2 STORE_NAME               0 (__doc__)
+
+  8           4 LOAD_CONST               1 (0)
+              6 LOAD_CONST               2 (('annotations',))
+              8 IMPORT_NAME              1 (__future__)
+             10 IMPORT_FROM              2 (annotations)
+             12 STORE_NAME               2 (annotations)
+             14 POP_TOP
+
+ 10          16 LOAD_CONST               1 (0)
+             18 LOAD_CONST               3 (None)
+             20 IMPORT_NAME              3 (asyncio)
+             22 STORE_NAME               3 (asyncio)
+
+ 11          24 LOAD_CONST               1 (0)
+             26 LOAD_CONST               4 (('dataclass',))
+             28 IMPORT_NAME              4 (dataclasses)
+             30 IMPORT_FROM              5 (dataclass)
+             32 STORE_NAME               5 (dataclass)
+             34 POP_TOP
+
+ 12          36 LOAD_CONST               1 (0)
+             38 LOAD_CONST               5 (('datetime', 'timedelta'))
+             40 IMPORT_NAME              6 (datetime)
+             42 IMPORT_FROM              6 (datetime)
+             44 STORE_NAME               6 (datetime)
+             46 IMPORT_FROM              7 (timedelta)
+             48 STORE_NAME               7 (timedelta)
+             50 POP_TOP
+
+ 13          52 LOAD_CONST               1 (0)
+             54 LOAD_CONST               3 (None)
+             56 IMPORT_NAME              8 (random)
+             58 STORE_NAME               8 (random)
+
+ 14          60 LOAD_CONST               1 (0)
+             62 LOAD_CONST               3 (None)
+             64 IMPORT_NAME              9 (re)
+             66 STORE_NAME               9 (re)
+
+ 15          68 LOAD_CONST               1 (0)
+             70 LOAD_CONST               3 (None)
+             72 IMPORT_NAME             10 (time)
+             74 STORE_NAME              10 (time)
+
+ 16          76 LOAD_CONST               1 (0)
+             78 LOAD_CONST               6 (('Any', 'Awaitable', 'Callable', 'Dict', 'Mapping', 'Optional', 'Protocol', 'Sequence', 'runtime_checkable'))
+             80 IMPORT_NAME             11 (typing)
+             82 IMPORT_FROM             12 (Any)
+             84 STORE_NAME              12 (Any)
+             86 IMPORT_FROM             13 (Awaitable)
+             88 STORE_NAME              13 (Awaitable)
+             90 IMPORT_FROM             14 (Callable)
+             92 STORE_NAME              14 (Callable)
+             94 IMPORT_FROM             15 (Dict)
+             96 STORE_NAME              15 (Dict)
+             98 IMPORT_FROM             16 (Mapping)
+            100 STORE_NAME              16 (Mapping)
+            102 IMPORT_FROM             17 (Optional)
+            104 STORE_NAME              17 (Optional)
+            106 IMPORT_FROM             18 (Protocol)
+            108 STORE_NAME              18 (Protocol)
+            110 IMPORT_FROM             19 (Sequence)
+            112 STORE_NAME              19 (Sequence)
+            114 IMPORT_FROM             20 (runtime_checkable)
+            116 STORE_NAME              20 (runtime_checkable)
+            118 POP_TOP
+
+ 18         120 LOAD_CONST               1 (0)
+            122 LOAD_CONST               7 (('OperationResult',))
+            124 IMPORT_NAME             21 (WeRobotCore.domain)
+            126 IMPORT_FROM             22 (OperationResult)
+            128 STORE_NAME              22 (OperationResult)
+            130 POP_TOP
+
+ 22         132 LOAD_CONST               8 ('(刚刚|\\d{1,2}分钟前|\\d{1,2}小时前|\\d{1,2}天前|昨天\\s*\\d{1,2}:\\d{2}|前天\\s*\\d{1,2}:\\d{2}|\\d{1,2}月\\d{1,2}日\\s*\\d{1,2}:\\d{2}|\\d{4}年\\d{1,2}月\\d{1,2}日\\s*\\d{1,2}:\\d{2})')
+
+ 21         134 STORE_NAME              23 (_PUBLISH_TIME_PATTERN)
+
+ 32         136 LOAD_CONST               3 (None)
+
+ 29         138 LOAD_CONST               9 (('reference',))
+            140 BUILD_CONST_KEY_MAP      1
+            142 LOAD_CONST              10 ('str')
+            144 LOAD_CONST              11 ('Optional[datetime]')
+            146 LOAD_CONST              12 ('Optional[float]')
+            148 LOAD_CONST              13 (('value', 'reference', 'return'))
+            150 BUILD_CONST_KEY_MAP      3
+            152 LOAD_CONST              14 (<code object parse_moment_publish_time at 0x1072e0be0, file "WeRobotCore/application/moments.py", line 29>)
+            154 LOAD_CONST              15 ('parse_moment_publish_time')
+            156 MAKE_FUNCTION            6 (kwdefaults, annotations)
+            158 STORE_NAME              24 (parse_moment_publish_time)
+
+ 97         160 LOAD_CONST              16 (())
+
+ 94         162 LOAD_CONST              17 (('publisher_candidates',))
+            164 BUILD_CONST_KEY_MAP      1
+            166 LOAD_CONST              10 ('str')
+            168 LOAD_CONST              18 ('Sequence[str]')
+            170 LOAD_CONST              19 ('Optional[Dict[str, str]]')
+            172 LOAD_CONST              20 (('raw_text', 'publisher_candidates', 'return'))
+            174 BUILD_CONST_KEY_MAP      3
+            176 LOAD_CONST              21 (<code object parse_moment_item_41x at 0x1072e0df0, file "WeRobotCore/application/moments.py", line 94>)
+            178 LOAD_CONST              22 ('parse_moment_item_41x')
+            180 MAKE_FUNCTION            6 (kwdefaults, annotations)
+            182 STORE_NAME              25 (parse_moment_item_41x)
+
+208         184 LOAD_CONST              23 ('')
+
+209         186 LOAD_CONST              23 ('')
+
+210         188 LOAD_CONST               3 (None)
+
+202         190 LOAD_CONST              24 (('moment_id', 'publish_time', 'now'))
+            192 BUILD_CONST_KEY_MAP      3
+            194 LOAD_CONST              25 ('Sequence[Mapping[str, Any]]')
+            196 LOAD_CONST              10 ('str')
+            198 LOAD_CONST              10 ('str')
+            200 LOAD_CONST              10 ('str')
+            202 LOAD_CONST              10 ('str')
+            204 LOAD_CONST              10 ('str')
+            206 LOAD_CONST              11 ('Optional[datetime]')
+            208 LOAD_CONST              26 ('bool')
+            210 LOAD_CONST              27 (('interactions', 'account_id', 'publisher', 'content', 'moment_id', 'publish_time', 'now', 'return'))
+            212 BUILD_CONST_KEY_MAP      8
+            214 LOAD_CONST              28 (<code object has_recent_moment_interaction at 0x1073ab710, file "WeRobotCore/application/moments.py", line 202>)
+            216 LOAD_CONST              29 ('has_recent_moment_interaction')
+            218 MAKE_FUNCTION            6 (kwdefaults, annotations)
+            220 STORE_NAME              26 (has_recent_moment_interaction)
+
+304         222 LOAD_NAME                5 (dataclass)
+            224 LOAD_CONST              30 (True)
+            226 LOAD_CONST              31 (('frozen',))
+            228 CALL_FUNCTION_KW         1
+
+305         230 LOAD_BUILD_CLASS
+            232 LOAD_CONST              32 (<code object MomentRow at 0x1073ab920, file "WeRobotCore/application/moments.py", line 304>)
+            234 LOAD_CONST              33 ('MomentRow')
+            236 MAKE_FUNCTION            0
+            238 LOAD_CONST              33 ('MomentRow')
+            240 CALL_FUNCTION            2
+            242 CALL_FUNCTION            1
+            244 STORE_NAME              27 (MomentRow)
+
+313         246 LOAD_NAME                5 (dataclass)
+            248 LOAD_CONST              30 (True)
+            250 LOAD_CONST              31 (('frozen',))
+            252 CALL_FUNCTION_KW         1
+
+314         254 LOAD_BUILD_CLASS
+            256 LOAD_CONST              34 (<code object MomentsViewport at 0x1073abc90, file "WeRobotCore/application/moments.py", line 313>)
+            258 LOAD_CONST              35 ('MomentsViewport')
+            260 MAKE_FUNCTION            0
+            262 LOAD_CONST              35 ('MomentsViewport')
+            264 CALL_FUNCTION            2
+            266 CALL_FUNCTION            1
+            268 STORE_NAME              28 (MomentsViewport)
+
+320         270 LOAD_NAME               20 (runtime_checkable)
+
+321         272 LOAD_BUILD_CLASS
+            274 LOAD_CONST              36 (<code object MomentCommentRuntime at 0x1073b92f0, file "WeRobotCore/application/moments.py", line 320>)
+            276 LOAD_CONST              37 ('MomentCommentRuntime')
+            278 MAKE_FUNCTION            0
+            280 LOAD_CONST              37 ('MomentCommentRuntime')
+            282 LOAD_NAME               18 (Protocol)
+            284 CALL_FUNCTION            3
+            286 CALL_FUNCTION            1
+            288 STORE_NAME              29 (MomentCommentRuntime)
+
+381         290 LOAD_BUILD_CLASS
+            292 LOAD_CONST              38 (<code object MomentCommentWorkflow at 0x1073b9920, file "WeRobotCore/application/moments.py", line 381>)
+            294 LOAD_CONST              39 ('MomentCommentWorkflow')
+            296 MAKE_FUNCTION            0
+            298 LOAD_CONST              39 ('MomentCommentWorkflow')
+            300 CALL_FUNCTION            2
+            302 STORE_NAME              30 (MomentCommentWorkflow)
+
+898         304 BUILD_LIST               0
+            306 LOAD_CONST              40 (('MomentCommentRuntime', 'MomentCommentWorkflow', 'MomentRow', 'MomentsViewport', 'has_recent_moment_interaction', 'parse_moment_item_41x', 'parse_moment_publish_time'))
+            308 LIST_EXTEND              1
+            310 STORE_NAME              31 (__all__)
+            312 LOAD_CONST               3 (None)
+            314 RETURN_VALUE
+
+Disassembly of <code object parse_moment_publish_time at 0x1072e0be0, file "WeRobotCore/application/moments.py", line 29>:
+ 36           0 EXTENDED_ARG             2
+              2 SETUP_FINALLY          522 (to 526)
+
+ 37           4 LOAD_GLOBAL              0 (str)
+              6 LOAD_FAST                0 (value)
+              8 JUMP_IF_TRUE_OR_POP     12
+             10 LOAD_CONST               1 ('')
+        >>   12 CALL_FUNCTION            1
+             14 LOAD_METHOD              1 (strip)
+             16 CALL_METHOD              0
+             18 STORE_FAST               2 (text)
+
+ 38          20 LOAD_FAST                2 (text)
+             22 POP_JUMP_IF_TRUE        30
+
+ 39          24 POP_BLOCK
+             26 LOAD_CONST               2 (None)
+             28 RETURN_VALUE
+
+ 40     >>   30 LOAD_FAST                1 (reference)
+             32 JUMP_IF_TRUE_OR_POP     44
+             34 LOAD_GLOBAL              2 (datetime)
+             36 LOAD_METHOD              3 (now)
+             38 CALL_METHOD              0
+             40 LOAD_METHOD              4 (astimezone)
+             42 CALL_METHOD              0
+        >>   44 STORE_FAST               3 (now)
+
+ 41          46 LOAD_FAST                3 (now)
+             48 LOAD_ATTR                5 (tzinfo)
+             50 LOAD_CONST               2 (None)
+             52 IS_OP                    0
+             54 POP_JUMP_IF_FALSE       64
+
+ 42          56 LOAD_FAST                3 (now)
+             58 LOAD_METHOD              4 (astimezone)
+             60 CALL_METHOD              0
+             62 STORE_FAST               3 (now)
+
+ 43     >>   64 LOAD_FAST                2 (text)
+             66 LOAD_CONST               3 ('刚刚')
+             68 COMPARE_OP               2 (==)
+             70 POP_JUMP_IF_FALSE       82
+
+ 44          72 LOAD_FAST                3 (now)
+             74 LOAD_METHOD              6 (timestamp)
+             76 CALL_METHOD              0
+             78 POP_BLOCK
+             80 RETURN_VALUE
+
+ 45     >>   82 LOAD_GLOBAL              7 (re)
+             84 LOAD_METHOD              8 (match)
+             86 LOAD_CONST               4 ('^(\\d{1,2})分钟前$')
+             88 LOAD_FAST                2 (text)
+             90 CALL_METHOD              2
+             92 STORE_FAST               4 (match)
+
+ 46          94 LOAD_FAST                4 (match)
+             96 POP_JUMP_IF_FALSE      126
+
+ 47          98 LOAD_FAST                3 (now)
+            100 LOAD_METHOD              6 (timestamp)
+            102 CALL_METHOD              0
+            104 LOAD_GLOBAL              9 (int)
+            106 LOAD_FAST                4 (match)
+            108 LOAD_METHOD             10 (group)
+            110 LOAD_CONST               5 (1)
+            112 CALL_METHOD              1
+            114 CALL_FUNCTION            1
+            116 LOAD_CONST               6 (60)
+            118 BINARY_MULTIPLY
+            120 BINARY_SUBTRACT
+            122 POP_BLOCK
+            124 RETURN_VALUE
+
+ 48     >>  126 LOAD_GLOBAL              7 (re)
+            128 LOAD_METHOD              8 (match)
+            130 LOAD_CONST               7 ('^(\\d{1,2})小时前$')
+            132 LOAD_FAST                2 (text)
+            134 CALL_METHOD              2
+            136 STORE_FAST               4 (match)
+
+ 49         138 LOAD_FAST                4 (match)
+            140 POP_JUMP_IF_FALSE      170
+
+ 50         142 LOAD_FAST                3 (now)
+            144 LOAD_METHOD              6 (timestamp)
+            146 CALL_METHOD              0
+            148 LOAD_GLOBAL              9 (int)
+            150 LOAD_FAST                4 (match)
+            152 LOAD_METHOD             10 (group)
+            154 LOAD_CONST               5 (1)
+            156 CALL_METHOD              1
+            158 CALL_FUNCTION            1
+            160 LOAD_CONST               8 (3600)
+            162 BINARY_MULTIPLY
+            164 BINARY_SUBTRACT
+            166 POP_BLOCK
+            168 RETURN_VALUE
+
+ 51     >>  170 LOAD_GLOBAL              7 (re)
+            172 LOAD_METHOD              8 (match)
+            174 LOAD_CONST               9 ('^(\\d{1,2})天前$')
+            176 LOAD_FAST                2 (text)
+            178 CALL_METHOD              2
+            180 STORE_FAST               4 (match)
+
+ 52         182 LOAD_FAST                4 (match)
+            184 POP_JUMP_IF_FALSE      214
+
+ 53         186 LOAD_FAST                3 (now)
+            188 LOAD_METHOD              6 (timestamp)
+            190 CALL_METHOD              0
+            192 LOAD_GLOBAL              9 (int)
+            194 LOAD_FAST                4 (match)
+            196 LOAD_METHOD             10 (group)
+            198 LOAD_CONST               5 (1)
+            200 CALL_METHOD              1
+            202 CALL_FUNCTION            1
+            204 LOAD_CONST              10 (86400)
+            206 BINARY_MULTIPLY
+            208 BINARY_SUBTRACT
+            210 POP_BLOCK
+            212 RETURN_VALUE
+
+ 54     >>  214 LOAD_GLOBAL              7 (re)
+            216 LOAD_METHOD              8 (match)
+            218 LOAD_CONST              11 ('^(昨天|前天)\\s*(\\d{1,2}):(\\d{2})$')
+            220 LOAD_FAST                2 (text)
+            222 CALL_METHOD              2
+            224 STORE_FAST               4 (match)
+
+ 55         226 LOAD_FAST                4 (match)
+            228 EXTENDED_ARG             1
+            230 POP_JUMP_IF_FALSE      312
+
+ 56         232 LOAD_FAST                4 (match)
+            234 LOAD_METHOD             10 (group)
+            236 LOAD_CONST               5 (1)
+            238 CALL_METHOD              1
+            240 LOAD_CONST              12 ('昨天')
+            242 COMPARE_OP               2 (==)
+            244 POP_JUMP_IF_FALSE      250
+            246 LOAD_CONST               5 (1)
+            248 JUMP_FORWARD             2 (to 252)
+        >>  250 LOAD_CONST              13 (2)
+        >>  252 STORE_FAST               5 (days)
+
+ 57         254 LOAD_FAST                3 (now)
+            256 LOAD_GLOBAL             11 (timedelta)
+            258 LOAD_FAST                5 (days)
+            260 LOAD_CONST              14 (('days',))
+            262 CALL_FUNCTION_KW         1
+            264 BINARY_SUBTRACT
+            266 STORE_FAST               6 (target)
+
+ 58         268 LOAD_FAST                6 (target)
+            270 LOAD_ATTR               12 (replace)
+
+ 59         272 LOAD_GLOBAL              9 (int)
+            274 LOAD_FAST                4 (match)
+            276 LOAD_METHOD             10 (group)
+            278 LOAD_CONST              13 (2)
+            280 CALL_METHOD              1
+            282 CALL_FUNCTION            1
+
+ 60         284 LOAD_GLOBAL              9 (int)
+            286 LOAD_FAST                4 (match)
+            288 LOAD_METHOD             10 (group)
+            290 LOAD_CONST              15 (3)
+            292 CALL_METHOD              1
+            294 CALL_FUNCTION            1
+
+ 61         296 LOAD_CONST              16 (0)
+
+ 62         298 LOAD_CONST              16 (0)
+
+ 58         300 LOAD_CONST              17 (('hour', 'minute', 'second', 'microsecond'))
+            302 CALL_FUNCTION_KW         4
+            304 LOAD_METHOD              6 (timestamp)
+            306 CALL_METHOD              0
+            308 POP_BLOCK
+            310 RETURN_VALUE
+
+ 64     >>  312 LOAD_GLOBAL              7 (re)
+            314 LOAD_METHOD              8 (match)
+
+ 65         316 LOAD_CONST              18 ('^(?:(\\d{4})年)?(\\d{1,2})月(\\d{1,2})日\\s*(\\d{1,2}):(\\d{2})$')
+
+ 66         318 LOAD_FAST                2 (text)
+
+ 64         320 CALL_METHOD              2
+            322 STORE_FAST               4 (match)
+
+ 68         324 LOAD_FAST                4 (match)
+            326 EXTENDED_ARG             2
+            328 POP_JUMP_IF_FALSE      522
+
+ 69         330 LOAD_FAST                4 (match)
+            332 LOAD_METHOD             10 (group)
+            334 LOAD_CONST               5 (1)
+            336 CALL_METHOD              1
+            338 STORE_FAST               7 (explicit_year)
+
+ 70         340 LOAD_FAST                7 (explicit_year)
+            342 EXTENDED_ARG             1
+            344 POP_JUMP_IF_FALSE      354
+            346 LOAD_GLOBAL              9 (int)
+            348 LOAD_FAST                7 (explicit_year)
+            350 CALL_FUNCTION            1
+            352 JUMP_FORWARD             4 (to 358)
+        >>  354 LOAD_FAST                3 (now)
+            356 LOAD_ATTR               13 (year)
+        >>  358 STORE_FAST               8 (year)
+
+ 71         360 LOAD_GLOBAL              2 (datetime)
+
+ 72         362 LOAD_FAST                8 (year)
+
+ 73         364 LOAD_GLOBAL              9 (int)
+            366 LOAD_FAST                4 (match)
+            368 LOAD_METHOD             10 (group)
+            370 LOAD_CONST              13 (2)
+            372 CALL_METHOD              1
+            374 CALL_FUNCTION            1
+
+ 74         376 LOAD_GLOBAL              9 (int)
+            378 LOAD_FAST                4 (match)
+            380 LOAD_METHOD             10 (group)
+            382 LOAD_CONST              15 (3)
+            384 CALL_METHOD              1
+            386 CALL_FUNCTION            1
+
+ 75         388 LOAD_GLOBAL              9 (int)
+            390 LOAD_FAST                4 (match)
+            392 LOAD_METHOD             10 (group)
+            394 LOAD_CONST              19 (4)
+            396 CALL_METHOD              1
+            398 CALL_FUNCTION            1
+
+ 76         400 LOAD_GLOBAL              9 (int)
+            402 LOAD_FAST                4 (match)
+            404 LOAD_METHOD             10 (group)
+            406 LOAD_CONST              20 (5)
+            408 CALL_METHOD              1
+            410 CALL_FUNCTION            1
+
+ 77         412 LOAD_FAST                3 (now)
+            414 LOAD_ATTR                5 (tzinfo)
+
+ 71         416 LOAD_CONST              21 (('tzinfo',))
+            418 CALL_FUNCTION_KW         6
+            420 STORE_FAST               6 (target)
+
+ 79         422 LOAD_FAST                6 (target)
+            424 LOAD_METHOD              6 (timestamp)
+            426 CALL_METHOD              0
+            428 LOAD_FAST                3 (now)
+            430 LOAD_METHOD              6 (timestamp)
+            432 CALL_METHOD              0
+            434 COMPARE_OP               4 (>)
+            436 EXTENDED_ARG             2
+            438 POP_JUMP_IF_FALSE      512
+            440 LOAD_FAST                7 (explicit_year)
+            442 EXTENDED_ARG             2
+            444 POP_JUMP_IF_TRUE       512
+
+ 80         446 LOAD_GLOBAL              2 (datetime)
+
+ 81         448 LOAD_FAST                8 (year)
+            450 LOAD_CONST               5 (1)
+            452 BINARY_SUBTRACT
+
+ 82         454 LOAD_GLOBAL              9 (int)
+            456 LOAD_FAST                4 (match)
+            458 LOAD_METHOD             10 (group)
+            460 LOAD_CONST              13 (2)
+            462 CALL_METHOD              1
+            464 CALL_FUNCTION            1
+
+ 83         466 LOAD_GLOBAL              9 (int)
+            468 LOAD_FAST                4 (match)
+            470 LOAD_METHOD             10 (group)
+            472 LOAD_CONST              15 (3)
+            474 CALL_METHOD              1
+            476 CALL_FUNCTION            1
+
+ 84         478 LOAD_GLOBAL              9 (int)
+            480 LOAD_FAST                4 (match)
+            482 LOAD_METHOD             10 (group)
+            484 LOAD_CONST              19 (4)
+            486 CALL_METHOD              1
+            488 CALL_FUNCTION            1
+
+ 85         490 LOAD_GLOBAL              9 (int)
+            492 LOAD_FAST                4 (match)
+            494 LOAD_METHOD             10 (group)
+            496 LOAD_CONST              20 (5)
+            498 CALL_METHOD              1
+            500 CALL_FUNCTION            1
+
+ 86         502 LOAD_FAST                3 (now)
+            504 LOAD_ATTR                5 (tzinfo)
+
+ 80         506 LOAD_CONST              21 (('tzinfo',))
+            508 CALL_FUNCTION_KW         6
+            510 STORE_FAST               6 (target)
+
+ 88     >>  512 LOAD_FAST                6 (target)
+            514 LOAD_METHOD              6 (timestamp)
+            516 CALL_METHOD              0
+            518 POP_BLOCK
+            520 RETURN_VALUE
+        >>  522 POP_BLOCK
+            524 JUMP_FORWARD            22 (to 548)
+
+ 89     >>  526 DUP_TOP
+            528 LOAD_GLOBAL             14 (Exception)
+            530 EXTENDED_ARG             2
+            532 JUMP_IF_NOT_EXC_MATCH   546
+            534 POP_TOP
+            536 POP_TOP
+            538 POP_TOP
+
+ 90         540 POP_EXCEPT
+            542 LOAD_CONST               2 (None)
+            544 RETURN_VALUE
+        >>  546 RERAISE
+
+ 91     >>  548 LOAD_CONST               2 (None)
+            550 RETURN_VALUE
+
+Disassembly of <code object parse_moment_item_41x at 0x1072e0df0, file "WeRobotCore/application/moments.py", line 94>:
+109           0 EXTENDED_ARG             2
+              2 SETUP_FINALLY          558 (to 562)
+
+110           4 LOAD_GLOBAL              0 (str)
+              6 LOAD_FAST                0 (raw_text)
+              8 JUMP_IF_TRUE_OR_POP     12
+             10 LOAD_CONST               1 ('')
+        >>   12 CALL_FUNCTION            1
+             14 LOAD_METHOD              1 (strip)
+             16 CALL_METHOD              0
+             18 STORE_FAST               2 (text)
+
+111          20 LOAD_FAST                2 (text)
+             22 POP_JUMP_IF_TRUE        30
+
+112          24 POP_BLOCK
+             26 LOAD_CONST               2 (None)
+             28 RETURN_VALUE
+
+113     >>   30 LOAD_CONST               1 ('')
+             32 STORE_FAST               3 (time_text)
+
+114          34 LOAD_GLOBAL              2 (list)
+             36 LOAD_GLOBAL              3 (re)
+             38 LOAD_METHOD              4 (finditer)
+             40 LOAD_GLOBAL              5 (_PUBLISH_TIME_PATTERN)
+             42 LOAD_FAST                2 (text)
+             44 CALL_METHOD              2
+             46 CALL_FUNCTION            1
+             48 STORE_FAST               4 (matches)
+
+115          50 LOAD_FAST                4 (matches)
+             52 POP_JUMP_IF_FALSE      124
+
+116          54 LOAD_FAST                4 (matches)
+             56 LOAD_CONST               3 (-1)
+             58 BINARY_SUBSCR
+             60 STORE_FAST               5 (match)
+
+117          62 LOAD_FAST                5 (match)
+             64 LOAD_METHOD              6 (start)
+             66 CALL_METHOD              0
+             68 LOAD_CONST               4 (0)
+             70 COMPARE_OP               4 (>)
+             72 POP_JUMP_IF_FALSE      124
+             74 LOAD_FAST                2 (text)
+             76 LOAD_FAST                5 (match)
+             78 LOAD_METHOD              6 (start)
+             80 CALL_METHOD              0
+             82 LOAD_CONST               5 (1)
+             84 BINARY_SUBTRACT
+             86 BINARY_SUBSCR
+             88 LOAD_METHOD              7 (isspace)
+             90 CALL_METHOD              0
+             92 POP_JUMP_IF_FALSE      124
+
+118          94 LOAD_FAST                5 (match)
+             96 LOAD_METHOD              8 (group)
+             98 LOAD_CONST               5 (1)
+            100 CALL_METHOD              1
+            102 STORE_FAST               3 (time_text)
+
+119         104 LOAD_FAST                2 (text)
+            106 LOAD_CONST               2 (None)
+            108 LOAD_FAST                5 (match)
+            110 LOAD_METHOD              6 (start)
+            112 CALL_METHOD              0
+            114 BUILD_SLICE              2
+            116 BINARY_SUBSCR
+            118 LOAD_METHOD              9 (rstrip)
+            120 CALL_METHOD              0
+            122 STORE_FAST               2 (text)
+
+121     >>  124 LOAD_CONST               6 (('(包含\\d+张图片)$', '(\\[图片\\])$', '(\\[视频\\])$', '(来自视频号)$', '(视频号)$', '(分享链接)$', '(分享视频)$', '(分享图片)$', '(直播中)$', '( · .+)$', '(位置)$', '(IP属地 .+)$', '(服务号\\s*·\\s*.+)$', '(公众号\\s*·\\s*.+)$', '(服务号)$', '(公众号)$'))
+            126 STORE_FAST               6 (system_patterns)
+
+139         128 LOAD_CONST               7 (True)
+            130 STORE_FAST               7 (changed)
+
+140     >>  132 LOAD_FAST                7 (changed)
+            134 EXTENDED_ARG             1
+            136 POP_JUMP_IF_FALSE      310
+
+141         138 LOAD_CONST               8 (False)
+            140 STORE_FAST               7 (changed)
+
+142         142 LOAD_FAST                6 (system_patterns)
+            144 GET_ITER
+        >>  146 FOR_ITER                64 (to 212)
+            148 STORE_FAST               8 (pattern)
+
+143         150 LOAD_GLOBAL              3 (re)
+            152 LOAD_METHOD             10 (search)
+            154 LOAD_FAST                8 (pattern)
+            156 LOAD_FAST                2 (text)
+            158 CALL_METHOD              2
+            160 STORE_FAST               5 (match)
+
+144         162 LOAD_FAST                5 (match)
+            164 POP_JUMP_IF_FALSE      146
+            166 LOAD_FAST                5 (match)
+            168 LOAD_METHOD             11 (end)
+            170 CALL_METHOD              0
+            172 LOAD_GLOBAL             12 (len)
+            174 LOAD_FAST                2 (text)
+            176 CALL_FUNCTION            1
+            178 COMPARE_OP               2 (==)
+            180 POP_JUMP_IF_FALSE      146
+
+145         182 LOAD_FAST                2 (text)
+            184 LOAD_CONST               2 (None)
+            186 LOAD_FAST                5 (match)
+            188 LOAD_METHOD              6 (start)
+            190 CALL_METHOD              0
+            192 BUILD_SLICE              2
+            194 BINARY_SUBSCR
+            196 LOAD_METHOD              9 (rstrip)
+            198 CALL_METHOD              0
+            200 STORE_FAST               2 (text)
+
+146         202 LOAD_CONST               7 (True)
+            204 STORE_FAST               7 (changed)
+
+147         206 POP_TOP
+            208 JUMP_ABSOLUTE          212
+            210 JUMP_ABSOLUTE          146
+
+148     >>  212 LOAD_FAST                7 (changed)
+            214 POP_JUMP_IF_TRUE       132
+
+149         216 LOAD_GLOBAL              3 (re)
+            218 LOAD_METHOD             10 (search)
+            220 LOAD_GLOBAL              5 (_PUBLISH_TIME_PATTERN)
+            222 LOAD_CONST               9 ('$')
+            224 BINARY_ADD
+            226 LOAD_FAST                2 (text)
+            228 CALL_METHOD              2
+            230 STORE_FAST               5 (match)
+
+151         232 LOAD_FAST                5 (match)
+
+150         234 POP_JUMP_IF_FALSE      132
+
+152         236 LOAD_FAST                5 (match)
+            238 LOAD_METHOD              6 (start)
+            240 CALL_METHOD              0
+            242 LOAD_CONST               4 (0)
+            244 COMPARE_OP               4 (>)
+
+150         246 POP_JUMP_IF_FALSE      132
+
+153         248 LOAD_FAST                2 (text)
+            250 LOAD_FAST                5 (match)
+            252 LOAD_METHOD              6 (start)
+            254 CALL_METHOD              0
+            256 LOAD_CONST               5 (1)
+            258 BINARY_SUBTRACT
+            260 BINARY_SUBSCR
+            262 LOAD_METHOD              7 (isspace)
+            264 CALL_METHOD              0
+
+150         266 POP_JUMP_IF_FALSE      132
+
+155         268 LOAD_FAST                3 (time_text)
+            270 EXTENDED_ARG             1
+            272 POP_JUMP_IF_TRUE       284
+
+156         274 LOAD_FAST                5 (match)
+            276 LOAD_METHOD              8 (group)
+            278 LOAD_CONST               5 (1)
+            280 CALL_METHOD              1
+            282 STORE_FAST               3 (time_text)
+
+157     >>  284 LOAD_FAST                2 (text)
+            286 LOAD_CONST               2 (None)
+            288 LOAD_FAST                5 (match)
+            290 LOAD_METHOD              6 (start)
+            292 CALL_METHOD              0
+            294 BUILD_SLICE              2
+            296 BINARY_SUBSCR
+            298 LOAD_METHOD              9 (rstrip)
+            300 CALL_METHOD              0
+            302 STORE_FAST               2 (text)
+
+158         304 LOAD_CONST               7 (True)
+            306 STORE_FAST               7 (changed)
+            308 JUMP_ABSOLUTE          132
+
+160     >>  310 LOAD_CONST               1 ('')
+            312 STORE_FAST               9 (publisher)
+
+161         314 LOAD_CONST               1 ('')
+            316 STORE_FAST              10 (content)
+
+162         318 LOAD_GLOBAL             13 (sorted)
+
+163         320 LOAD_CONST              10 (<code object <setcomp> at 0x1072e0a80, file "WeRobotCore/application/moments.py", line 163>)
+            322 LOAD_CONST              11 ('parse_moment_item_41x.<locals>.<setcomp>')
+            324 MAKE_FUNCTION            0
+
+165         326 LOAD_FAST                1 (publisher_candidates)
+
+163         328 GET_ITER
+            330 CALL_FUNCTION            1
+
+168         332 LOAD_GLOBAL             12 (len)
+
+169         334 LOAD_CONST               7 (True)
+
+162         336 LOAD_CONST              12 (('key', 'reverse'))
+            338 CALL_FUNCTION_KW         3
+            340 STORE_FAST              11 (candidates)
+
+171         342 LOAD_FAST               11 (candidates)
+            344 GET_ITER
+        >>  346 FOR_ITER               100 (to 448)
+            348 STORE_FAST              12 (candidate)
+
+172         350 LOAD_FAST                2 (text)
+            352 LOAD_FAST               12 (candidate)
+            354 COMPARE_OP               2 (==)
+            356 EXTENDED_ARG             1
+            358 POP_JUMP_IF_FALSE      370
+
+173         360 LOAD_FAST               12 (candidate)
+            362 STORE_FAST               9 (publisher)
+
+174         364 POP_TOP
+            366 EXTENDED_ARG             1
+            368 JUMP_ABSOLUTE          448
+
+175     >>  370 LOAD_FAST                2 (text)
+            372 LOAD_METHOD             14 (startswith)
+            374 LOAD_FAST               12 (candidate)
+            376 CALL_METHOD              1
+            378 EXTENDED_ARG             1
+            380 POP_JUMP_IF_FALSE      346
+
+176         382 LOAD_GLOBAL             12 (len)
+            384 LOAD_FAST               12 (candidate)
+            386 CALL_FUNCTION            1
+            388 STORE_FAST              13 (boundary)
+
+177         390 LOAD_FAST               13 (boundary)
+            392 LOAD_GLOBAL             12 (len)
+            394 LOAD_FAST                2 (text)
+            396 CALL_FUNCTION            1
+            398 COMPARE_OP               0 (<)
+            400 EXTENDED_ARG             1
+            402 POP_JUMP_IF_FALSE      346
+            404 LOAD_FAST                2 (text)
+            406 LOAD_FAST               13 (boundary)
+            408 BINARY_SUBSCR
+            410 LOAD_METHOD              7 (isspace)
+            412 CALL_METHOD              0
+            414 EXTENDED_ARG             1
+            416 POP_JUMP_IF_FALSE      346
+
+178         418 LOAD_FAST               12 (candidate)
+            420 STORE_FAST               9 (publisher)
+
+179         422 LOAD_FAST                2 (text)
+            424 LOAD_FAST               13 (boundary)
+            426 LOAD_CONST               2 (None)
+            428 BUILD_SLICE              2
+            430 BINARY_SUBSCR
+            432 LOAD_METHOD              1 (strip)
+            434 CALL_METHOD              0
+            436 STORE_FAST              10 (content)
+
+180         438 POP_TOP
+            440 EXTENDED_ARG             1
+            442 JUMP_ABSOLUTE          448
+            444 EXTENDED_ARG             1
+            446 JUMP_ABSOLUTE          346
+
+181     >>  448 LOAD_FAST                9 (publisher)
+            450 EXTENDED_ARG             2
+            452 POP_JUMP_IF_TRUE       536
+
+182         454 LOAD_GLOBAL             15 (next)
+
+183         456 LOAD_CONST              13 (<code object <genexpr> at 0x1072e0ea0, file "WeRobotCore/application/moments.py", line 183>)
+            458 LOAD_CONST              14 ('parse_moment_item_41x.<locals>.<genexpr>')
+            460 MAKE_FUNCTION            0
+            462 LOAD_GLOBAL             16 (enumerate)
+            464 LOAD_FAST                2 (text)
+            466 CALL_FUNCTION            1
+            468 GET_ITER
+            470 CALL_FUNCTION            1
+
+184         472 LOAD_CONST               3 (-1)
+
+182         474 CALL_FUNCTION            2
+            476 STORE_FAST              14 (separator)
+
+186         478 LOAD_FAST               14 (separator)
+            480 LOAD_CONST               3 (-1)
+            482 COMPARE_OP               2 (==)
+            484 EXTENDED_ARG             1
+            486 POP_JUMP_IF_FALSE      500
+
+187         488 LOAD_FAST                2 (text)
+            490 LOAD_CONST               1 ('')
+            492 ROT_TWO
+            494 STORE_FAST               9 (publisher)
+            496 STORE_FAST              10 (content)
+            498 JUMP_FORWARD            36 (to 536)
+
+189     >>  500 LOAD_FAST                2 (text)
+            502 LOAD_CONST               2 (None)
+            504 LOAD_FAST               14 (separator)
+            506 BUILD_SLICE              2
+            508 BINARY_SUBSCR
+            510 LOAD_METHOD              1 (strip)
+            512 CALL_METHOD              0
+            514 STORE_FAST               9 (publisher)
+
+190         516 LOAD_FAST                2 (text)
+            518 LOAD_FAST               14 (separator)
+            520 LOAD_CONST               5 (1)
+            522 BINARY_ADD
+            524 LOAD_CONST               2 (None)
+            526 BUILD_SLICE              2
+            528 BINARY_SUBSCR
+            530 LOAD_METHOD              1 (strip)
+            532 CALL_METHOD              0
+            534 STORE_FAST              10 (content)
+
+191     >>  536 LOAD_FAST                9 (publisher)
+            538 EXTENDED_ARG             2
+            540 POP_JUMP_IF_TRUE       548
+
+192         542 POP_BLOCK
+            544 LOAD_CONST               2 (None)
+            546 RETURN_VALUE
+
+194     >>  548 LOAD_FAST                9 (publisher)
+
+195         550 LOAD_FAST               10 (content)
+
+196         552 LOAD_FAST                3 (time_text)
+
+193         554 LOAD_CONST              15 (('publisher', 'content', 'time_str'))
+            556 BUILD_CONST_KEY_MAP      3
+            558 POP_BLOCK
+            560 RETURN_VALUE
+
+198     >>  562 DUP_TOP
+            564 LOAD_GLOBAL             17 (Exception)
+            566 EXTENDED_ARG             2
+            568 JUMP_IF_NOT_EXC_MATCH   582
+            570 POP_TOP
+            572 POP_TOP
+            574 POP_TOP
+
+199         576 POP_EXCEPT
+            578 LOAD_CONST               2 (None)
+            580 RETURN_VALUE
+        >>  582 RERAISE
+            584 LOAD_CONST               2 (None)
+            586 RETURN_VALUE
+
+Disassembly of <code object <setcomp> at 0x1072e0a80, file "WeRobotCore/application/moments.py", line 163>:
+163           0 BUILD_SET                0
+              2 LOAD_FAST                0 (.0)
+        >>    4 FOR_ITER                36 (to 42)
+
+165           6 STORE_FAST               1 (value)
+
+166           8 LOAD_GLOBAL              0 (str)
+             10 LOAD_FAST                1 (value)
+             12 JUMP_IF_TRUE_OR_POP     16
+             14 LOAD_CONST               0 ('')
+        >>   16 CALL_FUNCTION            1
+             18 LOAD_METHOD              1 (strip)
+             20 CALL_METHOD              0
+             22 POP_JUMP_IF_FALSE        4
+
+164          24 LOAD_GLOBAL              0 (str)
+             26 LOAD_FAST                1 (value)
+             28 JUMP_IF_TRUE_OR_POP     32
+             30 LOAD_CONST               0 ('')
+        >>   32 CALL_FUNCTION            1
+             34 LOAD_METHOD              1 (strip)
+             36 CALL_METHOD              0
+             38 SET_ADD                  2
+             40 JUMP_ABSOLUTE            4
+        >>   42 RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x1072e0ea0, file "WeRobotCore/application/moments.py", line 183>:
+183           0 LOAD_FAST                0 (.0)
+        >>    2 FOR_ITER                22 (to 26)
+              4 UNPACK_SEQUENCE          2
+              6 STORE_FAST               1 (index)
+              8 STORE_FAST               2 (value)
+             10 LOAD_FAST                2 (value)
+             12 LOAD_METHOD              0 (isspace)
+             14 CALL_METHOD              0
+             16 POP_JUMP_IF_FALSE        2
+             18 LOAD_FAST                1 (index)
+             20 YIELD_VALUE
+             22 POP_TOP
+             24 JUMP_ABSOLUTE            2
+        >>   26 LOAD_CONST               0 (None)
+             28 RETURN_VALUE
+
+Disassembly of <code object has_recent_moment_interaction at 0x1073ab710, file "WeRobotCore/application/moments.py", line 202>:
+221           0 LOAD_FAST                6 (now)
+              2 JUMP_IF_TRUE_OR_POP     14
+              4 LOAD_GLOBAL              0 (datetime)
+              6 LOAD_METHOD              1 (now)
+              8 CALL_METHOD              0
+             10 LOAD_METHOD              2 (astimezone)
+             12 CALL_METHOD              0
+        >>   14 STORE_FAST               7 (reference)
+
+222          16 LOAD_FAST                7 (reference)
+             18 LOAD_ATTR                3 (tzinfo)
+             20 LOAD_CONST               1 (None)
+             22 IS_OP                    0
+             24 POP_JUMP_IF_FALSE       34
+
+223          26 LOAD_FAST                7 (reference)
+             28 LOAD_METHOD              2 (astimezone)
+             30 CALL_METHOD              0
+             32 STORE_FAST               7 (reference)
+
+224     >>   34 LOAD_FAST                7 (reference)
+             36 LOAD_GLOBAL              4 (timedelta)
+             38 LOAD_CONST               2 (48)
+             40 LOAD_CONST               3 (('hours',))
+             42 CALL_FUNCTION_KW         1
+             44 BINARY_SUBTRACT
+             46 STORE_FAST               8 (cutoff)
+
+225          48 LOAD_GLOBAL              5 (re)
+             50 LOAD_METHOD              6 (sub)
+             52 LOAD_CONST               4 ('\\s+')
+             54 LOAD_CONST               5 (' ')
+             56 LOAD_GLOBAL              7 (str)
+             58 LOAD_FAST                3 (content)
+             60 JUMP_IF_TRUE_OR_POP     64
+             62 LOAD_CONST               6 ('')
+        >>   64 CALL_FUNCTION            1
+             66 CALL_METHOD              3
+             68 LOAD_METHOD              8 (strip)
+             70 CALL_METHOD              0
+             72 STORE_FAST               9 (current_content)
+
+226          74 LOAD_FAST                9 (current_content)
+             76 POP_JUMP_IF_TRUE        82
+
+227          78 LOAD_CONST               7 (False)
+             80 RETURN_VALUE
+
+229     >>   82 LOAD_CONST               8 ('Any')
+             84 LOAD_CONST               9 ('Optional[datetime]')
+             86 LOAD_CONST              10 (('value', 'return'))
+             88 BUILD_CONST_KEY_MAP      2
+             90 LOAD_CONST              11 (<code object interaction_time at 0x1072e0870, file "WeRobotCore/application/moments.py", line 229>)
+             92 LOAD_CONST              12 ('has_recent_moment_interaction.<locals>.interaction_time')
+             94 MAKE_FUNCTION            4 (annotations)
+             96 STORE_FAST              10 (interaction_time)
+
+243          98 LOAD_CONST              13 ('str')
+            100 LOAD_CONST              14 ('float')
+            102 LOAD_CONST              10 (('value', 'return'))
+            104 BUILD_CONST_KEY_MAP      2
+            106 LOAD_CONST              15 (<code object time_resolution at 0x1073abf50, file "WeRobotCore/application/moments.py", line 243>)
+            108 LOAD_CONST              16 ('has_recent_moment_interaction.<locals>.time_resolution')
+            110 MAKE_FUNCTION            4 (annotations)
+            112 STORE_FAST              11 (time_resolution)
+
+253         114 LOAD_FAST                0 (interactions)
+            116 GET_ITER
+        >>  118 EXTENDED_ARG             1
+            120 FOR_ITER               402 (to 524)
+            122 STORE_FAST              12 (interaction)
+
+254         124 LOAD_FAST                1 (account_id)
+            126 POP_JUMP_IF_FALSE      144
+            128 LOAD_FAST               12 (interaction)
+            130 LOAD_METHOD              9 (get)
+            132 LOAD_CONST              17 ('account_id')
+            134 CALL_METHOD              1
+            136 LOAD_FAST                1 (account_id)
+            138 COMPARE_OP               3 (!=)
+            140 POP_JUMP_IF_FALSE      144
+
+255         142 JUMP_ABSOLUTE          118
+
+256     >>  144 LOAD_FAST               12 (interaction)
+            146 LOAD_METHOD              9 (get)
+            148 LOAD_CONST              18 ('timestamp')
+            150 CALL_METHOD              1
+            152 JUMP_IF_TRUE_OR_POP    162
+            154 LOAD_FAST               12 (interaction)
+            156 LOAD_METHOD              9 (get)
+            158 LOAD_CONST              19 ('time')
+            160 CALL_METHOD              1
+        >>  162 STORE_FAST              13 (timestamp)
+
+257         164 LOAD_FAST               13 (timestamp)
+            166 POP_JUMP_IF_FALSE      176
+            168 LOAD_FAST               10 (interaction_time)
+            170 LOAD_FAST               13 (timestamp)
+            172 CALL_FUNCTION            1
+            174 JUMP_FORWARD             2 (to 178)
+        >>  176 LOAD_CONST               1 (None)
+        >>  178 STORE_FAST              14 (logged_at)
+
+258         180 LOAD_FAST               14 (logged_at)
+            182 LOAD_CONST               1 (None)
+            184 IS_OP                    1
+            186 POP_JUMP_IF_FALSE      198
+            188 LOAD_FAST               14 (logged_at)
+            190 LOAD_FAST                8 (cutoff)
+            192 COMPARE_OP               0 (<)
+            194 POP_JUMP_IF_FALSE      198
+
+259         196 JUMP_ABSOLUTE          118
+
+260     >>  198 LOAD_FAST               12 (interaction)
+            200 LOAD_METHOD              9 (get)
+            202 LOAD_CONST              20 ('type')
+            204 LOAD_CONST              21 (())
+            206 CALL_METHOD              2
+            208 STORE_FAST              15 (action_types)
+
+261         210 LOAD_GLOBAL             10 (isinstance)
+            212 LOAD_FAST               15 (action_types)
+            214 LOAD_GLOBAL              7 (str)
+            216 CALL_FUNCTION            2
+            218 POP_JUMP_IF_FALSE      226
+
+262         220 LOAD_FAST               15 (action_types)
+            222 BUILD_TUPLE              1
+            224 STORE_FAST              15 (action_types)
+
+263     >>  226 LOAD_GLOBAL             11 (any)
+            228 LOAD_CONST              22 (<code object <genexpr> at 0x1073abbe0, file "WeRobotCore/application/moments.py", line 263>)
+            230 LOAD_CONST              23 ('has_recent_moment_interaction.<locals>.<genexpr>')
+            232 MAKE_FUNCTION            0
+            234 LOAD_FAST               15 (action_types)
+            236 GET_ITER
+            238 CALL_FUNCTION            1
+            240 CALL_FUNCTION            1
+            242 POP_JUMP_IF_TRUE       246
+
+264         244 JUMP_ABSOLUTE          118
+
+265     >>  246 LOAD_FAST               12 (interaction)
+            248 LOAD_METHOD              9 (get)
+            250 LOAD_CONST              24 ('publisher')
+            252 CALL_METHOD              1
+            254 LOAD_FAST                2 (publisher)
+            256 COMPARE_OP               3 (!=)
+            258 EXTENDED_ARG             1
+            260 POP_JUMP_IF_FALSE      264
+
+266         262 JUMP_ABSOLUTE          118
+
+267     >>  264 LOAD_GLOBAL              5 (re)
+            266 LOAD_METHOD              6 (sub)
+
+268         268 LOAD_CONST               4 ('\\s+')
+            270 LOAD_CONST               5 (' ')
+            272 LOAD_GLOBAL              7 (str)
+            274 LOAD_FAST               12 (interaction)
+            276 LOAD_METHOD              9 (get)
+            278 LOAD_CONST              25 ('content')
+            280 CALL_METHOD              1
+            282 EXTENDED_ARG             1
+            284 JUMP_IF_TRUE_OR_POP    288
+            286 LOAD_CONST               6 ('')
+        >>  288 CALL_FUNCTION            1
+
+267         290 CALL_METHOD              3
+            292 LOAD_METHOD              8 (strip)
+            294 CALL_METHOD              0
+            296 STORE_FAST              16 (stored_content)
+
+270         298 LOAD_FAST               16 (stored_content)
+            300 LOAD_FAST                9 (current_content)
+            302 COMPARE_OP               3 (!=)
+            304 EXTENDED_ARG             1
+            306 POP_JUMP_IF_FALSE      310
+
+271         308 JUMP_ABSOLUTE          118
+
+273     >>  310 LOAD_GLOBAL              7 (str)
+            312 LOAD_FAST               12 (interaction)
+            314 LOAD_METHOD              9 (get)
+            316 LOAD_CONST              26 ('publish_time')
+            318 CALL_METHOD              1
+            320 EXTENDED_ARG             1
+            322 JUMP_IF_TRUE_OR_POP    326
+            324 LOAD_CONST               6 ('')
+        >>  326 CALL_FUNCTION            1
+            328 LOAD_METHOD              8 (strip)
+            330 CALL_METHOD              0
+            332 STORE_FAST              17 (stored_publish_time)
+
+274         334 LOAD_FAST                5 (publish_time)
+            336 EXTENDED_ARG             1
+            338 POP_JUMP_IF_FALSE      438
+            340 LOAD_FAST               17 (stored_publish_time)
+            342 EXTENDED_ARG             1
+            344 POP_JUMP_IF_FALSE      438
+            346 LOAD_FAST               14 (logged_at)
+            348 LOAD_CONST               1 (None)
+            350 IS_OP                    1
+            352 EXTENDED_ARG             1
+            354 POP_JUMP_IF_FALSE      438
+
+275         356 LOAD_GLOBAL             12 (parse_moment_publish_time)
+
+276         358 LOAD_FAST                5 (publish_time)
+
+277         360 LOAD_FAST                7 (reference)
+
+275         362 LOAD_CONST              27 (('reference',))
+            364 CALL_FUNCTION_KW         2
+            366 STORE_FAST              18 (current_published_at)
+
+279         368 LOAD_GLOBAL             12 (parse_moment_publish_time)
+
+280         370 LOAD_FAST               17 (stored_publish_time)
+
+281         372 LOAD_FAST               14 (logged_at)
+
+279         374 LOAD_CONST              27 (('reference',))
+            376 CALL_FUNCTION_KW         2
+            378 STORE_FAST              19 (stored_published_at)
+
+283         380 LOAD_FAST               18 (current_published_at)
+            382 LOAD_CONST               1 (None)
+            384 IS_OP                    1
+            386 EXTENDED_ARG             1
+            388 POP_JUMP_IF_FALSE      438
+            390 LOAD_FAST               19 (stored_published_at)
+            392 LOAD_CONST               1 (None)
+            394 IS_OP                    1
+            396 EXTENDED_ARG             1
+            398 POP_JUMP_IF_FALSE      438
+
+284         400 LOAD_GLOBAL             13 (max)
+
+285         402 LOAD_FAST               11 (time_resolution)
+            404 LOAD_FAST                5 (publish_time)
+            406 CALL_FUNCTION            1
+
+286         408 LOAD_FAST               11 (time_resolution)
+            410 LOAD_FAST               17 (stored_publish_time)
+            412 CALL_FUNCTION            1
+
+284         414 CALL_FUNCTION            2
+            416 STORE_FAST              20 (tolerance)
+
+288         418 LOAD_GLOBAL             14 (abs)
+            420 LOAD_FAST               18 (current_published_at)
+            422 LOAD_FAST               19 (stored_published_at)
+            424 BINARY_SUBTRACT
+            426 CALL_FUNCTION            1
+            428 LOAD_FAST               20 (tolerance)
+            430 COMPARE_OP               4 (>)
+            432 EXTENDED_ARG             1
+            434 POP_JUMP_IF_FALSE      438
+
+289         436 JUMP_ABSOLUTE          118
+
+291     >>  438 LOAD_GLOBAL              7 (str)
+            440 LOAD_FAST               12 (interaction)
+            442 LOAD_METHOD              9 (get)
+            444 LOAD_CONST              28 ('moment_id')
+            446 CALL_METHOD              1
+            448 EXTENDED_ARG             1
+            450 JUMP_IF_TRUE_OR_POP    454
+            452 LOAD_CONST               6 ('')
+        >>  454 CALL_FUNCTION            1
+            456 LOAD_METHOD              8 (strip)
+            458 CALL_METHOD              0
+            460 STORE_FAST              21 (stored_moment_id)
+
+292         462 LOAD_GLOBAL              7 (str)
+            464 LOAD_FAST                4 (moment_id)
+            466 EXTENDED_ARG             1
+            468 JUMP_IF_TRUE_OR_POP    472
+            470 LOAD_CONST               6 ('')
+        >>  472 CALL_FUNCTION            1
+            474 LOAD_METHOD              8 (strip)
+            476 CALL_METHOD              0
+            478 STORE_FAST              22 (current_moment_id)
+
+293         480 LOAD_FAST               21 (stored_moment_id)
+            482 EXTENDED_ARG             1
+            484 POP_JUMP_IF_FALSE      508
+            486 LOAD_FAST               22 (current_moment_id)
+            488 EXTENDED_ARG             1
+            490 POP_JUMP_IF_FALSE      508
+
+297         492 LOAD_FAST               21 (stored_moment_id)
+            494 LOAD_FAST               22 (current_moment_id)
+            496 COMPARE_OP               2 (==)
+            498 EXTENDED_ARG             1
+            500 POP_JUMP_IF_FALSE      508
+
+298         502 POP_TOP
+            504 LOAD_CONST              29 (True)
+            506 RETURN_VALUE
+
+299     >>  508 LOAD_FAST               16 (stored_content)
+            510 LOAD_FAST                9 (current_content)
+            512 COMPARE_OP               2 (==)
+            514 POP_JUMP_IF_FALSE      118
+
+300         516 POP_TOP
+            518 LOAD_CONST              29 (True)
+            520 RETURN_VALUE
+            522 JUMP_ABSOLUTE          118
+
+301     >>  524 LOAD_CONST               7 (False)
+            526 RETURN_VALUE
+
+Disassembly of <code object interaction_time at 0x1072e0870, file "WeRobotCore/application/moments.py", line 229>:
+230           0 SETUP_FINALLY          100 (to 102)
+
+231           2 LOAD_GLOBAL              0 (isinstance)
+              4 LOAD_FAST                0 (value)
+              6 LOAD_GLOBAL              1 (int)
+              8 LOAD_GLOBAL              2 (float)
+             10 BUILD_TUPLE              2
+             12 CALL_FUNCTION            2
+             14 POP_JUMP_IF_FALSE       56
+
+232          16 LOAD_GLOBAL              2 (float)
+             18 LOAD_FAST                0 (value)
+             20 CALL_FUNCTION            1
+             22 STORE_FAST               1 (stamp)
+
+233          24 LOAD_FAST                1 (stamp)
+             26 LOAD_CONST               1 (10000000000)
+             28 COMPARE_OP               4 (>)
+             30 POP_JUMP_IF_FALSE       40
+
+234          32 LOAD_FAST                1 (stamp)
+             34 LOAD_CONST               2 (1000.0)
+             36 INPLACE_TRUE_DIVIDE
+             38 STORE_FAST               1 (stamp)
+
+235     >>   40 LOAD_GLOBAL              3 (datetime)
+             42 LOAD_METHOD              4 (fromtimestamp)
+             44 LOAD_FAST                1 (stamp)
+             46 CALL_METHOD              1
+             48 LOAD_METHOD              5 (astimezone)
+             50 CALL_METHOD              0
+             52 POP_BLOCK
+             54 RETURN_VALUE
+
+236     >>   56 LOAD_GLOBAL              3 (datetime)
+             58 LOAD_METHOD              6 (fromisoformat)
+             60 LOAD_GLOBAL              7 (str)
+             62 LOAD_FAST                0 (value)
+             64 CALL_FUNCTION            1
+             66 LOAD_METHOD              8 (replace)
+             68 LOAD_CONST               3 ('Z')
+             70 LOAD_CONST               4 ('+00:00')
+             72 CALL_METHOD              2
+             74 CALL_METHOD              1
+             76 STORE_FAST               2 (parsed)
+
+237          78 LOAD_FAST                2 (parsed)
+             80 LOAD_ATTR                9 (tzinfo)
+             82 LOAD_CONST               0 (None)
+             84 IS_OP                    0
+             86 POP_JUMP_IF_FALSE       96
+
+238          88 LOAD_FAST                2 (parsed)
+             90 LOAD_METHOD              5 (astimezone)
+             92 CALL_METHOD              0
+             94 STORE_FAST               2 (parsed)
+
+239     >>   96 LOAD_FAST                2 (parsed)
+             98 POP_BLOCK
+            100 RETURN_VALUE
+
+240     >>  102 DUP_TOP
+            104 LOAD_GLOBAL             10 (OSError)
+            106 LOAD_GLOBAL             11 (OverflowError)
+            108 LOAD_GLOBAL             12 (TypeError)
+            110 LOAD_GLOBAL             13 (ValueError)
+            112 BUILD_TUPLE              4
+            114 JUMP_IF_NOT_EXC_MATCH   128
+            116 POP_TOP
+            118 POP_TOP
+            120 POP_TOP
+
+241         122 POP_EXCEPT
+            124 LOAD_CONST               0 (None)
+            126 RETURN_VALUE
+        >>  128 RERAISE
+            130 LOAD_CONST               0 (None)
+            132 RETURN_VALUE
+
+Disassembly of <code object time_resolution at 0x1073abf50, file "WeRobotCore/application/moments.py", line 243>:
+244           0 LOAD_GLOBAL              0 (str)
+              2 LOAD_FAST                0 (value)
+              4 JUMP_IF_TRUE_OR_POP      8
+              6 LOAD_CONST               1 ('')
+        >>    8 CALL_FUNCTION            1
+             10 LOAD_METHOD              1 (strip)
+             12 CALL_METHOD              0
+             14 STORE_FAST               1 (text)
+
+245          16 LOAD_FAST                1 (text)
+             18 LOAD_CONST               2 ('刚刚')
+             20 COMPARE_OP               2 (==)
+             22 POP_JUMP_IF_TRUE        32
+             24 LOAD_CONST               3 ('分钟前')
+             26 LOAD_FAST                1 (text)
+             28 CONTAINS_OP              0
+             30 POP_JUMP_IF_FALSE       36
+
+246     >>   32 LOAD_CONST               4 (180.0)
+             34 RETURN_VALUE
+
+247     >>   36 LOAD_CONST               5 ('小时前')
+             38 LOAD_FAST                1 (text)
+             40 CONTAINS_OP              0
+             42 POP_JUMP_IF_FALSE       48
+
+248          44 LOAD_CONST               6 (3900.0)
+             46 RETURN_VALUE
+
+249     >>   48 LOAD_CONST               7 ('天前')
+             50 LOAD_FAST                1 (text)
+             52 CONTAINS_OP              0
+             54 POP_JUMP_IF_FALSE       60
+
+250          56 LOAD_CONST               8 (90000.0)
+             58 RETURN_VALUE
+
+251     >>   60 LOAD_CONST               9 (90.0)
+             62 RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x1073abbe0, file "WeRobotCore/application/moments.py", line 263>:
+263           0 LOAD_FAST                0 (.0)
+        >>    2 FOR_ITER                14 (to 18)
+              4 STORE_FAST               1 (item)
+              6 LOAD_FAST                1 (item)
+              8 LOAD_CONST               0 (('comment', 'like'))
+             10 CONTAINS_OP              0
+             12 YIELD_VALUE
+             14 POP_TOP
+             16 JUMP_ABSOLUTE            2
+        >>   18 LOAD_CONST               1 (None)
+             20 RETURN_VALUE
+
+Disassembly of <code object MomentRow at 0x1073ab920, file "WeRobotCore/application/moments.py", line 304>:
+304           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('MomentRow')
+              6 STORE_NAME               2 (__qualname__)
+              8 SETUP_ANNOTATIONS
+
+306          10 LOAD_CONST               1 ('str')
+             12 LOAD_NAME                3 (__annotations__)
+             14 LOAD_CONST               2 ('moment_id')
+             16 STORE_SUBSCR
+
+307          18 LOAD_CONST               1 ('str')
+             20 LOAD_NAME                3 (__annotations__)
+             22 LOAD_CONST               3 ('raw_text')
+             24 STORE_SUBSCR
+
+308          26 LOAD_CONST               4 (True)
+             28 STORE_NAME               4 (action_area_visible)
+             30 LOAD_CONST               5 ('bool')
+             32 LOAD_NAME                3 (__annotations__)
+             34 LOAD_CONST               6 ('action_area_visible')
+             36 STORE_SUBSCR
+
+309          38 LOAD_CONST               7 (None)
+             40 STORE_NAME               5 (min_y)
+             42 LOAD_CONST               8 ('Optional[float]')
+             44 LOAD_NAME                3 (__annotations__)
+             46 LOAD_CONST               9 ('min_y')
+             48 STORE_SUBSCR
+
+310          50 LOAD_CONST               7 (None)
+             52 STORE_NAME               6 (max_y)
+             54 LOAD_CONST               8 ('Optional[float]')
+             56 LOAD_NAME                3 (__annotations__)
+             58 LOAD_CONST              10 ('max_y')
+             60 STORE_SUBSCR
+             62 LOAD_CONST               7 (None)
+             64 RETURN_VALUE
+
+Disassembly of <code object MomentsViewport at 0x1073abc90, file "WeRobotCore/application/moments.py", line 313>:
+313           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('MomentsViewport')
+              6 STORE_NAME               2 (__qualname__)
+              8 SETUP_ANNOTATIONS
+
+315          10 LOAD_CONST               1 ('Sequence[MomentRow]')
+             12 LOAD_NAME                3 (__annotations__)
+             14 LOAD_CONST               2 ('items')
+             16 STORE_SUBSCR
+
+316          18 LOAD_CONST               3 (False)
+             20 STORE_NAME               4 (scroll_moved)
+             22 LOAD_CONST               4 ('bool')
+             24 LOAD_NAME                3 (__annotations__)
+             26 LOAD_CONST               5 ('scroll_moved')
+             28 STORE_SUBSCR
+
+317          30 LOAD_CONST               3 (False)
+             32 STORE_NAME               5 (at_end)
+             34 LOAD_CONST               4 ('bool')
+             36 LOAD_NAME                3 (__annotations__)
+             38 LOAD_CONST               6 ('at_end')
+             40 STORE_SUBSCR
+             42 LOAD_CONST               7 (None)
+             44 RETURN_VALUE
+
+Disassembly of <code object MomentCommentRuntime at 0x1073b92f0, file "WeRobotCore/application/moments.py", line 320>:
+320           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('MomentCommentRuntime')
+              6 STORE_NAME               2 (__qualname__)
+
+322           8 LOAD_CONST               1 ('Platform boundary consumed by the shared Moments business workflow.')
+             10 STORE_NAME               3 (__doc__)
+
+324          12 LOAD_CONST               2 ('str')
+             14 LOAD_CONST               3 ('MomentsViewport')
+             16 LOAD_CONST               4 (('account_id', 'return'))
+             18 BUILD_CONST_KEY_MAP      2
+             20 LOAD_CONST               5 (<code object open at 0x1073ab450, file "WeRobotCore/application/moments.py", line 324>)
+             22 LOAD_CONST               6 ('MomentCommentRuntime.open')
+             24 MAKE_FUNCTION            4 (annotations)
+             26 STORE_NAME               4 (open)
+
+327          28 LOAD_CONST               2 ('str')
+             30 LOAD_CONST               7 ('int')
+             32 LOAD_CONST               3 ('MomentsViewport')
+             34 LOAD_CONST               8 (('account_id', 'lines', 'return'))
+             36 BUILD_CONST_KEY_MAP      3
+             38 LOAD_CONST               9 (<code object scroll at 0x1073abdf0, file "WeRobotCore/application/moments.py", line 327>)
+             40 LOAD_CONST              10 ('MomentCommentRuntime.scroll')
+             42 MAKE_FUNCTION            4 (annotations)
+             44 STORE_NAME               5 (scroll)
+
+330          46 LOAD_CONST               2 ('str')
+             48 LOAD_CONST               2 ('str')
+             50 LOAD_CONST              11 ('OperationResult')
+             52 LOAD_CONST              12 (('account_id', 'moment_id', 'return'))
+             54 BUILD_CONST_KEY_MAP      3
+             56 LOAD_CONST              13 (<code object like at 0x1073ab240, file "WeRobotCore/application/moments.py", line 330>)
+             58 LOAD_CONST              14 ('MomentCommentRuntime.like')
+             60 MAKE_FUNCTION            4 (annotations)
+             62 STORE_NAME               6 (like)
+
+333          64 LOAD_CONST               2 ('str')
+             66 LOAD_CONST               2 ('str')
+             68 LOAD_CONST               2 ('str')
+             70 LOAD_CONST              11 ('OperationResult')
+             72 LOAD_CONST              15 (('account_id', 'moment_id', 'content', 'return'))
+             74 BUILD_CONST_KEY_MAP      4
+             76 LOAD_CONST              16 (<code object comment at 0x1073ab030, file "WeRobotCore/application/moments.py", line 333>)
+             78 LOAD_CONST              17 ('MomentCommentRuntime.comment')
+             80 MAKE_FUNCTION            4 (annotations)
+             82 STORE_NAME               7 (comment)
+
+338          84 LOAD_CONST               2 ('str')
+             86 LOAD_CONST              11 ('OperationResult')
+             88 LOAD_CONST               4 (('account_id', 'return'))
+             90 BUILD_CONST_KEY_MAP      2
+             92 LOAD_CONST              18 (<code object close at 0x1073ab500, file "WeRobotCore/application/moments.py", line 338>)
+             94 LOAD_CONST              19 ('MomentCommentRuntime.close')
+             96 MAKE_FUNCTION            4 (annotations)
+             98 STORE_NAME               8 (close)
+
+341         100 LOAD_CONST               2 ('str')
+            102 LOAD_CONST               2 ('str')
+            104 LOAD_CONST               2 ('str')
+            106 LOAD_CONST               2 ('str')
+            108 LOAD_CONST               2 ('str')
+            110 LOAD_CONST              20 (('account_id', 'agent_id', 'publisher', 'content', 'return'))
+            112 BUILD_CONST_KEY_MAP      5
+            114 LOAD_CONST              21 (<code object generate_comment at 0x1073ab2f0, file "WeRobotCore/application/moments.py", line 341>)
+            116 LOAD_CONST              22 ('MomentCommentRuntime.generate_comment')
+            118 MAKE_FUNCTION            4 (annotations)
+            120 STORE_NAME               9 (generate_comment)
+
+346         122 LOAD_CONST               2 ('str')
+            124 LOAD_CONST              23 ('Sequence[str]')
+            126 LOAD_CONST              24 ('Optional[Sequence[str]]')
+            128 LOAD_CONST              25 (('account_id', 'tag_ids', 'return'))
+            130 BUILD_CONST_KEY_MAP      3
+            132 LOAD_CONST              26 (<code object resolve_allowed_friends at 0x1073aba80, file "WeRobotCore/application/moments.py", line 346>)
+            134 LOAD_CONST              27 ('MomentCommentRuntime.resolve_allowed_friends')
+            136 MAKE_FUNCTION            4 (annotations)
+            138 STORE_NAME              10 (resolve_allowed_friends)
+
+351         140 LOAD_CONST               2 ('str')
+            142 LOAD_CONST              23 ('Sequence[str]')
+            144 LOAD_CONST               4 (('account_id', 'return'))
+            146 BUILD_CONST_KEY_MAP      2
+            148 LOAD_CONST              28 (<code object publisher_candidates at 0x1073ab190, file "WeRobotCore/application/moments.py", line 351>)
+            150 LOAD_CONST              29 ('MomentCommentRuntime.publisher_candidates')
+            152 MAKE_FUNCTION            4 (annotations)
+            154 STORE_NAME              11 (publisher_candidates)
+
+356         156 LOAD_CONST               2 ('str')
+            158 LOAD_CONST              30 ('bool')
+            160 LOAD_CONST               4 (('account_id', 'return'))
+            162 BUILD_CONST_KEY_MAP      2
+            164 LOAD_CONST              31 (<code object is_rest_time at 0x1073ab870, file "WeRobotCore/application/moments.py", line 356>)
+            166 LOAD_CONST              32 ('MomentCommentRuntime.is_rest_time')
+            168 MAKE_FUNCTION            4 (annotations)
+            170 STORE_NAME              12 (is_rest_time)
+
+359         172 LOAD_CONST              33 ('Sequence[Mapping[str, Any]]')
+            174 LOAD_CONST              34 (('return',))
+            176 BUILD_CONST_KEY_MAP      1
+            178 LOAD_CONST              35 (<code object interaction_history at 0x1073abd40, file "WeRobotCore/application/moments.py", line 359>)
+            180 LOAD_CONST              36 ('MomentCommentRuntime.interaction_history')
+            182 MAKE_FUNCTION            4 (annotations)
+            184 STORE_NAME              13 (interaction_history)
+
+373         186 LOAD_CONST              37 (False)
+
+362         188 LOAD_CONST              38 (('recovered',))
+            190 BUILD_CONST_KEY_MAP      1
+            192 LOAD_CONST               2 ('str')
+            194 LOAD_CONST               2 ('str')
+            196 LOAD_CONST              23 ('Sequence[str]')
+            198 LOAD_CONST               2 ('str')
+            200 LOAD_CONST               2 ('str')
+            202 LOAD_CONST               2 ('str')
+            204 LOAD_CONST               2 ('str')
+            206 LOAD_CONST               2 ('str')
+            208 LOAD_CONST              30 ('bool')
+            210 LOAD_CONST              39 ('None')
+            212 LOAD_CONST              40 (('account_id', 'task_id', 'action_types', 'publisher', 'content', 'publish_time', 'comment_content', 'moment_id', 'recovered', 'return'))
+            214 BUILD_CONST_KEY_MAP     10
+            216 LOAD_CONST              41 (<code object record_interaction at 0x1073ab660, file "WeRobotCore/application/moments.py", line 362>)
+            218 LOAD_CONST              42 ('MomentCommentRuntime.record_interaction')
+            220 MAKE_FUNCTION            6 (kwdefaults, annotations)
+            222 STORE_NAME              14 (record_interaction)
+
+377         224 LOAD_CONST               2 ('str')
+            226 LOAD_CONST               2 ('str')
+            228 LOAD_CONST               4 (('account_id', 'return'))
+            230 BUILD_CONST_KEY_MAP      2
+            232 LOAD_CONST              43 (<code object account_nickname at 0x1073b9450, file "WeRobotCore/application/moments.py", line 377>)
+            234 LOAD_CONST              44 ('MomentCommentRuntime.account_nickname')
+            236 MAKE_FUNCTION            4 (annotations)
+            238 STORE_NAME              15 (account_nickname)
+            240 LOAD_CONST              45 (None)
+            242 RETURN_VALUE
+
+Disassembly of <code object open at 0x1073ab450, file "WeRobotCore/application/moments.py", line 324>:
+325           0 LOAD_CONST               0 (None)
+              2 RETURN_VALUE
+
+Disassembly of <code object scroll at 0x1073abdf0, file "WeRobotCore/application/moments.py", line 327>:
+328           0 LOAD_CONST               0 (None)
+              2 RETURN_VALUE
+
+Disassembly of <code object like at 0x1073ab240, file "WeRobotCore/application/moments.py", line 330>:
+331           0 LOAD_CONST               0 (None)
+              2 RETURN_VALUE
+
+Disassembly of <code object comment at 0x1073ab030, file "WeRobotCore/application/moments.py", line 333>:
+336           0 LOAD_CONST               0 (None)
+              2 RETURN_VALUE
+
+Disassembly of <code object close at 0x1073ab500, file "WeRobotCore/application/moments.py", line 338>:
+339           0 LOAD_CONST               0 (None)
+              2 RETURN_VALUE
+
+Disassembly of <code object generate_comment at 0x1073ab2f0, file "WeRobotCore/application/moments.py", line 341>:
+344           0 LOAD_CONST               0 (None)
+              2 RETURN_VALUE
+
+Disassembly of <code object resolve_allowed_friends at 0x1073aba80, file "WeRobotCore/application/moments.py", line 346>:
+349           0 LOAD_CONST               0 (None)
+              2 RETURN_VALUE
+
+Disassembly of <code object publisher_candidates at 0x1073ab190, file "WeRobotCore/application/moments.py", line 351>:
+354           0 LOAD_CONST               1 (None)
+              2 RETURN_VALUE
+
+Disassembly of <code object is_rest_time at 0x1073ab870, file "WeRobotCore/application/moments.py", line 356>:
+357           0 LOAD_CONST               0 (None)
+              2 RETURN_VALUE
+
+Disassembly of <code object interaction_history at 0x1073abd40, file "WeRobotCore/application/moments.py", line 359>:
+360           0 LOAD_CONST               0 (None)
+              2 RETURN_VALUE
+
+Disassembly of <code object record_interaction at 0x1073ab660, file "WeRobotCore/application/moments.py", line 362>:
+375           0 LOAD_CONST               0 (None)
+              2 RETURN_VALUE
+
+Disassembly of <code object account_nickname at 0x1073b9450, file "WeRobotCore/application/moments.py", line 377>:
+378           0 LOAD_CONST               0 (None)
+              2 RETURN_VALUE
+
+Disassembly of <code object MomentCommentWorkflow at 0x1073b9920, file "WeRobotCore/application/moments.py", line 381>:
+381           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('MomentCommentWorkflow')
+              6 STORE_NAME               2 (__qualname__)
+
+382           8 LOAD_CONST               1 ('Execute Windows-parity filtering over a platform Moments runtime.')
+             10 STORE_NAME               3 (__doc__)
+
+384          12 LOAD_NAME                4 (frozenset)
+
+385          14 LOAD_CONST               2 (('like_only', 'comment_only', 'like_and_comment', 'like_always_and_comment'))
+
+384          16 CALL_FUNCTION            1
+             18 STORE_NAME               5 (_MODES)
+
+390          20 LOAD_CONST               3 ((2, 3, 3, 3))
+             22 STORE_NAME               6 (_REVEAL_SCROLL_STEPS)
+
+395          24 LOAD_CONST               4 (6)
+             26 STORE_NAME               7 (_MAX_STAGNANT_VIEWPORTS)
+
+396          28 LOAD_CONST               5 (3)
+             30 STORE_NAME               8 (_MAX_CONSECUTIVE_ACTION_FAILURES)
+
+402          32 LOAD_NAME                9 (asyncio)
+             34 LOAD_ATTR               10 (sleep)
+
+403          36 LOAD_NAME               11 (random)
+             38 LOAD_ATTR               12 (uniform)
+
+404          40 LOAD_CONST               6 (True)
+
+398          42 LOAD_CONST               7 (('sleeper', 'delay_sampler', 'customer_event_recording_enabled'))
+             44 BUILD_CONST_KEY_MAP      3
+             46 LOAD_CONST               8 ('MomentCommentRuntime')
+             48 LOAD_CONST               9 ('Callable[[float], Awaitable[None]]')
+             50 LOAD_CONST              10 ('Callable[[float, float], float]')
+             52 LOAD_CONST              11 ('bool')
+             54 LOAD_CONST              12 ('None')
+             56 LOAD_CONST              13 (('runtime', 'sleeper', 'delay_sampler', 'customer_event_recording_enabled', 'return'))
+             58 BUILD_CONST_KEY_MAP      5
+             60 LOAD_CONST              14 (<code object __init__ at 0x1073b9a80, file "WeRobotCore/application/moments.py", line 398>)
+             62 LOAD_CONST              15 ('MomentCommentWorkflow.__init__')
+             64 MAKE_FUNCTION            6 (kwdefaults, annotations)
+             66 STORE_NAME              13 (__init__)
+
+417          68 LOAD_NAME               14 (staticmethod)
+
+418          70 LOAD_CONST              16 ('Mapping[str, Any]')
+             72 LOAD_CONST              17 ('str')
+             74 LOAD_CONST              18 ('int')
+             76 LOAD_CONST              18 ('int')
+             78 LOAD_CONST              19 (('settings', 'name', 'default', 'return'))
+             80 BUILD_CONST_KEY_MAP      4
+             82 LOAD_CONST              20 (<code object _integer at 0x1073b9b30, file "WeRobotCore/application/moments.py", line 417>)
+             84 LOAD_CONST              21 ('MomentCommentWorkflow._integer')
+             86 MAKE_FUNCTION            4 (annotations)
+             88 CALL_FUNCTION            1
+             90 STORE_NAME              15 (_integer)
+
+433          92 LOAD_CONST              22 (None)
+
+434          94 LOAD_CONST              22 (None)
+
+427          96 LOAD_CONST              23 (('callback', 'cancel_checker'))
+             98 BUILD_CONST_KEY_MAP      2
+            100 LOAD_CONST              17 ('str')
+            102 LOAD_CONST              17 ('str')
+            104 LOAD_CONST              16 ('Mapping[str, Any]')
+            106 LOAD_CONST              16 ('Mapping[str, Any]')
+            108 LOAD_CONST              24 (('account_id', 'task_id', 'settings', 'return'))
+            110 BUILD_CONST_KEY_MAP      4
+            112 LOAD_CONST              25 (<code object execute at 0x1073b9be0, file "WeRobotCore/application/moments.py", line 427>)
+            114 LOAD_CONST              26 ('MomentCommentWorkflow.execute')
+            116 MAKE_FUNCTION            6 (kwdefaults, annotations)
+            118 STORE_NAME              16 (execute)
+            120 LOAD_CONST              22 (None)
+            122 RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x1073b9a80, file "WeRobotCore/application/moments.py", line 398>:
+406           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                1 (runtime)
+              4 LOAD_GLOBAL              1 (MomentCommentRuntime)
+              6 CALL_FUNCTION            2
+              8 POP_JUMP_IF_TRUE        18
+
+407          10 LOAD_GLOBAL              2 (TypeError)
+             12 LOAD_CONST               1 ('runtime must implement MomentCommentRuntime')
+             14 CALL_FUNCTION            1
+             16 RAISE_VARARGS            1
+
+408     >>   18 LOAD_GLOBAL              3 (callable)
+             20 LOAD_FAST                2 (sleeper)
+             22 CALL_FUNCTION            1
+             24 POP_JUMP_IF_FALSE       34
+             26 LOAD_GLOBAL              3 (callable)
+             28 LOAD_FAST                3 (delay_sampler)
+             30 CALL_FUNCTION            1
+             32 POP_JUMP_IF_TRUE        42
+
+409     >>   34 LOAD_GLOBAL              2 (TypeError)
+             36 LOAD_CONST               2 ('workflow timing dependencies must be callable')
+             38 CALL_FUNCTION            1
+             40 RAISE_VARARGS            1
+
+410     >>   42 LOAD_FAST                1 (runtime)
+             44 LOAD_FAST                0 (self)
+             46 STORE_ATTR               4 (_runtime)
+
+411          48 LOAD_FAST                2 (sleeper)
+             50 LOAD_FAST                0 (self)
+             52 STORE_ATTR               5 (_sleeper)
+
+412          54 LOAD_FAST                3 (delay_sampler)
+             56 LOAD_FAST                0 (self)
+             58 STORE_ATTR               6 (_delay_sampler)
+
+413          60 LOAD_GLOBAL              7 (bool)
+
+414          62 LOAD_FAST                4 (customer_event_recording_enabled)
+
+413          64 CALL_FUNCTION            1
+             66 LOAD_FAST                0 (self)
+             68 STORE_ATTR               8 (_customer_event_recording_enabled)
+             70 LOAD_CONST               0 (None)
+             72 RETURN_VALUE
+
+Disassembly of <code object _integer at 0x1073b9b30, file "WeRobotCore/application/moments.py", line 417>:
+419           0 LOAD_FAST                0 (settings)
+              2 LOAD_METHOD              0 (get)
+              4 LOAD_FAST                1 (name)
+              6 LOAD_FAST                2 (default)
+              8 CALL_METHOD              2
+             10 STORE_FAST               3 (value)
+
+420          12 LOAD_GLOBAL              1 (isinstance)
+             14 LOAD_FAST                3 (value)
+             16 LOAD_GLOBAL              2 (bool)
+             18 CALL_FUNCTION            2
+             20 POP_JUMP_IF_FALSE       36
+
+421          22 LOAD_GLOBAL              3 (ValueError)
+             24 LOAD_CONST               1 ('{} must be an integer')
+             26 LOAD_METHOD              4 (format)
+             28 LOAD_FAST                1 (name)
+             30 CALL_METHOD              1
+             32 CALL_FUNCTION            1
+             34 RAISE_VARARGS            1
+
+422     >>   36 LOAD_GLOBAL              5 (int)
+             38 LOAD_FAST                3 (value)
+             40 CALL_FUNCTION            1
+             42 STORE_FAST               4 (result)
+
+423          44 LOAD_FAST                4 (result)
+             46 LOAD_CONST               2 (0)
+             48 COMPARE_OP               1 (<=)
+             50 POP_JUMP_IF_FALSE       66
+
+424          52 LOAD_GLOBAL              3 (ValueError)
+             54 LOAD_CONST               3 ('{} must be positive')
+             56 LOAD_METHOD              4 (format)
+             58 LOAD_FAST                1 (name)
+             60 CALL_METHOD              1
+             62 CALL_FUNCTION            1
+             64 RAISE_VARARGS            1
+
+425     >>   66 LOAD_FAST                4 (result)
+             68 RETURN_VALUE
+
+Disassembly of <code object execute at 0x1073b9be0, file "WeRobotCore/application/moments.py", line 427>:
+436           0 LOAD_GLOBAL              0 (str)
+              2 LOAD_FAST                1 (account_id)
+              4 JUMP_IF_TRUE_OR_POP      8
+              6 LOAD_CONST               1 ('')
+        >>    8 CALL_FUNCTION            1
+             10 LOAD_METHOD              1 (strip)
+             12 CALL_METHOD              0
+             14 STORE_FAST               6 (account)
+
+437          16 LOAD_GLOBAL              0 (str)
+             18 LOAD_FAST                3 (settings)
+             20 LOAD_METHOD              2 (get)
+             22 LOAD_CONST               2 ('agentId')
+             24 CALL_METHOD              1
+             26 JUMP_IF_TRUE_OR_POP     30
+             28 LOAD_CONST               1 ('')
+        >>   30 CALL_FUNCTION            1
+             32 LOAD_METHOD              1 (strip)
+             34 CALL_METHOD              0
+             36 STORE_FAST               7 (agent_id)
+
+438          38 LOAD_FAST                6 (account)
+             40 POP_JUMP_IF_FALSE       46
+             42 LOAD_FAST                7 (agent_id)
+             44 POP_JUMP_IF_TRUE        54
+
+439     >>   46 LOAD_GLOBAL              3 (ValueError)
+             48 LOAD_CONST               3 ('account_id and agentId are required')
+             50 CALL_FUNCTION            1
+             52 RAISE_VARARGS            1
+
+440     >>   54 LOAD_GLOBAL              0 (str)
+             56 LOAD_FAST                3 (settings)
+             58 LOAD_METHOD              2 (get)
+             60 LOAD_CONST               4 ('interactionMode')
+             62 CALL_METHOD              1
+             64 JUMP_IF_TRUE_OR_POP     68
+             66 LOAD_CONST               5 ('like_and_comment')
+        >>   68 CALL_FUNCTION            1
+             70 LOAD_METHOD              1 (strip)
+             72 CALL_METHOD              0
+             74 STORE_FAST               8 (mode)
+
+441          76 LOAD_FAST                8 (mode)
+             78 LOAD_FAST                0 (self)
+             80 LOAD_ATTR                4 (_MODES)
+             82 CONTAINS_OP              1
+             84 POP_JUMP_IF_FALSE      100
+
+442          86 LOAD_GLOBAL              3 (ValueError)
+             88 LOAD_CONST               6 ('unsupported interactionMode: {}')
+             90 LOAD_METHOD              5 (format)
+             92 LOAD_FAST                8 (mode)
+             94 CALL_METHOD              1
+             96 CALL_FUNCTION            1
+             98 RAISE_VARARGS            1
+
+443     >>  100 LOAD_FAST                0 (self)
+            102 LOAD_METHOD              6 (_integer)
+            104 LOAD_FAST                3 (settings)
+            106 LOAD_CONST               7 ('commentLimit')
+            108 LOAD_CONST               8 (100)
+            110 CALL_METHOD              3
+            112 STORE_FAST               9 (comment_limit)
+
+444         114 LOAD_FAST                0 (self)
+            116 LOAD_METHOD              6 (_integer)
+            118 LOAD_FAST                3 (settings)
+            120 LOAD_CONST               9 ('perFriendLimit')
+            122 LOAD_CONST              10 (2)
+            124 CALL_METHOD              3
+            126 STORE_FAST              10 (per_friend_limit)
+
+445         128 LOAD_FAST                3 (settings)
+            130 LOAD_METHOD              2 (get)
+            132 LOAD_CONST              11 ('reachLastPosition')
+            134 LOAD_CONST              12 ('stop')
+            136 CALL_METHOD              2
+            138 LOAD_CONST              12 ('stop')
+            140 COMPARE_OP               2 (==)
+            142 STORE_FAST              11 (reach_last)
+
+446         144 LOAD_FAST                8 (mode)
+            146 LOAD_CONST              13 (('like_only', 'like_and_comment', 'like_always_and_comment'))
+            148 CONTAINS_OP              0
+            150 STORE_FAST              12 (should_like)
+
+451         152 LOAD_FAST                8 (mode)
+            154 LOAD_CONST              14 (('comment_only', 'like_and_comment', 'like_always_and_comment'))
+            156 CONTAINS_OP              0
+            158 STORE_FAST              13 (should_comment)
+
+456         160 LOAD_CONST              15 (<code object <setcomp> at 0x1073b9030, file "WeRobotCore/application/moments.py", line 456>)
+            162 LOAD_CONST              16 ('MomentCommentWorkflow.execute.<locals>.<setcomp>')
+            164 MAKE_FUNCTION            0
+
+458         166 LOAD_FAST                3 (settings)
+            168 LOAD_METHOD              2 (get)
+            170 LOAD_CONST              17 ('blacklist')
+            172 LOAD_CONST              18 (())
+            174 CALL_METHOD              2
+
+456         176 GET_ITER
+            178 CALL_FUNCTION            1
+            180 STORE_FAST              14 (blacklist)
+
+461         182 LOAD_GLOBAL              7 (tuple)
+            184 LOAD_CONST              19 (<code object <genexpr> at 0x1073b9710, file "WeRobotCore/application/moments.py", line 461>)
+            186 LOAD_CONST              20 ('MomentCommentWorkflow.execute.<locals>.<genexpr>')
+            188 MAKE_FUNCTION            0
+
+463         190 LOAD_FAST                3 (settings)
+            192 LOAD_METHOD              2 (get)
+            194 LOAD_CONST              21 ('selectedTags')
+            196 LOAD_CONST              18 (())
+            198 CALL_METHOD              2
+
+461         200 GET_ITER
+            202 CALL_FUNCTION            1
+            204 CALL_FUNCTION            1
+            206 STORE_FAST              15 (selected_tags)
+
+466         208 LOAD_FAST                0 (self)
+            210 LOAD_ATTR                8 (_runtime)
+            212 LOAD_METHOD              9 (resolve_allowed_friends)
+            214 LOAD_FAST                6 (account)
+            216 LOAD_FAST               15 (selected_tags)
+            218 CALL_METHOD              2
+            220 GET_AWAITABLE
+            222 LOAD_CONST               0 (None)
+            224 YIELD_FROM
+            226 STORE_FAST              16 (allowed)
+
+467         228 LOAD_FAST               16 (allowed)
+            230 LOAD_CONST               0 (None)
+            232 IS_OP                    0
+            234 POP_JUMP_IF_FALSE      240
+            236 LOAD_CONST               0 (None)
+            238 JUMP_FORWARD             6 (to 246)
+        >>  240 LOAD_GLOBAL             10 (set)
+            242 LOAD_FAST               16 (allowed)
+            244 CALL_FUNCTION            1
+        >>  246 STORE_FAST              17 (allowed_set)
+
+468         248 LOAD_FAST                0 (self)
+            250 LOAD_ATTR                8 (_runtime)
+            252 LOAD_METHOD             11 (account_nickname)
+            254 LOAD_FAST                6 (account)
+            256 CALL_METHOD              1
+            258 GET_AWAITABLE
+            260 LOAD_CONST               0 (None)
+            262 YIELD_FROM
+            264 STORE_FAST              18 (nickname)
+
+469         266 LOAD_GLOBAL              7 (tuple)
+            268 LOAD_FAST                0 (self)
+            270 LOAD_ATTR                8 (_runtime)
+            272 LOAD_METHOD             12 (interaction_history)
+            274 CALL_METHOD              0
+            276 GET_AWAITABLE
+            278 LOAD_CONST               0 (None)
+            280 YIELD_FROM
+            282 CALL_FUNCTION            1
+            284 STORE_FAST              19 (interactions)
+
+470         286 LOAD_CONST              22 (<code object <setcomp> at 0x1073b9ea0, file "WeRobotCore/application/moments.py", line 470>)
+            288 LOAD_CONST              16 ('MomentCommentWorkflow.execute.<locals>.<setcomp>')
+            290 MAKE_FUNCTION            0
+
+472         292 LOAD_FAST                0 (self)
+            294 LOAD_ATTR                8 (_runtime)
+            296 LOAD_METHOD             13 (publisher_candidates)
+            298 LOAD_FAST                6 (account)
+            300 CALL_METHOD              1
+            302 GET_AWAITABLE
+            304 LOAD_CONST               0 (None)
+            306 YIELD_FROM
+
+470         308 GET_ITER
+            310 CALL_FUNCTION            1
+            312 STORE_FAST              20 (publisher_candidates)
+
+475         314 LOAD_FAST               17 (allowed_set)
+            316 LOAD_CONST               0 (None)
+            318 IS_OP                    1
+            320 EXTENDED_ARG             1
+            322 POP_JUMP_IF_FALSE      334
+
+476         324 LOAD_FAST               20 (publisher_candidates)
+            326 LOAD_METHOD             14 (update)
+            328 LOAD_FAST               17 (allowed_set)
+            330 CALL_METHOD              1
+            332 POP_TOP
+
+477     >>  334 LOAD_FAST               20 (publisher_candidates)
+            336 LOAD_METHOD             14 (update)
+            338 LOAD_FAST               14 (blacklist)
+            340 CALL_METHOD              1
+            342 POP_TOP
+
+478         344 LOAD_FAST               18 (nickname)
+            346 EXTENDED_ARG             1
+            348 POP_JUMP_IF_FALSE      360
+
+479         350 LOAD_FAST               20 (publisher_candidates)
+            352 LOAD_METHOD             15 (add)
+            354 LOAD_FAST               18 (nickname)
+            356 CALL_METHOD              1
+            358 POP_TOP
+
+480     >>  360 LOAD_FAST               20 (publisher_candidates)
+            362 LOAD_METHOD             14 (update)
+            364 LOAD_CONST              23 (<code object <genexpr> at 0x1073b9870, file "WeRobotCore/application/moments.py", line 480>)
+            366 LOAD_CONST              20 ('MomentCommentWorkflow.execute.<locals>.<genexpr>')
+            368 MAKE_FUNCTION            0
+
+482         370 LOAD_FAST               19 (interactions)
+
+480         372 GET_ITER
+            374 CALL_FUNCTION            1
+            376 CALL_METHOD              1
+            378 POP_TOP
+
+485         380 LOAD_GLOBAL             10 (set)
+            382 CALL_FUNCTION            0
+            384 STORE_FAST              21 (processed)
+
+486         386 LOAD_GLOBAL             10 (set)
+            388 CALL_FUNCTION            0
+            390 STORE_FAST              22 (recorded_observations)
+
+487         392 BUILD_MAP                0
+            394 STORE_FAST              23 (per_friend_counts)
+
+488         396 LOAD_CONST              24 (0)
+            398 STORE_FAST              24 (action_count)
+
+489         400 LOAD_CONST              24 (0)
+            402 STORE_FAST              25 (page_count)
+
+490         404 LOAD_GLOBAL             10 (set)
+            406 CALL_FUNCTION            0
+            408 STORE_FAST              26 (seen_moment_ids)
+
+491         410 LOAD_CONST              24 (0)
+            412 STORE_FAST              27 (stagnant_viewports)
+
+492         414 LOAD_CONST               0 (None)
+            416 STORE_FAST              28 (previous_viewport_signature)
+
+493         418 LOAD_CONST              24 (0)
+            420 STORE_FAST              29 (consecutive_action_failures)
+
+495         422 LOAD_CONST              25 ('bool')
+            424 LOAD_CONST              26 (('return',))
+            426 BUILD_CONST_KEY_MAP      1
+            428 LOAD_CLOSURE             1 (cancel_checker)
+            430 BUILD_TUPLE              1
+            432 LOAD_CONST              27 (<code object cancelled at 0x1073b9500, file "WeRobotCore/application/moments.py", line 495>)
+            434 LOAD_CONST              28 ('MomentCommentWorkflow.execute.<locals>.cancelled')
+            436 MAKE_FUNCTION           12 (annotations, closure)
+            438 STORE_FAST              30 (cancelled)
+
+498         440 LOAD_CONST              29 ('str')
+            442 LOAD_CONST              29 ('str')
+            444 LOAD_CONST              30 ('None')
+            446 LOAD_CONST              31 (('kind', 'message', 'return'))
+            448 BUILD_CONST_KEY_MAP      3
+            450 LOAD_CLOSURE             0 (callback)
+            452 BUILD_TUPLE              1
+            454 LOAD_CONST              32 (<code object report at 0x1073b99d0, file "WeRobotCore/application/moments.py", line 498>)
+            456 LOAD_CONST              33 ('MomentCommentWorkflow.execute.<locals>.report')
+            458 MAKE_FUNCTION           12 (annotations, closure)
+            460 STORE_FAST              31 (report)
+
+502         462 LOAD_FAST                0 (self)
+            464 LOAD_ATTR                8 (_runtime)
+            466 LOAD_METHOD             16 (is_rest_time)
+            468 LOAD_FAST                6 (account)
+            470 CALL_METHOD              1
+            472 GET_AWAITABLE
+            474 LOAD_CONST               0 (None)
+            476 YIELD_FROM
+            478 EXTENDED_ARG             1
+            480 POP_JUMP_IF_FALSE      492
+
+503         482 LOAD_CONST              34 (False)
+            484 LOAD_CONST              35 ('当前时间在休息时间段内，暂停执行')
+            486 LOAD_CONST              36 (('success', 'message'))
+            488 BUILD_CONST_KEY_MAP      2
+            490 RETURN_VALUE
+
+505     >>  492 LOAD_FAST                0 (self)
+            494 LOAD_ATTR                8 (_runtime)
+            496 LOAD_METHOD             17 (open)
+            498 LOAD_FAST                6 (account)
+            500 CALL_METHOD              1
+            502 GET_AWAITABLE
+            504 LOAD_CONST               0 (None)
+            506 YIELD_FROM
+            508 STORE_FAST              32 (viewport)
+
+506         510 EXTENDED_ARG             8
+            512 SETUP_FINALLY         2230 (to 2744)
+
+508     >>  514 LOAD_FAST               30 (cancelled)
+            516 CALL_FUNCTION            0
+            518 EXTENDED_ARG             2
+            520 POP_JUMP_IF_FALSE      564
+
+509         522 LOAD_FAST               31 (report)
+            524 LOAD_CONST              37 ('info')
+            526 LOAD_CONST              38 ('检测到终止信号，任务终止')
+            528 CALL_FUNCTION            2
+            530 POP_TOP
+
+510         532 LOAD_CONST              34 (False)
+            534 LOAD_CONST              39 ('任务终止')
+            536 LOAD_CONST              40 (True)
+            538 LOAD_CONST              41 (('success', 'message', 'cancelled'))
+            540 BUILD_CONST_KEY_MAP      3
+            542 POP_BLOCK
+
+895         544 LOAD_FAST                0 (self)
+            546 LOAD_ATTR                8 (_runtime)
+            548 LOAD_METHOD             18 (close)
+            550 LOAD_FAST                6 (account)
+            552 CALL_METHOD              1
+            554 GET_AWAITABLE
+            556 LOAD_CONST               0 (None)
+            558 YIELD_FROM
+            560 POP_TOP
+
+510         562 RETURN_VALUE
+
+512     >>  564 LOAD_CONST              42 (<code object <setcomp> at 0x1073b9f50, file "WeRobotCore/application/moments.py", line 512>)
+            566 LOAD_CONST              16 ('MomentCommentWorkflow.execute.<locals>.<setcomp>')
+            568 MAKE_FUNCTION            0
+
+514         570 LOAD_FAST               32 (viewport)
+            572 LOAD_ATTR               19 (items)
+
+512         574 GET_ITER
+            576 CALL_FUNCTION            1
+            578 STORE_FAST              33 (current_ids)
+
+517         580 LOAD_FAST               33 (current_ids)
+            582 LOAD_FAST               26 (seen_moment_ids)
+            584 BINARY_SUBTRACT
+            586 STORE_FAST              34 (new_ids)
+
+523         588 LOAD_GLOBAL              7 (tuple)
+            590 LOAD_CONST              43 (<code object <genexpr> at 0x1073b97c0, file "WeRobotCore/application/moments.py", line 523>)
+            592 LOAD_CONST              20 ('MomentCommentWorkflow.execute.<locals>.<genexpr>')
+            594 MAKE_FUNCTION            0
+
+529         596 LOAD_FAST               32 (viewport)
+            598 LOAD_ATTR               19 (items)
+
+523         600 GET_ITER
+            602 CALL_FUNCTION            1
+            604 CALL_FUNCTION            1
+            606 STORE_FAST              35 (viewport_signature)
+
+532         608 LOAD_FAST               25 (page_count)
+
+531         610 EXTENDED_ARG             2
+            612 POP_JUMP_IF_FALSE      640
+
+533         614 LOAD_FAST               34 (new_ids)
+
+531         616 EXTENDED_ARG             2
+            618 POP_JUMP_IF_TRUE       640
+
+534         620 LOAD_FAST               35 (viewport_signature)
+            622 LOAD_FAST               28 (previous_viewport_signature)
+            624 COMPARE_OP               2 (==)
+
+531         626 EXTENDED_ARG             2
+            628 POP_JUMP_IF_FALSE      640
+
+536         630 LOAD_FAST               27 (stagnant_viewports)
+            632 LOAD_CONST              44 (1)
+            634 INPLACE_ADD
+            636 STORE_FAST              27 (stagnant_viewports)
+            638 JUMP_FORWARD             4 (to 644)
+
+538     >>  640 LOAD_CONST              24 (0)
+            642 STORE_FAST              27 (stagnant_viewports)
+
+539     >>  644 LOAD_FAST               35 (viewport_signature)
+            646 STORE_FAST              28 (previous_viewport_signature)
+
+540         648 LOAD_FAST               26 (seen_moment_ids)
+            650 LOAD_METHOD             14 (update)
+            652 LOAD_FAST               33 (current_ids)
+            654 CALL_METHOD              1
+            656 POP_TOP
+
+541         658 LOAD_FAST               27 (stagnant_viewports)
+            660 LOAD_FAST                0 (self)
+            662 LOAD_ATTR               20 (_MAX_STAGNANT_VIEWPORTS)
+            664 COMPARE_OP               5 (>=)
+            666 EXTENDED_ARG             2
+            668 POP_JUMP_IF_FALSE      726
+
+542         670 LOAD_CONST              45 ('连续 {} 次滚动未发现新朋友圈，已安全停止')
+            672 LOAD_METHOD              5 (format)
+
+543         674 LOAD_FAST               27 (stagnant_viewports)
+
+542         676 CALL_METHOD              1
+            678 STORE_FAST              36 (message)
+
+545         680 LOAD_FAST               31 (report)
+            682 LOAD_CONST              46 ('warning')
+            684 LOAD_FAST               36 (message)
+            686 CALL_FUNCTION            2
+            688 POP_TOP
+
+547         690 LOAD_CONST              40 (True)
+
+548         692 LOAD_FAST               36 (message)
+
+549         694 LOAD_FAST               24 (action_count)
+
+550         696 LOAD_FAST               25 (page_count)
+
+551         698 LOAD_CONST              47 ('no_progress')
+
+546         700 LOAD_CONST              48 (('success', 'message', 'processed_count', 'scroll_count', 'stop_reason'))
+            702 BUILD_CONST_KEY_MAP      5
+            704 POP_BLOCK
+
+895         706 LOAD_FAST                0 (self)
+            708 LOAD_ATTR                8 (_runtime)
+            710 LOAD_METHOD             18 (close)
+            712 LOAD_FAST                6 (account)
+            714 CALL_METHOD              1
+            716 GET_AWAITABLE
+            718 LOAD_CONST               0 (None)
+            720 YIELD_FROM
+            722 POP_TOP
+
+546         724 RETURN_VALUE
+
+554     >>  726 LOAD_CONST              34 (False)
+            728 STORE_FAST              37 (viewport_changed)
+
+555         730 LOAD_CONST              34 (False)
+            732 STORE_FAST              38 (reached_end)
+
+556         734 LOAD_GLOBAL              7 (tuple)
+            736 LOAD_FAST               32 (viewport)
+            738 LOAD_ATTR               19 (items)
+            740 CALL_FUNCTION            1
+            742 GET_ITER
+        >>  744 EXTENDED_ARG             7
+            746 FOR_ITER              1806 (to 2554)
+            748 STORE_FAST              39 (original_row)
+
+557         750 LOAD_FAST               30 (cancelled)
+            752 CALL_FUNCTION            0
+            754 EXTENDED_ARG             3
+            756 POP_JUMP_IF_FALSE      794
+
+558         758 LOAD_CONST              34 (False)
+            760 LOAD_CONST              39 ('任务终止')
+            762 LOAD_CONST              40 (True)
+            764 LOAD_CONST              41 (('success', 'message', 'cancelled'))
+            766 BUILD_CONST_KEY_MAP      3
+            768 ROT_TWO
+            770 POP_TOP
+            772 POP_BLOCK
+
+895         774 LOAD_FAST                0 (self)
+            776 LOAD_ATTR                8 (_runtime)
+            778 LOAD_METHOD             18 (close)
+            780 LOAD_FAST                6 (account)
+            782 CALL_METHOD              1
+            784 GET_AWAITABLE
+            786 LOAD_CONST               0 (None)
+            788 YIELD_FROM
+            790 POP_TOP
+
+558         792 RETURN_VALUE
+
+559     >>  794 LOAD_FAST               39 (original_row)
+            796 STORE_DEREF              2 (row)
+
+560         798 LOAD_DEREF               2 (row)
+            800 LOAD_ATTR               21 (raw_text)
+            802 LOAD_METHOD              1 (strip)
+            804 CALL_METHOD              0
+            806 STORE_FAST              40 (raw)
+
+561         808 LOAD_FAST               40 (raw)
+            810 EXTENDED_ARG             2
+            812 POP_JUMP_IF_FALSE      744
+            814 LOAD_FAST               40 (raw)
+            816 LOAD_CONST              49 ('评论区')
+            818 COMPARE_OP               2 (==)
+            820 EXTENDED_ARG             2
+            822 POP_JUMP_IF_TRUE       744
+            824 LOAD_GLOBAL             22 (re)
+            826 LOAD_METHOD             23 (search)
+            828 LOAD_CONST              50 ('余下\\d+条')
+            830 LOAD_FAST               40 (raw)
+            832 CALL_METHOD              2
+            834 EXTENDED_ARG             3
+            836 POP_JUMP_IF_FALSE      842
+
+562         838 EXTENDED_ARG             2
+            840 JUMP_ABSOLUTE          744
+
+563     >>  842 LOAD_GLOBAL             24 (parse_moment_item_41x)
+
+564         844 LOAD_FAST               40 (raw)
+
+565         846 LOAD_FAST               20 (publisher_candidates)
+
+563         848 LOAD_CONST              51 (('publisher_candidates',))
+            850 CALL_FUNCTION_KW         2
+            852 STORE_FAST              41 (parsed)
+
+567         854 LOAD_FAST               41 (parsed)
+            856 EXTENDED_ARG             3
+            858 POP_JUMP_IF_TRUE       864
+
+568         860 EXTENDED_ARG             2
+            862 JUMP_ABSOLUTE          744
+
+569     >>  864 LOAD_FAST               41 (parsed)
+            866 LOAD_CONST              52 ('publisher')
+            868 BINARY_SUBSCR
+            870 STORE_FAST              42 (publisher)
+
+570         872 LOAD_FAST               41 (parsed)
+            874 LOAD_CONST              53 ('content')
+            876 BINARY_SUBSCR
+            878 STORE_FAST              43 (content)
+
+571         880 LOAD_FAST               41 (parsed)
+            882 LOAD_CONST              54 ('time_str')
+            884 BINARY_SUBSCR
+            886 STORE_FAST              44 (time_text)
+
+572         888 LOAD_GLOBAL              0 (str)
+            890 LOAD_DEREF               2 (row)
+            892 LOAD_ATTR               25 (moment_id)
+            894 EXTENDED_ARG             3
+            896 JUMP_IF_TRUE_OR_POP    900
+            898 LOAD_CONST               1 ('')
+        >>  900 CALL_FUNCTION            1
+            902 LOAD_METHOD              1 (strip)
+            904 CALL_METHOD              0
+            906 EXTENDED_ARG             3
+            908 JUMP_IF_TRUE_OR_POP    918
+
+573         910 LOAD_FAST               42 (publisher)
+
+574         912 LOAD_FAST               43 (content)
+
+575         914 LOAD_FAST               44 (time_text)
+
+572         916 BUILD_TUPLE              3
+        >>  918 STORE_FAST              45 (identity)
+
+577         920 LOAD_FAST               45 (identity)
+            922 LOAD_FAST               21 (processed)
+            924 CONTAINS_OP              0
+            926 EXTENDED_ARG             3
+            928 POP_JUMP_IF_FALSE      934
+
+578         930 EXTENDED_ARG             2
+            932 JUMP_ABSOLUTE          744
+
+579     >>  934 LOAD_FAST               17 (allowed_set)
+            936 LOAD_CONST               0 (None)
+            938 IS_OP                    1
+            940 EXTENDED_ARG             3
+            942 POP_JUMP_IF_FALSE      968
+            944 LOAD_FAST               42 (publisher)
+            946 LOAD_FAST               17 (allowed_set)
+            948 CONTAINS_OP              1
+            950 EXTENDED_ARG             3
+            952 POP_JUMP_IF_FALSE      968
+
+580         954 LOAD_FAST               21 (processed)
+            956 LOAD_METHOD             15 (add)
+            958 LOAD_FAST               45 (identity)
+            960 CALL_METHOD              1
+            962 POP_TOP
+
+581         964 EXTENDED_ARG             2
+            966 JUMP_ABSOLUTE          744
+
+582     >>  968 LOAD_FAST               42 (publisher)
+            970 LOAD_FAST               14 (blacklist)
+            972 CONTAINS_OP              0
+            974 EXTENDED_ARG             3
+            976 POP_JUMP_IF_TRUE       994
+            978 LOAD_FAST               18 (nickname)
+            980 EXTENDED_ARG             3
+            982 POP_JUMP_IF_FALSE     1008
+            984 LOAD_FAST               42 (publisher)
+            986 LOAD_FAST               18 (nickname)
+            988 COMPARE_OP               2 (==)
+            990 EXTENDED_ARG             3
+            992 POP_JUMP_IF_FALSE     1008
+
+583     >>  994 LOAD_FAST               21 (processed)
+            996 LOAD_METHOD             15 (add)
+            998 LOAD_FAST               45 (identity)
+           1000 CALL_METHOD              1
+           1002 POP_TOP
+
+584        1004 EXTENDED_ARG             2
+           1006 JUMP_ABSOLUTE          744
+
+585     >> 1008 LOAD_GLOBAL             26 (parse_moment_publish_time)
+           1010 LOAD_FAST               44 (time_text)
+           1012 CALL_FUNCTION            1
+           1014 STORE_FAST              46 (timestamp)
+
+586        1016 LOAD_FAST               46 (timestamp)
+           1018 EXTENDED_ARG             4
+           1020 POP_JUMP_IF_FALSE     1090
+           1022 LOAD_GLOBAL             27 (time)
+           1024 LOAD_METHOD             27 (time)
+           1026 CALL_METHOD              0
+           1028 LOAD_FAST               46 (timestamp)
+           1030 BINARY_SUBTRACT
+           1032 LOAD_CONST              55 (172800)
+           1034 COMPARE_OP               4 (>)
+           1036 EXTENDED_ARG             4
+           1038 POP_JUMP_IF_FALSE     1090
+
+587        1040 LOAD_FAST               31 (report)
+           1042 LOAD_CONST              37 ('info')
+           1044 LOAD_CONST              56 ('发现 2天前 的朋友圈，停止任务')
+           1046 CALL_FUNCTION            2
+           1048 POP_TOP
+
+589        1050 LOAD_CONST              40 (True)
+
+590        1052 LOAD_CONST              57 ('朋友圈过旧，停止')
+
+591        1054 LOAD_FAST               24 (action_count)
+
+592        1056 LOAD_FAST               25 (page_count)
+
+593        1058 LOAD_CONST              58 ('older_than_48_hours')
+
+588        1060 LOAD_CONST              48 (('success', 'message', 'processed_count', 'scroll_count', 'stop_reason'))
+           1062 BUILD_CONST_KEY_MAP      5
+           1064 ROT_TWO
+           1066 POP_TOP
+           1068 POP_BLOCK
+
+895        1070 LOAD_FAST                0 (self)
+           1072 LOAD_ATTR                8 (_runtime)
+           1074 LOAD_METHOD             18 (close)
+           1076 LOAD_FAST                6 (account)
+           1078 CALL_METHOD              1
+           1080 GET_AWAITABLE
+           1082 LOAD_CONST               0 (None)
+           1084 YIELD_FROM
+           1086 POP_TOP
+
+588        1088 RETURN_VALUE
+
+595     >> 1090 LOAD_FAST               13 (should_comment)
+           1092 EXTENDED_ARG             4
+           1094 POP_JUMP_IF_FALSE     1134
+           1096 LOAD_FAST               43 (content)
+           1098 EXTENDED_ARG             4
+           1100 POP_JUMP_IF_FALSE     1120
+           1102 LOAD_GLOBAL             28 (len)
+           1104 LOAD_FAST               43 (content)
+           1106 LOAD_METHOD              1 (strip)
+           1108 CALL_METHOD              0
+           1110 CALL_FUNCTION            1
+           1112 LOAD_CONST              59 (8)
+           1114 COMPARE_OP               0 (<)
+           1116 EXTENDED_ARG             4
+           1118 POP_JUMP_IF_FALSE     1134
+
+596     >> 1120 LOAD_FAST               21 (processed)
+           1122 LOAD_METHOD             15 (add)
+           1124 LOAD_FAST               45 (identity)
+           1126 CALL_METHOD              1
+           1128 POP_TOP
+
+597        1130 EXTENDED_ARG             2
+           1132 JUMP_ABSOLUTE          744
+
+599     >> 1134 LOAD_FAST                0 (self)
+           1136 LOAD_ATTR               29 (_customer_event_recording_enabled)
+
+598        1138 EXTENDED_ARG             4
+           1140 POP_JUMP_IF_FALSE     1264
+
+600        1142 LOAD_FAST               45 (identity)
+           1144 LOAD_FAST               22 (recorded_observations)
+           1146 CONTAINS_OP              1
+
+598        1148 EXTENDED_ARG             4
+           1150 POP_JUMP_IF_FALSE     1264
+
+602        1152 LOAD_FAST               22 (recorded_observations)
+           1154 LOAD_METHOD             15 (add)
+           1156 LOAD_FAST               45 (identity)
+           1158 CALL_METHOD              1
+           1160 POP_TOP
+
+603        1162 SETUP_FINALLY           46 (to 1210)
+
+604        1164 LOAD_CONST              24 (0)
+           1166 LOAD_CONST              60 (('record_moment_observed',))
+           1168 IMPORT_NAME             30 (WeRobotCore.services.customer_event_recorder)
+           1170 IMPORT_FROM             31 (record_moment_observed)
+           1172 STORE_FAST              47 (record_moment_observed)
+           1174 POP_TOP
+
+608        1176 LOAD_GLOBAL             32 (asyncio)
+           1178 LOAD_ATTR               33 (to_thread)
+
+609        1180 LOAD_FAST               47 (record_moment_observed)
+
+610        1182 LOAD_FAST                6 (account)
+
+611        1184 LOAD_FAST               18 (nickname)
+
+612        1186 LOAD_FAST               42 (publisher)
+
+613        1188 LOAD_FAST               43 (content)
+
+614        1190 LOAD_FAST               44 (time_text)
+
+615        1192 LOAD_FAST                2 (task_id)
+
+608        1194 LOAD_CONST              61 (('account_id', 'account_nickname', 'publisher', 'content', 'publish_time', 'task_id'))
+           1196 CALL_FUNCTION_KW         7
+           1198 GET_AWAITABLE
+           1200 LOAD_CONST               0 (None)
+           1202 YIELD_FROM
+           1204 POP_TOP
+           1206 POP_BLOCK
+           1208 JUMP_FORWARD            54 (to 1264)
+
+617     >> 1210 DUP_TOP
+           1212 LOAD_GLOBAL             34 (Exception)
+           1214 EXTENDED_ARG             4
+           1216 JUMP_IF_NOT_EXC_MATCH  1262
+           1218 POP_TOP
+           1220 STORE_FAST              48 (event_error)
+           1222 POP_TOP
+           1224 SETUP_FINALLY           28 (to 1254)
+
+618        1226 LOAD_FAST               31 (report)
+
+619        1228 LOAD_CONST              46 ('warning')
+
+620        1230 LOAD_CONST              62 ('记录朋友圈观察事件失败（不影响任务）: {}')
+           1232 LOAD_METHOD              5 (format)
+
+621        1234 LOAD_FAST               48 (event_error)
+
+620        1236 CALL_METHOD              1
+
+618        1238 CALL_FUNCTION            2
+           1240 POP_TOP
+           1242 POP_BLOCK
+           1244 POP_EXCEPT
+           1246 LOAD_CONST               0 (None)
+           1248 STORE_FAST              48 (event_error)
+           1250 DELETE_FAST             48 (event_error)
+           1252 JUMP_FORWARD            10 (to 1264)
+        >> 1254 LOAD_CONST               0 (None)
+           1256 STORE_FAST              48 (event_error)
+           1258 DELETE_FAST             48 (event_error)
+           1260 RERAISE
+        >> 1262 RERAISE
+
+624     >> 1264 LOAD_GLOBAL             35 (has_recent_moment_interaction)
+
+625        1266 LOAD_FAST               19 (interactions)
+
+626        1268 LOAD_FAST                6 (account)
+
+627        1270 LOAD_FAST               42 (publisher)
+
+628        1272 LOAD_FAST               43 (content)
+
+629        1274 LOAD_DEREF               2 (row)
+           1276 LOAD_ATTR               25 (moment_id)
+
+630        1278 LOAD_FAST               44 (time_text)
+
+624        1280 LOAD_CONST              63 (('account_id', 'publisher', 'content', 'moment_id', 'publish_time'))
+           1282 CALL_FUNCTION_KW         6
+           1284 EXTENDED_ARG             5
+           1286 POP_JUMP_IF_FALSE     1392
+
+632        1288 LOAD_FAST               31 (report)
+
+633        1290 LOAD_CONST              37 ('info')
+
+634        1292 LOAD_CONST              64 ('命中历史互动位置: {} / {} / {}')
+           1294 LOAD_METHOD              5 (format)
+
+635        1296 LOAD_FAST               42 (publisher)
+
+636        1298 LOAD_FAST               44 (time_text)
+           1300 EXTENDED_ARG             5
+           1302 JUMP_IF_TRUE_OR_POP   1306
+           1304 LOAD_CONST              65 ('时间未知')
+
+637     >> 1306 LOAD_FAST               43 (content)
+           1308 LOAD_CONST               0 (None)
+           1310 LOAD_CONST              66 (30)
+           1312 BUILD_SLICE              2
+           1314 BINARY_SUBSCR
+
+634        1316 CALL_METHOD              3
+
+632        1318 CALL_FUNCTION            2
+           1320 POP_TOP
+
+640        1322 LOAD_FAST               11 (reach_last)
+           1324 EXTENDED_ARG             5
+           1326 POP_JUMP_IF_FALSE     1378
+
+641        1328 LOAD_FAST               31 (report)
+           1330 LOAD_CONST              37 ('info')
+           1332 LOAD_CONST              67 ('达到上一次互动位置，任务结束')
+           1334 CALL_FUNCTION            2
+           1336 POP_TOP
+
+643        1338 LOAD_CONST              40 (True)
+
+644        1340 LOAD_CONST              68 ('达到已互动位置，停止')
+
+645        1342 LOAD_FAST               24 (action_count)
+
+646        1344 LOAD_FAST               25 (page_count)
+
+647        1346 LOAD_CONST              69 ('previous_interaction')
+
+642        1348 LOAD_CONST              48 (('success', 'message', 'processed_count', 'scroll_count', 'stop_reason'))
+           1350 BUILD_CONST_KEY_MAP      5
+           1352 ROT_TWO
+           1354 POP_TOP
+           1356 POP_BLOCK
+
+895        1358 LOAD_FAST                0 (self)
+           1360 LOAD_ATTR                8 (_runtime)
+           1362 LOAD_METHOD             18 (close)
+           1364 LOAD_FAST                6 (account)
+           1366 CALL_METHOD              1
+           1368 GET_AWAITABLE
+           1370 LOAD_CONST               0 (None)
+           1372 YIELD_FROM
+           1374 POP_TOP
+
+642        1376 RETURN_VALUE
+
+649     >> 1378 LOAD_FAST               21 (processed)
+           1380 LOAD_METHOD             15 (add)
+           1382 LOAD_FAST               45 (identity)
+           1384 CALL_METHOD              1
+           1386 POP_TOP
+
+650        1388 EXTENDED_ARG             2
+           1390 JUMP_ABSOLUTE          744
+
+651     >> 1392 LOAD_FAST               23 (per_friend_counts)
+           1394 LOAD_METHOD              2 (get)
+           1396 LOAD_FAST               42 (publisher)
+           1398 LOAD_CONST              24 (0)
+           1400 CALL_METHOD              2
+           1402 LOAD_FAST               10 (per_friend_limit)
+           1404 COMPARE_OP               5 (>=)
+           1406 EXTENDED_ARG             5
+           1408 POP_JUMP_IF_FALSE     1424
+
+652        1410 LOAD_FAST               21 (processed)
+           1412 LOAD_METHOD             15 (add)
+           1414 LOAD_FAST               45 (identity)
+           1416 CALL_METHOD              1
+           1418 POP_TOP
+
+653        1420 EXTENDED_ARG             2
+           1422 JUMP_ABSOLUTE          744
+
+660     >> 1424 LOAD_DEREF               2 (row)
+           1426 LOAD_ATTR               36 (action_area_visible)
+           1428 EXTENDED_ARG             6
+           1430 POP_JUMP_IF_TRUE      1660
+
+661        1432 LOAD_CONST               0 (None)
+           1434 STORE_FAST              49 (visible_row)
+
+662        1436 LOAD_FAST                0 (self)
+           1438 LOAD_ATTR               37 (_REVEAL_SCROLL_STEPS)
+           1440 GET_ITER
+        >> 1442 FOR_ITER               174 (to 1618)
+           1444 STORE_FAST              50 (lines)
+
+663        1446 LOAD_FAST               30 (cancelled)
+           1448 CALL_FUNCTION            0
+           1450 EXTENDED_ARG             5
+           1452 POP_JUMP_IF_FALSE     1494
+
+665        1454 LOAD_CONST              34 (False)
+
+666        1456 LOAD_CONST              39 ('任务终止')
+
+667        1458 LOAD_CONST              40 (True)
+
+664        1460 LOAD_CONST              41 (('success', 'message', 'cancelled'))
+           1462 BUILD_CONST_KEY_MAP      3
+           1464 ROT_TWO
+           1466 POP_TOP
+           1468 ROT_TWO
+           1470 POP_TOP
+           1472 POP_BLOCK
+
+895        1474 LOAD_FAST                0 (self)
+           1476 LOAD_ATTR                8 (_runtime)
+           1478 LOAD_METHOD             18 (close)
+           1480 LOAD_FAST                6 (account)
+           1482 CALL_METHOD              1
+           1484 GET_AWAITABLE
+           1486 LOAD_CONST               0 (None)
+           1488 YIELD_FROM
+           1490 POP_TOP
+
+664        1492 RETURN_VALUE
+
+669     >> 1494 LOAD_FAST                0 (self)
+           1496 LOAD_ATTR                8 (_runtime)
+           1498 LOAD_METHOD             38 (scroll)
+           1500 LOAD_FAST                6 (account)
+           1502 LOAD_FAST               50 (lines)
+           1504 CALL_METHOD              2
+           1506 GET_AWAITABLE
+           1508 LOAD_CONST               0 (None)
+           1510 YIELD_FROM
+           1512 STORE_FAST              32 (viewport)
+
+670        1514 LOAD_FAST               25 (page_count)
+           1516 LOAD_CONST              44 (1)
+           1518 INPLACE_ADD
+           1520 STORE_FAST              25 (page_count)
+
+671        1522 LOAD_CONST              40 (True)
+           1524 STORE_FAST              37 (viewport_changed)
+
+672        1526 LOAD_GLOBAL             39 (next)
+
+673        1528 LOAD_CLOSURE             2 (row)
+           1530 BUILD_TUPLE              1
+           1532 LOAD_CONST              70 (<code object <genexpr> at 0x1073b93a0, file "WeRobotCore/application/moments.py", line 673>)
+           1534 LOAD_CONST              20 ('MomentCommentWorkflow.execute.<locals>.<genexpr>')
+           1536 MAKE_FUNCTION            8 (closure)
+
+675        1538 LOAD_FAST               32 (viewport)
+           1540 LOAD_ATTR               19 (items)
+
+673        1542 GET_ITER
+           1544 CALL_FUNCTION            1
+
+679        1546 LOAD_CONST               0 (None)
+
+672        1548 CALL_FUNCTION            2
+           1550 STORE_FAST              49 (visible_row)
+
+681        1552 LOAD_FAST               49 (visible_row)
+           1554 LOAD_CONST               0 (None)
+           1556 IS_OP                    1
+           1558 EXTENDED_ARG             6
+           1560 POP_JUMP_IF_FALSE     1588
+
+682        1562 LOAD_FAST               49 (visible_row)
+           1564 STORE_DEREF              2 (row)
+
+683        1566 LOAD_FAST               31 (report)
+           1568 LOAD_CONST              37 ('info')
+           1570 LOAD_CONST              71 ('已滚动定位朋友圈操作区域: {}')
+           1572 LOAD_METHOD              5 (format)
+           1574 LOAD_FAST               42 (publisher)
+           1576 CALL_METHOD              1
+           1578 CALL_FUNCTION            2
+           1580 POP_TOP
+
+684        1582 POP_TOP
+           1584 EXTENDED_ARG             6
+           1586 JUMP_ABSOLUTE         1618
+
+685     >> 1588 LOAD_FAST               32 (viewport)
+           1590 LOAD_ATTR               40 (at_end)
+           1592 EXTENDED_ARG             6
+           1594 POP_JUMP_IF_TRUE      1604
+           1596 LOAD_FAST               32 (viewport)
+           1598 LOAD_ATTR               41 (scroll_moved)
+           1600 EXTENDED_ARG             5
+           1602 POP_JUMP_IF_TRUE      1442
+
+686     >> 1604 LOAD_CONST              40 (True)
+           1606 STORE_FAST              38 (reached_end)
+
+687        1608 POP_TOP
+           1610 EXTENDED_ARG             6
+           1612 JUMP_ABSOLUTE         1618
+           1614 EXTENDED_ARG             5
+           1616 JUMP_ABSOLUTE         1442
+
+688     >> 1618 LOAD_FAST               49 (visible_row)
+           1620 LOAD_CONST               0 (None)
+           1622 IS_OP                    0
+           1624 EXTENDED_ARG             6
+           1626 POP_JUMP_IF_FALSE     1660
+
+689        1628 LOAD_FAST               31 (report)
+
+690        1630 LOAD_CONST              46 ('warning')
+
+691        1632 LOAD_CONST              72 ('朋友圈操作区域在有界滚动后仍不可见，跳过: {}')
+           1634 LOAD_METHOD              5 (format)
+
+692        1636 LOAD_FAST               42 (publisher)
+
+691        1638 CALL_METHOD              1
+
+689        1640 CALL_FUNCTION            2
+           1642 POP_TOP
+
+697        1644 LOAD_FAST               37 (viewport_changed)
+           1646 EXTENDED_ARG             2
+           1648 POP_JUMP_IF_FALSE      744
+
+698        1650 POP_TOP
+           1652 EXTENDED_ARG             9
+           1654 JUMP_ABSOLUTE         2554
+
+699        1656 EXTENDED_ARG             2
+           1658 JUMP_ABSOLUTE          744
+
+706     >> 1660 LOAD_FAST               21 (processed)
+           1662 LOAD_METHOD             15 (add)
+           1664 LOAD_FAST               45 (identity)
+           1666 CALL_METHOD              1
+           1668 POP_TOP
+
+708        1670 LOAD_CONST               1 ('')
+           1672 STORE_FAST              51 (ai_comment)
+
+709        1674 LOAD_CONST              34 (False)
+           1676 STORE_FAST              52 (skip_all)
+
+710        1678 LOAD_FAST               13 (should_comment)
+           1680 EXTENDED_ARG             6
+           1682 POP_JUMP_IF_FALSE     1756
+
+711        1684 LOAD_GLOBAL              0 (str)
+
+712        1686 LOAD_FAST                0 (self)
+           1688 LOAD_ATTR                8 (_runtime)
+           1690 LOAD_METHOD             42 (generate_comment)
+
+713        1692 LOAD_FAST                6 (account)
+           1694 LOAD_FAST                7 (agent_id)
+           1696 LOAD_FAST               42 (publisher)
+           1698 LOAD_FAST               43 (content)
+           1700 EXTENDED_ARG             6
+           1702 JUMP_IF_TRUE_OR_POP   1706
+           1704 LOAD_FAST               40 (raw)
+
+712     >> 1706 CALL_METHOD              4
+           1708 GET_AWAITABLE
+           1710 LOAD_CONST               0 (None)
+           1712 YIELD_FROM
+           1714 EXTENDED_ARG             6
+           1716 JUMP_IF_TRUE_OR_POP   1720
+
+715        1718 LOAD_CONST               1 ('')
+
+711     >> 1720 CALL_FUNCTION            1
+           1722 LOAD_METHOD              1 (strip)
+           1724 CALL_METHOD              0
+           1726 STORE_FAST              51 (ai_comment)
+
+717        1728 LOAD_FAST               51 (ai_comment)
+           1730 EXTENDED_ARG             6
+           1732 POP_JUMP_IF_FALSE     1744
+           1734 LOAD_CONST              73 ('无需评论')
+           1736 LOAD_FAST               51 (ai_comment)
+           1738 CONTAINS_OP              0
+           1740 EXTENDED_ARG             6
+           1742 POP_JUMP_IF_FALSE     1756
+
+718     >> 1744 LOAD_CONST               1 ('')
+           1746 STORE_FAST              51 (ai_comment)
+
+719        1748 LOAD_FAST                8 (mode)
+           1750 LOAD_CONST               5 ('like_and_comment')
+           1752 COMPARE_OP               2 (==)
+           1754 STORE_FAST              52 (skip_all)
+
+721     >> 1756 BUILD_LIST               0
+           1758 STORE_FAST              53 (action_types)
+
+722        1760 LOAD_CONST              34 (False)
+           1762 STORE_FAST              54 (attempted_action)
+
+723        1764 LOAD_CONST              34 (False)
+           1766 STORE_FAST              55 (action_failed)
+
+724        1768 LOAD_FAST               12 (should_like)
+           1770 EXTENDED_ARG             7
+           1772 POP_JUMP_IF_FALSE     2012
+           1774 LOAD_FAST               52 (skip_all)
+           1776 EXTENDED_ARG             7
+           1778 POP_JUMP_IF_TRUE      2012
+
+725        1780 LOAD_CONST              40 (True)
+           1782 STORE_FAST              54 (attempted_action)
+
+726        1784 LOAD_FAST                0 (self)
+           1786 LOAD_ATTR                8 (_runtime)
+           1788 LOAD_METHOD             43 (like)
+           1790 LOAD_FAST                6 (account)
+           1792 LOAD_DEREF               2 (row)
+           1794 LOAD_ATTR               25 (moment_id)
+           1796 CALL_METHOD              2
+           1798 GET_AWAITABLE
+           1800 LOAD_CONST               0 (None)
+           1802 YIELD_FROM
+           1804 STORE_FAST              56 (like_result)
+
+727        1806 LOAD_FAST               56 (like_result)
+           1808 LOAD_ATTR               44 (success)
+           1810 EXTENDED_ARG             7
+           1812 POP_JUMP_IF_TRUE      1838
+
+728        1814 LOAD_CONST              40 (True)
+           1816 STORE_FAST              55 (action_failed)
+
+729        1818 LOAD_FAST               31 (report)
+           1820 LOAD_CONST              74 ('error')
+           1822 LOAD_CONST              75 ('点赞失败: {}')
+           1824 LOAD_METHOD              5 (format)
+           1826 LOAD_FAST               56 (like_result)
+           1828 LOAD_ATTR               45 (message)
+           1830 CALL_METHOD              1
+           1832 CALL_FUNCTION            2
+           1834 POP_TOP
+           1836 JUMP_FORWARD           174 (to 2012)
+
+730     >> 1838 LOAD_FAST               56 (like_result)
+           1840 LOAD_ATTR               46 (data)
+           1842 LOAD_METHOD              2 (get)
+           1844 LOAD_CONST              76 ('already_applied')
+           1846 CALL_METHOD              1
+           1848 LOAD_CONST              40 (True)
+           1850 IS_OP                    0
+           1852 EXTENDED_ARG             7
+           1854 POP_JUMP_IF_FALSE     1986
+
+731        1856 LOAD_FAST               31 (report)
+           1858 LOAD_CONST              37 ('info')
+           1860 LOAD_CONST              77 ('朋友圈此前已点赞，跳过重复计数: {}')
+           1862 LOAD_METHOD              5 (format)
+           1864 LOAD_FAST               42 (publisher)
+           1866 CALL_METHOD              1
+           1868 CALL_FUNCTION            2
+           1870 POP_TOP
+
+737        1872 LOAD_FAST                0 (self)
+           1874 LOAD_ATTR                8 (_runtime)
+           1876 LOAD_ATTR               47 (record_interaction)
+
+738        1878 LOAD_FAST                6 (account)
+
+739        1880 LOAD_FAST                2 (task_id)
+
+740        1882 LOAD_CONST              78 ('like')
+           1884 BUILD_LIST               1
+
+741        1886 LOAD_FAST               42 (publisher)
+
+742        1888 LOAD_FAST               43 (content)
+
+743        1890 LOAD_FAST               44 (time_text)
+
+744        1892 LOAD_CONST               1 ('')
+
+745        1894 LOAD_DEREF               2 (row)
+           1896 LOAD_ATTR               25 (moment_id)
+
+746        1898 LOAD_CONST              40 (True)
+
+737        1900 LOAD_CONST              79 (('action_types', 'publisher', 'content', 'publish_time', 'comment_content', 'moment_id', 'recovered'))
+           1902 CALL_FUNCTION_KW         9
+           1904 GET_AWAITABLE
+           1906 LOAD_CONST               0 (None)
+           1908 YIELD_FROM
+           1910 POP_TOP
+
+748        1912 LOAD_FAST               31 (report)
+
+749        1914 LOAD_CONST              37 ('info')
+
+750        1916 LOAD_CONST              80 ('已根据界面状态修复本地互动历史: {}')
+           1918 LOAD_METHOD              5 (format)
+
+751        1920 LOAD_FAST               42 (publisher)
+
+750        1922 CALL_METHOD              1
+
+748        1924 CALL_FUNCTION            2
+           1926 POP_TOP
+
+754        1928 LOAD_FAST               11 (reach_last)
+           1930 EXTENDED_ARG             7
+           1932 POP_JUMP_IF_FALSE     2012
+
+755        1934 LOAD_FAST               31 (report)
+           1936 LOAD_CONST              37 ('info')
+           1938 LOAD_CONST              67 ('达到上一次互动位置，任务结束')
+           1940 CALL_FUNCTION            2
+           1942 POP_TOP
+
+757        1944 LOAD_CONST              40 (True)
+
+758        1946 LOAD_CONST              68 ('达到已互动位置，停止')
+
+759        1948 LOAD_FAST               24 (action_count)
+
+760        1950 LOAD_FAST               25 (page_count)
+
+761        1952 LOAD_CONST              69 ('previous_interaction')
+
+756        1954 LOAD_CONST              48 (('success', 'message', 'processed_count', 'scroll_count', 'stop_reason'))
+           1956 BUILD_CONST_KEY_MAP      5
+           1958 ROT_TWO
+           1960 POP_TOP
+           1962 POP_BLOCK
+
+895        1964 LOAD_FAST                0 (self)
+           1966 LOAD_ATTR                8 (_runtime)
+           1968 LOAD_METHOD             18 (close)
+           1970 LOAD_FAST                6 (account)
+           1972 CALL_METHOD              1
+           1974 GET_AWAITABLE
+           1976 LOAD_CONST               0 (None)
+           1978 YIELD_FROM
+           1980 POP_TOP
+
+756        1982 RETURN_VALUE
+           1984 JUMP_FORWARD            26 (to 2012)
+
+764     >> 1986 LOAD_FAST               53 (action_types)
+           1988 LOAD_METHOD             48 (append)
+           1990 LOAD_CONST              78 ('like')
+           1992 CALL_METHOD              1
+           1994 POP_TOP
+
+765        1996 LOAD_FAST               31 (report)
+           1998 LOAD_CONST              37 ('info')
+           2000 LOAD_CONST              81 ('已点赞: {}')
+           2002 LOAD_METHOD              5 (format)
+           2004 LOAD_FAST               42 (publisher)
+           2006 CALL_METHOD              1
+           2008 CALL_FUNCTION            2
+           2010 POP_TOP
+
+766     >> 2012 LOAD_FAST               13 (should_comment)
+           2014 EXTENDED_ARG             8
+           2016 POP_JUMP_IF_FALSE     2136
+           2018 LOAD_FAST               51 (ai_comment)
+           2020 EXTENDED_ARG             8
+           2022 POP_JUMP_IF_FALSE     2136
+           2024 LOAD_FAST               52 (skip_all)
+           2026 EXTENDED_ARG             8
+           2028 POP_JUMP_IF_TRUE      2136
+
+767        2030 LOAD_CONST              40 (True)
+           2032 STORE_FAST              54 (attempted_action)
+
+768        2034 LOAD_FAST                0 (self)
+           2036 LOAD_ATTR                8 (_runtime)
+           2038 LOAD_METHOD             49 (comment)
+
+769        2040 LOAD_FAST                6 (account)
+           2042 LOAD_DEREF               2 (row)
+           2044 LOAD_ATTR               25 (moment_id)
+           2046 LOAD_FAST               51 (ai_comment)
+
+768        2048 CALL_METHOD              3
+           2050 GET_AWAITABLE
+           2052 LOAD_CONST               0 (None)
+           2054 YIELD_FROM
+           2056 STORE_FAST              57 (comment_result)
+
+771        2058 LOAD_FAST               57 (comment_result)
+           2060 LOAD_ATTR               44 (success)
+           2062 EXTENDED_ARG             8
+           2064 POP_JUMP_IF_TRUE      2090
+
+772        2066 LOAD_CONST              40 (True)
+           2068 STORE_FAST              55 (action_failed)
+
+773        2070 LOAD_FAST               31 (report)
+           2072 LOAD_CONST              74 ('error')
+           2074 LOAD_CONST              82 ('评论失败: {}')
+           2076 LOAD_METHOD              5 (format)
+           2078 LOAD_FAST               57 (comment_result)
+           2080 LOAD_ATTR               45 (message)
+           2082 CALL_METHOD              1
+           2084 CALL_FUNCTION            2
+           2086 POP_TOP
+           2088 JUMP_FORWARD            46 (to 2136)
+
+775     >> 2090 LOAD_FAST               53 (action_types)
+           2092 LOAD_METHOD             48 (append)
+           2094 LOAD_CONST              83 ('comment')
+           2096 CALL_METHOD              1
+           2098 POP_TOP
+
+777        2100 LOAD_FAST               23 (per_friend_counts)
+           2102 LOAD_METHOD              2 (get)
+           2104 LOAD_FAST               42 (publisher)
+           2106 LOAD_CONST              24 (0)
+           2108 CALL_METHOD              2
+           2110 LOAD_CONST              44 (1)
+           2112 BINARY_ADD
+
+776        2114 LOAD_FAST               23 (per_friend_counts)
+           2116 LOAD_FAST               42 (publisher)
+           2118 STORE_SUBSCR
+
+779        2120 LOAD_FAST               31 (report)
+           2122 LOAD_CONST              83 ('comment')
+           2124 LOAD_CONST              84 ('已评论: {}')
+           2126 LOAD_METHOD              5 (format)
+           2128 LOAD_FAST               51 (ai_comment)
+           2130 CALL_METHOD              1
+           2132 CALL_FUNCTION            2
+           2134 POP_TOP
+
+780     >> 2136 LOAD_FAST               53 (action_types)
+           2138 EXTENDED_ARG             9
+           2140 POP_JUMP_IF_FALSE     2434
+
+781        2142 LOAD_CONST              24 (0)
+           2144 STORE_FAST              29 (consecutive_action_failures)
+
+782        2146 LOAD_FAST                0 (self)
+           2148 LOAD_ATTR                8 (_runtime)
+           2150 LOAD_ATTR               47 (record_interaction)
+
+783        2152 LOAD_FAST                6 (account)
+
+784        2154 LOAD_FAST                2 (task_id)
+
+785        2156 LOAD_FAST               53 (action_types)
+
+786        2158 LOAD_FAST               42 (publisher)
+
+787        2160 LOAD_FAST               43 (content)
+
+788        2162 LOAD_FAST               44 (time_text)
+
+789        2164 LOAD_CONST              83 ('comment')
+           2166 LOAD_FAST               53 (action_types)
+           2168 CONTAINS_OP              0
+           2170 EXTENDED_ARG             8
+           2172 POP_JUMP_IF_FALSE     2178
+           2174 LOAD_FAST               51 (ai_comment)
+           2176 JUMP_FORWARD             2 (to 2180)
+        >> 2178 LOAD_CONST               1 ('')
+
+790     >> 2180 LOAD_DEREF               2 (row)
+           2182 LOAD_ATTR               25 (moment_id)
+
+782        2184 LOAD_CONST              85 (('action_types', 'publisher', 'content', 'publish_time', 'comment_content', 'moment_id'))
+           2186 CALL_FUNCTION_KW         8
+           2188 GET_AWAITABLE
+           2190 LOAD_CONST               0 (None)
+           2192 YIELD_FROM
+           2194 POP_TOP
+
+792        2196 SETUP_FINALLY           88 (to 2286)
+
+793        2198 LOAD_CONST              24 (0)
+           2200 LOAD_CONST              86 (('record_moment_interaction',))
+           2202 IMPORT_NAME             30 (WeRobotCore.services.customer_event_recorder)
+           2204 IMPORT_FROM             50 (record_moment_interaction)
+           2206 STORE_FAST              58 (record_moment_interaction)
+           2208 POP_TOP
+
+799        2210 LOAD_FAST                0 (self)
+           2212 LOAD_ATTR               29 (_customer_event_recording_enabled)
+
+798        2214 EXTENDED_ARG             8
+           2216 POP_JUMP_IF_FALSE     2222
+           2218 LOAD_FAST               53 (action_types)
+           2220 JUMP_FORWARD             2 (to 2224)
+
+800     >> 2222 LOAD_CONST              18 (())
+
+797     >> 2224 GET_ITER
+        >> 2226 FOR_ITER                54 (to 2282)
+           2228 STORE_FAST              59 (interaction_type)
+
+802        2230 LOAD_GLOBAL             32 (asyncio)
+           2232 LOAD_ATTR               33 (to_thread)
+
+803        2234 LOAD_FAST               58 (record_moment_interaction)
+
+804        2236 LOAD_FAST                6 (account)
+
+805        2238 LOAD_FAST               18 (nickname)
+
+806        2240 LOAD_FAST               42 (publisher)
+
+807        2242 LOAD_FAST               43 (content)
+
+808        2244 LOAD_FAST               44 (time_text)
+
+809        2246 LOAD_FAST               59 (interaction_type)
+
+812        2248 LOAD_FAST               59 (interaction_type)
+           2250 LOAD_CONST              83 ('comment')
+           2252 COMPARE_OP               2 (==)
+
+811        2254 EXTENDED_ARG             8
+           2256 POP_JUMP_IF_FALSE     2262
+           2258 LOAD_FAST               51 (ai_comment)
+           2260 JUMP_FORWARD             2 (to 2264)
+
+813     >> 2262 LOAD_CONST               1 ('')
+
+815     >> 2264 LOAD_FAST                2 (task_id)
+
+802        2266 LOAD_CONST              87 (('account_id', 'account_nickname', 'publisher', 'content', 'publish_time', 'interaction_type', 'comment_content', 'task_id'))
+           2268 CALL_FUNCTION_KW         9
+           2270 GET_AWAITABLE
+           2272 LOAD_CONST               0 (None)
+           2274 YIELD_FROM
+           2276 POP_TOP
+           2278 EXTENDED_ARG             8
+           2280 JUMP_ABSOLUTE         2226
+        >> 2282 POP_BLOCK
+           2284 JUMP_FORWARD            54 (to 2340)
+
+817     >> 2286 DUP_TOP
+           2288 LOAD_GLOBAL             34 (Exception)
+           2290 EXTENDED_ARG             9
+           2292 JUMP_IF_NOT_EXC_MATCH  2338
+           2294 POP_TOP
+           2296 STORE_FAST              48 (event_error)
+           2298 POP_TOP
+           2300 SETUP_FINALLY           28 (to 2330)
+
+818        2302 LOAD_FAST               31 (report)
+
+819        2304 LOAD_CONST              46 ('warning')
+
+820        2306 LOAD_CONST              88 ('记录朋友圈互动事件失败（不影响任务）: {}')
+           2308 LOAD_METHOD              5 (format)
+
+821        2310 LOAD_FAST               48 (event_error)
+
+820        2312 CALL_METHOD              1
+
+818        2314 CALL_FUNCTION            2
+           2316 POP_TOP
+           2318 POP_BLOCK
+           2320 POP_EXCEPT
+           2322 LOAD_CONST               0 (None)
+           2324 STORE_FAST              48 (event_error)
+           2326 DELETE_FAST             48 (event_error)
+           2328 JUMP_FORWARD            10 (to 2340)
+        >> 2330 LOAD_CONST               0 (None)
+           2332 STORE_FAST              48 (event_error)
+           2334 DELETE_FAST             48 (event_error)
+           2336 RERAISE
+        >> 2338 RERAISE
+
+824     >> 2340 LOAD_FAST               24 (action_count)
+           2342 LOAD_CONST              44 (1)
+           2344 INPLACE_ADD
+           2346 STORE_FAST              24 (action_count)
+
+829        2348 LOAD_FAST                0 (self)
+           2350 LOAD_METHOD             51 (_sleeper)
+           2352 LOAD_FAST                0 (self)
+           2354 LOAD_METHOD             52 (_delay_sampler)
+           2356 LOAD_CONST              89 (3.0)
+           2358 LOAD_CONST              90 (8.0)
+           2360 CALL_METHOD              2
+           2362 CALL_METHOD              1
+           2364 GET_AWAITABLE
+           2366 LOAD_CONST               0 (None)
+           2368 YIELD_FROM
+           2370 POP_TOP
+
+830        2372 LOAD_FAST               24 (action_count)
+           2374 LOAD_FAST                9 (comment_limit)
+           2376 COMPARE_OP               5 (>=)
+           2378 EXTENDED_ARG             9
+           2380 POP_JUMP_IF_FALSE     2538
+
+831        2382 LOAD_FAST               31 (report)
+           2384 LOAD_CONST              37 ('info')
+           2386 LOAD_CONST              91 ('已达朋友圈限制次数,任务结束')
+           2388 CALL_FUNCTION            2
+           2390 POP_TOP
+
+833        2392 LOAD_CONST              40 (True)
+
+834        2394 LOAD_CONST              92 ('达到评论总数限制')
+
+835        2396 LOAD_FAST               24 (action_count)
+
+836        2398 LOAD_FAST               25 (page_count)
+
+837        2400 LOAD_CONST              93 ('interaction_limit')
+
+832        2402 LOAD_CONST              48 (('success', 'message', 'processed_count', 'scroll_count', 'stop_reason'))
+           2404 BUILD_CONST_KEY_MAP      5
+           2406 ROT_TWO
+           2408 POP_TOP
+           2410 POP_BLOCK
+
+895        2412 LOAD_FAST                0 (self)
+           2414 LOAD_ATTR                8 (_runtime)
+           2416 LOAD_METHOD             18 (close)
+           2418 LOAD_FAST                6 (account)
+           2420 CALL_METHOD              1
+           2422 GET_AWAITABLE
+           2424 LOAD_CONST               0 (None)
+           2426 YIELD_FROM
+           2428 POP_TOP
+
+832        2430 RETURN_VALUE
+           2432 JUMP_FORWARD           104 (to 2538)
+
+839     >> 2434 LOAD_FAST               54 (attempted_action)
+           2436 EXTENDED_ARG             9
+           2438 POP_JUMP_IF_FALSE     2528
+           2440 LOAD_FAST               55 (action_failed)
+           2442 EXTENDED_ARG             9
+           2444 POP_JUMP_IF_FALSE     2528
+
+840        2446 LOAD_FAST               29 (consecutive_action_failures)
+           2448 LOAD_CONST              44 (1)
+           2450 INPLACE_ADD
+           2452 STORE_FAST              29 (consecutive_action_failures)
+
+842        2454 LOAD_FAST               29 (consecutive_action_failures)
+
+843        2456 LOAD_FAST                0 (self)
+           2458 LOAD_ATTR               53 (_MAX_CONSECUTIVE_ACTION_FAILURES)
+
+842        2460 COMPARE_OP               5 (>=)
+
+841        2462 EXTENDED_ARG             9
+           2464 POP_JUMP_IF_FALSE     2538
+
+845        2466 LOAD_CONST              94 ('连续 {} 条朋友圈操作失败，已安全停止')
+           2468 LOAD_METHOD              5 (format)
+
+846        2470 LOAD_FAST               29 (consecutive_action_failures)
+
+845        2472 CALL_METHOD              1
+           2474 STORE_FAST              36 (message)
+
+848        2476 LOAD_FAST               31 (report)
+           2478 LOAD_CONST              74 ('error')
+           2480 LOAD_FAST               36 (message)
+           2482 CALL_FUNCTION            2
+           2484 POP_TOP
+
+850        2486 LOAD_CONST              34 (False)
+
+851        2488 LOAD_FAST               36 (message)
+
+852        2490 LOAD_FAST               24 (action_count)
+
+853        2492 LOAD_FAST               25 (page_count)
+
+854        2494 LOAD_CONST              95 ('action_failures')
+
+849        2496 LOAD_CONST              48 (('success', 'message', 'processed_count', 'scroll_count', 'stop_reason'))
+           2498 BUILD_CONST_KEY_MAP      5
+           2500 ROT_TWO
+           2502 POP_TOP
+           2504 POP_BLOCK
+
+895        2506 LOAD_FAST                0 (self)
+           2508 LOAD_ATTR                8 (_runtime)
+           2510 LOAD_METHOD             18 (close)
+           2512 LOAD_FAST                6 (account)
+           2514 CALL_METHOD              1
+           2516 GET_AWAITABLE
+           2518 LOAD_CONST               0 (None)
+           2520 YIELD_FROM
+           2522 POP_TOP
+
+849        2524 RETURN_VALUE
+           2526 JUMP_FORWARD            10 (to 2538)
+
+856     >> 2528 LOAD_FAST               54 (attempted_action)
+           2530 EXTENDED_ARG             9
+           2532 POP_JUMP_IF_FALSE     2538
+
+860        2534 LOAD_CONST              24 (0)
+           2536 STORE_FAST              29 (consecutive_action_failures)
+
+862     >> 2538 LOAD_FAST               37 (viewport_changed)
+           2540 EXTENDED_ARG             2
+           2542 POP_JUMP_IF_FALSE      744
+
+865        2544 POP_TOP
+           2546 EXTENDED_ARG             9
+           2548 JUMP_ABSOLUTE         2554
+           2550 EXTENDED_ARG             2
+           2552 JUMP_ABSOLUTE          744
+
+867     >> 2554 LOAD_FAST               38 (reached_end)
+           2556 EXTENDED_ARG            10
+           2558 POP_JUMP_IF_FALSE     2596
+
+869        2560 LOAD_CONST              40 (True)
+
+870        2562 LOAD_CONST              96 ('朋友圈已无更多可处理内容，任务结束')
+
+871        2564 LOAD_FAST               24 (action_count)
+
+872        2566 LOAD_FAST               25 (page_count)
+
+873        2568 LOAD_CONST              97 ('end_of_feed')
+
+868        2570 LOAD_CONST              48 (('success', 'message', 'processed_count', 'scroll_count', 'stop_reason'))
+           2572 BUILD_CONST_KEY_MAP      5
+           2574 POP_BLOCK
+
+895        2576 LOAD_FAST                0 (self)
+           2578 LOAD_ATTR                8 (_runtime)
+           2580 LOAD_METHOD             18 (close)
+           2582 LOAD_FAST                6 (account)
+           2584 CALL_METHOD              1
+           2586 GET_AWAITABLE
+           2588 LOAD_CONST               0 (None)
+           2590 YIELD_FROM
+           2592 POP_TOP
+
+868        2594 RETURN_VALUE
+
+875     >> 2596 LOAD_FAST               37 (viewport_changed)
+           2598 EXTENDED_ARG            10
+           2600 POP_JUMP_IF_FALSE     2606
+
+876        2602 EXTENDED_ARG             2
+           2604 JUMP_ABSOLUTE          514
+
+877     >> 2606 LOAD_FAST                0 (self)
+           2608 LOAD_ATTR                8 (_runtime)
+           2610 LOAD_METHOD             38 (scroll)
+           2612 LOAD_FAST                6 (account)
+           2614 LOAD_CONST              98 (3)
+           2616 CALL_METHOD              2
+           2618 GET_AWAITABLE
+           2620 LOAD_CONST               0 (None)
+           2622 YIELD_FROM
+           2624 STORE_FAST              32 (viewport)
+
+878        2626 LOAD_FAST               25 (page_count)
+           2628 LOAD_CONST              44 (1)
+           2630 INPLACE_ADD
+           2632 STORE_FAST              25 (page_count)
+
+879        2634 LOAD_FAST               32 (viewport)
+           2636 LOAD_ATTR               40 (at_end)
+           2638 EXTENDED_ARG            10
+           2640 POP_JUMP_IF_TRUE      2650
+           2642 LOAD_FAST               32 (viewport)
+           2644 LOAD_ATTR               41 (scroll_moved)
+           2646 EXTENDED_ARG            10
+           2648 POP_JUMP_IF_TRUE      2686
+
+881     >> 2650 LOAD_CONST              40 (True)
+
+882        2652 LOAD_CONST              96 ('朋友圈已无更多可处理内容，任务结束')
+
+883        2654 LOAD_FAST               24 (action_count)
+
+884        2656 LOAD_FAST               25 (page_count)
+
+885        2658 LOAD_CONST              97 ('end_of_feed')
+
+880        2660 LOAD_CONST              48 (('success', 'message', 'processed_count', 'scroll_count', 'stop_reason'))
+           2662 BUILD_CONST_KEY_MAP      5
+           2664 POP_BLOCK
+
+895        2666 LOAD_FAST                0 (self)
+           2668 LOAD_ATTR                8 (_runtime)
+           2670 LOAD_METHOD             18 (close)
+           2672 LOAD_FAST                6 (account)
+           2674 CALL_METHOD              1
+           2676 GET_AWAITABLE
+           2678 LOAD_CONST               0 (None)
+           2680 YIELD_FROM
+           2682 POP_TOP
+
+880        2684 RETURN_VALUE
+
+887     >> 2686 LOAD_FAST               25 (page_count)
+           2688 LOAD_CONST              99 (10)
+           2690 BINARY_MODULO
+           2692 LOAD_CONST              24 (0)
+           2694 COMPARE_OP               2 (==)
+           2696 EXTENDED_ARG             2
+           2698 POP_JUMP_IF_FALSE      514
+
+888        2700 LOAD_FAST               31 (report)
+
+889        2702 LOAD_CONST              37 ('info')
+
+890        2704 LOAD_CONST             100 ('朋友圈任务扫描进度: 已滚动 {} 次，已互动 {} 条')
+           2706 LOAD_METHOD              5 (format)
+
+891        2708 LOAD_FAST               25 (page_count)
+           2710 LOAD_FAST               24 (action_count)
+
+890        2712 CALL_METHOD              2
+
+888        2714 CALL_FUNCTION            2
+           2716 POP_TOP
+           2718 EXTENDED_ARG             2
+           2720 JUMP_ABSOLUTE          514
+           2722 POP_BLOCK
+
+895        2724 LOAD_FAST                0 (self)
+           2726 LOAD_ATTR                8 (_runtime)
+           2728 LOAD_METHOD             18 (close)
+           2730 LOAD_FAST                6 (account)
+           2732 CALL_METHOD              1
+           2734 GET_AWAITABLE
+           2736 LOAD_CONST               0 (None)
+           2738 YIELD_FROM
+           2740 POP_TOP
+           2742 JUMP_FORWARD            20 (to 2764)
+        >> 2744 LOAD_FAST                0 (self)
+           2746 LOAD_ATTR                8 (_runtime)
+           2748 LOAD_METHOD             18 (close)
+           2750 LOAD_FAST                6 (account)
+           2752 CALL_METHOD              1
+           2754 GET_AWAITABLE
+           2756 LOAD_CONST               0 (None)
+           2758 YIELD_FROM
+           2760 POP_TOP
+           2762 RERAISE
+        >> 2764 LOAD_CONST               0 (None)
+           2766 RETURN_VALUE
+
+Disassembly of <code object <setcomp> at 0x1073b9030, file "WeRobotCore/application/moments.py", line 456>:
+456           0 BUILD_SET                0
+              2 LOAD_FAST                0 (.0)
+        >>    4 FOR_ITER                28 (to 34)
+
+458           6 STORE_FAST               1 (value)
+
+459           8 LOAD_GLOBAL              0 (str)
+             10 LOAD_FAST                1 (value)
+             12 CALL_FUNCTION            1
+             14 LOAD_METHOD              1 (strip)
+             16 CALL_METHOD              0
+             18 POP_JUMP_IF_FALSE        4
+
+457          20 LOAD_GLOBAL              0 (str)
+             22 LOAD_FAST                1 (value)
+             24 CALL_FUNCTION            1
+             26 LOAD_METHOD              1 (strip)
+             28 CALL_METHOD              0
+             30 SET_ADD                  2
+             32 JUMP_ABSOLUTE            4
+        >>   34 RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x1073b9710, file "WeRobotCore/application/moments.py", line 461>:
+461           0 LOAD_FAST                0 (.0)
+        >>    2 FOR_ITER                30 (to 34)
+
+463           4 STORE_FAST               1 (value)
+
+464           6 LOAD_GLOBAL              0 (str)
+              8 LOAD_FAST                1 (value)
+             10 CALL_FUNCTION            1
+             12 LOAD_METHOD              1 (strip)
+             14 CALL_METHOD              0
+             16 POP_JUMP_IF_FALSE        2
+
+462          18 LOAD_GLOBAL              0 (str)
+             20 LOAD_FAST                1 (value)
+             22 CALL_FUNCTION            1
+             24 LOAD_METHOD              1 (strip)
+             26 CALL_METHOD              0
+             28 YIELD_VALUE
+             30 POP_TOP
+             32 JUMP_ABSOLUTE            2
+        >>   34 LOAD_CONST               0 (None)
+             36 RETURN_VALUE
+
+Disassembly of <code object <setcomp> at 0x1073b9ea0, file "WeRobotCore/application/moments.py", line 470>:
+470           0 BUILD_SET                0
+              2 LOAD_FAST                0 (.0)
+        >>    4 FOR_ITER                28 (to 34)
+
+472           6 STORE_FAST               1 (value)
+
+473           8 LOAD_GLOBAL              0 (str)
+             10 LOAD_FAST                1 (value)
+             12 CALL_FUNCTION            1
+             14 LOAD_METHOD              1 (strip)
+             16 CALL_METHOD              0
+             18 POP_JUMP_IF_FALSE        4
+
+471          20 LOAD_GLOBAL              0 (str)
+             22 LOAD_FAST                1 (value)
+             24 CALL_FUNCTION            1
+             26 LOAD_METHOD              1 (strip)
+             28 CALL_METHOD              0
+             30 SET_ADD                  2
+             32 JUMP_ABSOLUTE            4
+        >>   34 RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x1073b9870, file "WeRobotCore/application/moments.py", line 480>:
+480           0 LOAD_FAST                0 (.0)
+        >>    2 FOR_ITER                50 (to 54)
+
+482           4 STORE_FAST               1 (item)
+
+483           6 LOAD_GLOBAL              0 (str)
+              8 LOAD_FAST                1 (item)
+             10 LOAD_METHOD              1 (get)
+             12 LOAD_CONST               0 ('publisher')
+             14 CALL_METHOD              1
+             16 JUMP_IF_TRUE_OR_POP     20
+             18 LOAD_CONST               1 ('')
+        >>   20 CALL_FUNCTION            1
+             22 LOAD_METHOD              2 (strip)
+             24 CALL_METHOD              0
+             26 POP_JUMP_IF_FALSE        2
+
+481          28 LOAD_GLOBAL              0 (str)
+             30 LOAD_FAST                1 (item)
+             32 LOAD_METHOD              1 (get)
+             34 LOAD_CONST               0 ('publisher')
+             36 CALL_METHOD              1
+             38 JUMP_IF_TRUE_OR_POP     42
+             40 LOAD_CONST               1 ('')
+        >>   42 CALL_FUNCTION            1
+             44 LOAD_METHOD              2 (strip)
+             46 CALL_METHOD              0
+             48 YIELD_VALUE
+             50 POP_TOP
+             52 JUMP_ABSOLUTE            2
+        >>   54 LOAD_CONST               2 (None)
+             56 RETURN_VALUE
+
+Disassembly of <code object cancelled at 0x1073b9500, file "WeRobotCore/application/moments.py", line 495>:
+496           0 LOAD_GLOBAL              0 (bool)
+              2 LOAD_GLOBAL              1 (callable)
+              4 LOAD_DEREF               0 (cancel_checker)
+              6 CALL_FUNCTION            1
+              8 JUMP_IF_FALSE_OR_POP    14
+             10 LOAD_DEREF               0 (cancel_checker)
+             12 CALL_FUNCTION            0
+        >>   14 CALL_FUNCTION            1
+             16 RETURN_VALUE
+
+Disassembly of <code object report at 0x1073b99d0, file "WeRobotCore/application/moments.py", line 498>:
+499           0 LOAD_GLOBAL              0 (callable)
+              2 LOAD_DEREF               0 (callback)
+              4 CALL_FUNCTION            1
+              6 POP_JUMP_IF_FALSE       22
+
+500           8 LOAD_DEREF               0 (callback)
+             10 LOAD_FAST                0 (kind)
+             12 LOAD_FAST                1 (message)
+             14 LOAD_CONST               1 (('type', 'message'))
+             16 BUILD_CONST_KEY_MAP      2
+             18 CALL_FUNCTION            1
+             20 POP_TOP
+        >>   22 LOAD_CONST               0 (None)
+             24 RETURN_VALUE
+
+Disassembly of <code object <setcomp> at 0x1073b9f50, file "WeRobotCore/application/moments.py", line 512>:
+512           0 BUILD_SET                0
+              2 LOAD_FAST                0 (.0)
+        >>    4 FOR_ITER                40 (to 46)
+
+514           6 STORE_FAST               1 (row)
+
+515           8 LOAD_GLOBAL              0 (str)
+             10 LOAD_FAST                1 (row)
+             12 LOAD_ATTR                1 (moment_id)
+             14 JUMP_IF_TRUE_OR_POP     18
+             16 LOAD_CONST               0 ('')
+        >>   18 CALL_FUNCTION            1
+             20 LOAD_METHOD              2 (strip)
+             22 CALL_METHOD              0
+             24 POP_JUMP_IF_FALSE        4
+
+513          26 LOAD_GLOBAL              0 (str)
+             28 LOAD_FAST                1 (row)
+             30 LOAD_ATTR                1 (moment_id)
+             32 JUMP_IF_TRUE_OR_POP     36
+             34 LOAD_CONST               0 ('')
+        >>   36 CALL_FUNCTION            1
+             38 LOAD_METHOD              2 (strip)
+             40 CALL_METHOD              0
+             42 SET_ADD                  2
+             44 JUMP_ABSOLUTE            4
+        >>   46 RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x1073b97c0, file "WeRobotCore/application/moments.py", line 523>:
+523           0 LOAD_FAST                0 (.0)
+        >>    2 FOR_ITER                74 (to 78)
+
+529           4 STORE_FAST               1 (row)
+
+525           6 LOAD_GLOBAL              0 (str)
+              8 LOAD_FAST                1 (row)
+             10 LOAD_ATTR                1 (moment_id)
+             12 JUMP_IF_TRUE_OR_POP     16
+             14 LOAD_CONST               0 ('')
+        >>   16 CALL_FUNCTION            1
+             18 LOAD_METHOD              2 (strip)
+             20 CALL_METHOD              0
+
+526          22 LOAD_FAST                1 (row)
+             24 LOAD_ATTR                3 (min_y)
+             26 LOAD_CONST               1 (None)
+             28 IS_OP                    0
+             30 POP_JUMP_IF_FALSE       36
+             32 LOAD_CONST               1 (None)
+             34 JUMP_FORWARD            10 (to 46)
+        >>   36 LOAD_GLOBAL              4 (round)
+             38 LOAD_FAST                1 (row)
+             40 LOAD_ATTR                3 (min_y)
+             42 LOAD_CONST               2 (1)
+             44 CALL_FUNCTION            2
+
+527     >>   46 LOAD_FAST                1 (row)
+             48 LOAD_ATTR                5 (max_y)
+             50 LOAD_CONST               1 (None)
+             52 IS_OP                    0
+             54 POP_JUMP_IF_FALSE       60
+             56 LOAD_CONST               1 (None)
+             58 JUMP_FORWARD            10 (to 70)
+        >>   60 LOAD_GLOBAL              4 (round)
+             62 LOAD_FAST                1 (row)
+             64 LOAD_ATTR                5 (max_y)
+             66 LOAD_CONST               2 (1)
+             68 CALL_FUNCTION            2
+
+524     >>   70 BUILD_TUPLE              3
+             72 YIELD_VALUE
+             74 POP_TOP
+             76 JUMP_ABSOLUTE            2
+        >>   78 LOAD_CONST               1 (None)
+             80 RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x1073b93a0, file "WeRobotCore/application/moments.py", line 673>:
+673           0 LOAD_FAST                0 (.0)
+        >>    2 FOR_ITER                28 (to 32)
+
+675           4 STORE_FAST               1 (candidate)
+
+676           6 LOAD_FAST                1 (candidate)
+              8 LOAD_ATTR                0 (moment_id)
+             10 LOAD_DEREF               0 (row)
+             12 LOAD_ATTR                0 (moment_id)
+             14 COMPARE_OP               2 (==)
+             16 POP_JUMP_IF_FALSE        2
+
+677          18 LOAD_FAST                1 (candidate)
+             20 LOAD_ATTR                1 (action_area_visible)
+             22 POP_JUMP_IF_FALSE        2
+
+674          24 LOAD_FAST                1 (candidate)
+             26 YIELD_VALUE
+             28 POP_TOP
+             30 JUMP_ABSOLUTE            2
+        >>   32 LOAD_CONST               0 (None)
+             34 RETURN_VALUE

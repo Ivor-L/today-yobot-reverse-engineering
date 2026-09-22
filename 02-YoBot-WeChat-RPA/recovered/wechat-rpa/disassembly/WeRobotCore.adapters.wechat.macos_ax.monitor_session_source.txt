@@ -1,0 +1,743 @@
+  1           0 LOAD_CONST               0 ('Monitor input adapter backed by one macOS Driver session scan.')
+              2 STORE_NAME               0 (__doc__)
+
+  3           4 LOAD_CONST               1 (0)
+              6 LOAD_CONST               2 (None)
+              8 IMPORT_NAME              1 (logging)
+             10 STORE_NAME               1 (logging)
+
+  4          12 LOAD_CONST               1 (0)
+             14 LOAD_CONST               2 (None)
+             16 IMPORT_NAME              2 (re)
+             18 STORE_NAME               2 (re)
+
+  5          20 LOAD_CONST               1 (0)
+             22 LOAD_CONST               2 (None)
+             24 IMPORT_NAME              3 (time)
+             26 STORE_NAME               3 (time)
+
+  6          28 LOAD_CONST               1 (0)
+             30 LOAD_CONST               3 (('replace',))
+             32 IMPORT_NAME              4 (dataclasses)
+             34 IMPORT_FROM              5 (replace)
+             36 STORE_NAME               5 (replace)
+             38 POP_TOP
+
+  7          40 LOAD_CONST               1 (0)
+             42 LOAD_CONST               4 (('datetime',))
+             44 IMPORT_NAME              6 (datetime)
+             46 IMPORT_FROM              6 (datetime)
+             48 STORE_NAME               6 (datetime)
+             50 POP_TOP
+
+  8          52 LOAD_CONST               1 (0)
+             54 LOAD_CONST               5 (('Callable', 'Optional'))
+             56 IMPORT_NAME              7 (typing)
+             58 IMPORT_FROM              8 (Callable)
+             60 STORE_NAME               8 (Callable)
+             62 IMPORT_FROM              9 (Optional)
+             64 STORE_NAME               9 (Optional)
+             66 POP_TOP
+
+ 10          68 LOAD_CONST               1 (0)
+             70 LOAD_CONST               6 (('MonitorSessionBatch', 'MonitorSessionItem'))
+             72 IMPORT_NAME             10 (WeRobotCore.application.monitoring)
+             74 IMPORT_FROM             11 (MonitorSessionBatch)
+             76 STORE_NAME              11 (MonitorSessionBatch)
+             78 IMPORT_FROM             12 (MonitorSessionItem)
+             80 STORE_NAME              12 (MonitorSessionItem)
+             82 POP_TOP
+
+ 14          84 LOAD_CONST               1 (0)
+             86 LOAD_CONST               7 (('parse_wechat_session_time', 'session_recency_timestamp'))
+             88 IMPORT_NAME             13 (WeRobotCore.application.session_time)
+             90 IMPORT_FROM             14 (parse_wechat_session_time)
+             92 STORE_NAME              14 (parse_wechat_session_time)
+             94 IMPORT_FROM             15 (session_recency_timestamp)
+             96 STORE_NAME              15 (session_recency_timestamp)
+             98 POP_TOP
+
+ 18         100 LOAD_CONST               1 (0)
+            102 LOAD_CONST               8 (('AutomationError', 'ChatType', 'ErrorCode', 'InstanceState', 'MentionState', 'SessionSummary'))
+            104 IMPORT_NAME             16 (WeRobotCore.domain)
+            106 IMPORT_FROM             17 (AutomationError)
+            108 STORE_NAME              17 (AutomationError)
+            110 IMPORT_FROM             18 (ChatType)
+            112 STORE_NAME              18 (ChatType)
+            114 IMPORT_FROM             19 (ErrorCode)
+            116 STORE_NAME              19 (ErrorCode)
+            118 IMPORT_FROM             20 (InstanceState)
+            120 STORE_NAME              20 (InstanceState)
+            122 IMPORT_FROM             21 (MentionState)
+            124 STORE_NAME              21 (MentionState)
+            126 IMPORT_FROM             22 (SessionSummary)
+            128 STORE_NAME              22 (SessionSummary)
+            130 POP_TOP
+
+ 27         132 LOAD_CONST               9 (1)
+            134 LOAD_CONST              10 (('MacOSAxDriver',))
+            136 IMPORT_NAME             23 (driver)
+            138 IMPORT_FROM             24 (MacOSAxDriver)
+            140 STORE_NAME              24 (MacOSAxDriver)
+            142 POP_TOP
+
+ 30         144 LOAD_NAME                8 (Callable)
+            146 LOAD_NAME               25 (str)
+            148 LOAD_NAME               25 (str)
+            150 BUILD_LIST               2
+            152 LOAD_NAME               26 (bool)
+            154 BUILD_TUPLE              2
+            156 BINARY_SUBSCR
+            158 STORE_NAME              27 (GroupChatLookup)
+
+ 31         160 LOAD_NAME                1 (logging)
+            162 LOAD_METHOD             28 (getLogger)
+            164 LOAD_NAME               29 (__name__)
+            166 CALL_METHOD              1
+            168 STORE_NAME              30 (logger)
+
+ 32         170 LOAD_CONST              11 (300)
+            172 STORE_NAME              31 (_WINDOWS_RECENT_SESSION_SECONDS)
+
+ 33         174 LOAD_NAME                2 (re)
+            176 LOAD_METHOD             32 (compile)
+
+ 34         178 LOAD_CONST              12 ('^(?:(?:今天|凌晨|早上|上午|中午|下午|傍晚|晚上)\\s+){0,2}\\d{1,2}:\\d{2}$')
+
+ 33         180 CALL_METHOD              1
+            182 STORE_NAME              33 (_TODAY_MINUTE_LABEL)
+
+ 39         184 LOAD_NAME               22 (SessionSummary)
+            186 LOAD_NAME                6 (datetime)
+            188 LOAD_NAME               34 (float)
+            190 LOAD_CONST              13 (('session', 'now', 'return'))
+            192 BUILD_CONST_KEY_MAP      3
+            194 LOAD_CONST              14 (<code object _session_event_timestamp at 0x1090bd9d0, file "WeRobotCore/adapters/wechat/macos_ax/monitor_session_source.py", line 39>)
+            196 LOAD_CONST              15 ('_session_event_timestamp')
+            198 MAKE_FUNCTION            4 (annotations)
+            200 STORE_NAME              35 (_session_event_timestamp)
+
+ 55         202 LOAD_NAME               22 (SessionSummary)
+            204 LOAD_CONST              16 (('summary',))
+            206 BUILD_CONST_KEY_MAP      1
+            208 LOAD_CONST              17 (<code object _compatibility_payload at 0x1090bd660, file "WeRobotCore/adapters/wechat/macos_ax/monitor_session_source.py", line 55>)
+            210 LOAD_CONST              18 ('_compatibility_payload')
+            212 MAKE_FUNCTION            4 (annotations)
+            214 STORE_NAME              36 (_compatibility_payload)
+
+ 81         216 LOAD_CONST              24 ((None,))
+
+ 83         218 LOAD_NAME               25 (str)
+
+ 84         220 LOAD_NAME                9 (Optional)
+            222 LOAD_NAME               27 (GroupChatLookup)
+            224 BINARY_SUBSCR
+
+ 85         226 LOAD_NAME               11 (MonitorSessionBatch)
+
+ 81         228 LOAD_CONST              19 (('account_id', 'group_chat_lookup', 'return'))
+            230 BUILD_CONST_KEY_MAP      3
+            232 LOAD_CONST              20 (<code object map_macos_monitor_session_batch at 0x10924c920, file "WeRobotCore/adapters/wechat/macos_ax/monitor_session_source.py", line 81>)
+            234 LOAD_CONST              21 ('map_macos_monitor_session_batch')
+            236 MAKE_FUNCTION            5 (defaults, annotations)
+            238 STORE_NAME              37 (map_macos_monitor_session_batch)
+
+138         240 LOAD_BUILD_CLASS
+            242 LOAD_CONST              22 (<code object MacOSMonitorSessionSource at 0x10924c5b0, file "WeRobotCore/adapters/wechat/macos_ax/monitor_session_source.py", line 138>)
+            244 LOAD_CONST              23 ('MacOSMonitorSessionSource')
+            246 MAKE_FUNCTION            0
+            248 LOAD_CONST              23 ('MacOSMonitorSessionSource')
+            250 CALL_FUNCTION            2
+            252 STORE_NAME              38 (MacOSMonitorSessionSource)
+            254 LOAD_CONST               2 (None)
+            256 RETURN_VALUE
+
+Disassembly of <code object _session_event_timestamp at 0x1090bd9d0, file "WeRobotCore/adapters/wechat/macos_ax/monitor_session_source.py", line 39>:
+ 40           0 LOAD_CONST               1 (' ')
+              2 LOAD_METHOD              0 (join)
+              4 LOAD_FAST                0 (session)
+              6 LOAD_ATTR                1 (last_event_text)
+              8 LOAD_METHOD              2 (strip)
+             10 CALL_METHOD              0
+             12 LOAD_METHOD              3 (split)
+             14 CALL_METHOD              0
+             16 CALL_METHOD              1
+             18 STORE_FAST               2 (text)
+
+ 41          20 LOAD_GLOBAL              4 (parse_wechat_session_time)
+             22 LOAD_FAST                2 (text)
+             24 LOAD_FAST                1 (now)
+             26 LOAD_CONST               2 (('now',))
+             28 CALL_FUNCTION_KW         2
+             30 STORE_FAST               3 (parsed)
+
+ 42          32 LOAD_FAST                3 (parsed)
+             34 LOAD_CONST               0 (None)
+             36 IS_OP                    1
+             38 POP_JUMP_IF_FALSE       92
+
+ 43          40 LOAD_FAST                3 (parsed)
+             42 LOAD_METHOD              5 (date)
+             44 CALL_METHOD              0
+             46 LOAD_FAST                1 (now)
+             48 LOAD_METHOD              5 (date)
+             50 CALL_METHOD              0
+             52 COMPARE_OP               2 (==)
+             54 POP_JUMP_IF_FALSE       84
+             56 LOAD_GLOBAL              6 (_TODAY_MINUTE_LABEL)
+             58 LOAD_METHOD              7 (fullmatch)
+             60 LOAD_FAST                2 (text)
+             62 CALL_METHOD              1
+             64 POP_JUMP_IF_FALSE       84
+
+ 48          66 LOAD_FAST                3 (parsed)
+             68 LOAD_ATTR                8 (replace)
+             70 LOAD_CONST               3 (59)
+             72 LOAD_CONST               4 (0)
+             74 LOAD_CONST               5 (('second', 'microsecond'))
+             76 CALL_FUNCTION_KW         2
+             78 LOAD_METHOD              9 (timestamp)
+             80 CALL_METHOD              0
+             82 RETURN_VALUE
+
+ 49     >>   84 LOAD_FAST                3 (parsed)
+             86 LOAD_METHOD              9 (timestamp)
+             88 CALL_METHOD              0
+             90 RETURN_VALUE
+
+ 50     >>   92 LOAD_FAST                0 (session)
+             94 LOAD_ATTR               10 (last_event_at)
+             96 LOAD_CONST               0 (None)
+             98 IS_OP                    1
+            100 POP_JUMP_IF_FALSE      112
+
+ 51         102 LOAD_FAST                0 (session)
+            104 LOAD_ATTR               10 (last_event_at)
+            106 LOAD_METHOD              9 (timestamp)
+            108 CALL_METHOD              0
+            110 RETURN_VALUE
+
+ 52     >>  112 LOAD_CONST               6 (0.0)
+            114 RETURN_VALUE
+
+Disassembly of <code object _compatibility_payload at 0x1090bd660, file "WeRobotCore/adapters/wechat/macos_ax/monitor_session_source.py", line 55>:
+ 59           0 LOAD_FAST                0 (summary)
+              2 LOAD_ATTR                0 (session_id)
+
+ 60           4 LOAD_FAST                0 (summary)
+              6 LOAD_ATTR                1 (name)
+
+ 61           8 LOAD_FAST                0 (summary)
+             10 LOAD_ATTR                2 (preview)
+
+ 62          12 LOAD_FAST                0 (summary)
+             14 LOAD_ATTR                3 (last_event_text)
+
+ 63          16 LOAD_FAST                0 (summary)
+             18 LOAD_ATTR                4 (mention_state)
+             20 LOAD_GLOBAL              5 (MentionState)
+             22 LOAD_ATTR                6 (DIRECT)
+             24 IS_OP                    0
+
+ 64          26 LOAD_FAST                0 (summary)
+             28 LOAD_ATTR                7 (chat_type)
+             30 LOAD_GLOBAL              8 (ChatType)
+             32 LOAD_ATTR                9 (GROUP)
+             34 IS_OP                    0
+
+ 68          36 LOAD_FAST                0 (summary)
+             38 LOAD_ATTR                7 (chat_type)
+             40 LOAD_ATTR               10 (value)
+
+ 69          42 LOAD_FAST                0 (summary)
+             44 LOAD_ATTR                7 (chat_type)
+             46 LOAD_GLOBAL              8 (ChatType)
+             48 LOAD_ATTR               11 (UNKNOWN)
+             50 IS_OP                    1
+
+ 70          52 LOAD_CONST               1 ('macos_ax_helper')
+
+ 58          54 LOAD_CONST               2 (('id', 'name', 'lastMessage', 'lastTime', 'is_at', 'isGroup', 'chatType', 'chatTypeKnown', 'driverEvidence'))
+             56 BUILD_CONST_KEY_MAP      9
+             58 STORE_FAST               1 (payload)
+
+ 72          60 LOAD_FAST                0 (summary)
+             62 LOAD_ATTR               12 (unread_count)
+             64 LOAD_CONST               3 (None)
+             66 IS_OP                    1
+             68 POP_JUMP_IF_FALSE       80
+
+ 73          70 LOAD_FAST                0 (summary)
+             72 LOAD_ATTR               12 (unread_count)
+             74 LOAD_FAST                1 (payload)
+             76 LOAD_CONST               4 ('unread')
+             78 STORE_SUBSCR
+
+ 74     >>   80 LOAD_FAST                0 (summary)
+             82 LOAD_ATTR               13 (is_self)
+             84 LOAD_CONST               3 (None)
+             86 IS_OP                    1
+             88 POP_JUMP_IF_FALSE      100
+
+ 75          90 LOAD_FAST                0 (summary)
+             92 LOAD_ATTR               13 (is_self)
+             94 LOAD_FAST                1 (payload)
+             96 LOAD_CONST               5 ('isSelf')
+             98 STORE_SUBSCR
+
+ 76     >>  100 LOAD_FAST                0 (summary)
+            102 LOAD_ATTR               14 (muted)
+            104 LOAD_CONST               3 (None)
+            106 IS_OP                    1
+            108 POP_JUMP_IF_FALSE      120
+
+ 77         110 LOAD_FAST                0 (summary)
+            112 LOAD_ATTR               14 (muted)
+            114 LOAD_FAST                1 (payload)
+            116 LOAD_CONST               6 ('muted')
+            118 STORE_SUBSCR
+
+ 78     >>  120 LOAD_FAST                1 (payload)
+            122 RETURN_VALUE
+
+Disassembly of <code object map_macos_monitor_session_batch at 0x10924c920, file "WeRobotCore/adapters/wechat/macos_ax/monitor_session_source.py", line 81>:
+ 87           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                1 (account_id)
+              4 LOAD_GLOBAL              1 (str)
+              6 CALL_FUNCTION            2
+              8 POP_JUMP_IF_FALSE       18
+             10 LOAD_FAST                1 (account_id)
+             12 LOAD_METHOD              2 (strip)
+             14 CALL_METHOD              0
+             16 JUMP_FORWARD             2 (to 20)
+        >>   18 LOAD_CONST               1 ('')
+
+ 86     >>   20 STORE_FAST               3 (normalized_account_id)
+
+ 89          22 LOAD_FAST                3 (normalized_account_id)
+             24 POP_JUMP_IF_TRUE        34
+
+ 90          26 LOAD_GLOBAL              3 (ValueError)
+             28 LOAD_CONST               2 ('account_id must be a non-empty string')
+             30 CALL_FUNCTION            1
+             32 RAISE_VARARGS            1
+
+ 91     >>   34 BUILD_LIST               0
+             36 STORE_FAST               4 (items)
+
+ 92          38 LOAD_FAST                0 (sessions)
+             40 GET_ITER
+        >>   42 FOR_ITER               106 (to 150)
+             44 STORE_FAST               5 (session)
+
+ 93          46 LOAD_FAST                5 (session)
+             48 STORE_FAST               6 (monitor_summary)
+
+ 94          50 LOAD_FAST                2 (group_chat_lookup)
+             52 LOAD_CONST               0 (None)
+             54 IS_OP                    1
+             56 POP_JUMP_IF_FALSE      126
+
+101          58 SETUP_FINALLY           20 (to 80)
+
+102          60 LOAD_GLOBAL              4 (bool)
+
+103          62 LOAD_FAST                2 (group_chat_lookup)
+             64 LOAD_FAST                3 (normalized_account_id)
+             66 LOAD_FAST                5 (session)
+             68 LOAD_ATTR                5 (name)
+             70 CALL_FUNCTION            2
+
+102          72 CALL_FUNCTION            1
+             74 STORE_FAST               7 (is_group)
+             76 POP_BLOCK
+             78 JUMP_FORWARD            22 (to 102)
+
+105     >>   80 DUP_TOP
+             82 LOAD_GLOBAL              6 (Exception)
+             84 JUMP_IF_NOT_EXC_MATCH   100
+             86 POP_TOP
+             88 POP_TOP
+             90 POP_TOP
+
+109          92 LOAD_CONST               3 (False)
+             94 STORE_FAST               7 (is_group)
+             96 POP_EXCEPT
+             98 JUMP_FORWARD             2 (to 102)
+        >>  100 RERAISE
+
+110     >>  102 LOAD_GLOBAL              7 (replace)
+
+111         104 LOAD_FAST                5 (session)
+
+112         106 LOAD_FAST                7 (is_group)
+            108 POP_JUMP_IF_FALSE      116
+            110 LOAD_GLOBAL              8 (ChatType)
+            112 LOAD_ATTR                9 (GROUP)
+            114 JUMP_FORWARD             4 (to 120)
+        >>  116 LOAD_GLOBAL              8 (ChatType)
+            118 LOAD_ATTR               10 (PRIVATE)
+
+110     >>  120 LOAD_CONST               4 (('chat_type',))
+            122 CALL_FUNCTION_KW         2
+            124 STORE_FAST               6 (monitor_summary)
+
+114     >>  126 LOAD_FAST                4 (items)
+            128 LOAD_METHOD             11 (append)
+
+115         130 LOAD_GLOBAL             12 (MonitorSessionItem)
+
+116         132 LOAD_FAST                6 (monitor_summary)
+
+117         134 LOAD_GLOBAL             13 (_compatibility_payload)
+            136 LOAD_FAST                6 (monitor_summary)
+            138 CALL_FUNCTION            1
+
+115         140 LOAD_CONST               5 (('summary', 'compatibility_payload'))
+            142 CALL_FUNCTION_KW         2
+
+114         144 CALL_METHOD              1
+            146 POP_TOP
+            148 JUMP_ABSOLUTE           42
+
+124     >>  150 LOAD_FAST                4 (items)
+            152 LOAD_ATTR               14 (sort)
+
+125         154 LOAD_CONST               6 (<code object <lambda> at 0x10924c710, file "WeRobotCore/adapters/wechat/macos_ax/monitor_session_source.py", line 125>)
+            156 LOAD_CONST               7 ('map_macos_monitor_session_batch.<locals>.<lambda>')
+            158 MAKE_FUNCTION            0
+
+130         160 LOAD_CONST               8 (True)
+
+124         162 LOAD_CONST               9 (('key', 'reverse'))
+            164 CALL_FUNCTION_KW         2
+            166 POP_TOP
+
+132         168 LOAD_GLOBAL             15 (MonitorSessionBatch)
+
+133         170 LOAD_FAST                3 (normalized_account_id)
+
+134         172 LOAD_GLOBAL             16 (tuple)
+            174 LOAD_FAST                4 (items)
+            176 CALL_FUNCTION            1
+
+132         178 LOAD_CONST              10 (('account_id', 'items'))
+            180 CALL_FUNCTION_KW         2
+            182 RETURN_VALUE
+
+Disassembly of <code object <lambda> at 0x10924c710, file "WeRobotCore/adapters/wechat/macos_ax/monitor_session_source.py", line 125>:
+127           0 LOAD_FAST                0 (item)
+              2 LOAD_ATTR                0 (summary)
+              4 LOAD_ATTR                1 (last_event_at)
+              6 LOAD_CONST               0 (None)
+              8 IS_OP                    1
+
+126          10 POP_JUMP_IF_FALSE       24
+             12 LOAD_FAST                0 (item)
+             14 LOAD_ATTR                0 (summary)
+             16 LOAD_ATTR                1 (last_event_at)
+             18 LOAD_METHOD              2 (timestamp)
+             20 CALL_METHOD              0
+             22 RETURN_VALUE
+
+128     >>   24 LOAD_GLOBAL              3 (session_recency_timestamp)
+             26 LOAD_FAST                0 (item)
+             28 LOAD_ATTR                0 (summary)
+             30 LOAD_ATTR                4 (last_event_text)
+             32 CALL_FUNCTION            1
+             34 RETURN_VALUE
+
+Disassembly of <code object MacOSMonitorSessionSource at 0x10924c5b0, file "WeRobotCore/adapters/wechat/macos_ax/monitor_session_source.py", line 138>:
+138           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('MacOSMonitorSessionSource')
+              6 STORE_NAME               2 (__qualname__)
+
+139           8 LOAD_CONST               1 ('Read once through the Driver; never duplicate Monitor decisions.')
+             10 STORE_NAME               3 (__doc__)
+
+141          12 LOAD_CONST              10 ((None,))
+
+143          14 LOAD_NAME                4 (MacOSAxDriver)
+
+144          16 LOAD_NAME                5 (Optional)
+             18 LOAD_NAME                6 (GroupChatLookup)
+             20 BINARY_SUBSCR
+
+145          22 LOAD_CONST               2 (None)
+
+141          24 LOAD_CONST               3 (('driver', 'group_chat_lookup', 'return'))
+             26 BUILD_CONST_KEY_MAP      3
+             28 LOAD_CONST               4 (<code object __init__ at 0x10924ca80, file "WeRobotCore/adapters/wechat/macos_ax/monitor_session_source.py", line 141>)
+             30 LOAD_CONST               5 ('MacOSMonitorSessionSource.__init__')
+             32 MAKE_FUNCTION            5 (defaults, annotations)
+             34 STORE_NAME               7 (__init__)
+
+153          36 LOAD_CONST              11 ((20, None))
+
+155          38 LOAD_NAME                8 (str)
+
+156          40 LOAD_NAME                9 (int)
+
+157          42 LOAD_NAME                5 (Optional)
+             44 LOAD_NAME               10 (float)
+             46 BINARY_SUBSCR
+
+158          48 LOAD_NAME               11 (MonitorSessionBatch)
+
+153          50 LOAD_CONST               7 (('account_id', 'limit', 'start_time', 'return'))
+             52 BUILD_CONST_KEY_MAP      4
+             54 LOAD_CONST               8 (<code object list_session_batch at 0x10924c9d0, file "WeRobotCore/adapters/wechat/macos_ax/monitor_session_source.py", line 153>)
+             56 LOAD_CONST               9 ('MacOSMonitorSessionSource.list_session_batch')
+             58 MAKE_FUNCTION            5 (defaults, annotations)
+             60 STORE_NAME              12 (list_session_batch)
+             62 LOAD_CONST               2 (None)
+             64 RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x10924ca80, file "WeRobotCore/adapters/wechat/macos_ax/monitor_session_source.py", line 141>:
+146           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                1 (driver)
+              4 LOAD_GLOBAL              1 (MacOSAxDriver)
+              6 CALL_FUNCTION            2
+              8 POP_JUMP_IF_TRUE        18
+
+147          10 LOAD_GLOBAL              2 (TypeError)
+             12 LOAD_CONST               1 ('driver must be a MacOSAxDriver')
+             14 CALL_FUNCTION            1
+             16 RAISE_VARARGS            1
+
+148     >>   18 LOAD_FAST                2 (group_chat_lookup)
+             20 LOAD_CONST               0 (None)
+             22 IS_OP                    1
+             24 POP_JUMP_IF_FALSE       42
+             26 LOAD_GLOBAL              3 (callable)
+             28 LOAD_FAST                2 (group_chat_lookup)
+             30 CALL_FUNCTION            1
+             32 POP_JUMP_IF_TRUE        42
+
+149          34 LOAD_GLOBAL              2 (TypeError)
+             36 LOAD_CONST               2 ('group_chat_lookup must be callable or None')
+             38 CALL_FUNCTION            1
+             40 RAISE_VARARGS            1
+
+150     >>   42 LOAD_FAST                1 (driver)
+             44 LOAD_FAST                0 (self)
+             46 STORE_ATTR               4 (_driver)
+
+151          48 LOAD_FAST                2 (group_chat_lookup)
+             50 LOAD_FAST                0 (self)
+             52 STORE_ATTR               5 (_group_chat_lookup)
+             54 LOAD_CONST               0 (None)
+             56 RETURN_VALUE
+
+Disassembly of <code object list_session_batch at 0x10924c9d0, file "WeRobotCore/adapters/wechat/macos_ax/monitor_session_source.py", line 153>:
+160           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                1 (account_id)
+              4 LOAD_GLOBAL              1 (str)
+              6 CALL_FUNCTION            2
+              8 POP_JUMP_IF_FALSE       18
+             10 LOAD_FAST                1 (account_id)
+             12 LOAD_METHOD              2 (strip)
+             14 CALL_METHOD              0
+             16 JUMP_FORWARD             2 (to 20)
+        >>   18 LOAD_CONST               1 ('')
+
+159     >>   20 STORE_FAST               4 (normalized_account_id)
+
+162          22 LOAD_FAST                4 (normalized_account_id)
+             24 POP_JUMP_IF_TRUE        38
+
+163          26 LOAD_GLOBAL              3 (AutomationError)
+
+164          28 LOAD_GLOBAL              4 (ErrorCode)
+             30 LOAD_ATTR                5 (INVALID_ARGUMENT)
+
+165          32 LOAD_CONST               2 ('account_id must be a non-empty string')
+
+163          34 CALL_FUNCTION            2
+             36 RAISE_VARARGS            1
+
+167     >>   38 LOAD_FAST                0 (self)
+             40 LOAD_ATTR                6 (_driver)
+             42 LOAD_METHOD              7 (get_by_account)
+             44 LOAD_FAST                4 (normalized_account_id)
+             46 CALL_METHOD              1
+             48 GET_AWAITABLE
+             50 LOAD_CONST               0 (None)
+             52 YIELD_FROM
+             54 STORE_FAST               5 (instance)
+
+168          56 LOAD_FAST                5 (instance)
+             58 LOAD_CONST               0 (None)
+             60 IS_OP                    0
+             62 POP_JUMP_IF_FALSE       82
+
+169          64 LOAD_GLOBAL              3 (AutomationError)
+
+170          66 LOAD_GLOBAL              4 (ErrorCode)
+             68 LOAD_ATTR                8 (ACCOUNT_NOT_INITIALIZED)
+
+171          70 LOAD_CONST               3 ('monitor account is not attached: {}')
+             72 LOAD_METHOD              9 (format)
+
+172          74 LOAD_FAST                4 (normalized_account_id)
+
+171          76 CALL_METHOD              1
+
+169          78 CALL_FUNCTION            2
+             80 RAISE_VARARGS            1
+
+175     >>   82 LOAD_FAST                5 (instance)
+             84 LOAD_ATTR               10 (state)
+             86 LOAD_GLOBAL             11 (InstanceState)
+             88 LOAD_ATTR               12 (READY)
+             90 IS_OP                    1
+             92 POP_JUMP_IF_FALSE      106
+
+176          94 LOAD_GLOBAL              3 (AutomationError)
+
+177          96 LOAD_GLOBAL              4 (ErrorCode)
+             98 LOAD_ATTR               13 (INSTANCE_NOT_READY)
+
+178         100 LOAD_CONST               4 ('monitor account instance is not ready')
+
+176         102 CALL_FUNCTION            2
+            104 RAISE_VARARGS            1
+
+180     >>  106 LOAD_FAST                0 (self)
+            108 LOAD_ATTR                6 (_driver)
+            110 LOAD_ATTR               14 (list_sessions)
+
+181         112 LOAD_FAST                5 (instance)
+            114 LOAD_ATTR               15 (instance_id)
+
+182         116 LOAD_FAST                2 (limit)
+
+183         118 LOAD_FAST                3 (start_time)
+
+180         120 LOAD_CONST               5 (('limit', 'start_time'))
+            122 CALL_FUNCTION_KW         3
+            124 GET_AWAITABLE
+            126 LOAD_CONST               0 (None)
+            128 YIELD_FROM
+            130 STORE_FAST               6 (sessions)
+
+190         132 LOAD_GLOBAL             16 (time)
+            134 LOAD_METHOD             16 (time)
+            136 CALL_METHOD              0
+            138 STORE_FAST               7 (now_timestamp)
+
+193         140 LOAD_FAST                3 (start_time)
+            142 LOAD_CONST               0 (None)
+            144 IS_OP                    1
+
+192         146 POP_JUMP_IF_FALSE      168
+
+193         148 LOAD_GLOBAL             17 (float)
+            150 LOAD_FAST                3 (start_time)
+            152 CALL_FUNCTION            1
+            154 LOAD_CONST               6 (0)
+            156 COMPARE_OP               4 (>)
+
+192         158 POP_JUMP_IF_FALSE      168
+            160 LOAD_GLOBAL             17 (float)
+            162 LOAD_FAST                3 (start_time)
+            164 CALL_FUNCTION            1
+            166 JUMP_FORWARD             6 (to 174)
+
+194     >>  168 LOAD_FAST                7 (now_timestamp)
+            170 LOAD_GLOBAL             18 (_WINDOWS_RECENT_SESSION_SECONDS)
+            172 BINARY_SUBTRACT
+
+191     >>  174 STORE_DEREF              0 (cutoff)
+
+196         176 LOAD_GLOBAL             19 (datetime)
+            178 LOAD_METHOD             20 (fromtimestamp)
+            180 LOAD_FAST                7 (now_timestamp)
+            182 CALL_METHOD              1
+            184 STORE_DEREF              1 (now)
+
+197         186 LOAD_GLOBAL             21 (tuple)
+            188 LOAD_CLOSURE             0 (cutoff)
+            190 LOAD_CLOSURE             1 (now)
+            192 BUILD_TUPLE              2
+            194 LOAD_CONST               7 (<code object <genexpr> at 0x10924cb30, file "WeRobotCore/adapters/wechat/macos_ax/monitor_session_source.py", line 197>)
+            196 LOAD_CONST               8 ('MacOSMonitorSessionSource.list_session_batch.<locals>.<genexpr>')
+            198 MAKE_FUNCTION            8 (closure)
+
+198         200 LOAD_FAST                6 (sessions)
+
+197         202 GET_ITER
+            204 CALL_FUNCTION            1
+            206 CALL_FUNCTION            1
+            208 STORE_FAST               8 (recent_sessions)
+
+201         210 LOAD_GLOBAL             22 (len)
+            212 LOAD_FAST                8 (recent_sessions)
+            214 CALL_FUNCTION            1
+            216 LOAD_GLOBAL             22 (len)
+            218 LOAD_FAST                6 (sessions)
+            220 CALL_FUNCTION            1
+            222 COMPARE_OP               3 (!=)
+            224 EXTENDED_ARG             1
+            226 POP_JUMP_IF_FALSE      270
+
+202         228 LOAD_GLOBAL             23 (logger)
+            230 LOAD_METHOD             24 (info)
+
+203         232 LOAD_CONST               9 ('Mac monitor skipped %d old or unparseable sessions before change detection: account_id=%s cutoff=%s')
+
+205         234 LOAD_GLOBAL             22 (len)
+            236 LOAD_FAST                6 (sessions)
+            238 CALL_FUNCTION            1
+            240 LOAD_GLOBAL             22 (len)
+            242 LOAD_FAST                8 (recent_sessions)
+            244 CALL_FUNCTION            1
+            246 BINARY_SUBTRACT
+
+206         248 LOAD_FAST                4 (normalized_account_id)
+
+207         250 LOAD_GLOBAL             19 (datetime)
+            252 LOAD_METHOD             20 (fromtimestamp)
+            254 LOAD_DEREF               0 (cutoff)
+            256 CALL_METHOD              1
+            258 LOAD_ATTR               25 (isoformat)
+            260 LOAD_CONST              10 ('seconds')
+            262 LOAD_CONST              11 (('timespec',))
+            264 CALL_FUNCTION_KW         1
+
+202         266 CALL_METHOD              4
+            268 POP_TOP
+
+209     >>  270 LOAD_GLOBAL             26 (map_macos_monitor_session_batch)
+
+210         272 LOAD_FAST                8 (recent_sessions)
+
+211         274 LOAD_FAST                4 (normalized_account_id)
+
+212         276 LOAD_FAST                0 (self)
+            278 LOAD_ATTR               27 (_group_chat_lookup)
+
+209         280 CALL_FUNCTION            3
+            282 RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x10924cb30, file "WeRobotCore/adapters/wechat/macos_ax/monitor_session_source.py", line 197>:
+197           0 LOAD_FAST                0 (.0)
+        >>    2 FOR_ITER                24 (to 28)
+
+198           4 STORE_FAST               1 (session)
+
+199           6 LOAD_GLOBAL              0 (_session_event_timestamp)
+              8 LOAD_FAST                1 (session)
+             10 LOAD_DEREF               1 (now)
+             12 CALL_FUNCTION            2
+             14 LOAD_DEREF               0 (cutoff)
+             16 COMPARE_OP               5 (>=)
+             18 POP_JUMP_IF_FALSE        2
+
+198          20 LOAD_FAST                1 (session)
+             22 YIELD_VALUE
+             24 POP_TOP
+             26 JUMP_ABSOLUTE            2
+        >>   28 LOAD_CONST               0 (None)
+             30 RETURN_VALUE

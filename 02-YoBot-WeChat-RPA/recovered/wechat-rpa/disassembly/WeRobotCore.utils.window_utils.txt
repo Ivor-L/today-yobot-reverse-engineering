@@ -1,0 +1,632 @@
+  1           0 LOAD_CONST               0 (0)
+              2 LOAD_CONST               1 (None)
+              4 IMPORT_NAME              0 (ctypes)
+              6 STORE_NAME               0 (ctypes)
+
+  2           8 LOAD_CONST               0 (0)
+             10 LOAD_CONST               1 (None)
+             12 IMPORT_NAME              1 (time)
+             14 STORE_NAME               1 (time)
+
+  3          16 LOAD_CONST               0 (0)
+             18 LOAD_CONST               2 (('windll',))
+             20 IMPORT_NAME              0 (ctypes)
+             22 IMPORT_FROM              2 (windll)
+             24 STORE_NAME               2 (windll)
+             26 POP_TOP
+
+  6          28 LOAD_CONST               3 (8193)
+             30 STORE_NAME               3 (SPI_SETFOREGROUNDLOCKTIMEOUT)
+
+  7          32 LOAD_CONST               4 (2)
+             34 STORE_NAME               4 (SPIF_SENDWININICHANGE)
+
+  8          36 LOAD_CONST               5 (1)
+             38 STORE_NAME               5 (SPIF_UPDATEINIFILE)
+
+  9          40 LOAD_CONST               6 (9)
+             42 STORE_NAME               6 (SW_RESTORE)
+
+ 10          44 LOAD_CONST               7 (5)
+             46 STORE_NAME               7 (SW_SHOW)
+
+ 11          48 LOAD_CONST               8 (18)
+             50 STORE_NAME               8 (ALT_KEY)
+
+ 12          52 LOAD_CONST               4 (2)
+             54 STORE_NAME               9 (KEYEVENTF_KEYUP)
+
+ 14          56 LOAD_NAME               10 (bool)
+             58 LOAD_CONST               9 (('return',))
+             60 BUILD_CONST_KEY_MAP      1
+             62 LOAD_CONST              10 (<code object try_bring_wechat_window_to_front at 0x10924bbe0, file "WeRobotCore/utils/window_utils.py", line 14>)
+             64 LOAD_CONST              11 ('try_bring_wechat_window_to_front')
+             66 MAKE_FUNCTION            4 (annotations)
+             68 STORE_NAME              11 (try_bring_wechat_window_to_front)
+
+ 38          70 LOAD_CONST              12 (<code object force_focus_window at 0x10924bdf0, file "WeRobotCore/utils/window_utils.py", line 38>)
+             72 LOAD_CONST              13 ('force_focus_window')
+             74 MAKE_FUNCTION            0
+             76 STORE_NAME              12 (force_focus_window)
+             78 LOAD_CONST               1 (None)
+             80 RETURN_VALUE
+
+Disassembly of <code object try_bring_wechat_window_to_front at 0x10924bbe0, file "WeRobotCore/utils/window_utils.py", line 14>:
+ 15           0 LOAD_CONST               1 (0)
+              2 LOAD_CONST               0 (None)
+              4 IMPORT_NAME              0 (platform)
+              6 STORE_FAST               0 (platform)
+
+ 16           8 LOAD_FAST                0 (platform)
+             10 LOAD_METHOD              1 (system)
+             12 CALL_METHOD              0
+             14 LOAD_CONST               2 ('Windows')
+             16 COMPARE_OP               3 (!=)
+             18 POP_JUMP_IF_FALSE       24
+
+ 17          20 LOAD_CONST               3 (False)
+             22 RETURN_VALUE
+
+ 18     >>   24 SETUP_FINALLY          160 (to 186)
+
+ 19          26 LOAD_GLOBAL              2 (windll)
+             28 LOAD_ATTR                3 (user32)
+             30 STORE_FAST               1 (user32)
+
+ 20          32 LOAD_CONST               4 (17)
+             34 STORE_FAST               2 (VK_CONTROL)
+
+ 21          36 LOAD_CONST               5 (18)
+             38 STORE_FAST               3 (VK_MENU)
+
+ 22          40 LOAD_CONST               6 (87)
+             42 STORE_FAST               4 (VK_W)
+
+ 24          44 SETUP_FINALLY          114 (to 160)
+
+ 25          46 LOAD_FAST                1 (user32)
+             48 LOAD_METHOD              4 (keybd_event)
+             50 LOAD_FAST                2 (VK_CONTROL)
+             52 LOAD_CONST               1 (0)
+             54 LOAD_CONST               1 (0)
+             56 LOAD_CONST               1 (0)
+             58 CALL_METHOD              4
+             60 POP_TOP
+
+ 26          62 LOAD_FAST                1 (user32)
+             64 LOAD_METHOD              4 (keybd_event)
+             66 LOAD_FAST                3 (VK_MENU)
+             68 LOAD_CONST               1 (0)
+             70 LOAD_CONST               1 (0)
+             72 LOAD_CONST               1 (0)
+             74 CALL_METHOD              4
+             76 POP_TOP
+
+ 27          78 LOAD_FAST                1 (user32)
+             80 LOAD_METHOD              4 (keybd_event)
+             82 LOAD_FAST                4 (VK_W)
+             84 LOAD_CONST               1 (0)
+             86 LOAD_CONST               1 (0)
+             88 LOAD_CONST               1 (0)
+             90 CALL_METHOD              4
+             92 POP_TOP
+
+ 28          94 LOAD_GLOBAL              5 (time)
+             96 LOAD_METHOD              6 (sleep)
+             98 LOAD_CONST               7 (0.05)
+            100 CALL_METHOD              1
+            102 POP_TOP
+
+ 29         104 LOAD_FAST                1 (user32)
+            106 LOAD_METHOD              4 (keybd_event)
+            108 LOAD_FAST                4 (VK_W)
+            110 LOAD_CONST               1 (0)
+            112 LOAD_GLOBAL              7 (KEYEVENTF_KEYUP)
+            114 LOAD_CONST               1 (0)
+            116 CALL_METHOD              4
+            118 POP_TOP
+
+ 30         120 LOAD_FAST                1 (user32)
+            122 LOAD_METHOD              4 (keybd_event)
+            124 LOAD_FAST                3 (VK_MENU)
+            126 LOAD_CONST               1 (0)
+            128 LOAD_GLOBAL              7 (KEYEVENTF_KEYUP)
+            130 LOAD_CONST               1 (0)
+            132 CALL_METHOD              4
+            134 POP_TOP
+
+ 31         136 LOAD_FAST                1 (user32)
+            138 LOAD_METHOD              4 (keybd_event)
+            140 LOAD_FAST                2 (VK_CONTROL)
+            142 LOAD_CONST               1 (0)
+            144 LOAD_GLOBAL              7 (KEYEVENTF_KEYUP)
+            146 LOAD_CONST               1 (0)
+            148 CALL_METHOD              4
+            150 POP_TOP
+
+ 32         152 POP_BLOCK
+            154 POP_BLOCK
+            156 LOAD_CONST               8 (True)
+            158 RETURN_VALUE
+
+ 33     >>  160 DUP_TOP
+            162 LOAD_GLOBAL              8 (Exception)
+            164 JUMP_IF_NOT_EXC_MATCH   180
+            166 POP_TOP
+            168 POP_TOP
+            170 POP_TOP
+
+ 34         172 POP_EXCEPT
+            174 POP_BLOCK
+            176 LOAD_CONST               3 (False)
+            178 RETURN_VALUE
+        >>  180 RERAISE
+            182 POP_BLOCK
+            184 JUMP_FORWARD            20 (to 206)
+
+ 35     >>  186 DUP_TOP
+            188 LOAD_GLOBAL              8 (Exception)
+            190 JUMP_IF_NOT_EXC_MATCH   204
+            192 POP_TOP
+            194 POP_TOP
+            196 POP_TOP
+
+ 36         198 POP_EXCEPT
+            200 LOAD_CONST               3 (False)
+            202 RETURN_VALUE
+        >>  204 RERAISE
+        >>  206 LOAD_CONST               0 (None)
+            208 RETURN_VALUE
+
+Disassembly of <code object force_focus_window at 0x10924bdf0, file "WeRobotCore/utils/window_utils.py", line 38>:
+ 52           0 LOAD_FAST                0 (hwnd)
+              2 POP_JUMP_IF_TRUE         8
+
+ 53           4 LOAD_CONST               1 (False)
+              6 RETURN_VALUE
+
+ 55     >>    8 LOAD_GLOBAL              0 (windll)
+             10 LOAD_ATTR                1 (user32)
+             12 STORE_FAST               1 (user32)
+
+ 56          14 LOAD_GLOBAL              0 (windll)
+             16 LOAD_ATTR                2 (kernel32)
+             18 STORE_FAST               2 (kernel32)
+
+ 61          20 LOAD_FAST                1 (user32)
+             22 LOAD_METHOD              3 (IsWindow)
+             24 LOAD_FAST                0 (hwnd)
+             26 CALL_METHOD              1
+             28 POP_JUMP_IF_TRUE        34
+
+ 62          30 LOAD_CONST               1 (False)
+             32 RETURN_VALUE
+
+ 65     >>   34 LOAD_FAST                1 (user32)
+             36 LOAD_METHOD              4 (GetForegroundWindow)
+             38 CALL_METHOD              0
+             40 LOAD_FAST                0 (hwnd)
+             42 COMPARE_OP               2 (==)
+             44 POP_JUMP_IF_FALSE       50
+
+ 66          46 LOAD_CONST               2 (True)
+             48 RETURN_VALUE
+
+ 71     >>   50 LOAD_FAST                1 (user32)
+             52 LOAD_METHOD              5 (IsWindowVisible)
+             54 LOAD_FAST                0 (hwnd)
+             56 CALL_METHOD              1
+             58 POP_JUMP_IF_TRUE        76
+
+ 72          60 LOAD_GLOBAL              6 (try_bring_wechat_window_to_front)
+             62 CALL_FUNCTION            0
+             64 POP_TOP
+
+ 73          66 LOAD_GLOBAL              7 (time)
+             68 LOAD_METHOD              8 (sleep)
+             70 LOAD_CONST               3 (0.5)
+             72 CALL_METHOD              1
+             74 POP_TOP
+
+ 76     >>   76 LOAD_FAST                1 (user32)
+             78 LOAD_METHOD              9 (IsIconic)
+             80 LOAD_FAST                0 (hwnd)
+             82 CALL_METHOD              1
+             84 POP_JUMP_IF_TRUE        96
+             86 LOAD_FAST                1 (user32)
+             88 LOAD_METHOD              5 (IsWindowVisible)
+             90 LOAD_FAST                0 (hwnd)
+             92 CALL_METHOD              1
+             94 POP_JUMP_IF_TRUE       132
+
+ 77     >>   96 LOAD_FAST                1 (user32)
+             98 LOAD_METHOD              9 (IsIconic)
+            100 LOAD_FAST                0 (hwnd)
+            102 CALL_METHOD              1
+            104 POP_JUMP_IF_FALSE      120
+
+ 78         106 LOAD_FAST                1 (user32)
+            108 LOAD_METHOD             10 (ShowWindow)
+            110 LOAD_FAST                0 (hwnd)
+            112 LOAD_GLOBAL             11 (SW_RESTORE)
+            114 CALL_METHOD              2
+            116 POP_TOP
+            118 JUMP_FORWARD            12 (to 132)
+
+ 80     >>  120 LOAD_FAST                1 (user32)
+            122 LOAD_METHOD             10 (ShowWindow)
+            124 LOAD_FAST                0 (hwnd)
+            126 LOAD_GLOBAL             12 (SW_SHOW)
+            128 CALL_METHOD              2
+            130 POP_TOP
+
+ 84     >>  132 SETUP_FINALLY           50 (to 184)
+
+ 86         134 LOAD_FAST                1 (user32)
+            136 LOAD_METHOD             13 (SetForegroundWindow)
+            138 LOAD_FAST                0 (hwnd)
+            140 CALL_METHOD              1
+            142 POP_JUMP_IF_FALSE      150
+
+ 87         144 POP_BLOCK
+            146 LOAD_CONST               2 (True)
+            148 RETURN_VALUE
+
+ 90     >>  150 LOAD_FAST                1 (user32)
+            152 LOAD_METHOD             14 (SwitchToThisWindow)
+            154 LOAD_FAST                0 (hwnd)
+            156 LOAD_CONST               2 (True)
+            158 CALL_METHOD              2
+            160 POP_TOP
+
+ 91         162 LOAD_FAST                1 (user32)
+            164 LOAD_METHOD              4 (GetForegroundWindow)
+            166 CALL_METHOD              0
+            168 LOAD_FAST                0 (hwnd)
+            170 COMPARE_OP               2 (==)
+            172 POP_JUMP_IF_FALSE      180
+
+ 92         174 POP_BLOCK
+            176 LOAD_CONST               2 (True)
+            178 RETURN_VALUE
+        >>  180 POP_BLOCK
+            182 JUMP_FORWARD            18 (to 202)
+
+ 94     >>  184 DUP_TOP
+            186 LOAD_GLOBAL             15 (Exception)
+            188 JUMP_IF_NOT_EXC_MATCH   200
+            190 POP_TOP
+            192 POP_TOP
+            194 POP_TOP
+
+ 95         196 POP_EXCEPT
+            198 JUMP_FORWARD             2 (to 202)
+        >>  200 RERAISE
+
+101     >>  202 LOAD_FAST                1 (user32)
+            204 LOAD_METHOD              4 (GetForegroundWindow)
+            206 CALL_METHOD              0
+            208 STORE_FAST               3 (foreground_window)
+
+102         210 LOAD_FAST                3 (foreground_window)
+            212 LOAD_FAST                0 (hwnd)
+            214 COMPARE_OP               2 (==)
+            216 POP_JUMP_IF_FALSE      222
+
+103         218 LOAD_CONST               2 (True)
+            220 RETURN_VALUE
+
+105     >>  222 LOAD_FAST                1 (user32)
+            224 LOAD_METHOD             16 (GetWindowThreadProcessId)
+            226 LOAD_FAST                3 (foreground_window)
+            228 LOAD_CONST               4 (None)
+            230 CALL_METHOD              2
+            232 STORE_FAST               4 (foreground_thread_id)
+
+106         234 LOAD_FAST                2 (kernel32)
+            236 LOAD_METHOD             17 (GetCurrentThreadId)
+            238 CALL_METHOD              0
+            240 STORE_FAST               5 (current_thread_id)
+
+109         242 LOAD_CONST               1 (False)
+            244 STORE_FAST               6 (attached)
+
+110         246 LOAD_FAST                4 (foreground_thread_id)
+            248 LOAD_FAST                5 (current_thread_id)
+            250 COMPARE_OP               3 (!=)
+            252 EXTENDED_ARG             1
+            254 POP_JUMP_IF_FALSE      306
+            256 LOAD_FAST                3 (foreground_window)
+            258 LOAD_CONST               5 (0)
+            260 COMPARE_OP               3 (!=)
+            262 EXTENDED_ARG             1
+            264 POP_JUMP_IF_FALSE      306
+
+111         266 SETUP_FINALLY           18 (to 286)
+
+112         268 LOAD_FAST                1 (user32)
+            270 LOAD_METHOD             18 (AttachThreadInput)
+            272 LOAD_FAST                4 (foreground_thread_id)
+            274 LOAD_FAST                5 (current_thread_id)
+            276 LOAD_CONST               2 (True)
+            278 CALL_METHOD              3
+            280 STORE_FAST               6 (attached)
+            282 POP_BLOCK
+            284 JUMP_FORWARD            20 (to 306)
+
+113     >>  286 DUP_TOP
+            288 LOAD_GLOBAL             15 (Exception)
+            290 EXTENDED_ARG             1
+            292 JUMP_IF_NOT_EXC_MATCH   304
+            294 POP_TOP
+            296 POP_TOP
+            298 POP_TOP
+
+114         300 POP_EXCEPT
+            302 JUMP_FORWARD             2 (to 306)
+        >>  304 RERAISE
+
+117     >>  306 LOAD_GLOBAL             19 (ctypes)
+            308 LOAD_METHOD             20 (c_uint32)
+            310 CALL_METHOD              0
+            312 STORE_FAST               7 (old_timeout)
+
+118         314 LOAD_CONST               1 (False)
+            316 STORE_FAST               8 (timeout_modified)
+
+119         318 SETUP_FINALLY           56 (to 376)
+
+120         320 LOAD_FAST                1 (user32)
+            322 LOAD_METHOD             21 (SystemParametersInfoW)
+            324 LOAD_GLOBAL             22 (SPI_SETFOREGROUNDLOCKTIMEOUT)
+            326 LOAD_CONST               5 (0)
+            328 LOAD_GLOBAL             19 (ctypes)
+            330 LOAD_METHOD             23 (byref)
+            332 LOAD_FAST                7 (old_timeout)
+            334 CALL_METHOD              1
+            336 LOAD_CONST               5 (0)
+            338 CALL_METHOD              4
+            340 POP_TOP
+
+121         342 LOAD_FAST                1 (user32)
+            344 LOAD_METHOD             21 (SystemParametersInfoW)
+            346 LOAD_GLOBAL             22 (SPI_SETFOREGROUNDLOCKTIMEOUT)
+            348 LOAD_CONST               5 (0)
+            350 LOAD_GLOBAL             19 (ctypes)
+            352 LOAD_METHOD             24 (c_void_p)
+            354 LOAD_CONST               5 (0)
+            356 CALL_METHOD              1
+            358 LOAD_GLOBAL             25 (SPIF_SENDWININICHANGE)
+            360 LOAD_GLOBAL             26 (SPIF_UPDATEINIFILE)
+            362 BINARY_OR
+            364 CALL_METHOD              4
+            366 POP_TOP
+
+122         368 LOAD_CONST               2 (True)
+            370 STORE_FAST               8 (timeout_modified)
+            372 POP_BLOCK
+            374 JUMP_FORWARD            20 (to 396)
+
+123     >>  376 DUP_TOP
+            378 LOAD_GLOBAL             15 (Exception)
+            380 EXTENDED_ARG             1
+            382 JUMP_IF_NOT_EXC_MATCH   394
+            384 POP_TOP
+            386 POP_TOP
+            388 POP_TOP
+
+124         390 POP_EXCEPT
+            392 JUMP_FORWARD             2 (to 396)
+        >>  394 RERAISE
+
+127     >>  396 SETUP_FINALLY           36 (to 434)
+
+128         398 LOAD_FAST                1 (user32)
+            400 LOAD_METHOD             27 (keybd_event)
+            402 LOAD_GLOBAL             28 (ALT_KEY)
+            404 LOAD_CONST               5 (0)
+            406 LOAD_CONST               5 (0)
+            408 LOAD_CONST               5 (0)
+            410 CALL_METHOD              4
+            412 POP_TOP
+
+129         414 LOAD_FAST                1 (user32)
+            416 LOAD_METHOD             27 (keybd_event)
+            418 LOAD_GLOBAL             28 (ALT_KEY)
+            420 LOAD_CONST               5 (0)
+            422 LOAD_GLOBAL             29 (KEYEVENTF_KEYUP)
+            424 LOAD_CONST               5 (0)
+            426 CALL_METHOD              4
+            428 POP_TOP
+            430 POP_BLOCK
+            432 JUMP_FORWARD            20 (to 454)
+
+130     >>  434 DUP_TOP
+            436 LOAD_GLOBAL             15 (Exception)
+            438 EXTENDED_ARG             1
+            440 JUMP_IF_NOT_EXC_MATCH   452
+            442 POP_TOP
+            444 POP_TOP
+            446 POP_TOP
+
+131         448 POP_EXCEPT
+            450 JUMP_FORWARD             2 (to 454)
+        >>  452 RERAISE
+
+133     >>  454 LOAD_CONST               1 (False)
+            456 STORE_FAST               9 (result)
+
+134         458 SETUP_FINALLY          180 (to 640)
+            460 SETUP_FINALLY           48 (to 510)
+
+136         462 LOAD_FAST                1 (user32)
+            464 LOAD_METHOD             13 (SetForegroundWindow)
+            466 LOAD_FAST                0 (hwnd)
+            468 CALL_METHOD              1
+            470 POP_TOP
+
+137         472 LOAD_FAST                1 (user32)
+            474 LOAD_METHOD             14 (SwitchToThisWindow)
+            476 LOAD_FAST                0 (hwnd)
+            478 LOAD_CONST               2 (True)
+            480 CALL_METHOD              2
+            482 POP_TOP
+
+140         484 LOAD_GLOBAL              7 (time)
+            486 LOAD_METHOD              8 (sleep)
+            488 LOAD_CONST               6 (0.05)
+            490 CALL_METHOD              1
+            492 POP_TOP
+
+141         494 LOAD_FAST                1 (user32)
+            496 LOAD_METHOD              4 (GetForegroundWindow)
+            498 CALL_METHOD              0
+            500 LOAD_FAST                0 (hwnd)
+            502 COMPARE_OP               2 (==)
+            504 STORE_FAST               9 (result)
+            506 POP_BLOCK
+            508 JUMP_FORWARD            20 (to 530)
+
+143     >>  510 DUP_TOP
+            512 LOAD_GLOBAL             15 (Exception)
+            514 EXTENDED_ARG             2
+            516 JUMP_IF_NOT_EXC_MATCH   528
+            518 POP_TOP
+            520 POP_TOP
+            522 POP_TOP
+
+144         524 POP_EXCEPT
+            526 JUMP_FORWARD             2 (to 530)
+        >>  528 RERAISE
+        >>  530 POP_BLOCK
+
+147         532 LOAD_FAST                8 (timeout_modified)
+            534 EXTENDED_ARG             2
+            536 POP_JUMP_IF_FALSE      592
+
+148         538 SETUP_FINALLY           32 (to 572)
+
+149         540 LOAD_FAST                1 (user32)
+            542 LOAD_METHOD             21 (SystemParametersInfoW)
+            544 LOAD_GLOBAL             22 (SPI_SETFOREGROUNDLOCKTIMEOUT)
+            546 LOAD_CONST               5 (0)
+            548 LOAD_GLOBAL             19 (ctypes)
+            550 LOAD_METHOD             24 (c_void_p)
+            552 LOAD_FAST                7 (old_timeout)
+            554 LOAD_ATTR               30 (value)
+            556 CALL_METHOD              1
+            558 LOAD_GLOBAL             25 (SPIF_SENDWININICHANGE)
+            560 LOAD_GLOBAL             26 (SPIF_UPDATEINIFILE)
+            562 BINARY_OR
+            564 CALL_METHOD              4
+            566 POP_TOP
+            568 POP_BLOCK
+            570 JUMP_FORWARD            20 (to 592)
+
+150     >>  572 DUP_TOP
+            574 LOAD_GLOBAL             15 (Exception)
+            576 EXTENDED_ARG             2
+            578 JUMP_IF_NOT_EXC_MATCH   590
+            580 POP_TOP
+            582 POP_TOP
+            584 POP_TOP
+
+151         586 POP_EXCEPT
+            588 JUMP_FORWARD             2 (to 592)
+        >>  590 RERAISE
+
+154     >>  592 LOAD_FAST                6 (attached)
+            594 EXTENDED_ARG             2
+            596 POP_JUMP_IF_FALSE      748
+
+155         598 SETUP_FINALLY           18 (to 618)
+
+156         600 LOAD_FAST                1 (user32)
+            602 LOAD_METHOD             18 (AttachThreadInput)
+            604 LOAD_FAST                4 (foreground_thread_id)
+            606 LOAD_FAST                5 (current_thread_id)
+            608 LOAD_CONST               1 (False)
+            610 CALL_METHOD              3
+            612 POP_TOP
+            614 POP_BLOCK
+            616 JUMP_FORWARD            20 (to 638)
+
+157     >>  618 DUP_TOP
+            620 LOAD_GLOBAL             15 (Exception)
+            622 EXTENDED_ARG             2
+            624 JUMP_IF_NOT_EXC_MATCH   636
+            626 POP_TOP
+            628 POP_TOP
+            630 POP_TOP
+
+158         632 POP_EXCEPT
+            634 JUMP_FORWARD             2 (to 638)
+        >>  636 RERAISE
+        >>  638 JUMP_FORWARD           108 (to 748)
+
+147     >>  640 LOAD_FAST                8 (timeout_modified)
+            642 EXTENDED_ARG             2
+            644 POP_JUMP_IF_FALSE      700
+
+148         646 SETUP_FINALLY           32 (to 680)
+
+149         648 LOAD_FAST                1 (user32)
+            650 LOAD_METHOD             21 (SystemParametersInfoW)
+            652 LOAD_GLOBAL             22 (SPI_SETFOREGROUNDLOCKTIMEOUT)
+            654 LOAD_CONST               5 (0)
+            656 LOAD_GLOBAL             19 (ctypes)
+            658 LOAD_METHOD             24 (c_void_p)
+            660 LOAD_FAST                7 (old_timeout)
+            662 LOAD_ATTR               30 (value)
+            664 CALL_METHOD              1
+            666 LOAD_GLOBAL             25 (SPIF_SENDWININICHANGE)
+            668 LOAD_GLOBAL             26 (SPIF_UPDATEINIFILE)
+            670 BINARY_OR
+            672 CALL_METHOD              4
+            674 POP_TOP
+            676 POP_BLOCK
+            678 JUMP_FORWARD            20 (to 700)
+
+150     >>  680 DUP_TOP
+            682 LOAD_GLOBAL             15 (Exception)
+            684 EXTENDED_ARG             2
+            686 JUMP_IF_NOT_EXC_MATCH   698
+            688 POP_TOP
+            690 POP_TOP
+            692 POP_TOP
+
+151         694 POP_EXCEPT
+            696 JUMP_FORWARD             2 (to 700)
+        >>  698 RERAISE
+
+154     >>  700 LOAD_FAST                6 (attached)
+            702 EXTENDED_ARG             2
+            704 POP_JUMP_IF_FALSE      746
+
+155         706 SETUP_FINALLY           18 (to 726)
+
+156         708 LOAD_FAST                1 (user32)
+            710 LOAD_METHOD             18 (AttachThreadInput)
+            712 LOAD_FAST                4 (foreground_thread_id)
+            714 LOAD_FAST                5 (current_thread_id)
+            716 LOAD_CONST               1 (False)
+            718 CALL_METHOD              3
+            720 POP_TOP
+            722 POP_BLOCK
+            724 JUMP_FORWARD            20 (to 746)
+
+157     >>  726 DUP_TOP
+            728 LOAD_GLOBAL             15 (Exception)
+            730 EXTENDED_ARG             2
+            732 JUMP_IF_NOT_EXC_MATCH   744
+            734 POP_TOP
+            736 POP_TOP
+            738 POP_TOP
+
+158         740 POP_EXCEPT
+            742 JUMP_FORWARD             2 (to 746)
+        >>  744 RERAISE
+        >>  746 RERAISE
+
+160     >>  748 LOAD_FAST                9 (result)
+            750 RETURN_VALUE

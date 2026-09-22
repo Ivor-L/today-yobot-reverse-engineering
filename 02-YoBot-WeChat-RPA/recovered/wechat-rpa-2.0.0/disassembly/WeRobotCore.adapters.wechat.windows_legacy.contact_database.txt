@@ -1,0 +1,560 @@
+  1           0 LOAD_CONST               0 ('Read-only bridge over the existing Windows contact database snapshots.')
+              2 STORE_NAME               0 (__doc__)
+
+  3           4 LOAD_CONST               1 (0)
+              6 LOAD_CONST               2 (('Any', 'Callable', 'Mapping', 'Sequence'))
+              8 IMPORT_NAME              1 (typing)
+             10 IMPORT_FROM              2 (Any)
+             12 STORE_NAME               2 (Any)
+             14 IMPORT_FROM              3 (Callable)
+             16 STORE_NAME               3 (Callable)
+             18 IMPORT_FROM              4 (Mapping)
+             20 STORE_NAME               4 (Mapping)
+             22 IMPORT_FROM              5 (Sequence)
+             24 STORE_NAME               5 (Sequence)
+             26 POP_TOP
+
+  5          28 LOAD_CONST               3 (1)
+             30 LOAD_CONST               4 (('LegacyContactDatabase',))
+             32 IMPORT_NAME              6 (facades)
+             34 IMPORT_FROM              7 (LegacyContactDatabase)
+             36 STORE_NAME               7 (LegacyContactDatabase)
+             38 POP_TOP
+
+  8          40 LOAD_BUILD_CLASS
+             42 LOAD_CONST               5 (<code object WindowsLegacyContactDatabaseFacade at 0x1073b9b30, file "WeRobotCore/adapters/wechat/windows_legacy/contact_database.py", line 8>)
+             44 LOAD_CONST               6 ('WindowsLegacyContactDatabaseFacade')
+             46 MAKE_FUNCTION            0
+             48 LOAD_CONST               6 ('WindowsLegacyContactDatabaseFacade')
+             50 CALL_FUNCTION            2
+             52 STORE_NAME               8 (WindowsLegacyContactDatabaseFacade)
+             54 LOAD_CONST               7 (None)
+             56 RETURN_VALUE
+
+Disassembly of <code object WindowsLegacyContactDatabaseFacade at 0x1073b9b30, file "WeRobotCore/adapters/wechat/windows_legacy/contact_database.py", line 8>:
+  8           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('WindowsLegacyContactDatabaseFacade')
+              6 STORE_NAME               2 (__qualname__)
+
+  9           8 LOAD_CONST               1 ("Expose Legacy ``get_friends/get_groups`` rows as mapping snapshots.\n\n    The current API already lists contacts from the shared SQLite database.\n    This bridge retains that read-only behaviour and intentionally does not\n    call ``sync_contacts``, ``sync_groups`` or any UI Automation method.\n    It preserves ``is_new`` and timestamp facts but does not reproduce the\n    current UI's seven-day/filter decisions; those remain shared business\n    formatting above the Driver boundary.\n    ``database_factory`` is evaluated only when a list method is invoked so\n    composing a Runtime remains side-effect free.\n    ")
+             10 STORE_NAME               3 (__doc__)
+
+ 23          12 LOAD_NAME                4 (Callable)
+             14 BUILD_LIST               0
+             16 LOAD_NAME                5 (LegacyContactDatabase)
+             18 BUILD_TUPLE              2
+             20 BINARY_SUBSCR
+
+ 24          22 LOAD_CONST               2 (None)
+
+ 21          24 LOAD_CONST               3 (('database_factory', 'return'))
+             26 BUILD_CONST_KEY_MAP      2
+             28 LOAD_CONST               4 (<code object __init__ at 0x1072e0ea0, file "WeRobotCore/adapters/wechat/windows_legacy/contact_database.py", line 21>)
+             30 LOAD_CONST               5 ('WindowsLegacyContactDatabaseFacade.__init__')
+             32 MAKE_FUNCTION            4 (annotations)
+             34 STORE_NAME               6 (__init__)
+
+ 29          36 LOAD_NAME                7 (staticmethod)
+
+ 30          38 LOAD_NAME                8 (str)
+             40 LOAD_NAME                8 (str)
+             42 LOAD_CONST               6 (('account_id', 'return'))
+             44 BUILD_CONST_KEY_MAP      2
+             46 LOAD_CONST               7 (<code object _account_id at 0x1073b9870, file "WeRobotCore/adapters/wechat/windows_legacy/contact_database.py", line 29>)
+             48 LOAD_CONST               8 ('WindowsLegacyContactDatabaseFacade._account_id')
+             50 MAKE_FUNCTION            4 (annotations)
+             52 CALL_FUNCTION            1
+             54 STORE_NAME               9 (_account_id)
+
+ 35          56 LOAD_NAME                7 (staticmethod)
+
+ 36          58 LOAD_NAME               10 (Any)
+             60 LOAD_NAME                8 (str)
+             62 LOAD_NAME               11 (Sequence)
+             64 LOAD_NAME               10 (Any)
+             66 BINARY_SUBSCR
+             68 LOAD_CONST               9 (('raw', 'operation', 'return'))
+             70 BUILD_CONST_KEY_MAP      3
+             72 LOAD_CONST              10 (<code object _rows at 0x1073b9500, file "WeRobotCore/adapters/wechat/windows_legacy/contact_database.py", line 35>)
+             74 LOAD_CONST              11 ('WindowsLegacyContactDatabaseFacade._rows')
+             76 MAKE_FUNCTION            4 (annotations)
+             78 CALL_FUNCTION            1
+             80 STORE_NAME              12 (_rows)
+
+ 44          82 LOAD_NAME                7 (staticmethod)
+
+ 45          84 LOAD_NAME               10 (Any)
+             86 LOAD_NAME               13 (Mapping)
+             88 LOAD_NAME                8 (str)
+             90 LOAD_NAME               10 (Any)
+             92 BUILD_TUPLE              2
+             94 BINARY_SUBSCR
+             96 LOAD_CONST              12 (('row', 'return'))
+             98 BUILD_CONST_KEY_MAP      2
+            100 LOAD_CONST              13 (<code object _contact_row at 0x1073b9f50, file "WeRobotCore/adapters/wechat/windows_legacy/contact_database.py", line 44>)
+            102 LOAD_CONST              14 ('WindowsLegacyContactDatabaseFacade._contact_row')
+            104 MAKE_FUNCTION            4 (annotations)
+            106 CALL_FUNCTION            1
+            108 STORE_NAME              14 (_contact_row)
+
+ 67         110 LOAD_NAME                7 (staticmethod)
+
+ 68         112 LOAD_NAME               10 (Any)
+            114 LOAD_NAME               13 (Mapping)
+            116 LOAD_NAME                8 (str)
+            118 LOAD_NAME               10 (Any)
+            120 BUILD_TUPLE              2
+            122 BINARY_SUBSCR
+            124 LOAD_CONST              12 (('row', 'return'))
+            126 BUILD_CONST_KEY_MAP      2
+            128 LOAD_CONST              15 (<code object _group_row at 0x1073b9d40, file "WeRobotCore/adapters/wechat/windows_legacy/contact_database.py", line 67>)
+            130 LOAD_CONST              16 ('WindowsLegacyContactDatabaseFacade._group_row')
+            132 MAKE_FUNCTION            4 (annotations)
+            134 CALL_FUNCTION            1
+            136 STORE_NAME              15 (_group_row)
+
+ 83         138 LOAD_NAME                5 (LegacyContactDatabase)
+            140 LOAD_CONST              17 (('return',))
+            142 BUILD_CONST_KEY_MAP      1
+            144 LOAD_CONST              18 (<code object _database at 0x1073b9920, file "WeRobotCore/adapters/wechat/windows_legacy/contact_database.py", line 83>)
+            146 LOAD_CONST              19 ('WindowsLegacyContactDatabaseFacade._database')
+            148 MAKE_FUNCTION            4 (annotations)
+            150 STORE_NAME              16 (_database)
+
+100         152 LOAD_NAME                8 (str)
+
+101         154 LOAD_NAME               11 (Sequence)
+            156 LOAD_NAME               13 (Mapping)
+            158 LOAD_NAME                8 (str)
+            160 LOAD_NAME               10 (Any)
+            162 BUILD_TUPLE              2
+            164 BINARY_SUBSCR
+            166 BINARY_SUBSCR
+
+ 98         168 LOAD_CONST               6 (('account_id', 'return'))
+            170 BUILD_CONST_KEY_MAP      2
+            172 LOAD_CONST              20 (<code object async_list_contacts at 0x1073b92f0, file "WeRobotCore/adapters/wechat/windows_legacy/contact_database.py", line 98>)
+            174 LOAD_CONST              21 ('WindowsLegacyContactDatabaseFacade.async_list_contacts')
+            176 MAKE_FUNCTION            4 (annotations)
+            178 STORE_NAME              17 (async_list_contacts)
+
+111         180 LOAD_NAME                8 (str)
+
+112         182 LOAD_NAME               11 (Sequence)
+            184 LOAD_NAME               13 (Mapping)
+            186 LOAD_NAME                8 (str)
+            188 LOAD_NAME               10 (Any)
+            190 BUILD_TUPLE              2
+            192 BINARY_SUBSCR
+            194 BINARY_SUBSCR
+
+109         196 LOAD_CONST               6 (('account_id', 'return'))
+            198 BUILD_CONST_KEY_MAP      2
+            200 LOAD_CONST              22 (<code object async_list_groups at 0x1073b9240, file "WeRobotCore/adapters/wechat/windows_legacy/contact_database.py", line 109>)
+            202 LOAD_CONST              23 ('WindowsLegacyContactDatabaseFacade.async_list_groups')
+            204 MAKE_FUNCTION            4 (annotations)
+            206 STORE_NAME              18 (async_list_groups)
+            208 LOAD_CONST               2 (None)
+            210 RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x1072e0ea0, file "WeRobotCore/adapters/wechat/windows_legacy/contact_database.py", line 21>:
+ 25           0 LOAD_GLOBAL              0 (callable)
+              2 LOAD_FAST                1 (database_factory)
+              4 CALL_FUNCTION            1
+              6 POP_JUMP_IF_TRUE        16
+
+ 26           8 LOAD_GLOBAL              1 (ValueError)
+             10 LOAD_CONST               1 ('database_factory must be callable')
+             12 CALL_FUNCTION            1
+             14 RAISE_VARARGS            1
+
+ 27     >>   16 LOAD_FAST                1 (database_factory)
+             18 LOAD_FAST                0 (self)
+             20 STORE_ATTR               2 (_database_factory)
+             22 LOAD_CONST               0 (None)
+             24 RETURN_VALUE
+
+Disassembly of <code object _account_id at 0x1073b9870, file "WeRobotCore/adapters/wechat/windows_legacy/contact_database.py", line 29>:
+ 31           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                0 (account_id)
+              4 LOAD_GLOBAL              1 (str)
+              6 CALL_FUNCTION            2
+              8 POP_JUMP_IF_FALSE       18
+             10 LOAD_FAST                0 (account_id)
+             12 LOAD_METHOD              2 (strip)
+             14 CALL_METHOD              0
+             16 POP_JUMP_IF_TRUE        26
+
+ 32     >>   18 LOAD_GLOBAL              3 (ValueError)
+             20 LOAD_CONST               1 ('account_id must be a non-empty string')
+             22 CALL_FUNCTION            1
+             24 RAISE_VARARGS            1
+
+ 33     >>   26 LOAD_FAST                0 (account_id)
+             28 LOAD_METHOD              2 (strip)
+             30 CALL_METHOD              0
+             32 RETURN_VALUE
+
+Disassembly of <code object _rows at 0x1073b9500, file "WeRobotCore/adapters/wechat/windows_legacy/contact_database.py", line 35>:
+ 37           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                0 (raw)
+              4 LOAD_GLOBAL              1 (Sequence)
+              6 CALL_FUNCTION            2
+              8 POP_JUMP_IF_FALSE       26
+             10 LOAD_GLOBAL              0 (isinstance)
+
+ 38          12 LOAD_FAST                0 (raw)
+
+ 39          14 LOAD_GLOBAL              2 (str)
+             16 LOAD_GLOBAL              3 (bytes)
+             18 LOAD_GLOBAL              4 (Mapping)
+             20 BUILD_TUPLE              3
+
+ 37          22 CALL_FUNCTION            2
+             24 POP_JUMP_IF_FALSE       40
+
+ 41     >>   26 LOAD_GLOBAL              5 (TypeError)
+             28 LOAD_CONST               1 ('{} returned a non-sequence result')
+             30 LOAD_METHOD              6 (format)
+             32 LOAD_FAST                1 (operation)
+             34 CALL_METHOD              1
+             36 CALL_FUNCTION            1
+             38 RAISE_VARARGS            1
+
+ 42     >>   40 LOAD_FAST                0 (raw)
+             42 RETURN_VALUE
+
+Disassembly of <code object _contact_row at 0x1073b9f50, file "WeRobotCore/adapters/wechat/windows_legacy/contact_database.py", line 44>:
+ 46           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                0 (row)
+              4 LOAD_GLOBAL              1 (Mapping)
+              6 CALL_FUNCTION            2
+              8 POP_JUMP_IF_FALSE       18
+
+ 47          10 LOAD_GLOBAL              2 (dict)
+             12 LOAD_FAST                0 (row)
+             14 CALL_FUNCTION            1
+             16 RETURN_VALUE
+
+ 48     >>   18 LOAD_GLOBAL              0 (isinstance)
+             20 LOAD_FAST                0 (row)
+             22 LOAD_GLOBAL              3 (Sequence)
+             24 CALL_FUNCTION            2
+             26 POP_JUMP_IF_FALSE       42
+             28 LOAD_GLOBAL              0 (isinstance)
+             30 LOAD_FAST                0 (row)
+             32 LOAD_GLOBAL              4 (str)
+             34 LOAD_GLOBAL              5 (bytes)
+             36 BUILD_TUPLE              2
+             38 CALL_FUNCTION            2
+             40 POP_JUMP_IF_FALSE       50
+
+ 49     >>   42 LOAD_GLOBAL              6 (TypeError)
+             44 LOAD_CONST               1 ('Legacy contact row must be a mapping or sequence')
+             46 CALL_FUNCTION            1
+             48 RAISE_VARARGS            1
+
+ 50     >>   50 LOAD_GLOBAL              7 (len)
+             52 LOAD_FAST                0 (row)
+             54 CALL_FUNCTION            1
+             56 LOAD_CONST               2 (2)
+             58 COMPARE_OP               0 (<)
+             60 POP_JUMP_IF_FALSE       70
+
+ 51          62 LOAD_GLOBAL              8 (ValueError)
+             64 LOAD_CONST               3 ('Legacy contact row must contain wxid and name')
+             66 CALL_FUNCTION            1
+             68 RAISE_VARARGS            1
+
+ 52     >>   70 LOAD_GLOBAL              9 (tuple)
+             72 LOAD_FAST                0 (row)
+             74 CALL_FUNCTION            1
+             76 LOAD_CONST               4 ((None,))
+             78 LOAD_GLOBAL             10 (max)
+             80 LOAD_CONST               5 (0)
+             82 LOAD_CONST               6 (8)
+             84 LOAD_GLOBAL              7 (len)
+             86 LOAD_FAST                0 (row)
+             88 CALL_FUNCTION            1
+             90 BINARY_SUBTRACT
+             92 CALL_FUNCTION            2
+             94 BINARY_MULTIPLY
+             96 BINARY_ADD
+             98 STORE_FAST               1 (values)
+
+ 54         100 LOAD_FAST                1 (values)
+            102 LOAD_CONST               0 (None)
+            104 LOAD_CONST               6 (8)
+            106 BUILD_SLICE              2
+            108 BINARY_SUBSCR
+
+ 53         110 UNPACK_SEQUENCE          8
+            112 STORE_FAST               2 (wxid)
+            114 STORE_FAST               3 (name)
+            116 STORE_FAST               4 (nickname)
+            118 STORE_FAST               5 (remark)
+            120 STORE_FAST               6 (tag)
+            122 STORE_FAST               7 (is_new)
+            124 STORE_FAST               8 (last_updated)
+            126 STORE_FAST               9 (created_at)
+
+ 57         128 LOAD_FAST                2 (wxid)
+
+ 58         130 LOAD_FAST                3 (name)
+
+ 59         132 LOAD_FAST                4 (nickname)
+
+ 60         134 LOAD_FAST                5 (remark)
+
+ 61         136 LOAD_FAST                6 (tag)
+
+ 62         138 LOAD_FAST                7 (is_new)
+            140 LOAD_CONST               7 (True)
+            142 IS_OP                    0
+            144 JUMP_IF_TRUE_OR_POP    152
+            146 LOAD_FAST                7 (is_new)
+            148 LOAD_CONST               8 (1)
+            150 COMPARE_OP               2 (==)
+
+ 63     >>  152 LOAD_FAST                8 (last_updated)
+
+ 64         154 LOAD_FAST                9 (created_at)
+
+ 56         156 LOAD_CONST               9 (('wxid', 'name', 'nickname', 'remark', 'tag', 'is_new', 'last_updated', 'created_at'))
+            158 BUILD_CONST_KEY_MAP      8
+            160 RETURN_VALUE
+
+Disassembly of <code object _group_row at 0x1073b9d40, file "WeRobotCore/adapters/wechat/windows_legacy/contact_database.py", line 67>:
+ 69           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                0 (row)
+              4 LOAD_GLOBAL              1 (Mapping)
+              6 CALL_FUNCTION            2
+              8 POP_JUMP_IF_FALSE       18
+
+ 70          10 LOAD_GLOBAL              2 (dict)
+             12 LOAD_FAST                0 (row)
+             14 CALL_FUNCTION            1
+             16 RETURN_VALUE
+
+ 71     >>   18 LOAD_GLOBAL              0 (isinstance)
+             20 LOAD_FAST                0 (row)
+             22 LOAD_GLOBAL              3 (Sequence)
+             24 CALL_FUNCTION            2
+             26 POP_JUMP_IF_FALSE       42
+             28 LOAD_GLOBAL              0 (isinstance)
+             30 LOAD_FAST                0 (row)
+             32 LOAD_GLOBAL              4 (str)
+             34 LOAD_GLOBAL              5 (bytes)
+             36 BUILD_TUPLE              2
+             38 CALL_FUNCTION            2
+             40 POP_JUMP_IF_FALSE       50
+
+ 72     >>   42 LOAD_GLOBAL              6 (TypeError)
+             44 LOAD_CONST               1 ('Legacy group row must be a mapping or sequence')
+             46 CALL_FUNCTION            1
+             48 RAISE_VARARGS            1
+
+ 73     >>   50 LOAD_GLOBAL              7 (len)
+             52 LOAD_FAST                0 (row)
+             54 CALL_FUNCTION            1
+             56 LOAD_CONST               2 (1)
+             58 COMPARE_OP               0 (<)
+             60 POP_JUMP_IF_FALSE       70
+
+ 74          62 LOAD_GLOBAL              8 (ValueError)
+             64 LOAD_CONST               3 ('Legacy group row must contain a name')
+             66 CALL_FUNCTION            1
+             68 RAISE_VARARGS            1
+
+ 75     >>   70 LOAD_GLOBAL              9 (tuple)
+             72 LOAD_FAST                0 (row)
+             74 CALL_FUNCTION            1
+             76 LOAD_CONST               4 ((None,))
+             78 LOAD_GLOBAL             10 (max)
+             80 LOAD_CONST               5 (0)
+             82 LOAD_CONST               6 (3)
+             84 LOAD_GLOBAL              7 (len)
+             86 LOAD_FAST                0 (row)
+             88 CALL_FUNCTION            1
+             90 BINARY_SUBTRACT
+             92 CALL_FUNCTION            2
+             94 BINARY_MULTIPLY
+             96 BINARY_ADD
+             98 STORE_FAST               1 (values)
+
+ 76         100 LOAD_FAST                1 (values)
+            102 LOAD_CONST               0 (None)
+            104 LOAD_CONST               6 (3)
+            106 BUILD_SLICE              2
+            108 BINARY_SUBSCR
+            110 UNPACK_SEQUENCE          3
+            112 STORE_FAST               2 (name)
+            114 STORE_FAST               3 (tag)
+            116 STORE_FAST               4 (last_updated)
+
+ 78         118 LOAD_FAST                2 (name)
+
+ 79         120 LOAD_FAST                3 (tag)
+
+ 80         122 LOAD_FAST                4 (last_updated)
+
+ 77         124 LOAD_CONST               7 (('name', 'tag', 'last_updated'))
+            126 BUILD_CONST_KEY_MAP      3
+            128 RETURN_VALUE
+
+Disassembly of <code object _database at 0x1073b9920, file "WeRobotCore/adapters/wechat/windows_legacy/contact_database.py", line 83>:
+ 84           0 LOAD_FAST                0 (self)
+              2 LOAD_METHOD              0 (_database_factory)
+              4 CALL_METHOD              0
+              6 STORE_DEREF              0 (database)
+
+ 85           8 LOAD_CLOSURE             0 (database)
+             10 BUILD_TUPLE              1
+             12 LOAD_CONST               1 (<code object <listcomp> at 0x1073b9030, file "WeRobotCore/adapters/wechat/windows_legacy/contact_database.py", line 85>)
+             14 LOAD_CONST               2 ('WindowsLegacyContactDatabaseFacade._database.<locals>.<listcomp>')
+             16 MAKE_FUNCTION            8 (closure)
+
+ 87          18 LOAD_CONST               3 (('get_friends', 'get_groups'))
+
+ 85          20 GET_ITER
+             22 CALL_FUNCTION            1
+             24 STORE_FAST               1 (missing)
+
+ 90          26 LOAD_FAST                1 (missing)
+             28 POP_JUMP_IF_FALSE       50
+
+ 91          30 LOAD_GLOBAL              1 (TypeError)
+
+ 92          32 LOAD_CONST               4 ('contact database does not provide required methods: {}')
+             34 LOAD_METHOD              2 (format)
+
+ 93          36 LOAD_CONST               5 (', ')
+             38 LOAD_METHOD              3 (join)
+             40 LOAD_FAST                1 (missing)
+             42 CALL_METHOD              1
+
+ 92          44 CALL_METHOD              1
+
+ 91          46 CALL_FUNCTION            1
+             48 RAISE_VARARGS            1
+
+ 96     >>   50 LOAD_DEREF               0 (database)
+             52 RETURN_VALUE
+
+Disassembly of <code object <listcomp> at 0x1073b9030, file "WeRobotCore/adapters/wechat/windows_legacy/contact_database.py", line 85>:
+ 85           0 BUILD_LIST               0
+              2 LOAD_FAST                0 (.0)
+        >>    4 FOR_ITER                24 (to 30)
+
+ 87           6 STORE_FAST               1 (method_name)
+
+ 88           8 LOAD_GLOBAL              0 (callable)
+             10 LOAD_GLOBAL              1 (getattr)
+             12 LOAD_DEREF               0 (database)
+             14 LOAD_FAST                1 (method_name)
+             16 LOAD_CONST               0 (None)
+             18 CALL_FUNCTION            3
+             20 CALL_FUNCTION            1
+             22 POP_JUMP_IF_TRUE         4
+
+ 86          24 LOAD_FAST                1 (method_name)
+             26 LIST_APPEND              2
+             28 JUMP_ABSOLUTE            4
+        >>   30 RETURN_VALUE
+
+Disassembly of <code object async_list_contacts at 0x1073b92f0, file "WeRobotCore/adapters/wechat/windows_legacy/contact_database.py", line 98>:
+102           0 LOAD_DEREF               0 (self)
+              2 LOAD_METHOD              0 (_account_id)
+              4 LOAD_FAST                1 (account_id)
+              6 CALL_METHOD              1
+              8 STORE_FAST               2 (normalized_account_id)
+
+103          10 LOAD_DEREF               0 (self)
+             12 LOAD_METHOD              1 (_rows)
+
+104          14 LOAD_DEREF               0 (self)
+             16 LOAD_METHOD              2 (_database)
+             18 CALL_METHOD              0
+             20 LOAD_METHOD              3 (get_friends)
+             22 LOAD_FAST                2 (normalized_account_id)
+             24 CALL_METHOD              1
+
+105          26 LOAD_CONST               1 ('get_friends')
+
+103          28 CALL_METHOD              2
+             30 STORE_FAST               3 (rows)
+
+107          32 LOAD_GLOBAL              4 (tuple)
+             34 LOAD_CLOSURE             0 (self)
+             36 BUILD_TUPLE              1
+             38 LOAD_CONST               2 (<code object <genexpr> at 0x1073b9df0, file "WeRobotCore/adapters/wechat/windows_legacy/contact_database.py", line 107>)
+             40 LOAD_CONST               3 ('WindowsLegacyContactDatabaseFacade.async_list_contacts.<locals>.<genexpr>')
+             42 MAKE_FUNCTION            8 (closure)
+             44 LOAD_FAST                3 (rows)
+             46 GET_ITER
+             48 CALL_FUNCTION            1
+             50 CALL_FUNCTION            1
+             52 RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x1073b9df0, file "WeRobotCore/adapters/wechat/windows_legacy/contact_database.py", line 107>:
+107           0 LOAD_FAST                0 (.0)
+        >>    2 FOR_ITER                16 (to 20)
+              4 STORE_FAST               1 (row)
+              6 LOAD_DEREF               0 (self)
+              8 LOAD_METHOD              0 (_contact_row)
+             10 LOAD_FAST                1 (row)
+             12 CALL_METHOD              1
+             14 YIELD_VALUE
+             16 POP_TOP
+             18 JUMP_ABSOLUTE            2
+        >>   20 LOAD_CONST               0 (None)
+             22 RETURN_VALUE
+
+Disassembly of <code object async_list_groups at 0x1073b9240, file "WeRobotCore/adapters/wechat/windows_legacy/contact_database.py", line 109>:
+113           0 LOAD_DEREF               0 (self)
+              2 LOAD_METHOD              0 (_account_id)
+              4 LOAD_FAST                1 (account_id)
+              6 CALL_METHOD              1
+              8 STORE_FAST               2 (normalized_account_id)
+
+114          10 LOAD_DEREF               0 (self)
+             12 LOAD_METHOD              1 (_rows)
+
+115          14 LOAD_DEREF               0 (self)
+             16 LOAD_METHOD              2 (_database)
+             18 CALL_METHOD              0
+             20 LOAD_METHOD              3 (get_groups)
+             22 LOAD_FAST                2 (normalized_account_id)
+             24 CALL_METHOD              1
+
+116          26 LOAD_CONST               1 ('get_groups')
+
+114          28 CALL_METHOD              2
+             30 STORE_FAST               3 (rows)
+
+118          32 LOAD_GLOBAL              4 (tuple)
+             34 LOAD_CLOSURE             0 (self)
+             36 BUILD_TUPLE              1
+             38 LOAD_CONST               2 (<code object <genexpr> at 0x1073b9660, file "WeRobotCore/adapters/wechat/windows_legacy/contact_database.py", line 118>)
+             40 LOAD_CONST               3 ('WindowsLegacyContactDatabaseFacade.async_list_groups.<locals>.<genexpr>')
+             42 MAKE_FUNCTION            8 (closure)
+             44 LOAD_FAST                3 (rows)
+             46 GET_ITER
+             48 CALL_FUNCTION            1
+             50 CALL_FUNCTION            1
+             52 RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x1073b9660, file "WeRobotCore/adapters/wechat/windows_legacy/contact_database.py", line 118>:
+118           0 LOAD_FAST                0 (.0)
+        >>    2 FOR_ITER                16 (to 20)
+              4 STORE_FAST               1 (row)
+              6 LOAD_DEREF               0 (self)
+              8 LOAD_METHOD              0 (_group_row)
+             10 LOAD_FAST                1 (row)
+             12 CALL_METHOD              1
+             14 YIELD_VALUE
+             16 POP_TOP
+             18 JUMP_ABSOLUTE            2
+        >>   20 LOAD_CONST               0 (None)
+             22 RETURN_VALUE

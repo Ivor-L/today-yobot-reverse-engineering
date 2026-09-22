@@ -1,0 +1,407 @@
+  2           0 LOAD_CONST               0 ('Prepare an isolated strict frontend candidate for the macOS product.\n\nThe checked-in Windows frontend remains ``legacy_passthrough``.  This tool\ncopies that already-built frontend to a new caller-owned directory, enables\nstrict runtime capabilities while selecting the same classic Startup\npresentation used by Windows, and records a small provenance manifest.  It\nnever overwrites or deletes an existing path.\n')
+              2 STORE_NAME               0 (__doc__)
+
+ 11           4 LOAD_CONST               1 (0)
+              6 LOAD_CONST               2 (('annotations',))
+              8 IMPORT_NAME              1 (__future__)
+             10 IMPORT_FROM              2 (annotations)
+             12 STORE_NAME               2 (annotations)
+             14 POP_TOP
+
+ 13          16 LOAD_CONST               1 (0)
+             18 LOAD_CONST               3 (None)
+             20 IMPORT_NAME              3 (argparse)
+             22 STORE_NAME               3 (argparse)
+
+ 14          24 LOAD_CONST               1 (0)
+             26 LOAD_CONST               3 (None)
+             28 IMPORT_NAME              4 (json)
+             30 STORE_NAME               4 (json)
+
+ 15          32 LOAD_CONST               1 (0)
+             34 LOAD_CONST               3 (None)
+             36 IMPORT_NAME              5 (shutil)
+             38 STORE_NAME               5 (shutil)
+
+ 16          40 LOAD_CONST               1 (0)
+             42 LOAD_CONST               4 (('Path',))
+             44 IMPORT_NAME              6 (pathlib)
+             46 IMPORT_FROM              7 (Path)
+             48 STORE_NAME               7 (Path)
+             50 POP_TOP
+
+ 17          52 LOAD_CONST               1 (0)
+             54 LOAD_CONST               3 (None)
+             56 IMPORT_NAME              8 (sys)
+             58 STORE_NAME               8 (sys)
+
+ 18          60 LOAD_CONST               1 (0)
+             62 LOAD_CONST               5 (('Any', 'Dict', 'Iterable', 'Optional'))
+             64 IMPORT_NAME              9 (typing)
+             66 IMPORT_FROM             10 (Any)
+             68 STORE_NAME              10 (Any)
+             70 IMPORT_FROM             11 (Dict)
+             72 STORE_NAME              11 (Dict)
+             74 IMPORT_FROM             12 (Iterable)
+             76 STORE_NAME              12 (Iterable)
+             78 IMPORT_FROM             13 (Optional)
+             80 STORE_NAME              13 (Optional)
+             82 POP_TOP
+
+ 21          84 LOAD_NAME                7 (Path)
+             86 LOAD_NAME               14 (__file__)
+             88 CALL_FUNCTION            1
+             90 LOAD_METHOD             15 (resolve)
+             92 CALL_METHOD              0
+             94 LOAD_ATTR               16 (parents)
+             96 LOAD_CONST               6 (1)
+             98 BINARY_SUBSCR
+            100 STORE_NAME              17 (PROJECT_ROOT)
+
+ 22         102 LOAD_NAME               17 (PROJECT_ROOT)
+            104 LOAD_CONST               7 ('WeRobotCore')
+            106 BINARY_TRUE_DIVIDE
+            108 LOAD_CONST               8 ('__init__.py')
+            110 BINARY_TRUE_DIVIDE
+            112 LOAD_METHOD             18 (is_file)
+            114 CALL_METHOD              0
+            116 POP_JUMP_IF_TRUE       126
+
+ 23         118 LOAD_NAME               19 (SystemExit)
+            120 LOAD_CONST               9 ('YokoWebot project root is unavailable')
+            122 CALL_FUNCTION            1
+            124 RAISE_VARARGS            1
+
+ 24     >>  126 LOAD_NAME               20 (str)
+            128 LOAD_NAME               17 (PROJECT_ROOT)
+            130 CALL_FUNCTION            1
+            132 LOAD_NAME                8 (sys)
+            134 LOAD_ATTR               21 (path)
+            136 CONTAINS_OP              1
+            138 POP_JUMP_IF_FALSE      158
+
+ 25         140 LOAD_NAME                8 (sys)
+            142 LOAD_ATTR               21 (path)
+            144 LOAD_METHOD             22 (insert)
+            146 LOAD_CONST               1 (0)
+            148 LOAD_NAME               20 (str)
+            150 LOAD_NAME               17 (PROJECT_ROOT)
+            152 CALL_FUNCTION            1
+            154 CALL_METHOD              2
+            156 POP_TOP
+
+ 27     >>  158 LOAD_CONST               1 (0)
+            160 LOAD_CONST              10 (('LEGACY_MODE', 'STRICT_MODE', '_sha256', '_validate_output', '_validate_source'))
+            162 IMPORT_NAME             23 (scripts.prepare_runtime_required_frontend)
+            164 IMPORT_FROM             24 (LEGACY_MODE)
+            166 STORE_NAME              24 (LEGACY_MODE)
+            168 IMPORT_FROM             25 (STRICT_MODE)
+            170 STORE_NAME              25 (STRICT_MODE)
+            172 IMPORT_FROM             26 (_sha256)
+            174 STORE_NAME              26 (_sha256)
+            176 IMPORT_FROM             27 (_validate_output)
+            178 STORE_NAME              27 (_validate_output)
+            180 IMPORT_FROM             28 (_validate_source)
+            182 STORE_NAME              28 (_validate_source)
+            184 POP_TOP
+
+ 36         186 LOAD_CONST              11 ('macos-product-frontend-manifest.json')
+            188 STORE_NAME              29 (MANIFEST_NAME)
+
+ 37         190 LOAD_CONST              12 ('classic')
+            192 STORE_NAME              30 (MACOS_STARTUP_PRESENTATION)
+
+ 40         194 LOAD_CONST              13 ('Path')
+            196 LOAD_CONST              13 ('Path')
+            198 LOAD_CONST              14 ('Dict[str, Any]')
+            200 LOAD_CONST              15 (('source_root', 'output_root', 'return'))
+            202 BUILD_CONST_KEY_MAP      3
+            204 LOAD_CONST              16 (<code object prepare_macos_product_frontend at 0x10924ba80, file "scripts/prepare_macos_product_frontend.py", line 40>)
+            206 LOAD_CONST              17 ('prepare_macos_product_frontend')
+            208 MAKE_FUNCTION            4 (annotations)
+            210 STORE_NAME              31 (prepare_macos_product_frontend)
+
+ 92         212 LOAD_CONST              27 ((None,))
+            214 LOAD_CONST              18 ('Optional[Iterable[str]]')
+            216 LOAD_CONST              19 ('argparse.Namespace')
+            218 LOAD_CONST              20 (('argv', 'return'))
+            220 BUILD_CONST_KEY_MAP      2
+            222 LOAD_CONST              21 (<code object parse_args at 0x10924b5b0, file "scripts/prepare_macos_product_frontend.py", line 92>)
+            224 LOAD_CONST              22 ('parse_args')
+            226 MAKE_FUNCTION            5 (defaults, annotations)
+            228 STORE_NAME              32 (parse_args)
+
+107         230 LOAD_CONST              28 ((None,))
+            232 LOAD_CONST              18 ('Optional[Iterable[str]]')
+            234 LOAD_CONST              23 ('int')
+            236 LOAD_CONST              20 (('argv', 'return'))
+            238 BUILD_CONST_KEY_MAP      2
+            240 LOAD_CONST              24 (<code object main at 0x10924b870, file "scripts/prepare_macos_product_frontend.py", line 107>)
+            242 LOAD_CONST              25 ('main')
+            244 MAKE_FUNCTION            5 (defaults, annotations)
+            246 STORE_NAME              33 (main)
+
+121         248 LOAD_NAME               34 (__name__)
+            250 LOAD_CONST              26 ('__main__')
+            252 COMPARE_OP               2 (==)
+            254 EXTENDED_ARG             1
+            256 POP_JUMP_IF_FALSE      268
+
+122         258 LOAD_NAME               19 (SystemExit)
+            260 LOAD_NAME               33 (main)
+            262 CALL_FUNCTION            0
+            264 CALL_FUNCTION            1
+            266 RAISE_VARARGS            1
+        >>  268 LOAD_CONST               3 (None)
+            270 RETURN_VALUE
+
+Disassembly of <code object prepare_macos_product_frontend at 0x10924ba80, file "scripts/prepare_macos_product_frontend.py", line 40>:
+ 46           0 LOAD_GLOBAL              0 (Path)
+              2 LOAD_FAST                0 (source_root)
+              4 CALL_FUNCTION            1
+              6 LOAD_METHOD              1 (resolve)
+              8 CALL_METHOD              0
+             10 STORE_FAST               0 (source_root)
+
+ 47          12 LOAD_GLOBAL              0 (Path)
+             14 LOAD_FAST                1 (output_root)
+             16 CALL_FUNCTION            1
+             18 LOAD_METHOD              1 (resolve)
+             20 CALL_METHOD              0
+             22 STORE_FAST               1 (output_root)
+
+ 48          24 LOAD_GLOBAL              2 (_validate_source)
+             26 LOAD_FAST                0 (source_root)
+             28 CALL_FUNCTION            1
+             30 STORE_FAST               2 (source_config)
+
+ 49          32 LOAD_GLOBAL              3 (_validate_output)
+             34 LOAD_FAST                0 (source_root)
+             36 LOAD_FAST                1 (output_root)
+             38 CALL_FUNCTION            2
+             40 POP_TOP
+
+ 51          42 LOAD_FAST                0 (source_root)
+             44 LOAD_CONST               1 ('config.json')
+             46 BINARY_TRUE_DIVIDE
+             48 STORE_FAST               3 (source_config_path)
+
+ 52          50 LOAD_GLOBAL              4 (_sha256)
+             52 LOAD_FAST                3 (source_config_path)
+             54 CALL_FUNCTION            1
+             56 STORE_FAST               4 (source_config_hash)
+
+ 53          58 LOAD_GLOBAL              4 (_sha256)
+             60 LOAD_FAST                0 (source_root)
+             62 LOAD_CONST               2 ('index.html')
+             64 BINARY_TRUE_DIVIDE
+             66 CALL_FUNCTION            1
+             68 STORE_FAST               5 (source_index_hash)
+
+ 55          70 LOAD_GLOBAL              5 (shutil)
+             72 LOAD_METHOD              6 (copytree)
+             74 LOAD_FAST                0 (source_root)
+             76 LOAD_FAST                1 (output_root)
+             78 CALL_METHOD              2
+             80 POP_TOP
+
+ 56          82 LOAD_GLOBAL              7 (json)
+             84 LOAD_METHOD              8 (loads)
+             86 LOAD_GLOBAL              7 (json)
+             88 LOAD_METHOD              9 (dumps)
+             90 LOAD_FAST                2 (source_config)
+             92 CALL_METHOD              1
+             94 CALL_METHOD              1
+             96 STORE_FAST               6 (copied_config)
+
+ 57          98 LOAD_GLOBAL             10 (STRICT_MODE)
+            100 LOAD_FAST                6 (copied_config)
+            102 LOAD_CONST               3 ('runtimeCapabilities')
+            104 BINARY_SUBSCR
+            106 LOAD_CONST               4 ('mode')
+            108 STORE_SUBSCR
+
+ 59         110 LOAD_GLOBAL             11 (MACOS_STARTUP_PRESENTATION)
+
+ 60         112 LOAD_CONST               5 (False)
+
+ 61         114 LOAD_CONST               6 ('macos')
+
+ 58         116 LOAD_CONST               7 (('presentation', 'multiInstance', 'targetPlatform'))
+            118 BUILD_CONST_KEY_MAP      3
+            120 LOAD_FAST                6 (copied_config)
+            122 LOAD_CONST               8 ('startup')
+            124 STORE_SUBSCR
+
+ 63         126 LOAD_FAST                1 (output_root)
+            128 LOAD_CONST               1 ('config.json')
+            130 BINARY_TRUE_DIVIDE
+            132 STORE_FAST               7 (copied_config_path)
+
+ 64         134 LOAD_FAST                7 (copied_config_path)
+            136 LOAD_ATTR               12 (write_text)
+
+ 65         138 LOAD_GLOBAL              7 (json)
+            140 LOAD_ATTR                9 (dumps)
+            142 LOAD_FAST                6 (copied_config)
+            144 LOAD_CONST               5 (False)
+            146 LOAD_CONST               9 (2)
+            148 LOAD_CONST              10 (('ensure_ascii', 'indent'))
+            150 CALL_FUNCTION_KW         3
+            152 LOAD_CONST              11 ('\n')
+            154 BINARY_ADD
+
+ 66         156 LOAD_CONST              12 ('utf-8')
+
+ 64         158 LOAD_CONST              13 (('encoding',))
+            160 CALL_FUNCTION_KW         2
+            162 POP_TOP
+
+ 70         164 LOAD_CONST              14 (1)
+
+ 71         166 LOAD_CONST              15 ('macos_product_frontend_candidate')
+
+ 72         168 LOAD_CONST               6 ('macos')
+
+ 73         170 LOAD_CONST               5 (False)
+
+ 74         172 LOAD_GLOBAL             13 (LEGACY_MODE)
+
+ 75         174 LOAD_GLOBAL             10 (STRICT_MODE)
+
+ 76         176 LOAD_GLOBAL             11 (MACOS_STARTUP_PRESENTATION)
+
+ 77         178 LOAD_CONST               5 (False)
+
+ 78         180 LOAD_CONST               6 ('macos')
+
+ 79         182 LOAD_FAST                4 (source_config_hash)
+
+ 80         184 LOAD_GLOBAL              4 (_sha256)
+            186 LOAD_FAST                7 (copied_config_path)
+            188 CALL_FUNCTION            1
+
+ 81         190 LOAD_FAST                5 (source_index_hash)
+
+ 82         192 LOAD_GLOBAL              4 (_sha256)
+            194 LOAD_FAST                1 (output_root)
+            196 LOAD_CONST               2 ('index.html')
+            198 BINARY_TRUE_DIVIDE
+            200 CALL_FUNCTION            1
+
+ 69         202 LOAD_CONST              16 (('schemaVersion', 'kind', 'targetPlatform', 'productionDefaultChanged', 'sourceRuntimeCapabilityMode', 'runtimeCapabilityMode', 'startupPresentation', 'multiInstance', 'targetPlatform', 'sourceConfigSha256', 'materializedConfigSha256', 'sourceIndexSha256', 'materializedIndexSha256'))
+            204 BUILD_CONST_KEY_MAP     13
+            206 STORE_FAST               8 (manifest)
+
+ 84         208 LOAD_FAST                1 (output_root)
+            210 LOAD_GLOBAL             14 (MANIFEST_NAME)
+            212 BINARY_TRUE_DIVIDE
+            214 LOAD_ATTR               12 (write_text)
+
+ 85         216 LOAD_GLOBAL              7 (json)
+            218 LOAD_ATTR                9 (dumps)
+            220 LOAD_FAST                8 (manifest)
+            222 LOAD_CONST               5 (False)
+            224 LOAD_CONST               9 (2)
+            226 LOAD_CONST              17 (True)
+            228 LOAD_CONST              18 (('ensure_ascii', 'indent', 'sort_keys'))
+            230 CALL_FUNCTION_KW         4
+
+ 86         232 LOAD_CONST              11 ('\n')
+
+ 85         234 BINARY_ADD
+
+ 87         236 LOAD_CONST              12 ('utf-8')
+
+ 84         238 LOAD_CONST              13 (('encoding',))
+            240 CALL_FUNCTION_KW         2
+            242 POP_TOP
+
+ 89         244 LOAD_FAST                8 (manifest)
+            246 RETURN_VALUE
+
+Disassembly of <code object parse_args at 0x10924b5b0, file "scripts/prepare_macos_product_frontend.py", line 92>:
+ 93           0 LOAD_GLOBAL              0 (argparse)
+              2 LOAD_ATTR                1 (ArgumentParser)
+              4 LOAD_GLOBAL              2 (__doc__)
+              6 LOAD_CONST               1 (('description',))
+              8 CALL_FUNCTION_KW         1
+             10 STORE_FAST               1 (parser)
+
+ 94          12 LOAD_FAST                1 (parser)
+             14 LOAD_ATTR                3 (add_argument)
+
+ 95          16 LOAD_CONST               2 ('--source')
+
+ 96          18 LOAD_CONST               3 (True)
+
+ 97          20 LOAD_CONST               4 ('Existing shared frontend build, normally webot/dist.')
+
+ 94          22 LOAD_CONST               5 (('required', 'help'))
+             24 CALL_FUNCTION_KW         3
+             26 POP_TOP
+
+ 99          28 LOAD_FAST                1 (parser)
+             30 LOAD_ATTR                3 (add_argument)
+
+100          32 LOAD_CONST               6 ('--output')
+
+101          34 LOAD_CONST               3 (True)
+
+102          36 LOAD_CONST               7 ('New macOS frontend directory; it must not already exist.')
+
+ 99          38 LOAD_CONST               5 (('required', 'help'))
+             40 CALL_FUNCTION_KW         3
+             42 POP_TOP
+
+104          44 LOAD_FAST                1 (parser)
+             46 LOAD_METHOD              4 (parse_args)
+             48 LOAD_FAST                0 (argv)
+             50 LOAD_CONST               0 (None)
+             52 IS_OP                    1
+             54 POP_JUMP_IF_FALSE       64
+             56 LOAD_GLOBAL              5 (list)
+             58 LOAD_FAST                0 (argv)
+             60 CALL_FUNCTION            1
+             62 JUMP_FORWARD             2 (to 66)
+        >>   64 LOAD_CONST               0 (None)
+        >>   66 CALL_METHOD              1
+             68 RETURN_VALUE
+
+Disassembly of <code object main at 0x10924b870, file "scripts/prepare_macos_product_frontend.py", line 107>:
+108           0 LOAD_GLOBAL              0 (parse_args)
+              2 LOAD_FAST                0 (argv)
+              4 CALL_FUNCTION            1
+              6 STORE_FAST               1 (args)
+
+109           8 LOAD_GLOBAL              1 (prepare_macos_product_frontend)
+
+110          10 LOAD_GLOBAL              2 (Path)
+             12 LOAD_FAST                1 (args)
+             14 LOAD_ATTR                3 (source)
+             16 CALL_FUNCTION            1
+
+111          18 LOAD_GLOBAL              2 (Path)
+             20 LOAD_FAST                1 (args)
+             22 LOAD_ATTR                4 (output)
+             24 CALL_FUNCTION            1
+
+109          26 CALL_FUNCTION            2
+             28 STORE_FAST               2 (result)
+
+113          30 LOAD_GLOBAL              5 (print)
+
+114          32 LOAD_CONST               1 ('prepared {} macOS frontend candidate')
+             34 LOAD_METHOD              6 (format)
+
+115          36 LOAD_FAST                2 (result)
+             38 LOAD_CONST               2 ('runtimeCapabilityMode')
+             40 BINARY_SUBSCR
+
+114          42 CALL_METHOD              1
+
+113          44 CALL_FUNCTION            1
+             46 POP_TOP
+
+118          48 LOAD_CONST               3 (0)
+             50 RETURN_VALUE

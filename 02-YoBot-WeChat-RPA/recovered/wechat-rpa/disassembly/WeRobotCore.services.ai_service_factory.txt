@@ -1,0 +1,418 @@
+  1           0 LOAD_CONST               0 (0)
+              2 LOAD_CONST               1 (('Dict', 'Any', 'Optional'))
+              4 IMPORT_NAME              0 (typing)
+              6 IMPORT_FROM              1 (Dict)
+              8 STORE_NAME               1 (Dict)
+             10 IMPORT_FROM              2 (Any)
+             12 STORE_NAME               2 (Any)
+             14 IMPORT_FROM              3 (Optional)
+             16 STORE_NAME               3 (Optional)
+             18 POP_TOP
+
+  2          20 LOAD_CONST               2 (1)
+             22 LOAD_CONST               3 (('AIServiceBase',))
+             24 IMPORT_NAME              4 (ai_service_base)
+             26 IMPORT_FROM              5 (AIServiceBase)
+             28 STORE_NAME               5 (AIServiceBase)
+             30 POP_TOP
+
+  3          32 LOAD_CONST               2 (1)
+             34 LOAD_CONST               4 (('AgenticService',))
+             36 IMPORT_NAME              6 (agentic_service)
+             38 IMPORT_FROM              7 (AgenticService)
+             40 STORE_NAME               7 (AgenticService)
+             42 POP_TOP
+
+  4          44 LOAD_CONST               2 (1)
+             46 LOAD_CONST               5 (('CozeService',))
+             48 IMPORT_NAME              8 (coze_service)
+             50 IMPORT_FROM              9 (CozeService)
+             52 STORE_NAME               9 (CozeService)
+             54 POP_TOP
+
+  5          56 LOAD_CONST               2 (1)
+             58 LOAD_CONST               6 (('Coze3Service',))
+             60 IMPORT_NAME             10 (coze3_service)
+             62 IMPORT_FROM             11 (Coze3Service)
+             64 STORE_NAME              11 (Coze3Service)
+             66 POP_TOP
+
+  6          68 LOAD_CONST               2 (1)
+             70 LOAD_CONST               7 (('DifyService',))
+             72 IMPORT_NAME             12 (dify_service)
+             74 IMPORT_FROM             13 (DifyService)
+             76 STORE_NAME              13 (DifyService)
+             78 POP_TOP
+
+  7          80 LOAD_CONST               2 (1)
+             82 LOAD_CONST               8 (('FireflowService',))
+             84 IMPORT_NAME             14 (fireflow_service)
+             86 IMPORT_FROM             15 (FireflowService)
+             88 STORE_NAME              15 (FireflowService)
+             90 POP_TOP
+
+  9          92 LOAD_BUILD_CLASS
+             94 LOAD_CONST               9 (<code object AIServiceFactory at 0x10924bc90, file "WeRobotCore/services/ai_service_factory.py", line 9>)
+             96 LOAD_CONST              10 ('AIServiceFactory')
+             98 MAKE_FUNCTION            0
+            100 LOAD_CONST              10 ('AIServiceFactory')
+            102 CALL_FUNCTION            2
+            104 STORE_NAME              16 (AIServiceFactory)
+            106 LOAD_CONST              11 (None)
+            108 RETURN_VALUE
+
+Disassembly of <code object AIServiceFactory at 0x10924bc90, file "WeRobotCore/services/ai_service_factory.py", line 9>:
+  9           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('AIServiceFactory')
+              6 STORE_NAME               2 (__qualname__)
+
+ 10           8 LOAD_CONST               1 ('智能体服务工厂类，根据配置创建相应的服务实例')
+             10 STORE_NAME               3 (__doc__)
+
+ 12          12 LOAD_NAME                4 (staticmethod)
+
+ 13          14 LOAD_CONST               6 ((None,))
+             16 LOAD_NAME                5 (str)
+             18 LOAD_NAME                6 (Dict)
+             20 LOAD_NAME                5 (str)
+             22 LOAD_NAME                7 (Any)
+             24 BUILD_TUPLE              2
+             26 BINARY_SUBSCR
+             28 LOAD_NAME                6 (Dict)
+             30 LOAD_NAME                5 (str)
+             32 LOAD_NAME                7 (Any)
+             34 BUILD_TUPLE              2
+             36 BINARY_SUBSCR
+             38 LOAD_NAME                8 (Optional)
+             40 LOAD_NAME                9 (AIServiceBase)
+             42 BINARY_SUBSCR
+             44 LOAD_CONST               3 (('service_type', 'config', 'agent_info', 'return'))
+             46 BUILD_CONST_KEY_MAP      4
+             48 LOAD_CONST               4 (<code object create_service at 0x10924b450, file "WeRobotCore/services/ai_service_factory.py", line 12>)
+             50 LOAD_CONST               5 ('AIServiceFactory.create_service')
+             52 MAKE_FUNCTION            5 (defaults, annotations)
+             54 CALL_FUNCTION            1
+             56 STORE_NAME              10 (create_service)
+             58 LOAD_CONST               2 (None)
+             60 RETURN_VALUE
+
+Disassembly of <code object create_service at 0x10924b450, file "WeRobotCore/services/ai_service_factory.py", line 12>:
+ 25           0 LOAD_FAST                0 (service_type)
+              2 LOAD_CONST               1 ('coze')
+              4 COMPARE_OP               2 (==)
+              6 POP_JUMP_IF_FALSE       46
+
+ 26           8 LOAD_FAST                1 (config)
+             10 LOAD_METHOD              0 (get)
+             12 LOAD_CONST               2 ('coze_settings')
+             14 BUILD_MAP                0
+             16 CALL_METHOD              2
+             18 LOAD_METHOD              0 (get)
+             20 LOAD_CONST               3 ('token')
+             22 CALL_METHOD              1
+             24 STORE_FAST               3 (token)
+
+ 27          26 LOAD_FAST                3 (token)
+             28 POP_JUMP_IF_TRUE        38
+
+ 28          30 LOAD_GLOBAL              1 (ValueError)
+             32 LOAD_CONST               4 ('未配置 Coze Token')
+             34 CALL_FUNCTION            1
+             36 RAISE_VARARGS            1
+
+ 29     >>   38 LOAD_GLOBAL              2 (CozeService)
+             40 LOAD_FAST                3 (token)
+             42 CALL_FUNCTION            1
+             44 RETURN_VALUE
+
+ 30     >>   46 LOAD_FAST                0 (service_type)
+             48 LOAD_CONST               5 ('coze3')
+             50 COMPARE_OP               2 (==)
+             52 POP_JUMP_IF_FALSE      156
+
+ 31          54 LOAD_FAST                2 (agent_info)
+             56 POP_JUMP_IF_FALSE       68
+             58 LOAD_FAST                2 (agent_info)
+             60 LOAD_METHOD              0 (get)
+             62 LOAD_CONST               6 ('apiToken')
+             64 CALL_METHOD              1
+             66 JUMP_FORWARD             2 (to 70)
+        >>   68 LOAD_CONST               7 (None)
+        >>   70 STORE_FAST               3 (token)
+
+ 32          72 LOAD_FAST                2 (agent_info)
+             74 POP_JUMP_IF_FALSE       86
+             76 LOAD_FAST                2 (agent_info)
+             78 LOAD_METHOD              0 (get)
+             80 LOAD_CONST               8 ('botId')
+             82 CALL_METHOD              1
+             84 JUMP_FORWARD             2 (to 88)
+        >>   86 LOAD_CONST               7 (None)
+        >>   88 STORE_FAST               4 (project_id)
+
+ 33          90 LOAD_FAST                2 (agent_info)
+             92 POP_JUMP_IF_FALSE      104
+             94 LOAD_FAST                2 (agent_info)
+             96 LOAD_METHOD              0 (get)
+             98 LOAD_CONST               9 ('apiUrl')
+            100 CALL_METHOD              1
+            102 JUMP_FORWARD             2 (to 106)
+        >>  104 LOAD_CONST               7 (None)
+        >>  106 STORE_FAST               5 (api_url)
+
+ 34         108 LOAD_FAST                3 (token)
+            110 POP_JUMP_IF_TRUE       120
+
+ 35         112 LOAD_GLOBAL              1 (ValueError)
+            114 LOAD_CONST              10 ('未配置 Coze 3.0 API Token')
+            116 CALL_FUNCTION            1
+            118 RAISE_VARARGS            1
+
+ 36     >>  120 LOAD_FAST                4 (project_id)
+            122 POP_JUMP_IF_TRUE       132
+
+ 37         124 LOAD_GLOBAL              1 (ValueError)
+            126 LOAD_CONST              11 ('未配置 Coze 3.0 Project ID')
+            128 CALL_FUNCTION            1
+            130 RAISE_VARARGS            1
+
+ 38     >>  132 LOAD_FAST                5 (api_url)
+            134 POP_JUMP_IF_TRUE       144
+
+ 39         136 LOAD_GLOBAL              1 (ValueError)
+            138 LOAD_CONST              12 ('未配置 Coze 3.0 API 地址')
+            140 CALL_FUNCTION            1
+            142 RAISE_VARARGS            1
+
+ 40     >>  144 LOAD_GLOBAL              3 (Coze3Service)
+            146 LOAD_FAST                3 (token)
+            148 LOAD_FAST                5 (api_url)
+            150 LOAD_FAST                4 (project_id)
+            152 CALL_FUNCTION            3
+            154 RETURN_VALUE
+
+ 41     >>  156 LOAD_FAST                0 (service_type)
+            158 LOAD_CONST              13 ('dify')
+            160 COMPARE_OP               2 (==)
+            162 POP_JUMP_IF_FALSE      238
+
+ 43         164 LOAD_CONST               7 (None)
+            166 STORE_FAST               3 (token)
+
+ 44         168 LOAD_FAST                2 (agent_info)
+            170 POP_JUMP_IF_FALSE      192
+            172 LOAD_FAST                2 (agent_info)
+            174 LOAD_METHOD              0 (get)
+            176 LOAD_CONST               8 ('botId')
+            178 CALL_METHOD              1
+            180 POP_JUMP_IF_FALSE      192
+
+ 45         182 LOAD_FAST                2 (agent_info)
+            184 LOAD_METHOD              0 (get)
+            186 LOAD_CONST               8 ('botId')
+            188 CALL_METHOD              1
+            190 STORE_FAST               3 (token)
+
+ 46     >>  192 LOAD_FAST                1 (config)
+            194 LOAD_METHOD              0 (get)
+            196 LOAD_CONST              14 ('baseUrl')
+            198 LOAD_CONST              15 ('http://localhost/v1')
+            200 CALL_METHOD              2
+            202 STORE_FAST               6 (base_url)
+
+ 48         204 LOAD_FAST                3 (token)
+            206 POP_JUMP_IF_TRUE       216
+
+ 49         208 LOAD_GLOBAL              1 (ValueError)
+            210 LOAD_CONST              16 ('未配置 Dify 秘钥')
+            212 CALL_FUNCTION            1
+            214 RAISE_VARARGS            1
+
+ 50     >>  216 LOAD_FAST                6 (base_url)
+            218 POP_JUMP_IF_TRUE       228
+
+ 51         220 LOAD_GLOBAL              1 (ValueError)
+            222 LOAD_CONST              17 ('未配置 Dify 服务器地址')
+            224 CALL_FUNCTION            1
+            226 RAISE_VARARGS            1
+
+ 52     >>  228 LOAD_GLOBAL              4 (DifyService)
+            230 LOAD_FAST                3 (token)
+            232 LOAD_FAST                6 (base_url)
+            234 CALL_FUNCTION            2
+            236 RETURN_VALUE
+
+ 53     >>  238 LOAD_FAST                0 (service_type)
+            240 LOAD_CONST              18 ('fireflow')
+            242 COMPARE_OP               2 (==)
+            244 EXTENDED_ARG             1
+            246 POP_JUMP_IF_FALSE      302
+
+ 54         248 LOAD_CONST               7 (None)
+            250 STORE_FAST               3 (token)
+
+ 55         252 LOAD_FAST                2 (agent_info)
+            254 EXTENDED_ARG             1
+            256 POP_JUMP_IF_FALSE      280
+            258 LOAD_FAST                2 (agent_info)
+            260 LOAD_METHOD              0 (get)
+            262 LOAD_CONST               8 ('botId')
+            264 CALL_METHOD              1
+            266 EXTENDED_ARG             1
+            268 POP_JUMP_IF_FALSE      280
+
+ 56         270 LOAD_FAST                2 (agent_info)
+            272 LOAD_METHOD              0 (get)
+            274 LOAD_CONST               8 ('botId')
+            276 CALL_METHOD              1
+            278 STORE_FAST               3 (token)
+
+ 58     >>  280 LOAD_FAST                3 (token)
+            282 EXTENDED_ARG             1
+            284 POP_JUMP_IF_TRUE       294
+
+ 59         286 LOAD_GLOBAL              1 (ValueError)
+            288 LOAD_CONST              19 ('未配置 Fireflow API Token')
+            290 CALL_FUNCTION            1
+            292 RAISE_VARARGS            1
+
+ 60     >>  294 LOAD_GLOBAL              5 (FireflowService)
+            296 LOAD_FAST                3 (token)
+            298 CALL_FUNCTION            1
+            300 RETURN_VALUE
+
+ 61     >>  302 LOAD_FAST                0 (service_type)
+            304 LOAD_CONST              20 ('agentic')
+            306 COMPARE_OP               2 (==)
+            308 EXTENDED_ARG             1
+            310 POP_JUMP_IF_FALSE      510
+
+ 68         312 LOAD_FAST                2 (agent_info)
+            314 EXTENDED_ARG             1
+            316 POP_JUMP_IF_FALSE      328
+            318 LOAD_FAST                2 (agent_info)
+            320 LOAD_METHOD              0 (get)
+            322 LOAD_CONST               9 ('apiUrl')
+            324 CALL_METHOD              1
+            326 JUMP_FORWARD             2 (to 330)
+        >>  328 LOAD_CONST               7 (None)
+        >>  330 STORE_FAST               5 (api_url)
+
+ 69         332 LOAD_FAST                2 (agent_info)
+            334 EXTENDED_ARG             1
+            336 POP_JUMP_IF_FALSE      348
+            338 LOAD_FAST                2 (agent_info)
+            340 LOAD_METHOD              0 (get)
+            342 LOAD_CONST               6 ('apiToken')
+            344 CALL_METHOD              1
+            346 JUMP_FORWARD             2 (to 350)
+        >>  348 LOAD_CONST               7 (None)
+        >>  350 STORE_FAST               7 (api_token)
+
+ 70         352 LOAD_FAST                2 (agent_info)
+            354 EXTENDED_ARG             1
+            356 POP_JUMP_IF_FALSE      368
+            358 LOAD_FAST                2 (agent_info)
+            360 LOAD_METHOD              0 (get)
+            362 LOAD_CONST               8 ('botId')
+            364 CALL_METHOD              1
+            366 JUMP_FORWARD             2 (to 370)
+        >>  368 LOAD_CONST               7 (None)
+        >>  370 STORE_FAST               8 (profile_id)
+
+ 71         372 LOAD_FAST                2 (agent_info)
+            374 EXTENDED_ARG             1
+            376 POP_JUMP_IF_FALSE      390
+            378 LOAD_FAST                2 (agent_info)
+            380 LOAD_METHOD              0 (get)
+            382 LOAD_CONST              21 ('deliveryMode')
+            384 LOAD_CONST              22 ('sync_reply')
+            386 CALL_METHOD              2
+            388 JUMP_FORWARD             2 (to 392)
+        >>  390 LOAD_CONST              22 ('sync_reply')
+        >>  392 STORE_FAST               9 (delivery_mode)
+
+ 72         394 LOAD_FAST                2 (agent_info)
+            396 EXTENDED_ARG             1
+            398 POP_JUMP_IF_FALSE      412
+            400 LOAD_FAST                2 (agent_info)
+            402 LOAD_METHOD              0 (get)
+            404 LOAD_CONST              23 ('responseFormat')
+            406 LOAD_CONST              24 ('auto')
+            408 CALL_METHOD              2
+            410 JUMP_FORWARD             2 (to 414)
+        >>  412 LOAD_CONST              24 ('auto')
+        >>  414 STORE_FAST              10 (response_format)
+
+ 73         416 LOAD_FAST                2 (agent_info)
+            418 EXTENDED_ARG             1
+            420 POP_JUMP_IF_FALSE      434
+            422 LOAD_FAST                2 (agent_info)
+            424 LOAD_METHOD              0 (get)
+            426 LOAD_CONST              25 ('timeoutSeconds')
+            428 LOAD_CONST              26 (300)
+            430 CALL_METHOD              2
+            432 JUMP_FORWARD             2 (to 436)
+        >>  434 LOAD_CONST              26 (300)
+        >>  436 STORE_FAST              11 (timeout)
+
+ 74         438 LOAD_FAST                2 (agent_info)
+            440 EXTENDED_ARG             1
+            442 POP_JUMP_IF_FALSE      456
+            444 LOAD_FAST                2 (agent_info)
+            446 LOAD_METHOD              0 (get)
+            448 LOAD_CONST              27 ('retryCount')
+            450 LOAD_CONST              28 (1)
+            452 CALL_METHOD              2
+            454 JUMP_FORWARD             2 (to 458)
+        >>  456 LOAD_CONST              28 (1)
+        >>  458 STORE_FAST              12 (retry_count)
+
+ 75         460 LOAD_FAST                5 (api_url)
+            462 EXTENDED_ARG             1
+            464 POP_JUMP_IF_TRUE       474
+
+ 76         466 LOAD_GLOBAL              1 (ValueError)
+            468 LOAD_CONST              29 ('未配置 Agentic 服务地址（apiUrl）')
+            470 CALL_FUNCTION            1
+            472 RAISE_VARARGS            1
+
+ 77     >>  474 LOAD_FAST                8 (profile_id)
+            476 EXTENDED_ARG             1
+            478 POP_JUMP_IF_TRUE       488
+
+ 78         480 LOAD_GLOBAL              1 (ValueError)
+            482 LOAD_CONST              30 ('未配置 Agentic 智能体 ID（botId）')
+            484 CALL_FUNCTION            1
+            486 RAISE_VARARGS            1
+
+ 79     >>  488 LOAD_GLOBAL              6 (AgenticService)
+
+ 80         490 LOAD_FAST                5 (api_url)
+
+ 81         492 LOAD_FAST                7 (api_token)
+
+ 82         494 LOAD_FAST                8 (profile_id)
+
+ 83         496 LOAD_FAST               11 (timeout)
+
+ 84         498 LOAD_FAST                9 (delivery_mode)
+
+ 85         500 LOAD_FAST               10 (response_format)
+
+ 86         502 LOAD_FAST               12 (retry_count)
+
+ 79         504 LOAD_CONST              31 (('timeout', 'delivery_mode', 'response_format', 'retry_count'))
+            506 CALL_FUNCTION_KW         7
+            508 RETURN_VALUE
+
+ 89     >>  510 LOAD_GLOBAL              1 (ValueError)
+            512 LOAD_CONST              32 ('不支持的服务类型: ')
+            514 LOAD_FAST                0 (service_type)
+            516 FORMAT_VALUE             0
+            518 BUILD_STRING             2
+            520 CALL_FUNCTION            1
+            522 RAISE_VARARGS            1
+            524 LOAD_CONST               7 (None)
+            526 RETURN_VALUE

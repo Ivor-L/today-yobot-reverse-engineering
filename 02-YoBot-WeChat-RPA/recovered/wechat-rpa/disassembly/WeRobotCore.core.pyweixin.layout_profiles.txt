@@ -1,0 +1,307 @@
+  1           0 LOAD_CONST               0 ('\n4.1.x 客户端 UI 布局 Profile：把因版本而异的"硬偏移"集中在此处管理。\n\n设计原则：\n- 每条记录用 min_build 锚定生效起点；select_profile 从高到低匹配。\n- 所有偏移以 1080p 为基准值（_1080p 后缀），调用方按 screen_h 等比缩放。\n- candidate_* 函数返回主 profile + 其它所有 profile 的偏移，供"点不出弹窗就换档"\n  的自愈逻辑使用。\n- 新增版本只需在 _PROFILES 顶部加一条，无需改调用方。\n\n角色定位：\n- 主路径是「测量锚定」（基于 ChatsButton 几何反算头像中心），完全分辨率/DPI 无关；\n- 本文件提供的版本偏移只在测量锚定失败时作为坐标兜底，调用方必须传入 max_offset\n  避免点击溢出到侧栏按钮区域（会触发切换 nav 副作用）。\n\n历史记录：\n- 4.1.7 头像 offset_y 约 36px（1080p），与 4.1.8 一致。\n- 4.1.9 头像下移 ~15-20px，offset_y 调整为约 52px（1080p）。\n- 4.1.12 新增聚合图片控件 mmui::ChatImageGroupItemView，可点击区域比单图气泡窄，\n  单图沿用的 0.25 宽度处落在层叠卡片左侧边距上点不开预览，实测右移 10~20px 生效。\n')
+              2 STORE_NAME               0 (__doc__)
+
+ 22           4 LOAD_CONST               1 (0)
+              6 LOAD_CONST               2 (('Iterable', 'Optional', 'Tuple'))
+              8 IMPORT_NAME              1 (typing)
+             10 IMPORT_FROM              2 (Iterable)
+             12 STORE_NAME               2 (Iterable)
+             14 IMPORT_FROM              3 (Optional)
+             16 STORE_NAME               3 (Optional)
+             18 IMPORT_FROM              4 (Tuple)
+             20 STORE_NAME               4 (Tuple)
+             22 POP_TOP
+
+ 24          24 LOAD_NAME                4 (Tuple)
+             26 LOAD_NAME                5 (int)
+             28 LOAD_NAME                5 (int)
+             30 LOAD_NAME                5 (int)
+             32 LOAD_NAME                5 (int)
+             34 BUILD_TUPLE              4
+             36 BINARY_SUBSCR
+             38 STORE_NAME               6 (WeChatBuild)
+
+ 28          40 LOAD_CONST               3 ('4.1.9+')
+
+ 29          42 LOAD_CONST               4 ((4, 1, 9))
+
+ 30          44 LOAD_CONST               5 (52)
+
+ 27          46 LOAD_CONST               6 (('name', 'min_build', 'nav_avatar_offset_y_1080p'))
+             48 BUILD_CONST_KEY_MAP      3
+
+ 33          50 LOAD_CONST               7 ('4.1.0~4.1.8')
+
+ 34          52 LOAD_CONST               8 ((4, 1, 0))
+
+ 35          54 LOAD_CONST               9 (36)
+
+ 32          56 LOAD_CONST               6 (('name', 'min_build', 'nav_avatar_offset_y_1080p'))
+             58 BUILD_CONST_KEY_MAP      3
+
+ 26          60 BUILD_LIST               2
+             62 STORE_NAME               7 (_PROFILES)
+
+ 39          64 LOAD_NAME                7 (_PROFILES)
+             66 LOAD_CONST              10 (-1)
+             68 BINARY_SUBSCR
+             70 STORE_NAME               8 (_FALLBACK)
+
+ 45          72 LOAD_CONST              11 (10)
+             74 STORE_NAME               9 (_IMAGE_GROUP_CLICK_NUDGE_X_1080P)
+
+ 53          76 LOAD_CONST              12 (160)
+             78 STORE_NAME              10 (_INVITE_CARD_CLICK_MAX_X_1080P)
+
+ 56          80 LOAD_NAME                5 (int)
+             82 LOAD_NAME               11 (float)
+             84 LOAD_CONST              13 (('screen_h', 'return'))
+             86 BUILD_CONST_KEY_MAP      2
+             88 LOAD_CONST              14 (<code object _scale_y at 0x109244450, file "WeRobotCore/core/pyweixin/layout_profiles.py", line 56>)
+             90 LOAD_CONST              15 ('_scale_y')
+             92 MAKE_FUNCTION            4 (annotations)
+             94 STORE_NAME              12 (_scale_y)
+
+ 60          96 LOAD_CONST              32 ((1080,))
+             98 LOAD_NAME                5 (int)
+            100 LOAD_NAME                5 (int)
+            102 LOAD_CONST              13 (('screen_h', 'return'))
+            104 BUILD_CONST_KEY_MAP      2
+            106 LOAD_CONST              17 (<code object image_group_click_nudge_x at 0x10924b190, file "WeRobotCore/core/pyweixin/layout_profiles.py", line 60>)
+            108 LOAD_CONST              18 ('image_group_click_nudge_x')
+            110 MAKE_FUNCTION            5 (defaults, annotations)
+            112 STORE_NAME              13 (image_group_click_nudge_x)
+
+ 65         114 LOAD_CONST              33 ((1080,))
+            116 LOAD_NAME                5 (int)
+            118 LOAD_NAME                5 (int)
+            120 LOAD_CONST              13 (('screen_h', 'return'))
+            122 BUILD_CONST_KEY_MAP      2
+            124 LOAD_CONST              19 (<code object invite_card_click_max_x at 0x10924bd40, file "WeRobotCore/core/pyweixin/layout_profiles.py", line 65>)
+            126 LOAD_CONST              20 ('invite_card_click_max_x')
+            128 MAKE_FUNCTION            5 (defaults, annotations)
+            130 STORE_NAME              14 (invite_card_click_max_x)
+
+ 70         132 LOAD_NAME                3 (Optional)
+            134 LOAD_NAME                6 (WeChatBuild)
+            136 BINARY_SUBSCR
+            138 LOAD_NAME               15 (dict)
+            140 LOAD_CONST              21 (('build', 'return'))
+            142 BUILD_CONST_KEY_MAP      2
+            144 LOAD_CONST              22 (<code object select_profile at 0x10924b500, file "WeRobotCore/core/pyweixin/layout_profiles.py", line 70>)
+            146 LOAD_CONST              23 ('select_profile')
+            148 MAKE_FUNCTION            4 (annotations)
+            150 STORE_NAME              16 (select_profile)
+
+ 81         152 LOAD_CONST              34 ((1080,))
+            154 LOAD_NAME                3 (Optional)
+            156 LOAD_NAME                6 (WeChatBuild)
+            158 BINARY_SUBSCR
+            160 LOAD_NAME                5 (int)
+            162 LOAD_NAME                5 (int)
+            164 LOAD_CONST              24 (('build', 'screen_h', 'return'))
+            166 BUILD_CONST_KEY_MAP      3
+            168 LOAD_CONST              25 (<code object nav_avatar_offset_y at 0x10924bdf0, file "WeRobotCore/core/pyweixin/layout_profiles.py", line 81>)
+            170 LOAD_CONST              26 ('nav_avatar_offset_y')
+            172 MAKE_FUNCTION            5 (defaults, annotations)
+            174 STORE_NAME              17 (nav_avatar_offset_y)
+
+ 87         176 LOAD_CONST              35 ((1080,))
+
+ 91         178 LOAD_CONST              27 (None)
+
+ 87         180 LOAD_CONST              28 (('max_offset',))
+            182 BUILD_CONST_KEY_MAP      1
+
+ 88         184 LOAD_NAME                3 (Optional)
+            186 LOAD_NAME                6 (WeChatBuild)
+            188 BINARY_SUBSCR
+
+ 89         190 LOAD_NAME                5 (int)
+
+ 91         192 LOAD_NAME                3 (Optional)
+            194 LOAD_NAME                5 (int)
+            196 BINARY_SUBSCR
+
+ 92         198 LOAD_NAME                2 (Iterable)
+            200 LOAD_NAME                5 (int)
+            202 BINARY_SUBSCR
+
+ 87         204 LOAD_CONST              29 (('build', 'screen_h', 'max_offset', 'return'))
+            206 BUILD_CONST_KEY_MAP      4
+            208 LOAD_CONST              30 (<code object candidate_nav_avatar_offsets_y at 0x10924bc90, file "WeRobotCore/core/pyweixin/layout_profiles.py", line 87>)
+            210 LOAD_CONST              31 ('candidate_nav_avatar_offsets_y')
+            212 MAKE_FUNCTION            7 (defaults, kwdefaults, annotations)
+            214 STORE_NAME              18 (candidate_nav_avatar_offsets_y)
+            216 LOAD_CONST              27 (None)
+            218 RETURN_VALUE
+
+Disassembly of <code object _scale_y at 0x109244450, file "WeRobotCore/core/pyweixin/layout_profiles.py", line 56>:
+ 57           0 LOAD_GLOBAL              0 (max)
+              2 LOAD_CONST               1 (1.0)
+              4 LOAD_FAST                0 (screen_h)
+              6 LOAD_CONST               2 (1080.0)
+              8 BINARY_TRUE_DIVIDE
+             10 CALL_FUNCTION            2
+             12 RETURN_VALUE
+
+Disassembly of <code object image_group_click_nudge_x at 0x10924b190, file "WeRobotCore/core/pyweixin/layout_profiles.py", line 60>:
+ 62           0 LOAD_GLOBAL              0 (int)
+              2 LOAD_GLOBAL              1 (_IMAGE_GROUP_CLICK_NUDGE_X_1080P)
+              4 LOAD_GLOBAL              2 (_scale_y)
+              6 LOAD_FAST                0 (screen_h)
+              8 CALL_FUNCTION            1
+             10 BINARY_MULTIPLY
+             12 CALL_FUNCTION            1
+             14 RETURN_VALUE
+
+Disassembly of <code object invite_card_click_max_x at 0x10924bd40, file "WeRobotCore/core/pyweixin/layout_profiles.py", line 65>:
+ 67           0 LOAD_GLOBAL              0 (int)
+              2 LOAD_GLOBAL              1 (_INVITE_CARD_CLICK_MAX_X_1080P)
+              4 LOAD_GLOBAL              2 (_scale_y)
+              6 LOAD_FAST                0 (screen_h)
+              8 CALL_FUNCTION            1
+             10 BINARY_MULTIPLY
+             12 CALL_FUNCTION            1
+             14 RETURN_VALUE
+
+Disassembly of <code object select_profile at 0x10924b500, file "WeRobotCore/core/pyweixin/layout_profiles.py", line 70>:
+ 72           0 LOAD_FAST                0 (build)
+              2 LOAD_CONST               1 (None)
+              4 IS_OP                    0
+              6 POP_JUMP_IF_FALSE       12
+
+ 73           8 LOAD_GLOBAL              0 (_FALLBACK)
+             10 RETURN_VALUE
+
+ 74     >>   12 LOAD_GLOBAL              1 (tuple)
+             14 LOAD_FAST                0 (build)
+             16 LOAD_CONST               1 (None)
+             18 LOAD_CONST               2 (3)
+             20 BUILD_SLICE              2
+             22 BINARY_SUBSCR
+             24 CALL_FUNCTION            1
+             26 STORE_FAST               1 (target)
+
+ 75          28 LOAD_GLOBAL              2 (_PROFILES)
+             30 GET_ITER
+        >>   32 FOR_ITER                24 (to 58)
+             34 STORE_FAST               2 (p)
+
+ 76          36 LOAD_FAST                1 (target)
+             38 LOAD_FAST                2 (p)
+             40 LOAD_CONST               3 ('min_build')
+             42 BINARY_SUBSCR
+             44 COMPARE_OP               5 (>=)
+             46 POP_JUMP_IF_FALSE       32
+
+ 77          48 LOAD_FAST                2 (p)
+             50 ROT_TWO
+             52 POP_TOP
+             54 RETURN_VALUE
+             56 JUMP_ABSOLUTE           32
+
+ 78     >>   58 LOAD_GLOBAL              0 (_FALLBACK)
+             60 RETURN_VALUE
+
+Disassembly of <code object nav_avatar_offset_y at 0x10924bdf0, file "WeRobotCore/core/pyweixin/layout_profiles.py", line 81>:
+ 83           0 LOAD_GLOBAL              0 (select_profile)
+              2 LOAD_FAST                0 (build)
+              4 CALL_FUNCTION            1
+              6 LOAD_CONST               1 ('nav_avatar_offset_y_1080p')
+              8 BINARY_SUBSCR
+             10 STORE_FAST               2 (base)
+
+ 84          12 LOAD_GLOBAL              1 (int)
+             14 LOAD_FAST                2 (base)
+             16 LOAD_GLOBAL              2 (_scale_y)
+             18 LOAD_FAST                1 (screen_h)
+             20 CALL_FUNCTION            1
+             22 BINARY_MULTIPLY
+             24 CALL_FUNCTION            1
+             26 RETURN_VALUE
+
+Disassembly of <code object candidate_nav_avatar_offsets_y at 0x10924bc90, file "WeRobotCore/core/pyweixin/layout_profiles.py", line 87>:
+103           0 LOAD_GLOBAL              0 (_scale_y)
+              2 LOAD_FAST                1 (screen_h)
+              4 CALL_FUNCTION            1
+              6 STORE_FAST               3 (scale)
+
+104           8 LOAD_GLOBAL              1 (select_profile)
+             10 LOAD_FAST                0 (build)
+             12 CALL_FUNCTION            1
+             14 LOAD_CONST               1 ('nav_avatar_offset_y_1080p')
+             16 BINARY_SUBSCR
+             18 STORE_FAST               4 (primary)
+
+105          20 LOAD_FAST                4 (primary)
+             22 BUILD_SET                1
+             24 STORE_FAST               5 (seen)
+
+107          26 LOAD_GLOBAL              2 (int)
+             28 LOAD_FAST                4 (primary)
+             30 LOAD_FAST                3 (scale)
+             32 BINARY_MULTIPLY
+             34 CALL_FUNCTION            1
+             36 STORE_FAST               6 (primary_scaled)
+
+108          38 LOAD_FAST                2 (max_offset)
+             40 LOAD_CONST               2 (None)
+             42 IS_OP                    0
+             44 POP_JUMP_IF_TRUE        54
+             46 LOAD_FAST                6 (primary_scaled)
+             48 LOAD_FAST                2 (max_offset)
+             50 COMPARE_OP               1 (<=)
+             52 POP_JUMP_IF_FALSE       60
+
+109     >>   54 LOAD_FAST                6 (primary_scaled)
+             56 YIELD_VALUE
+             58 POP_TOP
+
+111     >>   60 LOAD_GLOBAL              3 (_PROFILES)
+             62 GET_ITER
+        >>   64 FOR_ITER                68 (to 134)
+             66 STORE_FAST               7 (p)
+
+112          68 LOAD_FAST                7 (p)
+             70 LOAD_CONST               1 ('nav_avatar_offset_y_1080p')
+             72 BINARY_SUBSCR
+             74 STORE_FAST               8 (v)
+
+113          76 LOAD_FAST                8 (v)
+             78 LOAD_FAST                5 (seen)
+             80 CONTAINS_OP              0
+             82 POP_JUMP_IF_FALSE       86
+
+114          84 JUMP_ABSOLUTE           64
+
+115     >>   86 LOAD_FAST                5 (seen)
+             88 LOAD_METHOD              4 (add)
+             90 LOAD_FAST                8 (v)
+             92 CALL_METHOD              1
+             94 POP_TOP
+
+116          96 LOAD_GLOBAL              2 (int)
+             98 LOAD_FAST                8 (v)
+            100 LOAD_FAST                3 (scale)
+            102 BINARY_MULTIPLY
+            104 CALL_FUNCTION            1
+            106 STORE_FAST               9 (scaled)
+
+117         108 LOAD_FAST                2 (max_offset)
+            110 LOAD_CONST               2 (None)
+            112 IS_OP                    1
+            114 POP_JUMP_IF_FALSE      126
+            116 LOAD_FAST                9 (scaled)
+            118 LOAD_FAST                2 (max_offset)
+            120 COMPARE_OP               4 (>)
+            122 POP_JUMP_IF_FALSE      126
+
+118         124 JUMP_ABSOLUTE           64
+
+119     >>  126 LOAD_FAST                9 (scaled)
+            128 YIELD_VALUE
+            130 POP_TOP
+            132 JUMP_ABSOLUTE           64
+        >>  134 LOAD_CONST               2 (None)
+            136 RETURN_VALUE

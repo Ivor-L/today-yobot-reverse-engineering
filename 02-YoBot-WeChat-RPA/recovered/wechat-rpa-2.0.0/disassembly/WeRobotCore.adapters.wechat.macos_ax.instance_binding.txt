@@ -1,0 +1,1288 @@
+  1           0 LOAD_CONST               0 ('Restart-safe macOS WeChat account bindings.\n\nOnly normalized account identity and the opaque native process reference are\npersisted.  AX objects, Helper sessions and public compatibility payloads are\nintentionally excluded.  Reading or constructing this adapter never launches\nthe Helper or touches WeChat.\n')
+              2 STORE_NAME               0 (__doc__)
+
+  9           4 LOAD_CONST               1 (0)
+              6 LOAD_CONST               2 (('annotations',))
+              8 IMPORT_NAME              1 (__future__)
+             10 IMPORT_FROM              2 (annotations)
+             12 STORE_NAME               2 (annotations)
+             14 POP_TOP
+
+ 11          16 LOAD_CONST               1 (0)
+             18 LOAD_CONST               3 (('dataclass',))
+             20 IMPORT_NAME              3 (dataclasses)
+             22 IMPORT_FROM              4 (dataclass)
+             24 STORE_NAME               4 (dataclass)
+             26 POP_TOP
+
+ 12          28 LOAD_CONST               1 (0)
+             30 LOAD_CONST               4 (None)
+             32 IMPORT_NAME              5 (json)
+             34 STORE_NAME               5 (json)
+
+ 13          36 LOAD_CONST               1 (0)
+             38 LOAD_CONST               4 (None)
+             40 IMPORT_NAME              6 (os)
+             42 STORE_NAME               6 (os)
+
+ 14          44 LOAD_CONST               1 (0)
+             46 LOAD_CONST               5 (('Path',))
+             48 IMPORT_NAME              7 (pathlib)
+             50 IMPORT_FROM              8 (Path)
+             52 STORE_NAME               8 (Path)
+             54 POP_TOP
+
+ 15          56 LOAD_CONST               1 (0)
+             58 LOAD_CONST               4 (None)
+             60 IMPORT_NAME              9 (stat)
+             62 STORE_NAME               9 (stat)
+
+ 16          64 LOAD_CONST               1 (0)
+             66 LOAD_CONST               4 (None)
+             68 IMPORT_NAME             10 (tempfile)
+             70 STORE_NAME              10 (tempfile)
+
+ 17          72 LOAD_CONST               1 (0)
+             74 LOAD_CONST               4 (None)
+             76 IMPORT_NAME             11 (time)
+             78 STORE_NAME              11 (time)
+
+ 18          80 LOAD_CONST               1 (0)
+             82 LOAD_CONST               6 (('Any', 'Mapping', 'Optional'))
+             84 IMPORT_NAME             12 (typing)
+             86 IMPORT_FROM             13 (Any)
+             88 STORE_NAME              13 (Any)
+             90 IMPORT_FROM             14 (Mapping)
+             92 STORE_NAME              14 (Mapping)
+             94 IMPORT_FROM             15 (Optional)
+             96 STORE_NAME              15 (Optional)
+             98 POP_TOP
+
+ 20         100 LOAD_CONST               1 (0)
+            102 LOAD_CONST               7 (('NativeInstanceRef',))
+            104 IMPORT_NAME             16 (WeRobotCore.ports)
+            106 IMPORT_FROM             17 (NativeInstanceRef)
+            108 STORE_NAME              17 (NativeInstanceRef)
+            110 POP_TOP
+
+ 23         112 LOAD_CONST               8 (1)
+            114 STORE_NAME              18 (MACOS_INSTANCE_BINDING_SCHEMA_VERSION)
+
+ 24         116 LOAD_CONST               9 ('macos_wechat_instance_binding.json')
+            118 STORE_NAME              19 (MACOS_INSTANCE_BINDING_FILE_NAME)
+
+ 25         120 LOAD_CONST              10 (16384)
+            122 STORE_NAME              20 (_MAX_BINDING_BYTES)
+
+ 26         124 LOAD_CONST              11 (256)
+            126 STORE_NAME              21 (_MAX_NATIVE_KEY_LENGTH)
+
+ 27         128 LOAD_CONST              12 (512)
+            130 STORE_NAME              22 (_MAX_ACCOUNT_TEXT_LENGTH)
+
+ 30         132 LOAD_CONST              13 ('Any')
+            134 LOAD_CONST              14 ('str')
+            136 LOAD_CONST              15 ('int')
+            138 LOAD_CONST              14 ('str')
+            140 LOAD_CONST              16 (('value', 'name', 'maximum', 'return'))
+            142 BUILD_CONST_KEY_MAP      4
+            144 LOAD_CONST              17 (<code object _required_text at 0x1072cfbe0, file "WeRobotCore/adapters/wechat/macos_ax/instance_binding.py", line 30>)
+            146 LOAD_CONST              18 ('_required_text')
+            148 MAKE_FUNCTION            4 (annotations)
+            150 STORE_NAME              23 (_required_text)
+
+ 41         152 LOAD_NAME                4 (dataclass)
+            154 LOAD_CONST              19 (True)
+            156 LOAD_CONST              20 (('frozen',))
+            158 CALL_FUNCTION_KW         1
+
+ 42         160 LOAD_BUILD_CLASS
+            162 LOAD_CONST              21 (<code object MacOSPersistedInstanceBinding at 0x1073c5ea0, file "WeRobotCore/adapters/wechat/macos_ax/instance_binding.py", line 41>)
+            164 LOAD_CONST              22 ('MacOSPersistedInstanceBinding')
+            166 MAKE_FUNCTION            0
+            168 LOAD_CONST              22 ('MacOSPersistedInstanceBinding')
+            170 CALL_FUNCTION            2
+            172 CALL_FUNCTION            1
+            174 STORE_NAME              24 (MacOSPersistedInstanceBinding)
+
+131         176 LOAD_BUILD_CLASS
+            178 LOAD_CONST              23 (<code object MacOSInstanceBindingStore at 0x1073d0240, file "WeRobotCore/adapters/wechat/macos_ax/instance_binding.py", line 131>)
+            180 LOAD_CONST              24 ('MacOSInstanceBindingStore')
+            182 MAKE_FUNCTION            0
+            184 LOAD_CONST              24 ('MacOSInstanceBindingStore')
+            186 CALL_FUNCTION            2
+            188 STORE_NAME              25 (MacOSInstanceBindingStore)
+
+221         190 LOAD_CONST              25 ('Path')
+            192 LOAD_CONST              24 ('MacOSInstanceBindingStore')
+            194 LOAD_CONST              26 (('data_root', 'return'))
+            196 BUILD_CONST_KEY_MAP      2
+            198 LOAD_CONST              27 (<code object create_macos_instance_binding_store at 0x1073d02f0, file "WeRobotCore/adapters/wechat/macos_ax/instance_binding.py", line 221>)
+            200 LOAD_CONST              28 ('create_macos_instance_binding_store')
+            202 MAKE_FUNCTION            4 (annotations)
+            204 STORE_NAME              26 (create_macos_instance_binding_store)
+
+231         206 BUILD_LIST               0
+            208 LOAD_CONST              29 (('MACOS_INSTANCE_BINDING_FILE_NAME', 'MACOS_INSTANCE_BINDING_SCHEMA_VERSION', 'MacOSInstanceBindingStore', 'MacOSPersistedInstanceBinding', 'create_macos_instance_binding_store'))
+            210 LIST_EXTEND              1
+            212 STORE_NAME              27 (__all__)
+            214 LOAD_CONST               4 (None)
+            216 RETURN_VALUE
+
+Disassembly of <code object _required_text at 0x1072cfbe0, file "WeRobotCore/adapters/wechat/macos_ax/instance_binding.py", line 30>:
+ 31           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                0 (value)
+              4 LOAD_GLOBAL              1 (str)
+              6 CALL_FUNCTION            2
+              8 POP_JUMP_IF_TRUE        24
+
+ 32          10 LOAD_GLOBAL              2 (TypeError)
+             12 LOAD_CONST               1 ('{} must be a string')
+             14 LOAD_METHOD              3 (format)
+             16 LOAD_FAST                1 (name)
+             18 CALL_METHOD              1
+             20 CALL_FUNCTION            1
+             22 RAISE_VARARGS            1
+
+ 33     >>   24 LOAD_FAST                0 (value)
+             26 LOAD_METHOD              4 (strip)
+             28 CALL_METHOD              0
+             30 STORE_FAST               3 (normalized)
+
+ 34          32 LOAD_FAST                3 (normalized)
+             34 POP_JUMP_IF_TRUE        50
+
+ 35          36 LOAD_GLOBAL              5 (ValueError)
+             38 LOAD_CONST               2 ('{} must be non-empty')
+             40 LOAD_METHOD              3 (format)
+             42 LOAD_FAST                1 (name)
+             44 CALL_METHOD              1
+             46 CALL_FUNCTION            1
+             48 RAISE_VARARGS            1
+
+ 36     >>   50 LOAD_GLOBAL              6 (len)
+             52 LOAD_FAST                3 (normalized)
+             54 CALL_FUNCTION            1
+             56 LOAD_FAST                2 (maximum)
+             58 COMPARE_OP               4 (>)
+             60 POP_JUMP_IF_FALSE       76
+
+ 37          62 LOAD_GLOBAL              5 (ValueError)
+             64 LOAD_CONST               3 ('{} is too long')
+             66 LOAD_METHOD              3 (format)
+             68 LOAD_FAST                1 (name)
+             70 CALL_METHOD              1
+             72 CALL_FUNCTION            1
+             74 RAISE_VARARGS            1
+
+ 38     >>   76 LOAD_FAST                3 (normalized)
+             78 RETURN_VALUE
+
+Disassembly of <code object MacOSPersistedInstanceBinding at 0x1073c5ea0, file "WeRobotCore/adapters/wechat/macos_ax/instance_binding.py", line 41>:
+ 41           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('MacOSPersistedInstanceBinding')
+              6 STORE_NAME               2 (__qualname__)
+              8 SETUP_ANNOTATIONS
+
+ 43          10 LOAD_CONST               1 ('Minimal identity needed to restore one single-instance Mac runtime.')
+             12 STORE_NAME               3 (__doc__)
+
+ 45          14 LOAD_CONST               2 ('str')
+             16 LOAD_NAME                4 (__annotations__)
+             18 LOAD_CONST               3 ('native_key')
+             20 STORE_SUBSCR
+
+ 46          22 LOAD_CONST               4 ('int')
+             24 LOAD_NAME                4 (__annotations__)
+             26 LOAD_CONST               5 ('process_id')
+             28 STORE_SUBSCR
+
+ 47          30 LOAD_CONST               2 ('str')
+             32 LOAD_NAME                4 (__annotations__)
+             34 LOAD_CONST               6 ('account_id')
+             36 STORE_SUBSCR
+
+ 48          38 LOAD_CONST               2 ('str')
+             40 LOAD_NAME                4 (__annotations__)
+             42 LOAD_CONST               7 ('nickname')
+             44 STORE_SUBSCR
+
+ 50          46 LOAD_CONST               8 ('None')
+             48 LOAD_CONST               9 (('return',))
+             50 BUILD_CONST_KEY_MAP      1
+             52 LOAD_CONST              10 (<code object __post_init__ at 0x1073c5be0, file "WeRobotCore/adapters/wechat/macos_ax/instance_binding.py", line 50>)
+             54 LOAD_CONST              11 ('MacOSPersistedInstanceBinding.__post_init__')
+             56 MAKE_FUNCTION            4 (annotations)
+             58 STORE_NAME               5 (__post_init__)
+
+ 85          60 LOAD_CONST              12 ('NativeInstanceRef')
+             62 LOAD_CONST              13 ('bool')
+             64 LOAD_CONST              14 (('ref', 'return'))
+             66 BUILD_CONST_KEY_MAP      2
+             68 LOAD_CONST              15 (<code object matches at 0x1073c5c90, file "WeRobotCore/adapters/wechat/macos_ax/instance_binding.py", line 85>)
+             70 LOAD_CONST              16 ('MacOSPersistedInstanceBinding.matches')
+             72 MAKE_FUNCTION            4 (annotations)
+             74 STORE_NAME               6 (matches)
+
+ 94          76 LOAD_CONST              17 ('float')
+             78 LOAD_CONST              18 ('Mapping[str, Any]')
+             80 LOAD_CONST              19 (('updated_at', 'return'))
+             82 BUILD_CONST_KEY_MAP      2
+             84 LOAD_CONST              20 (<code object to_payload at 0x1073c5d40, file "WeRobotCore/adapters/wechat/macos_ax/instance_binding.py", line 94>)
+             86 LOAD_CONST              21 ('MacOSPersistedInstanceBinding.to_payload')
+             88 MAKE_FUNCTION            4 (annotations)
+             90 STORE_NAME               7 (to_payload)
+
+105          92 LOAD_NAME                8 (classmethod)
+
+106          94 LOAD_CONST              18 ('Mapping[str, Any]')
+             96 LOAD_CONST              22 ("'MacOSPersistedInstanceBinding'")
+             98 LOAD_CONST              23 (('payload', 'return'))
+            100 BUILD_CONST_KEY_MAP      2
+            102 LOAD_CONST              24 (<code object from_payload at 0x1073c5df0, file "WeRobotCore/adapters/wechat/macos_ax/instance_binding.py", line 105>)
+            104 LOAD_CONST              25 ('MacOSPersistedInstanceBinding.from_payload')
+            106 MAKE_FUNCTION            4 (annotations)
+            108 CALL_FUNCTION            1
+            110 STORE_NAME               9 (from_payload)
+            112 LOAD_CONST              26 (None)
+            114 RETURN_VALUE
+
+Disassembly of <code object __post_init__ at 0x1073c5be0, file "WeRobotCore/adapters/wechat/macos_ax/instance_binding.py", line 50>:
+ 51           0 LOAD_GLOBAL              0 (object)
+              2 LOAD_METHOD              1 (__setattr__)
+
+ 52           4 LOAD_FAST                0 (self)
+
+ 53           6 LOAD_CONST               1 ('native_key')
+
+ 54           8 LOAD_GLOBAL              2 (_required_text)
+
+ 55          10 LOAD_FAST                0 (self)
+             12 LOAD_ATTR                3 (native_key)
+
+ 56          14 LOAD_CONST               1 ('native_key')
+
+ 57          16 LOAD_GLOBAL              4 (_MAX_NATIVE_KEY_LENGTH)
+
+ 54          18 CALL_FUNCTION            3
+
+ 51          20 CALL_METHOD              3
+             22 POP_TOP
+
+ 61          24 LOAD_GLOBAL              5 (isinstance)
+             26 LOAD_FAST                0 (self)
+             28 LOAD_ATTR                6 (process_id)
+             30 LOAD_GLOBAL              7 (int)
+             32 CALL_FUNCTION            2
+
+ 60          34 POP_JUMP_IF_FALSE       58
+
+ 62          36 LOAD_GLOBAL              5 (isinstance)
+             38 LOAD_FAST                0 (self)
+             40 LOAD_ATTR                6 (process_id)
+             42 LOAD_GLOBAL              8 (bool)
+             44 CALL_FUNCTION            2
+
+ 60          46 POP_JUMP_IF_TRUE        58
+
+ 63          48 LOAD_FAST                0 (self)
+             50 LOAD_ATTR                6 (process_id)
+             52 LOAD_CONST               2 (0)
+             54 COMPARE_OP               1 (<=)
+
+ 60          56 POP_JUMP_IF_FALSE       66
+
+ 65     >>   58 LOAD_GLOBAL              9 (ValueError)
+             60 LOAD_CONST               3 ('process_id must be a positive integer')
+             62 CALL_FUNCTION            1
+             64 RAISE_VARARGS            1
+
+ 66     >>   66 LOAD_GLOBAL              0 (object)
+             68 LOAD_METHOD              1 (__setattr__)
+
+ 67          70 LOAD_FAST                0 (self)
+
+ 68          72 LOAD_CONST               4 ('account_id')
+
+ 69          74 LOAD_GLOBAL              2 (_required_text)
+
+ 70          76 LOAD_FAST                0 (self)
+             78 LOAD_ATTR               10 (account_id)
+
+ 71          80 LOAD_CONST               4 ('account_id')
+
+ 72          82 LOAD_GLOBAL             11 (_MAX_ACCOUNT_TEXT_LENGTH)
+
+ 69          84 CALL_FUNCTION            3
+
+ 66          86 CALL_METHOD              3
+             88 POP_TOP
+
+ 75          90 LOAD_GLOBAL              0 (object)
+             92 LOAD_METHOD              1 (__setattr__)
+
+ 76          94 LOAD_FAST                0 (self)
+
+ 77          96 LOAD_CONST               5 ('nickname')
+
+ 78          98 LOAD_GLOBAL              2 (_required_text)
+
+ 79         100 LOAD_FAST                0 (self)
+            102 LOAD_ATTR               12 (nickname)
+
+ 80         104 LOAD_CONST               5 ('nickname')
+
+ 81         106 LOAD_GLOBAL             11 (_MAX_ACCOUNT_TEXT_LENGTH)
+
+ 78         108 CALL_FUNCTION            3
+
+ 75         110 CALL_METHOD              3
+            112 POP_TOP
+            114 LOAD_CONST               0 (None)
+            116 RETURN_VALUE
+
+Disassembly of <code object matches at 0x1073c5c90, file "WeRobotCore/adapters/wechat/macos_ax/instance_binding.py", line 85>:
+ 87           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                1 (ref)
+              4 LOAD_GLOBAL              1 (NativeInstanceRef)
+              6 CALL_FUNCTION            2
+              8 JUMP_IF_FALSE_OR_POP    60
+
+ 88          10 LOAD_FAST                1 (ref)
+             12 LOAD_ATTR                2 (platform)
+             14 LOAD_METHOD              3 (strip)
+             16 CALL_METHOD              0
+             18 LOAD_METHOD              4 (lower)
+             20 CALL_METHOD              0
+             22 LOAD_CONST               1 (frozenset({'darwin', 'macos'}))
+             24 CONTAINS_OP              0
+
+ 87          26 JUMP_IF_FALSE_OR_POP    60
+
+ 89          28 LOAD_FAST                1 (ref)
+             30 LOAD_ATTR                5 (payload)
+             32 LOAD_CONST               0 (None)
+             34 IS_OP                    0
+
+ 87          36 JUMP_IF_FALSE_OR_POP    60
+
+ 90          38 LOAD_FAST                1 (ref)
+             40 LOAD_ATTR                6 (native_key)
+             42 LOAD_FAST                0 (self)
+             44 LOAD_ATTR                6 (native_key)
+             46 COMPARE_OP               2 (==)
+
+ 87          48 JUMP_IF_FALSE_OR_POP    60
+
+ 91          50 LOAD_FAST                1 (ref)
+             52 LOAD_ATTR                7 (process_id)
+             54 LOAD_FAST                0 (self)
+             56 LOAD_ATTR                7 (process_id)
+             58 COMPARE_OP               2 (==)
+
+ 86     >>   60 RETURN_VALUE
+
+Disassembly of <code object to_payload at 0x1073c5d40, file "WeRobotCore/adapters/wechat/macos_ax/instance_binding.py", line 94>:
+ 96           0 LOAD_GLOBAL              0 (MACOS_INSTANCE_BINDING_SCHEMA_VERSION)
+
+ 97           2 LOAD_CONST               1 ('darwin')
+
+ 98           4 LOAD_FAST                0 (self)
+              6 LOAD_ATTR                1 (native_key)
+
+ 99           8 LOAD_FAST                0 (self)
+             10 LOAD_ATTR                2 (process_id)
+
+100          12 LOAD_FAST                0 (self)
+             14 LOAD_ATTR                3 (account_id)
+
+101          16 LOAD_FAST                0 (self)
+             18 LOAD_ATTR                4 (nickname)
+
+102          20 LOAD_GLOBAL              5 (float)
+             22 LOAD_FAST                1 (updated_at)
+             24 CALL_FUNCTION            1
+
+ 95          26 LOAD_CONST               2 (('schemaVersion', 'platform', 'nativeKey', 'processId', 'accountId', 'nickname', 'updatedAt'))
+             28 BUILD_CONST_KEY_MAP      7
+             30 RETURN_VALUE
+
+Disassembly of <code object from_payload at 0x1073c5df0, file "WeRobotCore/adapters/wechat/macos_ax/instance_binding.py", line 105>:
+110           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                1 (payload)
+              4 LOAD_GLOBAL              1 (Mapping)
+              6 CALL_FUNCTION            2
+              8 POP_JUMP_IF_TRUE        18
+
+111          10 LOAD_GLOBAL              2 (TypeError)
+             12 LOAD_CONST               1 ('binding payload must be a mapping')
+             14 CALL_FUNCTION            1
+             16 RAISE_VARARGS            1
+
+112     >>   18 LOAD_FAST                1 (payload)
+             20 LOAD_METHOD              3 (get)
+             22 LOAD_CONST               2 ('schemaVersion')
+             24 CALL_METHOD              1
+             26 LOAD_GLOBAL              4 (MACOS_INSTANCE_BINDING_SCHEMA_VERSION)
+             28 COMPARE_OP               3 (!=)
+             30 POP_JUMP_IF_FALSE       40
+
+113          32 LOAD_GLOBAL              5 (ValueError)
+             34 LOAD_CONST               3 ('binding schema version is unsupported')
+             36 CALL_FUNCTION            1
+             38 RAISE_VARARGS            1
+
+114     >>   40 LOAD_FAST                1 (payload)
+             42 LOAD_METHOD              3 (get)
+             44 LOAD_CONST               4 ('platform')
+             46 CALL_METHOD              1
+             48 LOAD_CONST               5 ('darwin')
+             50 COMPARE_OP               3 (!=)
+             52 POP_JUMP_IF_FALSE       62
+
+115          54 LOAD_GLOBAL              5 (ValueError)
+             56 LOAD_CONST               6 ('binding platform is invalid')
+             58 CALL_FUNCTION            1
+             60 RAISE_VARARGS            1
+
+116     >>   62 LOAD_FAST                1 (payload)
+             64 LOAD_METHOD              3 (get)
+             66 LOAD_CONST               7 ('updatedAt')
+             68 CALL_METHOD              1
+             70 STORE_FAST               2 (updated_at)
+
+118          72 LOAD_GLOBAL              0 (isinstance)
+             74 LOAD_FAST                2 (updated_at)
+             76 LOAD_GLOBAL              6 (bool)
+             78 CALL_FUNCTION            2
+
+117          80 POP_JUMP_IF_TRUE       104
+
+119          82 LOAD_GLOBAL              0 (isinstance)
+             84 LOAD_FAST                2 (updated_at)
+             86 LOAD_GLOBAL              7 (int)
+             88 LOAD_GLOBAL              8 (float)
+             90 BUILD_TUPLE              2
+             92 CALL_FUNCTION            2
+
+117          94 POP_JUMP_IF_FALSE      104
+
+120          96 LOAD_FAST                2 (updated_at)
+             98 LOAD_CONST               8 (0)
+            100 COMPARE_OP               0 (<)
+
+117         102 POP_JUMP_IF_FALSE      112
+
+122     >>  104 LOAD_GLOBAL              5 (ValueError)
+            106 LOAD_CONST               9 ('binding updatedAt is invalid')
+            108 CALL_FUNCTION            1
+            110 RAISE_VARARGS            1
+
+123     >>  112 LOAD_FAST                0 (cls)
+
+124         114 LOAD_FAST                1 (payload)
+            116 LOAD_METHOD              3 (get)
+            118 LOAD_CONST              10 ('nativeKey')
+            120 CALL_METHOD              1
+
+125         122 LOAD_FAST                1 (payload)
+            124 LOAD_METHOD              3 (get)
+            126 LOAD_CONST              11 ('processId')
+            128 CALL_METHOD              1
+
+126         130 LOAD_FAST                1 (payload)
+            132 LOAD_METHOD              3 (get)
+            134 LOAD_CONST              12 ('accountId')
+            136 CALL_METHOD              1
+
+127         138 LOAD_FAST                1 (payload)
+            140 LOAD_METHOD              3 (get)
+            142 LOAD_CONST              13 ('nickname')
+            144 CALL_METHOD              1
+
+123         146 LOAD_CONST              14 (('native_key', 'process_id', 'account_id', 'nickname'))
+            148 CALL_FUNCTION_KW         4
+            150 RETURN_VALUE
+
+Disassembly of <code object MacOSInstanceBindingStore at 0x1073d0240, file "WeRobotCore/adapters/wechat/macos_ax/instance_binding.py", line 131>:
+131           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('MacOSInstanceBindingStore')
+              6 STORE_NAME               2 (__qualname__)
+
+132           8 LOAD_CONST               1 ('Atomic, exact-path JSON store for one macOS MVP account binding.\n\n    Persistence is an optimization rather than a prerequisite for normal\n    initialization.  Invalid, unreadable or unsafe files are therefore\n    treated as a cache miss, matching the mature Windows fail-open snapshot\n    behavior while keeping native attachment verification fail-closed.\n    ')
+             10 STORE_NAME               3 (__doc__)
+
+140          12 LOAD_NAME                4 (time)
+             14 LOAD_ATTR                4 (time)
+             16 LOAD_CONST               2 (('clock',))
+             18 BUILD_CONST_KEY_MAP      1
+             20 LOAD_CONST               3 ('Path')
+             22 LOAD_CONST               4 ('None')
+             24 LOAD_CONST               5 (('path', 'return'))
+             26 BUILD_CONST_KEY_MAP      2
+             28 LOAD_CONST               6 (<code object __init__ at 0x1073c5f50, file "WeRobotCore/adapters/wechat/macos_ax/instance_binding.py", line 140>)
+             30 LOAD_CONST               7 ('MacOSInstanceBindingStore.__init__')
+             32 MAKE_FUNCTION            6 (kwdefaults, annotations)
+             34 STORE_NAME               5 (__init__)
+
+150          36 LOAD_NAME                6 (property)
+
+151          38 LOAD_CONST               3 ('Path')
+             40 LOAD_CONST               8 (('return',))
+             42 BUILD_CONST_KEY_MAP      1
+             44 LOAD_CONST               9 (<code object path at 0x1073d0030, file "WeRobotCore/adapters/wechat/macos_ax/instance_binding.py", line 150>)
+             46 LOAD_CONST              10 ('MacOSInstanceBindingStore.path')
+             48 MAKE_FUNCTION            4 (annotations)
+             50 CALL_FUNCTION            1
+             52 STORE_NAME               7 (path)
+
+154          54 LOAD_CONST              11 ('Optional[MacOSPersistedInstanceBinding]')
+             56 LOAD_CONST               8 (('return',))
+             58 BUILD_CONST_KEY_MAP      1
+             60 LOAD_CONST              12 (<code object load at 0x1073d00e0, file "WeRobotCore/adapters/wechat/macos_ax/instance_binding.py", line 154>)
+             62 LOAD_CONST              13 ('MacOSInstanceBindingStore.load')
+             64 MAKE_FUNCTION            4 (annotations)
+             66 STORE_NAME               8 (load)
+
+169          68 LOAD_CONST              14 ('MacOSPersistedInstanceBinding')
+             70 LOAD_CONST              15 ('bool')
+             72 LOAD_CONST              16 (('binding', 'return'))
+             74 BUILD_CONST_KEY_MAP      2
+             76 LOAD_CONST              17 (<code object save at 0x1073d0190, file "WeRobotCore/adapters/wechat/macos_ax/instance_binding.py", line 169>)
+             78 LOAD_CONST              18 ('MacOSInstanceBindingStore.save')
+             80 MAKE_FUNCTION            4 (annotations)
+             82 STORE_NAME               9 (save)
+             84 LOAD_CONST              19 (None)
+             86 RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x1073c5f50, file "WeRobotCore/adapters/wechat/macos_ax/instance_binding.py", line 140>:
+141           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                1 (path)
+              4 LOAD_GLOBAL              1 (Path)
+              6 CALL_FUNCTION            2
+              8 POP_JUMP_IF_TRUE        18
+
+142          10 LOAD_GLOBAL              2 (TypeError)
+             12 LOAD_CONST               1 ('path must be a pathlib.Path')
+             14 CALL_FUNCTION            1
+             16 RAISE_VARARGS            1
+
+143     >>   18 LOAD_FAST                1 (path)
+             20 LOAD_METHOD              3 (is_absolute)
+             22 CALL_METHOD              0
+             24 POP_JUMP_IF_TRUE        34
+
+144          26 LOAD_GLOBAL              4 (ValueError)
+             28 LOAD_CONST               2 ('binding path must be absolute')
+             30 CALL_FUNCTION            1
+             32 RAISE_VARARGS            1
+
+145     >>   34 LOAD_GLOBAL              5 (callable)
+             36 LOAD_FAST                2 (clock)
+             38 CALL_FUNCTION            1
+             40 POP_JUMP_IF_TRUE        50
+
+146          42 LOAD_GLOBAL              2 (TypeError)
+             44 LOAD_CONST               3 ('clock must be callable')
+             46 CALL_FUNCTION            1
+             48 RAISE_VARARGS            1
+
+147     >>   50 LOAD_FAST                1 (path)
+             52 LOAD_FAST                0 (self)
+             54 STORE_ATTR               6 (_path)
+
+148          56 LOAD_FAST                2 (clock)
+             58 LOAD_FAST                0 (self)
+             60 STORE_ATTR               7 (_clock)
+             62 LOAD_CONST               0 (None)
+             64 RETURN_VALUE
+
+Disassembly of <code object path at 0x1073d0030, file "WeRobotCore/adapters/wechat/macos_ax/instance_binding.py", line 150>:
+152           0 LOAD_FAST                0 (self)
+              2 LOAD_ATTR                0 (_path)
+              4 RETURN_VALUE
+
+Disassembly of <code object load at 0x1073d00e0, file "WeRobotCore/adapters/wechat/macos_ax/instance_binding.py", line 154>:
+155           0 SETUP_FINALLY          122 (to 124)
+
+156           2 LOAD_FAST                0 (self)
+              4 LOAD_ATTR                0 (_path)
+              6 LOAD_METHOD              1 (lstat)
+              8 CALL_METHOD              0
+             10 STORE_FAST               1 (metadata)
+
+157          12 LOAD_GLOBAL              2 (stat)
+             14 LOAD_METHOD              3 (S_ISLNK)
+             16 LOAD_FAST                1 (metadata)
+             18 LOAD_ATTR                4 (st_mode)
+             20 CALL_METHOD              1
+             22 POP_JUMP_IF_TRUE        36
+             24 LOAD_GLOBAL              2 (stat)
+             26 LOAD_METHOD              5 (S_ISREG)
+             28 LOAD_FAST                1 (metadata)
+             30 LOAD_ATTR                4 (st_mode)
+             32 CALL_METHOD              1
+             34 POP_JUMP_IF_TRUE        42
+
+158     >>   36 POP_BLOCK
+             38 LOAD_CONST               0 (None)
+             40 RETURN_VALUE
+
+159     >>   42 LOAD_FAST                1 (metadata)
+             44 LOAD_ATTR                6 (st_size)
+             46 LOAD_CONST               1 (0)
+             48 COMPARE_OP               1 (<=)
+             50 POP_JUMP_IF_TRUE        62
+             52 LOAD_FAST                1 (metadata)
+             54 LOAD_ATTR                6 (st_size)
+             56 LOAD_GLOBAL              7 (_MAX_BINDING_BYTES)
+             58 COMPARE_OP               4 (>)
+             60 POP_JUMP_IF_FALSE       68
+
+160     >>   62 POP_BLOCK
+             64 LOAD_CONST               0 (None)
+             66 RETURN_VALUE
+
+161     >>   68 LOAD_FAST                0 (self)
+             70 LOAD_ATTR                0 (_path)
+             72 LOAD_METHOD              8 (read_bytes)
+             74 CALL_METHOD              0
+             76 STORE_FAST               2 (raw)
+
+162          78 LOAD_GLOBAL              9 (len)
+             80 LOAD_FAST                2 (raw)
+             82 CALL_FUNCTION            1
+             84 LOAD_GLOBAL              7 (_MAX_BINDING_BYTES)
+             86 COMPARE_OP               4 (>)
+             88 POP_JUMP_IF_FALSE       96
+
+163          90 POP_BLOCK
+             92 LOAD_CONST               0 (None)
+             94 RETURN_VALUE
+
+164     >>   96 LOAD_GLOBAL             10 (json)
+             98 LOAD_METHOD             11 (loads)
+            100 LOAD_FAST                2 (raw)
+            102 LOAD_METHOD             12 (decode)
+            104 LOAD_CONST               2 ('utf-8')
+            106 CALL_METHOD              1
+            108 CALL_METHOD              1
+            110 STORE_FAST               3 (payload)
+
+165         112 LOAD_GLOBAL             13 (MacOSPersistedInstanceBinding)
+            114 LOAD_METHOD             14 (from_payload)
+            116 LOAD_FAST                3 (payload)
+            118 CALL_METHOD              1
+            120 POP_BLOCK
+            122 RETURN_VALUE
+
+166     >>  124 DUP_TOP
+            126 LOAD_GLOBAL             15 (OSError)
+            128 LOAD_GLOBAL             16 (UnicodeError)
+            130 LOAD_GLOBAL             17 (ValueError)
+            132 LOAD_GLOBAL             18 (TypeError)
+            134 LOAD_GLOBAL             10 (json)
+            136 LOAD_ATTR               19 (JSONDecodeError)
+            138 BUILD_TUPLE              5
+            140 JUMP_IF_NOT_EXC_MATCH   154
+            142 POP_TOP
+            144 POP_TOP
+            146 POP_TOP
+
+167         148 POP_EXCEPT
+            150 LOAD_CONST               0 (None)
+            152 RETURN_VALUE
+        >>  154 RERAISE
+            156 LOAD_CONST               0 (None)
+            158 RETURN_VALUE
+
+Disassembly of <code object save at 0x1073d0190, file "WeRobotCore/adapters/wechat/macos_ax/instance_binding.py", line 169>:
+170           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                1 (binding)
+              4 LOAD_GLOBAL              1 (MacOSPersistedInstanceBinding)
+              6 CALL_FUNCTION            2
+              8 POP_JUMP_IF_TRUE        18
+
+171          10 LOAD_GLOBAL              2 (TypeError)
+             12 LOAD_CONST               1 ('binding must be a MacOSPersistedInstanceBinding')
+             14 CALL_FUNCTION            1
+             16 RAISE_VARARGS            1
+
+172     >>   18 LOAD_CONST               0 (None)
+             20 STORE_FAST               2 (descriptor)
+
+173          22 LOAD_CONST               0 (None)
+             24 STORE_FAST               3 (temporary_path)
+
+174          26 EXTENDED_ARG             3
+             28 SETUP_FINALLY          796 (to 826)
+             30 EXTENDED_ARG             2
+             32 SETUP_FINALLY          578 (to 612)
+
+175          34 LOAD_FAST                0 (self)
+             36 LOAD_ATTR                3 (_path)
+             38 LOAD_ATTR                4 (parent)
+             40 STORE_FAST               4 (parent)
+
+176          42 LOAD_FAST                4 (parent)
+             44 LOAD_ATTR                5 (mkdir)
+             46 LOAD_CONST               2 (True)
+             48 LOAD_CONST               2 (True)
+             50 LOAD_CONST               3 (448)
+             52 LOAD_CONST               4 (('parents', 'exist_ok', 'mode'))
+             54 CALL_FUNCTION_KW         3
+             56 POP_TOP
+
+177          58 LOAD_FAST                4 (parent)
+             60 LOAD_METHOD              6 (is_symlink)
+             62 CALL_METHOD              0
+             64 POP_JUMP_IF_TRUE        86
+             66 LOAD_FAST                0 (self)
+             68 LOAD_ATTR                3 (_path)
+             70 LOAD_METHOD              7 (exists)
+             72 CALL_METHOD              0
+             74 POP_JUMP_IF_FALSE      176
+             76 LOAD_FAST                0 (self)
+             78 LOAD_ATTR                3 (_path)
+             80 LOAD_METHOD              6 (is_symlink)
+             82 CALL_METHOD              0
+             84 POP_JUMP_IF_FALSE      176
+
+178     >>   86 POP_BLOCK
+             88 POP_BLOCK
+
+209          90 LOAD_FAST                2 (descriptor)
+             92 LOAD_CONST               0 (None)
+             94 IS_OP                    1
+             96 POP_JUMP_IF_FALSE      132
+
+210          98 SETUP_FINALLY           14 (to 114)
+
+211         100 LOAD_GLOBAL              8 (os)
+            102 LOAD_METHOD              9 (close)
+            104 LOAD_FAST                2 (descriptor)
+            106 CALL_METHOD              1
+            108 POP_TOP
+            110 POP_BLOCK
+            112 JUMP_FORWARD            18 (to 132)
+
+212     >>  114 DUP_TOP
+            116 LOAD_GLOBAL             10 (OSError)
+            118 JUMP_IF_NOT_EXC_MATCH   130
+            120 POP_TOP
+            122 POP_TOP
+            124 POP_TOP
+
+213         126 POP_EXCEPT
+            128 JUMP_FORWARD             2 (to 132)
+        >>  130 RERAISE
+
+214     >>  132 LOAD_FAST                3 (temporary_path)
+            134 LOAD_CONST               0 (None)
+            136 IS_OP                    1
+            138 POP_JUMP_IF_FALSE      172
+
+215         140 SETUP_FINALLY           12 (to 154)
+
+216         142 LOAD_FAST                3 (temporary_path)
+            144 LOAD_METHOD             11 (unlink)
+            146 CALL_METHOD              0
+            148 POP_TOP
+            150 POP_BLOCK
+            152 JUMP_FORWARD            18 (to 172)
+
+217     >>  154 DUP_TOP
+            156 LOAD_GLOBAL             10 (OSError)
+            158 JUMP_IF_NOT_EXC_MATCH   170
+            160 POP_TOP
+            162 POP_TOP
+            164 POP_TOP
+
+218         166 POP_EXCEPT
+            168 JUMP_FORWARD             2 (to 172)
+        >>  170 RERAISE
+
+178     >>  172 LOAD_CONST               5 (False)
+            174 RETURN_VALUE
+
+179     >>  176 LOAD_FAST                1 (binding)
+            178 LOAD_ATTR               12 (to_payload)
+            180 LOAD_GLOBAL             13 (float)
+            182 LOAD_FAST                0 (self)
+            184 LOAD_METHOD             14 (_clock)
+            186 CALL_METHOD              0
+            188 CALL_FUNCTION            1
+            190 LOAD_CONST               6 (('updated_at',))
+            192 CALL_FUNCTION_KW         1
+            194 STORE_FAST               5 (payload)
+
+181         196 LOAD_GLOBAL             15 (json)
+            198 LOAD_ATTR               16 (dumps)
+
+182         200 LOAD_FAST                5 (payload)
+
+183         202 LOAD_CONST               5 (False)
+
+184         204 LOAD_CONST               2 (True)
+
+185         206 LOAD_CONST               7 ((',', ':'))
+
+181         208 LOAD_CONST               8 (('ensure_ascii', 'sort_keys', 'separators'))
+            210 CALL_FUNCTION_KW         4
+
+187         212 LOAD_CONST               9 ('\n')
+
+181         214 BINARY_ADD
+
+180         216 LOAD_METHOD             17 (encode)
+
+188         218 LOAD_CONST              10 ('utf-8')
+
+180         220 CALL_METHOD              1
+            222 STORE_FAST               6 (encoded)
+
+189         224 LOAD_GLOBAL             18 (len)
+            226 LOAD_FAST                6 (encoded)
+            228 CALL_FUNCTION            1
+            230 LOAD_GLOBAL             19 (_MAX_BINDING_BYTES)
+            232 COMPARE_OP               4 (>)
+            234 EXTENDED_ARG             1
+            236 POP_JUMP_IF_FALSE      336
+
+190         238 POP_BLOCK
+            240 POP_BLOCK
+
+209         242 LOAD_FAST                2 (descriptor)
+            244 LOAD_CONST               0 (None)
+            246 IS_OP                    1
+            248 EXTENDED_ARG             1
+            250 POP_JUMP_IF_FALSE      288
+
+210         252 SETUP_FINALLY           14 (to 268)
+
+211         254 LOAD_GLOBAL              8 (os)
+            256 LOAD_METHOD              9 (close)
+            258 LOAD_FAST                2 (descriptor)
+            260 CALL_METHOD              1
+            262 POP_TOP
+            264 POP_BLOCK
+            266 JUMP_FORWARD            20 (to 288)
+
+212     >>  268 DUP_TOP
+            270 LOAD_GLOBAL             10 (OSError)
+            272 EXTENDED_ARG             1
+            274 JUMP_IF_NOT_EXC_MATCH   286
+            276 POP_TOP
+            278 POP_TOP
+            280 POP_TOP
+
+213         282 POP_EXCEPT
+            284 JUMP_FORWARD             2 (to 288)
+        >>  286 RERAISE
+
+214     >>  288 LOAD_FAST                3 (temporary_path)
+            290 LOAD_CONST               0 (None)
+            292 IS_OP                    1
+            294 EXTENDED_ARG             1
+            296 POP_JUMP_IF_FALSE      332
+
+215         298 SETUP_FINALLY           12 (to 312)
+
+216         300 LOAD_FAST                3 (temporary_path)
+            302 LOAD_METHOD             11 (unlink)
+            304 CALL_METHOD              0
+            306 POP_TOP
+            308 POP_BLOCK
+            310 JUMP_FORWARD            20 (to 332)
+
+217     >>  312 DUP_TOP
+            314 LOAD_GLOBAL             10 (OSError)
+            316 EXTENDED_ARG             1
+            318 JUMP_IF_NOT_EXC_MATCH   330
+            320 POP_TOP
+            322 POP_TOP
+            324 POP_TOP
+
+218         326 POP_EXCEPT
+            328 JUMP_FORWARD             2 (to 332)
+        >>  330 RERAISE
+
+190     >>  332 LOAD_CONST               5 (False)
+            334 RETURN_VALUE
+
+191     >>  336 LOAD_GLOBAL             20 (tempfile)
+            338 LOAD_ATTR               21 (mkstemp)
+
+192         340 LOAD_CONST              11 ('.{}-')
+            342 LOAD_METHOD             22 (format)
+            344 LOAD_FAST                0 (self)
+            346 LOAD_ATTR                3 (_path)
+            348 LOAD_ATTR               23 (name)
+            350 CALL_METHOD              1
+
+193         352 LOAD_GLOBAL             24 (str)
+            354 LOAD_FAST                4 (parent)
+            356 CALL_FUNCTION            1
+
+191         358 LOAD_CONST              12 (('prefix', 'dir'))
+            360 CALL_FUNCTION_KW         2
+            362 UNPACK_SEQUENCE          2
+            364 STORE_FAST               2 (descriptor)
+            366 STORE_FAST               7 (temporary_name)
+
+195         368 LOAD_GLOBAL             25 (Path)
+            370 LOAD_FAST                7 (temporary_name)
+            372 CALL_FUNCTION            1
+            374 STORE_FAST               3 (temporary_path)
+
+196         376 LOAD_GLOBAL              8 (os)
+            378 LOAD_METHOD             26 (fchmod)
+            380 LOAD_FAST                2 (descriptor)
+            382 LOAD_CONST              13 (384)
+            384 CALL_METHOD              2
+            386 POP_TOP
+
+197         388 LOAD_GLOBAL              8 (os)
+            390 LOAD_METHOD             27 (fdopen)
+            392 LOAD_FAST                2 (descriptor)
+            394 LOAD_CONST              14 ('wb')
+            396 CALL_METHOD              2
+            398 SETUP_WITH              52 (to 452)
+            400 STORE_FAST               8 (stream)
+
+198         402 LOAD_CONST               0 (None)
+            404 STORE_FAST               2 (descriptor)
+
+199         406 LOAD_FAST                8 (stream)
+            408 LOAD_METHOD             28 (write)
+            410 LOAD_FAST                6 (encoded)
+            412 CALL_METHOD              1
+            414 POP_TOP
+
+200         416 LOAD_FAST                8 (stream)
+            418 LOAD_METHOD             29 (flush)
+            420 CALL_METHOD              0
+            422 POP_TOP
+
+201         424 LOAD_GLOBAL              8 (os)
+            426 LOAD_METHOD             30 (fsync)
+            428 LOAD_FAST                8 (stream)
+            430 LOAD_METHOD             31 (fileno)
+            432 CALL_METHOD              0
+            434 CALL_METHOD              1
+            436 POP_TOP
+            438 POP_BLOCK
+            440 LOAD_CONST               0 (None)
+            442 DUP_TOP
+            444 DUP_TOP
+            446 CALL_FUNCTION            3
+            448 POP_TOP
+            450 JUMP_FORWARD            18 (to 470)
+        >>  452 WITH_EXCEPT_START
+            454 EXTENDED_ARG             1
+            456 POP_JUMP_IF_TRUE       460
+            458 RERAISE
+        >>  460 POP_TOP
+            462 POP_TOP
+            464 POP_TOP
+            466 POP_EXCEPT
+            468 POP_TOP
+
+202     >>  470 LOAD_GLOBAL              8 (os)
+            472 LOAD_METHOD             32 (replace)
+            474 LOAD_GLOBAL             24 (str)
+            476 LOAD_FAST                3 (temporary_path)
+            478 CALL_FUNCTION            1
+            480 LOAD_GLOBAL             24 (str)
+            482 LOAD_FAST                0 (self)
+            484 LOAD_ATTR                3 (_path)
+            486 CALL_FUNCTION            1
+            488 CALL_METHOD              2
+            490 POP_TOP
+
+203         492 LOAD_CONST               0 (None)
+            494 STORE_FAST               3 (temporary_path)
+
+204         496 LOAD_GLOBAL              8 (os)
+            498 LOAD_METHOD             33 (chmod)
+            500 LOAD_GLOBAL             24 (str)
+            502 LOAD_FAST                0 (self)
+            504 LOAD_ATTR                3 (_path)
+            506 CALL_FUNCTION            1
+            508 LOAD_CONST              13 (384)
+            510 CALL_METHOD              2
+            512 POP_TOP
+
+205         514 POP_BLOCK
+            516 POP_BLOCK
+
+209         518 LOAD_FAST                2 (descriptor)
+            520 LOAD_CONST               0 (None)
+            522 IS_OP                    1
+            524 EXTENDED_ARG             2
+            526 POP_JUMP_IF_FALSE      564
+
+210         528 SETUP_FINALLY           14 (to 544)
+
+211         530 LOAD_GLOBAL              8 (os)
+            532 LOAD_METHOD              9 (close)
+            534 LOAD_FAST                2 (descriptor)
+            536 CALL_METHOD              1
+            538 POP_TOP
+            540 POP_BLOCK
+            542 JUMP_FORWARD            20 (to 564)
+
+212     >>  544 DUP_TOP
+            546 LOAD_GLOBAL             10 (OSError)
+            548 EXTENDED_ARG             2
+            550 JUMP_IF_NOT_EXC_MATCH   562
+            552 POP_TOP
+            554 POP_TOP
+            556 POP_TOP
+
+213         558 POP_EXCEPT
+            560 JUMP_FORWARD             2 (to 564)
+        >>  562 RERAISE
+
+214     >>  564 LOAD_FAST                3 (temporary_path)
+            566 LOAD_CONST               0 (None)
+            568 IS_OP                    1
+            570 EXTENDED_ARG             2
+            572 POP_JUMP_IF_FALSE      608
+
+215         574 SETUP_FINALLY           12 (to 588)
+
+216         576 LOAD_FAST                3 (temporary_path)
+            578 LOAD_METHOD             11 (unlink)
+            580 CALL_METHOD              0
+            582 POP_TOP
+            584 POP_BLOCK
+            586 JUMP_FORWARD            20 (to 608)
+
+217     >>  588 DUP_TOP
+            590 LOAD_GLOBAL             10 (OSError)
+            592 EXTENDED_ARG             2
+            594 JUMP_IF_NOT_EXC_MATCH   606
+            596 POP_TOP
+            598 POP_TOP
+            600 POP_TOP
+
+218         602 POP_EXCEPT
+            604 JUMP_FORWARD             2 (to 608)
+        >>  606 RERAISE
+
+205     >>  608 LOAD_CONST               2 (True)
+            610 RETURN_VALUE
+
+206     >>  612 DUP_TOP
+            614 LOAD_GLOBAL             10 (OSError)
+            616 LOAD_GLOBAL              2 (TypeError)
+            618 LOAD_GLOBAL             34 (ValueError)
+            620 BUILD_TUPLE              3
+            622 EXTENDED_ARG             2
+            624 JUMP_IF_NOT_EXC_MATCH   730
+            626 POP_TOP
+            628 POP_TOP
+            630 POP_TOP
+
+207         632 POP_EXCEPT
+            634 POP_BLOCK
+
+209         636 LOAD_FAST                2 (descriptor)
+            638 LOAD_CONST               0 (None)
+            640 IS_OP                    1
+            642 EXTENDED_ARG             2
+            644 POP_JUMP_IF_FALSE      682
+
+210         646 SETUP_FINALLY           14 (to 662)
+
+211         648 LOAD_GLOBAL              8 (os)
+            650 LOAD_METHOD              9 (close)
+            652 LOAD_FAST                2 (descriptor)
+            654 CALL_METHOD              1
+            656 POP_TOP
+            658 POP_BLOCK
+            660 JUMP_FORWARD            20 (to 682)
+
+212     >>  662 DUP_TOP
+            664 LOAD_GLOBAL             10 (OSError)
+            666 EXTENDED_ARG             2
+            668 JUMP_IF_NOT_EXC_MATCH   680
+            670 POP_TOP
+            672 POP_TOP
+            674 POP_TOP
+
+213         676 POP_EXCEPT
+            678 JUMP_FORWARD             2 (to 682)
+        >>  680 RERAISE
+
+214     >>  682 LOAD_FAST                3 (temporary_path)
+            684 LOAD_CONST               0 (None)
+            686 IS_OP                    1
+            688 EXTENDED_ARG             2
+            690 POP_JUMP_IF_FALSE      726
+
+215         692 SETUP_FINALLY           12 (to 706)
+
+216         694 LOAD_FAST                3 (temporary_path)
+            696 LOAD_METHOD             11 (unlink)
+            698 CALL_METHOD              0
+            700 POP_TOP
+            702 POP_BLOCK
+            704 JUMP_FORWARD            20 (to 726)
+
+217     >>  706 DUP_TOP
+            708 LOAD_GLOBAL             10 (OSError)
+            710 EXTENDED_ARG             2
+            712 JUMP_IF_NOT_EXC_MATCH   724
+            714 POP_TOP
+            716 POP_TOP
+            718 POP_TOP
+
+218         720 POP_EXCEPT
+            722 JUMP_FORWARD             2 (to 726)
+        >>  724 RERAISE
+
+207     >>  726 LOAD_CONST               5 (False)
+            728 RETURN_VALUE
+        >>  730 RERAISE
+            732 POP_BLOCK
+
+209         734 LOAD_FAST                2 (descriptor)
+            736 LOAD_CONST               0 (None)
+            738 IS_OP                    1
+            740 EXTENDED_ARG             3
+            742 POP_JUMP_IF_FALSE      780
+
+210         744 SETUP_FINALLY           14 (to 760)
+
+211         746 LOAD_GLOBAL              8 (os)
+            748 LOAD_METHOD              9 (close)
+            750 LOAD_FAST                2 (descriptor)
+            752 CALL_METHOD              1
+            754 POP_TOP
+            756 POP_BLOCK
+            758 JUMP_FORWARD            20 (to 780)
+
+212     >>  760 DUP_TOP
+            762 LOAD_GLOBAL             10 (OSError)
+            764 EXTENDED_ARG             3
+            766 JUMP_IF_NOT_EXC_MATCH   778
+            768 POP_TOP
+            770 POP_TOP
+            772 POP_TOP
+
+213         774 POP_EXCEPT
+            776 JUMP_FORWARD             2 (to 780)
+        >>  778 RERAISE
+
+214     >>  780 LOAD_FAST                3 (temporary_path)
+            782 LOAD_CONST               0 (None)
+            784 IS_OP                    1
+            786 EXTENDED_ARG             3
+            788 POP_JUMP_IF_FALSE      918
+
+215         790 SETUP_FINALLY           12 (to 804)
+
+216         792 LOAD_FAST                3 (temporary_path)
+            794 LOAD_METHOD             11 (unlink)
+            796 CALL_METHOD              0
+            798 POP_TOP
+            800 POP_BLOCK
+            802 JUMP_FORWARD            20 (to 824)
+
+217     >>  804 DUP_TOP
+            806 LOAD_GLOBAL             10 (OSError)
+            808 EXTENDED_ARG             3
+            810 JUMP_IF_NOT_EXC_MATCH   822
+            812 POP_TOP
+            814 POP_TOP
+            816 POP_TOP
+
+218         818 POP_EXCEPT
+            820 JUMP_FORWARD             2 (to 824)
+        >>  822 RERAISE
+        >>  824 JUMP_FORWARD            92 (to 918)
+
+209     >>  826 LOAD_FAST                2 (descriptor)
+            828 LOAD_CONST               0 (None)
+            830 IS_OP                    1
+            832 EXTENDED_ARG             3
+            834 POP_JUMP_IF_FALSE      872
+
+210         836 SETUP_FINALLY           14 (to 852)
+
+211         838 LOAD_GLOBAL              8 (os)
+            840 LOAD_METHOD              9 (close)
+            842 LOAD_FAST                2 (descriptor)
+            844 CALL_METHOD              1
+            846 POP_TOP
+            848 POP_BLOCK
+            850 JUMP_FORWARD            20 (to 872)
+
+212     >>  852 DUP_TOP
+            854 LOAD_GLOBAL             10 (OSError)
+            856 EXTENDED_ARG             3
+            858 JUMP_IF_NOT_EXC_MATCH   870
+            860 POP_TOP
+            862 POP_TOP
+            864 POP_TOP
+
+213         866 POP_EXCEPT
+            868 JUMP_FORWARD             2 (to 872)
+        >>  870 RERAISE
+
+214     >>  872 LOAD_FAST                3 (temporary_path)
+            874 LOAD_CONST               0 (None)
+            876 IS_OP                    1
+            878 EXTENDED_ARG             3
+            880 POP_JUMP_IF_FALSE      916
+
+215         882 SETUP_FINALLY           12 (to 896)
+
+216         884 LOAD_FAST                3 (temporary_path)
+            886 LOAD_METHOD             11 (unlink)
+            888 CALL_METHOD              0
+            890 POP_TOP
+            892 POP_BLOCK
+            894 JUMP_FORWARD            20 (to 916)
+
+217     >>  896 DUP_TOP
+            898 LOAD_GLOBAL             10 (OSError)
+            900 EXTENDED_ARG             3
+            902 JUMP_IF_NOT_EXC_MATCH   914
+            904 POP_TOP
+            906 POP_TOP
+            908 POP_TOP
+
+218         910 POP_EXCEPT
+            912 JUMP_FORWARD             2 (to 916)
+        >>  914 RERAISE
+        >>  916 RERAISE
+        >>  918 LOAD_CONST               0 (None)
+            920 RETURN_VALUE
+
+Disassembly of <code object create_macos_instance_binding_store at 0x1073d02f0, file "WeRobotCore/adapters/wechat/macos_ax/instance_binding.py", line 221>:
+224           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                0 (data_root)
+              4 LOAD_GLOBAL              1 (Path)
+              6 CALL_FUNCTION            2
+              8 POP_JUMP_IF_TRUE        18
+
+225          10 LOAD_GLOBAL              2 (TypeError)
+             12 LOAD_CONST               1 ('data_root must be a pathlib.Path')
+             14 CALL_FUNCTION            1
+             16 RAISE_VARARGS            1
+
+226     >>   18 LOAD_GLOBAL              3 (MacOSInstanceBindingStore)
+
+227          20 LOAD_FAST                0 (data_root)
+             22 LOAD_CONST               2 ('runtime')
+             24 BINARY_TRUE_DIVIDE
+             26 LOAD_GLOBAL              4 (MACOS_INSTANCE_BINDING_FILE_NAME)
+             28 BINARY_TRUE_DIVIDE
+
+226          30 CALL_FUNCTION            1
+             32 RETURN_VALUE

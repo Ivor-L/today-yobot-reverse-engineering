@@ -1,0 +1,31 @@
+  1           0 LOAD_CONST               0 ('Platform-neutral process hosts assembled by explicit composition roots.')
+              2 STORE_NAME               0 (__doc__)
+
+  3           4 LOAD_CONST               1 (1)
+              6 LOAD_CONST               2 (('create_control_host_app',))
+              8 IMPORT_NAME              1 (control_app)
+             10 IMPORT_FROM              2 (create_control_host_app)
+             12 STORE_NAME               2 (create_control_host_app)
+             14 POP_TOP
+
+  4          16 LOAD_CONST               1 (1)
+             18 LOAD_CONST               3 (('ControlHostServerBackend', 'ControlHostServerFactory', 'ControlHostServerSettings', 'create_uvicorn_server', 'serve_control_host'))
+             20 IMPORT_NAME              3 (server)
+             22 IMPORT_FROM              4 (ControlHostServerBackend)
+             24 STORE_NAME               4 (ControlHostServerBackend)
+             26 IMPORT_FROM              5 (ControlHostServerFactory)
+             28 STORE_NAME               5 (ControlHostServerFactory)
+             30 IMPORT_FROM              6 (ControlHostServerSettings)
+             32 STORE_NAME               6 (ControlHostServerSettings)
+             34 IMPORT_FROM              7 (create_uvicorn_server)
+             36 STORE_NAME               7 (create_uvicorn_server)
+             38 IMPORT_FROM              8 (serve_control_host)
+             40 STORE_NAME               8 (serve_control_host)
+             42 POP_TOP
+
+ 12          44 BUILD_LIST               0
+             46 LOAD_CONST               4 (('ControlHostServerBackend', 'ControlHostServerFactory', 'ControlHostServerSettings', 'create_control_host_app', 'create_uvicorn_server', 'serve_control_host'))
+             48 LIST_EXTEND              1
+             50 STORE_NAME               9 (__all__)
+             52 LOAD_CONST               5 (None)
+             54 RETURN_VALUE

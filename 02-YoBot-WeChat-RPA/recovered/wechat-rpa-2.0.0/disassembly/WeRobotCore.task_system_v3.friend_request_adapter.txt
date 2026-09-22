@@ -1,0 +1,2759 @@
+  1           0 LOAD_CONST               0 ('\n自动通过好友任务适配器\n\n负责处理自动通过好友任务的执行、调度和状态管理，\n保持与V2系统的完全兼容性，同时支持V3的新特性。\n')
+              2 STORE_NAME               0 (__doc__)
+
+  8           4 LOAD_CONST               1 (0)
+              6 LOAD_CONST               2 (None)
+              8 IMPORT_NAME              1 (asyncio)
+             10 STORE_NAME               1 (asyncio)
+
+  9          12 LOAD_CONST               1 (0)
+             14 LOAD_CONST               2 (None)
+             16 IMPORT_NAME              2 (random)
+             18 STORE_NAME               2 (random)
+
+ 10          20 LOAD_CONST               1 (0)
+             22 LOAD_CONST               3 (('datetime',))
+             24 IMPORT_NAME              3 (datetime)
+             26 IMPORT_FROM              3 (datetime)
+             28 STORE_NAME               3 (datetime)
+             30 POP_TOP
+
+ 11          32 LOAD_CONST               1 (0)
+             34 LOAD_CONST               4 (('Dict', 'Any', 'Optional', 'List'))
+             36 IMPORT_NAME              4 (typing)
+             38 IMPORT_FROM              5 (Dict)
+             40 STORE_NAME               5 (Dict)
+             42 IMPORT_FROM              6 (Any)
+             44 STORE_NAME               6 (Any)
+             46 IMPORT_FROM              7 (Optional)
+             48 STORE_NAME               7 (Optional)
+             50 IMPORT_FROM              8 (List)
+             52 STORE_NAME               8 (List)
+             54 POP_TOP
+
+ 13          56 LOAD_CONST               5 (1)
+             58 LOAD_CONST               6 (('TaskType', 'TaskStatus', 'TaskExecutionContext', 'TriggerType', 'ScheduleConfig', 'ExecutionMode'))
+             60 IMPORT_NAME              9 (types)
+             62 IMPORT_FROM             10 (TaskType)
+             64 STORE_NAME              10 (TaskType)
+             66 IMPORT_FROM             11 (TaskStatus)
+             68 STORE_NAME              11 (TaskStatus)
+             70 IMPORT_FROM             12 (TaskExecutionContext)
+             72 STORE_NAME              12 (TaskExecutionContext)
+             74 IMPORT_FROM             13 (TriggerType)
+             76 STORE_NAME              13 (TriggerType)
+             78 IMPORT_FROM             14 (ScheduleConfig)
+             80 STORE_NAME              14 (ScheduleConfig)
+             82 IMPORT_FROM             15 (ExecutionMode)
+             84 STORE_NAME              15 (ExecutionMode)
+             86 POP_TOP
+
+ 17          88 LOAD_CONST               7 (2)
+             90 LOAD_CONST               8 (('WeChat',))
+             92 IMPORT_NAME             16 (core.WeChatType)
+             94 IMPORT_FROM             17 (WeChat)
+             96 STORE_NAME              17 (WeChat)
+             98 POP_TOP
+
+ 19         100 SETUP_FINALLY           40 (to 142)
+
+ 20         102 LOAD_CONST               1 (0)
+            104 LOAD_CONST               9 (('ConfigManager',))
+            106 IMPORT_NAME             18 (WeRobotCore.utils.config_manager)
+            108 IMPORT_FROM             19 (ConfigManager)
+            110 STORE_NAME              19 (ConfigManager)
+            112 POP_TOP
+
+ 21         114 LOAD_CONST               1 (0)
+            116 LOAD_CONST              10 (('GreetingManager',))
+            118 IMPORT_NAME             20 (WeRobotCore.utils.greeting_manager)
+            120 IMPORT_FROM             21 (GreetingManager)
+            122 STORE_NAME              21 (GreetingManager)
+            124 POP_TOP
+
+ 22         126 LOAD_CONST               1 (0)
+            128 LOAD_CONST              11 (('TaskLogger',))
+            130 IMPORT_NAME             22 (WeRobotCore.utils.task_logger)
+            132 IMPORT_FROM             23 (TaskLogger)
+            134 STORE_NAME              23 (TaskLogger)
+            136 POP_TOP
+            138 POP_BLOCK
+            140 JUMP_FORWARD           124 (to 266)
+
+ 23     >>  142 DUP_TOP
+            144 LOAD_NAME               24 (ImportError)
+            146 EXTENDED_ARG             1
+            148 JUMP_IF_NOT_EXC_MATCH   264
+            150 POP_TOP
+            152 POP_TOP
+            154 POP_TOP
+
+ 25         156 SETUP_FINALLY           40 (to 198)
+
+ 26         158 LOAD_CONST               7 (2)
+            160 LOAD_CONST               9 (('ConfigManager',))
+            162 IMPORT_NAME             25 (utils.config_manager)
+            164 IMPORT_FROM             19 (ConfigManager)
+            166 STORE_NAME              19 (ConfigManager)
+            168 POP_TOP
+
+ 27         170 LOAD_CONST               7 (2)
+            172 LOAD_CONST              10 (('GreetingManager',))
+            174 IMPORT_NAME             26 (utils.greeting_manager)
+            176 IMPORT_FROM             21 (GreetingManager)
+            178 STORE_NAME              21 (GreetingManager)
+            180 POP_TOP
+
+ 28         182 LOAD_CONST               7 (2)
+            184 LOAD_CONST              11 (('TaskLogger',))
+            186 IMPORT_NAME             27 (utils.logger)
+            188 IMPORT_FROM             23 (TaskLogger)
+            190 STORE_NAME              23 (TaskLogger)
+            192 POP_TOP
+            194 POP_BLOCK
+            196 JUMP_FORWARD            62 (to 260)
+
+ 29     >>  198 DUP_TOP
+            200 LOAD_NAME               24 (ImportError)
+            202 EXTENDED_ARG             1
+            204 JUMP_IF_NOT_EXC_MATCH   258
+            206 POP_TOP
+            208 POP_TOP
+            210 POP_TOP
+
+ 31         212 LOAD_BUILD_CLASS
+            214 LOAD_CONST              12 (<code object ConfigManager at 0x1073aa870, file "WeRobotCore/task_system_v3/friend_request_adapter.py", line 31>)
+            216 LOAD_CONST              13 ('ConfigManager')
+            218 MAKE_FUNCTION            0
+            220 LOAD_CONST              13 ('ConfigManager')
+            222 CALL_FUNCTION            2
+            224 STORE_NAME              19 (ConfigManager)
+
+ 35         226 LOAD_BUILD_CLASS
+            228 LOAD_CONST              14 (<code object GreetingManager at 0x1073aa660, file "WeRobotCore/task_system_v3/friend_request_adapter.py", line 35>)
+            230 LOAD_CONST              15 ('GreetingManager')
+            232 MAKE_FUNCTION            0
+            234 LOAD_CONST              15 ('GreetingManager')
+            236 CALL_FUNCTION            2
+            238 STORE_NAME              21 (GreetingManager)
+
+ 42         240 LOAD_BUILD_CLASS
+            242 LOAD_CONST              16 (<code object TaskLogger at 0x1073aa0e0, file "WeRobotCore/task_system_v3/friend_request_adapter.py", line 42>)
+            244 LOAD_CONST              17 ('TaskLogger')
+            246 MAKE_FUNCTION            0
+            248 LOAD_CONST              17 ('TaskLogger')
+            250 CALL_FUNCTION            2
+            252 STORE_NAME              23 (TaskLogger)
+            254 POP_EXCEPT
+            256 JUMP_FORWARD             2 (to 260)
+        >>  258 RERAISE
+        >>  260 POP_EXCEPT
+            262 JUMP_FORWARD             2 (to 266)
+        >>  264 RERAISE
+
+ 45     >>  266 LOAD_CONST               7 (2)
+            268 LOAD_CONST              18 (('websocket_manager',))
+            270 IMPORT_NAME             28 (task_system_v2.websocket_manager)
+            272 IMPORT_FROM             29 (websocket_manager)
+            274 STORE_NAME              29 (websocket_manager)
+            276 POP_TOP
+
+ 48         278 LOAD_BUILD_CLASS
+            280 LOAD_CONST              19 (<code object FriendRequestAdapter at 0x1073b9df0, file "WeRobotCore/task_system_v3/friend_request_adapter.py", line 48>)
+            282 LOAD_CONST              20 ('FriendRequestAdapter')
+            284 MAKE_FUNCTION            0
+            286 LOAD_CONST              20 ('FriendRequestAdapter')
+            288 CALL_FUNCTION            2
+            290 STORE_NAME              30 (FriendRequestAdapter)
+            292 LOAD_CONST               2 (None)
+            294 RETURN_VALUE
+
+Disassembly of <code object ConfigManager at 0x1073aa870, file "WeRobotCore/task_system_v3/friend_request_adapter.py", line 31>:
+ 31           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('ConfigManager')
+              6 STORE_NAME               2 (__qualname__)
+
+ 32           8 LOAD_CONST               1 (<code object load_config at 0x1072cfbe0, file "WeRobotCore/task_system_v3/friend_request_adapter.py", line 32>)
+             10 LOAD_CONST               2 ('ConfigManager.load_config')
+             12 MAKE_FUNCTION            0
+             14 STORE_NAME               3 (load_config)
+             16 LOAD_CONST               3 (None)
+             18 RETURN_VALUE
+
+Disassembly of <code object load_config at 0x1072cfbe0, file "WeRobotCore/task_system_v3/friend_request_adapter.py", line 32>:
+ 33           0 BUILD_MAP                0
+              2 RETURN_VALUE
+
+Disassembly of <code object GreetingManager at 0x1073aa660, file "WeRobotCore/task_system_v3/friend_request_adapter.py", line 35>:
+ 35           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('GreetingManager')
+              6 STORE_NAME               2 (__qualname__)
+
+ 36           8 LOAD_CONST               1 (<code object __init__ at 0x1073aa500, file "WeRobotCore/task_system_v3/friend_request_adapter.py", line 36>)
+             10 LOAD_CONST               2 ('GreetingManager.__init__')
+             12 MAKE_FUNCTION            0
+             14 STORE_NAME               3 (__init__)
+
+ 39          16 LOAD_CONST               3 (<code object execute_greeting_group at 0x1073aa9d0, file "WeRobotCore/task_system_v3/friend_request_adapter.py", line 39>)
+             18 LOAD_CONST               4 ('GreetingManager.execute_greeting_group')
+             20 MAKE_FUNCTION            0
+             22 STORE_NAME               4 (execute_greeting_group)
+             24 LOAD_CONST               5 (None)
+             26 RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x1073aa500, file "WeRobotCore/task_system_v3/friend_request_adapter.py", line 36>:
+ 37           0 LOAD_FAST                1 (config_manager)
+              2 LOAD_FAST                0 (self)
+              4 STORE_ATTR               0 (config_manager)
+              6 LOAD_CONST               0 (None)
+              8 RETURN_VALUE
+
+Disassembly of <code object execute_greeting_group at 0x1073aa9d0, file "WeRobotCore/task_system_v3/friend_request_adapter.py", line 39>:
+ 40           0 LOAD_CONST               1 (True)
+              2 RETURN_VALUE
+
+Disassembly of <code object TaskLogger at 0x1073aa0e0, file "WeRobotCore/task_system_v3/friend_request_adapter.py", line 42>:
+ 42           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('TaskLogger')
+              6 STORE_NAME               2 (__qualname__)
+
+ 43           8 LOAD_CONST               1 (<code object add_friend_request_log at 0x1073aa5b0, file "WeRobotCore/task_system_v3/friend_request_adapter.py", line 43>)
+             10 LOAD_CONST               2 ('TaskLogger.add_friend_request_log')
+             12 MAKE_FUNCTION            0
+             14 STORE_NAME               3 (add_friend_request_log)
+             16 LOAD_CONST               3 (None)
+             18 RETURN_VALUE
+
+Disassembly of <code object add_friend_request_log at 0x1073aa5b0, file "WeRobotCore/task_system_v3/friend_request_adapter.py", line 43>:
+ 44           0 LOAD_CONST               0 (None)
+              2 RETURN_VALUE
+
+Disassembly of <code object FriendRequestAdapter at 0x1073b9df0, file "WeRobotCore/task_system_v3/friend_request_adapter.py", line 48>:
+ 48           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('FriendRequestAdapter')
+              6 STORE_NAME               2 (__qualname__)
+
+ 49           8 LOAD_CONST               1 ('自动通过好友任务适配器\n    \n    负责处理自动通过好友任务的执行、调度和状态管理\n    ')
+             10 STORE_NAME               3 (__doc__)
+
+ 54          12 LOAD_CONST               2 (<code object __init__ at 0x1073aaea0, file "WeRobotCore/task_system_v3/friend_request_adapter.py", line 54>)
+             14 LOAD_CONST               3 ('FriendRequestAdapter.__init__')
+             16 MAKE_FUNCTION            0
+             18 STORE_NAME               4 (__init__)
+
+ 79          20 LOAD_NAME                5 (bool)
+             22 LOAD_CONST               4 (('return',))
+             24 BUILD_CONST_KEY_MAP      1
+             26 LOAD_CONST               5 (<code object start at 0x1073aa190, file "WeRobotCore/task_system_v3/friend_request_adapter.py", line 79>)
+             28 LOAD_CONST               6 ('FriendRequestAdapter.start')
+             30 MAKE_FUNCTION            4 (annotations)
+             32 STORE_NAME               6 (start)
+
+ 89          34 LOAD_NAME                5 (bool)
+             36 LOAD_CONST               4 (('return',))
+             38 BUILD_CONST_KEY_MAP      1
+             40 LOAD_CONST               7 (<code object stop at 0x1073aaf50, file "WeRobotCore/task_system_v3/friend_request_adapter.py", line 89>)
+             42 LOAD_CONST               8 ('FriendRequestAdapter.stop')
+             44 MAKE_FUNCTION            4 (annotations)
+             46 STORE_NAME               7 (stop)
+
+ 99          48 LOAD_NAME                5 (bool)
+             50 LOAD_CONST               4 (('return',))
+             52 BUILD_CONST_KEY_MAP      1
+             54 LOAD_CONST               9 (<code object pause at 0x1073aa030, file "WeRobotCore/task_system_v3/friend_request_adapter.py", line 99>)
+             56 LOAD_CONST              10 ('FriendRequestAdapter.pause')
+             58 MAKE_FUNCTION            4 (annotations)
+             60 STORE_NAME               8 (pause)
+
+109          62 LOAD_NAME                5 (bool)
+             64 LOAD_CONST               4 (('return',))
+             66 BUILD_CONST_KEY_MAP      1
+             68 LOAD_CONST              11 (<code object resume at 0x1073aac90, file "WeRobotCore/task_system_v3/friend_request_adapter.py", line 109>)
+             70 LOAD_CONST              12 ('FriendRequestAdapter.resume')
+             72 MAKE_FUNCTION            4 (annotations)
+             74 STORE_NAME               9 (resume)
+
+119          76 LOAD_NAME                5 (bool)
+             78 LOAD_CONST               4 (('return',))
+             80 BUILD_CONST_KEY_MAP      1
+             82 LOAD_CONST              13 (<code object is_running at 0x1073aa240, file "WeRobotCore/task_system_v3/friend_request_adapter.py", line 119>)
+             84 LOAD_CONST              14 ('FriendRequestAdapter.is_running')
+             86 MAKE_FUNCTION            4 (annotations)
+             88 STORE_NAME              10 (is_running)
+
+123          90 LOAD_NAME               11 (Dict)
+             92 LOAD_NAME               12 (str)
+             94 LOAD_NAME               13 (Any)
+             96 BUILD_TUPLE              2
+             98 BINARY_SUBSCR
+            100 LOAD_CONST               4 (('return',))
+            102 BUILD_CONST_KEY_MAP      1
+            104 LOAD_CONST              15 (<code object get_status at 0x1073aab30, file "WeRobotCore/task_system_v3/friend_request_adapter.py", line 123>)
+            106 LOAD_CONST              16 ('FriendRequestAdapter.get_status')
+            108 MAKE_FUNCTION            4 (annotations)
+            110 STORE_NAME              14 (get_status)
+
+131         112 LOAD_NAME                5 (bool)
+            114 LOAD_CONST               4 (('return',))
+            116 BUILD_CONST_KEY_MAP      1
+            118 LOAD_CONST              17 (<code object _is_rest_time at 0x1073aa710, file "WeRobotCore/task_system_v3/friend_request_adapter.py", line 131>)
+            120 LOAD_CONST              18 ('FriendRequestAdapter._is_rest_time')
+            122 MAKE_FUNCTION            4 (annotations)
+            124 STORE_NAME              15 (_is_rest_time)
+
+171         126 LOAD_NAME               16 (TaskExecutionContext)
+            128 LOAD_NAME               11 (Dict)
+            130 LOAD_NAME               12 (str)
+            132 LOAD_NAME               13 (Any)
+            134 BUILD_TUPLE              2
+            136 BINARY_SUBSCR
+            138 LOAD_NAME               13 (Any)
+            140 LOAD_CONST              19 (('context', 'params', 'return'))
+            142 BUILD_CONST_KEY_MAP      3
+            144 LOAD_CONST              20 (<code object execute_task at 0x1073aaa80, file "WeRobotCore/task_system_v3/friend_request_adapter.py", line 171>)
+            146 LOAD_CONST              21 ('FriendRequestAdapter.execute_task')
+            148 MAKE_FUNCTION            4 (annotations)
+            150 STORE_NAME              17 (execute_task)
+
+379         152 LOAD_NAME               18 (List)
+            154 LOAD_NAME               12 (str)
+            156 BINARY_SUBSCR
+            158 LOAD_NAME               12 (str)
+            160 LOAD_CONST              22 (None)
+            162 LOAD_CONST              23 (('processed_users', 'task_id', 'return'))
+            164 BUILD_CONST_KEY_MAP      3
+            166 LOAD_CONST              24 (<code object _record_accepted_users at 0x1073b9450, file "WeRobotCore/task_system_v3/friend_request_adapter.py", line 379>)
+            168 LOAD_CONST              25 ('FriendRequestAdapter._record_accepted_users')
+            170 MAKE_FUNCTION            4 (annotations)
+            172 STORE_NAME              19 (_record_accepted_users)
+
+416         174 LOAD_CONST              48 (('',))
+
+418         176 LOAD_NAME               18 (List)
+            178 LOAD_NAME               12 (str)
+            180 BINARY_SUBSCR
+
+419         182 LOAD_NAME               12 (str)
+
+420         184 LOAD_NAME               12 (str)
+
+416         186 LOAD_CONST              27 (('processed_users', 'greeting_group_id', 'task_id'))
+            188 BUILD_CONST_KEY_MAP      3
+            190 LOAD_CONST              28 (<code object _send_greeting_messages at 0x1073b9b30, file "WeRobotCore/task_system_v3/friend_request_adapter.py", line 416>)
+            192 LOAD_CONST              29 ('FriendRequestAdapter._send_greeting_messages')
+            194 MAKE_FUNCTION            5 (defaults, annotations)
+            196 STORE_NAME              20 (_send_greeting_messages)
+
+463         198 LOAD_CONST              49 (('',))
+
+465         200 LOAD_NAME               18 (List)
+            202 LOAD_NAME               12 (str)
+            204 BINARY_SUBSCR
+
+466         206 LOAD_NAME               12 (str)
+
+467         208 LOAD_NAME               12 (str)
+
+463         210 LOAD_CONST              30 (('processed_users', 'target_group', 'task_id'))
+            212 BUILD_CONST_KEY_MAP      3
+            214 LOAD_CONST              31 (<code object _invite_to_group at 0x1073b9d40, file "WeRobotCore/task_system_v3/friend_request_adapter.py", line 463>)
+            216 LOAD_CONST              32 ('FriendRequestAdapter._invite_to_group')
+            218 MAKE_FUNCTION            5 (defaults, annotations)
+            220 STORE_NAME              21 (_invite_to_group)
+
+507         222 LOAD_NAME               18 (List)
+            224 LOAD_NAME               12 (str)
+            226 BINARY_SUBSCR
+
+508         228 LOAD_NAME               12 (str)
+
+509         230 LOAD_NAME               11 (Dict)
+            232 LOAD_NAME               12 (str)
+            234 LOAD_NAME               13 (Any)
+            236 BUILD_TUPLE              2
+            238 BINARY_SUBSCR
+
+510         240 LOAD_NAME               12 (str)
+
+511         242 LOAD_CONST              22 (None)
+
+505         244 LOAD_CONST              33 (('processed_users', 'target_group', 'operation_result', 'task_id', 'return'))
+            246 BUILD_CONST_KEY_MAP      5
+            248 LOAD_CONST              34 (<code object _record_group_invites at 0x1073b9c90, file "WeRobotCore/task_system_v3/friend_request_adapter.py", line 505>)
+            250 LOAD_CONST              35 ('FriendRequestAdapter._record_group_invites')
+            252 MAKE_FUNCTION            4 (annotations)
+            254 STORE_NAME              22 (_record_group_invites)
+
+538         256 LOAD_CONST              50 ((0, 0, None))
+            258 LOAD_NAME               12 (str)
+            260 LOAD_NAME               23 (TaskStatus)
+            262 LOAD_NAME               11 (Dict)
+            264 LOAD_NAME               12 (str)
+            266 LOAD_NAME               13 (Any)
+            268 BUILD_TUPLE              2
+            270 BINARY_SUBSCR
+
+539         272 LOAD_NAME               24 (int)
+            274 LOAD_NAME               24 (int)
+            276 LOAD_NAME               12 (str)
+
+538         278 LOAD_CONST              37 (('task_id', 'status', 'params', 'progress', 'total', 'error'))
+            280 BUILD_CONST_KEY_MAP      6
+            282 LOAD_CONST              38 (<code object _broadcast_status at 0x1073b9660, file "WeRobotCore/task_system_v3/friend_request_adapter.py", line 538>)
+            284 LOAD_CONST              39 ('FriendRequestAdapter._broadcast_status')
+            286 MAKE_FUNCTION            5 (defaults, annotations)
+            288 STORE_NAME              25 (_broadcast_status)
+
+563         290 LOAD_CONST              51 ((None, None, None, None))
+            292 LOAD_NAME               12 (str)
+            294 LOAD_NAME               23 (TaskStatus)
+            296 LOAD_NAME               24 (int)
+            298 LOAD_NAME               12 (str)
+            300 LOAD_NAME               18 (List)
+            302 LOAD_NAME               12 (str)
+            304 BINARY_SUBSCR
+            306 LOAD_NAME               12 (str)
+            308 LOAD_NAME               12 (str)
+            310 LOAD_CONST              40 (('task_id', 'status', 'processed_count', 'tag', 'processed_users', 'greeting_group_id', 'target_group'))
+            312 BUILD_CONST_KEY_MAP      7
+            314 LOAD_CONST              41 (<code object _save_task_log at 0x1073b95b0, file "WeRobotCore/task_system_v3/friend_request_adapter.py", line 563>)
+            316 LOAD_CONST              42 ('FriendRequestAdapter._save_task_log')
+            318 MAKE_FUNCTION            5 (defaults, annotations)
+            320 STORE_NAME              26 (_save_task_log)
+
+608         322 LOAD_CONST              52 ((None,))
+            324 LOAD_NAME               11 (Dict)
+            326 LOAD_NAME               12 (str)
+            328 LOAD_NAME               13 (Any)
+            330 BUILD_TUPLE              2
+            332 BINARY_SUBSCR
+            334 LOAD_NAME               27 (Optional)
+            336 LOAD_NAME               28 (datetime)
+            338 BINARY_SUBSCR
+            340 LOAD_NAME               12 (str)
+            342 LOAD_CONST              43 (('params', 'schedule_time', 'return'))
+            344 BUILD_CONST_KEY_MAP      3
+            346 LOAD_CONST              44 (<code object add_task at 0x1073b9500, file "WeRobotCore/task_system_v3/friend_request_adapter.py", line 608>)
+            348 LOAD_CONST              45 ('FriendRequestAdapter.add_task')
+            350 MAKE_FUNCTION            5 (defaults, annotations)
+            352 STORE_NAME              29 (add_task)
+
+652         354 LOAD_CONST              53 ((None,))
+            356 LOAD_NAME               11 (Dict)
+            358 LOAD_NAME               12 (str)
+            360 LOAD_NAME               13 (Any)
+            362 BUILD_TUPLE              2
+            364 BINARY_SUBSCR
+            366 LOAD_NAME               27 (Optional)
+            368 LOAD_NAME               28 (datetime)
+            370 BINARY_SUBSCR
+            372 LOAD_NAME               12 (str)
+            374 LOAD_CONST              43 (('params', 'schedule_time', 'return'))
+            376 BUILD_CONST_KEY_MAP      3
+            378 LOAD_CONST              46 (<code object replace_recurring_task at 0x1073b9ea0, file "WeRobotCore/task_system_v3/friend_request_adapter.py", line 652>)
+            380 LOAD_CONST              47 ('FriendRequestAdapter.replace_recurring_task')
+            382 MAKE_FUNCTION            5 (defaults, annotations)
+            384 STORE_NAME              30 (replace_recurring_task)
+            386 LOAD_CONST              22 (None)
+            388 RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x1073aaea0, file "WeRobotCore/task_system_v3/friend_request_adapter.py", line 54>:
+ 61           0 LOAD_FAST                1 (scheduler)
+              2 LOAD_FAST                0 (self)
+              4 STORE_ATTR               0 (scheduler)
+
+ 62           6 LOAD_FAST                2 (permission_manager)
+              8 LOAD_FAST                0 (self)
+             10 STORE_ATTR               1 (permission_manager)
+
+ 63          12 SETUP_FINALLY           12 (to 26)
+
+ 64          14 LOAD_GLOBAL              2 (WeChat)
+             16 CALL_FUNCTION            0
+             18 LOAD_FAST                0 (self)
+             20 STORE_ATTR               3 (wechat)
+             22 POP_BLOCK
+             24 JUMP_FORWARD            24 (to 50)
+
+ 65     >>   26 DUP_TOP
+             28 LOAD_GLOBAL              4 (ValueError)
+             30 JUMP_IF_NOT_EXC_MATCH    48
+             32 POP_TOP
+             34 POP_TOP
+             36 POP_TOP
+
+ 66          38 LOAD_CONST               1 (None)
+             40 LOAD_FAST                0 (self)
+             42 STORE_ATTR               3 (wechat)
+             44 POP_EXCEPT
+             46 JUMP_FORWARD             2 (to 50)
+        >>   48 RERAISE
+
+ 67     >>   50 LOAD_GLOBAL              5 (TaskLogger)
+             52 CALL_FUNCTION            0
+             54 LOAD_FAST                0 (self)
+             56 STORE_ATTR               6 (task_logger)
+
+ 68          58 LOAD_GLOBAL              7 (ConfigManager)
+             60 CALL_FUNCTION            0
+             62 LOAD_FAST                0 (self)
+             64 STORE_ATTR               8 (config_manager)
+
+ 69          66 LOAD_CONST               2 (False)
+             68 LOAD_FAST                0 (self)
+             70 STORE_ATTR               9 (_running)
+
+ 70          72 LOAD_CONST               2 (False)
+             74 LOAD_FAST                0 (self)
+             76 STORE_ATTR              10 (_paused)
+
+ 71          78 LOAD_CONST               2 (False)
+             80 LOAD_FAST                0 (self)
+             82 STORE_ATTR              11 (_multi_cycle_enabled)
+
+ 72          84 BUILD_LIST               0
+             86 LOAD_FAST                0 (self)
+             88 STORE_ATTR              12 (_selected_accounts)
+
+ 73          90 LOAD_CONST               3 (-1)
+             92 LOAD_FAST                0 (self)
+             94 STORE_ATTR              13 (_last_index)
+
+ 74          96 LOAD_FAST                0 (self)
+             98 LOAD_ATTR                0 (scheduler)
+            100 LOAD_METHOD             14 (register_task_executor)
+
+ 75         102 LOAD_GLOBAL             15 (TaskType)
+            104 LOAD_ATTR               16 (FRIEND_REQUEST)
+
+ 76         106 LOAD_FAST                0 (self)
+            108 LOAD_ATTR               17 (execute_task)
+
+ 74         110 CALL_METHOD              2
+            112 POP_TOP
+            114 LOAD_CONST               1 (None)
+            116 RETURN_VALUE
+
+Disassembly of <code object start at 0x1073aa190, file "WeRobotCore/task_system_v3/friend_request_adapter.py", line 79>:
+ 81           0 SETUP_FINALLY           18 (to 20)
+
+ 82           2 LOAD_CONST               1 (True)
+              4 LOAD_FAST                0 (self)
+              6 STORE_ATTR               0 (_running)
+
+ 83           8 LOAD_CONST               2 (False)
+             10 LOAD_FAST                0 (self)
+             12 STORE_ATTR               1 (_paused)
+
+ 84          14 POP_BLOCK
+             16 LOAD_CONST               1 (True)
+             18 RETURN_VALUE
+
+ 85     >>   20 DUP_TOP
+             22 LOAD_GLOBAL              2 (Exception)
+             24 JUMP_IF_NOT_EXC_MATCH    70
+             26 POP_TOP
+             28 STORE_FAST               1 (e)
+             30 POP_TOP
+             32 SETUP_FINALLY           28 (to 62)
+
+ 86          34 LOAD_GLOBAL              3 (print)
+             36 LOAD_CONST               3 ('FriendRequestAdapter 启动失败: ')
+             38 LOAD_FAST                1 (e)
+             40 FORMAT_VALUE             0
+             42 BUILD_STRING             2
+             44 CALL_FUNCTION            1
+             46 POP_TOP
+
+ 87          48 POP_BLOCK
+             50 POP_EXCEPT
+             52 LOAD_CONST               4 (None)
+             54 STORE_FAST               1 (e)
+             56 DELETE_FAST              1 (e)
+             58 LOAD_CONST               2 (False)
+             60 RETURN_VALUE
+        >>   62 LOAD_CONST               4 (None)
+             64 STORE_FAST               1 (e)
+             66 DELETE_FAST              1 (e)
+             68 RERAISE
+        >>   70 RERAISE
+             72 LOAD_CONST               4 (None)
+             74 RETURN_VALUE
+
+Disassembly of <code object stop at 0x1073aaf50, file "WeRobotCore/task_system_v3/friend_request_adapter.py", line 89>:
+ 91           0 SETUP_FINALLY           20 (to 22)
+
+ 92           2 LOAD_CONST               1 (False)
+              4 LOAD_FAST                0 (self)
+              6 STORE_ATTR               0 (_running)
+
+ 93           8 LOAD_GLOBAL              1 (print)
+             10 LOAD_CONST               2 ('FriendRequestAdapter 停止成功')
+             12 CALL_FUNCTION            1
+             14 POP_TOP
+
+ 94          16 POP_BLOCK
+             18 LOAD_CONST               3 (True)
+             20 RETURN_VALUE
+
+ 95     >>   22 DUP_TOP
+             24 LOAD_GLOBAL              2 (Exception)
+             26 JUMP_IF_NOT_EXC_MATCH    72
+             28 POP_TOP
+             30 STORE_FAST               1 (e)
+             32 POP_TOP
+             34 SETUP_FINALLY           28 (to 64)
+
+ 96          36 LOAD_GLOBAL              1 (print)
+             38 LOAD_CONST               4 ('FriendRequestAdapter 停止失败: ')
+             40 LOAD_FAST                1 (e)
+             42 FORMAT_VALUE             0
+             44 BUILD_STRING             2
+             46 CALL_FUNCTION            1
+             48 POP_TOP
+
+ 97          50 POP_BLOCK
+             52 POP_EXCEPT
+             54 LOAD_CONST               5 (None)
+             56 STORE_FAST               1 (e)
+             58 DELETE_FAST              1 (e)
+             60 LOAD_CONST               1 (False)
+             62 RETURN_VALUE
+        >>   64 LOAD_CONST               5 (None)
+             66 STORE_FAST               1 (e)
+             68 DELETE_FAST              1 (e)
+             70 RERAISE
+        >>   72 RERAISE
+             74 LOAD_CONST               5 (None)
+             76 RETURN_VALUE
+
+Disassembly of <code object pause at 0x1073aa030, file "WeRobotCore/task_system_v3/friend_request_adapter.py", line 99>:
+101           0 SETUP_FINALLY           20 (to 22)
+
+102           2 LOAD_CONST               1 (True)
+              4 LOAD_FAST                0 (self)
+              6 STORE_ATTR               0 (_paused)
+
+103           8 LOAD_GLOBAL              1 (print)
+             10 LOAD_CONST               2 ('FriendRequestAdapter 暂停成功')
+             12 CALL_FUNCTION            1
+             14 POP_TOP
+
+104          16 POP_BLOCK
+             18 LOAD_CONST               1 (True)
+             20 RETURN_VALUE
+
+105     >>   22 DUP_TOP
+             24 LOAD_GLOBAL              2 (Exception)
+             26 JUMP_IF_NOT_EXC_MATCH    72
+             28 POP_TOP
+             30 STORE_FAST               1 (e)
+             32 POP_TOP
+             34 SETUP_FINALLY           28 (to 64)
+
+106          36 LOAD_GLOBAL              1 (print)
+             38 LOAD_CONST               3 ('FriendRequestAdapter 暂停失败: ')
+             40 LOAD_FAST                1 (e)
+             42 FORMAT_VALUE             0
+             44 BUILD_STRING             2
+             46 CALL_FUNCTION            1
+             48 POP_TOP
+
+107          50 POP_BLOCK
+             52 POP_EXCEPT
+             54 LOAD_CONST               4 (None)
+             56 STORE_FAST               1 (e)
+             58 DELETE_FAST              1 (e)
+             60 LOAD_CONST               5 (False)
+             62 RETURN_VALUE
+        >>   64 LOAD_CONST               4 (None)
+             66 STORE_FAST               1 (e)
+             68 DELETE_FAST              1 (e)
+             70 RERAISE
+        >>   72 RERAISE
+             74 LOAD_CONST               4 (None)
+             76 RETURN_VALUE
+
+Disassembly of <code object resume at 0x1073aac90, file "WeRobotCore/task_system_v3/friend_request_adapter.py", line 109>:
+111           0 SETUP_FINALLY           20 (to 22)
+
+112           2 LOAD_CONST               1 (False)
+              4 LOAD_FAST                0 (self)
+              6 STORE_ATTR               0 (_paused)
+
+113           8 LOAD_GLOBAL              1 (print)
+             10 LOAD_CONST               2 ('FriendRequestAdapter 恢复成功')
+             12 CALL_FUNCTION            1
+             14 POP_TOP
+
+114          16 POP_BLOCK
+             18 LOAD_CONST               3 (True)
+             20 RETURN_VALUE
+
+115     >>   22 DUP_TOP
+             24 LOAD_GLOBAL              2 (Exception)
+             26 JUMP_IF_NOT_EXC_MATCH    72
+             28 POP_TOP
+             30 STORE_FAST               1 (e)
+             32 POP_TOP
+             34 SETUP_FINALLY           28 (to 64)
+
+116          36 LOAD_GLOBAL              1 (print)
+             38 LOAD_CONST               4 ('FriendRequestAdapter 恢复失败: ')
+             40 LOAD_FAST                1 (e)
+             42 FORMAT_VALUE             0
+             44 BUILD_STRING             2
+             46 CALL_FUNCTION            1
+             48 POP_TOP
+
+117          50 POP_BLOCK
+             52 POP_EXCEPT
+             54 LOAD_CONST               5 (None)
+             56 STORE_FAST               1 (e)
+             58 DELETE_FAST              1 (e)
+             60 LOAD_CONST               1 (False)
+             62 RETURN_VALUE
+        >>   64 LOAD_CONST               5 (None)
+             66 STORE_FAST               1 (e)
+             68 DELETE_FAST              1 (e)
+             70 RERAISE
+        >>   72 RERAISE
+             74 LOAD_CONST               5 (None)
+             76 RETURN_VALUE
+
+Disassembly of <code object is_running at 0x1073aa240, file "WeRobotCore/task_system_v3/friend_request_adapter.py", line 119>:
+121           0 LOAD_FAST                0 (self)
+              2 LOAD_ATTR                0 (_running)
+              4 JUMP_IF_FALSE_OR_POP    12
+              6 LOAD_FAST                0 (self)
+              8 LOAD_ATTR                1 (_paused)
+             10 UNARY_NOT
+        >>   12 RETURN_VALUE
+
+Disassembly of <code object get_status at 0x1073aab30, file "WeRobotCore/task_system_v3/friend_request_adapter.py", line 123>:
+126           0 LOAD_FAST                0 (self)
+              2 LOAD_ATTR                0 (_running)
+
+127           4 LOAD_FAST                0 (self)
+              6 LOAD_ATTR                1 (_paused)
+
+128           8 LOAD_FAST                0 (self)
+             10 LOAD_METHOD              2 (is_running)
+             12 CALL_METHOD              0
+
+125          14 LOAD_CONST               1 (('running', 'paused', 'active'))
+             16 BUILD_CONST_KEY_MAP      3
+             18 RETURN_VALUE
+
+Disassembly of <code object _is_rest_time at 0x1073aa710, file "WeRobotCore/task_system_v3/friend_request_adapter.py", line 131>:
+137           0 SETUP_FINALLY          172 (to 174)
+
+138           2 LOAD_FAST                0 (self)
+              4 LOAD_ATTR                0 (config_manager)
+              6 LOAD_METHOD              1 (load_config)
+              8 LOAD_CONST               1 ('rest_time_settings')
+             10 CALL_METHOD              1
+             12 STORE_FAST               1 (rest_config)
+
+140          14 LOAD_FAST                1 (rest_config)
+             16 POP_JUMP_IF_FALSE       26
+             18 LOAD_CONST               1 ('rest_time_settings')
+             20 LOAD_FAST                1 (rest_config)
+             22 CONTAINS_OP              1
+             24 POP_JUMP_IF_FALSE       32
+
+142     >>   26 POP_BLOCK
+             28 LOAD_CONST               2 (False)
+             30 RETURN_VALUE
+
+144     >>   32 LOAD_FAST                1 (rest_config)
+             34 LOAD_CONST               1 ('rest_time_settings')
+             36 BINARY_SUBSCR
+             38 STORE_FAST               2 (settings)
+
+145          40 LOAD_FAST                2 (settings)
+             42 LOAD_METHOD              2 (get)
+             44 LOAD_CONST               3 ('selectedTasks')
+             46 BUILD_LIST               0
+             48 CALL_METHOD              2
+             50 STORE_FAST               3 (selected_tasks)
+
+148          52 LOAD_CONST               4 ('自动通过好友')
+             54 LOAD_FAST                3 (selected_tasks)
+             56 CONTAINS_OP              1
+             58 POP_JUMP_IF_FALSE       66
+
+149          60 POP_BLOCK
+             62 LOAD_CONST               2 (False)
+             64 RETURN_VALUE
+
+151     >>   66 LOAD_FAST                2 (settings)
+             68 LOAD_METHOD              2 (get)
+             70 LOAD_CONST               5 ('startTime')
+             72 LOAD_CONST               6 (0)
+             74 CALL_METHOD              2
+             76 STORE_FAST               4 (start_time)
+
+152          78 LOAD_FAST                2 (settings)
+             80 LOAD_METHOD              2 (get)
+             82 LOAD_CONST               7 ('endTime')
+             84 LOAD_CONST               8 (28)
+             86 CALL_METHOD              2
+             88 STORE_FAST               5 (end_time)
+
+155          90 LOAD_GLOBAL              3 (datetime)
+             92 LOAD_METHOD              4 (now)
+             94 CALL_METHOD              0
+             96 STORE_FAST               6 (now)
+
+156          98 LOAD_FAST                6 (now)
+            100 LOAD_ATTR                5 (hour)
+            102 LOAD_CONST               9 (4)
+            104 BINARY_MULTIPLY
+            106 LOAD_FAST                6 (now)
+            108 LOAD_ATTR                6 (minute)
+            110 LOAD_CONST              10 (15)
+            112 BINARY_FLOOR_DIVIDE
+            114 BINARY_ADD
+            116 STORE_FAST               7 (current_interval)
+
+159         118 LOAD_FAST                4 (start_time)
+            120 LOAD_FAST                5 (end_time)
+            122 COMPARE_OP               1 (<=)
+            124 POP_JUMP_IF_FALSE      152
+
+161         126 LOAD_FAST                4 (start_time)
+            128 LOAD_FAST                7 (current_interval)
+            130 DUP_TOP
+            132 ROT_THREE
+            134 COMPARE_OP               1 (<=)
+            136 JUMP_IF_FALSE_OR_POP   144
+            138 LOAD_FAST                5 (end_time)
+            140 COMPARE_OP               1 (<=)
+            142 JUMP_FORWARD             4 (to 148)
+        >>  144 ROT_TWO
+            146 POP_TOP
+        >>  148 POP_BLOCK
+            150 RETURN_VALUE
+
+164     >>  152 LOAD_FAST                7 (current_interval)
+            154 LOAD_FAST                4 (start_time)
+            156 COMPARE_OP               5 (>=)
+            158 JUMP_IF_TRUE_OR_POP    166
+            160 LOAD_FAST                7 (current_interval)
+            162 LOAD_FAST                5 (end_time)
+            164 COMPARE_OP               1 (<=)
+        >>  166 POP_BLOCK
+            168 RETURN_VALUE
+            170 POP_BLOCK
+            172 JUMP_FORWARD            54 (to 228)
+
+166     >>  174 DUP_TOP
+            176 LOAD_GLOBAL              7 (Exception)
+            178 JUMP_IF_NOT_EXC_MATCH   226
+            180 POP_TOP
+            182 STORE_FAST               8 (e)
+            184 POP_TOP
+            186 SETUP_FINALLY           30 (to 218)
+
+167         188 LOAD_GLOBAL              8 (print)
+            190 LOAD_CONST              11 ('加载休息时间配置失败: ')
+            192 LOAD_FAST                8 (e)
+            194 FORMAT_VALUE             0
+            196 LOAD_CONST              12 ('，默认不限制时间')
+            198 BUILD_STRING             3
+            200 CALL_FUNCTION            1
+            202 POP_TOP
+
+169         204 POP_BLOCK
+            206 POP_EXCEPT
+            208 LOAD_CONST              13 (None)
+            210 STORE_FAST               8 (e)
+            212 DELETE_FAST              8 (e)
+            214 LOAD_CONST               2 (False)
+            216 RETURN_VALUE
+        >>  218 LOAD_CONST              13 (None)
+            220 STORE_FAST               8 (e)
+            222 DELETE_FAST              8 (e)
+            224 RERAISE
+        >>  226 RERAISE
+        >>  228 LOAD_CONST              13 (None)
+            230 RETURN_VALUE
+
+Disassembly of <code object execute_task at 0x1073aaa80, file "WeRobotCore/task_system_v3/friend_request_adapter.py", line 171>:
+181           0 EXTENDED_ARG             3
+              2 SETUP_FINALLY          878 (to 882)
+
+182           4 LOAD_GLOBAL              0 (print)
+              6 LOAD_CONST               1 ('开始执行自动通过好友任务，任务ID: ')
+              8 LOAD_DEREF               1 (context)
+             10 LOAD_ATTR                1 (task_id)
+             12 FORMAT_VALUE             0
+             14 BUILD_STRING             2
+             16 CALL_FUNCTION            1
+             18 POP_TOP
+
+183          20 LOAD_GLOBAL              0 (print)
+             22 LOAD_CONST               2 ('任务参数: ')
+             24 LOAD_FAST                2 (params)
+             26 FORMAT_VALUE             0
+             28 BUILD_STRING             2
+             30 CALL_FUNCTION            1
+             32 POP_TOP
+
+186          34 LOAD_DEREF               5 (self)
+             36 LOAD_METHOD              2 (is_running)
+             38 CALL_METHOD              0
+             40 POP_JUMP_IF_TRUE        50
+
+187          42 LOAD_GLOBAL              3 (Exception)
+             44 LOAD_CONST               3 ('FriendRequestAdapter 未运行或已暂停')
+             46 CALL_FUNCTION            1
+             48 RAISE_VARARGS            1
+
+190     >>   50 LOAD_DEREF               5 (self)
+             52 LOAD_METHOD              4 (_is_rest_time)
+             54 CALL_METHOD              0
+             56 POP_JUMP_IF_FALSE       80
+
+191          58 LOAD_GLOBAL              0 (print)
+             60 LOAD_CONST               4 ('当前时间在休息时间段内，暂停执行')
+             62 CALL_FUNCTION            1
+             64 POP_TOP
+
+193          66 LOAD_CONST               5 (False)
+
+194          68 LOAD_CONST               4 ('当前时间在休息时间段内，暂停执行')
+
+195          70 LOAD_CONST               6 (0)
+
+192          72 LOAD_CONST               7 (('success', 'message', 'processed_count'))
+             74 BUILD_CONST_KEY_MAP      3
+             76 POP_BLOCK
+             78 RETURN_VALUE
+
+199     >>   80 LOAD_FAST                2 (params)
+             82 LOAD_METHOD              5 (get)
+             84 LOAD_CONST               8 ('maxProcessPerTime')
+             86 LOAD_CONST               9 (5)
+             88 CALL_METHOD              2
+             90 STORE_DEREF              4 (max_process)
+
+200          92 LOAD_FAST                2 (params)
+             94 LOAD_METHOD              5 (get)
+             96 LOAD_CONST              10 ('tag')
+             98 CALL_METHOD              1
+            100 STORE_DEREF              6 (tag)
+
+201         102 LOAD_FAST                2 (params)
+            104 LOAD_METHOD              5 (get)
+            106 LOAD_CONST              11 ('greetingGroupId')
+            108 CALL_METHOD              1
+            110 STORE_FAST               3 (greeting_group_id)
+
+202         112 LOAD_FAST                2 (params)
+            114 LOAD_METHOD              5 (get)
+            116 LOAD_CONST              12 ('targetGroup')
+            118 CALL_METHOD              1
+            120 STORE_FAST               4 (target_group)
+
+205         122 LOAD_GLOBAL              6 (bool)
+            124 LOAD_FAST                2 (params)
+            126 LOAD_METHOD              5 (get)
+            128 LOAD_CONST              13 ('multiCycleEnabled')
+            130 LOAD_CONST               5 (False)
+            132 CALL_METHOD              2
+            134 CALL_FUNCTION            1
+            136 LOAD_DEREF               5 (self)
+            138 STORE_ATTR               7 (_multi_cycle_enabled)
+
+206         140 LOAD_DEREF               5 (self)
+            142 LOAD_ATTR                7 (_multi_cycle_enabled)
+            144 EXTENDED_ARG             1
+            146 POP_JUMP_IF_FALSE      358
+
+207         148 LOAD_CONST              14 (<code object <listcomp> at 0x1073aabe0, file "WeRobotCore/task_system_v3/friend_request_adapter.py", line 207>)
+            150 LOAD_CONST              15 ('FriendRequestAdapter.execute_task.<locals>.<listcomp>')
+            152 MAKE_FUNCTION            0
+            154 LOAD_FAST                2 (params)
+            156 LOAD_METHOD              5 (get)
+            158 LOAD_CONST              16 ('accountIds')
+            160 CALL_METHOD              1
+            162 JUMP_IF_TRUE_OR_POP    166
+            164 BUILD_LIST               0
+        >>  166 GET_ITER
+            168 CALL_FUNCTION            1
+            170 STORE_FAST               5 (incoming_accounts)
+
+208         172 LOAD_FAST                5 (incoming_accounts)
+            174 EXTENDED_ARG             1
+            176 POP_JUMP_IF_FALSE      430
+
+210         178 LOAD_CONST               6 (0)
+            180 LOAD_CONST              17 (('InstanceManagerV2',))
+            182 IMPORT_NAME              8 (WeRobotCore.core.instance_manager_v2)
+            184 IMPORT_FROM              9 (InstanceManagerV2)
+            186 STORE_FAST               6 (InstanceManagerV2)
+            188 POP_TOP
+
+211         190 LOAD_FAST                6 (InstanceManagerV2)
+            192 CALL_FUNCTION            0
+            194 STORE_FAST               7 (_mgr)
+
+212         196 LOAD_CONST              18 (<code object <setcomp> at 0x1073aa920, file "WeRobotCore/task_system_v3/friend_request_adapter.py", line 212>)
+            198 LOAD_CONST              19 ('FriendRequestAdapter.execute_task.<locals>.<setcomp>')
+            200 MAKE_FUNCTION            0
+
+214         202 LOAD_FAST                7 (_mgr)
+            204 LOAD_METHOD             10 (list_instances)
+            206 CALL_METHOD              0
+
+212         208 GET_ITER
+            210 CALL_FUNCTION            1
+            212 STORE_DEREF              0 (_exited)
+
+217         214 LOAD_CLOSURE             0 (_exited)
+            216 BUILD_TUPLE              1
+            218 LOAD_CONST              20 (<code object <listcomp> at 0x1073aa450, file "WeRobotCore/task_system_v3/friend_request_adapter.py", line 217>)
+            220 LOAD_CONST              15 ('FriendRequestAdapter.execute_task.<locals>.<listcomp>')
+            222 MAKE_FUNCTION            8 (closure)
+            224 LOAD_FAST                5 (incoming_accounts)
+            226 GET_ITER
+            228 CALL_FUNCTION            1
+            230 STORE_FAST               8 (valid_accounts)
+
+218         232 LOAD_FAST                8 (valid_accounts)
+            234 EXTENDED_ARG             1
+            236 POP_JUMP_IF_TRUE       260
+
+219         238 LOAD_GLOBAL              0 (print)
+            240 LOAD_CONST              21 ('自动通过好友：所有选中账号已退出托管，跳过任务')
+            242 CALL_FUNCTION            1
+            244 POP_TOP
+
+220         246 LOAD_CONST               5 (False)
+            248 LOAD_CONST              22 ('所有账号已退出托管')
+            250 LOAD_CONST               6 (0)
+            252 LOAD_CONST               7 (('success', 'message', 'processed_count'))
+            254 BUILD_CONST_KEY_MAP      3
+            256 POP_BLOCK
+            258 RETURN_VALUE
+
+221     >>  260 LOAD_FAST                8 (valid_accounts)
+            262 LOAD_DEREF               5 (self)
+            264 LOAD_ATTR               11 (_selected_accounts)
+            266 COMPARE_OP               3 (!=)
+            268 EXTENDED_ARG             1
+            270 POP_JUMP_IF_FALSE      284
+
+222         272 LOAD_FAST                8 (valid_accounts)
+            274 LOAD_DEREF               5 (self)
+            276 STORE_ATTR              11 (_selected_accounts)
+
+223         278 LOAD_CONST              23 (-1)
+            280 LOAD_DEREF               5 (self)
+            282 STORE_ATTR              12 (_last_index)
+
+224     >>  284 LOAD_DEREF               5 (self)
+            286 LOAD_ATTR               11 (_selected_accounts)
+            288 STORE_FAST               9 (idx_base)
+
+225         290 LOAD_DEREF               5 (self)
+            292 LOAD_ATTR               12 (_last_index)
+            294 LOAD_CONST              24 (1)
+            296 BINARY_ADD
+            298 LOAD_GLOBAL             13 (len)
+            300 LOAD_FAST                9 (idx_base)
+            302 CALL_FUNCTION            1
+            304 BINARY_MODULO
+            306 STORE_FAST              10 (next_index)
+
+226         308 LOAD_FAST                9 (idx_base)
+            310 LOAD_FAST               10 (next_index)
+            312 BINARY_SUBSCR
+            314 STORE_FAST              11 (chosen_id)
+
+227         316 LOAD_GLOBAL              0 (print)
+            318 LOAD_CONST              25 ('自动通过好友：多账号循环模式已启用，选中账号：')
+            320 LOAD_DEREF               5 (self)
+            322 LOAD_ATTR               11 (_selected_accounts)
+            324 FORMAT_VALUE             0
+            326 LOAD_CONST              26 (',当前执行账号：')
+            328 LOAD_FAST               11 (chosen_id)
+            330 FORMAT_VALUE             0
+            332 BUILD_STRING             4
+            334 CALL_FUNCTION            1
+            336 POP_TOP
+
+228         338 LOAD_FAST               10 (next_index)
+            340 LOAD_DEREF               5 (self)
+            342 STORE_ATTR              12 (_last_index)
+
+229         344 LOAD_GLOBAL             14 (WeChat)
+            346 LOAD_FAST               11 (chosen_id)
+            348 LOAD_CONST              27 (('account_id',))
+            350 CALL_FUNCTION_KW         1
+            352 LOAD_DEREF               5 (self)
+            354 STORE_ATTR              15 (wechat)
+            356 JUMP_FORWARD            72 (to 430)
+
+232     >>  358 LOAD_CONST               6 (0)
+            360 LOAD_CONST              17 (('InstanceManagerV2',))
+            362 IMPORT_NAME              8 (WeRobotCore.core.instance_manager_v2)
+            364 IMPORT_FROM              9 (InstanceManagerV2)
+            366 STORE_FAST               6 (InstanceManagerV2)
+            368 POP_TOP
+
+233         370 LOAD_FAST                6 (InstanceManagerV2)
+            372 CALL_FUNCTION            0
+            374 LOAD_METHOD             16 (get_active_instance)
+            376 CALL_METHOD              0
+            378 STORE_FAST              12 (_active)
+
+234         380 LOAD_FAST               12 (_active)
+            382 EXTENDED_ARG             1
+            384 POP_JUMP_IF_FALSE      422
+            386 LOAD_FAST               12 (_active)
+            388 LOAD_METHOD              5 (get)
+            390 LOAD_CONST              28 ('manually_exited')
+            392 LOAD_CONST               5 (False)
+            394 CALL_METHOD              2
+            396 EXTENDED_ARG             1
+            398 POP_JUMP_IF_FALSE      422
+
+235         400 LOAD_GLOBAL              0 (print)
+            402 LOAD_CONST              29 ('自动通过好友：当前活动实例已退出托管，跳过任务')
+            404 CALL_FUNCTION            1
+            406 POP_TOP
+
+236         408 LOAD_CONST               5 (False)
+            410 LOAD_CONST              30 ('当前活动实例已退出托管')
+            412 LOAD_CONST               6 (0)
+            414 LOAD_CONST               7 (('success', 'message', 'processed_count'))
+            416 BUILD_CONST_KEY_MAP      3
+            418 POP_BLOCK
+            420 RETURN_VALUE
+
+238     >>  422 LOAD_GLOBAL             14 (WeChat)
+            424 CALL_FUNCTION            0
+            426 LOAD_DEREF               5 (self)
+            428 STORE_ATTR              15 (wechat)
+
+241     >>  430 LOAD_DEREF               5 (self)
+            432 LOAD_ATTR               17 (_broadcast_status)
+
+242         434 LOAD_DEREF               1 (context)
+            436 LOAD_ATTR                1 (task_id)
+
+243         438 LOAD_GLOBAL             18 (TaskStatus)
+            440 LOAD_ATTR               19 (RUNNING)
+
+244         442 LOAD_FAST                2 (params)
+
+245         444 LOAD_CONST               6 (0)
+
+241         446 LOAD_CONST              31 (('progress',))
+            448 CALL_FUNCTION_KW         4
+            450 GET_AWAITABLE
+            452 LOAD_CONST              32 (None)
+            454 YIELD_FROM
+            456 POP_TOP
+
+248         458 LOAD_CONST               6 (0)
+            460 LOAD_CONST              32 (None)
+            462 IMPORT_NAME             20 (threading)
+            464 STORE_FAST              13 (threading)
+
+249         466 LOAD_GLOBAL             21 (asyncio)
+            468 LOAD_METHOD             22 (get_running_loop)
+            470 CALL_METHOD              0
+            472 STORE_DEREF              2 (current_loop)
+
+250         474 LOAD_DEREF               2 (current_loop)
+            476 LOAD_METHOD             23 (create_future)
+            478 CALL_METHOD              0
+            480 STORE_DEREF              3 (future)
+
+252         482 LOAD_CLOSURE             1 (context)
+            484 LOAD_CLOSURE             2 (current_loop)
+            486 LOAD_CLOSURE             3 (future)
+            488 LOAD_CLOSURE             4 (max_process)
+            490 LOAD_CLOSURE             5 (self)
+            492 LOAD_CLOSURE             6 (tag)
+            494 BUILD_TUPLE              6
+            496 LOAD_CONST              33 (<code object worker at 0x1073aa2f0, file "WeRobotCore/task_system_v3/friend_request_adapter.py", line 252>)
+            498 LOAD_CONST              34 ('FriendRequestAdapter.execute_task.<locals>.worker')
+            500 MAKE_FUNCTION            8 (closure)
+            502 STORE_FAST              14 (worker)
+
+275         504 LOAD_FAST               13 (threading)
+            506 LOAD_ATTR               24 (Thread)
+            508 LOAD_FAST               14 (worker)
+            510 LOAD_CONST              35 (True)
+            512 LOAD_CONST              36 (('target', 'daemon'))
+            514 CALL_FUNCTION_KW         2
+            516 STORE_FAST              15 (t)
+
+276         518 LOAD_FAST               15 (t)
+            520 LOAD_METHOD             25 (start)
+            522 CALL_METHOD              0
+            524 POP_TOP
+
+279         526 LOAD_DEREF               3 (future)
+            528 GET_AWAITABLE
+            530 LOAD_CONST              32 (None)
+            532 YIELD_FROM
+            534 STORE_FAST              16 (result)
+
+281         536 LOAD_FAST               16 (result)
+            538 LOAD_CONST              37 ('success')
+            540 BINARY_SUBSCR
+            542 EXTENDED_ARG             2
+            544 POP_JUMP_IF_TRUE       596
+
+282         546 LOAD_DEREF               5 (self)
+            548 LOAD_ATTR               17 (_broadcast_status)
+
+283         550 LOAD_DEREF               1 (context)
+            552 LOAD_ATTR                1 (task_id)
+
+284         554 LOAD_GLOBAL             18 (TaskStatus)
+            556 LOAD_ATTR               26 (FAILED)
+
+285         558 LOAD_FAST                2 (params)
+
+286         560 LOAD_FAST               16 (result)
+            562 LOAD_CONST              38 ('message')
+            564 BINARY_SUBSCR
+
+282         566 LOAD_CONST              39 (('error',))
+            568 CALL_FUNCTION_KW         4
+            570 GET_AWAITABLE
+            572 LOAD_CONST              32 (None)
+            574 YIELD_FROM
+            576 POP_TOP
+
+289         578 LOAD_CONST               5 (False)
+
+290         580 LOAD_FAST               16 (result)
+            582 LOAD_CONST              38 ('message')
+            584 BINARY_SUBSCR
+
+291         586 LOAD_CONST               6 (0)
+
+288         588 LOAD_CONST               7 (('success', 'message', 'processed_count'))
+            590 BUILD_CONST_KEY_MAP      3
+            592 POP_BLOCK
+            594 RETURN_VALUE
+
+294     >>  596 LOAD_FAST               16 (result)
+            598 LOAD_CONST              40 ('processed_count')
+            600 BINARY_SUBSCR
+            602 STORE_FAST              17 (processed_count)
+
+295         604 LOAD_FAST               16 (result)
+            606 LOAD_METHOD              5 (get)
+            608 LOAD_CONST              41 ('processed_users')
+            610 BUILD_LIST               0
+            612 CALL_METHOD              2
+            614 STORE_FAST              18 (processed_users)
+
+297         616 LOAD_GLOBAL              0 (print)
+            618 LOAD_CONST              42 ('本次任务处理了 ')
+            620 LOAD_FAST               17 (processed_count)
+            622 FORMAT_VALUE             0
+            624 LOAD_CONST              43 (' 个好友申请')
+            626 BUILD_STRING             3
+            628 CALL_FUNCTION            1
+            630 POP_TOP
+
+301         632 LOAD_DEREF               5 (self)
+            634 LOAD_METHOD             27 (_record_accepted_users)
+            636 LOAD_FAST               18 (processed_users)
+            638 LOAD_DEREF               1 (context)
+            640 LOAD_ATTR                1 (task_id)
+            642 CALL_METHOD              2
+            644 POP_TOP
+
+304         646 LOAD_FAST               18 (processed_users)
+            648 EXTENDED_ARG             2
+            650 POP_JUMP_IF_FALSE      706
+            652 LOAD_FAST                3 (greeting_group_id)
+            654 EXTENDED_ARG             2
+            656 POP_JUMP_IF_FALSE      706
+
+305         658 LOAD_DEREF               5 (self)
+            660 LOAD_ATTR               28 (permission_manager)
+            662 LOAD_ATTR               29 (report_progress)
+
+306         664 LOAD_DEREF               1 (context)
+            666 LOAD_ATTR                1 (task_id)
+
+307         668 LOAD_FAST               17 (processed_count)
+            670 LOAD_DEREF               4 (max_process)
+            672 LOAD_CONST              44 (('processed', 'limit'))
+            674 BUILD_CONST_KEY_MAP      2
+
+308         676 LOAD_CONST              45 ('friend_request_greeting')
+
+305         678 LOAD_CONST              46 (('progress', 'stage'))
+            680 CALL_FUNCTION_KW         3
+            682 POP_TOP
+
+310         684 LOAD_DEREF               5 (self)
+            686 LOAD_METHOD             30 (_send_greeting_messages)
+
+311         688 LOAD_FAST               18 (processed_users)
+
+312         690 LOAD_FAST                3 (greeting_group_id)
+
+313         692 LOAD_DEREF               1 (context)
+            694 LOAD_ATTR                1 (task_id)
+
+310         696 CALL_METHOD              3
+            698 GET_AWAITABLE
+            700 LOAD_CONST              32 (None)
+            702 YIELD_FROM
+            704 POP_TOP
+
+317     >>  706 LOAD_FAST               18 (processed_users)
+            708 EXTENDED_ARG             2
+            710 POP_JUMP_IF_FALSE      766
+            712 LOAD_FAST                4 (target_group)
+            714 EXTENDED_ARG             2
+            716 POP_JUMP_IF_FALSE      766
+
+318         718 LOAD_DEREF               5 (self)
+            720 LOAD_ATTR               28 (permission_manager)
+            722 LOAD_ATTR               29 (report_progress)
+
+319         724 LOAD_DEREF               1 (context)
+            726 LOAD_ATTR                1 (task_id)
+
+320         728 LOAD_FAST               17 (processed_count)
+            730 LOAD_DEREF               4 (max_process)
+            732 LOAD_CONST              44 (('processed', 'limit'))
+            734 BUILD_CONST_KEY_MAP      2
+
+321         736 LOAD_CONST              47 ('friend_request_inviting')
+
+318         738 LOAD_CONST              46 (('progress', 'stage'))
+            740 CALL_FUNCTION_KW         3
+            742 POP_TOP
+
+323         744 LOAD_DEREF               5 (self)
+            746 LOAD_METHOD             31 (_invite_to_group)
+
+324         748 LOAD_FAST               18 (processed_users)
+            750 LOAD_FAST                4 (target_group)
+            752 LOAD_DEREF               1 (context)
+            754 LOAD_ATTR                1 (task_id)
+
+323         756 CALL_METHOD              3
+            758 GET_AWAITABLE
+            760 LOAD_CONST              32 (None)
+            762 YIELD_FROM
+            764 POP_TOP
+
+327     >>  766 LOAD_DEREF               5 (self)
+            768 LOAD_ATTR               28 (permission_manager)
+            770 LOAD_ATTR               29 (report_progress)
+
+328         772 LOAD_DEREF               1 (context)
+            774 LOAD_ATTR                1 (task_id)
+
+329         776 LOAD_FAST               17 (processed_count)
+            778 LOAD_DEREF               4 (max_process)
+            780 LOAD_CONST              44 (('processed', 'limit'))
+            782 BUILD_CONST_KEY_MAP      2
+
+330         784 LOAD_CONST              48 ('friend_request_completed')
+
+327         786 LOAD_CONST              46 (('progress', 'stage'))
+            788 CALL_FUNCTION_KW         3
+            790 POP_TOP
+
+334         792 LOAD_FAST               17 (processed_count)
+            794 LOAD_CONST               6 (0)
+            796 COMPARE_OP               4 (>)
+            798 EXTENDED_ARG             3
+            800 POP_JUMP_IF_FALSE      828
+
+335         802 LOAD_DEREF               5 (self)
+            804 LOAD_METHOD             32 (_save_task_log)
+
+336         806 LOAD_DEREF               1 (context)
+            808 LOAD_ATTR                1 (task_id)
+
+337         810 LOAD_GLOBAL             18 (TaskStatus)
+            812 LOAD_ATTR               33 (COMPLETED)
+
+338         814 LOAD_FAST               17 (processed_count)
+
+339         816 LOAD_DEREF               6 (tag)
+
+340         818 LOAD_FAST               18 (processed_users)
+
+341         820 LOAD_FAST                3 (greeting_group_id)
+
+342         822 LOAD_FAST                4 (target_group)
+
+335         824 CALL_METHOD              7
+            826 POP_TOP
+
+346     >>  828 LOAD_DEREF               5 (self)
+            830 LOAD_ATTR               17 (_broadcast_status)
+
+347         832 LOAD_DEREF               1 (context)
+            834 LOAD_ATTR                1 (task_id)
+
+348         836 LOAD_GLOBAL             18 (TaskStatus)
+            838 LOAD_ATTR               33 (COMPLETED)
+
+349         840 LOAD_FAST                2 (params)
+
+350         842 LOAD_FAST               17 (processed_count)
+
+351         844 LOAD_FAST               17 (processed_count)
+
+346         846 LOAD_CONST              49 (('progress', 'total'))
+            848 CALL_FUNCTION_KW         5
+            850 GET_AWAITABLE
+            852 LOAD_CONST              32 (None)
+            854 YIELD_FROM
+            856 POP_TOP
+
+355         858 LOAD_CONST              35 (True)
+
+356         860 LOAD_CONST              50 ('成功处理 ')
+            862 LOAD_FAST               17 (processed_count)
+            864 FORMAT_VALUE             0
+            866 LOAD_CONST              43 (' 个好友申请')
+            868 BUILD_STRING             3
+
+357         870 LOAD_FAST               17 (processed_count)
+
+358         872 LOAD_FAST               18 (processed_users)
+
+354         874 LOAD_CONST              51 (('success', 'message', 'processed_count', 'processed_users'))
+            876 BUILD_CONST_KEY_MAP      4
+            878 POP_BLOCK
+            880 RETURN_VALUE
+
+361     >>  882 DUP_TOP
+            884 LOAD_GLOBAL              3 (Exception)
+            886 EXTENDED_ARG             3
+            888 JUMP_IF_NOT_EXC_MATCH   980
+            890 POP_TOP
+            892 STORE_FAST              19 (e)
+            894 POP_TOP
+            896 SETUP_FINALLY           74 (to 972)
+
+362         898 LOAD_CONST              52 ('执行自动通过好友任务失败: ')
+            900 LOAD_GLOBAL             34 (str)
+            902 LOAD_FAST               19 (e)
+            904 CALL_FUNCTION            1
+            906 FORMAT_VALUE             0
+            908 BUILD_STRING             2
+            910 STORE_FAST              20 (error_msg)
+
+363         912 LOAD_GLOBAL              0 (print)
+            914 LOAD_FAST               20 (error_msg)
+            916 CALL_FUNCTION            1
+            918 POP_TOP
+
+366         920 LOAD_DEREF               5 (self)
+            922 LOAD_ATTR               17 (_broadcast_status)
+
+367         924 LOAD_DEREF               1 (context)
+            926 LOAD_ATTR                1 (task_id)
+
+368         928 LOAD_GLOBAL             18 (TaskStatus)
+            930 LOAD_ATTR               26 (FAILED)
+
+369         932 LOAD_FAST                2 (params)
+
+370         934 LOAD_FAST               20 (error_msg)
+
+366         936 LOAD_CONST              39 (('error',))
+            938 CALL_FUNCTION_KW         4
+            940 GET_AWAITABLE
+            942 LOAD_CONST              32 (None)
+            944 YIELD_FROM
+            946 POP_TOP
+
+374         948 LOAD_CONST               5 (False)
+
+375         950 LOAD_FAST               20 (error_msg)
+
+376         952 LOAD_CONST               6 (0)
+
+373         954 LOAD_CONST               7 (('success', 'message', 'processed_count'))
+            956 BUILD_CONST_KEY_MAP      3
+            958 POP_BLOCK
+            960 ROT_FOUR
+            962 POP_EXCEPT
+            964 LOAD_CONST              32 (None)
+            966 STORE_FAST              19 (e)
+            968 DELETE_FAST             19 (e)
+            970 RETURN_VALUE
+        >>  972 LOAD_CONST              32 (None)
+            974 STORE_FAST              19 (e)
+            976 DELETE_FAST             19 (e)
+            978 RERAISE
+        >>  980 RERAISE
+            982 LOAD_CONST              32 (None)
+            984 RETURN_VALUE
+
+Disassembly of <code object <listcomp> at 0x1073aabe0, file "WeRobotCore/task_system_v3/friend_request_adapter.py", line 207>:
+207           0 BUILD_LIST               0
+              2 LOAD_FAST                0 (.0)
+        >>    4 FOR_ITER                16 (to 22)
+              6 STORE_FAST               1 (x)
+              8 LOAD_FAST                1 (x)
+             10 POP_JUMP_IF_FALSE        4
+             12 LOAD_GLOBAL              0 (str)
+             14 LOAD_FAST                1 (x)
+             16 CALL_FUNCTION            1
+             18 LIST_APPEND              2
+             20 JUMP_ABSOLUTE            4
+        >>   22 RETURN_VALUE
+
+Disassembly of <code object <setcomp> at 0x1073aa920, file "WeRobotCore/task_system_v3/friend_request_adapter.py", line 212>:
+212           0 BUILD_SET                0
+              2 LOAD_FAST                0 (.0)
+        >>    4 FOR_ITER                36 (to 42)
+
+214           6 STORE_FAST               1 (inst)
+
+215           8 LOAD_FAST                1 (inst)
+             10 LOAD_METHOD              0 (get)
+             12 LOAD_CONST               0 ('manually_exited')
+             14 LOAD_CONST               1 (False)
+             16 CALL_METHOD              2
+             18 POP_JUMP_IF_FALSE        4
+
+213          20 LOAD_FAST                1 (inst)
+             22 LOAD_METHOD              0 (get)
+             24 LOAD_CONST               2 ('account_info')
+             26 CALL_METHOD              1
+             28 JUMP_IF_TRUE_OR_POP     32
+             30 BUILD_MAP                0
+        >>   32 LOAD_METHOD              0 (get)
+             34 LOAD_CONST               3 ('account_id')
+             36 CALL_METHOD              1
+             38 SET_ADD                  2
+             40 JUMP_ABSOLUTE            4
+        >>   42 RETURN_VALUE
+
+Disassembly of <code object <listcomp> at 0x1073aa450, file "WeRobotCore/task_system_v3/friend_request_adapter.py", line 217>:
+217           0 BUILD_LIST               0
+              2 LOAD_FAST                0 (.0)
+        >>    4 FOR_ITER                16 (to 22)
+              6 STORE_FAST               1 (a)
+              8 LOAD_FAST                1 (a)
+             10 LOAD_DEREF               0 (_exited)
+             12 CONTAINS_OP              1
+             14 POP_JUMP_IF_FALSE        4
+             16 LOAD_FAST                1 (a)
+             18 LIST_APPEND              2
+             20 JUMP_ABSOLUTE            4
+        >>   22 RETURN_VALUE
+
+Disassembly of <code object worker at 0x1073aa2f0, file "WeRobotCore/task_system_v3/friend_request_adapter.py", line 252>:
+253           0 SETUP_FINALLY           94 (to 96)
+
+254           2 LOAD_DEREF               4 (self)
+              4 LOAD_ATTR                0 (permission_manager)
+              6 LOAD_ATTR                1 (report_progress)
+
+255           8 LOAD_DEREF               0 (context)
+             10 LOAD_ATTR                2 (task_id)
+
+256          12 LOAD_CONST               1 (0)
+             14 LOAD_DEREF               3 (max_process)
+             16 LOAD_CONST               2 (('processed', 'limit'))
+             18 BUILD_CONST_KEY_MAP      2
+
+257          20 LOAD_CONST               3 ('friend_request_processing')
+
+254          22 LOAD_CONST               4 (('progress', 'stage'))
+             24 CALL_FUNCTION_KW         3
+             26 POP_TOP
+
+259          28 LOAD_DEREF               4 (self)
+             30 LOAD_ATTR                3 (wechat)
+             32 LOAD_ATTR                4 (process_friend_requests)
+
+260          34 LOAD_DEREF               3 (max_process)
+
+261          36 LOAD_DEREF               5 (tag)
+
+259          38 LOAD_CONST               5 (('max_process', 'tag'))
+             40 CALL_FUNCTION_KW         2
+             42 STORE_FAST               0 (res)
+
+263          44 LOAD_DEREF               4 (self)
+             46 LOAD_ATTR                0 (permission_manager)
+             48 LOAD_ATTR                1 (report_progress)
+
+264          50 LOAD_DEREF               0 (context)
+             52 LOAD_ATTR                2 (task_id)
+
+266          54 LOAD_FAST                0 (res)
+             56 LOAD_METHOD              5 (get)
+             58 LOAD_CONST               6 ('processed_count')
+             60 LOAD_CONST               1 (0)
+             62 CALL_METHOD              2
+
+267          64 LOAD_DEREF               3 (max_process)
+
+265          66 LOAD_CONST               2 (('processed', 'limit'))
+             68 BUILD_CONST_KEY_MAP      2
+
+269          70 LOAD_CONST               7 ('friend_request_processed')
+
+263          72 LOAD_CONST               4 (('progress', 'stage'))
+             74 CALL_FUNCTION_KW         3
+             76 POP_TOP
+
+271          78 LOAD_DEREF               1 (current_loop)
+             80 LOAD_METHOD              6 (call_soon_threadsafe)
+             82 LOAD_DEREF               2 (future)
+             84 LOAD_ATTR                7 (set_result)
+             86 LOAD_FAST                0 (res)
+             88 CALL_METHOD              2
+             90 POP_TOP
+             92 POP_BLOCK
+             94 JUMP_FORWARD            50 (to 146)
+
+272     >>   96 DUP_TOP
+             98 LOAD_GLOBAL              8 (Exception)
+            100 JUMP_IF_NOT_EXC_MATCH   144
+            102 POP_TOP
+            104 STORE_FAST               1 (e)
+            106 POP_TOP
+            108 SETUP_FINALLY           26 (to 136)
+
+273         110 LOAD_DEREF               1 (current_loop)
+            112 LOAD_METHOD              6 (call_soon_threadsafe)
+            114 LOAD_DEREF               2 (future)
+            116 LOAD_ATTR                9 (set_exception)
+            118 LOAD_FAST                1 (e)
+            120 CALL_METHOD              2
+            122 POP_TOP
+            124 POP_BLOCK
+            126 POP_EXCEPT
+            128 LOAD_CONST               0 (None)
+            130 STORE_FAST               1 (e)
+            132 DELETE_FAST              1 (e)
+            134 JUMP_FORWARD            10 (to 146)
+        >>  136 LOAD_CONST               0 (None)
+            138 STORE_FAST               1 (e)
+            140 DELETE_FAST              1 (e)
+            142 RERAISE
+        >>  144 RERAISE
+        >>  146 LOAD_CONST               0 (None)
+            148 RETURN_VALUE
+
+Disassembly of <code object _record_accepted_users at 0x1073b9450, file "WeRobotCore/task_system_v3/friend_request_adapter.py", line 379>:
+382           0 SETUP_FINALLY          210 (to 212)
+
+384           2 LOAD_FAST                0 (self)
+              4 LOAD_ATTR                0 (wechat)
+              6 POP_JUMP_IF_FALSE       22
+              8 LOAD_GLOBAL              1 (getattr)
+             10 LOAD_FAST                0 (self)
+             12 LOAD_ATTR                0 (wechat)
+             14 LOAD_CONST               1 ('account_info')
+             16 LOAD_CONST               2 (None)
+             18 CALL_FUNCTION            3
+             20 JUMP_FORWARD             2 (to 24)
+        >>   22 LOAD_CONST               2 (None)
+
+383     >>   24 STORE_FAST               3 (raw_account_info)
+
+386          26 LOAD_GLOBAL              2 (isinstance)
+             28 LOAD_FAST                3 (raw_account_info)
+             30 LOAD_GLOBAL              3 (dict)
+             32 CALL_FUNCTION            2
+             34 POP_JUMP_IF_FALSE       40
+             36 LOAD_FAST                3 (raw_account_info)
+             38 JUMP_FORWARD             2 (to 42)
+        >>   40 BUILD_MAP                0
+        >>   42 STORE_FAST               4 (account_info)
+
+387          44 LOAD_GLOBAL              4 (str)
+             46 LOAD_FAST                4 (account_info)
+             48 LOAD_METHOD              5 (get)
+             50 LOAD_CONST               3 ('account_id')
+             52 CALL_METHOD              1
+             54 JUMP_IF_TRUE_OR_POP     58
+             56 LOAD_CONST               4 ('')
+        >>   58 CALL_FUNCTION            1
+             60 LOAD_METHOD              6 (strip)
+             62 CALL_METHOD              0
+             64 STORE_FAST               5 (account_id)
+
+388          66 LOAD_GLOBAL              4 (str)
+             68 LOAD_FAST                4 (account_info)
+             70 LOAD_METHOD              5 (get)
+             72 LOAD_CONST               5 ('nickname')
+             74 CALL_METHOD              1
+             76 JUMP_IF_TRUE_OR_POP     80
+             78 LOAD_CONST               4 ('')
+        >>   80 CALL_FUNCTION            1
+             82 STORE_FAST               6 (account_nickname)
+
+389          84 LOAD_FAST                5 (account_id)
+             86 POP_JUMP_IF_TRUE       102
+
+390          88 LOAD_GLOBAL              7 (print)
+             90 LOAD_CONST               6 ('记录自动通过好友事件失败：当前托管账号ID为空')
+             92 CALL_FUNCTION            1
+             94 POP_TOP
+
+391          96 POP_BLOCK
+             98 LOAD_CONST               2 (None)
+            100 RETURN_VALUE
+
+392     >>  102 LOAD_CONST               7 (0)
+            104 LOAD_CONST               8 (('record_friend_accepted_observed',))
+            106 IMPORT_NAME              8 (WeRobotCore.services.customer_event_recorder)
+            108 IMPORT_FROM              9 (record_friend_accepted_observed)
+            110 STORE_FAST               7 (record_friend_accepted_observed)
+            112 POP_TOP
+
+396         114 LOAD_FAST                1 (processed_users)
+            116 JUMP_IF_TRUE_OR_POP    120
+            118 BUILD_LIST               0
+        >>  120 GET_ITER
+        >>  122 FOR_ITER                84 (to 208)
+            124 STORE_FAST               8 (user)
+
+397         126 LOAD_GLOBAL              4 (str)
+            128 LOAD_FAST                8 (user)
+            130 JUMP_IF_TRUE_OR_POP    134
+            132 LOAD_CONST               4 ('')
+        >>  134 CALL_FUNCTION            1
+            136 LOAD_METHOD              6 (strip)
+            138 CALL_METHOD              0
+            140 STORE_FAST               9 (display_name)
+
+398         142 LOAD_FAST                9 (display_name)
+            144 POP_JUMP_IF_TRUE       148
+
+399         146 JUMP_ABSOLUTE          122
+
+400     >>  148 LOAD_FAST                7 (record_friend_accepted_observed)
+
+401         150 LOAD_FAST                5 (account_id)
+
+402         152 LOAD_FAST                6 (account_nickname)
+
+403         154 LOAD_FAST                9 (display_name)
+
+404         156 LOAD_FAST                2 (task_id)
+
+405         158 LOAD_CONST               9 ('auto_accept_completed')
+
+406         160 LOAD_CONST              10 ('inbound_request_auto_accepted')
+
+400         162 LOAD_CONST              11 (('account_id', 'account_nickname', 'display_name', 'task_id', 'observation_reason', 'acceptance_direction'))
+            164 CALL_FUNCTION_KW         6
+            166 STORE_FAST              10 (result)
+
+408         168 LOAD_FAST               10 (result)
+            170 LOAD_METHOD              5 (get)
+            172 LOAD_CONST              12 ('success')
+            174 CALL_METHOD              1
+            176 POP_JUMP_IF_TRUE       122
+
+409         178 LOAD_GLOBAL              7 (print)
+
+410         180 LOAD_CONST              13 ('记录自动通过好友事件失败（不影响任务）: user=')
+
+411         182 LOAD_FAST                9 (display_name)
+
+410         184 FORMAT_VALUE             0
+            186 LOAD_CONST              14 (', error=')
+
+411         188 LOAD_FAST               10 (result)
+            190 LOAD_METHOD              5 (get)
+            192 LOAD_CONST              15 ('error')
+            194 LOAD_CONST               4 ('')
+            196 CALL_METHOD              2
+
+410         198 FORMAT_VALUE             0
+            200 BUILD_STRING             4
+
+409         202 CALL_FUNCTION            1
+            204 POP_TOP
+            206 JUMP_ABSOLUTE          122
+        >>  208 POP_BLOCK
+            210 JUMP_FORWARD            56 (to 268)
+
+413     >>  212 DUP_TOP
+            214 LOAD_GLOBAL             10 (Exception)
+            216 EXTENDED_ARG             1
+            218 JUMP_IF_NOT_EXC_MATCH   266
+            220 POP_TOP
+            222 STORE_FAST              11 (e)
+            224 POP_TOP
+            226 SETUP_FINALLY           30 (to 258)
+
+414         228 LOAD_GLOBAL              7 (print)
+            230 LOAD_CONST              16 ('记录自动通过好友事件异常（不影响任务）: ')
+            232 LOAD_GLOBAL              4 (str)
+            234 LOAD_FAST               11 (e)
+            236 CALL_FUNCTION            1
+            238 FORMAT_VALUE             0
+            240 BUILD_STRING             2
+            242 CALL_FUNCTION            1
+            244 POP_TOP
+            246 POP_BLOCK
+            248 POP_EXCEPT
+            250 LOAD_CONST               2 (None)
+            252 STORE_FAST              11 (e)
+            254 DELETE_FAST             11 (e)
+            256 JUMP_FORWARD            10 (to 268)
+        >>  258 LOAD_CONST               2 (None)
+            260 STORE_FAST              11 (e)
+            262 DELETE_FAST             11 (e)
+            264 RERAISE
+        >>  266 RERAISE
+        >>  268 LOAD_CONST               2 (None)
+            270 RETURN_VALUE
+
+Disassembly of <code object _send_greeting_messages at 0x1073b9b30, file "WeRobotCore/task_system_v3/friend_request_adapter.py", line 416>:
+428           0 SETUP_FINALLY          204 (to 206)
+
+429           2 LOAD_GLOBAL              0 (GreetingManager)
+              4 LOAD_FAST                0 (self)
+              6 LOAD_ATTR                1 (config_manager)
+              8 CALL_FUNCTION            1
+             10 STORE_FAST               4 (greeting_manager)
+
+431          12 LOAD_GLOBAL              2 (print)
+             14 LOAD_CONST               1 ('开始向新添加的好友发送打招呼消息...')
+             16 CALL_FUNCTION            1
+             18 POP_TOP
+
+432          20 LOAD_FAST                1 (processed_users)
+             22 GET_ITER
+        >>   24 FOR_ITER               176 (to 202)
+             26 STORE_FAST               5 (user)
+
+433          28 SETUP_FINALLY           98 (to 128)
+
+435          30 LOAD_FAST                4 (greeting_manager)
+             32 LOAD_ATTR                3 (execute_greeting_group)
+
+436          34 LOAD_FAST                2 (greeting_group_id)
+
+437          36 LOAD_FAST                5 (user)
+
+438          38 LOAD_CONST               2 (None)
+
+439          40 LOAD_FAST                0 (self)
+             42 LOAD_ATTR                4 (wechat)
+
+441          44 LOAD_CONST               3 ('greeting')
+
+442          46 LOAD_GLOBAL              5 (str)
+             48 LOAD_FAST                3 (task_id)
+             50 JUMP_IF_TRUE_OR_POP     54
+             52 LOAD_CONST               4 ('')
+        >>   54 CALL_FUNCTION            1
+
+443          56 LOAD_CONST               5 (False)
+
+445          58 LOAD_CONST               6 ('trigger')
+             60 LOAD_CONST               7 ('friend_request_auto_accept')
+
+444          62 BUILD_MAP                1
+
+440          64 LOAD_CONST               8 (('origin', 'task_id', 'is_group', 'details'))
+             66 BUILD_CONST_KEY_MAP      4
+
+435          68 LOAD_CONST               9 (('greeting_group_id', 'target_user', 'session_id', 'wechat', 'event_context'))
+             70 CALL_FUNCTION_KW         5
+             72 GET_AWAITABLE
+             74 LOAD_CONST               2 (None)
+             76 YIELD_FROM
+             78 STORE_FAST               6 (success)
+
+450          80 LOAD_FAST                6 (success)
+             82 POP_JUMP_IF_TRUE       100
+
+451          84 LOAD_GLOBAL              2 (print)
+             86 LOAD_CONST              10 ('发送打招呼消息给用户 ')
+             88 LOAD_FAST                5 (user)
+             90 FORMAT_VALUE             0
+             92 LOAD_CONST              11 (' 失败')
+             94 BUILD_STRING             3
+             96 CALL_FUNCTION            1
+             98 POP_TOP
+
+454     >>  100 LOAD_GLOBAL              6 (asyncio)
+            102 LOAD_METHOD              7 (sleep)
+            104 LOAD_GLOBAL              8 (random)
+            106 LOAD_METHOD              9 (uniform)
+            108 LOAD_CONST              12 (3)
+            110 LOAD_CONST              13 (6)
+            112 CALL_METHOD              2
+            114 CALL_METHOD              1
+            116 GET_AWAITABLE
+            118 LOAD_CONST               2 (None)
+            120 YIELD_FROM
+            122 POP_TOP
+            124 POP_BLOCK
+            126 JUMP_ABSOLUTE           24
+
+456     >>  128 DUP_TOP
+            130 LOAD_GLOBAL             10 (Exception)
+            132 JUMP_IF_NOT_EXC_MATCH   198
+            134 POP_TOP
+            136 STORE_FAST               7 (e)
+            138 POP_TOP
+            140 SETUP_FINALLY           48 (to 190)
+
+457         142 LOAD_GLOBAL              2 (print)
+            144 LOAD_CONST              14 ('处理用户 ')
+            146 LOAD_FAST                5 (user)
+            148 FORMAT_VALUE             0
+            150 LOAD_CONST              15 (' 的打招呼消息失败: ')
+            152 LOAD_GLOBAL              5 (str)
+            154 LOAD_FAST                7 (e)
+            156 CALL_FUNCTION            1
+            158 FORMAT_VALUE             0
+            160 BUILD_STRING             4
+            162 CALL_FUNCTION            1
+            164 POP_TOP
+
+458         166 POP_BLOCK
+            168 POP_EXCEPT
+            170 LOAD_CONST               2 (None)
+            172 STORE_FAST               7 (e)
+            174 DELETE_FAST              7 (e)
+            176 JUMP_ABSOLUTE           24
+            178 POP_BLOCK
+            180 POP_EXCEPT
+            182 LOAD_CONST               2 (None)
+            184 STORE_FAST               7 (e)
+            186 DELETE_FAST              7 (e)
+            188 JUMP_ABSOLUTE           24
+        >>  190 LOAD_CONST               2 (None)
+            192 STORE_FAST               7 (e)
+            194 DELETE_FAST              7 (e)
+            196 RERAISE
+        >>  198 RERAISE
+            200 JUMP_ABSOLUTE           24
+        >>  202 POP_BLOCK
+            204 JUMP_FORWARD            56 (to 262)
+
+460     >>  206 DUP_TOP
+            208 LOAD_GLOBAL             10 (Exception)
+            210 EXTENDED_ARG             1
+            212 JUMP_IF_NOT_EXC_MATCH   260
+            214 POP_TOP
+            216 STORE_FAST               7 (e)
+            218 POP_TOP
+            220 SETUP_FINALLY           30 (to 252)
+
+461         222 LOAD_GLOBAL              2 (print)
+            224 LOAD_CONST              16 ('处理打招呼消息失败: ')
+            226 LOAD_GLOBAL              5 (str)
+            228 LOAD_FAST                7 (e)
+            230 CALL_FUNCTION            1
+            232 FORMAT_VALUE             0
+            234 BUILD_STRING             2
+            236 CALL_FUNCTION            1
+            238 POP_TOP
+            240 POP_BLOCK
+            242 POP_EXCEPT
+            244 LOAD_CONST               2 (None)
+            246 STORE_FAST               7 (e)
+            248 DELETE_FAST              7 (e)
+            250 JUMP_FORWARD            10 (to 262)
+        >>  252 LOAD_CONST               2 (None)
+            254 STORE_FAST               7 (e)
+            256 DELETE_FAST              7 (e)
+            258 RERAISE
+        >>  260 RERAISE
+        >>  262 LOAD_CONST               2 (None)
+            264 RETURN_VALUE
+
+Disassembly of <code object _invite_to_group at 0x1073b9d40, file "WeRobotCore/task_system_v3/friend_request_adapter.py", line 463>:
+475           0 SETUP_FINALLY          124 (to 126)
+
+476           2 LOAD_GLOBAL              0 (print)
+              4 LOAD_CONST               1 ('开始处理自动拉群：')
+              6 LOAD_DEREF               2 (processed_users)
+              8 FORMAT_VALUE             0
+             10 BUILD_STRING             2
+             12 CALL_FUNCTION            1
+             14 POP_TOP
+
+477          16 LOAD_CONST               2 (0)
+             18 LOAD_CONST               3 (None)
+             20 IMPORT_NAME              1 (threading)
+             22 STORE_FAST               4 (threading)
+
+478          24 LOAD_GLOBAL              2 (asyncio)
+             26 LOAD_METHOD              3 (get_running_loop)
+             28 CALL_METHOD              0
+             30 STORE_DEREF              0 (current_loop)
+
+479          32 LOAD_DEREF               0 (current_loop)
+             34 LOAD_METHOD              4 (create_future)
+             36 CALL_METHOD              0
+             38 STORE_DEREF              1 (future)
+
+481          40 LOAD_CLOSURE             0 (current_loop)
+             42 LOAD_CLOSURE             1 (future)
+             44 LOAD_CLOSURE             2 (processed_users)
+             46 LOAD_CLOSURE             3 (self)
+             48 LOAD_CLOSURE             4 (target_group)
+             50 BUILD_TUPLE              5
+             52 LOAD_CONST               4 (<code object worker at 0x1073b97c0, file "WeRobotCore/task_system_v3/friend_request_adapter.py", line 481>)
+             54 LOAD_CONST               5 ('FriendRequestAdapter._invite_to_group.<locals>.worker')
+             56 MAKE_FUNCTION            8 (closure)
+             58 STORE_FAST               5 (worker)
+
+488          60 LOAD_FAST                4 (threading)
+             62 LOAD_ATTR                5 (Thread)
+             64 LOAD_FAST                5 (worker)
+             66 LOAD_CONST               6 (True)
+             68 LOAD_CONST               7 (('target', 'daemon'))
+             70 CALL_FUNCTION_KW         2
+             72 STORE_FAST               6 (t)
+
+489          74 LOAD_FAST                6 (t)
+             76 LOAD_METHOD              6 (start)
+             78 CALL_METHOD              0
+             80 POP_TOP
+
+491          82 LOAD_DEREF               1 (future)
+             84 GET_AWAITABLE
+             86 LOAD_CONST               3 (None)
+             88 YIELD_FROM
+             90 STORE_FAST               7 (result)
+
+492          92 LOAD_GLOBAL              0 (print)
+             94 LOAD_CONST               8 ('自动拉群结果: ')
+             96 LOAD_FAST                7 (result)
+             98 FORMAT_VALUE             0
+            100 BUILD_STRING             2
+            102 CALL_FUNCTION            1
+            104 POP_TOP
+
+493         106 LOAD_DEREF               3 (self)
+            108 LOAD_METHOD              7 (_record_group_invites)
+
+494         110 LOAD_DEREF               2 (processed_users)
+            112 LOAD_DEREF               4 (target_group)
+            114 LOAD_FAST                7 (result)
+            116 LOAD_FAST                3 (task_id)
+
+493         118 CALL_METHOD              4
+            120 POP_TOP
+            122 POP_BLOCK
+            124 JUMP_FORWARD            82 (to 208)
+
+496     >>  126 DUP_TOP
+            128 LOAD_GLOBAL              8 (Exception)
+            130 JUMP_IF_NOT_EXC_MATCH   206
+            132 POP_TOP
+            134 STORE_FAST               8 (e)
+            136 POP_TOP
+            138 SETUP_FINALLY           58 (to 198)
+
+497         140 LOAD_GLOBAL              0 (print)
+            142 LOAD_CONST               9 ('自动拉群失败: ')
+            144 LOAD_GLOBAL              9 (str)
+            146 LOAD_FAST                8 (e)
+            148 CALL_FUNCTION            1
+            150 FORMAT_VALUE             0
+            152 BUILD_STRING             2
+            154 CALL_FUNCTION            1
+            156 POP_TOP
+
+498         158 LOAD_DEREF               3 (self)
+            160 LOAD_METHOD              7 (_record_group_invites)
+
+499         162 LOAD_DEREF               2 (processed_users)
+
+500         164 LOAD_DEREF               4 (target_group)
+
+501         166 LOAD_CONST              10 (False)
+            168 LOAD_GLOBAL              9 (str)
+            170 LOAD_FAST                8 (e)
+            172 CALL_FUNCTION            1
+            174 LOAD_CONST               2 (0)
+            176 LOAD_CONST              11 (('success', 'message', 'invited_count'))
+            178 BUILD_CONST_KEY_MAP      3
+
+502         180 LOAD_FAST                3 (task_id)
+
+498         182 CALL_METHOD              4
+            184 POP_TOP
+            186 POP_BLOCK
+            188 POP_EXCEPT
+            190 LOAD_CONST               3 (None)
+            192 STORE_FAST               8 (e)
+            194 DELETE_FAST              8 (e)
+            196 JUMP_FORWARD            10 (to 208)
+        >>  198 LOAD_CONST               3 (None)
+            200 STORE_FAST               8 (e)
+            202 DELETE_FAST              8 (e)
+            204 RERAISE
+        >>  206 RERAISE
+        >>  208 LOAD_CONST               3 (None)
+            210 RETURN_VALUE
+
+Disassembly of <code object worker at 0x1073b97c0, file "WeRobotCore/task_system_v3/friend_request_adapter.py", line 481>:
+482           0 SETUP_FINALLY           32 (to 34)
+
+483           2 LOAD_DEREF               3 (self)
+              4 LOAD_ATTR                0 (wechat)
+              6 LOAD_METHOD              1 (invite_friends_to_group)
+              8 LOAD_DEREF               2 (processed_users)
+             10 LOAD_DEREF               4 (target_group)
+             12 CALL_METHOD              2
+             14 STORE_FAST               0 (res)
+
+484          16 LOAD_DEREF               0 (current_loop)
+             18 LOAD_METHOD              2 (call_soon_threadsafe)
+             20 LOAD_DEREF               1 (future)
+             22 LOAD_ATTR                3 (set_result)
+             24 LOAD_FAST                0 (res)
+             26 CALL_METHOD              2
+             28 POP_TOP
+             30 POP_BLOCK
+             32 JUMP_FORWARD            50 (to 84)
+
+485     >>   34 DUP_TOP
+             36 LOAD_GLOBAL              4 (Exception)
+             38 JUMP_IF_NOT_EXC_MATCH    82
+             40 POP_TOP
+             42 STORE_FAST               1 (e)
+             44 POP_TOP
+             46 SETUP_FINALLY           26 (to 74)
+
+486          48 LOAD_DEREF               0 (current_loop)
+             50 LOAD_METHOD              2 (call_soon_threadsafe)
+             52 LOAD_DEREF               1 (future)
+             54 LOAD_ATTR                5 (set_exception)
+             56 LOAD_FAST                1 (e)
+             58 CALL_METHOD              2
+             60 POP_TOP
+             62 POP_BLOCK
+             64 POP_EXCEPT
+             66 LOAD_CONST               0 (None)
+             68 STORE_FAST               1 (e)
+             70 DELETE_FAST              1 (e)
+             72 JUMP_FORWARD            10 (to 84)
+        >>   74 LOAD_CONST               0 (None)
+             76 STORE_FAST               1 (e)
+             78 DELETE_FAST              1 (e)
+             80 RERAISE
+        >>   82 RERAISE
+        >>   84 LOAD_CONST               0 (None)
+             86 RETURN_VALUE
+
+Disassembly of <code object _record_group_invites at 0x1073b9c90, file "WeRobotCore/task_system_v3/friend_request_adapter.py", line 505>:
+512           0 SETUP_FINALLY          154 (to 156)
+
+514           2 LOAD_FAST                0 (self)
+              4 LOAD_ATTR                0 (wechat)
+              6 POP_JUMP_IF_FALSE       22
+              8 LOAD_GLOBAL              1 (getattr)
+             10 LOAD_FAST                0 (self)
+             12 LOAD_ATTR                0 (wechat)
+             14 LOAD_CONST               1 ('account_info')
+             16 LOAD_CONST               0 (None)
+             18 CALL_FUNCTION            3
+             20 JUMP_FORWARD             2 (to 24)
+        >>   22 LOAD_CONST               0 (None)
+
+513     >>   24 STORE_FAST               5 (raw_account_info)
+
+516          26 LOAD_GLOBAL              2 (isinstance)
+             28 LOAD_FAST                5 (raw_account_info)
+             30 LOAD_GLOBAL              3 (dict)
+             32 CALL_FUNCTION            2
+             34 POP_JUMP_IF_FALSE       40
+             36 LOAD_FAST                5 (raw_account_info)
+             38 JUMP_FORWARD             2 (to 42)
+        >>   40 BUILD_MAP                0
+        >>   42 STORE_FAST               6 (account_info)
+
+517          44 LOAD_CONST               2 (0)
+             46 LOAD_CONST               3 (('record_group_invitation_results',))
+             48 IMPORT_NAME              4 (WeRobotCore.services.customer_event_recorder)
+             50 IMPORT_FROM              5 (record_group_invitation_results)
+             52 STORE_FAST               7 (record_group_invitation_results)
+             54 POP_TOP
+
+520          56 LOAD_FAST                7 (record_group_invitation_results)
+
+521          58 LOAD_GLOBAL              6 (str)
+             60 LOAD_FAST                6 (account_info)
+             62 LOAD_METHOD              7 (get)
+             64 LOAD_CONST               4 ('account_id')
+             66 CALL_METHOD              1
+             68 JUMP_IF_TRUE_OR_POP     72
+             70 LOAD_CONST               5 ('')
+        >>   72 CALL_FUNCTION            1
+
+522          74 LOAD_GLOBAL              6 (str)
+             76 LOAD_FAST                6 (account_info)
+             78 LOAD_METHOD              7 (get)
+             80 LOAD_CONST               6 ('nickname')
+             82 CALL_METHOD              1
+             84 JUMP_IF_TRUE_OR_POP     88
+             86 LOAD_CONST               5 ('')
+        >>   88 CALL_FUNCTION            1
+
+523          90 LOAD_FAST                1 (processed_users)
+
+524          92 LOAD_FAST                2 (target_group)
+
+525          94 LOAD_FAST                3 (operation_result)
+
+526          96 LOAD_CONST               7 ('friend_request_group_invite')
+
+527          98 LOAD_GLOBAL              6 (str)
+            100 LOAD_FAST                4 (task_id)
+            102 JUMP_IF_TRUE_OR_POP    106
+            104 LOAD_CONST               5 ('')
+        >>  106 CALL_FUNCTION            1
+
+528         108 LOAD_CONST               8 ('trigger')
+            110 LOAD_CONST               9 ('friend_request_auto_accept')
+            112 BUILD_MAP                1
+
+520         114 LOAD_CONST              10 (('account_id', 'account_nickname', 'target_names', 'group_name', 'operation_result', 'origin', 'task_id', 'details'))
+            116 CALL_FUNCTION_KW         8
+            118 STORE_FAST               8 (event_result)
+
+530         120 LOAD_FAST                8 (event_result)
+            122 LOAD_METHOD              7 (get)
+            124 LOAD_CONST              11 ('success')
+            126 CALL_METHOD              1
+            128 POP_JUMP_IF_TRUE       152
+
+531         130 LOAD_GLOBAL              8 (print)
+
+532         132 LOAD_CONST              12 ('记录自动拉群事件失败（不影响任务）: ')
+
+533         134 LOAD_FAST                8 (event_result)
+            136 LOAD_METHOD              7 (get)
+            138 LOAD_CONST              13 ('error')
+            140 LOAD_CONST               5 ('')
+            142 CALL_METHOD              2
+
+532         144 FORMAT_VALUE             0
+            146 BUILD_STRING             2
+
+531         148 CALL_FUNCTION            1
+            150 POP_TOP
+        >>  152 POP_BLOCK
+            154 JUMP_FORWARD            50 (to 206)
+
+535     >>  156 DUP_TOP
+            158 LOAD_GLOBAL              9 (Exception)
+            160 JUMP_IF_NOT_EXC_MATCH   204
+            162 POP_TOP
+            164 STORE_FAST               9 (event_error)
+            166 POP_TOP
+            168 SETUP_FINALLY           26 (to 196)
+
+536         170 LOAD_GLOBAL              8 (print)
+            172 LOAD_CONST              14 ('记录自动拉群事件异常（不影响任务）: ')
+            174 LOAD_FAST                9 (event_error)
+            176 FORMAT_VALUE             0
+            178 BUILD_STRING             2
+            180 CALL_FUNCTION            1
+            182 POP_TOP
+            184 POP_BLOCK
+            186 POP_EXCEPT
+            188 LOAD_CONST               0 (None)
+            190 STORE_FAST               9 (event_error)
+            192 DELETE_FAST              9 (event_error)
+            194 JUMP_FORWARD            10 (to 206)
+        >>  196 LOAD_CONST               0 (None)
+            198 STORE_FAST               9 (event_error)
+            200 DELETE_FAST              9 (event_error)
+            202 RERAISE
+        >>  204 RERAISE
+        >>  206 LOAD_CONST               0 (None)
+            208 RETURN_VALUE
+
+Disassembly of <code object _broadcast_status at 0x1073b9660, file "WeRobotCore/task_system_v3/friend_request_adapter.py", line 538>:
+550           0 SETUP_FINALLY           62 (to 64)
+
+551           2 LOAD_GLOBAL              0 (websocket_manager)
+              4 LOAD_ATTR                1 (broadcast_task_status)
+
+552           6 LOAD_FAST                1 (task_id)
+
+553           8 LOAD_GLOBAL              2 (TaskType)
+             10 LOAD_ATTR                3 (FRIEND_REQUEST)
+             12 LOAD_ATTR                4 (value)
+
+554          14 LOAD_FAST                2 (status)
+             16 LOAD_ATTR                4 (value)
+
+555          18 LOAD_FAST                4 (progress)
+
+556          20 LOAD_FAST                5 (total)
+
+557          22 LOAD_FAST                3 (params)
+             24 LOAD_METHOD              5 (get)
+             26 LOAD_CONST               1 ('tag')
+             28 CALL_METHOD              1
+             30 POP_JUMP_IF_FALSE       44
+             32 LOAD_FAST                3 (params)
+             34 LOAD_METHOD              5 (get)
+             36 LOAD_CONST               1 ('tag')
+             38 CALL_METHOD              1
+             40 BUILD_LIST               1
+             42 JUMP_FORWARD             2 (to 46)
+        >>   44 LOAD_CONST               2 (None)
+
+558     >>   46 LOAD_FAST                6 (error)
+
+551          48 LOAD_CONST               3 (('task_id', 'type', 'status', 'progress', 'total', 'tag_ids', 'error'))
+             50 CALL_FUNCTION_KW         7
+             52 GET_AWAITABLE
+             54 LOAD_CONST               2 (None)
+             56 YIELD_FROM
+             58 POP_TOP
+             60 POP_BLOCK
+             62 JUMP_FORWARD            54 (to 118)
+
+560     >>   64 DUP_TOP
+             66 LOAD_GLOBAL              6 (Exception)
+             68 JUMP_IF_NOT_EXC_MATCH   116
+             70 POP_TOP
+             72 STORE_FAST               7 (e)
+             74 POP_TOP
+             76 SETUP_FINALLY           30 (to 108)
+
+561          78 LOAD_GLOBAL              7 (print)
+             80 LOAD_CONST               4 ('广播任务状态更新失败: ')
+             82 LOAD_GLOBAL              8 (str)
+             84 LOAD_FAST                7 (e)
+             86 CALL_FUNCTION            1
+             88 FORMAT_VALUE             0
+             90 BUILD_STRING             2
+             92 CALL_FUNCTION            1
+             94 POP_TOP
+             96 POP_BLOCK
+             98 POP_EXCEPT
+            100 LOAD_CONST               2 (None)
+            102 STORE_FAST               7 (e)
+            104 DELETE_FAST              7 (e)
+            106 JUMP_FORWARD            10 (to 118)
+        >>  108 LOAD_CONST               2 (None)
+            110 STORE_FAST               7 (e)
+            112 DELETE_FAST              7 (e)
+            114 RERAISE
+        >>  116 RERAISE
+        >>  118 LOAD_CONST               2 (None)
+            120 RETURN_VALUE
+
+Disassembly of <code object _save_task_log at 0x1073b95b0, file "WeRobotCore/task_system_v3/friend_request_adapter.py", line 563>:
+575           0 SETUP_FINALLY          136 (to 138)
+
+576           2 LOAD_CONST               1 ('')
+              4 STORE_FAST               8 (account_id)
+
+577           6 SETUP_FINALLY           16 (to 24)
+
+578           8 LOAD_FAST                0 (self)
+             10 LOAD_ATTR                0 (wechat)
+             12 LOAD_ATTR                1 (account_info)
+             14 LOAD_CONST               2 ('account_id')
+             16 BINARY_SUBSCR
+             18 STORE_FAST               8 (account_id)
+             20 POP_BLOCK
+             22 JUMP_FORWARD            18 (to 42)
+
+579     >>   24 DUP_TOP
+             26 LOAD_GLOBAL              2 (Exception)
+             28 JUMP_IF_NOT_EXC_MATCH    40
+             30 POP_TOP
+             32 POP_TOP
+             34 POP_TOP
+
+580          36 POP_EXCEPT
+             38 JUMP_FORWARD             2 (to 42)
+        >>   40 RERAISE
+
+583     >>   42 LOAD_FAST                5 (processed_users)
+             44 JUMP_IF_TRUE_OR_POP     48
+             46 BUILD_LIST               0
+
+584     >>   48 LOAD_FAST                4 (tag)
+             50 JUMP_IF_TRUE_OR_POP     54
+             52 LOAD_CONST               1 ('')
+
+585     >>   54 LOAD_FAST                6 (greeting_group_id)
+             56 JUMP_IF_TRUE_OR_POP     60
+             58 LOAD_CONST               1 ('')
+
+586     >>   60 LOAD_FAST                7 (target_group)
+             62 JUMP_IF_TRUE_OR_POP     66
+             64 LOAD_CONST               1 ('')
+
+582     >>   66 LOAD_CONST               3 (('processed_users', 'tag', 'greeting_group_id', 'target_group'))
+             68 BUILD_CONST_KEY_MAP      4
+             70 STORE_FAST               9 (details)
+
+589          72 LOAD_GLOBAL              3 (hasattr)
+             74 LOAD_FAST                0 (self)
+             76 LOAD_ATTR                4 (task_logger)
+             78 LOAD_CONST               4 ('add_friend_request_action_log')
+             80 CALL_FUNCTION            2
+             82 POP_JUMP_IF_FALSE      110
+
+590          84 LOAD_FAST                0 (self)
+             86 LOAD_ATTR                4 (task_logger)
+             88 LOAD_ATTR                5 (add_friend_request_action_log)
+
+591          90 LOAD_FAST                8 (account_id)
+
+592          92 LOAD_FAST                1 (task_id)
+
+593          94 LOAD_FAST                2 (status)
+             96 LOAD_ATTR                6 (value)
+
+594          98 LOAD_FAST                9 (details)
+
+595         100 LOAD_CONST               5 (None)
+
+590         102 LOAD_CONST               6 (('account_id', 'task_id', 'status', 'details', 'error_msg'))
+            104 CALL_FUNCTION_KW         5
+            106 POP_TOP
+            108 JUMP_FORWARD            24 (to 134)
+
+598     >>  110 LOAD_FAST                0 (self)
+            112 LOAD_ATTR                4 (task_logger)
+            114 LOAD_ATTR                7 (add_friend_request_log)
+
+599         116 LOAD_FAST                1 (task_id)
+
+600         118 LOAD_FAST                2 (status)
+            120 LOAD_ATTR                6 (value)
+
+601         122 LOAD_FAST                3 (processed_count)
+
+602         124 LOAD_FAST                4 (tag)
+
+603         126 LOAD_CONST               5 (None)
+
+598         128 LOAD_CONST               7 (('task_id', 'status', 'processed_count', 'tag', 'error'))
+            130 CALL_FUNCTION_KW         5
+            132 POP_TOP
+        >>  134 POP_BLOCK
+            136 JUMP_FORWARD            54 (to 192)
+
+605     >>  138 DUP_TOP
+            140 LOAD_GLOBAL              2 (Exception)
+            142 JUMP_IF_NOT_EXC_MATCH   190
+            144 POP_TOP
+            146 STORE_FAST              10 (e)
+            148 POP_TOP
+            150 SETUP_FINALLY           30 (to 182)
+
+606         152 LOAD_GLOBAL              8 (print)
+            154 LOAD_CONST               8 ('保存任务日志失败: ')
+            156 LOAD_GLOBAL              9 (str)
+            158 LOAD_FAST               10 (e)
+            160 CALL_FUNCTION            1
+            162 FORMAT_VALUE             0
+            164 BUILD_STRING             2
+            166 CALL_FUNCTION            1
+            168 POP_TOP
+            170 POP_BLOCK
+            172 POP_EXCEPT
+            174 LOAD_CONST               5 (None)
+            176 STORE_FAST              10 (e)
+            178 DELETE_FAST             10 (e)
+            180 JUMP_FORWARD            10 (to 192)
+        >>  182 LOAD_CONST               5 (None)
+            184 STORE_FAST              10 (e)
+            186 DELETE_FAST             10 (e)
+            188 RERAISE
+        >>  190 RERAISE
+        >>  192 LOAD_CONST               5 (None)
+            194 RETURN_VALUE
+
+Disassembly of <code object add_task at 0x1073b9500, file "WeRobotCore/task_system_v3/friend_request_adapter.py", line 608>:
+618           0 SETUP_FINALLY          128 (to 130)
+
+620           2 BUILD_LIST               0
+              4 LOAD_CONST               1 (('maxFriendsPerDay', 'maxProcessPerTime', 'checkInterval'))
+              6 LIST_EXTEND              1
+              8 STORE_FAST               3 (required_params)
+
+621          10 LOAD_GLOBAL              0 (all)
+             12 LOAD_CLOSURE             0 (params)
+             14 BUILD_TUPLE              1
+             16 LOAD_CONST               2 (<code object <genexpr> at 0x1073b90e0, file "WeRobotCore/task_system_v3/friend_request_adapter.py", line 621>)
+             18 LOAD_CONST               3 ('FriendRequestAdapter.add_task.<locals>.<genexpr>')
+             20 MAKE_FUNCTION            8 (closure)
+             22 LOAD_FAST                3 (required_params)
+             24 GET_ITER
+             26 CALL_FUNCTION            1
+             28 CALL_FUNCTION            1
+             30 POP_JUMP_IF_TRUE        46
+
+622          32 LOAD_GLOBAL              1 (ValueError)
+             34 LOAD_CONST               4 ('缺少必要参数：')
+             36 LOAD_FAST                3 (required_params)
+             38 FORMAT_VALUE             0
+             40 BUILD_STRING             2
+             42 CALL_FUNCTION            1
+             44 RAISE_VARARGS            1
+
+625     >>   46 LOAD_DEREF               0 (params)
+             48 LOAD_METHOD              2 (get)
+             50 LOAD_CONST               5 ('checkInterval')
+             52 LOAD_CONST               6 (10)
+             54 CALL_METHOD              2
+             56 STORE_FAST               4 (check_interval)
+
+628          58 LOAD_GLOBAL              3 (ScheduleConfig)
+
+629          60 LOAD_GLOBAL              4 (TriggerType)
+             62 LOAD_ATTR                5 (OR_TRIGGER)
+
+631          64 LOAD_CONST               7 (True)
+
+632          66 LOAD_FAST                4 (check_interval)
+
+630          68 LOAD_CONST               8 (('immediate', 'interval_minutes'))
+             70 BUILD_CONST_KEY_MAP      2
+
+634          72 LOAD_GLOBAL              6 (ExecutionMode)
+             74 LOAD_ATTR                7 (RECURRING)
+
+628          76 LOAD_CONST               9 (('trigger_type', 'trigger_args', 'execution_mode'))
+             78 CALL_FUNCTION_KW         3
+             80 STORE_FAST               5 (schedule_config)
+
+638          82 LOAD_FAST                0 (self)
+             84 LOAD_ATTR                8 (scheduler)
+             86 LOAD_ATTR                9 (add_scheduled_task)
+
+639          88 LOAD_GLOBAL             10 (TaskType)
+             90 LOAD_ATTR               11 (FRIEND_REQUEST)
+
+640          92 LOAD_DEREF               0 (params)
+
+641          94 LOAD_FAST                5 (schedule_config)
+
+642          96 LOAD_CONST              10 (False)
+
+638          98 LOAD_CONST              11 (('task_type', 'params', 'schedule_config', 'allow_duplicate'))
+            100 CALL_FUNCTION_KW         4
+            102 GET_AWAITABLE
+            104 LOAD_CONST              12 (None)
+            106 YIELD_FROM
+            108 STORE_FAST               6 (task_id)
+
+645         110 LOAD_GLOBAL             12 (print)
+            112 LOAD_CONST              13 ('成功添加自动通过好友任务: ')
+            114 LOAD_FAST                6 (task_id)
+            116 FORMAT_VALUE             0
+            118 BUILD_STRING             2
+            120 CALL_FUNCTION            1
+            122 POP_TOP
+
+646         124 LOAD_FAST                6 (task_id)
+            126 POP_BLOCK
+            128 RETURN_VALUE
+
+648     >>  130 DUP_TOP
+            132 LOAD_GLOBAL             13 (Exception)
+            134 JUMP_IF_NOT_EXC_MATCH   184
+            136 POP_TOP
+            138 STORE_FAST               7 (e)
+            140 POP_TOP
+            142 SETUP_FINALLY           32 (to 176)
+
+649         144 LOAD_GLOBAL             12 (print)
+            146 LOAD_CONST              14 ('添加自动通过好友任务失败: ')
+            148 LOAD_GLOBAL             14 (str)
+            150 LOAD_FAST                7 (e)
+            152 CALL_FUNCTION            1
+            154 FORMAT_VALUE             0
+            156 BUILD_STRING             2
+            158 CALL_FUNCTION            1
+            160 POP_TOP
+
+650         162 RAISE_VARARGS            0
+            164 POP_BLOCK
+            166 POP_EXCEPT
+            168 LOAD_CONST              12 (None)
+            170 STORE_FAST               7 (e)
+            172 DELETE_FAST              7 (e)
+            174 JUMP_FORWARD            10 (to 186)
+        >>  176 LOAD_CONST              12 (None)
+            178 STORE_FAST               7 (e)
+            180 DELETE_FAST              7 (e)
+            182 RERAISE
+        >>  184 RERAISE
+        >>  186 LOAD_CONST              12 (None)
+            188 RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x1073b90e0, file "WeRobotCore/task_system_v3/friend_request_adapter.py", line 621>:
+621           0 LOAD_FAST                0 (.0)
+        >>    2 FOR_ITER                14 (to 18)
+              4 STORE_FAST               1 (key)
+              6 LOAD_FAST                1 (key)
+              8 LOAD_DEREF               0 (params)
+             10 CONTAINS_OP              0
+             12 YIELD_VALUE
+             14 POP_TOP
+             16 JUMP_ABSOLUTE            2
+        >>   18 LOAD_CONST               0 (None)
+             20 RETURN_VALUE
+
+Disassembly of <code object replace_recurring_task at 0x1073b9ea0, file "WeRobotCore/task_system_v3/friend_request_adapter.py", line 652>:
+662           0 SETUP_FINALLY          126 (to 128)
+
+664           2 BUILD_LIST               0
+              4 LOAD_CONST               1 (('maxFriendsPerDay', 'maxProcessPerTime', 'checkInterval'))
+              6 LIST_EXTEND              1
+              8 STORE_FAST               3 (required_params)
+
+665          10 LOAD_GLOBAL              0 (all)
+             12 LOAD_CLOSURE             0 (params)
+             14 BUILD_TUPLE              1
+             16 LOAD_CONST               2 (<code object <genexpr> at 0x1073b9a80, file "WeRobotCore/task_system_v3/friend_request_adapter.py", line 665>)
+             18 LOAD_CONST               3 ('FriendRequestAdapter.replace_recurring_task.<locals>.<genexpr>')
+             20 MAKE_FUNCTION            8 (closure)
+             22 LOAD_FAST                3 (required_params)
+             24 GET_ITER
+             26 CALL_FUNCTION            1
+             28 CALL_FUNCTION            1
+             30 POP_JUMP_IF_TRUE        46
+
+666          32 LOAD_GLOBAL              1 (ValueError)
+             34 LOAD_CONST               4 ('缺少必要参数：')
+             36 LOAD_FAST                3 (required_params)
+             38 FORMAT_VALUE             0
+             40 BUILD_STRING             2
+             42 CALL_FUNCTION            1
+             44 RAISE_VARARGS            1
+
+669     >>   46 LOAD_DEREF               0 (params)
+             48 LOAD_METHOD              2 (get)
+             50 LOAD_CONST               5 ('checkInterval')
+             52 LOAD_CONST               6 (10)
+             54 CALL_METHOD              2
+             56 STORE_FAST               4 (check_interval)
+
+672          58 LOAD_GLOBAL              3 (ScheduleConfig)
+
+673          60 LOAD_GLOBAL              4 (TriggerType)
+             62 LOAD_ATTR                5 (OR_TRIGGER)
+
+675          64 LOAD_CONST               7 (True)
+
+676          66 LOAD_FAST                4 (check_interval)
+
+674          68 LOAD_CONST               8 (('immediate', 'interval_minutes'))
+             70 BUILD_CONST_KEY_MAP      2
+
+678          72 LOAD_GLOBAL              6 (ExecutionMode)
+             74 LOAD_ATTR                7 (RECURRING)
+
+672          76 LOAD_CONST               9 (('trigger_type', 'trigger_args', 'execution_mode'))
+             78 CALL_FUNCTION_KW         3
+             80 STORE_FAST               5 (schedule_config)
+
+682          82 LOAD_FAST                0 (self)
+             84 LOAD_ATTR                8 (scheduler)
+             86 LOAD_ATTR                9 (replace_recurring_task)
+
+683          88 LOAD_GLOBAL             10 (TaskType)
+             90 LOAD_ATTR               11 (FRIEND_REQUEST)
+
+684          92 LOAD_DEREF               0 (params)
+
+685          94 LOAD_FAST                5 (schedule_config)
+
+682          96 LOAD_CONST              10 (('task_type', 'params', 'schedule_config'))
+             98 CALL_FUNCTION_KW         3
+            100 GET_AWAITABLE
+            102 LOAD_CONST              11 (None)
+            104 YIELD_FROM
+            106 STORE_FAST               6 (task_id)
+
+688         108 LOAD_GLOBAL             12 (print)
+            110 LOAD_CONST              12 ('成功替换自动通过好友循环任务: ')
+            112 LOAD_FAST                6 (task_id)
+            114 FORMAT_VALUE             0
+            116 BUILD_STRING             2
+            118 CALL_FUNCTION            1
+            120 POP_TOP
+
+689         122 LOAD_FAST                6 (task_id)
+            124 POP_BLOCK
+            126 RETURN_VALUE
+
+691     >>  128 DUP_TOP
+            130 LOAD_GLOBAL             13 (Exception)
+            132 JUMP_IF_NOT_EXC_MATCH   182
+            134 POP_TOP
+            136 STORE_FAST               7 (e)
+            138 POP_TOP
+            140 SETUP_FINALLY           32 (to 174)
+
+692         142 LOAD_GLOBAL             12 (print)
+            144 LOAD_CONST              13 ('替换自动通过好友循环任务失败: ')
+            146 LOAD_GLOBAL             14 (str)
+            148 LOAD_FAST                7 (e)
+            150 CALL_FUNCTION            1
+            152 FORMAT_VALUE             0
+            154 BUILD_STRING             2
+            156 CALL_FUNCTION            1
+            158 POP_TOP
+
+693         160 RAISE_VARARGS            0
+            162 POP_BLOCK
+            164 POP_EXCEPT
+            166 LOAD_CONST              11 (None)
+            168 STORE_FAST               7 (e)
+            170 DELETE_FAST              7 (e)
+            172 JUMP_FORWARD            10 (to 184)
+        >>  174 LOAD_CONST              11 (None)
+            176 STORE_FAST               7 (e)
+            178 DELETE_FAST              7 (e)
+            180 RERAISE
+        >>  182 RERAISE
+        >>  184 LOAD_CONST              11 (None)
+            186 RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x1073b9a80, file "WeRobotCore/task_system_v3/friend_request_adapter.py", line 665>:
+665           0 LOAD_FAST                0 (.0)
+        >>    2 FOR_ITER                14 (to 18)
+              4 STORE_FAST               1 (key)
+              6 LOAD_FAST                1 (key)
+              8 LOAD_DEREF               0 (params)
+             10 CONTAINS_OP              0
+             12 YIELD_VALUE
+             14 POP_TOP
+             16 JUMP_ABSOLUTE            2
+        >>   18 LOAD_CONST               0 (None)
+             20 RETURN_VALUE

@@ -1,0 +1,318 @@
+  1           0 LOAD_CONST               0 ('Bind a normalized monitor batch to the Windows Legacy runtime catalog.')
+              2 STORE_NAME               0 (__doc__)
+
+  3           4 LOAD_CONST               1 (0)
+              6 LOAD_CONST               2 (('MonitorSessionBatch',))
+              8 IMPORT_NAME              1 (WeRobotCore.application.monitoring)
+             10 IMPORT_FROM              2 (MonitorSessionBatch)
+             12 STORE_NAME               2 (MonitorSessionBatch)
+             14 POP_TOP
+
+  4          16 LOAD_CONST               1 (0)
+             18 LOAD_CONST               3 (('AutomationError', 'ErrorCode', 'InstanceState'))
+             20 IMPORT_NAME              3 (WeRobotCore.domain)
+             22 IMPORT_FROM              4 (AutomationError)
+             24 STORE_NAME               4 (AutomationError)
+             26 IMPORT_FROM              5 (ErrorCode)
+             28 STORE_NAME               5 (ErrorCode)
+             30 IMPORT_FROM              6 (InstanceState)
+             32 STORE_NAME               6 (InstanceState)
+             34 POP_TOP
+
+  9          36 LOAD_CONST               1 (0)
+             38 LOAD_CONST               4 (('InstanceRegistry',))
+             40 IMPORT_NAME              7 (WeRobotCore.ports.wechat)
+             42 IMPORT_FROM              8 (InstanceRegistry)
+             44 STORE_NAME               8 (InstanceRegistry)
+             46 POP_TOP
+
+ 11          48 LOAD_CONST               5 (1)
+             50 LOAD_CONST               6 (('LegacySessionIndex',))
+             52 IMPORT_NAME              9 (bindings)
+             54 IMPORT_FROM             10 (LegacySessionIndex)
+             56 STORE_NAME              10 (LegacySessionIndex)
+             58 POP_TOP
+
+ 14          60 LOAD_BUILD_CLASS
+             62 LOAD_CONST               7 (<code object WindowsLegacyMonitorSessionBatchBinder at 0x1073aa660, file "WeRobotCore/adapters/wechat/windows_legacy/monitor_session_binding.py", line 14>)
+             64 LOAD_CONST               8 ('WindowsLegacyMonitorSessionBatchBinder')
+             66 MAKE_FUNCTION            0
+             68 LOAD_CONST               8 ('WindowsLegacyMonitorSessionBatchBinder')
+             70 CALL_FUNCTION            2
+             72 STORE_NAME              11 (WindowsLegacyMonitorSessionBatchBinder)
+             74 LOAD_CONST               9 (None)
+             76 RETURN_VALUE
+
+Disassembly of <code object WindowsLegacyMonitorSessionBatchBinder at 0x1073aa660, file "WeRobotCore/adapters/wechat/windows_legacy/monitor_session_binding.py", line 14>:
+ 14           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('WindowsLegacyMonitorSessionBatchBinder')
+              6 STORE_NAME               2 (__qualname__)
+
+ 15           8 LOAD_CONST               1 ('Index one existing monitor read without performing another UI scan.')
+             10 STORE_NAME               3 (__doc__)
+
+ 19          12 LOAD_NAME                4 (InstanceRegistry)
+
+ 20          14 LOAD_NAME                5 (LegacySessionIndex)
+
+ 21          16 LOAD_CONST               2 (None)
+
+ 17          18 LOAD_CONST               3 (('instances', 'session_index', 'return'))
+             20 BUILD_CONST_KEY_MAP      3
+             22 LOAD_CONST               4 (<code object __init__ at 0x1072e0df0, file "WeRobotCore/adapters/wechat/windows_legacy/monitor_session_binding.py", line 17>)
+             24 LOAD_CONST               5 ('WindowsLegacyMonitorSessionBatchBinder.__init__')
+             26 MAKE_FUNCTION            4 (annotations)
+             28 STORE_NAME               6 (__init__)
+
+ 29          30 LOAD_NAME                7 (MonitorSessionBatch)
+             32 LOAD_CONST               2 (None)
+             34 LOAD_CONST               6 (('batch', 'return'))
+             36 BUILD_CONST_KEY_MAP      2
+             38 LOAD_CONST               7 (<code object bind_session_batch at 0x1072e0d40, file "WeRobotCore/adapters/wechat/windows_legacy/monitor_session_binding.py", line 29>)
+             40 LOAD_CONST               8 ('WindowsLegacyMonitorSessionBatchBinder.bind_session_batch')
+             42 MAKE_FUNCTION            4 (annotations)
+             44 STORE_NAME               8 (bind_session_batch)
+             46 LOAD_CONST               2 (None)
+             48 RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x1072e0df0, file "WeRobotCore/adapters/wechat/windows_legacy/monitor_session_binding.py", line 17>:
+ 22           0 LOAD_FAST                1 (instances)
+              2 LOAD_CONST               0 (None)
+              4 IS_OP                    0
+              6 POP_JUMP_IF_TRUE        16
+              8 LOAD_FAST                2 (session_index)
+             10 LOAD_CONST               0 (None)
+             12 IS_OP                    0
+             14 POP_JUMP_IF_FALSE       24
+
+ 23     >>   16 LOAD_GLOBAL              0 (ValueError)
+             18 LOAD_CONST               1 ('instances and session_index must be provided')
+             20 CALL_FUNCTION            1
+             22 RAISE_VARARGS            1
+
+ 24     >>   24 LOAD_GLOBAL              1 (isinstance)
+             26 LOAD_FAST                1 (instances)
+             28 LOAD_GLOBAL              2 (InstanceRegistry)
+             30 CALL_FUNCTION            2
+             32 POP_JUMP_IF_TRUE        42
+
+ 25          34 LOAD_GLOBAL              3 (TypeError)
+             36 LOAD_CONST               2 ('instances must implement InstanceRegistry')
+             38 CALL_FUNCTION            1
+             40 RAISE_VARARGS            1
+
+ 26     >>   42 LOAD_FAST                1 (instances)
+             44 LOAD_FAST                0 (self)
+             46 STORE_ATTR               4 (_instances)
+
+ 27          48 LOAD_FAST                2 (session_index)
+             50 LOAD_FAST                0 (self)
+             52 STORE_ATTR               5 (_session_index)
+             54 LOAD_CONST               0 (None)
+             56 RETURN_VALUE
+
+Disassembly of <code object bind_session_batch at 0x1072e0d40, file "WeRobotCore/adapters/wechat/windows_legacy/monitor_session_binding.py", line 29>:
+ 30           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_DEREF               0 (batch)
+              4 LOAD_GLOBAL              1 (MonitorSessionBatch)
+              6 CALL_FUNCTION            2
+              8 POP_JUMP_IF_TRUE        18
+
+ 31          10 LOAD_GLOBAL              2 (TypeError)
+             12 LOAD_CONST               1 ('batch must be a MonitorSessionBatch')
+             14 CALL_FUNCTION            1
+             16 RAISE_VARARGS            1
+
+ 33     >>   18 SETUP_FINALLY           20 (to 40)
+
+ 34          20 LOAD_FAST                0 (self)
+             22 LOAD_ATTR                3 (_instances)
+             24 LOAD_METHOD              4 (list_attached)
+             26 CALL_METHOD              0
+             28 GET_AWAITABLE
+             30 LOAD_CONST               0 (None)
+             32 YIELD_FROM
+             34 STORE_FAST               2 (attached)
+             36 POP_BLOCK
+             38 JUMP_FORWARD            78 (to 118)
+
+ 35     >>   40 DUP_TOP
+             42 LOAD_GLOBAL              5 (AutomationError)
+             44 JUMP_IF_NOT_EXC_MATCH    58
+             46 POP_TOP
+             48 POP_TOP
+             50 POP_TOP
+
+ 36          52 RAISE_VARARGS            0
+             54 POP_EXCEPT
+             56 JUMP_FORWARD            60 (to 118)
+
+ 37     >>   58 DUP_TOP
+             60 LOAD_GLOBAL              6 (Exception)
+             62 JUMP_IF_NOT_EXC_MATCH   116
+             64 POP_TOP
+             66 STORE_FAST               3 (exc)
+             68 POP_TOP
+             70 SETUP_FINALLY           36 (to 108)
+
+ 38          72 LOAD_GLOBAL              5 (AutomationError)
+
+ 39          74 LOAD_GLOBAL              7 (ErrorCode)
+             76 LOAD_ATTR                8 (OPERATION_FAILED)
+
+ 40          78 LOAD_CONST               2 ('attached instances could not be read for monitor binding: {}')
+             80 LOAD_METHOD              9 (format)
+
+ 41          82 LOAD_FAST                3 (exc)
+
+ 40          84 CALL_METHOD              1
+
+ 43          86 LOAD_CONST               3 (True)
+
+ 38          88 LOAD_CONST               4 (('retryable',))
+             90 CALL_FUNCTION_KW         3
+
+ 44          92 LOAD_FAST                3 (exc)
+
+ 38          94 RAISE_VARARGS            2
+             96 POP_BLOCK
+             98 POP_EXCEPT
+            100 LOAD_CONST               0 (None)
+            102 STORE_FAST               3 (exc)
+            104 DELETE_FAST              3 (exc)
+            106 JUMP_FORWARD            10 (to 118)
+        >>  108 LOAD_CONST               0 (None)
+            110 STORE_FAST               3 (exc)
+            112 DELETE_FAST              3 (exc)
+            114 RERAISE
+        >>  116 RERAISE
+
+ 46     >>  118 LOAD_GLOBAL             10 (tuple)
+            120 LOAD_CLOSURE             0 (batch)
+            122 BUILD_TUPLE              1
+            124 LOAD_CONST               5 (<code object <genexpr> at 0x1072e0870, file "WeRobotCore/adapters/wechat/windows_legacy/monitor_session_binding.py", line 46>)
+            126 LOAD_CONST               6 ('WindowsLegacyMonitorSessionBatchBinder.bind_session_batch.<locals>.<genexpr>')
+            128 MAKE_FUNCTION            8 (closure)
+
+ 48         130 LOAD_FAST                2 (attached)
+
+ 46         132 GET_ITER
+            134 CALL_FUNCTION            1
+            136 CALL_FUNCTION            1
+            138 STORE_FAST               4 (matches)
+
+ 51         140 LOAD_FAST                4 (matches)
+            142 POP_JUMP_IF_TRUE       168
+
+ 52         144 LOAD_GLOBAL              5 (AutomationError)
+
+ 53         146 LOAD_GLOBAL              7 (ErrorCode)
+            148 LOAD_ATTR               11 (ACCOUNT_NOT_INITIALIZED)
+
+ 54         150 LOAD_CONST               7 ('monitor batch account is not attached: {}')
+            152 LOAD_METHOD              9 (format)
+            154 LOAD_DEREF               0 (batch)
+            156 LOAD_ATTR               12 (account_id)
+            158 CALL_METHOD              1
+
+ 55         160 LOAD_CONST               3 (True)
+
+ 52         162 LOAD_CONST               4 (('retryable',))
+            164 CALL_FUNCTION_KW         3
+            166 RAISE_VARARGS            1
+
+ 57     >>  168 LOAD_GLOBAL             13 (len)
+            170 LOAD_FAST                4 (matches)
+            172 CALL_FUNCTION            1
+            174 LOAD_CONST               8 (1)
+            176 COMPARE_OP               3 (!=)
+            178 POP_JUMP_IF_FALSE      200
+
+ 58         180 LOAD_GLOBAL              5 (AutomationError)
+
+ 59         182 LOAD_GLOBAL              7 (ErrorCode)
+            184 LOAD_ATTR                8 (OPERATION_FAILED)
+
+ 60         186 LOAD_CONST               9 ('monitor batch account maps to multiple attached instances: {}')
+            188 LOAD_METHOD              9 (format)
+
+ 61         190 LOAD_DEREF               0 (batch)
+            192 LOAD_ATTR               12 (account_id)
+
+ 60         194 CALL_METHOD              1
+
+ 58         196 CALL_FUNCTION            2
+            198 RAISE_VARARGS            1
+
+ 65     >>  200 LOAD_FAST                4 (matches)
+            202 LOAD_CONST              10 (0)
+            204 BINARY_SUBSCR
+            206 STORE_FAST               5 (instance)
+
+ 66         208 LOAD_FAST                5 (instance)
+            210 LOAD_ATTR               14 (state)
+            212 LOAD_GLOBAL             15 (InstanceState)
+            214 LOAD_ATTR               16 (READY)
+            216 IS_OP                    1
+            218 EXTENDED_ARG             1
+            220 POP_JUMP_IF_FALSE      260
+
+ 67         222 LOAD_GLOBAL              5 (AutomationError)
+
+ 68         224 LOAD_GLOBAL              7 (ErrorCode)
+            226 LOAD_ATTR               17 (INSTANCE_NOT_READY)
+
+ 69         228 LOAD_CONST              11 ('monitor batch instance is not ready: {} ({})')
+            230 LOAD_METHOD              9 (format)
+
+ 70         232 LOAD_FAST                5 (instance)
+            234 LOAD_ATTR               18 (instance_id)
+
+ 71         236 LOAD_FAST                5 (instance)
+            238 LOAD_ATTR               14 (state)
+            240 LOAD_ATTR               19 (value)
+
+ 69         242 CALL_METHOD              2
+
+ 73         244 LOAD_FAST                5 (instance)
+            246 LOAD_ATTR               14 (state)
+            248 LOAD_GLOBAL             15 (InstanceState)
+            250 LOAD_ATTR               20 (OFFLINE)
+            252 IS_OP                    0
+
+ 67         254 LOAD_CONST               4 (('retryable',))
+            256 CALL_FUNCTION_KW         3
+            258 RAISE_VARARGS            1
+
+ 78     >>  260 LOAD_FAST                0 (self)
+            262 LOAD_ATTR               21 (_session_index)
+            264 LOAD_METHOD             22 (remember)
+            266 LOAD_FAST                5 (instance)
+            268 LOAD_ATTR               18 (instance_id)
+            270 LOAD_DEREF               0 (batch)
+            272 LOAD_ATTR               23 (summaries)
+            274 CALL_METHOD              2
+            276 POP_TOP
+            278 LOAD_CONST               0 (None)
+            280 RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x1072e0870, file "WeRobotCore/adapters/wechat/windows_legacy/monitor_session_binding.py", line 46>:
+ 46           0 LOAD_FAST                0 (.0)
+        >>    2 FOR_ITER                22 (to 26)
+
+ 48           4 STORE_FAST               1 (instance)
+
+ 49           6 LOAD_FAST                1 (instance)
+              8 LOAD_ATTR                0 (account_id)
+             10 LOAD_DEREF               0 (batch)
+             12 LOAD_ATTR                0 (account_id)
+             14 COMPARE_OP               2 (==)
+             16 POP_JUMP_IF_FALSE        2
+
+ 47          18 LOAD_FAST                1 (instance)
+             20 YIELD_VALUE
+             22 POP_TOP
+             24 JUMP_ABSOLUTE            2
+        >>   26 LOAD_CONST               0 (None)
+             28 RETURN_VALUE

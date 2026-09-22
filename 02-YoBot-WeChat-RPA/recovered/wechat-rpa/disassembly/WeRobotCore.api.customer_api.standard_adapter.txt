@@ -1,0 +1,194 @@
+  1           0 LOAD_CONST               0 (0)
+              2 LOAD_CONST               1 (('Dict', 'Any', 'List', 'Optional'))
+              4 IMPORT_NAME              0 (typing)
+              6 IMPORT_FROM              1 (Dict)
+              8 STORE_NAME               1 (Dict)
+             10 IMPORT_FROM              2 (Any)
+             12 STORE_NAME               2 (Any)
+             14 IMPORT_FROM              3 (List)
+             16 STORE_NAME               3 (List)
+             18 IMPORT_FROM              4 (Optional)
+             20 STORE_NAME               4 (Optional)
+             22 POP_TOP
+
+  2          24 LOAD_CONST               2 (1)
+             26 LOAD_CONST               3 (('BaseAPIAdapter', 'APIError'))
+             28 IMPORT_NAME              5 (base_adapter)
+             30 IMPORT_FROM              6 (BaseAPIAdapter)
+             32 STORE_NAME               6 (BaseAPIAdapter)
+             34 IMPORT_FROM              7 (APIError)
+             36 STORE_NAME               7 (APIError)
+             38 POP_TOP
+
+  4          40 LOAD_BUILD_CLASS
+             42 LOAD_CONST               4 (<code object StandardAPIAdapter at 0x109244c90, file "WeRobotCore/api/customer_api/standard_adapter.py", line 4>)
+             44 LOAD_CONST               5 ('StandardAPIAdapter')
+             46 MAKE_FUNCTION            0
+             48 LOAD_CONST               5 ('StandardAPIAdapter')
+             50 LOAD_NAME                6 (BaseAPIAdapter)
+             52 CALL_FUNCTION            3
+             54 STORE_NAME               8 (StandardAPIAdapter)
+             56 LOAD_CONST               6 (None)
+             58 RETURN_VALUE
+
+Disassembly of <code object StandardAPIAdapter at 0x109244c90, file "WeRobotCore/api/customer_api/standard_adapter.py", line 4>:
+  4           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('StandardAPIAdapter')
+              6 STORE_NAME               2 (__qualname__)
+
+  5           8 LOAD_CONST               1 ('标准API适配器实现')
+             10 STORE_NAME               3 (__doc__)
+
+  7          12 LOAD_NAME                4 (List)
+             14 LOAD_NAME                5 (Dict)
+             16 LOAD_NAME                6 (str)
+             18 LOAD_NAME                7 (Any)
+             20 BUILD_TUPLE              2
+             22 BINARY_SUBSCR
+             24 BINARY_SUBSCR
+             26 LOAD_CONST               2 (('return',))
+             28 BUILD_CONST_KEY_MAP      1
+             30 LOAD_CONST               3 (<code object get_friends_data at 0x109244660, file "WeRobotCore/api/customer_api/standard_adapter.py", line 7>)
+             32 LOAD_CONST               4 ('StandardAPIAdapter.get_friends_data')
+             34 MAKE_FUNCTION            4 (annotations)
+             36 STORE_NAME               8 (get_friends_data)
+
+ 31          38 LOAD_NAME                5 (Dict)
+             40 LOAD_NAME                6 (str)
+             42 LOAD_NAME                7 (Any)
+             44 BUILD_TUPLE              2
+             46 BINARY_SUBSCR
+             48 LOAD_NAME                5 (Dict)
+             50 LOAD_NAME                6 (str)
+             52 LOAD_NAME                7 (Any)
+             54 BUILD_TUPLE              2
+             56 BINARY_SUBSCR
+             58 LOAD_CONST               5 (('friend_data', 'return'))
+             60 BUILD_CONST_KEY_MAP      2
+             62 LOAD_CONST               6 (<code object add_friend at 0x109244500, file "WeRobotCore/api/customer_api/standard_adapter.py", line 31>)
+             64 LOAD_CONST               7 ('StandardAPIAdapter.add_friend')
+             66 MAKE_FUNCTION            4 (annotations)
+             68 STORE_NAME               9 (add_friend)
+             70 LOAD_CONST               8 (None)
+             72 RETURN_VALUE
+
+Disassembly of <code object get_friends_data at 0x109244660, file "WeRobotCore/api/customer_api/standard_adapter.py", line 7>:
+  9           0 LOAD_FAST                0 (self)
+              2 LOAD_ATTR                0 (config)
+              4 LOAD_METHOD              1 (get)
+              6 LOAD_CONST               1 ('endpoints')
+              8 BUILD_MAP                0
+             10 CALL_METHOD              2
+             12 LOAD_METHOD              1 (get)
+             14 LOAD_CONST               2 ('get_friends')
+             16 CALL_METHOD              1
+             18 STORE_FAST               1 (endpoint)
+
+ 10          20 LOAD_FAST                1 (endpoint)
+             22 POP_JUMP_IF_TRUE        32
+
+ 11          24 LOAD_GLOBAL              2 (APIError)
+             26 LOAD_CONST               3 ('未配置获取好友数据的端点')
+             28 CALL_FUNCTION            1
+             30 RAISE_VARARGS            1
+
+ 13     >>   32 LOAD_FAST                0 (self)
+             34 LOAD_METHOD              3 (_make_request)
+             36 LOAD_CONST               4 ('GET')
+             38 LOAD_FAST                1 (endpoint)
+             40 CALL_METHOD              2
+             42 GET_AWAITABLE
+             44 LOAD_CONST               5 (None)
+             46 YIELD_FROM
+             48 STORE_FAST               2 (result)
+
+ 16          50 LOAD_GLOBAL              4 (isinstance)
+             52 LOAD_FAST                2 (result)
+             54 LOAD_GLOBAL              5 (dict)
+             56 CALL_FUNCTION            2
+             58 POP_JUMP_IF_FALSE      108
+
+ 18          60 LOAD_CONST               6 ('data')
+             62 LOAD_FAST                2 (result)
+             64 CONTAINS_OP              0
+             66 POP_JUMP_IF_FALSE       76
+
+ 19          68 LOAD_FAST                2 (result)
+             70 LOAD_CONST               6 ('data')
+             72 BINARY_SUBSCR
+             74 RETURN_VALUE
+
+ 20     >>   76 LOAD_CONST               7 ('results')
+             78 LOAD_FAST                2 (result)
+             80 CONTAINS_OP              0
+             82 POP_JUMP_IF_FALSE       92
+
+ 21          84 LOAD_FAST                2 (result)
+             86 LOAD_CONST               7 ('results')
+             88 BINARY_SUBSCR
+             90 RETURN_VALUE
+
+ 22     >>   92 LOAD_CONST               8 ('friends')
+             94 LOAD_FAST                2 (result)
+             96 CONTAINS_OP              0
+             98 POP_JUMP_IF_FALSE      108
+
+ 23         100 LOAD_FAST                2 (result)
+            102 LOAD_CONST               8 ('friends')
+            104 BINARY_SUBSCR
+            106 RETURN_VALUE
+
+ 26     >>  108 LOAD_GLOBAL              4 (isinstance)
+            110 LOAD_FAST                2 (result)
+            112 LOAD_GLOBAL              6 (list)
+            114 CALL_FUNCTION            2
+            116 POP_JUMP_IF_FALSE      122
+
+ 27         118 LOAD_FAST                2 (result)
+            120 RETURN_VALUE
+
+ 29     >>  122 LOAD_GLOBAL              2 (APIError)
+            124 LOAD_CONST               9 ('无法解析API返回的好友数据格式: ')
+            126 LOAD_FAST                2 (result)
+            128 FORMAT_VALUE             0
+            130 BUILD_STRING             2
+            132 CALL_FUNCTION            1
+            134 RAISE_VARARGS            1
+            136 LOAD_CONST               5 (None)
+            138 RETURN_VALUE
+
+Disassembly of <code object add_friend at 0x109244500, file "WeRobotCore/api/customer_api/standard_adapter.py", line 31>:
+ 33           0 LOAD_FAST                0 (self)
+              2 LOAD_ATTR                0 (config)
+              4 LOAD_METHOD              1 (get)
+              6 LOAD_CONST               1 ('endpoints')
+              8 BUILD_MAP                0
+             10 CALL_METHOD              2
+             12 LOAD_METHOD              1 (get)
+             14 LOAD_CONST               2 ('add_friend')
+             16 CALL_METHOD              1
+             18 STORE_FAST               2 (endpoint)
+
+ 34          20 LOAD_FAST                2 (endpoint)
+             22 POP_JUMP_IF_TRUE        32
+
+ 35          24 LOAD_GLOBAL              2 (APIError)
+             26 LOAD_CONST               3 ('未配置添加好友的端点')
+             28 CALL_FUNCTION            1
+             30 RAISE_VARARGS            1
+
+ 37     >>   32 LOAD_FAST                0 (self)
+             34 LOAD_ATTR                3 (_make_request)
+             36 LOAD_CONST               4 ('POST')
+             38 LOAD_FAST                2 (endpoint)
+             40 LOAD_FAST                1 (friend_data)
+             42 LOAD_CONST               5 (('json',))
+             44 CALL_FUNCTION_KW         3
+             46 GET_AWAITABLE
+             48 LOAD_CONST               6 (None)
+             50 YIELD_FROM
+             52 STORE_FAST               3 (result)
+
+ 38          54 LOAD_FAST                3 (result)
+             56 RETURN_VALUE

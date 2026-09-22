@@ -1,0 +1,780 @@
+  1           0 LOAD_CONST               0 ('Platform-neutral authorization result for local Control routes.')
+              2 STORE_NAME               0 (__doc__)
+
+  3           4 LOAD_CONST               1 (0)
+              6 LOAD_CONST               2 (('dataclass',))
+              8 IMPORT_NAME              1 (dataclasses)
+             10 IMPORT_FROM              2 (dataclass)
+             12 STORE_NAME               2 (dataclass)
+             14 POP_TOP
+
+  4          16 LOAD_CONST               1 (0)
+             18 LOAD_CONST               3 (('Awaitable', 'Callable', 'Optional'))
+             20 IMPORT_NAME              3 (typing)
+             22 IMPORT_FROM              4 (Awaitable)
+             24 STORE_NAME               4 (Awaitable)
+             26 IMPORT_FROM              5 (Callable)
+             28 STORE_NAME               5 (Callable)
+             30 IMPORT_FROM              6 (Optional)
+             32 STORE_NAME               6 (Optional)
+             34 POP_TOP
+
+  7          36 LOAD_NAME                2 (dataclass)
+             38 LOAD_CONST               4 (True)
+             40 LOAD_CONST               5 (('frozen',))
+             42 CALL_FUNCTION_KW         1
+
+  8          44 LOAD_BUILD_CLASS
+             46 LOAD_CONST               6 (<code object ControlAccessDecision at 0x10924bd40, file "WeRobotCore/application/control_access.py", line 7>)
+             48 LOAD_CONST               7 ('ControlAccessDecision')
+             50 MAKE_FUNCTION            0
+             52 LOAD_CONST               7 ('ControlAccessDecision')
+             54 CALL_FUNCTION            2
+             56 CALL_FUNCTION            1
+             58 STORE_NAME               7 (ControlAccessDecision)
+
+ 72          60 LOAD_NAME                5 (Callable)
+             62 BUILD_LIST               0
+             64 LOAD_NAME                4 (Awaitable)
+             66 LOAD_NAME                7 (ControlAccessDecision)
+             68 BINARY_SUBSCR
+             70 BUILD_TUPLE              2
+             72 BINARY_SUBSCR
+             74 STORE_NAME               8 (ControlAccessAuthorizer)
+
+ 73          76 LOAD_NAME                5 (Callable)
+             78 BUILD_LIST               0
+             80 LOAD_NAME                4 (Awaitable)
+             82 LOAD_NAME                9 (bool)
+             84 BINARY_SUBSCR
+             86 BUILD_TUPLE              2
+             88 BINARY_SUBSCR
+             90 STORE_NAME              10 (ControlSeatVerifier)
+
+ 74          92 LOAD_NAME                5 (Callable)
+             94 BUILD_LIST               0
+             96 LOAD_NAME                4 (Awaitable)
+             98 LOAD_NAME                9 (bool)
+            100 BINARY_SUBSCR
+            102 BUILD_TUPLE              2
+            104 BINARY_SUBSCR
+            106 STORE_NAME              11 (ControlLegacyLicenseVerifier)
+
+ 77         108 LOAD_BUILD_CLASS
+            110 LOAD_CONST               8 (<code object ControlAccessDeniedError at 0x10924b450, file "WeRobotCore/application/control_access.py", line 77>)
+            112 LOAD_CONST               9 ('ControlAccessDeniedError')
+            114 MAKE_FUNCTION            0
+            116 LOAD_CONST               9 ('ControlAccessDeniedError')
+            118 LOAD_NAME               12 (RuntimeError)
+            120 CALL_FUNCTION            3
+            122 STORE_NAME              13 (ControlAccessDeniedError)
+
+ 90         124 LOAD_NAME                8 (ControlAccessAuthorizer)
+
+ 91         126 LOAD_NAME                7 (ControlAccessDecision)
+
+ 89         128 LOAD_CONST              10 (('authorizer', 'return'))
+            130 BUILD_CONST_KEY_MAP      2
+            132 LOAD_CONST              11 (<code object require_control_access at 0x10924b190, file "WeRobotCore/application/control_access.py", line 89>)
+            134 LOAD_CONST              12 ('require_control_access')
+            136 MAKE_FUNCTION            4 (annotations)
+            138 STORE_NAME              14 (require_control_access)
+
+121         140 LOAD_BUILD_CLASS
+            142 LOAD_CONST              13 (<code object LegacyCompatibleControlAccessAuthorizer at 0x10924bdf0, file "WeRobotCore/application/control_access.py", line 121>)
+            144 LOAD_CONST              14 ('LegacyCompatibleControlAccessAuthorizer')
+            146 MAKE_FUNCTION            0
+            148 LOAD_CONST              14 ('LegacyCompatibleControlAccessAuthorizer')
+            150 CALL_FUNCTION            2
+            152 STORE_NAME              15 (LegacyCompatibleControlAccessAuthorizer)
+
+188         154 BUILD_LIST               0
+            156 LOAD_CONST              15 (('ControlAccessAuthorizer', 'ControlAccessDecision', 'ControlAccessDeniedError', 'ControlLegacyLicenseVerifier', 'ControlSeatVerifier', 'LegacyCompatibleControlAccessAuthorizer', 'require_control_access'))
+            158 LIST_EXTEND              1
+            160 STORE_NAME              16 (__all__)
+            162 LOAD_CONST              16 (None)
+            164 RETURN_VALUE
+
+Disassembly of <code object ControlAccessDecision at 0x10924bd40, file "WeRobotCore/application/control_access.py", line 7>:
+  7           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('ControlAccessDecision')
+              6 STORE_NAME               2 (__qualname__)
+              8 SETUP_ANNOTATIONS
+
+  9          10 LOAD_CONST               1 ('Sanitized authorization fact returned by a mature license owner.')
+             12 STORE_NAME               3 (__doc__)
+
+ 11          14 LOAD_NAME                4 (bool)
+             16 LOAD_NAME                5 (__annotations__)
+             18 LOAD_CONST               2 ('allowed')
+             20 STORE_SUBSCR
+
+ 12          22 LOAD_NAME                6 (int)
+             24 LOAD_NAME                5 (__annotations__)
+             26 LOAD_CONST               3 ('status_code')
+             28 STORE_SUBSCR
+
+ 13          30 LOAD_NAME                7 (str)
+             32 LOAD_NAME                5 (__annotations__)
+             34 LOAD_CONST               4 ('code')
+             36 STORE_SUBSCR
+
+ 14          38 LOAD_NAME                7 (str)
+             40 LOAD_NAME                5 (__annotations__)
+             42 LOAD_CONST               5 ('message')
+             44 STORE_SUBSCR
+
+ 15          46 LOAD_CONST               6 (None)
+             48 STORE_NAME               8 (auth_type)
+             50 LOAD_NAME                9 (Optional)
+             52 LOAD_NAME                7 (str)
+             54 BINARY_SUBSCR
+             56 LOAD_NAME                5 (__annotations__)
+             58 LOAD_CONST               7 ('auth_type')
+             60 STORE_SUBSCR
+
+ 17          62 LOAD_CONST               6 (None)
+             64 LOAD_CONST               8 (('return',))
+             66 BUILD_CONST_KEY_MAP      1
+             68 LOAD_CONST               9 (<code object __post_init__ at 0x10924b710, file "WeRobotCore/application/control_access.py", line 17>)
+             70 LOAD_CONST              10 ('ControlAccessDecision.__post_init__')
+             72 MAKE_FUNCTION            4 (annotations)
+             74 STORE_NAME              10 (__post_init__)
+
+ 46          76 LOAD_NAME               11 (classmethod)
+
+ 47          78 LOAD_NAME                7 (str)
+             80 LOAD_CONST               0 ('ControlAccessDecision')
+             82 LOAD_CONST              11 (('auth_type', 'return'))
+             84 BUILD_CONST_KEY_MAP      2
+             86 LOAD_CONST              12 (<code object granted at 0x10924bc90, file "WeRobotCore/application/control_access.py", line 46>)
+             88 LOAD_CONST              13 ('ControlAccessDecision.granted')
+             90 MAKE_FUNCTION            4 (annotations)
+             92 CALL_FUNCTION            1
+             94 STORE_NAME              12 (granted)
+
+ 56          96 LOAD_NAME               11 (classmethod)
+
+ 62          98 LOAD_CONST              14 (403)
+
+ 57         100 LOAD_CONST              15 (('status_code',))
+            102 BUILD_CONST_KEY_MAP      1
+
+ 60         104 LOAD_NAME                7 (str)
+
+ 61         106 LOAD_NAME                7 (str)
+
+ 62         108 LOAD_NAME                6 (int)
+
+ 63         110 LOAD_CONST               0 ('ControlAccessDecision')
+
+ 57         112 LOAD_CONST              16 (('code', 'message', 'status_code', 'return'))
+            114 BUILD_CONST_KEY_MAP      4
+            116 LOAD_CONST              17 (<code object denied at 0x10924b9d0, file "WeRobotCore/application/control_access.py", line 56>)
+            118 LOAD_CONST              18 ('ControlAccessDecision.denied')
+            120 MAKE_FUNCTION            6 (kwdefaults, annotations)
+            122 CALL_FUNCTION            1
+            124 STORE_NAME              13 (denied)
+            126 LOAD_CONST               6 (None)
+            128 RETURN_VALUE
+
+Disassembly of <code object __post_init__ at 0x10924b710, file "WeRobotCore/application/control_access.py", line 17>:
+ 18           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                0 (self)
+              4 LOAD_ATTR                1 (allowed)
+              6 LOAD_GLOBAL              2 (bool)
+              8 CALL_FUNCTION            2
+             10 POP_JUMP_IF_TRUE        20
+
+ 19          12 LOAD_GLOBAL              3 (TypeError)
+             14 LOAD_CONST               1 ('allowed must be a boolean')
+             16 CALL_FUNCTION            1
+             18 RAISE_VARARGS            1
+
+ 20     >>   20 LOAD_GLOBAL              0 (isinstance)
+             22 LOAD_FAST                0 (self)
+             24 LOAD_ATTR                4 (status_code)
+             26 LOAD_GLOBAL              5 (int)
+             28 CALL_FUNCTION            2
+             30 POP_JUMP_IF_FALSE       44
+             32 LOAD_GLOBAL              0 (isinstance)
+
+ 21          34 LOAD_FAST                0 (self)
+             36 LOAD_ATTR                4 (status_code)
+
+ 22          38 LOAD_GLOBAL              2 (bool)
+
+ 20          40 CALL_FUNCTION            2
+             42 POP_JUMP_IF_FALSE       52
+
+ 24     >>   44 LOAD_GLOBAL              3 (TypeError)
+             46 LOAD_CONST               2 ('status_code must be an integer')
+             48 CALL_FUNCTION            1
+             50 RAISE_VARARGS            1
+
+ 25     >>   52 LOAD_GLOBAL              0 (isinstance)
+             54 LOAD_FAST                0 (self)
+             56 LOAD_ATTR                6 (code)
+             58 LOAD_GLOBAL              7 (str)
+             60 CALL_FUNCTION            2
+             62 POP_JUMP_IF_TRUE        72
+
+ 26          64 LOAD_GLOBAL              3 (TypeError)
+             66 LOAD_CONST               3 ('code must be a string')
+             68 CALL_FUNCTION            1
+             70 RAISE_VARARGS            1
+
+ 27     >>   72 LOAD_GLOBAL              0 (isinstance)
+             74 LOAD_FAST                0 (self)
+             76 LOAD_ATTR                8 (message)
+             78 LOAD_GLOBAL              7 (str)
+             80 CALL_FUNCTION            2
+             82 POP_JUMP_IF_TRUE        92
+
+ 28          84 LOAD_GLOBAL              3 (TypeError)
+             86 LOAD_CONST               4 ('message must be a string')
+             88 CALL_FUNCTION            1
+             90 RAISE_VARARGS            1
+
+ 29     >>   92 LOAD_FAST                0 (self)
+             94 LOAD_ATTR                1 (allowed)
+             96 POP_JUMP_IF_FALSE      168
+
+ 30          98 LOAD_FAST                0 (self)
+            100 LOAD_ATTR                4 (status_code)
+            102 LOAD_CONST               5 (200)
+            104 COMPARE_OP               3 (!=)
+            106 POP_JUMP_IF_FALSE      116
+
+ 31         108 LOAD_GLOBAL              9 (ValueError)
+            110 LOAD_CONST               6 ('an allowed decision must use status 200')
+            112 CALL_FUNCTION            1
+            114 RAISE_VARARGS            1
+
+ 32     >>  116 LOAD_FAST                0 (self)
+            118 LOAD_ATTR                6 (code)
+            120 POP_JUMP_IF_TRUE       128
+            122 LOAD_FAST                0 (self)
+            124 LOAD_ATTR                8 (message)
+            126 POP_JUMP_IF_FALSE      136
+
+ 33     >>  128 LOAD_GLOBAL              9 (ValueError)
+            130 LOAD_CONST               7 ('an allowed decision must not carry an error')
+            132 CALL_FUNCTION            1
+            134 RAISE_VARARGS            1
+
+ 34     >>  136 LOAD_GLOBAL              0 (isinstance)
+            138 LOAD_FAST                0 (self)
+            140 LOAD_ATTR               10 (auth_type)
+            142 LOAD_GLOBAL              7 (str)
+            144 CALL_FUNCTION            2
+            146 POP_JUMP_IF_FALSE      158
+            148 LOAD_FAST                0 (self)
+            150 LOAD_ATTR               10 (auth_type)
+            152 LOAD_METHOD             11 (strip)
+            154 CALL_METHOD              0
+            156 POP_JUMP_IF_TRUE       166
+
+ 35     >>  158 LOAD_GLOBAL              9 (ValueError)
+            160 LOAD_CONST               8 ('an allowed decision requires auth_type')
+            162 CALL_FUNCTION            1
+            164 RAISE_VARARGS            1
+        >>  166 JUMP_FORWARD           114 (to 282)
+
+ 37     >>  168 LOAD_CONST               9 (400)
+            170 LOAD_FAST                0 (self)
+            172 LOAD_ATTR                4 (status_code)
+            174 DUP_TOP
+            176 ROT_THREE
+            178 COMPARE_OP               1 (<=)
+            180 POP_JUMP_IF_FALSE      190
+            182 LOAD_CONST              10 (599)
+            184 COMPARE_OP               1 (<=)
+            186 POP_JUMP_IF_TRUE       200
+            188 JUMP_FORWARD             2 (to 192)
+        >>  190 POP_TOP
+
+ 38     >>  192 LOAD_GLOBAL              9 (ValueError)
+            194 LOAD_CONST              11 ('a denied decision must use an error status')
+            196 CALL_FUNCTION            1
+            198 RAISE_VARARGS            1
+
+ 39     >>  200 LOAD_GLOBAL              0 (isinstance)
+            202 LOAD_FAST                0 (self)
+            204 LOAD_ATTR                6 (code)
+            206 LOAD_GLOBAL              7 (str)
+            208 CALL_FUNCTION            2
+            210 POP_JUMP_IF_FALSE      222
+            212 LOAD_FAST                0 (self)
+            214 LOAD_ATTR                6 (code)
+            216 LOAD_METHOD             11 (strip)
+            218 CALL_METHOD              0
+            220 POP_JUMP_IF_TRUE       230
+
+ 40     >>  222 LOAD_GLOBAL              9 (ValueError)
+            224 LOAD_CONST              12 ('a denied decision requires code')
+            226 CALL_FUNCTION            1
+            228 RAISE_VARARGS            1
+
+ 41     >>  230 LOAD_GLOBAL              0 (isinstance)
+            232 LOAD_FAST                0 (self)
+            234 LOAD_ATTR                8 (message)
+            236 LOAD_GLOBAL              7 (str)
+            238 CALL_FUNCTION            2
+            240 POP_JUMP_IF_FALSE      254
+            242 LOAD_FAST                0 (self)
+            244 LOAD_ATTR                8 (message)
+            246 LOAD_METHOD             11 (strip)
+            248 CALL_METHOD              0
+            250 EXTENDED_ARG             1
+            252 POP_JUMP_IF_TRUE       262
+
+ 42     >>  254 LOAD_GLOBAL              9 (ValueError)
+            256 LOAD_CONST              13 ('a denied decision requires message')
+            258 CALL_FUNCTION            1
+            260 RAISE_VARARGS            1
+
+ 43     >>  262 LOAD_FAST                0 (self)
+            264 LOAD_ATTR               10 (auth_type)
+            266 LOAD_CONST               0 (None)
+            268 IS_OP                    1
+            270 EXTENDED_ARG             1
+            272 POP_JUMP_IF_FALSE      282
+
+ 44         274 LOAD_GLOBAL              9 (ValueError)
+            276 LOAD_CONST              14 ('a denied decision must not declare auth_type')
+            278 CALL_FUNCTION            1
+            280 RAISE_VARARGS            1
+        >>  282 LOAD_CONST               0 (None)
+            284 RETURN_VALUE
+
+Disassembly of <code object granted at 0x10924bc90, file "WeRobotCore/application/control_access.py", line 46>:
+ 48           0 LOAD_FAST                0 (cls)
+
+ 49           2 LOAD_CONST               1 (True)
+
+ 50           4 LOAD_CONST               2 (200)
+
+ 51           6 LOAD_CONST               3 ('')
+
+ 52           8 LOAD_CONST               3 ('')
+
+ 53          10 LOAD_FAST                1 (auth_type)
+
+ 48          12 LOAD_CONST               4 (('allowed', 'status_code', 'code', 'message', 'auth_type'))
+             14 CALL_FUNCTION_KW         5
+             16 RETURN_VALUE
+
+Disassembly of <code object denied at 0x10924b9d0, file "WeRobotCore/application/control_access.py", line 56>:
+ 64           0 LOAD_FAST                0 (cls)
+
+ 65           2 LOAD_CONST               1 (False)
+
+ 66           4 LOAD_FAST                3 (status_code)
+
+ 67           6 LOAD_FAST                1 (code)
+
+ 68           8 LOAD_FAST                2 (message)
+
+ 64          10 LOAD_CONST               2 (('allowed', 'status_code', 'code', 'message'))
+             12 CALL_FUNCTION_KW         4
+             14 RETURN_VALUE
+
+Disassembly of <code object ControlAccessDeniedError at 0x10924b450, file "WeRobotCore/application/control_access.py", line 77>:
+ 77           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('ControlAccessDeniedError')
+              6 STORE_NAME               2 (__qualname__)
+
+ 78           8 LOAD_CONST               1 ('Sanitized fail-closed result for task and native-action boundaries.')
+             10 STORE_NAME               3 (__doc__)
+
+ 80          12 LOAD_NAME                4 (ControlAccessDecision)
+             14 LOAD_CONST               2 (None)
+             16 LOAD_CONST               3 (('decision', 'return'))
+             18 BUILD_CONST_KEY_MAP      2
+             20 LOAD_CLOSURE             0 (__class__)
+             22 BUILD_TUPLE              1
+             24 LOAD_CONST               4 (<code object __init__ at 0x10924b030, file "WeRobotCore/application/control_access.py", line 80>)
+             26 LOAD_CONST               5 ('ControlAccessDeniedError.__init__')
+             28 MAKE_FUNCTION           12 (annotations, closure)
+             30 STORE_NAME               5 (__init__)
+             32 LOAD_CLOSURE             0 (__class__)
+             34 DUP_TOP
+             36 STORE_NAME               6 (__classcell__)
+             38 RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x10924b030, file "WeRobotCore/application/control_access.py", line 80>:
+ 81           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                1 (decision)
+              4 LOAD_GLOBAL              1 (ControlAccessDecision)
+              6 CALL_FUNCTION            2
+              8 POP_JUMP_IF_TRUE        18
+
+ 82          10 LOAD_GLOBAL              2 (TypeError)
+             12 LOAD_CONST               1 ('decision must be a ControlAccessDecision')
+             14 CALL_FUNCTION            1
+             16 RAISE_VARARGS            1
+
+ 83     >>   18 LOAD_FAST                1 (decision)
+             20 LOAD_ATTR                3 (allowed)
+             22 POP_JUMP_IF_FALSE       32
+
+ 84          24 LOAD_GLOBAL              4 (ValueError)
+             26 LOAD_CONST               2 ('an allowed decision cannot raise access denied')
+             28 CALL_FUNCTION            1
+             30 RAISE_VARARGS            1
+
+ 85     >>   32 LOAD_GLOBAL              5 (super)
+             34 CALL_FUNCTION            0
+             36 LOAD_METHOD              6 (__init__)
+             38 LOAD_FAST                1 (decision)
+             40 LOAD_ATTR                7 (message)
+             42 CALL_METHOD              1
+             44 POP_TOP
+
+ 86          46 LOAD_FAST                1 (decision)
+             48 LOAD_FAST                0 (self)
+             50 STORE_ATTR               8 (decision)
+             52 LOAD_CONST               0 (None)
+             54 RETURN_VALUE
+
+Disassembly of <code object require_control_access at 0x10924b190, file "WeRobotCore/application/control_access.py", line 89>:
+ 94           0 LOAD_GLOBAL              0 (callable)
+              2 LOAD_FAST                0 (authorizer)
+              4 CALL_FUNCTION            1
+              6 POP_JUMP_IF_TRUE        16
+
+ 95           8 LOAD_GLOBAL              1 (TypeError)
+             10 LOAD_CONST               1 ('authorizer must be callable')
+             12 CALL_FUNCTION            1
+             14 RAISE_VARARGS            1
+
+ 96     >>   16 SETUP_FINALLY           16 (to 34)
+
+ 97          18 LOAD_FAST                0 (authorizer)
+             20 CALL_FUNCTION            0
+             22 GET_AWAITABLE
+             24 LOAD_CONST               2 (None)
+             26 YIELD_FROM
+             28 STORE_FAST               1 (decision)
+             30 POP_BLOCK
+             32 JUMP_FORWARD            58 (to 92)
+
+ 98     >>   34 DUP_TOP
+             36 LOAD_GLOBAL              2 (ControlAccessDeniedError)
+             38 JUMP_IF_NOT_EXC_MATCH    52
+             40 POP_TOP
+             42 POP_TOP
+             44 POP_TOP
+
+ 99          46 RAISE_VARARGS            0
+             48 POP_EXCEPT
+             50 JUMP_FORWARD            40 (to 92)
+
+100     >>   52 DUP_TOP
+             54 LOAD_GLOBAL              3 (Exception)
+             56 JUMP_IF_NOT_EXC_MATCH    90
+             58 POP_TOP
+             60 POP_TOP
+             62 POP_TOP
+
+101          64 LOAD_GLOBAL              2 (ControlAccessDeniedError)
+
+102          66 LOAD_GLOBAL              4 (ControlAccessDecision)
+             68 LOAD_ATTR                5 (denied)
+
+103          70 LOAD_CONST               3 ('RPA_ACCESS_CHECK_FAILED')
+
+104          72 LOAD_CONST               4 ('RPA 运行授权检查失败')
+
+105          74 LOAD_CONST               5 (503)
+
+102          76 LOAD_CONST               6 (('code', 'message', 'status_code'))
+             78 CALL_FUNCTION_KW         3
+
+101          80 CALL_FUNCTION            1
+
+107          82 LOAD_CONST               2 (None)
+
+101          84 RAISE_VARARGS            2
+             86 POP_EXCEPT
+             88 JUMP_FORWARD             2 (to 92)
+        >>   90 RERAISE
+
+108     >>   92 LOAD_GLOBAL              6 (isinstance)
+             94 LOAD_FAST                1 (decision)
+             96 LOAD_GLOBAL              4 (ControlAccessDecision)
+             98 CALL_FUNCTION            2
+            100 POP_JUMP_IF_TRUE       122
+
+109         102 LOAD_GLOBAL              2 (ControlAccessDeniedError)
+
+110         104 LOAD_GLOBAL              4 (ControlAccessDecision)
+            106 LOAD_ATTR                5 (denied)
+
+111         108 LOAD_CONST               3 ('RPA_ACCESS_CHECK_FAILED')
+
+112         110 LOAD_CONST               4 ('RPA 运行授权检查失败')
+
+113         112 LOAD_CONST               5 (503)
+
+110         114 LOAD_CONST               6 (('code', 'message', 'status_code'))
+            116 CALL_FUNCTION_KW         3
+
+109         118 CALL_FUNCTION            1
+            120 RAISE_VARARGS            1
+
+116     >>  122 LOAD_FAST                1 (decision)
+            124 LOAD_ATTR                7 (allowed)
+            126 POP_JUMP_IF_TRUE       136
+
+117         128 LOAD_GLOBAL              2 (ControlAccessDeniedError)
+            130 LOAD_FAST                1 (decision)
+            132 CALL_FUNCTION            1
+            134 RAISE_VARARGS            1
+
+118     >>  136 LOAD_FAST                1 (decision)
+            138 RETURN_VALUE
+
+Disassembly of <code object LegacyCompatibleControlAccessAuthorizer at 0x10924bdf0, file "WeRobotCore/application/control_access.py", line 121>:
+121           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('LegacyCompatibleControlAccessAuthorizer')
+              6 STORE_NAME               2 (__qualname__)
+
+122           8 LOAD_CONST               1 ('Preserve the mature Agent-seat then legacy-license fallback order.\n\n    Native machine-code, network, cache and license-file work remains behind\n    the injected verifiers.  In Agent mode, seat verification failures fall\n    through to the legacy verifier exactly like the current middleware.  A\n    legacy verifier failure is closed as ``LICENSE_CHECK_ERROR``.\n    ')
+             10 STORE_NAME               3 (__doc__)
+
+133          12 LOAD_NAME                4 (bool)
+
+134          14 LOAD_NAME                5 (Optional)
+             16 LOAD_NAME                6 (ControlSeatVerifier)
+             18 BINARY_SUBSCR
+
+135          20 LOAD_NAME                7 (ControlLegacyLicenseVerifier)
+
+136          22 LOAD_CONST               2 (None)
+
+130          24 LOAD_CONST               3 (('backend_mode', 'seat_verifier', 'legacy_license_verifier', 'return'))
+             26 BUILD_CONST_KEY_MAP      4
+             28 LOAD_CONST               4 (<code object __init__ at 0x10924bf50, file "WeRobotCore/application/control_access.py", line 130>)
+             30 LOAD_CONST               5 ('LegacyCompatibleControlAccessAuthorizer.__init__')
+             32 MAKE_FUNCTION            4 (annotations)
+             34 STORE_NAME               8 (__init__)
+
+149          36 LOAD_NAME                9 (staticmethod)
+
+150          38 LOAD_NAME               10 (object)
+             40 LOAD_NAME               11 (str)
+             42 LOAD_NAME                4 (bool)
+             44 LOAD_CONST               6 (('value', 'owner', 'return'))
+             46 BUILD_CONST_KEY_MAP      3
+             48 LOAD_CONST               7 (<code object _verified at 0x10924b3a0, file "WeRobotCore/application/control_access.py", line 149>)
+             50 LOAD_CONST               8 ('LegacyCompatibleControlAccessAuthorizer._verified')
+             52 MAKE_FUNCTION            4 (annotations)
+             54 CALL_FUNCTION            1
+             56 STORE_NAME              12 (_verified)
+
+155          58 LOAD_NAME               13 (ControlAccessDecision)
+             60 LOAD_CONST               9 (('return',))
+             62 BUILD_CONST_KEY_MAP      1
+             64 LOAD_CONST              10 (<code object __call__ at 0x10924b240, file "WeRobotCore/application/control_access.py", line 155>)
+             66 LOAD_CONST              11 ('LegacyCompatibleControlAccessAuthorizer.__call__')
+             68 MAKE_FUNCTION            4 (annotations)
+             70 STORE_NAME              14 (__call__)
+             72 LOAD_CONST               2 (None)
+             74 RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x10924bf50, file "WeRobotCore/application/control_access.py", line 130>:
+137           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                1 (backend_mode)
+              4 LOAD_GLOBAL              1 (bool)
+              6 CALL_FUNCTION            2
+              8 POP_JUMP_IF_TRUE        18
+
+138          10 LOAD_GLOBAL              2 (TypeError)
+             12 LOAD_CONST               1 ('backend_mode must be a boolean')
+             14 CALL_FUNCTION            1
+             16 RAISE_VARARGS            1
+
+139     >>   18 LOAD_FAST                2 (seat_verifier)
+             20 LOAD_CONST               0 (None)
+             22 IS_OP                    1
+             24 POP_JUMP_IF_FALSE       42
+             26 LOAD_GLOBAL              3 (callable)
+             28 LOAD_FAST                2 (seat_verifier)
+             30 CALL_FUNCTION            1
+             32 POP_JUMP_IF_TRUE        42
+
+140          34 LOAD_GLOBAL              2 (TypeError)
+             36 LOAD_CONST               2 ('seat_verifier must be callable or None')
+             38 CALL_FUNCTION            1
+             40 RAISE_VARARGS            1
+
+141     >>   42 LOAD_FAST                1 (backend_mode)
+             44 POP_JUMP_IF_FALSE       62
+             46 LOAD_FAST                2 (seat_verifier)
+             48 LOAD_CONST               0 (None)
+             50 IS_OP                    0
+             52 POP_JUMP_IF_FALSE       62
+
+142          54 LOAD_GLOBAL              4 (ValueError)
+             56 LOAD_CONST               3 ('seat_verifier is required in backend mode')
+             58 CALL_FUNCTION            1
+             60 RAISE_VARARGS            1
+
+143     >>   62 LOAD_GLOBAL              3 (callable)
+             64 LOAD_FAST                3 (legacy_license_verifier)
+             66 CALL_FUNCTION            1
+             68 POP_JUMP_IF_TRUE        78
+
+144          70 LOAD_GLOBAL              2 (TypeError)
+             72 LOAD_CONST               4 ('legacy_license_verifier must be callable')
+             74 CALL_FUNCTION            1
+             76 RAISE_VARARGS            1
+
+145     >>   78 LOAD_FAST                1 (backend_mode)
+             80 LOAD_FAST                0 (self)
+             82 STORE_ATTR               5 (_backend_mode)
+
+146          84 LOAD_FAST                2 (seat_verifier)
+             86 LOAD_FAST                0 (self)
+             88 STORE_ATTR               6 (_seat_verifier)
+
+147          90 LOAD_FAST                3 (legacy_license_verifier)
+             92 LOAD_FAST                0 (self)
+             94 STORE_ATTR               7 (_legacy_license_verifier)
+             96 LOAD_CONST               0 (None)
+             98 RETURN_VALUE
+
+Disassembly of <code object _verified at 0x10924b3a0, file "WeRobotCore/application/control_access.py", line 149>:
+151           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                0 (value)
+              4 LOAD_GLOBAL              1 (bool)
+              6 CALL_FUNCTION            2
+              8 POP_JUMP_IF_TRUE        24
+
+152          10 LOAD_GLOBAL              2 (TypeError)
+             12 LOAD_CONST               1 ('{} must return a boolean')
+             14 LOAD_METHOD              3 (format)
+             16 LOAD_FAST                1 (owner)
+             18 CALL_METHOD              1
+             20 CALL_FUNCTION            1
+             22 RAISE_VARARGS            1
+
+153     >>   24 LOAD_FAST                0 (value)
+             26 RETURN_VALUE
+
+Disassembly of <code object __call__ at 0x10924b240, file "WeRobotCore/application/control_access.py", line 155>:
+156           0 LOAD_FAST                0 (self)
+              2 LOAD_ATTR                0 (_backend_mode)
+              4 POP_JUMP_IF_FALSE       78
+
+157           6 SETUP_FINALLY           52 (to 60)
+
+158           8 LOAD_FAST                0 (self)
+             10 LOAD_ATTR                1 (_seat_verifier)
+             12 LOAD_CONST               0 (None)
+             14 IS_OP                    1
+             16 POP_JUMP_IF_TRUE        22
+             18 LOAD_ASSERTION_ERROR
+             20 RAISE_VARARGS            1
+
+159     >>   22 LOAD_FAST                0 (self)
+             24 LOAD_METHOD              2 (_verified)
+
+160          26 LOAD_FAST                0 (self)
+             28 LOAD_METHOD              1 (_seat_verifier)
+             30 CALL_METHOD              0
+             32 GET_AWAITABLE
+             34 LOAD_CONST               0 (None)
+             36 YIELD_FROM
+
+161          38 LOAD_CONST               1 ('seat_verifier')
+
+159          40 CALL_METHOD              2
+             42 POP_JUMP_IF_FALSE       56
+
+163          44 LOAD_GLOBAL              3 (ControlAccessDecision)
+             46 LOAD_METHOD              4 (granted)
+             48 LOAD_CONST               2 ('yoko_seat')
+             50 CALL_METHOD              1
+             52 POP_BLOCK
+             54 RETURN_VALUE
+        >>   56 POP_BLOCK
+             58 JUMP_FORWARD            18 (to 78)
+
+164     >>   60 DUP_TOP
+             62 LOAD_GLOBAL              5 (Exception)
+             64 JUMP_IF_NOT_EXC_MATCH    76
+             66 POP_TOP
+             68 POP_TOP
+             70 POP_TOP
+
+167          72 POP_EXCEPT
+             74 JUMP_FORWARD             2 (to 78)
+        >>   76 RERAISE
+
+169     >>   78 SETUP_FINALLY           26 (to 106)
+
+170          80 LOAD_FAST                0 (self)
+             82 LOAD_METHOD              2 (_verified)
+
+171          84 LOAD_FAST                0 (self)
+             86 LOAD_METHOD              6 (_legacy_license_verifier)
+             88 CALL_METHOD              0
+             90 GET_AWAITABLE
+             92 LOAD_CONST               0 (None)
+             94 YIELD_FROM
+
+172          96 LOAD_CONST               3 ('legacy_license_verifier')
+
+170          98 CALL_METHOD              2
+            100 STORE_FAST               1 (legacy_valid)
+            102 POP_BLOCK
+            104 JUMP_FORWARD            34 (to 140)
+
+174     >>  106 DUP_TOP
+            108 LOAD_GLOBAL              5 (Exception)
+            110 JUMP_IF_NOT_EXC_MATCH   138
+            112 POP_TOP
+            114 POP_TOP
+            116 POP_TOP
+
+175         118 LOAD_GLOBAL              3 (ControlAccessDecision)
+            120 LOAD_ATTR                7 (denied)
+
+176         122 LOAD_CONST               4 ('LICENSE_CHECK_ERROR')
+
+177         124 LOAD_CONST               5 ('授权验证服务异常')
+
+178         126 LOAD_CONST               6 (500)
+
+175         128 LOAD_CONST               7 (('code', 'message', 'status_code'))
+            130 CALL_FUNCTION_KW         3
+            132 ROT_FOUR
+            134 POP_EXCEPT
+            136 RETURN_VALUE
+        >>  138 RERAISE
+
+180     >>  140 LOAD_FAST                1 (legacy_valid)
+            142 POP_JUMP_IF_FALSE      154
+
+181         144 LOAD_GLOBAL              3 (ControlAccessDecision)
+            146 LOAD_METHOD              4 (granted)
+            148 LOAD_CONST               8 ('legacy_license')
+            150 CALL_METHOD              1
+            152 RETURN_VALUE
+
+182     >>  154 LOAD_GLOBAL              3 (ControlAccessDecision)
+            156 LOAD_ATTR                7 (denied)
+
+183         158 LOAD_CONST               9 ('LICENSE_INVALID')
+
+184         160 LOAD_CONST              10 ('软件未激活或授权已过期')
+
+182         162 LOAD_CONST              11 (('code', 'message'))
+            164 CALL_FUNCTION_KW         2
+            166 RETURN_VALUE

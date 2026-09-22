@@ -1,0 +1,722 @@
+  1           0 LOAD_CONST               0 ('账号在线状态检测 + 掉线飞书通知（群发任务与会话监听共用）。\n\n把"微信是否掉线"的判定与"掉线后通知"统一到一处，避免群发任务、会话监听各写一份：\n\n- get_account_status(account_id, window_handle)：返回在线、登录页、实例丢失或未知状态。\n  除句柄/进程有效性外，还使用同一微信 PID 下可见的 mmui::LoginWindow 作为\n  “需要扫码/确认登录”的正向证据。\n- is_account_online(account_id, window_handle)：兼容旧调用方的布尔接口。\n  检测自身异常时返回 True，避免误判把正常任务/监听中断。\n\n- notify_offline(account_id, scene)：检测到掉线时发送飞书通知。仅在飞书已配置时发送，\n  并按账号做冷却去重（默认 30 分钟），避免群发批次/监听循环高频触发刷屏。\n\n飞书发送是同步阻塞（requests），在 asyncio 场景请用 run_in_executor 调用 notify_offline。\n')
+              2 STORE_NAME               0 (__doc__)
+
+ 17           4 LOAD_CONST               1 (0)
+              6 LOAD_CONST               2 (None)
+              8 IMPORT_NAME              1 (threading)
+             10 STORE_NAME               1 (threading)
+
+ 18          12 LOAD_CONST               1 (0)
+             14 LOAD_CONST               2 (None)
+             16 IMPORT_NAME              2 (time)
+             18 STORE_NAME               2 (time)
+
+ 19          20 LOAD_CONST               1 (0)
+             22 LOAD_CONST               3 (('datetime',))
+             24 IMPORT_NAME              3 (datetime)
+             26 IMPORT_FROM              3 (datetime)
+             28 STORE_NAME               3 (datetime)
+             30 POP_TOP
+
+ 21          32 SETUP_FINALLY           30 (to 64)
+
+ 22          34 LOAD_CONST               4 (1)
+             36 LOAD_CONST               5 (('UiaLogger',))
+             38 IMPORT_NAME              4 (uia_logger)
+             40 IMPORT_FROM              5 (UiaLogger)
+             42 STORE_NAME               5 (UiaLogger)
+             44 POP_TOP
+
+ 23          46 LOAD_NAME                5 (UiaLogger)
+             48 LOAD_CONST               6 ('AccountOnline')
+             50 LOAD_CONST               7 (('logger_name',))
+             52 CALL_FUNCTION_KW         1
+             54 LOAD_METHOD              6 (get_logger)
+             56 CALL_METHOD              0
+             58 STORE_NAME               7 (_logger)
+             60 POP_BLOCK
+             62 JUMP_FORWARD            36 (to 100)
+
+ 24     >>   64 DUP_TOP
+             66 LOAD_NAME                8 (Exception)
+             68 JUMP_IF_NOT_EXC_MATCH    98
+             70 POP_TOP
+             72 POP_TOP
+             74 POP_TOP
+
+ 25          76 LOAD_CONST               1 (0)
+             78 LOAD_CONST               2 (None)
+             80 IMPORT_NAME              9 (logging)
+             82 STORE_NAME               9 (logging)
+
+ 26          84 LOAD_NAME                9 (logging)
+             86 LOAD_METHOD             10 (getLogger)
+             88 LOAD_CONST               6 ('AccountOnline')
+             90 CALL_METHOD              1
+             92 STORE_NAME               7 (_logger)
+             94 POP_EXCEPT
+             96 JUMP_FORWARD             2 (to 100)
+        >>   98 RERAISE
+
+ 30     >>  100 LOAD_NAME                1 (threading)
+            102 LOAD_METHOD             11 (RLock)
+            104 CALL_METHOD              0
+            106 STORE_NAME              12 (_notify_lock)
+
+ 31         108 BUILD_MAP                0
+            110 STORE_NAME              13 (_last_notified)
+
+ 32         112 LOAD_CONST               8 (1800)
+            114 STORE_NAME              14 (_NOTIFY_COOLDOWN)
+
+ 35         116 LOAD_CONST              22 ((None, None))
+            118 LOAD_NAME               15 (dict)
+            120 LOAD_CONST               9 (('return',))
+            122 BUILD_CONST_KEY_MAP      1
+            124 LOAD_CONST              10 (<code object get_account_status at 0x1073aa870, file "WeRobotCore/core/account_online_monitor.py", line 35>)
+            126 LOAD_CONST              11 ('get_account_status')
+            128 MAKE_FUNCTION            5 (defaults, annotations)
+            130 STORE_NAME              16 (get_account_status)
+
+ 74         132 LOAD_CONST              23 ((None, None))
+            134 LOAD_NAME               17 (bool)
+            136 LOAD_CONST               9 (('return',))
+            138 BUILD_CONST_KEY_MAP      1
+            140 LOAD_CONST              12 (<code object is_account_online at 0x1073aa660, file "WeRobotCore/core/account_online_monitor.py", line 74>)
+            142 LOAD_CONST              13 ('is_account_online')
+            144 MAKE_FUNCTION            5 (defaults, annotations)
+            146 STORE_NAME              18 (is_account_online)
+
+ 89         148 LOAD_NAME               19 (str)
+            150 LOAD_CONST               9 (('return',))
+            152 BUILD_CONST_KEY_MAP      1
+            154 LOAD_CONST              14 (<code object _resolve_nickname at 0x1073aa5b0, file "WeRobotCore/core/account_online_monitor.py", line 89>)
+            156 LOAD_CONST              15 ('_resolve_nickname')
+            158 MAKE_FUNCTION            4 (annotations)
+            160 STORE_NAME              20 (_resolve_nickname)
+
+103         162 LOAD_CONST              24 (('',))
+            164 LOAD_NAME               19 (str)
+            166 LOAD_NAME               17 (bool)
+            168 LOAD_CONST              17 (('scene', 'return'))
+            170 BUILD_CONST_KEY_MAP      2
+            172 LOAD_CONST              18 (<code object notify_offline at 0x1073aaa80, file "WeRobotCore/core/account_online_monitor.py", line 103>)
+            174 LOAD_CONST              19 ('notify_offline')
+            176 MAKE_FUNCTION            5 (defaults, annotations)
+            178 STORE_NAME              21 (notify_offline)
+
+151         180 LOAD_CONST              20 (<code object reset_offline_notify at 0x1073aa710, file "WeRobotCore/core/account_online_monitor.py", line 151>)
+            182 LOAD_CONST              21 ('reset_offline_notify')
+            184 MAKE_FUNCTION            0
+            186 STORE_NAME              22 (reset_offline_notify)
+            188 LOAD_CONST               2 (None)
+            190 RETURN_VALUE
+
+Disassembly of <code object get_account_status at 0x1073aa870, file "WeRobotCore/core/account_online_monitor.py", line 35>:
+ 37           0 SETUP_FINALLY          184 (to 186)
+
+ 38           2 LOAD_FAST                1 (window_handle)
+              4 POP_JUMP_IF_FALSE      146
+
+ 39           6 SETUP_FINALLY           84 (to 92)
+
+ 40           8 LOAD_CONST               1 (0)
+             10 LOAD_CONST               2 (None)
+             12 IMPORT_NAME              0 (win32gui)
+             14 STORE_FAST               2 (win32gui)
+
+ 41          16 LOAD_FAST                2 (win32gui)
+             18 LOAD_METHOD              1 (IsWindow)
+             20 LOAD_FAST                1 (window_handle)
+             22 CALL_METHOD              1
+             24 POP_JUMP_IF_TRUE        88
+
+ 45          26 LOAD_FAST                0 (account_id)
+             28 POP_JUMP_IF_FALSE       72
+
+ 46          30 LOAD_CONST               3 (1)
+             32 LOAD_CONST               4 (('get_account_runtime_status',))
+             34 IMPORT_NAME              2 (wechat_runtime_probe)
+             36 IMPORT_FROM              3 (get_account_runtime_status)
+             38 STORE_FAST               3 (get_account_runtime_status)
+             40 POP_TOP
+
+ 47          42 LOAD_FAST                3 (get_account_runtime_status)
+             44 LOAD_FAST                0 (account_id)
+             46 CALL_FUNCTION            1
+             48 STORE_FAST               4 (probed)
+
+ 48          50 LOAD_FAST                4 (probed)
+             52 LOAD_METHOD              4 (get)
+             54 LOAD_CONST               5 ('status')
+             56 CALL_METHOD              1
+             58 LOAD_CONST               6 ('login_required')
+             60 COMPARE_OP               2 (==)
+             62 POP_JUMP_IF_FALSE       72
+
+ 49          64 LOAD_FAST                4 (probed)
+             66 POP_BLOCK
+             68 POP_BLOCK
+             70 RETURN_VALUE
+
+ 51     >>   72 LOAD_CONST               7 ('instance_lost')
+
+ 52          74 LOAD_CONST               8 ('WECHAT_WINDOW_LOST')
+
+ 53          76 LOAD_CONST               9 ('微信窗口句柄已失效')
+
+ 50          78 LOAD_CONST              10 (('status', 'reason_code', 'message'))
+             80 BUILD_CONST_KEY_MAP      3
+             82 POP_BLOCK
+             84 POP_BLOCK
+             86 RETURN_VALUE
+        >>   88 POP_BLOCK
+             90 JUMP_FORWARD            54 (to 146)
+
+ 55     >>   92 DUP_TOP
+             94 LOAD_GLOBAL              5 (Exception)
+             96 JUMP_IF_NOT_EXC_MATCH   144
+             98 POP_TOP
+            100 STORE_FAST               5 (exc)
+            102 POP_TOP
+            104 SETUP_FINALLY           30 (to 136)
+
+ 57         106 LOAD_CONST              11 ('unknown')
+
+ 58         108 LOAD_CONST              12 ('WECHAT_STATUS_UNKNOWN')
+
+ 59         110 LOAD_GLOBAL              6 (str)
+            112 LOAD_FAST                5 (exc)
+            114 CALL_FUNCTION            1
+
+ 56         116 LOAD_CONST              10 (('status', 'reason_code', 'message'))
+            118 BUILD_CONST_KEY_MAP      3
+            120 POP_BLOCK
+            122 ROT_FOUR
+            124 POP_EXCEPT
+            126 LOAD_CONST               2 (None)
+            128 STORE_FAST               5 (exc)
+            130 DELETE_FAST              5 (exc)
+            132 POP_BLOCK
+            134 RETURN_VALUE
+        >>  136 LOAD_CONST               2 (None)
+            138 STORE_FAST               5 (exc)
+            140 DELETE_FAST              5 (exc)
+            142 RERAISE
+        >>  144 RERAISE
+
+ 61     >>  146 LOAD_FAST                0 (account_id)
+            148 POP_JUMP_IF_FALSE      172
+
+ 62         150 LOAD_CONST               3 (1)
+            152 LOAD_CONST               4 (('get_account_runtime_status',))
+            154 IMPORT_NAME              2 (wechat_runtime_probe)
+            156 IMPORT_FROM              3 (get_account_runtime_status)
+            158 STORE_FAST               3 (get_account_runtime_status)
+            160 POP_TOP
+
+ 63         162 LOAD_FAST                3 (get_account_runtime_status)
+            164 LOAD_FAST                0 (account_id)
+            166 CALL_FUNCTION            1
+            168 POP_BLOCK
+            170 RETURN_VALUE
+
+ 64     >>  172 LOAD_CONST              13 ('online')
+            174 LOAD_CONST               2 (None)
+            176 LOAD_CONST              14 ('微信实例在线')
+            178 LOAD_CONST              10 (('status', 'reason_code', 'message'))
+            180 BUILD_CONST_KEY_MAP      3
+            182 POP_BLOCK
+            184 RETURN_VALUE
+
+ 65     >>  186 DUP_TOP
+            188 LOAD_GLOBAL              5 (Exception)
+            190 EXTENDED_ARG             1
+            192 JUMP_IF_NOT_EXC_MATCH   260
+            194 POP_TOP
+            196 STORE_FAST               5 (exc)
+            198 POP_TOP
+            200 SETUP_FINALLY           50 (to 252)
+
+ 66         202 LOAD_GLOBAL              7 (_logger)
+            204 LOAD_METHOD              8 (warning)
+            206 LOAD_CONST              15 ('检测账号运行状态异常 ')
+            208 LOAD_FAST                0 (account_id)
+            210 FORMAT_VALUE             0
+            212 LOAD_CONST              16 (': ')
+            214 LOAD_FAST                5 (exc)
+            216 FORMAT_VALUE             0
+            218 BUILD_STRING             4
+            220 CALL_METHOD              1
+            222 POP_TOP
+
+ 68         224 LOAD_CONST              11 ('unknown')
+
+ 69         226 LOAD_CONST              12 ('WECHAT_STATUS_UNKNOWN')
+
+ 70         228 LOAD_GLOBAL              6 (str)
+            230 LOAD_FAST                5 (exc)
+            232 CALL_FUNCTION            1
+
+ 67         234 LOAD_CONST              10 (('status', 'reason_code', 'message'))
+            236 BUILD_CONST_KEY_MAP      3
+            238 POP_BLOCK
+            240 ROT_FOUR
+            242 POP_EXCEPT
+            244 LOAD_CONST               2 (None)
+            246 STORE_FAST               5 (exc)
+            248 DELETE_FAST              5 (exc)
+            250 RETURN_VALUE
+        >>  252 LOAD_CONST               2 (None)
+            254 STORE_FAST               5 (exc)
+            256 DELETE_FAST              5 (exc)
+            258 RERAISE
+        >>  260 RERAISE
+            262 LOAD_CONST               2 (None)
+            264 RETURN_VALUE
+
+Disassembly of <code object is_account_online at 0x1073aa660, file "WeRobotCore/core/account_online_monitor.py", line 74>:
+ 84           0 LOAD_GLOBAL              0 (get_account_status)
+              2 LOAD_FAST                0 (account_id)
+              4 LOAD_FAST                1 (window_handle)
+              6 LOAD_CONST               1 (('account_id', 'window_handle'))
+              8 CALL_FUNCTION_KW         2
+             10 STORE_FAST               2 (state)
+
+ 86          12 LOAD_FAST                2 (state)
+             14 LOAD_METHOD              1 (get)
+             16 LOAD_CONST               2 ('status')
+             18 CALL_METHOD              1
+             20 LOAD_CONST               3 (frozenset({'unknown', 'online'}))
+             22 CONTAINS_OP              0
+             24 RETURN_VALUE
+
+Disassembly of <code object _resolve_nickname at 0x1073aa5b0, file "WeRobotCore/core/account_online_monitor.py", line 89>:
+ 91           0 SETUP_FINALLY           64 (to 66)
+
+ 92           2 LOAD_CONST               1 (1)
+              4 LOAD_CONST               2 (('InstanceManagerV3',))
+              6 IMPORT_NAME              0 (instance_manager_v3)
+              8 IMPORT_FROM              1 (InstanceManagerV3)
+             10 STORE_FAST               1 (InstanceManagerV3)
+             12 POP_TOP
+
+ 93          14 LOAD_FAST                1 (InstanceManagerV3)
+             16 CALL_FUNCTION            0
+             18 LOAD_METHOD              2 (find_instance_by_account)
+             20 LOAD_FAST                0 (account_id)
+             22 CALL_METHOD              1
+             24 STORE_FAST               2 (instance)
+
+ 94          26 LOAD_FAST                2 (instance)
+             28 POP_JUMP_IF_FALSE       62
+
+ 95          30 LOAD_FAST                2 (instance)
+             32 LOAD_METHOD              3 (get)
+             34 LOAD_CONST               3 ('account_info')
+             36 BUILD_MAP                0
+             38 CALL_METHOD              2
+             40 JUMP_IF_TRUE_OR_POP     44
+             42 BUILD_MAP                0
+        >>   44 LOAD_METHOD              3 (get)
+             46 LOAD_CONST               4 ('nickname')
+             48 CALL_METHOD              1
+             50 STORE_FAST               3 (nickname)
+
+ 96          52 LOAD_FAST                3 (nickname)
+             54 POP_JUMP_IF_FALSE       62
+
+ 97          56 LOAD_FAST                3 (nickname)
+             58 POP_BLOCK
+             60 RETURN_VALUE
+        >>   62 POP_BLOCK
+             64 JUMP_FORWARD            18 (to 84)
+
+ 98     >>   66 DUP_TOP
+             68 LOAD_GLOBAL              4 (Exception)
+             70 JUMP_IF_NOT_EXC_MATCH    82
+             72 POP_TOP
+             74 POP_TOP
+             76 POP_TOP
+
+ 99          78 POP_EXCEPT
+             80 JUMP_FORWARD             2 (to 84)
+        >>   82 RERAISE
+
+100     >>   84 LOAD_FAST                0 (account_id)
+             86 JUMP_IF_TRUE_OR_POP     90
+             88 LOAD_CONST               5 ('未知账号')
+        >>   90 RETURN_VALUE
+
+Disassembly of <code object notify_offline at 0x1073aaa80, file "WeRobotCore/core/account_online_monitor.py", line 103>:
+109           0 LOAD_GLOBAL              0 (time)
+              2 LOAD_METHOD              0 (time)
+              4 CALL_METHOD              0
+              6 STORE_FAST               2 (now)
+
+110           8 LOAD_GLOBAL              1 (_notify_lock)
+             10 SETUP_WITH              64 (to 76)
+             12 POP_TOP
+
+111          14 LOAD_GLOBAL              2 (_last_notified)
+             16 LOAD_METHOD              3 (get)
+             18 LOAD_FAST                0 (account_id)
+             20 LOAD_CONST               1 (0)
+             22 CALL_METHOD              2
+             24 STORE_FAST               3 (last)
+
+112          26 LOAD_FAST                2 (now)
+             28 LOAD_FAST                3 (last)
+             30 BINARY_SUBTRACT
+             32 LOAD_GLOBAL              4 (_NOTIFY_COOLDOWN)
+             34 COMPARE_OP               0 (<)
+             36 POP_JUMP_IF_FALSE       54
+
+113          38 POP_BLOCK
+             40 LOAD_CONST               2 (None)
+             42 DUP_TOP
+             44 DUP_TOP
+             46 CALL_FUNCTION            3
+             48 POP_TOP
+             50 LOAD_CONST               3 (False)
+             52 RETURN_VALUE
+
+115     >>   54 LOAD_FAST                2 (now)
+             56 LOAD_GLOBAL              2 (_last_notified)
+             58 LOAD_FAST                0 (account_id)
+             60 STORE_SUBSCR
+             62 POP_BLOCK
+             64 LOAD_CONST               2 (None)
+             66 DUP_TOP
+             68 DUP_TOP
+             70 CALL_FUNCTION            3
+             72 POP_TOP
+             74 JUMP_FORWARD            16 (to 92)
+        >>   76 WITH_EXCEPT_START
+             78 POP_JUMP_IF_TRUE        82
+             80 RERAISE
+        >>   82 POP_TOP
+             84 POP_TOP
+             86 POP_TOP
+             88 POP_EXCEPT
+             90 POP_TOP
+
+117     >>   92 LOAD_CONST               3 (False)
+             94 STORE_FAST               4 (sent)
+
+118          96 EXTENDED_ARG             1
+             98 SETUP_FINALLY          416 (to 516)
+            100 EXTENDED_ARG             1
+            102 SETUP_FINALLY          276 (to 380)
+
+119         104 LOAD_CONST               4 (2)
+            106 LOAD_CONST               5 (('FeishuNotifier',))
+            108 IMPORT_NAME              5 (utils.feishu_notifier)
+            110 IMPORT_FROM              6 (FeishuNotifier)
+            112 STORE_FAST               5 (FeishuNotifier)
+            114 POP_TOP
+
+120         116 LOAD_FAST                5 (FeishuNotifier)
+            118 CALL_FUNCTION            0
+            120 STORE_FAST               6 (notifier)
+
+121         122 LOAD_FAST                6 (notifier)
+            124 LOAD_METHOD              7 (is_configured)
+            126 CALL_METHOD              0
+            128 POP_JUMP_IF_TRUE       214
+
+122         130 LOAD_GLOBAL              8 (_logger)
+            132 LOAD_METHOD              9 (warning)
+            134 LOAD_CONST               6 ('未配置飞书，跳过掉线通知')
+            136 CALL_METHOD              1
+            138 POP_TOP
+
+123         140 POP_BLOCK
+            142 POP_BLOCK
+
+143         144 LOAD_FAST                4 (sent)
+            146 POP_JUMP_IF_TRUE       210
+
+145         148 LOAD_GLOBAL              1 (_notify_lock)
+            150 SETUP_WITH              42 (to 194)
+            152 POP_TOP
+
+146         154 LOAD_GLOBAL              2 (_last_notified)
+            156 LOAD_METHOD              3 (get)
+            158 LOAD_FAST                0 (account_id)
+            160 CALL_METHOD              1
+            162 LOAD_FAST                2 (now)
+            164 COMPARE_OP               2 (==)
+            166 POP_JUMP_IF_FALSE      180
+
+147         168 LOAD_GLOBAL              2 (_last_notified)
+            170 LOAD_METHOD             10 (pop)
+            172 LOAD_FAST                0 (account_id)
+            174 LOAD_CONST               2 (None)
+            176 CALL_METHOD              2
+            178 POP_TOP
+        >>  180 POP_BLOCK
+            182 LOAD_CONST               2 (None)
+            184 DUP_TOP
+            186 DUP_TOP
+            188 CALL_FUNCTION            3
+            190 POP_TOP
+            192 JUMP_FORWARD            16 (to 210)
+        >>  194 WITH_EXCEPT_START
+            196 POP_JUMP_IF_TRUE       200
+            198 RERAISE
+        >>  200 POP_TOP
+            202 POP_TOP
+            204 POP_TOP
+            206 POP_EXCEPT
+            208 POP_TOP
+
+123     >>  210 LOAD_CONST               3 (False)
+            212 RETURN_VALUE
+
+124     >>  214 LOAD_GLOBAL             11 (_resolve_nickname)
+            216 LOAD_FAST                0 (account_id)
+            218 CALL_FUNCTION            1
+            220 STORE_FAST               7 (who)
+
+125         222 LOAD_FAST                1 (scene)
+            224 POP_JUMP_IF_FALSE      236
+            226 LOAD_FAST                1 (scene)
+            228 FORMAT_VALUE             0
+            230 LOAD_CONST               7 ('：')
+            232 BUILD_STRING             2
+            234 JUMP_FORWARD             2 (to 238)
+        >>  236 LOAD_CONST               8 ('')
+        >>  238 STORE_FAST               8 (prefix)
+
+127         240 LOAD_FAST                8 (prefix)
+            242 FORMAT_VALUE             0
+            244 LOAD_CONST               9 ('检测到微信账号【')
+            246 LOAD_FAST                7 (who)
+            248 FORMAT_VALUE             0
+            250 LOAD_CONST              10 ('】已掉线。\n时间：')
+
+128         252 LOAD_GLOBAL             12 (datetime)
+            254 LOAD_METHOD             13 (now)
+            256 CALL_METHOD              0
+            258 LOAD_METHOD             14 (strftime)
+            260 LOAD_CONST              11 ('%Y-%m-%d %H:%M:%S')
+            262 CALL_METHOD              1
+
+127         264 FORMAT_VALUE             0
+            266 LOAD_CONST              12 ('\n机器人已暂停该账号的自动化操作，请重新登录微信并在机器人欢迎页点击[重新连接]。')
+            268 BUILD_STRING             6
+
+126         270 STORE_FAST               9 (content)
+
+131         272 LOAD_FAST                6 (notifier)
+            274 LOAD_METHOD             15 (send_notification)
+            276 LOAD_FAST                9 (content)
+            278 LOAD_CONST              13 ('掉线提醒')
+            280 CALL_METHOD              2
+            282 STORE_FAST              10 (result)
+
+132         284 LOAD_GLOBAL             16 (bool)
+            286 LOAD_FAST               10 (result)
+            288 LOAD_METHOD              3 (get)
+            290 LOAD_CONST              14 ('success')
+            292 CALL_METHOD              1
+            294 CALL_FUNCTION            1
+            296 STORE_FAST               4 (sent)
+
+133         298 LOAD_FAST                4 (sent)
+            300 EXTENDED_ARG             1
+            302 POP_JUMP_IF_FALSE      324
+
+134         304 LOAD_GLOBAL              8 (_logger)
+            306 LOAD_METHOD             17 (info)
+            308 LOAD_CONST              15 ('账号 ')
+            310 LOAD_FAST                0 (account_id)
+            312 FORMAT_VALUE             0
+            314 LOAD_CONST              16 (' 掉线飞书通知发送成功')
+            316 BUILD_STRING             3
+            318 CALL_METHOD              1
+            320 POP_TOP
+            322 JUMP_FORWARD            52 (to 376)
+
+136     >>  324 LOAD_GLOBAL              8 (_logger)
+            326 LOAD_METHOD              9 (warning)
+
+137         328 LOAD_CONST              15 ('账号 ')
+            330 LOAD_FAST                0 (account_id)
+            332 FORMAT_VALUE             0
+            334 LOAD_CONST              17 (' 掉线飞书通知发送失败: ')
+            336 LOAD_FAST               10 (result)
+            338 LOAD_METHOD              3 (get)
+            340 LOAD_CONST              18 ('reason')
+            342 CALL_METHOD              1
+            344 FORMAT_VALUE             0
+            346 LOAD_CONST              19 (', id_type=')
+
+138         348 LOAD_FAST               10 (result)
+            350 LOAD_METHOD              3 (get)
+            352 LOAD_CONST              20 ('id_type')
+            354 CALL_METHOD              1
+
+137         356 FORMAT_VALUE             0
+            358 LOAD_CONST              21 (', detail=')
+
+138         360 LOAD_FAST               10 (result)
+            362 LOAD_METHOD              3 (get)
+            364 LOAD_CONST              22 ('detail')
+            366 CALL_METHOD              1
+
+137         368 FORMAT_VALUE             0
+            370 BUILD_STRING             8
+
+136         372 CALL_METHOD              1
+            374 POP_TOP
+        >>  376 POP_BLOCK
+            378 JUMP_FORWARD            60 (to 440)
+
+140     >>  380 DUP_TOP
+            382 LOAD_GLOBAL             18 (Exception)
+            384 EXTENDED_ARG             1
+            386 JUMP_IF_NOT_EXC_MATCH   438
+            388 POP_TOP
+            390 STORE_FAST              11 (e)
+            392 POP_TOP
+            394 SETUP_FINALLY           34 (to 430)
+
+141         396 LOAD_GLOBAL              8 (_logger)
+            398 LOAD_METHOD             19 (error)
+            400 LOAD_CONST              23 ('发送掉线飞书通知失败 ')
+            402 LOAD_FAST                0 (account_id)
+            404 FORMAT_VALUE             0
+            406 LOAD_CONST              24 (': ')
+            408 LOAD_FAST               11 (e)
+            410 FORMAT_VALUE             0
+            412 BUILD_STRING             4
+            414 CALL_METHOD              1
+            416 POP_TOP
+            418 POP_BLOCK
+            420 POP_EXCEPT
+            422 LOAD_CONST               2 (None)
+            424 STORE_FAST              11 (e)
+            426 DELETE_FAST             11 (e)
+            428 JUMP_FORWARD            10 (to 440)
+        >>  430 LOAD_CONST               2 (None)
+            432 STORE_FAST              11 (e)
+            434 DELETE_FAST             11 (e)
+            436 RERAISE
+        >>  438 RERAISE
+        >>  440 POP_BLOCK
+
+143         442 LOAD_FAST                4 (sent)
+            444 EXTENDED_ARG             2
+            446 POP_JUMP_IF_TRUE       590
+
+145         448 LOAD_GLOBAL              1 (_notify_lock)
+            450 SETUP_WITH              44 (to 496)
+            452 POP_TOP
+
+146         454 LOAD_GLOBAL              2 (_last_notified)
+            456 LOAD_METHOD              3 (get)
+            458 LOAD_FAST                0 (account_id)
+            460 CALL_METHOD              1
+            462 LOAD_FAST                2 (now)
+            464 COMPARE_OP               2 (==)
+            466 EXTENDED_ARG             1
+            468 POP_JUMP_IF_FALSE      482
+
+147         470 LOAD_GLOBAL              2 (_last_notified)
+            472 LOAD_METHOD             10 (pop)
+            474 LOAD_FAST                0 (account_id)
+            476 LOAD_CONST               2 (None)
+            478 CALL_METHOD              2
+            480 POP_TOP
+        >>  482 POP_BLOCK
+            484 LOAD_CONST               2 (None)
+            486 DUP_TOP
+            488 DUP_TOP
+            490 CALL_FUNCTION            3
+            492 POP_TOP
+            494 JUMP_FORWARD            18 (to 514)
+        >>  496 WITH_EXCEPT_START
+            498 EXTENDED_ARG             1
+            500 POP_JUMP_IF_TRUE       504
+            502 RERAISE
+        >>  504 POP_TOP
+            506 POP_TOP
+            508 POP_TOP
+            510 POP_EXCEPT
+            512 POP_TOP
+        >>  514 JUMP_FORWARD            74 (to 590)
+
+143     >>  516 LOAD_FAST                4 (sent)
+            518 EXTENDED_ARG             2
+            520 POP_JUMP_IF_TRUE       588
+
+145         522 LOAD_GLOBAL              1 (_notify_lock)
+            524 SETUP_WITH              44 (to 570)
+            526 POP_TOP
+
+146         528 LOAD_GLOBAL              2 (_last_notified)
+            530 LOAD_METHOD              3 (get)
+            532 LOAD_FAST                0 (account_id)
+            534 CALL_METHOD              1
+            536 LOAD_FAST                2 (now)
+            538 COMPARE_OP               2 (==)
+            540 EXTENDED_ARG             2
+            542 POP_JUMP_IF_FALSE      556
+
+147         544 LOAD_GLOBAL              2 (_last_notified)
+            546 LOAD_METHOD             10 (pop)
+            548 LOAD_FAST                0 (account_id)
+            550 LOAD_CONST               2 (None)
+            552 CALL_METHOD              2
+            554 POP_TOP
+        >>  556 POP_BLOCK
+            558 LOAD_CONST               2 (None)
+            560 DUP_TOP
+            562 DUP_TOP
+            564 CALL_FUNCTION            3
+            566 POP_TOP
+            568 JUMP_FORWARD            18 (to 588)
+        >>  570 WITH_EXCEPT_START
+            572 EXTENDED_ARG             2
+            574 POP_JUMP_IF_TRUE       578
+            576 RERAISE
+        >>  578 POP_TOP
+            580 POP_TOP
+            582 POP_TOP
+            584 POP_EXCEPT
+            586 POP_TOP
+        >>  588 RERAISE
+
+148     >>  590 LOAD_FAST                4 (sent)
+            592 RETURN_VALUE
+
+Disassembly of <code object reset_offline_notify at 0x1073aa710, file "WeRobotCore/core/account_online_monitor.py", line 151>:
+153           0 LOAD_GLOBAL              0 (_notify_lock)
+              2 SETUP_WITH              28 (to 32)
+              4 POP_TOP
+
+154           6 LOAD_GLOBAL              1 (_last_notified)
+              8 LOAD_METHOD              2 (pop)
+             10 LOAD_FAST                0 (account_id)
+             12 LOAD_CONST               1 (None)
+             14 CALL_METHOD              2
+             16 POP_TOP
+             18 POP_BLOCK
+             20 LOAD_CONST               1 (None)
+             22 DUP_TOP
+             24 DUP_TOP
+             26 CALL_FUNCTION            3
+             28 POP_TOP
+             30 JUMP_FORWARD            16 (to 48)
+        >>   32 WITH_EXCEPT_START
+             34 POP_JUMP_IF_TRUE        38
+             36 RERAISE
+        >>   38 POP_TOP
+             40 POP_TOP
+             42 POP_TOP
+             44 POP_EXCEPT
+             46 POP_TOP
+        >>   48 LOAD_CONST               1 (None)
+             50 RETURN_VALUE

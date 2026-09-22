@@ -1,0 +1,1475 @@
+  1           0 LOAD_CONST               0 ('Instance registry adapter for the mature Windows InstanceManager.\n\nThe adapter deliberately receives an already-created manager facade.  Keeping\nthat dependency injected makes this module importable on macOS/Linux and, more\nimportantly, prevents a second ``InstanceManagerV2`` singleton lifecycle from\nbeing introduced by the cross-platform runtime.\n\nThis boundary only adopts records that the Legacy manager already knows.  It\ndoes not initialize WeChat, switch the active account, create UIA objects, or\nreplace the production ``/api/init/multi`` flow.\n')
+              2 STORE_NAME               0 (__doc__)
+
+ 13           4 LOAD_CONST               1 (0)
+              6 LOAD_CONST               2 (('Any', 'Dict', 'Mapping', 'Optional', 'Protocol', 'Sequence', 'Set'))
+              8 IMPORT_NAME              1 (typing)
+             10 IMPORT_FROM              2 (Any)
+             12 STORE_NAME               2 (Any)
+             14 IMPORT_FROM              3 (Dict)
+             16 STORE_NAME               3 (Dict)
+             18 IMPORT_FROM              4 (Mapping)
+             20 STORE_NAME               4 (Mapping)
+             22 IMPORT_FROM              5 (Optional)
+             24 STORE_NAME               5 (Optional)
+             26 IMPORT_FROM              6 (Protocol)
+             28 STORE_NAME               6 (Protocol)
+             30 IMPORT_FROM              7 (Sequence)
+             32 STORE_NAME               7 (Sequence)
+             34 IMPORT_FROM              8 (Set)
+             36 STORE_NAME               8 (Set)
+             38 POP_TOP
+
+ 15          40 LOAD_CONST               1 (0)
+             42 LOAD_CONST               3 (('AccountInstance', 'AutomationError', 'CapabilityName', 'CapabilityState', 'CapabilityStatus', 'ErrorCode', 'InstanceId', 'OperationResult'))
+             44 IMPORT_NAME              9 (WeRobotCore.domain)
+             46 IMPORT_FROM             10 (AccountInstance)
+             48 STORE_NAME              10 (AccountInstance)
+             50 IMPORT_FROM             11 (AutomationError)
+             52 STORE_NAME              11 (AutomationError)
+             54 IMPORT_FROM             12 (CapabilityName)
+             56 STORE_NAME              12 (CapabilityName)
+             58 IMPORT_FROM             13 (CapabilityState)
+             60 STORE_NAME              13 (CapabilityState)
+             62 IMPORT_FROM             14 (CapabilityStatus)
+             64 STORE_NAME              14 (CapabilityStatus)
+             66 IMPORT_FROM             15 (ErrorCode)
+             68 STORE_NAME              15 (ErrorCode)
+             70 IMPORT_FROM             16 (InstanceId)
+             72 STORE_NAME              16 (InstanceId)
+             74 IMPORT_FROM             17 (OperationResult)
+             76 STORE_NAME              17 (OperationResult)
+             78 POP_TOP
+
+ 25          80 LOAD_CONST               1 (0)
+             82 LOAD_CONST               4 (('NativeInstanceRef',))
+             84 IMPORT_NAME             18 (WeRobotCore.ports.wechat)
+             86 IMPORT_FROM             19 (NativeInstanceRef)
+             88 STORE_NAME              19 (NativeInstanceRef)
+             90 POP_TOP
+
+ 27          92 LOAD_CONST               5 (1)
+             94 LOAD_CONST               6 (('WINDOWS_LEGACY_DRIVER_ID', 'map_legacy_instance'))
+             96 IMPORT_NAME             20 (mappers)
+             98 IMPORT_FROM             21 (WINDOWS_LEGACY_DRIVER_ID)
+            100 STORE_NAME              21 (WINDOWS_LEGACY_DRIVER_ID)
+            102 IMPORT_FROM             22 (map_legacy_instance)
+            104 STORE_NAME              22 (map_legacy_instance)
+            106 POP_TOP
+
+ 30         108 LOAD_BUILD_CLASS
+            110 LOAD_CONST               7 (<code object LegacyInstanceManagerFacade at 0x1072e0df0, file "WeRobotCore/adapters/wechat/windows_legacy/instance_registry.py", line 30>)
+            112 LOAD_CONST               8 ('LegacyInstanceManagerFacade')
+            114 MAKE_FUNCTION            0
+            116 LOAD_CONST               8 ('LegacyInstanceManagerFacade')
+            118 LOAD_NAME                6 (Protocol)
+            120 CALL_FUNCTION            3
+            122 STORE_NAME              23 (LegacyInstanceManagerFacade)
+
+ 51         124 LOAD_NAME                3 (Dict)
+            126 LOAD_NAME               24 (str)
+            128 LOAD_NAME               13 (CapabilityState)
+            130 BUILD_TUPLE              2
+            132 BINARY_SUBSCR
+            134 LOAD_CONST               9 (('return',))
+            136 BUILD_CONST_KEY_MAP      1
+            138 LOAD_CONST              10 (<code object _default_capabilities at 0x1073b9030, file "WeRobotCore/adapters/wechat/windows_legacy/instance_registry.py", line 51>)
+            140 LOAD_CONST              11 ('_default_capabilities')
+            142 MAKE_FUNCTION            4 (annotations)
+            144 STORE_NAME              25 (_default_capabilities)
+
+ 65         146 LOAD_BUILD_CLASS
+            148 LOAD_CONST              12 (<code object WindowsInstanceRegistryAdapter at 0x1073b97c0, file "WeRobotCore/adapters/wechat/windows_legacy/instance_registry.py", line 65>)
+            150 LOAD_CONST              13 ('WindowsInstanceRegistryAdapter')
+            152 MAKE_FUNCTION            0
+            154 LOAD_CONST              13 ('WindowsInstanceRegistryAdapter')
+            156 CALL_FUNCTION            2
+            158 STORE_NAME              26 (WindowsInstanceRegistryAdapter)
+            160 LOAD_CONST              14 (None)
+            162 RETURN_VALUE
+
+Disassembly of <code object LegacyInstanceManagerFacade at 0x1072e0df0, file "WeRobotCore/adapters/wechat/windows_legacy/instance_registry.py", line 30>:
+ 30           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('LegacyInstanceManagerFacade')
+              6 STORE_NAME               2 (__qualname__)
+
+ 31           8 LOAD_CONST               1 ('Small stable surface consumed from InstanceManagerV2/V3.\n\n    The concrete Windows class is intentionally not imported here.  A Windows\n    composition root will inject the production singleton; tests inject a pure\n    in-memory facade.\n    ')
+             10 STORE_NAME               3 (__doc__)
+
+ 38          12 LOAD_NAME                4 (Sequence)
+             14 LOAD_NAME                5 (Mapping)
+             16 LOAD_NAME                6 (str)
+             18 LOAD_NAME                7 (Any)
+             20 BUILD_TUPLE              2
+             22 BINARY_SUBSCR
+             24 BINARY_SUBSCR
+             26 LOAD_CONST               2 (('return',))
+             28 BUILD_CONST_KEY_MAP      1
+             30 LOAD_CONST               3 (<code object list_instances at 0x1072e0710, file "WeRobotCore/adapters/wechat/windows_legacy/instance_registry.py", line 38>)
+             32 LOAD_CONST               4 ('LegacyInstanceManagerFacade.list_instances')
+             34 MAKE_FUNCTION            4 (annotations)
+             36 STORE_NAME               8 (list_instances)
+
+ 41          38 LOAD_NAME                6 (str)
+             40 LOAD_NAME                9 (Optional)
+             42 LOAD_NAME                5 (Mapping)
+             44 LOAD_NAME                6 (str)
+             46 LOAD_NAME                7 (Any)
+             48 BUILD_TUPLE              2
+             50 BINARY_SUBSCR
+             52 BINARY_SUBSCR
+             54 LOAD_CONST               5 (('instance_id', 'return'))
+             56 BUILD_CONST_KEY_MAP      2
+             58 LOAD_CONST               6 (<code object get_instance_info at 0x1072e0be0, file "WeRobotCore/adapters/wechat/windows_legacy/instance_registry.py", line 41>)
+             60 LOAD_CONST               7 ('LegacyInstanceManagerFacade.get_instance_info')
+             62 MAKE_FUNCTION            4 (annotations)
+             64 STORE_NAME              10 (get_instance_info)
+
+ 44          66 LOAD_NAME                6 (str)
+             68 LOAD_NAME               11 (bool)
+             70 LOAD_CONST               5 (('instance_id', 'return'))
+             72 BUILD_CONST_KEY_MAP      2
+             74 LOAD_CONST               8 (<code object exit_instance at 0x1072e0ea0, file "WeRobotCore/adapters/wechat/windows_legacy/instance_registry.py", line 44>)
+             76 LOAD_CONST               9 ('LegacyInstanceManagerFacade.exit_instance')
+             78 MAKE_FUNCTION            4 (annotations)
+             80 STORE_NAME              12 (exit_instance)
+
+ 47          82 LOAD_NAME                6 (str)
+             84 LOAD_NAME               11 (bool)
+             86 LOAD_CONST               5 (('instance_id', 'return'))
+             88 BUILD_CONST_KEY_MAP      2
+             90 LOAD_CONST              10 (<code object re_enter_instance at 0x1072e0f50, file "WeRobotCore/adapters/wechat/windows_legacy/instance_registry.py", line 47>)
+             92 LOAD_CONST              11 ('LegacyInstanceManagerFacade.re_enter_instance')
+             94 MAKE_FUNCTION            4 (annotations)
+             96 STORE_NAME              13 (re_enter_instance)
+             98 LOAD_CONST              12 (None)
+            100 RETURN_VALUE
+
+Disassembly of <code object list_instances at 0x1072e0710, file "WeRobotCore/adapters/wechat/windows_legacy/instance_registry.py", line 38>:
+ 39           0 LOAD_CONST               0 (None)
+              2 RETURN_VALUE
+
+Disassembly of <code object get_instance_info at 0x1072e0be0, file "WeRobotCore/adapters/wechat/windows_legacy/instance_registry.py", line 41>:
+ 42           0 LOAD_CONST               0 (None)
+              2 RETURN_VALUE
+
+Disassembly of <code object exit_instance at 0x1072e0ea0, file "WeRobotCore/adapters/wechat/windows_legacy/instance_registry.py", line 44>:
+ 45           0 LOAD_CONST               0 (None)
+              2 RETURN_VALUE
+
+Disassembly of <code object re_enter_instance at 0x1072e0f50, file "WeRobotCore/adapters/wechat/windows_legacy/instance_registry.py", line 47>:
+ 48           0 LOAD_CONST               0 (None)
+              2 RETURN_VALUE
+
+Disassembly of <code object _default_capabilities at 0x1073b9030, file "WeRobotCore/adapters/wechat/windows_legacy/instance_registry.py", line 51>:
+ 53           0 LOAD_GLOBAL              0 (CapabilityName)
+              2 LOAD_ATTR                1 (INSTANCE_ATTACH)
+
+ 54           4 LOAD_GLOBAL              0 (CapabilityName)
+              6 LOAD_ATTR                2 (ACCOUNT_READ_CURRENT)
+
+ 52           8 BUILD_TUPLE              2
+             10 STORE_FAST               0 (names)
+
+ 56          12 LOAD_CONST               1 (<code object <dictcomp> at 0x1072e0a80, file "WeRobotCore/adapters/wechat/windows_legacy/instance_registry.py", line 56>)
+             14 LOAD_CONST               2 ('_default_capabilities.<locals>.<dictcomp>')
+             16 MAKE_FUNCTION            0
+
+ 61          18 LOAD_FAST                0 (names)
+
+ 56          20 GET_ITER
+             22 CALL_FUNCTION            1
+             24 RETURN_VALUE
+
+Disassembly of <code object <dictcomp> at 0x1072e0a80, file "WeRobotCore/adapters/wechat/windows_legacy/instance_registry.py", line 56>:
+ 56           0 BUILD_MAP                0
+              2 LOAD_FAST                0 (.0)
+        >>    4 FOR_ITER                24 (to 30)
+
+ 61           6 STORE_FAST               1 (item)
+
+ 57           8 LOAD_FAST                1 (item)
+             10 LOAD_ATTR                0 (value)
+             12 LOAD_GLOBAL              1 (CapabilityState)
+
+ 58          14 LOAD_FAST                1 (item)
+             16 LOAD_ATTR                0 (value)
+
+ 59          18 LOAD_GLOBAL              2 (CapabilityStatus)
+             20 LOAD_ATTR                3 (SUPPORTED)
+
+ 57          22 LOAD_CONST               0 (('name', 'status'))
+             24 CALL_FUNCTION_KW         2
+             26 MAP_ADD                  2
+             28 JUMP_ABSOLUTE            4
+        >>   30 RETURN_VALUE
+
+Disassembly of <code object WindowsInstanceRegistryAdapter at 0x1073b97c0, file "WeRobotCore/adapters/wechat/windows_legacy/instance_registry.py", line 65>:
+ 65           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('WindowsInstanceRegistryAdapter')
+              6 STORE_NAME               2 (__qualname__)
+
+ 66           8 LOAD_CONST               1 ('Adapt existing InstanceManager records to the neutral registry Port.\n\n    ``attach`` means adopting an existing Legacy record into this registry.  A\n    newly discovered, uninitialized record therefore remains ``DISCOVERED``;\n    the adapter never promotes it by calling Legacy initialization routines.\n    ')
+             10 STORE_NAME               3 (__doc__)
+
+ 73          12 LOAD_CONST               2 ('windows')
+             14 STORE_NAME               4 (platform)
+
+ 75          16 LOAD_CONST              38 ((None, False))
+
+ 77          18 LOAD_NAME                5 (LegacyInstanceManagerFacade)
+
+ 78          20 LOAD_NAME                6 (Optional)
+             22 LOAD_NAME                7 (Mapping)
+             24 LOAD_NAME                8 (str)
+             26 LOAD_NAME                9 (CapabilityState)
+             28 BUILD_TUPLE              2
+             30 BINARY_SUBSCR
+             32 BINARY_SUBSCR
+
+ 79          34 LOAD_NAME               10 (bool)
+
+ 80          36 LOAD_CONST               3 (None)
+
+ 75          38 LOAD_CONST               5 (('manager', 'capabilities', 'resume_manually_exited_on_attach', 'return'))
+             40 BUILD_CONST_KEY_MAP      4
+             42 LOAD_CONST               6 (<code object __init__ at 0x1073b9710, file "WeRobotCore/adapters/wechat/windows_legacy/instance_registry.py", line 75>)
+             44 LOAD_CONST               7 ('WindowsInstanceRegistryAdapter.__init__')
+             46 MAKE_FUNCTION            5 (defaults, annotations)
+             48 STORE_NAME              11 (__init__)
+
+ 92          50 LOAD_NAME               12 (staticmethod)
+
+ 93          52 LOAD_NAME                7 (Mapping)
+             54 LOAD_NAME                8 (str)
+             56 LOAD_NAME               13 (Any)
+             58 BUILD_TUPLE              2
+             60 BINARY_SUBSCR
+             62 LOAD_NAME                8 (str)
+             64 LOAD_CONST               8 (('raw', 'return'))
+             66 BUILD_CONST_KEY_MAP      2
+             68 LOAD_CONST               9 (<code object _instance_key at 0x1073b9450, file "WeRobotCore/adapters/wechat/windows_legacy/instance_registry.py", line 92>)
+             70 LOAD_CONST              10 ('WindowsInstanceRegistryAdapter._instance_key')
+             72 MAKE_FUNCTION            4 (annotations)
+             74 CALL_FUNCTION            1
+             76 STORE_NAME              14 (_instance_key)
+
+103          78 LOAD_NAME               12 (staticmethod)
+
+104          80 LOAD_NAME                7 (Mapping)
+             82 LOAD_NAME                8 (str)
+             84 LOAD_NAME               13 (Any)
+             86 BUILD_TUPLE              2
+             88 BINARY_SUBSCR
+             90 LOAD_NAME                6 (Optional)
+             92 LOAD_NAME               15 (int)
+             94 BINARY_SUBSCR
+             96 LOAD_CONST               8 (('raw', 'return'))
+             98 BUILD_CONST_KEY_MAP      2
+            100 LOAD_CONST              11 (<code object _process_id at 0x1073b9df0, file "WeRobotCore/adapters/wechat/windows_legacy/instance_registry.py", line 103>)
+            102 LOAD_CONST              12 ('WindowsInstanceRegistryAdapter._process_id')
+            104 MAKE_FUNCTION            4 (annotations)
+            106 CALL_FUNCTION            1
+            108 STORE_NAME              16 (_process_id)
+
+127         110 LOAD_NAME               17 (classmethod)
+
+128         112 LOAD_NAME                7 (Mapping)
+            114 LOAD_NAME                8 (str)
+            116 LOAD_NAME               13 (Any)
+            118 BUILD_TUPLE              2
+            120 BINARY_SUBSCR
+            122 LOAD_NAME               18 (NativeInstanceRef)
+            124 LOAD_CONST               8 (('raw', 'return'))
+            126 BUILD_CONST_KEY_MAP      2
+            128 LOAD_CONST              13 (<code object _native_ref at 0x1073b9240, file "WeRobotCore/adapters/wechat/windows_legacy/instance_registry.py", line 127>)
+            130 LOAD_CONST              14 ('WindowsInstanceRegistryAdapter._native_ref')
+            132 MAKE_FUNCTION            4 (annotations)
+            134 CALL_FUNCTION            1
+            136 STORE_NAME              19 (_native_ref)
+
+135         138 LOAD_NAME                8 (str)
+            140 LOAD_NAME                6 (Optional)
+            142 LOAD_NAME                7 (Mapping)
+            144 LOAD_NAME                8 (str)
+            146 LOAD_NAME               13 (Any)
+            148 BUILD_TUPLE              2
+            150 BINARY_SUBSCR
+            152 BINARY_SUBSCR
+            154 LOAD_CONST              15 (('instance_key', 'return'))
+            156 BUILD_CONST_KEY_MAP      2
+            158 LOAD_CONST              16 (<code object _read_record at 0x1073b92f0, file "WeRobotCore/adapters/wechat/windows_legacy/instance_registry.py", line 135>)
+            160 LOAD_CONST              17 ('WindowsInstanceRegistryAdapter._read_record')
+            162 MAKE_FUNCTION            4 (annotations)
+            164 STORE_NAME              20 (_read_record)
+
+162         166 LOAD_NAME                7 (Mapping)
+            168 LOAD_NAME                8 (str)
+            170 LOAD_NAME               13 (Any)
+            172 BUILD_TUPLE              2
+            174 BINARY_SUBSCR
+            176 LOAD_NAME               21 (AccountInstance)
+            178 LOAD_CONST               8 (('raw', 'return'))
+            180 BUILD_CONST_KEY_MAP      2
+            182 LOAD_CONST              18 (<code object _map_instance at 0x1073b9660, file "WeRobotCore/adapters/wechat/windows_legacy/instance_registry.py", line 162>)
+            184 LOAD_CONST              19 ('WindowsInstanceRegistryAdapter._map_instance')
+            186 MAKE_FUNCTION            4 (annotations)
+            188 STORE_NAME              22 (_map_instance)
+
+175         190 LOAD_NAME               12 (staticmethod)
+
+176         192 LOAD_NAME               18 (NativeInstanceRef)
+            194 LOAD_NAME                8 (str)
+            196 LOAD_CONST              20 (('ref', 'return'))
+            198 BUILD_CONST_KEY_MAP      2
+            200 LOAD_CONST              21 (<code object _validate_ref at 0x1073b95b0, file "WeRobotCore/adapters/wechat/windows_legacy/instance_registry.py", line 175>)
+            202 LOAD_CONST              22 ('WindowsInstanceRegistryAdapter._validate_ref')
+            204 MAKE_FUNCTION            4 (annotations)
+            206 CALL_FUNCTION            1
+            208 STORE_NAME              23 (_validate_ref)
+
+194         210 LOAD_NAME               12 (staticmethod)
+
+195         212 LOAD_NAME               24 (InstanceId)
+            214 LOAD_NAME                8 (str)
+            216 LOAD_CONST              23 (('instance_id', 'return'))
+            218 BUILD_CONST_KEY_MAP      2
+            220 LOAD_CONST              24 (<code object _validate_instance_id at 0x1073b9b30, file "WeRobotCore/adapters/wechat/windows_legacy/instance_registry.py", line 194>)
+            222 LOAD_CONST              25 ('WindowsInstanceRegistryAdapter._validate_instance_id')
+            224 MAKE_FUNCTION            4 (annotations)
+            226 CALL_FUNCTION            1
+            228 STORE_NAME              25 (_validate_instance_id)
+
+203         230 LOAD_NAME               26 (Sequence)
+            232 LOAD_NAME               18 (NativeInstanceRef)
+            234 BINARY_SUBSCR
+            236 LOAD_CONST              26 (('return',))
+            238 BUILD_CONST_KEY_MAP      1
+            240 LOAD_CONST              27 (<code object discover at 0x1073b9a80, file "WeRobotCore/adapters/wechat/windows_legacy/instance_registry.py", line 203>)
+            242 LOAD_CONST              28 ('WindowsInstanceRegistryAdapter.discover')
+            244 MAKE_FUNCTION            4 (annotations)
+            246 STORE_NAME              27 (discover)
+
+234         248 LOAD_NAME               18 (NativeInstanceRef)
+            250 LOAD_NAME               21 (AccountInstance)
+            252 LOAD_CONST              20 (('ref', 'return'))
+            254 BUILD_CONST_KEY_MAP      2
+            256 LOAD_CONST              29 (<code object attach at 0x1073b9870, file "WeRobotCore/adapters/wechat/windows_legacy/instance_registry.py", line 234>)
+            258 LOAD_CONST              30 ('WindowsInstanceRegistryAdapter.attach')
+            260 MAKE_FUNCTION            4 (annotations)
+            262 STORE_NAME              28 (attach)
+
+283         264 LOAD_NAME               24 (InstanceId)
+            266 LOAD_NAME               29 (OperationResult)
+            268 LOAD_CONST              23 (('instance_id', 'return'))
+            270 BUILD_CONST_KEY_MAP      2
+            272 LOAD_CONST              31 (<code object detach at 0x1073b9d40, file "WeRobotCore/adapters/wechat/windows_legacy/instance_registry.py", line 283>)
+            274 LOAD_CONST              32 ('WindowsInstanceRegistryAdapter.detach')
+            276 MAKE_FUNCTION            4 (annotations)
+            278 STORE_NAME              30 (detach)
+
+336         280 LOAD_NAME               26 (Sequence)
+            282 LOAD_NAME               21 (AccountInstance)
+            284 BINARY_SUBSCR
+            286 LOAD_CONST              26 (('return',))
+            288 BUILD_CONST_KEY_MAP      1
+            290 LOAD_CONST              33 (<code object list_attached at 0x1073b9500, file "WeRobotCore/adapters/wechat/windows_legacy/instance_registry.py", line 336>)
+            292 LOAD_CONST              34 ('WindowsInstanceRegistryAdapter.list_attached')
+            294 MAKE_FUNCTION            4 (annotations)
+            296 STORE_NAME              31 (list_attached)
+
+349         298 LOAD_NAME                8 (str)
+            300 LOAD_NAME                6 (Optional)
+            302 LOAD_NAME               21 (AccountInstance)
+            304 BINARY_SUBSCR
+            306 LOAD_CONST              35 (('account_id', 'return'))
+            308 BUILD_CONST_KEY_MAP      2
+            310 LOAD_CONST              36 (<code object get_by_account at 0x1073b9f50, file "WeRobotCore/adapters/wechat/windows_legacy/instance_registry.py", line 349>)
+            312 LOAD_CONST              37 ('WindowsInstanceRegistryAdapter.get_by_account')
+            314 MAKE_FUNCTION            4 (annotations)
+            316 STORE_NAME              32 (get_by_account)
+            318 LOAD_CONST               3 (None)
+            320 RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x1073b9710, file "WeRobotCore/adapters/wechat/windows_legacy/instance_registry.py", line 75>:
+ 81           0 LOAD_FAST                1 (manager)
+              2 LOAD_CONST               0 (None)
+              4 IS_OP                    0
+              6 POP_JUMP_IF_FALSE       16
+
+ 82           8 LOAD_GLOBAL              0 (ValueError)
+             10 LOAD_CONST               1 ('manager must be provided')
+             12 CALL_FUNCTION            1
+             14 RAISE_VARARGS            1
+
+ 83     >>   16 LOAD_FAST                1 (manager)
+             18 LOAD_FAST                0 (self)
+             20 STORE_ATTR               1 (_manager)
+
+ 84          22 LOAD_GLOBAL              2 (dict)
+
+ 85          24 LOAD_FAST                2 (capabilities)
+             26 LOAD_CONST               0 (None)
+             28 IS_OP                    0
+             30 POP_JUMP_IF_FALSE       38
+             32 LOAD_GLOBAL              3 (_default_capabilities)
+             34 CALL_FUNCTION            0
+             36 JUMP_FORWARD             2 (to 40)
+        >>   38 LOAD_FAST                2 (capabilities)
+
+ 84     >>   40 CALL_FUNCTION            1
+             42 LOAD_FAST                0 (self)
+             44 STORE_ATTR               4 (_capabilities)
+
+ 87          46 LOAD_GLOBAL              5 (bool)
+
+ 88          48 LOAD_FAST                3 (resume_manually_exited_on_attach)
+
+ 87          50 CALL_FUNCTION            1
+             52 LOAD_FAST                0 (self)
+             54 STORE_ATTR               6 (_resume_manually_exited_on_attach)
+
+ 90          56 LOAD_GLOBAL              7 (set)
+             58 CALL_FUNCTION            0
+             60 LOAD_FAST                0 (self)
+             62 STORE_ATTR               8 (_attached_ids)
+             64 LOAD_CONST               0 (None)
+             66 RETURN_VALUE
+
+Disassembly of <code object _instance_key at 0x1073b9450, file "WeRobotCore/adapters/wechat/windows_legacy/instance_registry.py", line 92>:
+ 94           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                0 (raw)
+              4 LOAD_GLOBAL              1 (Mapping)
+              6 CALL_FUNCTION            2
+              8 POP_JUMP_IF_FALSE       20
+             10 LOAD_FAST                0 (raw)
+             12 LOAD_METHOD              2 (get)
+             14 LOAD_CONST               1 ('instance_id')
+             16 CALL_METHOD              1
+             18 JUMP_FORWARD             2 (to 22)
+        >>   20 LOAD_CONST               0 (None)
+        >>   22 STORE_FAST               1 (value)
+
+ 95          24 LOAD_FAST                1 (value)
+             26 LOAD_CONST               0 (None)
+             28 IS_OP                    0
+             30 POP_JUMP_IF_FALSE       36
+             32 LOAD_CONST               2 ('')
+             34 JUMP_FORWARD            10 (to 46)
+        >>   36 LOAD_GLOBAL              3 (str)
+             38 LOAD_FAST                1 (value)
+             40 CALL_FUNCTION            1
+             42 LOAD_METHOD              4 (strip)
+             44 CALL_METHOD              0
+        >>   46 STORE_FAST               2 (key)
+
+ 96          48 LOAD_FAST                2 (key)
+             50 POP_JUMP_IF_TRUE        64
+
+ 97          52 LOAD_GLOBAL              5 (AutomationError)
+
+ 98          54 LOAD_GLOBAL              6 (ErrorCode)
+             56 LOAD_ATTR                7 (OPERATION_FAILED)
+
+ 99          58 LOAD_CONST               3 ('Legacy InstanceManager returned a record without instance_id')
+
+ 97          60 CALL_FUNCTION            2
+             62 RAISE_VARARGS            1
+
+101     >>   64 LOAD_FAST                2 (key)
+             66 RETURN_VALUE
+
+Disassembly of <code object _process_id at 0x1073b9df0, file "WeRobotCore/adapters/wechat/windows_legacy/instance_registry.py", line 103>:
+105           0 LOAD_FAST                0 (raw)
+              2 LOAD_METHOD              0 (get)
+              4 LOAD_CONST               1 ('process_id')
+              6 CALL_METHOD              1
+              8 STORE_FAST               1 (value)
+
+106          10 LOAD_FAST                1 (value)
+             12 LOAD_CONST               0 (None)
+             14 IS_OP                    0
+             16 POP_JUMP_IF_FALSE       22
+
+107          18 LOAD_CONST               0 (None)
+             20 RETURN_VALUE
+
+108     >>   22 LOAD_GLOBAL              1 (isinstance)
+             24 LOAD_FAST                1 (value)
+             26 LOAD_GLOBAL              2 (bool)
+             28 CALL_FUNCTION            2
+             30 POP_JUMP_IF_FALSE       44
+
+109          32 LOAD_GLOBAL              3 (AutomationError)
+
+110          34 LOAD_GLOBAL              4 (ErrorCode)
+             36 LOAD_ATTR                5 (OPERATION_FAILED)
+
+111          38 LOAD_CONST               2 ('Legacy InstanceManager returned an invalid process_id')
+
+109          40 CALL_FUNCTION            2
+             42 RAISE_VARARGS            1
+
+113     >>   44 SETUP_FINALLY           12 (to 58)
+
+114          46 LOAD_GLOBAL              6 (int)
+             48 LOAD_FAST                1 (value)
+             50 CALL_FUNCTION            1
+             52 STORE_FAST               2 (process_id)
+             54 POP_BLOCK
+             56 JUMP_FORWARD            34 (to 92)
+
+115     >>   58 DUP_TOP
+             60 LOAD_GLOBAL              7 (TypeError)
+             62 LOAD_GLOBAL              8 (ValueError)
+             64 BUILD_TUPLE              2
+             66 JUMP_IF_NOT_EXC_MATCH    90
+             68 POP_TOP
+             70 POP_TOP
+             72 POP_TOP
+
+116          74 LOAD_GLOBAL              3 (AutomationError)
+
+117          76 LOAD_GLOBAL              4 (ErrorCode)
+             78 LOAD_ATTR                5 (OPERATION_FAILED)
+
+118          80 LOAD_CONST               2 ('Legacy InstanceManager returned an invalid process_id')
+
+116          82 CALL_FUNCTION            2
+             84 RAISE_VARARGS            1
+             86 POP_EXCEPT
+             88 JUMP_FORWARD             2 (to 92)
+        >>   90 RERAISE
+
+120     >>   92 LOAD_FAST                2 (process_id)
+             94 LOAD_CONST               3 (0)
+             96 COMPARE_OP               1 (<=)
+             98 POP_JUMP_IF_FALSE      112
+
+121         100 LOAD_GLOBAL              3 (AutomationError)
+
+122         102 LOAD_GLOBAL              4 (ErrorCode)
+            104 LOAD_ATTR                5 (OPERATION_FAILED)
+
+123         106 LOAD_CONST               2 ('Legacy InstanceManager returned an invalid process_id')
+
+121         108 CALL_FUNCTION            2
+            110 RAISE_VARARGS            1
+
+125     >>  112 LOAD_FAST                2 (process_id)
+            114 RETURN_VALUE
+
+Disassembly of <code object _native_ref at 0x1073b9240, file "WeRobotCore/adapters/wechat/windows_legacy/instance_registry.py", line 127>:
+129           0 LOAD_GLOBAL              0 (NativeInstanceRef)
+
+130           2 LOAD_FAST                0 (cls)
+              4 LOAD_ATTR                1 (platform)
+
+131           6 LOAD_FAST                0 (cls)
+              8 LOAD_METHOD              2 (_instance_key)
+             10 LOAD_FAST                1 (raw)
+             12 CALL_METHOD              1
+
+132          14 LOAD_FAST                0 (cls)
+             16 LOAD_METHOD              3 (_process_id)
+             18 LOAD_FAST                1 (raw)
+             20 CALL_METHOD              1
+
+129          22 LOAD_CONST               1 (('platform', 'native_key', 'process_id'))
+             24 CALL_FUNCTION_KW         3
+             26 RETURN_VALUE
+
+Disassembly of <code object _read_record at 0x1073b92f0, file "WeRobotCore/adapters/wechat/windows_legacy/instance_registry.py", line 135>:
+136           0 SETUP_FINALLY           16 (to 18)
+
+137           2 LOAD_FAST                0 (self)
+              4 LOAD_ATTR                0 (_manager)
+              6 LOAD_METHOD              1 (get_instance_info)
+              8 LOAD_FAST                1 (instance_key)
+             10 CALL_METHOD              1
+             12 STORE_FAST               2 (raw)
+             14 POP_BLOCK
+             16 JUMP_FORWARD            62 (to 80)
+
+138     >>   18 DUP_TOP
+             20 LOAD_GLOBAL              2 (Exception)
+             22 JUMP_IF_NOT_EXC_MATCH    78
+             24 POP_TOP
+             26 STORE_FAST               3 (exc)
+             28 POP_TOP
+             30 SETUP_FINALLY           38 (to 70)
+
+139          32 LOAD_GLOBAL              3 (AutomationError)
+
+140          34 LOAD_GLOBAL              4 (ErrorCode)
+             36 LOAD_ATTR                5 (OPERATION_FAILED)
+
+141          38 LOAD_CONST               1 ('Legacy InstanceManager could not read instance {}: {}')
+             40 LOAD_METHOD              6 (format)
+
+142          42 LOAD_FAST                1 (instance_key)
+
+143          44 LOAD_FAST                3 (exc)
+
+141          46 CALL_METHOD              2
+
+145          48 LOAD_CONST               2 (True)
+
+139          50 LOAD_CONST               3 (('retryable',))
+             52 CALL_FUNCTION_KW         3
+
+146          54 LOAD_FAST                3 (exc)
+
+139          56 RAISE_VARARGS            2
+             58 POP_BLOCK
+             60 POP_EXCEPT
+             62 LOAD_CONST               0 (None)
+             64 STORE_FAST               3 (exc)
+             66 DELETE_FAST              3 (exc)
+             68 JUMP_FORWARD            10 (to 80)
+        >>   70 LOAD_CONST               0 (None)
+             72 STORE_FAST               3 (exc)
+             74 DELETE_FAST              3 (exc)
+             76 RERAISE
+        >>   78 RERAISE
+
+147     >>   80 LOAD_FAST                2 (raw)
+             82 LOAD_CONST               0 (None)
+             84 IS_OP                    0
+             86 POP_JUMP_IF_FALSE       92
+
+148          88 LOAD_CONST               0 (None)
+             90 RETURN_VALUE
+
+149     >>   92 LOAD_GLOBAL              7 (isinstance)
+             94 LOAD_FAST                2 (raw)
+             96 LOAD_GLOBAL              8 (Mapping)
+             98 CALL_FUNCTION            2
+            100 POP_JUMP_IF_TRUE       114
+
+150         102 LOAD_GLOBAL              3 (AutomationError)
+
+151         104 LOAD_GLOBAL              4 (ErrorCode)
+            106 LOAD_ATTR                5 (OPERATION_FAILED)
+
+152         108 LOAD_CONST               4 ('Legacy InstanceManager returned a non-mapping instance record')
+
+150         110 CALL_FUNCTION            2
+            112 RAISE_VARARGS            1
+
+154     >>  114 LOAD_FAST                0 (self)
+            116 LOAD_METHOD              9 (_instance_key)
+            118 LOAD_FAST                2 (raw)
+            120 CALL_METHOD              1
+            122 STORE_FAST               4 (actual_key)
+
+155         124 LOAD_FAST                4 (actual_key)
+            126 LOAD_FAST                1 (instance_key)
+            128 COMPARE_OP               3 (!=)
+            130 POP_JUMP_IF_FALSE      144
+
+156         132 LOAD_GLOBAL              3 (AutomationError)
+
+157         134 LOAD_GLOBAL              4 (ErrorCode)
+            136 LOAD_ATTR               10 (ACTION_NOT_VERIFIED)
+
+158         138 LOAD_CONST               5 ('Legacy InstanceManager read-back returned another instance')
+
+156         140 CALL_FUNCTION            2
+            142 RAISE_VARARGS            1
+
+160     >>  144 LOAD_FAST                2 (raw)
+            146 RETURN_VALUE
+
+Disassembly of <code object _map_instance at 0x1073b9660, file "WeRobotCore/adapters/wechat/windows_legacy/instance_registry.py", line 162>:
+163           0 SETUP_FINALLY           18 (to 20)
+
+164           2 LOAD_GLOBAL              0 (map_legacy_instance)
+
+165           4 LOAD_FAST                1 (raw)
+
+166           6 LOAD_GLOBAL              1 (WINDOWS_LEGACY_DRIVER_ID)
+
+167           8 LOAD_FAST                0 (self)
+             10 LOAD_ATTR                2 (_capabilities)
+
+164          12 LOAD_CONST               1 (('driver_id', 'capabilities'))
+             14 CALL_FUNCTION_KW         3
+             16 POP_BLOCK
+             18 RETURN_VALUE
+
+169     >>   20 DUP_TOP
+             22 LOAD_GLOBAL              3 (TypeError)
+             24 LOAD_GLOBAL              4 (ValueError)
+             26 BUILD_TUPLE              2
+             28 JUMP_IF_NOT_EXC_MATCH    78
+             30 POP_TOP
+             32 STORE_FAST               2 (exc)
+             34 POP_TOP
+             36 SETUP_FINALLY           32 (to 70)
+
+170          38 LOAD_GLOBAL              5 (AutomationError)
+
+171          40 LOAD_GLOBAL              6 (ErrorCode)
+             42 LOAD_ATTR                7 (OPERATION_FAILED)
+
+172          44 LOAD_CONST               2 ('Legacy instance record could not be normalized: {}')
+             46 LOAD_METHOD              8 (format)
+             48 LOAD_FAST                2 (exc)
+             50 CALL_METHOD              1
+
+170          52 CALL_FUNCTION            2
+
+173          54 LOAD_FAST                2 (exc)
+
+170          56 RAISE_VARARGS            2
+             58 POP_BLOCK
+             60 POP_EXCEPT
+             62 LOAD_CONST               0 (None)
+             64 STORE_FAST               2 (exc)
+             66 DELETE_FAST              2 (exc)
+             68 JUMP_FORWARD            10 (to 80)
+        >>   70 LOAD_CONST               0 (None)
+             72 STORE_FAST               2 (exc)
+             74 DELETE_FAST              2 (exc)
+             76 RERAISE
+        >>   78 RERAISE
+        >>   80 LOAD_CONST               0 (None)
+             82 RETURN_VALUE
+
+Disassembly of <code object _validate_ref at 0x1073b95b0, file "WeRobotCore/adapters/wechat/windows_legacy/instance_registry.py", line 175>:
+177           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                0 (ref)
+              4 LOAD_GLOBAL              1 (NativeInstanceRef)
+              6 CALL_FUNCTION            2
+              8 POP_JUMP_IF_TRUE        22
+
+178          10 LOAD_GLOBAL              2 (AutomationError)
+
+179          12 LOAD_GLOBAL              3 (ErrorCode)
+             14 LOAD_ATTR                4 (INVALID_ARGUMENT)
+
+180          16 LOAD_CONST               1 ('ref must be a NativeInstanceRef')
+
+178          18 CALL_FUNCTION            2
+             20 RAISE_VARARGS            1
+
+182     >>   22 LOAD_FAST                0 (ref)
+             24 LOAD_ATTR                5 (platform)
+             26 LOAD_METHOD              6 (strip)
+             28 CALL_METHOD              0
+             30 LOAD_METHOD              7 (lower)
+             32 CALL_METHOD              0
+             34 LOAD_GLOBAL              8 (WindowsInstanceRegistryAdapter)
+             36 LOAD_ATTR                5 (platform)
+             38 COMPARE_OP               3 (!=)
+             40 POP_JUMP_IF_FALSE       62
+
+183          42 LOAD_GLOBAL              2 (AutomationError)
+
+184          44 LOAD_GLOBAL              3 (ErrorCode)
+             46 LOAD_ATTR                4 (INVALID_ARGUMENT)
+
+185          48 LOAD_CONST               2 ('native instance belongs to platform {}')
+             50 LOAD_METHOD              9 (format)
+             52 LOAD_FAST                0 (ref)
+             54 LOAD_ATTR                5 (platform)
+             56 CALL_METHOD              1
+
+183          58 CALL_FUNCTION            2
+             60 RAISE_VARARGS            1
+
+187     >>   62 LOAD_FAST                0 (ref)
+             64 LOAD_ATTR               10 (payload)
+             66 LOAD_CONST               0 (None)
+             68 IS_OP                    1
+             70 POP_JUMP_IF_FALSE       84
+
+188          72 LOAD_GLOBAL              2 (AutomationError)
+
+189          74 LOAD_GLOBAL              3 (ErrorCode)
+             76 LOAD_ATTR                4 (INVALID_ARGUMENT)
+
+190          78 LOAD_CONST               3 ('Windows native references must not carry public payloads')
+
+188          80 CALL_FUNCTION            2
+             82 RAISE_VARARGS            1
+
+192     >>   84 LOAD_FAST                0 (ref)
+             86 LOAD_ATTR               11 (native_key)
+             88 RETURN_VALUE
+
+Disassembly of <code object _validate_instance_id at 0x1073b9b30, file "WeRobotCore/adapters/wechat/windows_legacy/instance_registry.py", line 194>:
+196           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                0 (instance_id)
+              4 LOAD_GLOBAL              1 (InstanceId)
+              6 CALL_FUNCTION            2
+              8 POP_JUMP_IF_TRUE        22
+
+197          10 LOAD_GLOBAL              2 (AutomationError)
+
+198          12 LOAD_GLOBAL              3 (ErrorCode)
+             14 LOAD_ATTR                4 (INVALID_ARGUMENT)
+
+199          16 LOAD_CONST               1 ('instance_id must be an InstanceId')
+
+197          18 CALL_FUNCTION            2
+             20 RAISE_VARARGS            1
+
+201     >>   22 LOAD_FAST                0 (instance_id)
+             24 LOAD_ATTR                5 (value)
+             26 RETURN_VALUE
+
+Disassembly of <code object discover at 0x1073b9a80, file "WeRobotCore/adapters/wechat/windows_legacy/instance_registry.py", line 203>:
+211           0 SETUP_FINALLY           14 (to 16)
+
+212           2 LOAD_FAST                0 (self)
+              4 LOAD_ATTR                0 (_manager)
+              6 LOAD_METHOD              1 (list_instances)
+              8 CALL_METHOD              0
+             10 STORE_FAST               1 (records)
+             12 POP_BLOCK
+             14 JUMP_FORWARD            60 (to 76)
+
+213     >>   16 DUP_TOP
+             18 LOAD_GLOBAL              2 (Exception)
+             20 JUMP_IF_NOT_EXC_MATCH    74
+             22 POP_TOP
+             24 STORE_FAST               2 (exc)
+             26 POP_TOP
+             28 SETUP_FINALLY           36 (to 66)
+
+214          30 LOAD_GLOBAL              3 (AutomationError)
+
+215          32 LOAD_GLOBAL              4 (ErrorCode)
+             34 LOAD_ATTR                5 (OPERATION_FAILED)
+
+216          36 LOAD_CONST               1 ('Legacy InstanceManager discovery failed: {}')
+             38 LOAD_METHOD              6 (format)
+             40 LOAD_FAST                2 (exc)
+             42 CALL_METHOD              1
+
+217          44 LOAD_CONST               2 (True)
+
+214          46 LOAD_CONST               3 (('retryable',))
+             48 CALL_FUNCTION_KW         3
+
+218          50 LOAD_FAST                2 (exc)
+
+214          52 RAISE_VARARGS            2
+             54 POP_BLOCK
+             56 POP_EXCEPT
+             58 LOAD_CONST               4 (None)
+             60 STORE_FAST               2 (exc)
+             62 DELETE_FAST              2 (exc)
+             64 JUMP_FORWARD            10 (to 76)
+        >>   66 LOAD_CONST               4 (None)
+             68 STORE_FAST               2 (exc)
+             70 DELETE_FAST              2 (exc)
+             72 RERAISE
+        >>   74 RERAISE
+
+219     >>   76 LOAD_FAST                1 (records)
+             78 LOAD_CONST               4 (None)
+             80 IS_OP                    0
+             82 POP_JUMP_IF_TRUE       100
+             84 LOAD_GLOBAL              7 (isinstance)
+             86 LOAD_FAST                1 (records)
+             88 LOAD_GLOBAL              8 (str)
+             90 LOAD_GLOBAL              9 (bytes)
+             92 LOAD_GLOBAL             10 (Mapping)
+             94 BUILD_TUPLE              3
+             96 CALL_FUNCTION            2
+             98 POP_JUMP_IF_FALSE      112
+
+220     >>  100 LOAD_GLOBAL              3 (AutomationError)
+
+221         102 LOAD_GLOBAL              4 (ErrorCode)
+            104 LOAD_ATTR                5 (OPERATION_FAILED)
+
+222         106 LOAD_CONST               5 ('Legacy InstanceManager returned an invalid instance list')
+
+220         108 CALL_FUNCTION            2
+            110 RAISE_VARARGS            1
+
+224     >>  112 BUILD_LIST               0
+            114 STORE_FAST               3 (result)
+
+225         116 LOAD_FAST                1 (records)
+            118 GET_ITER
+        >>  120 FOR_ITER                42 (to 164)
+            122 STORE_FAST               4 (raw)
+
+226         124 LOAD_GLOBAL              7 (isinstance)
+            126 LOAD_FAST                4 (raw)
+            128 LOAD_GLOBAL             10 (Mapping)
+            130 CALL_FUNCTION            2
+            132 POP_JUMP_IF_TRUE       146
+
+227         134 LOAD_GLOBAL              3 (AutomationError)
+
+228         136 LOAD_GLOBAL              4 (ErrorCode)
+            138 LOAD_ATTR                5 (OPERATION_FAILED)
+
+229         140 LOAD_CONST               6 ('Legacy InstanceManager returned a non-mapping instance record')
+
+227         142 CALL_FUNCTION            2
+            144 RAISE_VARARGS            1
+
+231     >>  146 LOAD_FAST                3 (result)
+            148 LOAD_METHOD             11 (append)
+            150 LOAD_FAST                0 (self)
+            152 LOAD_METHOD             12 (_native_ref)
+            154 LOAD_FAST                4 (raw)
+            156 CALL_METHOD              1
+            158 CALL_METHOD              1
+            160 POP_TOP
+            162 JUMP_ABSOLUTE          120
+
+232     >>  164 LOAD_GLOBAL             13 (tuple)
+            166 LOAD_FAST                3 (result)
+            168 CALL_FUNCTION            1
+            170 RETURN_VALUE
+
+Disassembly of <code object attach at 0x1073b9870, file "WeRobotCore/adapters/wechat/windows_legacy/instance_registry.py", line 234>:
+237           0 LOAD_FAST                0 (self)
+              2 LOAD_METHOD              0 (_validate_ref)
+              4 LOAD_FAST                1 (ref)
+              6 CALL_METHOD              1
+              8 STORE_FAST               2 (instance_key)
+
+238          10 LOAD_FAST                0 (self)
+             12 LOAD_METHOD              1 (_read_record)
+             14 LOAD_FAST                2 (instance_key)
+             16 CALL_METHOD              1
+             18 STORE_FAST               3 (raw)
+
+239          20 LOAD_FAST                3 (raw)
+             22 LOAD_CONST               1 (None)
+             24 IS_OP                    0
+             26 POP_JUMP_IF_FALSE       46
+
+240          28 LOAD_GLOBAL              2 (AutomationError)
+
+241          30 LOAD_GLOBAL              3 (ErrorCode)
+             32 LOAD_ATTR                4 (INSTANCE_NOT_FOUND)
+
+242          34 LOAD_CONST               2 ('Legacy instance was not found: {}')
+             36 LOAD_METHOD              5 (format)
+             38 LOAD_FAST                2 (instance_key)
+             40 CALL_METHOD              1
+
+240          42 CALL_FUNCTION            2
+             44 RAISE_VARARGS            1
+
+244     >>   46 LOAD_FAST                0 (self)
+             48 LOAD_METHOD              6 (_process_id)
+             50 LOAD_FAST                3 (raw)
+             52 CALL_METHOD              1
+             54 STORE_FAST               4 (record_process_id)
+
+246          56 LOAD_FAST                1 (ref)
+             58 LOAD_ATTR                7 (process_id)
+             60 LOAD_CONST               1 (None)
+             62 IS_OP                    1
+
+245          64 POP_JUMP_IF_FALSE      102
+
+247          66 LOAD_FAST                4 (record_process_id)
+             68 LOAD_CONST               1 (None)
+             70 IS_OP                    1
+
+245          72 POP_JUMP_IF_FALSE      102
+
+248          74 LOAD_FAST                1 (ref)
+             76 LOAD_ATTR                7 (process_id)
+             78 LOAD_FAST                4 (record_process_id)
+             80 COMPARE_OP               3 (!=)
+
+245          82 POP_JUMP_IF_FALSE      102
+
+250          84 LOAD_GLOBAL              2 (AutomationError)
+
+251          86 LOAD_GLOBAL              3 (ErrorCode)
+             88 LOAD_ATTR                4 (INSTANCE_NOT_FOUND)
+
+252          90 LOAD_CONST               3 ('native instance reference is stale: {}')
+             92 LOAD_METHOD              5 (format)
+             94 LOAD_FAST                2 (instance_key)
+             96 CALL_METHOD              1
+
+250          98 CALL_FUNCTION            2
+            100 RAISE_VARARGS            1
+
+256     >>  102 LOAD_FAST                3 (raw)
+            104 LOAD_METHOD              8 (get)
+            106 LOAD_CONST               4 ('manually_exited')
+            108 CALL_METHOD              1
+            110 LOAD_CONST               5 (True)
+            112 IS_OP                    0
+
+255         114 EXTENDED_ARG             1
+            116 POP_JUMP_IF_FALSE      266
+
+257         118 LOAD_FAST                0 (self)
+            120 LOAD_ATTR                9 (_resume_manually_exited_on_attach)
+
+255         122 EXTENDED_ARG             1
+            124 POP_JUMP_IF_FALSE      266
+
+259         126 SETUP_FINALLY           16 (to 144)
+
+260         128 LOAD_FAST                0 (self)
+            130 LOAD_ATTR               10 (_manager)
+            132 LOAD_METHOD             11 (re_enter_instance)
+            134 LOAD_FAST                2 (instance_key)
+            136 CALL_METHOD              1
+            138 STORE_FAST               5 (resumed)
+            140 POP_BLOCK
+            142 JUMP_FORWARD            60 (to 204)
+
+261     >>  144 DUP_TOP
+            146 LOAD_GLOBAL             12 (Exception)
+            148 JUMP_IF_NOT_EXC_MATCH   202
+            150 POP_TOP
+            152 STORE_FAST               6 (exc)
+            154 POP_TOP
+            156 SETUP_FINALLY           36 (to 194)
+
+262         158 LOAD_GLOBAL              2 (AutomationError)
+
+263         160 LOAD_GLOBAL              3 (ErrorCode)
+            162 LOAD_ATTR               13 (OPERATION_FAILED)
+
+264         164 LOAD_CONST               6 ('Legacy instance could not re-enter managed state: {}')
+            166 LOAD_METHOD              5 (format)
+            168 LOAD_FAST                6 (exc)
+            170 CALL_METHOD              1
+
+265         172 LOAD_CONST               5 (True)
+
+262         174 LOAD_CONST               7 (('retryable',))
+            176 CALL_FUNCTION_KW         3
+
+266         178 LOAD_FAST                6 (exc)
+
+262         180 RAISE_VARARGS            2
+            182 POP_BLOCK
+            184 POP_EXCEPT
+            186 LOAD_CONST               1 (None)
+            188 STORE_FAST               6 (exc)
+            190 DELETE_FAST              6 (exc)
+            192 JUMP_FORWARD            10 (to 204)
+        >>  194 LOAD_CONST               1 (None)
+            196 STORE_FAST               6 (exc)
+            198 DELETE_FAST              6 (exc)
+            200 RERAISE
+        >>  202 RERAISE
+
+267     >>  204 LOAD_FAST                5 (resumed)
+            206 POP_JUMP_IF_TRUE       220
+
+268         208 LOAD_GLOBAL              2 (AutomationError)
+
+269         210 LOAD_GLOBAL              3 (ErrorCode)
+            212 LOAD_ATTR               13 (OPERATION_FAILED)
+
+270         214 LOAD_CONST               8 ('Legacy instance could not re-enter managed state')
+
+268         216 CALL_FUNCTION            2
+            218 RAISE_VARARGS            1
+
+272     >>  220 LOAD_FAST                0 (self)
+            222 LOAD_METHOD              1 (_read_record)
+            224 LOAD_FAST                2 (instance_key)
+            226 CALL_METHOD              1
+            228 STORE_FAST               3 (raw)
+
+273         230 LOAD_FAST                3 (raw)
+            232 LOAD_CONST               1 (None)
+            234 IS_OP                    0
+            236 POP_JUMP_IF_TRUE       254
+            238 LOAD_FAST                3 (raw)
+            240 LOAD_METHOD              8 (get)
+            242 LOAD_CONST               4 ('manually_exited')
+            244 CALL_METHOD              1
+            246 LOAD_CONST               5 (True)
+            248 IS_OP                    0
+            250 EXTENDED_ARG             1
+            252 POP_JUMP_IF_FALSE      266
+
+274     >>  254 LOAD_GLOBAL              2 (AutomationError)
+
+275         256 LOAD_GLOBAL              3 (ErrorCode)
+            258 LOAD_ATTR               14 (ACTION_NOT_VERIFIED)
+
+276         260 LOAD_CONST               9 ('Legacy instance re-entry could not be verified')
+
+274         262 CALL_FUNCTION            2
+            264 RAISE_VARARGS            1
+
+279     >>  266 LOAD_FAST                0 (self)
+            268 LOAD_METHOD             15 (_map_instance)
+            270 LOAD_FAST                3 (raw)
+            272 CALL_METHOD              1
+            274 STORE_FAST               7 (mapped)
+
+280         276 LOAD_FAST                0 (self)
+            278 LOAD_ATTR               16 (_attached_ids)
+            280 LOAD_METHOD             17 (add)
+            282 LOAD_FAST                2 (instance_key)
+            284 CALL_METHOD              1
+            286 POP_TOP
+
+281         288 LOAD_FAST                7 (mapped)
+            290 RETURN_VALUE
+
+Disassembly of <code object detach at 0x1073b9d40, file "WeRobotCore/adapters/wechat/windows_legacy/instance_registry.py", line 283>:
+286           0 LOAD_FAST                0 (self)
+              2 LOAD_METHOD              0 (_validate_instance_id)
+              4 LOAD_FAST                1 (instance_id)
+              6 CALL_METHOD              1
+              8 STORE_FAST               2 (instance_key)
+
+287          10 SETUP_FINALLY           14 (to 26)
+
+288          12 LOAD_FAST                0 (self)
+             14 LOAD_METHOD              1 (_read_record)
+             16 LOAD_FAST                2 (instance_key)
+             18 CALL_METHOD              1
+             20 STORE_FAST               3 (current)
+             22 POP_BLOCK
+             24 JUMP_FORWARD            60 (to 86)
+
+289     >>   26 DUP_TOP
+             28 LOAD_GLOBAL              2 (AutomationError)
+             30 JUMP_IF_NOT_EXC_MATCH    84
+             32 POP_TOP
+             34 STORE_FAST               4 (exc)
+             36 POP_TOP
+             38 SETUP_FINALLY           36 (to 76)
+
+290          40 LOAD_GLOBAL              3 (OperationResult)
+             42 LOAD_ATTR                4 (failed)
+
+291          44 LOAD_FAST                4 (exc)
+             46 LOAD_ATTR                5 (code)
+
+292          48 LOAD_GLOBAL              6 (str)
+             50 LOAD_FAST                4 (exc)
+             52 CALL_FUNCTION            1
+
+293          54 LOAD_FAST                4 (exc)
+             56 LOAD_ATTR                7 (retryable)
+
+290          58 LOAD_CONST               1 (('retryable',))
+             60 CALL_FUNCTION_KW         3
+             62 POP_BLOCK
+             64 ROT_FOUR
+             66 POP_EXCEPT
+             68 LOAD_CONST               2 (None)
+             70 STORE_FAST               4 (exc)
+             72 DELETE_FAST              4 (exc)
+             74 RETURN_VALUE
+        >>   76 LOAD_CONST               2 (None)
+             78 STORE_FAST               4 (exc)
+             80 DELETE_FAST              4 (exc)
+             82 RERAISE
+        >>   84 RERAISE
+
+295     >>   86 LOAD_FAST                3 (current)
+             88 LOAD_CONST               2 (None)
+             90 IS_OP                    0
+             92 POP_JUMP_IF_FALSE      126
+
+296          94 LOAD_FAST                0 (self)
+             96 LOAD_ATTR                8 (_attached_ids)
+             98 LOAD_METHOD              9 (discard)
+            100 LOAD_FAST                2 (instance_key)
+            102 CALL_METHOD              1
+            104 POP_TOP
+
+297         106 LOAD_GLOBAL              3 (OperationResult)
+            108 LOAD_METHOD              4 (failed)
+
+298         110 LOAD_GLOBAL             10 (ErrorCode)
+            112 LOAD_ATTR               11 (INSTANCE_NOT_FOUND)
+
+299         114 LOAD_CONST               3 ('Legacy instance was not found: {}')
+            116 LOAD_METHOD             12 (format)
+            118 LOAD_FAST                2 (instance_key)
+            120 CALL_METHOD              1
+
+297         122 CALL_METHOD              2
+            124 RETURN_VALUE
+
+301     >>  126 SETUP_FINALLY           16 (to 144)
+
+302         128 LOAD_FAST                0 (self)
+            130 LOAD_ATTR               13 (_manager)
+            132 LOAD_METHOD             14 (exit_instance)
+            134 LOAD_FAST                2 (instance_key)
+            136 CALL_METHOD              1
+            138 STORE_FAST               5 (exited)
+            140 POP_BLOCK
+            142 JUMP_FORWARD            60 (to 204)
+
+303     >>  144 DUP_TOP
+            146 LOAD_GLOBAL             15 (Exception)
+            148 JUMP_IF_NOT_EXC_MATCH   202
+            150 POP_TOP
+            152 STORE_FAST               4 (exc)
+            154 POP_TOP
+            156 SETUP_FINALLY           36 (to 194)
+
+304         158 LOAD_GLOBAL              3 (OperationResult)
+            160 LOAD_ATTR                4 (failed)
+
+305         162 LOAD_GLOBAL             10 (ErrorCode)
+            164 LOAD_ATTR               16 (OPERATION_FAILED)
+
+306         166 LOAD_CONST               4 ('Legacy instance could not leave managed state: {}')
+            168 LOAD_METHOD             12 (format)
+            170 LOAD_FAST                4 (exc)
+            172 CALL_METHOD              1
+
+307         174 LOAD_CONST               5 (True)
+
+304         176 LOAD_CONST               1 (('retryable',))
+            178 CALL_FUNCTION_KW         3
+            180 POP_BLOCK
+            182 ROT_FOUR
+            184 POP_EXCEPT
+            186 LOAD_CONST               2 (None)
+            188 STORE_FAST               4 (exc)
+            190 DELETE_FAST              4 (exc)
+            192 RETURN_VALUE
+        >>  194 LOAD_CONST               2 (None)
+            196 STORE_FAST               4 (exc)
+            198 DELETE_FAST              4 (exc)
+            200 RERAISE
+        >>  202 RERAISE
+
+309     >>  204 LOAD_FAST                5 (exited)
+            206 POP_JUMP_IF_TRUE       222
+
+310         208 LOAD_GLOBAL              3 (OperationResult)
+            210 LOAD_METHOD              4 (failed)
+
+311         212 LOAD_GLOBAL             10 (ErrorCode)
+            214 LOAD_ATTR               16 (OPERATION_FAILED)
+
+312         216 LOAD_CONST               6 ('Legacy instance could not leave managed state')
+
+310         218 CALL_METHOD              2
+            220 RETURN_VALUE
+
+315     >>  222 SETUP_FINALLY           14 (to 238)
+
+316         224 LOAD_FAST                0 (self)
+            226 LOAD_METHOD              1 (_read_record)
+            228 LOAD_FAST                2 (instance_key)
+            230 CALL_METHOD              1
+            232 STORE_FAST               6 (read_back)
+            234 POP_BLOCK
+            236 JUMP_FORWARD            64 (to 302)
+
+317     >>  238 DUP_TOP
+            240 LOAD_GLOBAL              2 (AutomationError)
+            242 EXTENDED_ARG             1
+            244 JUMP_IF_NOT_EXC_MATCH   300
+            246 POP_TOP
+            248 STORE_FAST               4 (exc)
+            250 POP_TOP
+            252 SETUP_FINALLY           38 (to 292)
+
+318         254 LOAD_GLOBAL              3 (OperationResult)
+            256 LOAD_ATTR                4 (failed)
+
+319         258 LOAD_GLOBAL             10 (ErrorCode)
+            260 LOAD_ATTR               17 (ACTION_NOT_VERIFIED)
+
+320         262 LOAD_CONST               7 ('Legacy instance exit read-back failed: {}')
+            264 LOAD_METHOD             12 (format)
+            266 LOAD_FAST                4 (exc)
+            268 CALL_METHOD              1
+
+321         270 LOAD_FAST                4 (exc)
+            272 LOAD_ATTR                7 (retryable)
+
+318         274 LOAD_CONST               1 (('retryable',))
+            276 CALL_FUNCTION_KW         3
+            278 POP_BLOCK
+            280 ROT_FOUR
+            282 POP_EXCEPT
+            284 LOAD_CONST               2 (None)
+            286 STORE_FAST               4 (exc)
+            288 DELETE_FAST              4 (exc)
+            290 RETURN_VALUE
+        >>  292 LOAD_CONST               2 (None)
+            294 STORE_FAST               4 (exc)
+            296 DELETE_FAST              4 (exc)
+            298 RERAISE
+        >>  300 RERAISE
+
+323     >>  302 LOAD_FAST                6 (read_back)
+            304 LOAD_CONST               2 (None)
+            306 IS_OP                    0
+            308 EXTENDED_ARG             1
+            310 POP_JUMP_IF_TRUE       328
+            312 LOAD_FAST                6 (read_back)
+            314 LOAD_METHOD             18 (get)
+            316 LOAD_CONST               8 ('manually_exited')
+            318 CALL_METHOD              1
+            320 LOAD_CONST               5 (True)
+            322 IS_OP                    1
+            324 EXTENDED_ARG             1
+            326 POP_JUMP_IF_FALSE      342
+
+324     >>  328 LOAD_GLOBAL              3 (OperationResult)
+            330 LOAD_METHOD              4 (failed)
+
+325         332 LOAD_GLOBAL             10 (ErrorCode)
+            334 LOAD_ATTR               17 (ACTION_NOT_VERIFIED)
+
+326         336 LOAD_CONST               9 ('Legacy instance exit could not be verified')
+
+324         338 CALL_METHOD              2
+            340 RETURN_VALUE
+
+329     >>  342 LOAD_FAST                0 (self)
+            344 LOAD_ATTR                8 (_attached_ids)
+            346 LOAD_METHOD              9 (discard)
+            348 LOAD_FAST                2 (instance_key)
+            350 CALL_METHOD              1
+            352 POP_TOP
+
+330         354 LOAD_GLOBAL              3 (OperationResult)
+            356 LOAD_ATTR               19 (succeeded)
+
+331         358 LOAD_CONST              10 ('Legacy instance left managed state')
+
+332         360 LOAD_CONST               5 (True)
+
+333         362 LOAD_CONST              11 ('instance_id')
+            364 LOAD_FAST                2 (instance_key)
+            366 BUILD_MAP                1
+
+330         368 LOAD_CONST              12 (('verified', 'data'))
+            370 CALL_FUNCTION_KW         3
+            372 RETURN_VALUE
+
+Disassembly of <code object list_attached at 0x1073b9500, file "WeRobotCore/adapters/wechat/windows_legacy/instance_registry.py", line 336>:
+337           0 BUILD_LIST               0
+              2 STORE_FAST               1 (result)
+
+338           4 BUILD_LIST               0
+              6 STORE_FAST               2 (missing)
+
+339           8 LOAD_GLOBAL              0 (sorted)
+             10 LOAD_FAST                0 (self)
+             12 LOAD_ATTR                1 (_attached_ids)
+             14 CALL_FUNCTION            1
+             16 GET_ITER
+        >>   18 FOR_ITER                50 (to 70)
+             20 STORE_FAST               3 (instance_key)
+
+340          22 LOAD_FAST                0 (self)
+             24 LOAD_METHOD              2 (_read_record)
+             26 LOAD_FAST                3 (instance_key)
+             28 CALL_METHOD              1
+             30 STORE_FAST               4 (raw)
+
+341          32 LOAD_FAST                4 (raw)
+             34 LOAD_CONST               0 (None)
+             36 IS_OP                    0
+             38 POP_JUMP_IF_FALSE       52
+
+342          40 LOAD_FAST                2 (missing)
+             42 LOAD_METHOD              3 (append)
+             44 LOAD_FAST                3 (instance_key)
+             46 CALL_METHOD              1
+             48 POP_TOP
+
+343          50 JUMP_ABSOLUTE           18
+
+344     >>   52 LOAD_FAST                1 (result)
+             54 LOAD_METHOD              3 (append)
+             56 LOAD_FAST                0 (self)
+             58 LOAD_METHOD              4 (_map_instance)
+             60 LOAD_FAST                4 (raw)
+             62 CALL_METHOD              1
+             64 CALL_METHOD              1
+             66 POP_TOP
+             68 JUMP_ABSOLUTE           18
+
+345     >>   70 LOAD_FAST                2 (missing)
+             72 GET_ITER
+        >>   74 FOR_ITER                16 (to 92)
+             76 STORE_FAST               3 (instance_key)
+
+346          78 LOAD_FAST                0 (self)
+             80 LOAD_ATTR                1 (_attached_ids)
+             82 LOAD_METHOD              5 (discard)
+             84 LOAD_FAST                3 (instance_key)
+             86 CALL_METHOD              1
+             88 POP_TOP
+             90 JUMP_ABSOLUTE           74
+
+347     >>   92 LOAD_GLOBAL              6 (tuple)
+             94 LOAD_FAST                1 (result)
+             96 CALL_FUNCTION            1
+             98 RETURN_VALUE
+
+Disassembly of <code object get_by_account at 0x1073b9f50, file "WeRobotCore/adapters/wechat/windows_legacy/instance_registry.py", line 349>:
+350           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                1 (account_id)
+              4 LOAD_GLOBAL              1 (str)
+              6 CALL_FUNCTION            2
+              8 POP_JUMP_IF_FALSE       18
+             10 LOAD_FAST                1 (account_id)
+             12 LOAD_METHOD              2 (strip)
+             14 CALL_METHOD              0
+             16 POP_JUMP_IF_TRUE        30
+
+351     >>   18 LOAD_GLOBAL              3 (AutomationError)
+
+352          20 LOAD_GLOBAL              4 (ErrorCode)
+             22 LOAD_ATTR                5 (INVALID_ARGUMENT)
+
+353          24 LOAD_CONST               1 ('account_id must be a non-empty string')
+
+351          26 CALL_FUNCTION            2
+             28 RAISE_VARARGS            1
+
+355     >>   30 LOAD_FAST                1 (account_id)
+             32 LOAD_METHOD              2 (strip)
+             34 CALL_METHOD              0
+             36 STORE_FAST               2 (normalized)
+
+356          38 LOAD_FAST                0 (self)
+             40 LOAD_METHOD              6 (list_attached)
+             42 CALL_METHOD              0
+             44 GET_AWAITABLE
+             46 LOAD_CONST               0 (None)
+             48 YIELD_FROM
+             50 GET_ITER
+        >>   52 FOR_ITER                22 (to 76)
+             54 STORE_FAST               3 (instance)
+
+357          56 LOAD_FAST                3 (instance)
+             58 LOAD_ATTR                7 (account_id)
+             60 LOAD_FAST                2 (normalized)
+             62 COMPARE_OP               2 (==)
+             64 POP_JUMP_IF_FALSE       52
+
+358          66 LOAD_FAST                3 (instance)
+             68 ROT_TWO
+             70 POP_TOP
+             72 RETURN_VALUE
+             74 JUMP_ABSOLUTE           52
+
+359     >>   76 LOAD_CONST               0 (None)
+             78 RETURN_VALUE

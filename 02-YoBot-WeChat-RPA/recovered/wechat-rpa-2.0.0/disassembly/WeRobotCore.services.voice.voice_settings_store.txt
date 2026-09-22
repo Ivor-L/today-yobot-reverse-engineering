@@ -1,0 +1,661 @@
+  1           0 SETUP_ANNOTATIONS
+              2 LOAD_CONST               0 ('\nvoice_settings.json 的读写封装：把加密/脱敏/默认值合并集中在一处，\n避免在 API 层和 service 层各写一遍。\n\n落盘格式：sensitive fields（access_token / api_key）以 dpapi:v1: 前缀的密文存储；\n不敏感字段（app_id / endpoint / resource_id_*）明文存储便于排查。\n\n对外提供：\n- load_voice_settings_decrypted():  解密后的完整配置，供 voice_service 使用\n- load_voice_settings_masked():      脱敏后的视图，供 GET /api/voice/config\n- save_voice_settings(incoming):     合并保存，自动加密敏感字段\n- update_compliance_agreed(version): 记录用户同意合规协议的时间与版本\n')
+              4 STORE_NAME               0 (__doc__)
+
+ 14           6 LOAD_CONST               1 (0)
+              8 LOAD_CONST               2 (('annotations',))
+             10 IMPORT_NAME              1 (__future__)
+             12 IMPORT_FROM              2 (annotations)
+             14 STORE_NAME               2 (annotations)
+             16 POP_TOP
+
+ 16          18 LOAD_CONST               1 (0)
+             20 LOAD_CONST               3 (None)
+             22 IMPORT_NAME              3 (copy)
+             24 STORE_NAME               3 (copy)
+
+ 17          26 LOAD_CONST               1 (0)
+             28 LOAD_CONST               3 (None)
+             30 IMPORT_NAME              4 (time)
+             32 STORE_NAME               4 (time)
+
+ 18          34 LOAD_CONST               1 (0)
+             36 LOAD_CONST               4 (('Any', 'Dict'))
+             38 IMPORT_NAME              5 (typing)
+             40 IMPORT_FROM              6 (Any)
+             42 STORE_NAME               6 (Any)
+             44 IMPORT_FROM              7 (Dict)
+             46 STORE_NAME               7 (Dict)
+             48 POP_TOP
+
+ 20          50 LOAD_CONST               5 (3)
+             52 LOAD_CONST               6 (('ConfigManager',))
+             54 IMPORT_NAME              8 (utils.config_manager)
+             56 IMPORT_FROM              9 (ConfigManager)
+             58 STORE_NAME               9 (ConfigManager)
+             60 POP_TOP
+
+ 21          62 LOAD_CONST               5 (3)
+             64 LOAD_CONST               7 (('decrypt', 'encrypt', 'mask', 'is_encrypted'))
+             66 IMPORT_NAME             10 (utils.dpapi_crypto)
+             68 IMPORT_FROM             11 (decrypt)
+             70 STORE_NAME              11 (decrypt)
+             72 IMPORT_FROM             12 (encrypt)
+             74 STORE_NAME              12 (encrypt)
+             76 IMPORT_FROM             13 (mask)
+             78 STORE_NAME              13 (mask)
+             80 IMPORT_FROM             14 (is_encrypted)
+             82 STORE_NAME              14 (is_encrypted)
+             84 POP_TOP
+
+ 24          86 LOAD_CONST               8 ('voice_settings')
+             88 STORE_NAME              15 (CONFIG_KEY)
+
+ 25          90 LOAD_CONST               9 ('v1.0')
+             92 STORE_NAME              16 (COMPLIANCE_VERSION)
+
+ 28          94 LOAD_CONST              10 ('doubao')
+
+ 30          96 LOAD_CONST              11 ('')
+
+ 31          98 LOAD_CONST              11 ('')
+
+ 32         100 LOAD_CONST              11 ('')
+
+ 34         102 LOAD_CONST              11 ('')
+
+ 35         104 LOAD_CONST              11 ('')
+
+ 36         106 LOAD_CONST              12 ('cn-north-1')
+
+ 37         108 LOAD_CONST              13 ('https://open.volcengineapi.com')
+
+ 39         110 LOAD_CONST              14 ('seed-icl-2.0')
+
+ 40         112 LOAD_CONST              15 ('seed-tts-2.0')
+
+ 41         114 LOAD_CONST              16 ('https://openspeech.bytedance.com')
+
+ 29         116 LOAD_CONST              17 (('app_id', 'access_token', 'api_key', 'access_key_id', 'secret_access_key', 'open_api_region', 'open_api_endpoint', 'resource_id_clone', 'resource_id_tts', 'endpoint'))
+            118 BUILD_CONST_KEY_MAP     10
+
+ 44         120 LOAD_CONST              18 (1.0)
+
+ 45         122 LOAD_CONST              19 (120)
+
+ 46         124 LOAD_CONST               3 (None)
+
+ 47         126 LOAD_CONST               3 (None)
+
+ 27         128 LOAD_CONST              20 (('provider', 'doubao', 'auto_reply_speed', 'tts_max_chars', 'compliance_agreed_at', 'compliance_agreed_version'))
+            130 BUILD_CONST_KEY_MAP      6
+            132 STORE_NAME              17 (DEFAULT_SETTINGS)
+            134 LOAD_CONST              21 ('Dict[str, Any]')
+            136 LOAD_NAME               18 (__annotations__)
+            138 LOAD_CONST              22 ('DEFAULT_SETTINGS')
+            140 STORE_SUBSCR
+
+ 52         142 LOAD_CONST              10 ('doubao')
+            144 LOAD_CONST              23 (('access_token', 'api_key', 'secret_access_key'))
+
+ 51         146 BUILD_MAP                1
+            148 STORE_NAME              19 (_SENSITIVE_FIELDS_BY_PROVIDER)
+
+ 56         150 LOAD_CONST              21 ('Dict[str, Any]')
+            152 LOAD_CONST              21 ('Dict[str, Any]')
+            154 LOAD_CONST              24 (('stored', 'return'))
+            156 BUILD_CONST_KEY_MAP      2
+            158 LOAD_CONST              25 (<code object _merge_defaults at 0x1072cfbe0, file "WeRobotCore/services/voice/voice_settings_store.py", line 56>)
+            160 LOAD_CONST              26 ('_merge_defaults')
+            162 MAKE_FUNCTION            4 (annotations)
+            164 STORE_NAME              20 (_merge_defaults)
+
+ 69         166 LOAD_CONST              21 ('Dict[str, Any]')
+            168 LOAD_CONST              27 (('return',))
+            170 BUILD_CONST_KEY_MAP      1
+            172 LOAD_CONST              28 (<code object _load_raw at 0x1073aaf50, file "WeRobotCore/services/voice/voice_settings_store.py", line 69>)
+            174 LOAD_CONST              29 ('_load_raw')
+            176 MAKE_FUNCTION            4 (annotations)
+            178 STORE_NAME              21 (_load_raw)
+
+ 75         180 LOAD_CONST              21 ('Dict[str, Any]')
+            182 LOAD_CONST              27 (('return',))
+            184 BUILD_CONST_KEY_MAP      1
+            186 LOAD_CONST              30 (<code object load_voice_settings_decrypted at 0x1073aa920, file "WeRobotCore/services/voice/voice_settings_store.py", line 75>)
+            188 LOAD_CONST              31 ('load_voice_settings_decrypted')
+            190 MAKE_FUNCTION            4 (annotations)
+            192 STORE_NAME              22 (load_voice_settings_decrypted)
+
+ 86         194 LOAD_CONST              21 ('Dict[str, Any]')
+            196 LOAD_CONST              27 (('return',))
+            198 BUILD_CONST_KEY_MAP      1
+            200 LOAD_CONST              32 (<code object load_voice_settings_masked at 0x1073aa9d0, file "WeRobotCore/services/voice/voice_settings_store.py", line 86>)
+            202 LOAD_CONST              33 ('load_voice_settings_masked')
+            204 MAKE_FUNCTION            4 (annotations)
+            206 STORE_NAME              23 (load_voice_settings_masked)
+
+101         208 LOAD_CONST              21 ('Dict[str, Any]')
+            210 LOAD_CONST              21 ('Dict[str, Any]')
+            212 LOAD_CONST              34 (('incoming', 'return'))
+            214 BUILD_CONST_KEY_MAP      2
+            216 LOAD_CONST              35 (<code object save_voice_settings at 0x1073aabe0, file "WeRobotCore/services/voice/voice_settings_store.py", line 101>)
+            218 LOAD_CONST              36 ('save_voice_settings')
+            220 MAKE_FUNCTION            4 (annotations)
+            222 STORE_NAME              24 (save_voice_settings)
+
+157         224 LOAD_CONST              21 ('Dict[str, Any]')
+            226 LOAD_CONST              27 (('return',))
+            228 BUILD_CONST_KEY_MAP      1
+            230 LOAD_CONST              37 (<code object update_compliance_agreed at 0x1073aa500, file "WeRobotCore/services/voice/voice_settings_store.py", line 157>)
+            232 LOAD_CONST              38 ('update_compliance_agreed')
+            234 MAKE_FUNCTION            4 (annotations)
+            236 STORE_NAME              25 (update_compliance_agreed)
+            238 LOAD_CONST               3 (None)
+            240 RETURN_VALUE
+
+Disassembly of <code object _merge_defaults at 0x1072cfbe0, file "WeRobotCore/services/voice/voice_settings_store.py", line 56>:
+ 58           0 LOAD_GLOBAL              0 (copy)
+              2 LOAD_METHOD              1 (deepcopy)
+              4 LOAD_GLOBAL              2 (DEFAULT_SETTINGS)
+              6 CALL_METHOD              1
+              8 STORE_FAST               1 (merged)
+
+ 59          10 LOAD_GLOBAL              3 (isinstance)
+             12 LOAD_FAST                0 (stored)
+             14 LOAD_GLOBAL              4 (dict)
+             16 CALL_FUNCTION            2
+             18 POP_JUMP_IF_TRUE        24
+
+ 60          20 LOAD_FAST                1 (merged)
+             22 RETURN_VALUE
+
+ 61     >>   24 LOAD_FAST                0 (stored)
+             26 LOAD_METHOD              5 (items)
+             28 CALL_METHOD              0
+             30 GET_ITER
+        >>   32 FOR_ITER                64 (to 98)
+             34 UNPACK_SEQUENCE          2
+             36 STORE_FAST               2 (k)
+             38 STORE_FAST               3 (v)
+
+ 62          40 LOAD_GLOBAL              3 (isinstance)
+             42 LOAD_FAST                3 (v)
+             44 LOAD_GLOBAL              4 (dict)
+             46 CALL_FUNCTION            2
+             48 POP_JUMP_IF_FALSE       88
+             50 LOAD_GLOBAL              3 (isinstance)
+             52 LOAD_FAST                1 (merged)
+             54 LOAD_METHOD              6 (get)
+             56 LOAD_FAST                2 (k)
+             58 CALL_METHOD              1
+             60 LOAD_GLOBAL              4 (dict)
+             62 CALL_FUNCTION            2
+             64 POP_JUMP_IF_FALSE       88
+
+ 63          66 BUILD_MAP                0
+             68 LOAD_FAST                1 (merged)
+             70 LOAD_FAST                2 (k)
+             72 BINARY_SUBSCR
+             74 DICT_UPDATE              1
+             76 LOAD_FAST                3 (v)
+             78 DICT_UPDATE              1
+             80 LOAD_FAST                1 (merged)
+             82 LOAD_FAST                2 (k)
+             84 STORE_SUBSCR
+             86 JUMP_ABSOLUTE           32
+
+ 65     >>   88 LOAD_FAST                3 (v)
+             90 LOAD_FAST                1 (merged)
+             92 LOAD_FAST                2 (k)
+             94 STORE_SUBSCR
+             96 JUMP_ABSOLUTE           32
+
+ 66     >>   98 LOAD_FAST                1 (merged)
+            100 RETURN_VALUE
+
+Disassembly of <code object _load_raw at 0x1073aaf50, file "WeRobotCore/services/voice/voice_settings_store.py", line 69>:
+ 70           0 LOAD_GLOBAL              0 (ConfigManager)
+              2 CALL_FUNCTION            0
+              4 STORE_FAST               0 (cfg_mgr)
+
+ 71           6 LOAD_FAST                0 (cfg_mgr)
+              8 LOAD_METHOD              1 (load_config)
+             10 LOAD_GLOBAL              2 (CONFIG_KEY)
+             12 CALL_METHOD              1
+             14 JUMP_IF_TRUE_OR_POP     18
+             16 BUILD_MAP                0
+        >>   18 STORE_FAST               1 (raw)
+
+ 72          20 LOAD_GLOBAL              3 (_merge_defaults)
+             22 LOAD_FAST                1 (raw)
+             24 CALL_FUNCTION            1
+             26 RETURN_VALUE
+
+Disassembly of <code object load_voice_settings_decrypted at 0x1073aa920, file "WeRobotCore/services/voice/voice_settings_store.py", line 75>:
+ 77           0 LOAD_GLOBAL              0 (_load_raw)
+              2 CALL_FUNCTION            0
+              4 STORE_FAST               0 (s)
+
+ 78           6 LOAD_FAST                0 (s)
+              8 LOAD_METHOD              1 (get)
+             10 LOAD_CONST               1 ('provider')
+             12 CALL_METHOD              1
+             14 JUMP_IF_TRUE_OR_POP     18
+             16 LOAD_CONST               2 ('')
+        >>   18 LOAD_METHOD              2 (lower)
+             20 CALL_METHOD              0
+             22 STORE_FAST               1 (provider)
+
+ 79          24 LOAD_GLOBAL              3 (_SENSITIVE_FIELDS_BY_PROVIDER)
+             26 LOAD_METHOD              1 (get)
+             28 LOAD_FAST                1 (provider)
+             30 LOAD_CONST               3 (())
+             32 CALL_METHOD              2
+             34 STORE_FAST               2 (sensitive)
+
+ 80          36 LOAD_FAST                1 (provider)
+             38 LOAD_FAST                0 (s)
+             40 CONTAINS_OP              0
+             42 POP_JUMP_IF_FALSE       94
+             44 LOAD_GLOBAL              4 (isinstance)
+             46 LOAD_FAST                0 (s)
+             48 LOAD_FAST                1 (provider)
+             50 BINARY_SUBSCR
+             52 LOAD_GLOBAL              5 (dict)
+             54 CALL_FUNCTION            2
+             56 POP_JUMP_IF_FALSE       94
+
+ 81          58 LOAD_FAST                2 (sensitive)
+             60 GET_ITER
+        >>   62 FOR_ITER                30 (to 94)
+             64 STORE_FAST               3 (f)
+
+ 82          66 LOAD_GLOBAL              6 (decrypt)
+             68 LOAD_FAST                0 (s)
+             70 LOAD_FAST                1 (provider)
+             72 BINARY_SUBSCR
+             74 LOAD_METHOD              1 (get)
+             76 LOAD_FAST                3 (f)
+             78 CALL_METHOD              1
+             80 CALL_FUNCTION            1
+             82 LOAD_FAST                0 (s)
+             84 LOAD_FAST                1 (provider)
+             86 BINARY_SUBSCR
+             88 LOAD_FAST                3 (f)
+             90 STORE_SUBSCR
+             92 JUMP_ABSOLUTE           62
+
+ 83     >>   94 LOAD_FAST                0 (s)
+             96 RETURN_VALUE
+
+Disassembly of <code object load_voice_settings_masked at 0x1073aa9d0, file "WeRobotCore/services/voice/voice_settings_store.py", line 86>:
+ 88           0 LOAD_GLOBAL              0 (_load_raw)
+              2 CALL_FUNCTION            0
+              4 STORE_FAST               0 (s)
+
+ 89           6 LOAD_FAST                0 (s)
+              8 LOAD_METHOD              1 (get)
+             10 LOAD_CONST               1 ('provider')
+             12 CALL_METHOD              1
+             14 JUMP_IF_TRUE_OR_POP     18
+             16 LOAD_CONST               2 ('')
+        >>   18 LOAD_METHOD              2 (lower)
+             20 CALL_METHOD              0
+             22 STORE_FAST               1 (provider)
+
+ 90          24 LOAD_GLOBAL              3 (_SENSITIVE_FIELDS_BY_PROVIDER)
+             26 LOAD_METHOD              1 (get)
+             28 LOAD_FAST                1 (provider)
+             30 LOAD_CONST               3 (())
+             32 CALL_METHOD              2
+             34 STORE_FAST               2 (sensitive)
+
+ 91          36 LOAD_FAST                1 (provider)
+             38 LOAD_FAST                0 (s)
+             40 CONTAINS_OP              0
+             42 POP_JUMP_IF_FALSE      146
+             44 LOAD_GLOBAL              4 (isinstance)
+             46 LOAD_FAST                0 (s)
+             48 LOAD_FAST                1 (provider)
+             50 BINARY_SUBSCR
+             52 LOAD_GLOBAL              5 (dict)
+             54 CALL_FUNCTION            2
+             56 POP_JUMP_IF_FALSE      146
+
+ 92          58 LOAD_FAST                2 (sensitive)
+             60 GET_ITER
+        >>   62 FOR_ITER                82 (to 146)
+             64 STORE_FAST               3 (f)
+
+ 93          66 LOAD_FAST                0 (s)
+             68 LOAD_FAST                1 (provider)
+             70 BINARY_SUBSCR
+             72 LOAD_METHOD              1 (get)
+             74 LOAD_FAST                3 (f)
+             76 CALL_METHOD              1
+             78 STORE_FAST               4 (raw_val)
+
+ 94          80 LOAD_CONST               2 ('')
+             82 LOAD_FAST                0 (s)
+             84 LOAD_FAST                1 (provider)
+             86 BINARY_SUBSCR
+             88 LOAD_FAST                3 (f)
+             90 STORE_SUBSCR
+
+ 95          92 LOAD_FAST                4 (raw_val)
+             94 POP_JUMP_IF_FALSE      104
+             96 LOAD_GLOBAL              6 (mask)
+             98 LOAD_FAST                4 (raw_val)
+            100 CALL_FUNCTION            1
+            102 JUMP_FORWARD             2 (to 106)
+        >>  104 LOAD_CONST               2 ('')
+        >>  106 LOAD_FAST                0 (s)
+            108 LOAD_FAST                1 (provider)
+            110 BINARY_SUBSCR
+            112 LOAD_FAST                3 (f)
+            114 FORMAT_VALUE             0
+            116 LOAD_CONST               4 ('_masked')
+            118 BUILD_STRING             2
+            120 STORE_SUBSCR
+
+ 96         122 LOAD_GLOBAL              7 (bool)
+            124 LOAD_FAST                4 (raw_val)
+            126 CALL_FUNCTION            1
+            128 LOAD_FAST                0 (s)
+            130 LOAD_FAST                1 (provider)
+            132 BINARY_SUBSCR
+            134 LOAD_FAST                3 (f)
+            136 FORMAT_VALUE             0
+            138 LOAD_CONST               5 ('_has_value')
+            140 BUILD_STRING             2
+            142 STORE_SUBSCR
+            144 JUMP_ABSOLUTE           62
+
+ 97     >>  146 LOAD_GLOBAL              8 (COMPLIANCE_VERSION)
+            148 LOAD_FAST                0 (s)
+            150 LOAD_CONST               6 ('compliance_current_version')
+            152 STORE_SUBSCR
+
+ 98         154 LOAD_FAST                0 (s)
+            156 RETURN_VALUE
+
+Disassembly of <code object save_voice_settings at 0x1073aabe0, file "WeRobotCore/services/voice/voice_settings_store.py", line 101>:
+108           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                0 (incoming)
+              4 LOAD_GLOBAL              1 (dict)
+              6 CALL_FUNCTION            2
+              8 POP_JUMP_IF_TRUE        18
+
+109          10 LOAD_GLOBAL              2 (ValueError)
+             12 LOAD_CONST               1 ('voice_settings 必须是对象')
+             14 CALL_FUNCTION            1
+             16 RAISE_VARARGS            1
+
+111     >>   18 LOAD_GLOBAL              3 (_load_raw)
+             20 CALL_FUNCTION            0
+             22 STORE_FAST               1 (current_raw)
+
+112          24 LOAD_GLOBAL              4 (copy)
+             26 LOAD_METHOD              5 (deepcopy)
+             28 LOAD_FAST                1 (current_raw)
+             30 CALL_METHOD              1
+             32 STORE_FAST               2 (merged)
+
+114          34 LOAD_FAST                0 (incoming)
+             36 LOAD_METHOD              6 (get)
+             38 LOAD_CONST               2 ('provider')
+             40 CALL_METHOD              1
+             42 JUMP_IF_TRUE_OR_POP     56
+             44 LOAD_FAST                2 (merged)
+             46 LOAD_METHOD              6 (get)
+             48 LOAD_CONST               2 ('provider')
+             50 CALL_METHOD              1
+             52 JUMP_IF_TRUE_OR_POP     56
+             54 LOAD_CONST               3 ('doubao')
+        >>   56 LOAD_METHOD              7 (lower)
+             58 CALL_METHOD              0
+             60 STORE_FAST               3 (new_provider)
+
+115          62 LOAD_FAST                3 (new_provider)
+             64 LOAD_FAST                2 (merged)
+             66 LOAD_CONST               2 ('provider')
+             68 STORE_SUBSCR
+
+118          70 LOAD_CONST               4 ('auto_reply_speed')
+             72 LOAD_FAST                0 (incoming)
+             74 CONTAINS_OP              0
+             76 POP_JUMP_IF_FALSE      138
+
+119          78 SETUP_FINALLY           36 (to 116)
+
+120          80 LOAD_GLOBAL              8 (float)
+             82 LOAD_FAST                0 (incoming)
+             84 LOAD_CONST               4 ('auto_reply_speed')
+             86 BINARY_SUBSCR
+             88 CALL_FUNCTION            1
+             90 STORE_FAST               4 (sp)
+
+121          92 LOAD_GLOBAL              9 (max)
+             94 LOAD_CONST               5 (0.5)
+             96 LOAD_GLOBAL             10 (min)
+             98 LOAD_CONST               6 (2.0)
+            100 LOAD_FAST                4 (sp)
+            102 CALL_FUNCTION            2
+            104 CALL_FUNCTION            2
+            106 LOAD_FAST                2 (merged)
+            108 LOAD_CONST               4 ('auto_reply_speed')
+            110 STORE_SUBSCR
+            112 POP_BLOCK
+            114 JUMP_FORWARD            22 (to 138)
+
+122     >>  116 DUP_TOP
+            118 LOAD_GLOBAL             11 (TypeError)
+            120 LOAD_GLOBAL              2 (ValueError)
+            122 BUILD_TUPLE              2
+            124 JUMP_IF_NOT_EXC_MATCH   136
+            126 POP_TOP
+            128 POP_TOP
+            130 POP_TOP
+
+123         132 POP_EXCEPT
+            134 JUMP_FORWARD             2 (to 138)
+        >>  136 RERAISE
+
+125     >>  138 LOAD_CONST               7 ('tts_max_chars')
+            140 LOAD_FAST                0 (incoming)
+            142 CONTAINS_OP              0
+            144 POP_JUMP_IF_FALSE      206
+
+126         146 SETUP_FINALLY           36 (to 184)
+
+127         148 LOAD_GLOBAL             12 (int)
+            150 LOAD_FAST                0 (incoming)
+            152 LOAD_CONST               7 ('tts_max_chars')
+            154 BINARY_SUBSCR
+            156 CALL_FUNCTION            1
+            158 STORE_FAST               5 (mc)
+
+128         160 LOAD_GLOBAL              9 (max)
+            162 LOAD_CONST               8 (20)
+            164 LOAD_GLOBAL             10 (min)
+            166 LOAD_CONST               9 (300)
+            168 LOAD_FAST                5 (mc)
+            170 CALL_FUNCTION            2
+            172 CALL_FUNCTION            2
+            174 LOAD_FAST                2 (merged)
+            176 LOAD_CONST               7 ('tts_max_chars')
+            178 STORE_SUBSCR
+            180 POP_BLOCK
+            182 JUMP_FORWARD            22 (to 206)
+
+129     >>  184 DUP_TOP
+            186 LOAD_GLOBAL             11 (TypeError)
+            188 LOAD_GLOBAL              2 (ValueError)
+            190 BUILD_TUPLE              2
+            192 JUMP_IF_NOT_EXC_MATCH   204
+            194 POP_TOP
+            196 POP_TOP
+            198 POP_TOP
+
+130         200 POP_EXCEPT
+            202 JUMP_FORWARD             2 (to 206)
+        >>  204 RERAISE
+
+132     >>  206 LOAD_CONST              10 (('doubao',))
+            208 GET_ITER
+        >>  210 FOR_ITER               172 (to 384)
+            212 STORE_FAST               6 (prov_key)
+
+133         214 LOAD_FAST                6 (prov_key)
+            216 LOAD_FAST                0 (incoming)
+            218 CONTAINS_OP              0
+            220 POP_JUMP_IF_FALSE      210
+            222 LOAD_GLOBAL              0 (isinstance)
+            224 LOAD_FAST                0 (incoming)
+            226 LOAD_FAST                6 (prov_key)
+            228 BINARY_SUBSCR
+            230 LOAD_GLOBAL              1 (dict)
+            232 CALL_FUNCTION            2
+            234 POP_JUMP_IF_FALSE      210
+
+134         236 LOAD_GLOBAL             13 (_SENSITIVE_FIELDS_BY_PROVIDER)
+            238 LOAD_METHOD              6 (get)
+            240 LOAD_FAST                6 (prov_key)
+            242 LOAD_CONST              11 (())
+            244 CALL_METHOD              2
+            246 STORE_FAST               7 (sensitive)
+
+135         248 LOAD_FAST                2 (merged)
+            250 LOAD_METHOD             14 (setdefault)
+            252 LOAD_FAST                6 (prov_key)
+            254 BUILD_MAP                0
+            256 CALL_METHOD              2
+            258 STORE_FAST               8 (target)
+
+136         260 LOAD_FAST                0 (incoming)
+            262 LOAD_FAST                6 (prov_key)
+            264 BINARY_SUBSCR
+            266 LOAD_METHOD             15 (items)
+            268 CALL_METHOD              0
+            270 GET_ITER
+        >>  272 FOR_ITER               108 (to 382)
+            274 UNPACK_SEQUENCE          2
+            276 STORE_FAST               9 (k)
+            278 STORE_FAST              10 (v)
+
+137         280 LOAD_FAST                9 (k)
+            282 LOAD_METHOD             16 (endswith)
+            284 LOAD_CONST              12 ('_masked')
+            286 CALL_METHOD              1
+            288 EXTENDED_ARG             1
+            290 POP_JUMP_IF_TRUE       272
+            292 LOAD_FAST                9 (k)
+            294 LOAD_METHOD             16 (endswith)
+            296 LOAD_CONST              13 ('_has_value')
+            298 CALL_METHOD              1
+            300 EXTENDED_ARG             1
+            302 POP_JUMP_IF_FALSE      308
+
+138         304 EXTENDED_ARG             1
+            306 JUMP_ABSOLUTE          272
+
+139     >>  308 LOAD_FAST                9 (k)
+            310 LOAD_FAST                7 (sensitive)
+            312 CONTAINS_OP              0
+            314 EXTENDED_ARG             1
+            316 POP_JUMP_IF_FALSE      370
+
+140         318 LOAD_FAST               10 (v)
+            320 LOAD_CONST              14 ('')
+            322 COMPARE_OP               2 (==)
+            324 EXTENDED_ARG             1
+            326 POP_JUMP_IF_TRUE       272
+            328 LOAD_FAST               10 (v)
+            330 LOAD_CONST              15 (None)
+            332 IS_OP                    0
+            334 EXTENDED_ARG             1
+            336 POP_JUMP_IF_FALSE      342
+
+142         338 EXTENDED_ARG             1
+            340 JUMP_ABSOLUTE          272
+
+143     >>  342 LOAD_GLOBAL             17 (is_encrypted)
+            344 LOAD_FAST               10 (v)
+            346 CALL_FUNCTION            1
+            348 EXTENDED_ARG             1
+            350 POP_JUMP_IF_FALSE      356
+
+145         352 EXTENDED_ARG             1
+            354 JUMP_ABSOLUTE          272
+
+146     >>  356 LOAD_GLOBAL             18 (encrypt)
+            358 LOAD_FAST               10 (v)
+            360 CALL_FUNCTION            1
+            362 LOAD_FAST                8 (target)
+            364 LOAD_FAST                9 (k)
+            366 STORE_SUBSCR
+            368 JUMP_FORWARD             8 (to 378)
+
+148     >>  370 LOAD_FAST               10 (v)
+            372 LOAD_FAST                8 (target)
+            374 LOAD_FAST                9 (k)
+            376 STORE_SUBSCR
+        >>  378 EXTENDED_ARG             1
+            380 JUMP_ABSOLUTE          272
+        >>  382 JUMP_ABSOLUTE          210
+
+150     >>  384 LOAD_GLOBAL             19 (ConfigManager)
+            386 CALL_FUNCTION            0
+            388 STORE_FAST              11 (cfg_mgr)
+
+151         390 LOAD_FAST               11 (cfg_mgr)
+            392 LOAD_METHOD             20 (save_config)
+            394 LOAD_GLOBAL             21 (CONFIG_KEY)
+            396 LOAD_FAST                2 (merged)
+            398 CALL_METHOD              2
+            400 STORE_FAST              12 (ok)
+
+152         402 LOAD_FAST               12 (ok)
+            404 EXTENDED_ARG             1
+            406 POP_JUMP_IF_TRUE       416
+
+153         408 LOAD_GLOBAL             22 (RuntimeError)
+            410 LOAD_CONST              16 ('voice_settings 保存失败')
+            412 CALL_FUNCTION            1
+            414 RAISE_VARARGS            1
+
+154     >>  416 LOAD_FAST                2 (merged)
+            418 RETURN_VALUE
+
+Disassembly of <code object update_compliance_agreed at 0x1073aa500, file "WeRobotCore/services/voice/voice_settings_store.py", line 157>:
+159           0 LOAD_GLOBAL              0 (_load_raw)
+              2 CALL_FUNCTION            0
+              4 STORE_FAST               0 (s)
+
+160           6 LOAD_GLOBAL              1 (int)
+              8 LOAD_GLOBAL              2 (time)
+             10 LOAD_METHOD              2 (time)
+             12 CALL_METHOD              0
+             14 CALL_FUNCTION            1
+             16 LOAD_FAST                0 (s)
+             18 LOAD_CONST               1 ('compliance_agreed_at')
+             20 STORE_SUBSCR
+
+161          22 LOAD_GLOBAL              3 (COMPLIANCE_VERSION)
+             24 LOAD_FAST                0 (s)
+             26 LOAD_CONST               2 ('compliance_agreed_version')
+             28 STORE_SUBSCR
+
+162          30 LOAD_GLOBAL              4 (ConfigManager)
+             32 CALL_FUNCTION            0
+             34 STORE_FAST               1 (cfg_mgr)
+
+163          36 LOAD_FAST                1 (cfg_mgr)
+             38 LOAD_METHOD              5 (save_config)
+             40 LOAD_GLOBAL              6 (CONFIG_KEY)
+             42 LOAD_FAST                0 (s)
+             44 CALL_METHOD              2
+             46 POP_TOP
+
+164          48 LOAD_FAST                0 (s)
+             50 RETURN_VALUE

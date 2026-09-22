@@ -1,0 +1,15 @@
+export const RECORDING_CAPSULE_DISMISS_CHANNEL = 'desktop-recording-capsule:dismiss';
+export const RECORDING_CAPSULE_CANCEL_CHANNEL = 'desktop-recording-capsule:cancel';
+export const RECORDING_CAPSULE_OPEN_NOTES_CHANNEL = 'desktop-recording-capsule:open-notes';
+export const RECORDING_CAPSULE_OPEN_APP_CHANNEL = 'desktop-recording-capsule:open-app';
+export const RECORDING_CAPSULE_POINTER_CHANNEL = 'desktop-recording-capsule:pointer';
+export const RECORDING_CAPSULE_WARNING_SIZE_CHANNEL = 'desktop-recording-capsule:warning-size';
+export const RECORDING_CAPSULE_DRAG_THRESHOLD = 4;
+export const RECORDING_CAPSULE_CLICK_DURATION_MS = 500;
+export const RECORDING_CAPSULE_GET_STATE_CHANNEL = 'desktop-recording-capsule:get-state';
+export const RECORDING_CAPSULE_RETRY_CHANNEL = 'desktop-recording-capsule:retry';
+export const RECORDING_CAPSULE_SET_PAUSED_CHANNEL = 'desktop-recording-capsule:set-paused';
+export const RECORDING_CAPSULE_STATE_CHANGED_CHANNEL = 'desktop-recording-capsule:state-changed';
+export const RECORDING_CAPSULE_STOP_CHANNEL = 'desktop-recording-capsule:stop';
+export const RECORDING_CAPSULE_SUBSCRIBE_CHANNEL = 'desktop-recording-capsule:subscribe';
+export const RECORDING_CAPSULE_UNSUBSCRIBE_CHANNEL = 'desktop-recording-capsule:unsubscribe';

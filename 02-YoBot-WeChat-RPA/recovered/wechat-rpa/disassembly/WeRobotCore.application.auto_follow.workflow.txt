@@ -1,0 +1,1561 @@
+  1           0 LOAD_CONST               0 ('Windows-parity automatic follow-up business workflow.\n\nScheduling and task control remain in the established V3 adapter.  This\nmodule owns only the platform-neutral execution of one follow-up occurrence.\n')
+              2 STORE_NAME               0 (__doc__)
+
+  7           4 LOAD_CONST               1 (0)
+              6 LOAD_CONST               2 (('annotations',))
+              8 IMPORT_NAME              1 (__future__)
+             10 IMPORT_FROM              2 (annotations)
+             12 STORE_NAME               2 (annotations)
+             14 POP_TOP
+
+  9          16 LOAD_CONST               1 (0)
+             18 LOAD_CONST               3 (None)
+             20 IMPORT_NAME              3 (asyncio)
+             22 STORE_NAME               3 (asyncio)
+
+ 10          24 LOAD_CONST               1 (0)
+             26 LOAD_CONST               3 (None)
+             28 IMPORT_NAME              4 (hashlib)
+             30 STORE_NAME               4 (hashlib)
+
+ 11          32 LOAD_CONST               1 (0)
+             34 LOAD_CONST               4 (('Any', 'Dict', 'Iterable', 'List', 'Mapping'))
+             36 IMPORT_NAME              5 (typing)
+             38 IMPORT_FROM              6 (Any)
+             40 STORE_NAME               6 (Any)
+             42 IMPORT_FROM              7 (Dict)
+             44 STORE_NAME               7 (Dict)
+             46 IMPORT_FROM              8 (Iterable)
+             48 STORE_NAME               8 (Iterable)
+             50 IMPORT_FROM              9 (List)
+             52 STORE_NAME               9 (List)
+             54 IMPORT_FROM             10 (Mapping)
+             56 STORE_NAME              10 (Mapping)
+             58 POP_TOP
+
+ 13          60 LOAD_CONST               1 (0)
+             62 LOAD_CONST               5 (('AIServiceFactory',))
+             64 IMPORT_NAME             11 (WeRobotCore.services.ai_service_factory)
+             66 IMPORT_FROM             12 (AIServiceFactory)
+             68 STORE_NAME              12 (AIServiceFactory)
+             70 POP_TOP
+
+ 14          72 LOAD_CONST               1 (0)
+             74 LOAD_CONST               6 (('MessageProcessor',))
+             76 IMPORT_NAME             13 (WeRobotCore.utils.message_processor)
+             78 IMPORT_FROM             14 (MessageProcessor)
+             80 STORE_NAME              14 (MessageProcessor)
+             82 POP_TOP
+
+ 15          84 LOAD_CONST               1 (0)
+             86 LOAD_CONST               7 (('split_text_message',))
+             88 IMPORT_NAME             15 (WeRobotCore.utils.message_splitter)
+             90 IMPORT_FROM             16 (split_text_message)
+             92 STORE_NAME              16 (split_text_message)
+             94 POP_TOP
+
+ 17          96 LOAD_CONST               8 (1)
+             98 LOAD_CONST               9 (('AutoFollowRuntime',))
+            100 IMPORT_NAME             17 (runtime)
+            102 IMPORT_FROM             18 (AutoFollowRuntime)
+            104 STORE_NAME              18 (AutoFollowRuntime)
+            106 POP_TOP
+
+ 20         108 LOAD_CONST              10 (40)
+            110 STORE_NAME              19 (MAX_FLAT_HISTORY_MESSAGES)
+
+ 21         112 LOAD_CONST              11 (12000)
+            114 STORE_NAME              20 (MAX_FLAT_HISTORY_CHARS)
+
+ 22         116 LOAD_NAME               21 (frozenset)
+            118 LOAD_CONST              12 (('SKIP', 'NOREPLY', 'NO_REPLY', '无需跟进'))
+            120 CALL_FUNCTION            1
+            122 STORE_NAME              22 (_SKIP_REPLIES)
+
+ 25         124 LOAD_BUILD_CLASS
+            126 LOAD_CONST              13 (<code object AutoFollowWorkflow at 0x109244450, file "WeRobotCore/application/auto_follow/workflow.py", line 25>)
+            128 LOAD_CONST              14 ('AutoFollowWorkflow')
+            130 MAKE_FUNCTION            0
+            132 LOAD_CONST              14 ('AutoFollowWorkflow')
+            134 CALL_FUNCTION            2
+            136 STORE_NAME              23 (AutoFollowWorkflow)
+
+332         138 LOAD_CONST              14 ('AutoFollowWorkflow')
+            140 BUILD_LIST               1
+            142 STORE_NAME              24 (__all__)
+            144 LOAD_CONST               3 (None)
+            146 RETURN_VALUE
+
+Disassembly of <code object AutoFollowWorkflow at 0x109244450, file "WeRobotCore/application/auto_follow/workflow.py", line 25>:
+ 25           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('AutoFollowWorkflow')
+              6 STORE_NAME               2 (__qualname__)
+
+ 26           8 LOAD_CONST               1 ('Execute one AI follow-up while keeping native actions behind a port.')
+             10 STORE_NAME               3 (__doc__)
+
+ 32          12 LOAD_NAME                4 (AIServiceFactory)
+             14 LOAD_ATTR                5 (create_service)
+
+ 33          16 LOAD_NAME                6 (MessageProcessor)
+
+ 34          18 LOAD_NAME                7 (asyncio)
+             20 LOAD_ATTR                8 (sleep)
+
+ 28          22 LOAD_CONST               2 (('ai_service_factory', 'message_processor_factory', 'sleeper'))
+             24 BUILD_CONST_KEY_MAP      3
+             26 LOAD_CONST               3 ('AutoFollowRuntime')
+             28 LOAD_CONST               4 ('None')
+             30 LOAD_CONST               5 (('runtime', 'return'))
+             32 BUILD_CONST_KEY_MAP      2
+             34 LOAD_CONST               6 (<code object __init__ at 0x10924c920, file "WeRobotCore/application/auto_follow/workflow.py", line 28>)
+             36 LOAD_CONST               7 ('AutoFollowWorkflow.__init__')
+             38 MAKE_FUNCTION            6 (kwdefaults, annotations)
+             40 STORE_NAME               9 (__init__)
+
+ 47          42 LOAD_NAME               10 (staticmethod)
+
+ 48          44 LOAD_CONST               8 ('Any')
+             46 LOAD_CONST               9 ('str')
+             48 LOAD_CONST               9 ('str')
+             50 LOAD_CONST              10 (('value', 'field', 'return'))
+             52 BUILD_CONST_KEY_MAP      3
+             54 LOAD_CONST              11 (<code object _required at 0x10924c870, file "WeRobotCore/application/auto_follow/workflow.py", line 47>)
+             56 LOAD_CONST              12 ('AutoFollowWorkflow._required')
+             58 MAKE_FUNCTION            4 (annotations)
+             60 CALL_FUNCTION            1
+             62 STORE_NAME              11 (_required)
+
+ 54          64 LOAD_NAME               10 (staticmethod)
+
+ 55          66 LOAD_CONST              13 ('Mapping[str, Any]')
+             68 LOAD_CONST              14 ('int')
+             70 LOAD_CONST              15 (('metadata', 'return'))
+             72 BUILD_CONST_KEY_MAP      2
+             74 LOAD_CONST              16 (<code object _follow_day at 0x10924c3a0, file "WeRobotCore/application/auto_follow/workflow.py", line 54>)
+             76 LOAD_CONST              17 ('AutoFollowWorkflow._follow_day')
+             78 MAKE_FUNCTION            4 (annotations)
+             80 CALL_FUNCTION            1
+             82 STORE_NAME              12 (_follow_day)
+
+ 59          84 LOAD_NAME               13 (classmethod)
+
+ 60          86 LOAD_CONST              13 ('Mapping[str, Any]')
+             88 LOAD_CONST               9 ('str')
+             90 LOAD_CONST               9 ('str')
+             92 LOAD_CONST               9 ('str')
+             94 LOAD_CONST              18 (('metadata', 'name', 'chat_type', 'return'))
+             96 BUILD_CONST_KEY_MAP      4
+             98 LOAD_CONST              19 (<code object _prompt at 0x10924cdf0, file "WeRobotCore/application/auto_follow/workflow.py", line 59>)
+            100 LOAD_CONST              20 ('AutoFollowWorkflow._prompt')
+            102 MAKE_FUNCTION            4 (annotations)
+            104 CALL_FUNCTION            1
+            106 STORE_NAME              14 (_prompt)
+
+ 66         108 LOAD_NAME               10 (staticmethod)
+
+ 67         110 LOAD_CONST              13 ('Mapping[str, Any]')
+            112 LOAD_CONST              21 ('bool')
+            114 LOAD_CONST              22 (('message', 'return'))
+            116 BUILD_CONST_KEY_MAP      2
+            118 LOAD_CONST              23 (<code object _is_self at 0x10924c710, file "WeRobotCore/application/auto_follow/workflow.py", line 66>)
+            120 LOAD_CONST              24 ('AutoFollowWorkflow._is_self')
+            122 MAKE_FUNCTION            4 (annotations)
+            124 CALL_FUNCTION            1
+            126 STORE_NAME              15 (_is_self)
+
+ 72         128 LOAD_NAME               13 (classmethod)
+
+ 73         130 LOAD_CONST              25 ('Iterable[Mapping[str, Any]]')
+            132 LOAD_CONST               9 ('str')
+            134 LOAD_CONST              26 ('List[Dict[str, Any]]')
+            136 LOAD_CONST              27 (('messages', 'prompt', 'return'))
+            138 BUILD_CONST_KEY_MAP      3
+            140 LOAD_CONST              28 (<code object _role_context at 0x10924cbe0, file "WeRobotCore/application/auto_follow/workflow.py", line 72>)
+            142 LOAD_CONST              29 ('AutoFollowWorkflow._role_context')
+            144 MAKE_FUNCTION            4 (annotations)
+            146 CALL_FUNCTION            1
+            148 STORE_NAME              16 (_role_context)
+
+100         150 LOAD_NAME               13 (classmethod)
+
+101         152 LOAD_CONST              25 ('Iterable[Mapping[str, Any]]')
+            154 LOAD_CONST               9 ('str')
+            156 LOAD_CONST              30 ('List[Dict[str, str]]')
+            158 LOAD_CONST              27 (('messages', 'prompt', 'return'))
+            160 BUILD_CONST_KEY_MAP      3
+            162 LOAD_CONST              31 (<code object _flat_context at 0x10924c190, file "WeRobotCore/application/auto_follow/workflow.py", line 100>)
+            164 LOAD_CONST              32 ('AutoFollowWorkflow._flat_context')
+            166 MAKE_FUNCTION            4 (annotations)
+            168 CALL_FUNCTION            1
+            170 STORE_NAME              17 (_flat_context)
+
+136         172 LOAD_NAME               10 (staticmethod)
+
+137         174 LOAD_CONST               9 ('str')
+            176 LOAD_CONST               9 ('str')
+            178 LOAD_CONST               9 ('str')
+            180 LOAD_CONST              33 (('account_id', 'name', 'return'))
+            182 BUILD_CONST_KEY_MAP      3
+            184 LOAD_CONST              34 (<code object _session_id at 0x10924c7c0, file "WeRobotCore/application/auto_follow/workflow.py", line 136>)
+            186 LOAD_CONST              35 ('AutoFollowWorkflow._session_id')
+            188 MAKE_FUNCTION            4 (annotations)
+            190 CALL_FUNCTION            1
+            192 STORE_NAME              18 (_session_id)
+
+141         194 LOAD_NAME               10 (staticmethod)
+
+142         196 LOAD_CONST               9 ('str')
+            198 LOAD_CONST              36 (('platform',))
+            200 BUILD_CONST_KEY_MAP      1
+            202 LOAD_CONST              37 (<code object _service_config at 0x10924cb30, file "WeRobotCore/application/auto_follow/workflow.py", line 141>)
+            204 LOAD_CONST              38 ('AutoFollowWorkflow._service_config')
+            206 MAKE_FUNCTION            4 (annotations)
+            208 CALL_FUNCTION            1
+            210 STORE_NAME              19 (_service_config)
+
+157         212 LOAD_NAME               10 (staticmethod)
+
+158         214 LOAD_CONST               9 ('str')
+            216 LOAD_CONST               9 ('str')
+            218 LOAD_CONST              39 ('List[str]')
+            220 LOAD_CONST              40 (('content', 'split_mode', 'return'))
+            222 BUILD_CONST_KEY_MAP      3
+            224 LOAD_CONST              41 (<code object _bounded_text_parts at 0x109244d40, file "WeRobotCore/application/auto_follow/workflow.py", line 157>)
+            226 LOAD_CONST              42 ('AutoFollowWorkflow._bounded_text_parts')
+            228 MAKE_FUNCTION            4 (annotations)
+            230 CALL_FUNCTION            1
+            232 STORE_NAME              20 (_bounded_text_parts)
+
+167         234 LOAD_CONST               9 ('str')
+            236 LOAD_CONST               9 ('str')
+            238 LOAD_CONST               9 ('str')
+            240 LOAD_CONST               9 ('str')
+            242 LOAD_CONST              21 ('bool')
+            244 LOAD_CONST              43 (('account_id', 'session_id', 'session_name', 'reply', 'return'))
+            246 BUILD_CONST_KEY_MAP      5
+            248 LOAD_CONST              44 (<code object _send_reply at 0x1092440e0, file "WeRobotCore/application/auto_follow/workflow.py", line 167>)
+            250 LOAD_CONST              45 ('AutoFollowWorkflow._send_reply')
+            252 MAKE_FUNCTION            4 (annotations)
+            254 STORE_NAME              21 (_send_reply)
+
+231         256 LOAD_CONST              13 ('Mapping[str, Any]')
+            258 LOAD_CONST              46 ('Dict[str, Any]')
+            260 LOAD_CONST              15 (('metadata', 'return'))
+            262 BUILD_CONST_KEY_MAP      2
+            264 LOAD_CONST              47 (<code object execute at 0x109244b30, file "WeRobotCore/application/auto_follow/workflow.py", line 231>)
+            266 LOAD_CONST              48 ('AutoFollowWorkflow.execute')
+            268 MAKE_FUNCTION            4 (annotations)
+            270 STORE_NAME              22 (execute)
+            272 LOAD_CONST              49 (None)
+            274 RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x10924c920, file "WeRobotCore/application/auto_follow/workflow.py", line 28>:
+ 36           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                1 (runtime)
+              4 LOAD_GLOBAL              1 (AutoFollowRuntime)
+              6 CALL_FUNCTION            2
+              8 POP_JUMP_IF_TRUE        18
+
+ 37          10 LOAD_GLOBAL              2 (TypeError)
+             12 LOAD_CONST               1 ('runtime must implement AutoFollowRuntime')
+             14 CALL_FUNCTION            1
+             16 RAISE_VARARGS            1
+
+ 38     >>   18 LOAD_GLOBAL              3 (callable)
+             20 LOAD_FAST                2 (ai_service_factory)
+             22 CALL_FUNCTION            1
+             24 POP_JUMP_IF_FALSE       34
+             26 LOAD_GLOBAL              3 (callable)
+             28 LOAD_FAST                3 (message_processor_factory)
+             30 CALL_FUNCTION            1
+             32 POP_JUMP_IF_TRUE        42
+
+ 39     >>   34 LOAD_GLOBAL              2 (TypeError)
+             36 LOAD_CONST               2 ('workflow factories must be callable')
+             38 CALL_FUNCTION            1
+             40 RAISE_VARARGS            1
+
+ 40     >>   42 LOAD_GLOBAL              3 (callable)
+             44 LOAD_FAST                4 (sleeper)
+             46 CALL_FUNCTION            1
+             48 POP_JUMP_IF_TRUE        58
+
+ 41          50 LOAD_GLOBAL              2 (TypeError)
+             52 LOAD_CONST               3 ('sleeper must be callable')
+             54 CALL_FUNCTION            1
+             56 RAISE_VARARGS            1
+
+ 42     >>   58 LOAD_FAST                1 (runtime)
+             60 LOAD_FAST                0 (self)
+             62 STORE_ATTR               4 (_runtime)
+
+ 43          64 LOAD_FAST                2 (ai_service_factory)
+             66 LOAD_FAST                0 (self)
+             68 STORE_ATTR               5 (_ai_service_factory)
+
+ 44          70 LOAD_FAST                3 (message_processor_factory)
+             72 LOAD_FAST                0 (self)
+             74 STORE_ATTR               6 (_message_processor_factory)
+
+ 45          76 LOAD_FAST                4 (sleeper)
+             78 LOAD_FAST                0 (self)
+             80 STORE_ATTR               7 (_sleeper)
+             82 LOAD_CONST               0 (None)
+             84 RETURN_VALUE
+
+Disassembly of <code object _required at 0x10924c870, file "WeRobotCore/application/auto_follow/workflow.py", line 47>:
+ 49           0 LOAD_GLOBAL              0 (str)
+              2 LOAD_FAST                0 (value)
+              4 JUMP_IF_TRUE_OR_POP      8
+              6 LOAD_CONST               1 ('')
+        >>    8 CALL_FUNCTION            1
+             10 LOAD_METHOD              1 (strip)
+             12 CALL_METHOD              0
+             14 STORE_FAST               2 (normalized)
+
+ 50          16 LOAD_FAST                2 (normalized)
+             18 POP_JUMP_IF_TRUE        34
+
+ 51          20 LOAD_GLOBAL              2 (ValueError)
+             22 LOAD_CONST               2 ('{} must be non-empty text')
+             24 LOAD_METHOD              3 (format)
+             26 LOAD_FAST                1 (field)
+             28 CALL_METHOD              1
+             30 CALL_FUNCTION            1
+             32 RAISE_VARARGS            1
+
+ 52     >>   34 LOAD_FAST                2 (normalized)
+             36 RETURN_VALUE
+
+Disassembly of <code object _follow_day at 0x10924c3a0, file "WeRobotCore/application/auto_follow/workflow.py", line 54>:
+ 56           0 LOAD_FAST                0 (metadata)
+              2 LOAD_METHOD              0 (get)
+              4 LOAD_CONST               1 ('execution_stats')
+              6 BUILD_MAP                0
+              8 CALL_METHOD              2
+             10 LOAD_METHOD              0 (get)
+             12 LOAD_CONST               2 ('execution_count')
+             14 LOAD_CONST               3 (0)
+             16 CALL_METHOD              2
+             18 STORE_FAST               1 (value)
+
+ 57          20 LOAD_GLOBAL              1 (max)
+             22 LOAD_CONST               4 (1)
+             24 LOAD_GLOBAL              2 (int)
+             26 LOAD_FAST                1 (value)
+             28 JUMP_IF_TRUE_OR_POP     32
+             30 LOAD_CONST               3 (0)
+        >>   32 CALL_FUNCTION            1
+             34 LOAD_CONST               4 (1)
+             36 BINARY_ADD
+             38 CALL_FUNCTION            2
+             40 RETURN_VALUE
+
+Disassembly of <code object _prompt at 0x10924cdf0, file "WeRobotCore/application/auto_follow/workflow.py", line 59>:
+ 61           0 LOAD_FAST                0 (cls)
+              2 LOAD_METHOD              0 (_follow_day)
+              4 LOAD_FAST                1 (metadata)
+              6 CALL_METHOD              1
+              8 STORE_FAST               4 (day)
+
+ 62          10 LOAD_FAST                3 (chat_type)
+             12 LOAD_CONST               1 ('group')
+             14 COMPARE_OP               2 (==)
+             16 POP_JUMP_IF_FALSE       30
+
+ 63          18 LOAD_CONST               2 ('请生成群聊{}第{}天的运营话术')
+             20 LOAD_METHOD              1 (format)
+             22 LOAD_FAST                2 (name)
+             24 LOAD_FAST                4 (day)
+             26 CALL_METHOD              2
+             28 RETURN_VALUE
+
+ 64     >>   30 LOAD_CONST               3 ('请生成客户{}第{}天的跟单话术')
+             32 LOAD_METHOD              1 (format)
+             34 LOAD_FAST                2 (name)
+             36 LOAD_FAST                4 (day)
+             38 CALL_METHOD              2
+             40 RETURN_VALUE
+
+Disassembly of <code object _is_self at 0x10924c710, file "WeRobotCore/application/auto_follow/workflow.py", line 66>:
+ 68           0 LOAD_FAST                0 (message)
+              2 LOAD_METHOD              0 (get)
+              4 LOAD_CONST               1 ('sender')
+              6 CALL_METHOD              1
+              8 JUMP_IF_TRUE_OR_POP     12
+             10 BUILD_MAP                0
+        >>   12 STORE_FAST               1 (sender)
+
+ 69          14 LOAD_GLOBAL              1 (isinstance)
+             16 LOAD_FAST                1 (sender)
+             18 LOAD_GLOBAL              2 (Mapping)
+             20 CALL_FUNCTION            2
+             22 POP_JUMP_IF_FALSE       36
+             24 LOAD_FAST                1 (sender)
+             26 LOAD_METHOD              0 (get)
+             28 LOAD_CONST               2 ('name')
+             30 LOAD_CONST               3 ('')
+             32 CALL_METHOD              2
+             34 JUMP_FORWARD             2 (to 38)
+        >>   36 LOAD_CONST               3 ('')
+        >>   38 STORE_FAST               2 (sender_name)
+
+ 70          40 LOAD_GLOBAL              3 (bool)
+             42 LOAD_FAST                0 (message)
+             44 LOAD_METHOD              0 (get)
+             46 LOAD_CONST               4 ('isSelf')
+             48 LOAD_CONST               5 (False)
+             50 CALL_METHOD              2
+             52 JUMP_IF_FALSE_OR_POP    60
+             54 LOAD_FAST                2 (sender_name)
+             56 LOAD_CONST               6 ('Recall')
+             58 COMPARE_OP               3 (!=)
+        >>   60 CALL_FUNCTION            1
+             62 RETURN_VALUE
+
+Disassembly of <code object _role_context at 0x10924cbe0, file "WeRobotCore/application/auto_follow/workflow.py", line 72>:
+ 74           0 BUILD_LIST               0
+              2 STORE_FAST               3 (result)
+
+ 75           4 LOAD_FAST                1 (messages)
+              6 JUMP_IF_TRUE_OR_POP     10
+              8 LOAD_CONST               1 (())
+        >>   10 GET_ITER
+        >>   12 FOR_ITER               110 (to 124)
+             14 STORE_FAST               4 (message)
+
+ 76          16 LOAD_GLOBAL              0 (str)
+             18 LOAD_FAST                4 (message)
+             20 LOAD_METHOD              1 (get)
+             22 LOAD_CONST               2 ('content')
+             24 CALL_METHOD              1
+             26 JUMP_IF_TRUE_OR_POP     30
+             28 LOAD_CONST               3 ('')
+        >>   30 CALL_FUNCTION            1
+             32 LOAD_METHOD              2 (strip)
+             34 CALL_METHOD              0
+             36 STORE_FAST               5 (content)
+
+ 77          38 LOAD_FAST                5 (content)
+             40 POP_JUMP_IF_TRUE        44
+
+ 78          42 JUMP_ABSOLUTE           12
+
+ 79     >>   44 LOAD_FAST                0 (cls)
+             46 LOAD_METHOD              3 (_is_self)
+             48 LOAD_FAST                4 (message)
+             50 CALL_METHOD              1
+             52 STORE_FAST               6 (is_self)
+
+ 80          54 LOAD_FAST                5 (content)
+             56 LOAD_CONST               4 (('[图片]', '[文件]', '[视频]', '[语音]'))
+             58 CONTAINS_OP              0
+             60 POP_JUMP_IF_FALSE       78
+
+ 81          62 LOAD_FAST                6 (is_self)
+             64 POP_JUMP_IF_FALSE       68
+
+ 82          66 JUMP_ABSOLUTE           12
+
+ 83     >>   68 LOAD_CONST               5 ('（对方发送了{}）')
+             70 LOAD_METHOD              4 (format)
+             72 LOAD_FAST                5 (content)
+             74 CALL_METHOD              1
+             76 STORE_FAST               5 (content)
+
+ 84     >>   78 LOAD_FAST                6 (is_self)
+             80 POP_JUMP_IF_FALSE      104
+
+ 85          82 LOAD_FAST                3 (result)
+             84 LOAD_METHOD              5 (append)
+
+ 86          86 LOAD_CONST               6 ('assistant')
+
+ 87          88 LOAD_FAST                5 (content)
+
+ 88          90 LOAD_CONST               7 ('answer')
+
+ 89          92 LOAD_CONST               8 ('text')
+
+ 85          94 LOAD_CONST               9 (('role', 'content', 'type', 'content_type'))
+             96 BUILD_CONST_KEY_MAP      4
+             98 CALL_METHOD              1
+            100 POP_TOP
+            102 JUMP_ABSOLUTE           12
+
+ 92     >>  104 LOAD_FAST                3 (result)
+            106 LOAD_METHOD              5 (append)
+
+ 93         108 LOAD_CONST              10 ('user')
+
+ 94         110 LOAD_FAST                5 (content)
+
+ 95         112 LOAD_CONST               8 ('text')
+
+ 92         114 LOAD_CONST              11 (('role', 'content', 'content_type'))
+            116 BUILD_CONST_KEY_MAP      3
+            118 CALL_METHOD              1
+            120 POP_TOP
+            122 JUMP_ABSOLUTE           12
+
+ 97     >>  124 LOAD_FAST                3 (result)
+            126 LOAD_METHOD              5 (append)
+            128 LOAD_CONST              10 ('user')
+            130 LOAD_FAST                2 (prompt)
+            132 LOAD_CONST               8 ('text')
+            134 LOAD_CONST              11 (('role', 'content', 'content_type'))
+            136 BUILD_CONST_KEY_MAP      3
+            138 CALL_METHOD              1
+            140 POP_TOP
+
+ 98         142 LOAD_FAST                3 (result)
+            144 RETURN_VALUE
+
+Disassembly of <code object _flat_context at 0x10924c190, file "WeRobotCore/application/auto_follow/workflow.py", line 100>:
+102           0 BUILD_LIST               0
+              2 STORE_FAST               3 (lines)
+
+103           4 LOAD_FAST                1 (messages)
+              6 JUMP_IF_TRUE_OR_POP     10
+              8 LOAD_CONST               1 (())
+        >>   10 GET_ITER
+        >>   12 FOR_ITER                92 (to 106)
+             14 STORE_FAST               4 (message)
+
+104          16 LOAD_GLOBAL              0 (str)
+             18 LOAD_FAST                4 (message)
+             20 LOAD_METHOD              1 (get)
+             22 LOAD_CONST               2 ('content')
+             24 CALL_METHOD              1
+             26 JUMP_IF_TRUE_OR_POP     30
+             28 LOAD_CONST               3 ('')
+        >>   30 CALL_FUNCTION            1
+             32 LOAD_METHOD              2 (strip)
+             34 CALL_METHOD              0
+             36 STORE_FAST               5 (content)
+
+105          38 LOAD_FAST                5 (content)
+             40 POP_JUMP_IF_TRUE        44
+
+106          42 JUMP_ABSOLUTE           12
+
+107     >>   44 LOAD_FAST                0 (cls)
+             46 LOAD_METHOD              3 (_is_self)
+             48 LOAD_FAST                4 (message)
+             50 CALL_METHOD              1
+             52 STORE_FAST               6 (is_self)
+
+108          54 LOAD_FAST                5 (content)
+             56 LOAD_CONST               4 (('[图片]', '[文件]', '[视频]', '[语音]'))
+             58 CONTAINS_OP              0
+             60 POP_JUMP_IF_FALSE       78
+
+109          62 LOAD_FAST                6 (is_self)
+             64 POP_JUMP_IF_FALSE       68
+
+110          66 JUMP_ABSOLUTE           12
+
+111     >>   68 LOAD_CONST               5 ('（发送了{}）')
+             70 LOAD_METHOD              4 (format)
+             72 LOAD_FAST                5 (content)
+             74 CALL_METHOD              1
+             76 STORE_FAST               5 (content)
+
+112     >>   78 LOAD_FAST                3 (lines)
+             80 LOAD_METHOD              5 (append)
+             82 LOAD_CONST               6 ('{} {}')
+             84 LOAD_METHOD              4 (format)
+             86 LOAD_FAST                6 (is_self)
+             88 POP_JUMP_IF_FALSE       94
+             90 LOAD_CONST               7 ('[我方]')
+             92 JUMP_FORWARD             2 (to 96)
+        >>   94 LOAD_CONST               8 ('[对方]')
+        >>   96 LOAD_FAST                5 (content)
+             98 CALL_METHOD              2
+            100 CALL_METHOD              1
+            102 POP_TOP
+            104 JUMP_ABSOLUTE           12
+
+114     >>  106 BUILD_LIST               0
+            108 STORE_FAST               7 (kept)
+
+115         110 LOAD_CONST               9 (0)
+            112 STORE_FAST               8 (used)
+
+116         114 LOAD_GLOBAL              6 (reversed)
+            116 LOAD_FAST                3 (lines)
+            118 CALL_FUNCTION            1
+            120 GET_ITER
+        >>  122 FOR_ITER                70 (to 194)
+            124 STORE_FAST               9 (line)
+
+117         126 LOAD_GLOBAL              7 (len)
+            128 LOAD_FAST                7 (kept)
+            130 CALL_FUNCTION            1
+            132 LOAD_GLOBAL              8 (MAX_FLAT_HISTORY_MESSAGES)
+            134 COMPARE_OP               5 (>=)
+            136 POP_JUMP_IF_FALSE      142
+
+118         138 POP_TOP
+            140 JUMP_ABSOLUTE          194
+
+119     >>  142 LOAD_FAST                7 (kept)
+            144 POP_JUMP_IF_FALSE      166
+            146 LOAD_FAST                8 (used)
+            148 LOAD_GLOBAL              7 (len)
+            150 LOAD_FAST                9 (line)
+            152 CALL_FUNCTION            1
+            154 BINARY_ADD
+            156 LOAD_GLOBAL              9 (MAX_FLAT_HISTORY_CHARS)
+            158 COMPARE_OP               4 (>)
+            160 POP_JUMP_IF_FALSE      166
+
+120         162 POP_TOP
+            164 JUMP_ABSOLUTE          194
+
+121     >>  166 LOAD_FAST                7 (kept)
+            168 LOAD_METHOD              5 (append)
+            170 LOAD_FAST                9 (line)
+            172 CALL_METHOD              1
+            174 POP_TOP
+
+122         176 LOAD_FAST                8 (used)
+            178 LOAD_GLOBAL              7 (len)
+            180 LOAD_FAST                9 (line)
+            182 CALL_FUNCTION            1
+            184 LOAD_CONST              10 (1)
+            186 BINARY_ADD
+            188 INPLACE_ADD
+            190 STORE_FAST               8 (used)
+            192 JUMP_ABSOLUTE          122
+
+123     >>  194 LOAD_FAST                7 (kept)
+            196 LOAD_METHOD             10 (reverse)
+            198 CALL_METHOD              0
+            200 POP_TOP
+
+124         202 LOAD_FAST                7 (kept)
+            204 POP_JUMP_IF_FALSE      216
+            206 LOAD_CONST              11 ('\n')
+            208 LOAD_METHOD             11 (join)
+            210 LOAD_FAST                7 (kept)
+            212 CALL_METHOD              1
+            214 JUMP_FORWARD             2 (to 218)
+        >>  216 LOAD_CONST              12 ('（暂无任何聊天记录）')
+        >>  218 STORE_FAST              10 (conversation)
+
+125         220 LOAD_GLOBAL              7 (len)
+            222 LOAD_FAST                7 (kept)
+            224 CALL_FUNCTION            1
+            226 LOAD_GLOBAL              7 (len)
+            228 LOAD_FAST                3 (lines)
+            230 CALL_FUNCTION            1
+            232 COMPARE_OP               0 (<)
+            234 POP_JUMP_IF_FALSE      244
+
+126         236 LOAD_CONST              13 ('（更早的聊天记录已省略）\n')
+            238 LOAD_FAST               10 (conversation)
+            240 BINARY_ADD
+            242 STORE_FAST              10 (conversation)
+
+128     >>  244 LOAD_CONST              14 ('user')
+
+129         246 LOAD_CONST              15 ('text')
+
+130         248 LOAD_CONST              16 ('【群内完整聊天记录（从进群到现在，按时间先后）】\n{}\n\n【任务】{}')
+            250 LOAD_METHOD              4 (format)
+
+131         252 LOAD_FAST               10 (conversation)
+
+132         254 LOAD_FAST                2 (prompt)
+
+130         256 CALL_METHOD              2
+
+127         258 LOAD_CONST              17 (('role', 'content_type', 'content'))
+            260 BUILD_CONST_KEY_MAP      3
+            262 BUILD_LIST               1
+            264 RETURN_VALUE
+
+Disassembly of <code object _session_id at 0x10924c7c0, file "WeRobotCore/application/auto_follow/workflow.py", line 136>:
+138           0 LOAD_GLOBAL              0 (hashlib)
+              2 LOAD_METHOD              1 (md5)
+              4 LOAD_CONST               1 ('{}_{}')
+              6 LOAD_METHOD              2 (format)
+              8 LOAD_FAST                1 (name)
+             10 LOAD_FAST                0 (account_id)
+             12 CALL_METHOD              2
+             14 LOAD_METHOD              3 (encode)
+             16 LOAD_CONST               2 ('utf-8')
+             18 CALL_METHOD              1
+             20 CALL_METHOD              1
+             22 LOAD_METHOD              4 (hexdigest)
+             24 CALL_METHOD              0
+             26 STORE_FAST               2 (digest)
+
+139          28 LOAD_GLOBAL              5 (str)
+             30 LOAD_GLOBAL              6 (int)
+             32 LOAD_FAST                2 (digest)
+             34 LOAD_CONST               0 (None)
+             36 LOAD_CONST               3 (8)
+             38 BUILD_SLICE              2
+             40 BINARY_SUBSCR
+             42 LOAD_CONST               4 (16)
+             44 CALL_FUNCTION            2
+             46 LOAD_CONST               5 (2147483647)
+             48 BINARY_AND
+             50 CALL_FUNCTION            1
+             52 RETURN_VALUE
+
+Disassembly of <code object _service_config at 0x10924cb30, file "WeRobotCore/application/auto_follow/workflow.py", line 141>:
+143           0 LOAD_FAST                1 (platform)
+              2 LOAD_CONST               1 ('coze')
+              4 COMPARE_OP               2 (==)
+              6 POP_JUMP_IF_FALSE       34
+
+144           8 LOAD_FAST                0 (configuration)
+             10 LOAD_METHOD              0 (get_cached_config)
+             12 LOAD_CONST               2 ('coze_settings')
+             14 CALL_METHOD              1
+             16 STORE_FAST               2 (config)
+
+145          18 LOAD_FAST                2 (config)
+             20 POP_JUMP_IF_TRUE        30
+
+146          22 LOAD_GLOBAL              1 (ValueError)
+             24 LOAD_CONST               3 ('未配置 Coze 设置')
+             26 CALL_FUNCTION            1
+             28 RAISE_VARARGS            1
+
+147     >>   30 LOAD_FAST                2 (config)
+             32 RETURN_VALUE
+
+148     >>   34 LOAD_FAST                1 (platform)
+             36 LOAD_CONST               4 ('dify')
+             38 COMPARE_OP               2 (==)
+             40 POP_JUMP_IF_FALSE       68
+
+149          42 LOAD_FAST                0 (configuration)
+             44 LOAD_METHOD              0 (get_cached_config)
+             46 LOAD_CONST               5 ('dify_settings')
+             48 CALL_METHOD              1
+             50 STORE_FAST               2 (config)
+
+150          52 LOAD_FAST                2 (config)
+             54 POP_JUMP_IF_TRUE        64
+
+151          56 LOAD_GLOBAL              1 (ValueError)
+             58 LOAD_CONST               6 ('未配置 Dify 设置')
+             60 CALL_FUNCTION            1
+             62 RAISE_VARARGS            1
+
+152     >>   64 LOAD_FAST                2 (config)
+             66 RETURN_VALUE
+
+153     >>   68 LOAD_FAST                1 (platform)
+             70 LOAD_CONST               7 (('coze3', 'fireflow', 'agentic'))
+             72 CONTAINS_OP              0
+             74 POP_JUMP_IF_FALSE       80
+
+154          76 BUILD_MAP                0
+             78 RETURN_VALUE
+
+155     >>   80 LOAD_GLOBAL              1 (ValueError)
+             82 LOAD_CONST               8 ('不支持的智能体平台: {}')
+             84 LOAD_METHOD              2 (format)
+             86 LOAD_FAST                1 (platform)
+             88 CALL_METHOD              1
+             90 CALL_FUNCTION            1
+             92 RAISE_VARARGS            1
+             94 LOAD_CONST               0 (None)
+             96 RETURN_VALUE
+
+Disassembly of <code object _bounded_text_parts at 0x109244d40, file "WeRobotCore/application/auto_follow/workflow.py", line 157>:
+159           0 BUILD_LIST               0
+              2 STORE_FAST               2 (parts)
+
+160           4 LOAD_GLOBAL              0 (split_text_message)
+              6 LOAD_FAST                0 (content)
+              8 LOAD_FAST                1 (split_mode)
+             10 CALL_FUNCTION            2
+             12 GET_ITER
+        >>   14 FOR_ITER                40 (to 56)
+             16 STORE_DEREF              0 (configured)
+
+161          18 LOAD_FAST                2 (parts)
+             20 LOAD_METHOD              1 (extend)
+             22 LOAD_CLOSURE             0 (configured)
+             24 BUILD_TUPLE              1
+             26 LOAD_CONST               1 (<code object <genexpr> at 0x1092443a0, file "WeRobotCore/application/auto_follow/workflow.py", line 161>)
+             28 LOAD_CONST               2 ('AutoFollowWorkflow._bounded_text_parts.<locals>.<genexpr>')
+             30 MAKE_FUNCTION            8 (closure)
+
+163          32 LOAD_GLOBAL              2 (range)
+             34 LOAD_CONST               3 (0)
+             36 LOAD_GLOBAL              3 (len)
+             38 LOAD_DEREF               0 (configured)
+             40 CALL_FUNCTION            1
+             42 LOAD_CONST               4 (512)
+             44 CALL_FUNCTION            3
+
+161          46 GET_ITER
+             48 CALL_FUNCTION            1
+             50 CALL_METHOD              1
+             52 POP_TOP
+             54 JUMP_ABSOLUTE           14
+
+165     >>   56 LOAD_CONST               5 (<code object <listcomp> at 0x109244f50, file "WeRobotCore/application/auto_follow/workflow.py", line 165>)
+             58 LOAD_CONST               6 ('AutoFollowWorkflow._bounded_text_parts.<locals>.<listcomp>')
+             60 MAKE_FUNCTION            0
+             62 LOAD_FAST                2 (parts)
+             64 GET_ITER
+             66 CALL_FUNCTION            1
+             68 RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x1092443a0, file "WeRobotCore/application/auto_follow/workflow.py", line 161>:
+161           0 LOAD_FAST                0 (.0)
+        >>    2 FOR_ITER                22 (to 26)
+
+163           4 STORE_FAST               1 (index)
+
+162           6 LOAD_DEREF               0 (configured)
+              8 LOAD_FAST                1 (index)
+             10 LOAD_FAST                1 (index)
+             12 LOAD_CONST               0 (512)
+             14 BINARY_ADD
+             16 BUILD_SLICE              2
+             18 BINARY_SUBSCR
+             20 YIELD_VALUE
+             22 POP_TOP
+             24 JUMP_ABSOLUTE            2
+        >>   26 LOAD_CONST               1 (None)
+             28 RETURN_VALUE
+
+Disassembly of <code object <listcomp> at 0x109244f50, file "WeRobotCore/application/auto_follow/workflow.py", line 165>:
+165           0 BUILD_LIST               0
+              2 LOAD_FAST                0 (.0)
+        >>    4 FOR_ITER                12 (to 18)
+              6 STORE_FAST               1 (part)
+              8 LOAD_FAST                1 (part)
+             10 POP_JUMP_IF_FALSE        4
+             12 LOAD_FAST                1 (part)
+             14 LIST_APPEND              2
+             16 JUMP_ABSOLUTE            4
+        >>   18 RETURN_VALUE
+
+Disassembly of <code object _send_reply at 0x1092440e0, file "WeRobotCore/application/auto_follow/workflow.py", line 167>:
+176           0 LOAD_FAST                0 (self)
+              2 LOAD_METHOD              0 (_message_processor_factory)
+              4 CALL_METHOD              0
+              6 LOAD_METHOD              1 (parse_message)
+              8 LOAD_FAST                4 (reply)
+             10 CALL_METHOD              1
+             12 STORE_FAST               6 (parsed)
+
+177          14 LOAD_CONST               1 (True)
+             16 STORE_FAST               7 (success)
+
+178          18 LOAD_FAST                6 (parsed)
+             20 LOAD_ATTR                2 (components)
+             22 GET_ITER
+        >>   24 EXTENDED_ARG             1
+             26 FOR_ITER               372 (to 400)
+             28 STORE_FAST               8 (component)
+
+179          30 LOAD_FAST                8 (component)
+             32 LOAD_ATTR                3 (type)
+             34 LOAD_CONST               2 ('text')
+             36 COMPARE_OP               2 (==)
+             38 POP_JUMP_IF_FALSE      166
+
+180          40 LOAD_FAST                0 (self)
+             42 LOAD_METHOD              4 (_bounded_text_parts)
+
+181          44 LOAD_FAST                8 (component)
+             46 LOAD_ATTR                5 (content)
+
+182          48 LOAD_FAST                5 (configuration)
+             50 LOAD_METHOD              6 (get_auto_split_mode)
+             52 CALL_METHOD              0
+
+180          54 CALL_METHOD              2
+             56 STORE_FAST               9 (parts)
+
+184          58 LOAD_GLOBAL              7 (enumerate)
+             60 LOAD_FAST                9 (parts)
+             62 CALL_FUNCTION            1
+             64 GET_ITER
+        >>   66 FOR_ITER                96 (to 164)
+             68 UNPACK_SEQUENCE          2
+             70 STORE_FAST              10 (index)
+             72 STORE_FAST              11 (part)
+
+185          74 LOAD_FAST                0 (self)
+             76 LOAD_ATTR                8 (_runtime)
+             78 LOAD_ATTR                9 (message_sender)
+             80 LOAD_METHOD             10 (send_text)
+
+186          82 LOAD_FAST                1 (account_id)
+
+187          84 LOAD_FAST                2 (session_id)
+
+188          86 LOAD_FAST               11 (part)
+
+185          88 CALL_METHOD              3
+             90 GET_AWAITABLE
+             92 LOAD_CONST               0 (None)
+             94 YIELD_FROM
+             96 STORE_FAST              12 (result)
+
+190          98 LOAD_FAST               12 (result)
+            100 LOAD_ATTR               11 (success)
+            102 POP_JUMP_IF_TRUE       110
+
+191         104 LOAD_CONST               3 (False)
+            106 STORE_FAST               7 (success)
+
+192         108 JUMP_ABSOLUTE           66
+
+193     >>  110 LOAD_FAST                0 (self)
+            112 LOAD_ATTR                8 (_runtime)
+            114 LOAD_METHOD             12 (cache_outgoing)
+            116 LOAD_FAST                3 (session_name)
+            118 LOAD_FAST               11 (part)
+            120 CALL_METHOD              2
+            122 GET_AWAITABLE
+            124 LOAD_CONST               0 (None)
+            126 YIELD_FROM
+            128 POP_TOP
+
+194         130 LOAD_FAST               10 (index)
+            132 LOAD_CONST               4 (1)
+            134 BINARY_ADD
+            136 LOAD_GLOBAL             13 (len)
+            138 LOAD_FAST                9 (parts)
+            140 CALL_FUNCTION            1
+            142 COMPARE_OP               0 (<)
+            144 POP_JUMP_IF_FALSE       66
+
+195         146 LOAD_FAST                0 (self)
+            148 LOAD_METHOD             14 (_sleeper)
+            150 LOAD_CONST               5 (0.5)
+            152 CALL_METHOD              1
+            154 GET_AWAITABLE
+            156 LOAD_CONST               0 (None)
+            158 YIELD_FROM
+            160 POP_TOP
+            162 JUMP_ABSOLUTE           66
+        >>  164 JUMP_FORWARD           216 (to 382)
+
+196     >>  166 LOAD_FAST                8 (component)
+            168 LOAD_ATTR                3 (type)
+            170 LOAD_CONST               6 (('image', 'file'))
+            172 CONTAINS_OP              0
+            174 EXTENDED_ARG             1
+            176 POP_JUMP_IF_FALSE      280
+
+199         178 LOAD_FAST                8 (component)
+            180 LOAD_ATTR                3 (type)
+            182 LOAD_CONST               7 ('image')
+            184 COMPARE_OP               2 (==)
+
+198         186 POP_JUMP_IF_FALSE      198
+            188 LOAD_FAST                0 (self)
+            190 LOAD_ATTR                8 (_runtime)
+            192 LOAD_ATTR                9 (message_sender)
+            194 LOAD_ATTR               15 (send_image)
+            196 JUMP_FORWARD             8 (to 206)
+
+200     >>  198 LOAD_FAST                0 (self)
+            200 LOAD_ATTR                8 (_runtime)
+            202 LOAD_ATTR                9 (message_sender)
+            204 LOAD_ATTR               16 (send_file)
+
+197     >>  206 STORE_FAST              13 (method)
+
+202         208 LOAD_FAST               13 (method)
+            210 LOAD_FAST                1 (account_id)
+            212 LOAD_FAST                2 (session_id)
+            214 LOAD_FAST                8 (component)
+            216 LOAD_ATTR                5 (content)
+            218 CALL_FUNCTION            3
+            220 GET_AWAITABLE
+            222 LOAD_CONST               0 (None)
+            224 YIELD_FROM
+            226 STORE_FAST              12 (result)
+
+203         228 LOAD_FAST               12 (result)
+            230 LOAD_ATTR               11 (success)
+            232 EXTENDED_ARG             1
+            234 POP_JUMP_IF_FALSE      274
+
+204         236 LOAD_FAST                0 (self)
+            238 LOAD_ATTR                8 (_runtime)
+            240 LOAD_METHOD             12 (cache_outgoing)
+
+205         242 LOAD_FAST                3 (session_name)
+
+206         244 LOAD_FAST                8 (component)
+            246 LOAD_ATTR                3 (type)
+            248 LOAD_CONST               7 ('image')
+            250 COMPARE_OP               2 (==)
+            252 EXTENDED_ARG             1
+            254 POP_JUMP_IF_FALSE      260
+            256 LOAD_CONST               8 ('[图片]')
+            258 JUMP_FORWARD             2 (to 262)
+        >>  260 LOAD_CONST               9 ('[文件]')
+
+204     >>  262 CALL_METHOD              2
+            264 GET_AWAITABLE
+            266 LOAD_CONST               0 (None)
+            268 YIELD_FROM
+            270 POP_TOP
+            272 JUMP_FORWARD             4 (to 278)
+
+209     >>  274 LOAD_CONST               3 (False)
+            276 STORE_FAST               7 (success)
+        >>  278 JUMP_FORWARD           102 (to 382)
+
+210     >>  280 LOAD_FAST                8 (component)
+            282 LOAD_ATTR                3 (type)
+            284 LOAD_CONST              10 ('local_file')
+            286 COMPARE_OP               2 (==)
+            288 EXTENDED_ARG             1
+            290 POP_JUMP_IF_FALSE      378
+
+211         292 LOAD_FAST                0 (self)
+            294 LOAD_ATTR                8 (_runtime)
+            296 LOAD_METHOD             17 (resolve_local_file)
+            298 LOAD_FAST                8 (component)
+            300 LOAD_ATTR                5 (content)
+            302 CALL_METHOD              1
+            304 STORE_FAST              14 (path)
+
+212         306 LOAD_FAST               14 (path)
+            308 EXTENDED_ARG             1
+            310 POP_JUMP_IF_TRUE       318
+
+213         312 LOAD_CONST               3 (False)
+            314 STORE_FAST               7 (success)
+            316 JUMP_FORWARD            58 (to 376)
+
+215     >>  318 LOAD_FAST                0 (self)
+            320 LOAD_ATTR                8 (_runtime)
+            322 LOAD_ATTR                9 (message_sender)
+            324 LOAD_METHOD             16 (send_file)
+
+216         326 LOAD_FAST                1 (account_id)
+
+217         328 LOAD_FAST                2 (session_id)
+
+218         330 LOAD_FAST               14 (path)
+
+215         332 CALL_METHOD              3
+            334 GET_AWAITABLE
+            336 LOAD_CONST               0 (None)
+            338 YIELD_FROM
+            340 STORE_FAST              12 (result)
+
+220         342 LOAD_FAST               12 (result)
+            344 LOAD_ATTR               11 (success)
+            346 EXTENDED_ARG             1
+            348 POP_JUMP_IF_FALSE      372
+
+221         350 LOAD_FAST                0 (self)
+            352 LOAD_ATTR                8 (_runtime)
+            354 LOAD_METHOD             12 (cache_outgoing)
+            356 LOAD_FAST                3 (session_name)
+            358 LOAD_CONST               9 ('[文件]')
+            360 CALL_METHOD              2
+            362 GET_AWAITABLE
+            364 LOAD_CONST               0 (None)
+            366 YIELD_FROM
+            368 POP_TOP
+            370 JUMP_FORWARD             4 (to 376)
+
+223     >>  372 LOAD_CONST               3 (False)
+            374 STORE_FAST               7 (success)
+        >>  376 JUMP_FORWARD             4 (to 382)
+
+227     >>  378 LOAD_CONST               3 (False)
+            380 STORE_FAST               7 (success)
+
+228     >>  382 LOAD_FAST                0 (self)
+            384 LOAD_METHOD             14 (_sleeper)
+            386 LOAD_CONST               5 (0.5)
+            388 CALL_METHOD              1
+            390 GET_AWAITABLE
+            392 LOAD_CONST               0 (None)
+            394 YIELD_FROM
+            396 POP_TOP
+            398 JUMP_ABSOLUTE           24
+
+229     >>  400 LOAD_FAST                7 (success)
+            402 RETURN_VALUE
+
+Disassembly of <code object execute at 0x109244b30, file "WeRobotCore/application/auto_follow/workflow.py", line 231>:
+232           0 LOAD_FAST                1 (metadata)
+              2 LOAD_METHOD              0 (get)
+              4 LOAD_CONST               1 ('friend_info')
+              6 BUILD_MAP                0
+              8 CALL_METHOD              2
+             10 STORE_FAST               2 (friend)
+
+233          12 LOAD_FAST                1 (metadata)
+             14 LOAD_METHOD              0 (get)
+             16 LOAD_CONST               2 ('execution_strategy')
+             18 BUILD_MAP                0
+             20 CALL_METHOD              2
+             22 STORE_FAST               3 (strategy)
+
+234          24 LOAD_FAST                1 (metadata)
+             26 LOAD_METHOD              0 (get)
+             28 LOAD_CONST               3 ('task_config')
+             30 BUILD_MAP                0
+             32 CALL_METHOD              2
+             34 STORE_FAST               4 (task_config)
+
+235          36 LOAD_FAST                0 (self)
+             38 LOAD_METHOD              1 (_required)
+             40 LOAD_FAST                2 (friend)
+             42 LOAD_METHOD              0 (get)
+             44 LOAD_CONST               4 ('account_id')
+             46 CALL_METHOD              1
+             48 LOAD_CONST               4 ('account_id')
+             50 CALL_METHOD              2
+             52 STORE_FAST               5 (account_id)
+
+236          54 LOAD_FAST                0 (self)
+             56 LOAD_METHOD              1 (_required)
+             58 LOAD_FAST                2 (friend)
+             60 LOAD_METHOD              0 (get)
+             62 LOAD_CONST               5 ('name')
+             64 CALL_METHOD              1
+             66 LOAD_CONST               6 ('friend_name')
+             68 CALL_METHOD              2
+             70 STORE_FAST               6 (name)
+
+237          72 LOAD_FAST                0 (self)
+             74 LOAD_METHOD              1 (_required)
+             76 LOAD_FAST                4 (task_config)
+             78 LOAD_METHOD              0 (get)
+             80 LOAD_CONST               7 ('agent_id')
+             82 CALL_METHOD              1
+             84 LOAD_CONST               7 ('agent_id')
+             86 CALL_METHOD              2
+             88 STORE_FAST               7 (agent_id)
+
+238          90 LOAD_GLOBAL              2 (str)
+             92 LOAD_FAST                2 (friend)
+             94 LOAD_METHOD              0 (get)
+             96 LOAD_CONST               8 ('chat_type')
+             98 CALL_METHOD              1
+            100 JUMP_IF_TRUE_OR_POP    104
+            102 LOAD_CONST               9 ('single')
+        >>  104 CALL_FUNCTION            1
+            106 LOAD_METHOD              3 (strip)
+            108 CALL_METHOD              0
+            110 LOAD_METHOD              4 (lower)
+            112 CALL_METHOD              0
+            114 STORE_FAST               8 (chat_type)
+
+239         116 LOAD_FAST                8 (chat_type)
+            118 LOAD_CONST              10 (('single', 'group'))
+            120 CONTAINS_OP              1
+            122 POP_JUMP_IF_FALSE      132
+
+240         124 LOAD_GLOBAL              5 (ValueError)
+            126 LOAD_CONST              11 ('chat_type must be single or group')
+            128 CALL_FUNCTION            1
+            130 RAISE_VARARGS            1
+
+241     >>  132 LOAD_FAST                0 (self)
+            134 LOAD_ATTR                6 (_runtime)
+            136 LOAD_METHOD              7 (is_account_online)
+            138 LOAD_FAST                5 (account_id)
+            140 CALL_METHOD              1
+            142 GET_AWAITABLE
+            144 LOAD_CONST               0 (None)
+            146 YIELD_FROM
+            148 POP_JUMP_IF_TRUE       162
+
+242         150 LOAD_CONST              12 (False)
+            152 LOAD_CONST              13 ('微信账号未连接')
+            154 LOAD_CONST              14 ('')
+            156 LOAD_CONST              15 (('success', 'error', 'message'))
+            158 BUILD_CONST_KEY_MAP      3
+            160 RETURN_VALUE
+
+244     >>  162 LOAD_FAST                0 (self)
+            164 LOAD_ATTR                6 (_runtime)
+            166 LOAD_METHOD              8 (resolve_conversation)
+            168 LOAD_FAST                5 (account_id)
+            170 LOAD_FAST                6 (name)
+            172 LOAD_FAST                8 (chat_type)
+            174 CALL_METHOD              3
+            176 GET_AWAITABLE
+            178 LOAD_CONST               0 (None)
+            180 YIELD_FROM
+            182 STORE_FAST               9 (session)
+
+245         184 LOAD_FAST                0 (self)
+            186 LOAD_ATTR                6 (_runtime)
+            188 LOAD_METHOD              9 (load_history)
+            190 LOAD_FAST                5 (account_id)
+            192 LOAD_FAST                6 (name)
+            194 LOAD_CONST              16 (30)
+            196 CALL_METHOD              3
+            198 GET_AWAITABLE
+            200 LOAD_CONST               0 (None)
+            202 YIELD_FROM
+            204 STORE_FAST              10 (history)
+
+246         206 LOAD_FAST               10 (history)
+            208 POP_JUMP_IF_TRUE       234
+
+247         210 LOAD_FAST                0 (self)
+            212 LOAD_ATTR                6 (_runtime)
+            214 LOAD_METHOD             10 (read_current_messages)
+
+248         216 LOAD_FAST                5 (account_id)
+
+249         218 LOAD_FAST                9 (session)
+            220 LOAD_ATTR               11 (session_id)
+
+250         222 LOAD_CONST              17 (15)
+
+247         224 CALL_METHOD              3
+            226 GET_AWAITABLE
+            228 LOAD_CONST               0 (None)
+            230 YIELD_FROM
+            232 STORE_FAST              10 (history)
+
+253     >>  234 LOAD_FAST                0 (self)
+            236 LOAD_ATTR                6 (_runtime)
+            238 LOAD_METHOD             12 (configuration_for)
+            240 LOAD_FAST                5 (account_id)
+            242 CALL_METHOD              1
+            244 STORE_FAST              11 (configuration)
+
+254         246 LOAD_FAST               11 (configuration)
+            248 LOAD_METHOD             13 (get_agent_by_id)
+            250 LOAD_FAST                7 (agent_id)
+            252 CALL_METHOD              1
+            254 STORE_FAST              12 (agent_info)
+
+255         256 LOAD_FAST               12 (agent_info)
+            258 EXTENDED_ARG             1
+            260 POP_JUMP_IF_TRUE       280
+
+256         262 LOAD_CONST              12 (False)
+            264 LOAD_CONST              18 ('未找到智能体信息: {}')
+            266 LOAD_METHOD             14 (format)
+            268 LOAD_FAST                7 (agent_id)
+            270 CALL_METHOD              1
+            272 LOAD_CONST              14 ('')
+            274 LOAD_CONST              15 (('success', 'error', 'message'))
+            276 BUILD_CONST_KEY_MAP      3
+            278 RETURN_VALUE
+
+257     >>  280 LOAD_GLOBAL              2 (str)
+            282 LOAD_FAST               12 (agent_info)
+            284 LOAD_METHOD              0 (get)
+            286 LOAD_CONST              19 ('platform')
+            288 CALL_METHOD              1
+            290 EXTENDED_ARG             1
+            292 JUMP_IF_TRUE_OR_POP    296
+            294 LOAD_CONST              20 ('coze')
+        >>  296 CALL_FUNCTION            1
+            298 LOAD_METHOD              4 (lower)
+            300 CALL_METHOD              0
+            302 STORE_FAST              13 (platform)
+
+258         304 LOAD_FAST                0 (self)
+            306 LOAD_METHOD             15 (_service_config)
+            308 LOAD_FAST               11 (configuration)
+            310 LOAD_FAST               13 (platform)
+            312 CALL_METHOD              2
+            314 STORE_FAST              14 (config)
+
+259         316 LOAD_FAST                0 (self)
+            318 LOAD_METHOD             16 (_ai_service_factory)
+            320 LOAD_FAST               13 (platform)
+            322 LOAD_FAST               14 (config)
+            324 LOAD_GLOBAL             17 (dict)
+            326 LOAD_FAST               12 (agent_info)
+            328 CALL_FUNCTION            1
+            330 CALL_METHOD              3
+            332 STORE_FAST              15 (service)
+
+260         334 LOAD_FAST               15 (service)
+            336 LOAD_CONST               0 (None)
+            338 IS_OP                    0
+            340 EXTENDED_ARG             1
+            342 POP_JUMP_IF_FALSE      356
+
+261         344 LOAD_CONST              12 (False)
+            346 LOAD_CONST              21 ('智能体服务创建失败')
+            348 LOAD_CONST              14 ('')
+            350 LOAD_CONST              15 (('success', 'error', 'message'))
+            352 BUILD_CONST_KEY_MAP      3
+            354 RETURN_VALUE
+
+263     >>  356 LOAD_FAST                0 (self)
+            358 LOAD_METHOD             18 (_prompt)
+            360 LOAD_FAST                1 (metadata)
+            362 LOAD_FAST                6 (name)
+            364 LOAD_FAST                8 (chat_type)
+            366 CALL_METHOD              3
+            368 STORE_FAST              16 (prompt)
+
+266         370 LOAD_FAST               13 (platform)
+            372 LOAD_CONST              22 ('fireflow')
+            374 COMPARE_OP               2 (==)
+
+265         376 EXTENDED_ARG             1
+            378 POP_JUMP_IF_FALSE      392
+            380 LOAD_FAST                0 (self)
+            382 LOAD_METHOD             19 (_flat_context)
+            384 LOAD_FAST               10 (history)
+            386 LOAD_FAST               16 (prompt)
+            388 CALL_METHOD              2
+            390 JUMP_FORWARD            10 (to 402)
+
+267     >>  392 LOAD_FAST                0 (self)
+            394 LOAD_METHOD             20 (_role_context)
+            396 LOAD_FAST               10 (history)
+            398 LOAD_FAST               16 (prompt)
+            400 CALL_METHOD              2
+
+264     >>  402 STORE_FAST              17 (context)
+
+269         404 SETUP_FINALLY          122 (to 528)
+
+270         406 LOAD_CONST              23 (0)
+            408 LOAD_CONST              24 (('AgenticService',))
+            410 IMPORT_NAME             21 (WeRobotCore.services.agentic_service)
+            412 IMPORT_FROM             22 (AgenticService)
+            414 STORE_FAST              18 (AgenticService)
+            416 POP_TOP
+
+272         418 LOAD_GLOBAL             23 (isinstance)
+            420 LOAD_FAST               15 (service)
+            422 LOAD_FAST               18 (AgenticService)
+            424 CALL_FUNCTION            2
+            426 EXTENDED_ARG             1
+            428 POP_JUMP_IF_FALSE      472
+
+273         430 LOAD_FAST               15 (service)
+            432 LOAD_ATTR               24 (start_chat)
+
+274         434 LOAD_FAST                7 (agent_id)
+
+275         436 LOAD_FAST               17 (context)
+
+276         438 LOAD_FAST                0 (self)
+            440 LOAD_METHOD             25 (_session_id)
+            442 LOAD_FAST                5 (account_id)
+            444 LOAD_FAST                6 (name)
+            446 CALL_METHOD              2
+
+277         448 LOAD_FAST                6 (name)
+
+278         450 LOAD_FAST                6 (name)
+
+279         452 LOAD_FAST                5 (account_id)
+
+280         454 LOAD_CONST              25 (True)
+
+281         456 LOAD_CONST              26 ('follow_up')
+
+273         458 LOAD_CONST              27 (('user_name', 'session_name', 'account_id', 'cache_session', 'scene'))
+            460 CALL_FUNCTION_KW         8
+            462 GET_AWAITABLE
+            464 LOAD_CONST               0 (None)
+            466 YIELD_FROM
+            468 STORE_FAST              19 (response)
+            470 JUMP_FORWARD            38 (to 510)
+
+284     >>  472 LOAD_FAST               15 (service)
+            474 LOAD_ATTR               24 (start_chat)
+
+285         476 LOAD_FAST                7 (agent_id)
+
+286         478 LOAD_FAST               17 (context)
+
+287         480 LOAD_FAST                0 (self)
+            482 LOAD_METHOD             25 (_session_id)
+            484 LOAD_FAST                5 (account_id)
+            486 LOAD_FAST                6 (name)
+            488 CALL_METHOD              2
+
+288         490 LOAD_FAST                6 (name)
+
+289         492 LOAD_FAST                6 (name)
+
+290         494 LOAD_FAST                5 (account_id)
+
+291         496 LOAD_CONST              12 (False)
+
+284         498 LOAD_CONST              28 (('user_name', 'session_name', 'account_id', 'cache_session'))
+            500 CALL_FUNCTION_KW         7
+            502 GET_AWAITABLE
+            504 LOAD_CONST               0 (None)
+            506 YIELD_FROM
+            508 STORE_FAST              19 (response)
+        >>  510 POP_BLOCK
+
+294         512 LOAD_FAST               15 (service)
+            514 LOAD_METHOD             26 (close)
+            516 CALL_METHOD              0
+            518 GET_AWAITABLE
+            520 LOAD_CONST               0 (None)
+            522 YIELD_FROM
+            524 POP_TOP
+            526 JUMP_FORWARD            16 (to 544)
+        >>  528 LOAD_FAST               15 (service)
+            530 LOAD_METHOD             26 (close)
+            532 CALL_METHOD              0
+            534 GET_AWAITABLE
+            536 LOAD_CONST               0 (None)
+            538 YIELD_FROM
+            540 POP_TOP
+            542 RERAISE
+
+296     >>  544 LOAD_FAST               19 (response)
+            546 LOAD_METHOD              0 (get)
+            548 LOAD_CONST              29 ('success')
+            550 CALL_METHOD              1
+            552 EXTENDED_ARG             2
+            554 POP_JUMP_IF_TRUE       584
+
+298         556 LOAD_CONST              12 (False)
+
+299         558 LOAD_GLOBAL              2 (str)
+            560 LOAD_FAST               19 (response)
+            562 LOAD_METHOD              0 (get)
+            564 LOAD_CONST              30 ('error')
+            566 CALL_METHOD              1
+            568 EXTENDED_ARG             2
+            570 JUMP_IF_TRUE_OR_POP    574
+            572 LOAD_CONST              31 ('生成跟单话术失败')
+        >>  574 CALL_FUNCTION            1
+
+300         576 LOAD_CONST              14 ('')
+
+297         578 LOAD_CONST              15 (('success', 'error', 'message'))
+            580 BUILD_CONST_KEY_MAP      3
+            582 RETURN_VALUE
+
+302     >>  584 LOAD_GLOBAL              2 (str)
+            586 LOAD_FAST               19 (response)
+            588 LOAD_METHOD              0 (get)
+            590 LOAD_CONST              32 ('reply')
+            592 CALL_METHOD              1
+            594 EXTENDED_ARG             2
+            596 JUMP_IF_TRUE_OR_POP    600
+            598 LOAD_CONST              14 ('')
+        >>  600 CALL_FUNCTION            1
+            602 STORE_FAST              20 (reply)
+
+303         604 LOAD_FAST               20 (reply)
+            606 LOAD_METHOD              3 (strip)
+            608 CALL_METHOD              0
+            610 LOAD_METHOD              3 (strip)
+            612 LOAD_CONST              33 ('[]【】')
+            614 CALL_METHOD              1
+            616 LOAD_METHOD             27 (upper)
+            618 CALL_METHOD              0
+            620 STORE_FAST              21 (normalized)
+
+304         622 LOAD_FAST               20 (reply)
+            624 LOAD_METHOD              3 (strip)
+            626 CALL_METHOD              0
+            628 EXTENDED_ARG             2
+            630 POP_JUMP_IF_FALSE      642
+            632 LOAD_FAST               21 (normalized)
+            634 LOAD_GLOBAL             28 (_SKIP_REPLIES)
+            636 CONTAINS_OP              0
+            638 EXTENDED_ARG             2
+            640 POP_JUMP_IF_FALSE      654
+
+305     >>  642 LOAD_CONST              25 (True)
+            644 LOAD_CONST              34 ('[无需跟进]')
+            646 LOAD_CONST              14 ('')
+            648 LOAD_CONST              35 (('success', 'message', 'error'))
+            650 BUILD_CONST_KEY_MAP      3
+            652 RETURN_VALUE
+
+307     >>  654 LOAD_FAST                0 (self)
+            656 LOAD_ATTR               29 (_send_reply)
+
+308         658 LOAD_FAST                5 (account_id)
+
+309         660 LOAD_FAST                9 (session)
+            662 LOAD_ATTR               11 (session_id)
+
+310         664 LOAD_FAST                6 (name)
+
+311         666 LOAD_FAST               20 (reply)
+
+312         668 LOAD_FAST               11 (configuration)
+
+307         670 LOAD_CONST              36 (('account_id', 'session_id', 'session_name', 'reply', 'configuration'))
+            672 CALL_FUNCTION_KW         5
+            674 GET_AWAITABLE
+            676 LOAD_CONST               0 (None)
+            678 YIELD_FROM
+            680 STORE_FAST              22 (sent)
+
+314         682 LOAD_FAST               22 (sent)
+            684 EXTENDED_ARG             2
+            686 POP_JUMP_IF_FALSE      738
+
+315         688 SETUP_FINALLY           28 (to 718)
+
+316         690 LOAD_FAST                0 (self)
+            692 LOAD_ATTR                6 (_runtime)
+            694 LOAD_METHOD             30 (record_after_reply)
+
+317         696 LOAD_FAST                5 (account_id)
+
+318         698 LOAD_FAST                9 (session)
+            700 LOAD_ATTR               11 (session_id)
+
+319         702 LOAD_FAST                6 (name)
+
+316         704 CALL_METHOD              3
+            706 GET_AWAITABLE
+            708 LOAD_CONST               0 (None)
+            710 YIELD_FROM
+            712 POP_TOP
+            714 POP_BLOCK
+            716 JUMP_FORWARD            20 (to 738)
+
+321     >>  718 DUP_TOP
+            720 LOAD_GLOBAL             31 (Exception)
+            722 EXTENDED_ARG             2
+            724 JUMP_IF_NOT_EXC_MATCH   736
+            726 POP_TOP
+            728 POP_TOP
+            730 POP_TOP
+
+324         732 POP_EXCEPT
+            734 JUMP_FORWARD             2 (to 738)
+        >>  736 RERAISE
+
+326     >>  738 LOAD_FAST               22 (sent)
+
+327         740 LOAD_FAST               20 (reply)
+
+328         742 LOAD_FAST               22 (sent)
+            744 EXTENDED_ARG             2
+            746 POP_JUMP_IF_FALSE      752
+            748 LOAD_CONST              14 ('')
+            750 JUMP_FORWARD             2 (to 754)
+        >>  752 LOAD_CONST              37 ('跟单消息未全部发送成功')
+
+325     >>  754 LOAD_CONST              35 (('success', 'message', 'error'))
+            756 BUILD_CONST_KEY_MAP      3
+            758 RETURN_VALUE

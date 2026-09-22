@@ -1,0 +1,316 @@
+  1           0 LOAD_CONST               0 ('Monitor session input backed by the mature Windows chat facade.')
+              2 STORE_NAME               0 (__doc__)
+
+  3           4 LOAD_CONST               1 (0)
+              6 LOAD_CONST               2 (('Iterable', 'Mapping', 'Optional', 'Sequence', 'cast'))
+              8 IMPORT_NAME              1 (typing)
+             10 IMPORT_FROM              2 (Iterable)
+             12 STORE_NAME               2 (Iterable)
+             14 IMPORT_FROM              3 (Mapping)
+             16 STORE_NAME               3 (Mapping)
+             18 IMPORT_FROM              4 (Optional)
+             20 STORE_NAME               4 (Optional)
+             22 IMPORT_FROM              5 (Sequence)
+             24 STORE_NAME               5 (Sequence)
+             26 IMPORT_FROM              6 (cast)
+             28 STORE_NAME               6 (cast)
+             30 POP_TOP
+
+  5          32 LOAD_CONST               1 (0)
+             34 LOAD_CONST               3 (('MonitorSessionBatch', 'MonitorSessionBatchBinder', 'MonitorSessionItem', 'MonitorSessionPayload'))
+             36 IMPORT_NAME              7 (WeRobotCore.application.monitoring)
+             38 IMPORT_FROM              8 (MonitorSessionBatch)
+             40 STORE_NAME               8 (MonitorSessionBatch)
+             42 IMPORT_FROM              9 (MonitorSessionBatchBinder)
+             44 STORE_NAME               9 (MonitorSessionBatchBinder)
+             46 IMPORT_FROM             10 (MonitorSessionItem)
+             48 STORE_NAME              10 (MonitorSessionItem)
+             50 IMPORT_FROM             11 (MonitorSessionPayload)
+             52 STORE_NAME              11 (MonitorSessionPayload)
+             54 POP_TOP
+
+ 12          56 LOAD_CONST               4 (1)
+             58 LOAD_CONST               5 (('LegacyConversationFacade',))
+             60 IMPORT_NAME             12 (facades)
+             62 IMPORT_FROM             13 (LegacyConversationFacade)
+             64 STORE_NAME              13 (LegacyConversationFacade)
+             66 POP_TOP
+
+ 13          68 LOAD_CONST               4 (1)
+             70 LOAD_CONST               6 (('map_legacy_session',))
+             72 IMPORT_NAME             14 (mappers)
+             74 IMPORT_FROM             15 (map_legacy_session)
+             76 STORE_NAME              15 (map_legacy_session)
+             78 POP_TOP
+
+ 17          80 LOAD_NAME                2 (Iterable)
+             82 LOAD_NAME                3 (Mapping)
+             84 LOAD_NAME               16 (str)
+             86 LOAD_NAME               17 (object)
+             88 BUILD_TUPLE              2
+             90 BINARY_SUBSCR
+             92 BINARY_SUBSCR
+
+ 18          94 LOAD_NAME               16 (str)
+
+ 19          96 LOAD_NAME                8 (MonitorSessionBatch)
+
+ 16          98 LOAD_CONST               7 (('raw_sessions', 'account_id', 'return'))
+            100 BUILD_CONST_KEY_MAP      3
+            102 LOAD_CONST               8 (<code object map_legacy_monitor_session_batch at 0x1072e0be0, file "WeRobotCore/adapters/wechat/windows_legacy/monitor_session_source.py", line 16>)
+            104 LOAD_CONST               9 ('map_legacy_monitor_session_batch')
+            106 MAKE_FUNCTION            4 (annotations)
+            108 STORE_NAME              18 (map_legacy_monitor_session_batch)
+
+ 41         110 LOAD_BUILD_CLASS
+            112 LOAD_CONST              10 (<code object WindowsLegacyMonitorSessionSource at 0x1073aa870, file "WeRobotCore/adapters/wechat/windows_legacy/monitor_session_source.py", line 41>)
+            114 LOAD_CONST              11 ('WindowsLegacyMonitorSessionSource')
+            116 MAKE_FUNCTION            0
+            118 LOAD_CONST              11 ('WindowsLegacyMonitorSessionSource')
+            120 CALL_FUNCTION            2
+            122 STORE_NAME              19 (WindowsLegacyMonitorSessionSource)
+            124 LOAD_CONST              12 (None)
+            126 RETURN_VALUE
+
+Disassembly of <code object map_legacy_monitor_session_batch at 0x1072e0be0, file "WeRobotCore/adapters/wechat/windows_legacy/monitor_session_source.py", line 16>:
+ 27           0 LOAD_FAST                1 (account_id)
+              2 LOAD_CONST               1 (None)
+              4 IS_OP                    0
+              6 POP_JUMP_IF_FALSE       12
+              8 LOAD_CONST               2 ('')
+             10 JUMP_FORWARD            10 (to 22)
+        >>   12 LOAD_GLOBAL              0 (str)
+             14 LOAD_FAST                1 (account_id)
+             16 CALL_FUNCTION            1
+             18 LOAD_METHOD              1 (strip)
+             20 CALL_METHOD              0
+        >>   22 STORE_DEREF              0 (normalized_account_id)
+
+ 28          24 LOAD_DEREF               0 (normalized_account_id)
+             26 POP_JUMP_IF_TRUE        36
+
+ 29          28 LOAD_GLOBAL              2 (ValueError)
+             30 LOAD_CONST               3 ('account_id must be a non-empty string')
+             32 CALL_FUNCTION            1
+             34 RAISE_VARARGS            1
+
+ 31     >>   36 LOAD_GLOBAL              3 (tuple)
+             38 LOAD_CLOSURE             0 (normalized_account_id)
+             40 BUILD_TUPLE              1
+             42 LOAD_CONST               4 (<code object <genexpr> at 0x1072e0710, file "WeRobotCore/adapters/wechat/windows_legacy/monitor_session_source.py", line 31>)
+             44 LOAD_CONST               5 ('map_legacy_monitor_session_batch.<locals>.<genexpr>')
+             46 MAKE_FUNCTION            8 (closure)
+
+ 36          48 LOAD_FAST                0 (raw_sessions)
+
+ 31          50 GET_ITER
+             52 CALL_FUNCTION            1
+             54 CALL_FUNCTION            1
+             56 STORE_FAST               2 (items)
+
+ 38          58 LOAD_GLOBAL              4 (MonitorSessionBatch)
+             60 LOAD_DEREF               0 (normalized_account_id)
+             62 LOAD_FAST                2 (items)
+             64 LOAD_CONST               6 (('account_id', 'items'))
+             66 CALL_FUNCTION_KW         2
+             68 RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x1072e0710, file "WeRobotCore/adapters/wechat/windows_legacy/monitor_session_source.py", line 31>:
+ 31           0 LOAD_FAST                0 (.0)
+        >>    2 FOR_ITER                24 (to 28)
+
+ 36           4 STORE_FAST               1 (raw)
+
+ 32           6 LOAD_GLOBAL              0 (MonitorSessionItem)
+
+ 33           8 LOAD_GLOBAL              1 (map_legacy_session)
+             10 LOAD_FAST                1 (raw)
+             12 LOAD_DEREF               0 (normalized_account_id)
+             14 CALL_FUNCTION            2
+
+ 34          16 LOAD_FAST                1 (raw)
+
+ 32          18 LOAD_CONST               0 (('summary', 'compatibility_payload'))
+             20 CALL_FUNCTION_KW         2
+             22 YIELD_VALUE
+             24 POP_TOP
+             26 JUMP_ABSOLUTE            2
+        >>   28 LOAD_CONST               1 (None)
+             30 RETURN_VALUE
+
+Disassembly of <code object WindowsLegacyMonitorSessionSource at 0x1073aa870, file "WeRobotCore/adapters/wechat/windows_legacy/monitor_session_source.py", line 41>:
+ 41           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('WindowsLegacyMonitorSessionSource')
+              6 STORE_NAME               2 (__qualname__)
+
+ 42           8 LOAD_CONST               1 ('Delegate the monitor scan without copying any Windows UIA logic.\n\n    ``list_sessions`` retains the original raw-result helper for compatibility.\n    The production ``list_session_batch`` reads through that same helper once,\n    then creates normalized facts plus the lossless compatibility projection.\n    ')
+             10 STORE_NAME               3 (__doc__)
+
+ 49          12 LOAD_CONST              12 ((None,))
+
+ 51          14 LOAD_NAME                4 (LegacyConversationFacade)
+
+ 52          16 LOAD_NAME                5 (Optional)
+             18 LOAD_NAME                6 (MonitorSessionBatchBinder)
+             20 BINARY_SUBSCR
+
+ 53          22 LOAD_CONST               2 (None)
+
+ 49          24 LOAD_CONST               3 (('chat', 'batch_binder', 'return'))
+             26 BUILD_CONST_KEY_MAP      3
+             28 LOAD_CONST               4 (<code object __init__ at 0x1072e0ea0, file "WeRobotCore/adapters/wechat/windows_legacy/monitor_session_source.py", line 49>)
+             30 LOAD_CONST               5 ('WindowsLegacyMonitorSessionSource.__init__')
+             32 MAKE_FUNCTION            5 (defaults, annotations)
+             34 STORE_NAME               7 (__init__)
+
+ 64          36 LOAD_CONST              13 ((20, None))
+
+ 66          38 LOAD_NAME                8 (str)
+
+ 67          40 LOAD_NAME                9 (int)
+
+ 68          42 LOAD_NAME                5 (Optional)
+             44 LOAD_NAME               10 (float)
+             46 BINARY_SUBSCR
+
+ 69          48 LOAD_NAME               11 (Sequence)
+             50 LOAD_NAME               12 (MonitorSessionPayload)
+             52 BINARY_SUBSCR
+
+ 64          54 LOAD_CONST               7 (('account_id', 'limit', 'start_time', 'return'))
+             56 BUILD_CONST_KEY_MAP      4
+             58 LOAD_CONST               8 (<code object list_sessions at 0x1072e0f50, file "WeRobotCore/adapters/wechat/windows_legacy/monitor_session_source.py", line 64>)
+             60 LOAD_CONST               9 ('WindowsLegacyMonitorSessionSource.list_sessions')
+             62 MAKE_FUNCTION            5 (defaults, annotations)
+             64 STORE_NAME              13 (list_sessions)
+
+ 77          66 LOAD_CONST              14 ((20, None))
+
+ 79          68 LOAD_NAME                8 (str)
+
+ 80          70 LOAD_NAME                9 (int)
+
+ 81          72 LOAD_NAME                5 (Optional)
+             74 LOAD_NAME               10 (float)
+             76 BINARY_SUBSCR
+
+ 82          78 LOAD_NAME               14 (MonitorSessionBatch)
+
+ 77          80 LOAD_CONST               7 (('account_id', 'limit', 'start_time', 'return'))
+             82 BUILD_CONST_KEY_MAP      4
+             84 LOAD_CONST              10 (<code object list_session_batch at 0x1072e0a80, file "WeRobotCore/adapters/wechat/windows_legacy/monitor_session_source.py", line 77>)
+             86 LOAD_CONST              11 ('WindowsLegacyMonitorSessionSource.list_session_batch')
+             88 MAKE_FUNCTION            5 (defaults, annotations)
+             90 STORE_NAME              15 (list_session_batch)
+             92 LOAD_CONST               2 (None)
+             94 RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x1072e0ea0, file "WeRobotCore/adapters/wechat/windows_legacy/monitor_session_source.py", line 49>:
+ 54           0 LOAD_FAST                1 (chat)
+              2 LOAD_CONST               0 (None)
+              4 IS_OP                    0
+              6 POP_JUMP_IF_FALSE       16
+
+ 55           8 LOAD_GLOBAL              0 (ValueError)
+             10 LOAD_CONST               1 ('chat must be provided')
+             12 CALL_FUNCTION            1
+             14 RAISE_VARARGS            1
+
+ 56     >>   16 LOAD_FAST                2 (batch_binder)
+             18 LOAD_CONST               0 (None)
+             20 IS_OP                    1
+             22 POP_JUMP_IF_FALSE       42
+             24 LOAD_GLOBAL              1 (isinstance)
+
+ 57          26 LOAD_FAST                2 (batch_binder)
+
+ 58          28 LOAD_GLOBAL              2 (MonitorSessionBatchBinder)
+
+ 56          30 CALL_FUNCTION            2
+             32 POP_JUMP_IF_TRUE        42
+
+ 60          34 LOAD_GLOBAL              3 (TypeError)
+             36 LOAD_CONST               2 ('batch_binder must implement MonitorSessionBatchBinder')
+             38 CALL_FUNCTION            1
+             40 RAISE_VARARGS            1
+
+ 61     >>   42 LOAD_FAST                1 (chat)
+             44 LOAD_FAST                0 (self)
+             46 STORE_ATTR               4 (_chat)
+
+ 62          48 LOAD_FAST                2 (batch_binder)
+             50 LOAD_FAST                0 (self)
+             52 STORE_ATTR               5 (_batch_binder)
+             54 LOAD_CONST               0 (None)
+             56 RETURN_VALUE
+
+Disassembly of <code object list_sessions at 0x1072e0f50, file "WeRobotCore/adapters/wechat/windows_legacy/monitor_session_source.py", line 64>:
+ 70           0 LOAD_FAST                0 (self)
+              2 LOAD_ATTR                0 (_chat)
+              4 LOAD_ATTR                1 (async_get_latest_sessions)
+
+ 71           6 LOAD_FAST                2 (limit)
+
+ 72           8 LOAD_FAST                3 (start_time)
+
+ 73          10 LOAD_FAST                1 (account_id)
+
+ 70          12 LOAD_CONST               1 (('limit', 'start_time', 'account_id'))
+             14 CALL_FUNCTION_KW         3
+             16 GET_AWAITABLE
+             18 LOAD_CONST               0 (None)
+             20 YIELD_FROM
+             22 STORE_FAST               4 (sessions)
+
+ 75          24 LOAD_GLOBAL              2 (cast)
+             26 LOAD_GLOBAL              3 (Sequence)
+             28 LOAD_GLOBAL              4 (MonitorSessionPayload)
+             30 BINARY_SUBSCR
+             32 LOAD_FAST                4 (sessions)
+             34 CALL_FUNCTION            2
+             36 RETURN_VALUE
+
+Disassembly of <code object list_session_batch at 0x1072e0a80, file "WeRobotCore/adapters/wechat/windows_legacy/monitor_session_source.py", line 77>:
+ 85           0 LOAD_FAST                0 (self)
+              2 LOAD_ATTR                0 (list_sessions)
+
+ 86           4 LOAD_FAST                1 (account_id)
+
+ 87           6 LOAD_FAST                2 (limit)
+
+ 88           8 LOAD_FAST                3 (start_time)
+
+ 85          10 LOAD_CONST               1 (('account_id', 'limit', 'start_time'))
+             12 CALL_FUNCTION_KW         3
+             14 GET_AWAITABLE
+             16 LOAD_CONST               2 (None)
+             18 YIELD_FROM
+             20 STORE_FAST               4 (sessions)
+
+ 90          22 LOAD_GLOBAL              1 (map_legacy_monitor_session_batch)
+             24 LOAD_FAST                4 (sessions)
+             26 JUMP_IF_TRUE_OR_POP     30
+             28 LOAD_CONST               3 (())
+        >>   30 LOAD_FAST                1 (account_id)
+             32 CALL_FUNCTION            2
+             34 STORE_FAST               5 (batch)
+
+ 91          36 LOAD_FAST                0 (self)
+             38 LOAD_ATTR                2 (_batch_binder)
+             40 LOAD_CONST               2 (None)
+             42 IS_OP                    1
+             44 POP_JUMP_IF_FALSE       64
+
+ 92          46 LOAD_FAST                0 (self)
+             48 LOAD_ATTR                2 (_batch_binder)
+             50 LOAD_METHOD              3 (bind_session_batch)
+             52 LOAD_FAST                5 (batch)
+             54 CALL_METHOD              1
+             56 GET_AWAITABLE
+             58 LOAD_CONST               2 (None)
+             60 YIELD_FROM
+             62 POP_TOP
+
+ 93     >>   64 LOAD_FAST                5 (batch)
+             66 RETURN_VALUE

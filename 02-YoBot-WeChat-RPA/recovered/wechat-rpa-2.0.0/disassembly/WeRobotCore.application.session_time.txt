@@ -1,0 +1,723 @@
+  1           0 LOAD_CONST               0 ('WeChat display-time normalization shared by session-list consumers.')
+              2 STORE_NAME               0 (__doc__)
+
+  3           4 LOAD_CONST               1 (0)
+              6 LOAD_CONST               2 (('annotations',))
+              8 IMPORT_NAME              1 (__future__)
+             10 IMPORT_FROM              2 (annotations)
+             12 STORE_NAME               2 (annotations)
+             14 POP_TOP
+
+  5          16 LOAD_CONST               1 (0)
+             18 LOAD_CONST               3 (None)
+             20 IMPORT_NAME              3 (re)
+             22 STORE_NAME               3 (re)
+
+  6          24 LOAD_CONST               1 (0)
+             26 LOAD_CONST               4 (('datetime', 'timedelta'))
+             28 IMPORT_NAME              4 (datetime)
+             30 IMPORT_FROM              4 (datetime)
+             32 STORE_NAME               4 (datetime)
+             34 IMPORT_FROM              5 (timedelta)
+             36 STORE_NAME               5 (timedelta)
+             38 POP_TOP
+
+  7          40 LOAD_CONST               1 (0)
+             42 LOAD_CONST               5 (('Optional',))
+             44 IMPORT_NAME              6 (typing)
+             46 IMPORT_FROM              7 (Optional)
+             48 STORE_NAME               7 (Optional)
+             50 POP_TOP
+
+ 10          52 LOAD_CONST               6 ('(?P<hour>\\d{1,2}):(?P<minute>\\d{2})')
+             54 STORE_NAME               8 (_CLOCK_PATTERN)
+
+ 11          56 BUILD_SET                0
+             58 LOAD_CONST               7 (frozenset({'下午', '早上', '晚上', '上午', '凌晨', '傍晚', '中午'}))
+             60 SET_UPDATE               1
+             62 STORE_NAME               9 (_PERIODS)
+
+ 13          64 LOAD_CONST               1 (0)
+
+ 14          66 LOAD_CONST               8 (1)
+
+ 15          68 LOAD_CONST               9 (2)
+
+ 16          70 LOAD_CONST              10 (3)
+
+ 17          72 LOAD_CONST              11 (4)
+
+ 18          74 LOAD_CONST              12 (5)
+
+ 19          76 LOAD_CONST              13 (6)
+
+ 20          78 LOAD_CONST              13 (6)
+
+ 12          80 LOAD_CONST              14 (('一', '二', '三', '四', '五', '六', '日', '天'))
+             82 BUILD_CONST_KEY_MAP      8
+             84 STORE_NAME              10 (_WEEKDAYS)
+
+ 24          86 LOAD_CONST              33 ((None,))
+             88 LOAD_CONST              15 ('str')
+             90 LOAD_CONST              16 ('Optional[str]')
+             92 LOAD_CONST              17 ('Optional[tuple[int, int]]')
+             94 LOAD_CONST              18 (('value', 'period', 'return'))
+             96 BUILD_CONST_KEY_MAP      3
+             98 LOAD_CONST              19 (<code object _clock at 0x1072e0a80, file "WeRobotCore/application/session_time.py", line 24>)
+            100 LOAD_CONST              20 ('_clock')
+            102 MAKE_FUNCTION            5 (defaults, annotations)
+            104 STORE_NAME              11 (_clock)
+
+ 42         106 LOAD_CONST              21 ('datetime')
+            108 LOAD_CONST              17 ('Optional[tuple[int, int]]')
+            110 LOAD_CONST              21 ('datetime')
+            112 LOAD_CONST              22 (('day', 'clock', 'return'))
+            114 BUILD_CONST_KEY_MAP      3
+            116 LOAD_CONST              23 (<code object _with_clock at 0x1072e0b30, file "WeRobotCore/application/session_time.py", line 42>)
+            118 LOAD_CONST              24 ('_with_clock')
+            120 MAKE_FUNCTION            4 (annotations)
+            122 STORE_NAME              12 (_with_clock)
+
+ 50         124 LOAD_CONST               3 (None)
+
+ 47         126 LOAD_CONST              25 (('now',))
+            128 BUILD_CONST_KEY_MAP      1
+            130 LOAD_CONST              15 ('str')
+            132 LOAD_CONST              26 ('Optional[datetime]')
+            134 LOAD_CONST              26 ('Optional[datetime]')
+            136 LOAD_CONST              27 (('value', 'now', 'return'))
+            138 BUILD_CONST_KEY_MAP      3
+            140 LOAD_CONST              28 (<code object parse_wechat_session_time at 0x1072e0870, file "WeRobotCore/application/session_time.py", line 47>)
+            142 LOAD_CONST              29 ('parse_wechat_session_time')
+            144 MAKE_FUNCTION            6 (kwdefaults, annotations)
+            146 STORE_NAME              13 (parse_wechat_session_time)
+
+147         148 LOAD_CONST               3 (None)
+            150 LOAD_CONST              25 (('now',))
+            152 BUILD_CONST_KEY_MAP      1
+            154 LOAD_CONST              15 ('str')
+            156 LOAD_CONST              26 ('Optional[datetime]')
+            158 LOAD_CONST              30 ('float')
+            160 LOAD_CONST              27 (('value', 'now', 'return'))
+            162 BUILD_CONST_KEY_MAP      3
+            164 LOAD_CONST              31 (<code object session_recency_timestamp at 0x1072e0d40, file "WeRobotCore/application/session_time.py", line 147>)
+            166 LOAD_CONST              32 ('session_recency_timestamp')
+            168 MAKE_FUNCTION            6 (kwdefaults, annotations)
+            170 STORE_NAME              14 (session_recency_timestamp)
+            172 LOAD_CONST               3 (None)
+            174 RETURN_VALUE
+
+Disassembly of <code object _clock at 0x1072e0a80, file "WeRobotCore/application/session_time.py", line 24>:
+ 25           0 LOAD_GLOBAL              0 (re)
+              2 LOAD_METHOD              1 (fullmatch)
+              4 LOAD_GLOBAL              2 (_CLOCK_PATTERN)
+              6 LOAD_FAST                0 (value)
+              8 LOAD_METHOD              3 (strip)
+             10 CALL_METHOD              0
+             12 CALL_METHOD              2
+             14 STORE_FAST               2 (match)
+
+ 26          16 LOAD_FAST                2 (match)
+             18 LOAD_CONST               0 (None)
+             20 IS_OP                    0
+             22 POP_JUMP_IF_FALSE       28
+
+ 27          24 LOAD_CONST               0 (None)
+             26 RETURN_VALUE
+
+ 28     >>   28 LOAD_GLOBAL              4 (int)
+             30 LOAD_FAST                2 (match)
+             32 LOAD_METHOD              5 (group)
+             34 LOAD_CONST               1 ('hour')
+             36 CALL_METHOD              1
+             38 CALL_FUNCTION            1
+             40 STORE_FAST               3 (hour)
+
+ 29          42 LOAD_GLOBAL              4 (int)
+             44 LOAD_FAST                2 (match)
+             46 LOAD_METHOD              5 (group)
+             48 LOAD_CONST               2 ('minute')
+             50 CALL_METHOD              1
+             52 CALL_FUNCTION            1
+             54 STORE_FAST               4 (minute)
+
+ 30          56 LOAD_FAST                4 (minute)
+             58 LOAD_CONST               3 (59)
+             60 COMPARE_OP               4 (>)
+             62 POP_JUMP_IF_TRUE        72
+             64 LOAD_FAST                3 (hour)
+             66 LOAD_CONST               4 (23)
+             68 COMPARE_OP               4 (>)
+             70 POP_JUMP_IF_FALSE       76
+
+ 31     >>   72 LOAD_CONST               0 (None)
+             74 RETURN_VALUE
+
+ 32     >>   76 LOAD_FAST                1 (period)
+             78 POP_JUMP_IF_FALSE      152
+
+ 33          80 LOAD_FAST                1 (period)
+             82 LOAD_CONST               5 (frozenset({'下午', '晚上', '傍晚'}))
+             84 CONTAINS_OP              0
+             86 POP_JUMP_IF_FALSE      106
+             88 LOAD_FAST                3 (hour)
+             90 LOAD_CONST               6 (12)
+             92 COMPARE_OP               0 (<)
+             94 POP_JUMP_IF_FALSE      106
+
+ 34          96 LOAD_FAST                3 (hour)
+             98 LOAD_CONST               6 (12)
+            100 INPLACE_ADD
+            102 STORE_FAST               3 (hour)
+            104 JUMP_FORWARD            46 (to 152)
+
+ 35     >>  106 LOAD_FAST                1 (period)
+            108 LOAD_CONST               7 (frozenset({'早上', '上午', '凌晨'}))
+            110 CONTAINS_OP              0
+            112 POP_JUMP_IF_FALSE      128
+            114 LOAD_FAST                3 (hour)
+            116 LOAD_CONST               6 (12)
+            118 COMPARE_OP               2 (==)
+            120 POP_JUMP_IF_FALSE      128
+
+ 36         122 LOAD_CONST               8 (0)
+            124 STORE_FAST               3 (hour)
+            126 JUMP_FORWARD            24 (to 152)
+
+ 37     >>  128 LOAD_FAST                1 (period)
+            130 LOAD_CONST               9 ('中午')
+            132 COMPARE_OP               2 (==)
+            134 POP_JUMP_IF_FALSE      152
+            136 LOAD_FAST                3 (hour)
+            138 LOAD_CONST              10 (11)
+            140 COMPARE_OP               0 (<)
+            142 POP_JUMP_IF_FALSE      152
+
+ 38         144 LOAD_FAST                3 (hour)
+            146 LOAD_CONST               6 (12)
+            148 INPLACE_ADD
+            150 STORE_FAST               3 (hour)
+
+ 39     >>  152 LOAD_FAST                3 (hour)
+            154 LOAD_FAST                4 (minute)
+            156 BUILD_TUPLE              2
+            158 RETURN_VALUE
+
+Disassembly of <code object _with_clock at 0x1072e0b30, file "WeRobotCore/application/session_time.py", line 42>:
+ 43           0 LOAD_FAST                1 (clock)
+              2 JUMP_IF_TRUE_OR_POP      6
+              4 LOAD_CONST               1 ((0, 0))
+        >>    6 UNPACK_SEQUENCE          2
+              8 STORE_FAST               2 (hour)
+             10 STORE_FAST               3 (minute)
+
+ 44          12 LOAD_FAST                0 (day)
+             14 LOAD_ATTR                0 (replace)
+             16 LOAD_FAST                2 (hour)
+             18 LOAD_FAST                3 (minute)
+             20 LOAD_CONST               2 (0)
+             22 LOAD_CONST               2 (0)
+             24 LOAD_CONST               3 (('hour', 'minute', 'second', 'microsecond'))
+             26 CALL_FUNCTION_KW         4
+             28 RETURN_VALUE
+
+Disassembly of <code object parse_wechat_session_time at 0x1072e0870, file "WeRobotCore/application/session_time.py", line 47>:
+ 59           0 LOAD_CONST               1 (' ')
+              2 LOAD_METHOD              0 (join)
+              4 LOAD_GLOBAL              1 (str)
+              6 LOAD_FAST                0 (value)
+              8 JUMP_IF_TRUE_OR_POP     12
+             10 LOAD_CONST               2 ('')
+        >>   12 CALL_FUNCTION            1
+             14 LOAD_METHOD              2 (strip)
+             16 CALL_METHOD              0
+             18 LOAD_METHOD              3 (split)
+             20 CALL_METHOD              0
+             22 CALL_METHOD              1
+             24 STORE_FAST               2 (text)
+
+ 60          26 LOAD_FAST                2 (text)
+             28 POP_JUMP_IF_TRUE        34
+
+ 61          30 LOAD_CONST               3 (None)
+             32 RETURN_VALUE
+
+ 62     >>   34 LOAD_FAST                1 (now)
+             36 JUMP_IF_TRUE_OR_POP     44
+             38 LOAD_GLOBAL              4 (datetime)
+             40 LOAD_METHOD              5 (now)
+             42 CALL_METHOD              0
+        >>   44 STORE_FAST               3 (current)
+
+ 63          46 LOAD_FAST                2 (text)
+             48 LOAD_CONST               4 ('刚刚')
+             50 COMPARE_OP               2 (==)
+             52 POP_JUMP_IF_FALSE       58
+
+ 64          54 LOAD_FAST                3 (current)
+             56 RETURN_VALUE
+
+ 66     >>   58 LOAD_CONST               3 (None)
+             60 STORE_FAST               4 (period)
+
+ 67          62 LOAD_GLOBAL              6 (_PERIODS)
+             64 GET_ITER
+        >>   66 FOR_ITER                50 (to 118)
+             68 STORE_FAST               5 (candidate)
+
+ 68          70 LOAD_FAST                5 (candidate)
+             72 LOAD_CONST               1 (' ')
+             74 BINARY_ADD
+             76 STORE_FAST               6 (marker)
+
+ 69          78 LOAD_FAST                2 (text)
+             80 LOAD_METHOD              7 (startswith)
+             82 LOAD_FAST                6 (marker)
+             84 CALL_METHOD              1
+             86 POP_JUMP_IF_FALSE       66
+
+ 70          88 LOAD_FAST                5 (candidate)
+             90 STORE_FAST               4 (period)
+
+ 71          92 LOAD_FAST                2 (text)
+             94 LOAD_GLOBAL              8 (len)
+             96 LOAD_FAST                6 (marker)
+             98 CALL_FUNCTION            1
+            100 LOAD_CONST               3 (None)
+            102 BUILD_SLICE              2
+            104 BINARY_SUBSCR
+            106 LOAD_METHOD              2 (strip)
+            108 CALL_METHOD              0
+            110 STORE_FAST               2 (text)
+
+ 72         112 POP_TOP
+            114 JUMP_ABSOLUTE          118
+            116 JUMP_ABSOLUTE           66
+
+ 74     >>  118 LOAD_GLOBAL              9 (_clock)
+            120 LOAD_FAST                2 (text)
+            122 LOAD_FAST                4 (period)
+            124 CALL_FUNCTION            2
+            126 STORE_FAST               7 (direct_clock)
+
+ 75         128 LOAD_FAST                7 (direct_clock)
+            130 LOAD_CONST               3 (None)
+            132 IS_OP                    1
+            134 POP_JUMP_IF_FALSE      182
+
+ 76         136 LOAD_GLOBAL             10 (_with_clock)
+            138 LOAD_FAST                3 (current)
+            140 LOAD_FAST                7 (direct_clock)
+            142 CALL_FUNCTION            2
+            144 STORE_FAST               8 (result)
+
+ 77         146 LOAD_FAST                8 (result)
+            148 LOAD_FAST                3 (current)
+            150 BINARY_SUBTRACT
+            152 LOAD_GLOBAL             11 (timedelta)
+            154 LOAD_CONST               5 (5)
+            156 LOAD_CONST               6 (('minutes',))
+            158 CALL_FUNCTION_KW         1
+            160 COMPARE_OP               4 (>)
+            162 POP_JUMP_IF_FALSE      178
+
+ 78         164 LOAD_FAST                8 (result)
+            166 LOAD_GLOBAL             11 (timedelta)
+            168 LOAD_CONST               7 (1)
+            170 LOAD_CONST               8 (('days',))
+            172 CALL_FUNCTION_KW         1
+            174 INPLACE_SUBTRACT
+            176 STORE_FAST               8 (result)
+
+ 79     >>  178 LOAD_FAST                8 (result)
+            180 RETURN_VALUE
+
+ 81     >>  182 LOAD_GLOBAL             12 (re)
+            184 LOAD_METHOD             13 (fullmatch)
+
+ 82         186 LOAD_CONST               9 ('(?P<day>今天|昨天|前天)(?:\\s+(?:(?P<period>凌晨|早上|上午|中午|下午|傍晚|晚上)\\s+)?(?P<clock>\\d{1,2}:\\d{2}))?')
+
+ 83         188 LOAD_FAST                2 (text)
+
+ 81         190 CALL_METHOD              2
+            192 STORE_FAST               9 (relative)
+
+ 85         194 LOAD_FAST                9 (relative)
+            196 LOAD_CONST               3 (None)
+            198 IS_OP                    1
+            200 EXTENDED_ARG             1
+            202 POP_JUMP_IF_FALSE      308
+
+ 86         204 LOAD_CONST              10 (0)
+            206 LOAD_CONST               7 (1)
+            208 LOAD_CONST              11 (2)
+            210 LOAD_CONST              12 (('今天', '昨天', '前天'))
+            212 BUILD_CONST_KEY_MAP      3
+            214 STORE_FAST              10 (offsets)
+
+ 89         216 LOAD_FAST                9 (relative)
+            218 LOAD_METHOD             14 (group)
+            220 LOAD_CONST              13 ('clock')
+            222 CALL_METHOD              1
+
+ 88         224 POP_JUMP_IF_FALSE      248
+            226 LOAD_GLOBAL              9 (_clock)
+            228 LOAD_FAST                9 (relative)
+            230 LOAD_METHOD             14 (group)
+            232 LOAD_CONST              13 ('clock')
+            234 CALL_METHOD              1
+            236 LOAD_FAST                9 (relative)
+            238 LOAD_METHOD             14 (group)
+            240 LOAD_CONST              14 ('period')
+            242 CALL_METHOD              1
+            244 CALL_FUNCTION            2
+            246 JUMP_FORWARD             2 (to 250)
+
+ 90     >>  248 LOAD_CONST               3 (None)
+
+ 87     >>  250 STORE_FAST              11 (clock)
+
+ 92         252 LOAD_FAST                9 (relative)
+            254 LOAD_METHOD             14 (group)
+            256 LOAD_CONST              13 ('clock')
+            258 CALL_METHOD              1
+            260 EXTENDED_ARG             1
+            262 POP_JUMP_IF_FALSE      278
+            264 LOAD_FAST               11 (clock)
+            266 LOAD_CONST               3 (None)
+            268 IS_OP                    0
+            270 EXTENDED_ARG             1
+            272 POP_JUMP_IF_FALSE      278
+
+ 93         274 LOAD_CONST               3 (None)
+            276 RETURN_VALUE
+
+ 94     >>  278 LOAD_GLOBAL             10 (_with_clock)
+
+ 95         280 LOAD_FAST                3 (current)
+            282 LOAD_GLOBAL             11 (timedelta)
+            284 LOAD_FAST               10 (offsets)
+            286 LOAD_FAST                9 (relative)
+            288 LOAD_METHOD             14 (group)
+            290 LOAD_CONST              15 ('day')
+            292 CALL_METHOD              1
+            294 BINARY_SUBSCR
+            296 LOAD_CONST               8 (('days',))
+            298 CALL_FUNCTION_KW         1
+            300 BINARY_SUBTRACT
+
+ 96         302 LOAD_FAST               11 (clock)
+
+ 94         304 CALL_FUNCTION            2
+            306 RETURN_VALUE
+
+ 99     >>  308 LOAD_GLOBAL             12 (re)
+            310 LOAD_METHOD             13 (fullmatch)
+
+100         312 LOAD_CONST              16 ('(?:星期|周)(?P<day>[一二三四五六日天])(?:\\s+(?P<clock>\\d{1,2}:\\d{2}))?')
+
+101         314 LOAD_FAST                2 (text)
+
+ 99         316 CALL_METHOD              2
+            318 STORE_FAST              12 (weekday)
+
+103         320 LOAD_FAST               12 (weekday)
+            322 LOAD_CONST               3 (None)
+            324 IS_OP                    1
+            326 EXTENDED_ARG             1
+            328 POP_JUMP_IF_FALSE      470
+
+104         330 LOAD_FAST               12 (weekday)
+            332 LOAD_METHOD             14 (group)
+            334 LOAD_CONST              13 ('clock')
+            336 CALL_METHOD              1
+            338 EXTENDED_ARG             1
+            340 POP_JUMP_IF_FALSE      356
+            342 LOAD_GLOBAL              9 (_clock)
+            344 LOAD_FAST               12 (weekday)
+            346 LOAD_METHOD             14 (group)
+            348 LOAD_CONST              13 ('clock')
+            350 CALL_METHOD              1
+            352 CALL_FUNCTION            1
+            354 JUMP_FORWARD             2 (to 358)
+        >>  356 LOAD_CONST               3 (None)
+        >>  358 STORE_FAST              11 (clock)
+
+105         360 LOAD_FAST               12 (weekday)
+            362 LOAD_METHOD             14 (group)
+            364 LOAD_CONST              13 ('clock')
+            366 CALL_METHOD              1
+            368 EXTENDED_ARG             1
+            370 POP_JUMP_IF_FALSE      386
+            372 LOAD_FAST               11 (clock)
+            374 LOAD_CONST               3 (None)
+            376 IS_OP                    0
+            378 EXTENDED_ARG             1
+            380 POP_JUMP_IF_FALSE      386
+
+106         382 LOAD_CONST               3 (None)
+            384 RETURN_VALUE
+
+107     >>  386 LOAD_FAST                3 (current)
+            388 LOAD_METHOD             15 (weekday)
+            390 CALL_METHOD              0
+            392 LOAD_GLOBAL             16 (_WEEKDAYS)
+            394 LOAD_FAST               12 (weekday)
+            396 LOAD_METHOD             14 (group)
+            398 LOAD_CONST              15 ('day')
+            400 CALL_METHOD              1
+            402 BINARY_SUBSCR
+            404 BINARY_SUBTRACT
+            406 LOAD_CONST              17 (7)
+            408 BINARY_MODULO
+            410 STORE_FAST              13 (days_ago)
+
+108         412 LOAD_GLOBAL             10 (_with_clock)
+            414 LOAD_FAST                3 (current)
+            416 LOAD_GLOBAL             11 (timedelta)
+            418 LOAD_FAST               13 (days_ago)
+            420 LOAD_CONST               8 (('days',))
+            422 CALL_FUNCTION_KW         1
+            424 BINARY_SUBTRACT
+            426 LOAD_FAST               11 (clock)
+            428 CALL_FUNCTION            2
+            430 STORE_FAST               8 (result)
+
+109         432 LOAD_FAST                8 (result)
+            434 LOAD_FAST                3 (current)
+            436 LOAD_GLOBAL             11 (timedelta)
+            438 LOAD_CONST               5 (5)
+            440 LOAD_CONST               6 (('minutes',))
+            442 CALL_FUNCTION_KW         1
+            444 BINARY_ADD
+            446 COMPARE_OP               4 (>)
+            448 EXTENDED_ARG             1
+            450 POP_JUMP_IF_FALSE      466
+
+110         452 LOAD_FAST                8 (result)
+            454 LOAD_GLOBAL             11 (timedelta)
+            456 LOAD_CONST              17 (7)
+            458 LOAD_CONST               8 (('days',))
+            460 CALL_FUNCTION_KW         1
+            462 INPLACE_SUBTRACT
+            464 STORE_FAST               8 (result)
+
+111     >>  466 LOAD_FAST                8 (result)
+            468 RETURN_VALUE
+
+113     >>  470 LOAD_FAST                2 (text)
+            472 LOAD_METHOD             17 (replace)
+            474 LOAD_CONST              18 ('年')
+            476 LOAD_CONST              19 ('-')
+            478 CALL_METHOD              2
+            480 LOAD_METHOD             17 (replace)
+            482 LOAD_CONST              20 ('月')
+            484 LOAD_CONST              19 ('-')
+            486 CALL_METHOD              2
+            488 LOAD_METHOD             17 (replace)
+            490 LOAD_CONST              21 ('日')
+            492 LOAD_CONST               2 ('')
+            494 CALL_METHOD              2
+            496 STORE_FAST              14 (normalized)
+
+114         498 LOAD_FAST               14 (normalized)
+            500 LOAD_METHOD             17 (replace)
+            502 LOAD_CONST              22 ('/')
+            504 LOAD_CONST              19 ('-')
+            506 CALL_METHOD              2
+            508 LOAD_METHOD             17 (replace)
+            510 LOAD_CONST              23 ('.')
+            512 LOAD_CONST              19 ('-')
+            514 CALL_METHOD              2
+            516 STORE_FAST              14 (normalized)
+
+115         518 LOAD_GLOBAL             12 (re)
+            520 LOAD_METHOD             13 (fullmatch)
+
+116         522 LOAD_CONST              24 ('(?:(?P<year>\\d{2,4})-)?(?P<month>\\d{1,2})-(?P<day>\\d{1,2})(?:\\s+(?P<clock>\\d{1,2}:\\d{2}))?')
+
+117         524 LOAD_FAST               14 (normalized)
+
+115         526 CALL_METHOD              2
+            528 STORE_FAST              15 (date_match)
+
+119         530 LOAD_FAST               15 (date_match)
+            532 LOAD_CONST               3 (None)
+            534 IS_OP                    0
+            536 EXTENDED_ARG             2
+            538 POP_JUMP_IF_FALSE      544
+
+120         540 LOAD_CONST               3 (None)
+            542 RETURN_VALUE
+
+121     >>  544 LOAD_FAST               15 (date_match)
+            546 LOAD_METHOD             14 (group)
+            548 LOAD_CONST              25 ('year')
+            550 CALL_METHOD              1
+            552 STORE_FAST              16 (year_text)
+
+122         554 LOAD_FAST               16 (year_text)
+            556 LOAD_CONST               3 (None)
+            558 IS_OP                    0
+            560 EXTENDED_ARG             2
+            562 POP_JUMP_IF_FALSE      570
+            564 LOAD_FAST                3 (current)
+            566 LOAD_ATTR               18 (year)
+            568 JUMP_FORWARD             6 (to 576)
+        >>  570 LOAD_GLOBAL             19 (int)
+            572 LOAD_FAST               16 (year_text)
+            574 CALL_FUNCTION            1
+        >>  576 STORE_FAST              17 (year)
+
+123         578 LOAD_FAST               17 (year)
+            580 LOAD_CONST              26 (100)
+            582 COMPARE_OP               0 (<)
+            584 EXTENDED_ARG             2
+            586 POP_JUMP_IF_FALSE      596
+
+124         588 LOAD_FAST               17 (year)
+            590 LOAD_CONST              27 (2000)
+            592 INPLACE_ADD
+            594 STORE_FAST              17 (year)
+
+125     >>  596 LOAD_FAST               15 (date_match)
+            598 LOAD_METHOD             14 (group)
+            600 LOAD_CONST              13 ('clock')
+            602 CALL_METHOD              1
+            604 EXTENDED_ARG             2
+            606 POP_JUMP_IF_FALSE      622
+            608 LOAD_GLOBAL              9 (_clock)
+            610 LOAD_FAST               15 (date_match)
+            612 LOAD_METHOD             14 (group)
+            614 LOAD_CONST              13 ('clock')
+            616 CALL_METHOD              1
+            618 CALL_FUNCTION            1
+            620 JUMP_FORWARD             2 (to 624)
+        >>  622 LOAD_CONST               3 (None)
+        >>  624 STORE_FAST              11 (clock)
+
+126         626 LOAD_FAST               15 (date_match)
+            628 LOAD_METHOD             14 (group)
+            630 LOAD_CONST              13 ('clock')
+            632 CALL_METHOD              1
+            634 EXTENDED_ARG             2
+            636 POP_JUMP_IF_FALSE      652
+            638 LOAD_FAST               11 (clock)
+            640 LOAD_CONST               3 (None)
+            642 IS_OP                    0
+            644 EXTENDED_ARG             2
+            646 POP_JUMP_IF_FALSE      652
+
+127         648 LOAD_CONST               3 (None)
+            650 RETURN_VALUE
+
+128     >>  652 SETUP_FINALLY           46 (to 700)
+
+129         654 LOAD_GLOBAL             10 (_with_clock)
+
+130         656 LOAD_FAST                3 (current)
+            658 LOAD_ATTR               17 (replace)
+
+131         660 LOAD_FAST               17 (year)
+
+132         662 LOAD_GLOBAL             19 (int)
+            664 LOAD_FAST               15 (date_match)
+            666 LOAD_METHOD             14 (group)
+            668 LOAD_CONST              28 ('month')
+            670 CALL_METHOD              1
+            672 CALL_FUNCTION            1
+
+133         674 LOAD_GLOBAL             19 (int)
+            676 LOAD_FAST               15 (date_match)
+            678 LOAD_METHOD             14 (group)
+            680 LOAD_CONST              15 ('day')
+            682 CALL_METHOD              1
+            684 CALL_FUNCTION            1
+
+130         686 LOAD_CONST              29 (('year', 'month', 'day'))
+            688 CALL_FUNCTION_KW         3
+
+135         690 LOAD_FAST               11 (clock)
+
+129         692 CALL_FUNCTION            2
+            694 STORE_FAST               8 (result)
+            696 POP_BLOCK
+            698 JUMP_FORWARD            22 (to 722)
+
+137     >>  700 DUP_TOP
+            702 LOAD_GLOBAL             20 (ValueError)
+            704 EXTENDED_ARG             2
+            706 JUMP_IF_NOT_EXC_MATCH   720
+            708 POP_TOP
+            710 POP_TOP
+            712 POP_TOP
+
+138         714 POP_EXCEPT
+            716 LOAD_CONST               3 (None)
+            718 RETURN_VALUE
+        >>  720 RERAISE
+
+139     >>  722 LOAD_FAST               16 (year_text)
+            724 LOAD_CONST               3 (None)
+            726 IS_OP                    0
+            728 EXTENDED_ARG             3
+            730 POP_JUMP_IF_FALSE      798
+            732 LOAD_FAST                8 (result)
+            734 LOAD_FAST                3 (current)
+            736 LOAD_GLOBAL             11 (timedelta)
+            738 LOAD_CONST               7 (1)
+            740 LOAD_CONST               8 (('days',))
+            742 CALL_FUNCTION_KW         1
+            744 BINARY_ADD
+            746 COMPARE_OP               4 (>)
+            748 EXTENDED_ARG             3
+            750 POP_JUMP_IF_FALSE      798
+
+140         752 SETUP_FINALLY           22 (to 776)
+
+141         754 LOAD_FAST                8 (result)
+            756 LOAD_ATTR               17 (replace)
+            758 LOAD_FAST                8 (result)
+            760 LOAD_ATTR               18 (year)
+            762 LOAD_CONST               7 (1)
+            764 BINARY_SUBTRACT
+            766 LOAD_CONST              30 (('year',))
+            768 CALL_FUNCTION_KW         1
+            770 STORE_FAST               8 (result)
+            772 POP_BLOCK
+            774 JUMP_FORWARD            22 (to 798)
+
+142     >>  776 DUP_TOP
+            778 LOAD_GLOBAL             20 (ValueError)
+            780 EXTENDED_ARG             3
+            782 JUMP_IF_NOT_EXC_MATCH   796
+            784 POP_TOP
+            786 POP_TOP
+            788 POP_TOP
+
+143         790 POP_EXCEPT
+            792 LOAD_CONST               3 (None)
+            794 RETURN_VALUE
+        >>  796 RERAISE
+
+144     >>  798 LOAD_FAST                8 (result)
+            800 RETURN_VALUE
+
+Disassembly of <code object session_recency_timestamp at 0x1072e0d40, file "WeRobotCore/application/session_time.py", line 147>:
+148           0 LOAD_GLOBAL              0 (parse_wechat_session_time)
+              2 LOAD_FAST                0 (value)
+              4 LOAD_FAST                1 (now)
+              6 LOAD_CONST               1 (('now',))
+              8 CALL_FUNCTION_KW         2
+             10 STORE_FAST               2 (parsed)
+
+149          12 LOAD_FAST                2 (parsed)
+             14 LOAD_CONST               0 (None)
+             16 IS_OP                    1
+             18 POP_JUMP_IF_FALSE       28
+             20 LOAD_FAST                2 (parsed)
+             22 LOAD_METHOD              1 (timestamp)
+             24 CALL_METHOD              0
+             26 RETURN_VALUE
+        >>   28 LOAD_CONST               2 (0.0)
+             30 RETURN_VALUE

@@ -1,0 +1,2782 @@
+  1           0 LOAD_CONST               0 ('\n豆包（火山引擎）语音 Provider。\n\n凭证体系（历史原因混着两套）：\n- 声音复刻 v1 接口：Authorization: Bearer;<access_token> + body 里 appid\n- V3 合成接口：     X-Api-Key: <api_key> + X-Api-Resource-Id\n\n参考 C:\\Users\\Administrator\\vscode\\yoko-ai-content-engine\\modules\\audio\\src\\providers\\doubao-tts.ts\n（仅合成那一半，复刻部分本文件首次实现）\n')
+              2 STORE_NAME               0 (__doc__)
+
+ 11           4 LOAD_CONST               1 (0)
+              6 LOAD_CONST               2 (('annotations',))
+              8 IMPORT_NAME              1 (__future__)
+             10 IMPORT_FROM              2 (annotations)
+             12 STORE_NAME               2 (annotations)
+             14 POP_TOP
+
+ 13          16 LOAD_CONST               1 (0)
+             18 LOAD_CONST               3 (None)
+             20 IMPORT_NAME              3 (base64)
+             22 STORE_NAME               3 (base64)
+
+ 14          24 LOAD_CONST               1 (0)
+             26 LOAD_CONST               3 (None)
+             28 IMPORT_NAME              4 (json)
+             30 STORE_NAME               4 (json)
+
+ 15          32 LOAD_CONST               1 (0)
+             34 LOAD_CONST               3 (None)
+             36 IMPORT_NAME              5 (os)
+             38 STORE_NAME               5 (os)
+
+ 16          40 LOAD_CONST               1 (0)
+             42 LOAD_CONST               3 (None)
+             44 IMPORT_NAME              6 (re)
+             46 STORE_NAME               6 (re)
+
+ 17          48 LOAD_CONST               1 (0)
+             50 LOAD_CONST               3 (None)
+             52 IMPORT_NAME              7 (time)
+             54 STORE_NAME               7 (time)
+
+ 18          56 LOAD_CONST               1 (0)
+             58 LOAD_CONST               3 (None)
+             60 IMPORT_NAME              8 (uuid)
+             62 STORE_NAME               8 (uuid)
+
+ 19          64 LOAD_CONST               1 (0)
+             66 LOAD_CONST               4 (('List', 'Optional', 'Tuple'))
+             68 IMPORT_NAME              9 (typing)
+             70 IMPORT_FROM             10 (List)
+             72 STORE_NAME              10 (List)
+             74 IMPORT_FROM             11 (Optional)
+             76 STORE_NAME              11 (Optional)
+             78 IMPORT_FROM             12 (Tuple)
+             80 STORE_NAME              12 (Tuple)
+             82 POP_TOP
+
+ 21          84 LOAD_CONST               1 (0)
+             86 LOAD_CONST               3 (None)
+             88 IMPORT_NAME             13 (requests)
+             90 STORE_NAME              13 (requests)
+
+ 23          92 LOAD_CONST               5 (1)
+             94 LOAD_CONST               6 (('CloneJob', 'CloneStatus', 'HealthCheckResult', 'SynthResult', 'VoiceInfo', 'VoiceProvider'))
+             96 IMPORT_NAME             14 (provider_base)
+             98 IMPORT_FROM             15 (CloneJob)
+            100 STORE_NAME              15 (CloneJob)
+            102 IMPORT_FROM             16 (CloneStatus)
+            104 STORE_NAME              16 (CloneStatus)
+            106 IMPORT_FROM             17 (HealthCheckResult)
+            108 STORE_NAME              17 (HealthCheckResult)
+            110 IMPORT_FROM             18 (SynthResult)
+            112 STORE_NAME              18 (SynthResult)
+            114 IMPORT_FROM             19 (VoiceInfo)
+            116 STORE_NAME              19 (VoiceInfo)
+            118 IMPORT_FROM             20 (VoiceProvider)
+            120 STORE_NAME              20 (VoiceProvider)
+            122 POP_TOP
+
+ 31         124 LOAD_CONST               7 (3)
+            126 LOAD_CONST               8 (('sign_request',))
+            128 IMPORT_NAME             21 (utils.volc_signer)
+            130 IMPORT_FROM             22 (sign_request)
+            132 STORE_NAME              22 (sign_request)
+            134 POP_TOP
+
+ 34         136 LOAD_CONST               9 ('speech_saas_prod')
+            138 STORE_NAME              23 (_OPEN_API_SERVICE)
+
+ 35         140 LOAD_CONST              10 ('2023-11-07')
+            142 STORE_NAME              24 (_OPEN_API_VERSION)
+
+ 36         144 LOAD_CONST              11 ('volc.megatts.voiceclone')
+            146 STORE_NAME              25 (_RESOURCE_ID_VOICECLONE)
+
+ 37         148 LOAD_CONST              12 ('Model_storage')
+            150 STORE_NAME              26 (_RESOURCE_CODE_MODEL_STORAGE)
+
+ 40         152 LOAD_CONST              13 ('https://openspeech.bytedance.com')
+            154 STORE_NAME              27 (DEFAULT_ENDPOINT)
+
+ 41         156 LOAD_CONST              14 ('seed-icl-2.0')
+            158 STORE_NAME              28 (DEFAULT_RESOURCE_ID_CLONE)
+
+ 42         160 LOAD_CONST              15 ('seed-tts-2.0')
+            162 STORE_NAME              29 (DEFAULT_RESOURCE_ID_TTS)
+
+ 45         164 LOAD_CONST              16 ('wav')
+
+ 46         166 LOAD_CONST              17 ('mp3')
+
+ 47         168 LOAD_CONST              18 ('m4a')
+
+ 48         170 LOAD_CONST              19 ('aac')
+
+ 49         172 LOAD_CONST              20 ('ogg')
+
+ 50         174 LOAD_CONST              21 ('pcm')
+
+ 44         176 LOAD_CONST              22 (('.wav', '.mp3', '.m4a', '.aac', '.ogg', '.pcm'))
+            178 BUILD_CONST_KEY_MAP      6
+            180 STORE_NAME              30 (_AUDIO_EXT_MAP)
+
+ 54         182 LOAD_CONST               1 (0)
+
+ 55         184 LOAD_CONST               5 (1)
+
+ 56         186 LOAD_CONST              23 (2)
+
+ 53         188 LOAD_CONST              24 (('zh', 'en', 'ja'))
+            190 BUILD_CONST_KEY_MAP      3
+            192 STORE_NAME              31 (_LANGUAGE_MAP)
+
+ 61         194 LOAD_CONST              25 ('not_found')
+
+ 62         196 LOAD_CONST              26 ('training')
+
+ 63         198 LOAD_CONST              27 ('success')
+
+ 64         200 LOAD_CONST              28 ('failed')
+
+ 65         202 LOAD_CONST              29 ('active')
+
+ 60         204 LOAD_CONST              30 ((0, 1, 2, 3, 4))
+            206 BUILD_CONST_KEY_MAP      5
+            208 STORE_NAME              32 (_CLONE_STATUS_MAP)
+
+ 69         210 LOAD_BUILD_CLASS
+            212 LOAD_CONST              31 (<code object DoubaoProvider at 0x10924b3a0, file "WeRobotCore/services/voice/doubao_provider.py", line 69>)
+            214 LOAD_CONST              32 ('DoubaoProvider')
+            216 MAKE_FUNCTION            0
+            218 LOAD_CONST              32 ('DoubaoProvider')
+            220 LOAD_NAME               20 (VoiceProvider)
+            222 CALL_FUNCTION            3
+            224 STORE_NAME              33 (DoubaoProvider)
+
+581         226 LOAD_CONST              33 ('str')
+            228 LOAD_CONST              34 ('List[dict]')
+            230 LOAD_CONST              35 (('raw', 'return'))
+            232 BUILD_CONST_KEY_MAP      2
+            234 LOAD_CONST              36 (<code object _parse_json_objects at 0x10925d660, file "WeRobotCore/services/voice/doubao_provider.py", line 581>)
+            236 LOAD_CONST              37 ('_parse_json_objects')
+            238 MAKE_FUNCTION            4 (annotations)
+            240 STORE_NAME              34 (_parse_json_objects)
+
+638         242 BUILD_LIST               0
+            244 LOAD_CONST              38 ((('data',), ('data', 'audio'), ('data', 'audio_data'), ('result', 'audio'), ('audio',), ('audio_data',), ('payload', 'audio')))
+            246 LIST_EXTEND              1
+            248 STORE_NAME              35 (_AUDIO_PATHS)
+
+649         250 LOAD_CONST              39 ('dict')
+            252 LOAD_CONST              40 ('Optional[str]')
+            254 LOAD_CONST              41 (('obj', 'return'))
+            256 BUILD_CONST_KEY_MAP      2
+            258 LOAD_CONST              42 (<code object _find_audio_b64 at 0x10925d450, file "WeRobotCore/services/voice/doubao_provider.py", line 649>)
+            260 LOAD_CONST              43 ('_find_audio_b64')
+            262 MAKE_FUNCTION            4 (annotations)
+            264 STORE_NAME              36 (_find_audio_b64)
+            266 LOAD_CONST               3 (None)
+            268 RETURN_VALUE
+
+Disassembly of <code object DoubaoProvider at 0x10924b3a0, file "WeRobotCore/services/voice/doubao_provider.py", line 69>:
+ 69           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('DoubaoProvider')
+              6 STORE_NAME               2 (__qualname__)
+
+ 70           8 LOAD_CONST               1 ('doubao')
+             10 STORE_NAME               3 (provider_id)
+
+ 77          12 LOAD_CONST               2 ('')
+
+ 78          14 LOAD_CONST               2 ('')
+
+ 79          16 LOAD_CONST               3 ('https://open.volcengineapi.com')
+
+ 80          18 LOAD_CONST               4 ('cn-north-1')
+
+ 81          20 LOAD_NAME                4 (DEFAULT_ENDPOINT)
+
+ 82          22 LOAD_NAME                5 (DEFAULT_RESOURCE_ID_CLONE)
+
+ 83          24 LOAD_NAME                6 (DEFAULT_RESOURCE_ID_TTS)
+
+ 84          26 LOAD_CONST               5 (30.0)
+
+ 72          28 BUILD_TUPLE              8
+             30 LOAD_CONST               6 ('str')
+             32 LOAD_CONST               6 ('str')
+             34 LOAD_CONST               6 ('str')
+             36 LOAD_CONST               6 ('str')
+             38 LOAD_CONST               6 ('str')
+             40 LOAD_CONST               6 ('str')
+             42 LOAD_CONST               6 ('str')
+             44 LOAD_CONST               6 ('str')
+             46 LOAD_CONST               6 ('str')
+             48 LOAD_CONST               6 ('str')
+             50 LOAD_CONST               7 ('float')
+             52 LOAD_CONST               8 ('None')
+             54 LOAD_CONST               9 (('app_id', 'access_token', 'api_key', 'access_key_id', 'secret_access_key', 'open_api_endpoint', 'open_api_region', 'endpoint', 'resource_id_clone', 'resource_id_tts', 'timeout', 'return'))
+             56 BUILD_CONST_KEY_MAP     12
+             58 LOAD_CONST              10 (<code object __init__ at 0x10924bbe0, file "WeRobotCore/services/voice/doubao_provider.py", line 72>)
+             60 LOAD_CONST              11 ('DoubaoProvider.__init__')
+             62 MAKE_FUNCTION            5 (defaults, annotations)
+             64 STORE_NAME               7 (__init__)
+
+ 98          66 LOAD_CONST              12 ('bool')
+             68 LOAD_CONST              13 (('return',))
+             70 BUILD_CONST_KEY_MAP      1
+             72 LOAD_CONST              14 (<code object has_open_api_creds at 0x10924b240, file "WeRobotCore/services/voice/doubao_provider.py", line 98>)
+             74 LOAD_CONST              15 ('DoubaoProvider.has_open_api_creds')
+             76 MAKE_FUNCTION            4 (annotations)
+             78 STORE_NAME               8 (has_open_api_creds)
+
+104          80 LOAD_CONST              16 ('HealthCheckResult')
+             82 LOAD_CONST              13 (('return',))
+             84 BUILD_CONST_KEY_MAP      1
+             86 LOAD_CONST              17 (<code object health_check at 0x10924b920, file "WeRobotCore/services/voice/doubao_provider.py", line 104>)
+             88 LOAD_CONST              18 ('DoubaoProvider.health_check')
+             90 MAKE_FUNCTION            4 (annotations)
+             92 STORE_NAME               9 (health_check)
+
+238          94 LOAD_CONST              19 ('List[VoiceInfo]')
+             96 LOAD_CONST              13 (('return',))
+             98 BUILD_CONST_KEY_MAP      1
+            100 LOAD_CONST              20 (<code object list_voices at 0x10924bc90, file "WeRobotCore/services/voice/doubao_provider.py", line 238>)
+            102 LOAD_CONST              21 ('DoubaoProvider.list_voices')
+            104 MAKE_FUNCTION            4 (annotations)
+            106 STORE_NAME              10 (list_voices)
+
+248         108 LOAD_CONST              56 (('zh', None))
+            110 LOAD_CONST               6 ('str')
+            112 LOAD_CONST               6 ('str')
+            114 LOAD_CONST               6 ('str')
+            116 LOAD_CONST              24 ('Optional[str]')
+            118 LOAD_CONST              25 ('CloneJob')
+            120 LOAD_CONST              26 (('sample_path', 'voice_id', 'language', 'text', 'return'))
+            122 BUILD_CONST_KEY_MAP      5
+            124 LOAD_CONST              27 (<code object clone_voice at 0x10924b500, file "WeRobotCore/services/voice/doubao_provider.py", line 248>)
+            126 LOAD_CONST              28 ('DoubaoProvider.clone_voice')
+            128 MAKE_FUNCTION            5 (defaults, annotations)
+            130 STORE_NAME              11 (clone_voice)
+
+330         132 LOAD_CONST               6 ('str')
+            134 LOAD_CONST              29 ('CloneStatus')
+            136 LOAD_CONST              30 (('voice_id', 'return'))
+            138 BUILD_CONST_KEY_MAP      2
+            140 LOAD_CONST              31 (<code object query_clone_status at 0x10924bf50, file "WeRobotCore/services/voice/doubao_provider.py", line 330>)
+            142 LOAD_CONST              32 ('DoubaoProvider.query_clone_status')
+            144 MAKE_FUNCTION            4 (annotations)
+            146 STORE_NAME              12 (query_clone_status)
+
+368         148 LOAD_CONST              57 ((1.0,))
+            150 LOAD_CONST               6 ('str')
+            152 LOAD_CONST               6 ('str')
+            154 LOAD_CONST               6 ('str')
+            156 LOAD_CONST               7 ('float')
+            158 LOAD_CONST              34 ('SynthResult')
+            160 LOAD_CONST              35 (('text', 'voice_id', 'out_path', 'speed', 'return'))
+            162 BUILD_CONST_KEY_MAP      5
+            164 LOAD_CONST              36 (<code object synthesize at 0x10924bd40, file "WeRobotCore/services/voice/doubao_provider.py", line 368>)
+            166 LOAD_CONST              37 ('DoubaoProvider.synthesize')
+            168 MAKE_FUNCTION            5 (defaults, annotations)
+            170 STORE_NAME              13 (synthesize)
+
+466         172 LOAD_CONST               6 ('str')
+            174 LOAD_CONST              38 ('dict')
+            176 LOAD_CONST              39 ('Tuple[bool, dict, str]')
+            178 LOAD_CONST              40 (('action', 'body', 'return'))
+            180 BUILD_CONST_KEY_MAP      3
+            182 LOAD_CONST              41 (<code object _open_api_call at 0x10924b450, file "WeRobotCore/services/voice/doubao_provider.py", line 466>)
+            184 LOAD_CONST              42 ('DoubaoProvider._open_api_call')
+            186 MAKE_FUNCTION            4 (annotations)
+            188 STORE_NAME              14 (_open_api_call)
+
+518         190 LOAD_CONST              58 ((1, 100, None))
+            192 LOAD_CONST              45 ('int')
+            194 LOAD_CONST              45 ('int')
+            196 LOAD_CONST              46 ('Optional[int]')
+            198 LOAD_CONST              47 ('Tuple[bool, List[dict], str]')
+            200 LOAD_CONST              48 (('page_number', 'page_size', 'state', 'return'))
+            202 BUILD_CONST_KEY_MAP      4
+            204 LOAD_CONST              49 (<code object list_voices_from_cloud at 0x10924b660, file "WeRobotCore/services/voice/doubao_provider.py", line 518>)
+            206 LOAD_CONST              50 ('DoubaoProvider.list_voices_from_cloud')
+            208 MAKE_FUNCTION            5 (defaults, annotations)
+            210 STORE_NAME              15 (list_voices_from_cloud)
+
+542         212 LOAD_CONST              59 ((1, 12))
+            214 LOAD_CONST              45 ('int')
+            216 LOAD_CONST              45 ('int')
+            218 LOAD_CONST              52 ('Tuple[bool, List[str], str]')
+            220 LOAD_CONST              53 (('quantity', 'months', 'return'))
+            222 BUILD_CONST_KEY_MAP      3
+            224 LOAD_CONST              54 (<code object allocate_speaker_slot at 0x10924b190, file "WeRobotCore/services/voice/doubao_provider.py", line 542>)
+            226 LOAD_CONST              55 ('DoubaoProvider.allocate_speaker_slot')
+            228 MAKE_FUNCTION            5 (defaults, annotations)
+            230 STORE_NAME              16 (allocate_speaker_slot)
+            232 LOAD_CONST              23 (None)
+            234 RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x10924bbe0, file "WeRobotCore/services/voice/doubao_provider.py", line 72>:
+ 86           0 LOAD_FAST                1 (app_id)
+              2 JUMP_IF_TRUE_OR_POP      6
+              4 LOAD_CONST               1 ('')
+        >>    6 LOAD_METHOD              0 (strip)
+              8 CALL_METHOD              0
+             10 LOAD_FAST                0 (self)
+             12 STORE_ATTR               1 (app_id)
+
+ 87          14 LOAD_FAST                2 (access_token)
+             16 JUMP_IF_TRUE_OR_POP     20
+             18 LOAD_CONST               1 ('')
+        >>   20 LOAD_METHOD              0 (strip)
+             22 CALL_METHOD              0
+             24 LOAD_FAST                0 (self)
+             26 STORE_ATTR               2 (access_token)
+
+ 88          28 LOAD_FAST                3 (api_key)
+             30 JUMP_IF_TRUE_OR_POP     34
+             32 LOAD_CONST               1 ('')
+        >>   34 LOAD_METHOD              0 (strip)
+             36 CALL_METHOD              0
+             38 LOAD_FAST                0 (self)
+             40 STORE_ATTR               3 (api_key)
+
+ 89          42 LOAD_FAST                4 (access_key_id)
+             44 JUMP_IF_TRUE_OR_POP     48
+             46 LOAD_CONST               1 ('')
+        >>   48 LOAD_METHOD              0 (strip)
+             50 CALL_METHOD              0
+             52 LOAD_FAST                0 (self)
+             54 STORE_ATTR               4 (access_key_id)
+
+ 90          56 LOAD_FAST                5 (secret_access_key)
+             58 JUMP_IF_TRUE_OR_POP     62
+             60 LOAD_CONST               1 ('')
+        >>   62 LOAD_METHOD              0 (strip)
+             64 CALL_METHOD              0
+             66 LOAD_FAST                0 (self)
+             68 STORE_ATTR               5 (secret_access_key)
+
+ 91          70 LOAD_FAST                6 (open_api_endpoint)
+             72 LOAD_METHOD              6 (rstrip)
+             74 LOAD_CONST               2 ('/')
+             76 CALL_METHOD              1
+             78 LOAD_FAST                0 (self)
+             80 STORE_ATTR               7 (open_api_endpoint)
+
+ 92          82 LOAD_FAST                7 (open_api_region)
+             84 LOAD_FAST                0 (self)
+             86 STORE_ATTR               8 (open_api_region)
+
+ 93          88 LOAD_FAST                8 (endpoint)
+             90 LOAD_METHOD              6 (rstrip)
+             92 LOAD_CONST               2 ('/')
+             94 CALL_METHOD              1
+             96 LOAD_FAST                0 (self)
+             98 STORE_ATTR               9 (endpoint)
+
+ 94         100 LOAD_FAST                9 (resource_id_clone)
+            102 LOAD_FAST                0 (self)
+            104 STORE_ATTR              10 (resource_id_clone)
+
+ 95         106 LOAD_FAST               10 (resource_id_tts)
+            108 LOAD_FAST                0 (self)
+            110 STORE_ATTR              11 (resource_id_tts)
+
+ 96         112 LOAD_FAST               11 (timeout)
+            114 LOAD_FAST                0 (self)
+            116 STORE_ATTR              12 (timeout)
+            118 LOAD_CONST               0 (None)
+            120 RETURN_VALUE
+
+Disassembly of <code object has_open_api_creds at 0x10924b240, file "WeRobotCore/services/voice/doubao_provider.py", line 98>:
+100           0 LOAD_GLOBAL              0 (bool)
+              2 LOAD_FAST                0 (self)
+              4 LOAD_ATTR                1 (access_key_id)
+              6 JUMP_IF_FALSE_OR_POP    18
+              8 LOAD_FAST                0 (self)
+             10 LOAD_ATTR                2 (secret_access_key)
+             12 JUMP_IF_FALSE_OR_POP    18
+             14 LOAD_FAST                0 (self)
+             16 LOAD_ATTR                3 (app_id)
+        >>   18 CALL_FUNCTION            1
+             20 RETURN_VALUE
+
+Disassembly of <code object health_check at 0x10924b920, file "WeRobotCore/services/voice/doubao_provider.py", line 104>:
+117           0 LOAD_CONST               1 ('untested')
+
+118           2 LOAD_CONST               1 ('untested')
+
+119           4 LOAD_CONST               1 ('untested')
+
+116           6 LOAD_CONST               2 (('tts', 'cloning', 'api_key'))
+              8 BUILD_CONST_KEY_MAP      3
+             10 STORE_FAST               1 (details)
+
+122          12 LOAD_FAST                0 (self)
+             14 LOAD_ATTR                0 (api_key)
+             16 POP_JUMP_IF_TRUE        32
+
+123          18 LOAD_GLOBAL              1 (HealthCheckResult)
+
+124          20 LOAD_CONST               3 (False)
+             22 LOAD_FAST                1 (details)
+
+125          24 LOAD_CONST               4 ('缺少必填凭证: api_key')
+
+123          26 LOAD_CONST               5 (('ok', 'details', 'error'))
+             28 CALL_FUNCTION_KW         3
+             30 RETURN_VALUE
+
+129     >>   32 LOAD_CONST               6 (None)
+             34 STORE_FAST               2 (tts_error)
+
+130          36 EXTENDED_ARG             1
+             38 SETUP_FINALLY          290 (to 330)
+
+132          40 LOAD_CONST               7 ('application/json')
+
+133          42 LOAD_FAST                0 (self)
+             44 LOAD_ATTR                0 (api_key)
+
+134          46 LOAD_FAST                0 (self)
+             48 LOAD_ATTR                2 (resource_id_tts)
+
+135          50 LOAD_GLOBAL              3 (str)
+             52 LOAD_GLOBAL              4 (uuid)
+             54 LOAD_METHOD              5 (uuid4)
+             56 CALL_METHOD              0
+             58 CALL_FUNCTION            1
+
+131          60 LOAD_CONST               8 (('Content-Type', 'X-Api-Key', 'X-Api-Resource-Id', 'X-Api-Request-Id'))
+             62 BUILD_CONST_KEY_MAP      4
+             64 STORE_FAST               3 (headers)
+
+138          66 LOAD_FAST                0 (self)
+             68 LOAD_ATTR                6 (app_id)
+             70 POP_JUMP_IF_FALSE       82
+
+139          72 LOAD_FAST                0 (self)
+             74 LOAD_ATTR                6 (app_id)
+             76 LOAD_FAST                3 (headers)
+             78 LOAD_CONST               9 ('X-Api-App-Key')
+             80 STORE_SUBSCR
+
+141     >>   82 LOAD_GLOBAL              7 (requests)
+             84 LOAD_ATTR                8 (post)
+
+142          86 LOAD_FAST                0 (self)
+             88 LOAD_ATTR                9 (endpoint)
+             90 FORMAT_VALUE             0
+             92 LOAD_CONST              10 ('/api/v3/tts/unidirectional')
+             94 BUILD_STRING             2
+
+143          96 LOAD_FAST                3 (headers)
+
+145          98 LOAD_CONST              11 ('uid')
+            100 LOAD_CONST              12 ('yokowebot_healthcheck')
+            102 BUILD_MAP                1
+
+146         104 LOAD_CONST              13 ('BidirectionalTTS')
+
+148         106 LOAD_CONST              14 ('测')
+
+149         108 LOAD_CONST              15 ('S_healthprobe_not_exist')
+
+150         110 LOAD_CONST              16 ('mp3')
+            112 LOAD_CONST              17 (24000)
+            114 LOAD_CONST              18 (('format', 'sample_rate'))
+            116 BUILD_CONST_KEY_MAP      2
+
+147         118 LOAD_CONST              19 (('text', 'speaker', 'audio_params'))
+            120 BUILD_CONST_KEY_MAP      3
+
+144         122 LOAD_CONST              20 (('user', 'namespace', 'req_params'))
+            124 BUILD_CONST_KEY_MAP      3
+
+153         126 LOAD_FAST                0 (self)
+            128 LOAD_ATTR               10 (timeout)
+
+141         130 LOAD_CONST              21 (('headers', 'json', 'timeout'))
+            132 CALL_FUNCTION_KW         4
+            134 STORE_FAST               4 (r)
+
+155         136 LOAD_FAST                4 (r)
+            138 LOAD_ATTR               11 (text)
+            140 LOAD_CONST               6 (None)
+            142 LOAD_CONST              22 (300)
+            144 BUILD_SLICE              2
+            146 BINARY_SUBSCR
+            148 STORE_FAST               5 (body)
+
+156         150 LOAD_FAST                5 (body)
+            152 LOAD_METHOD             12 (lower)
+            154 CALL_METHOD              0
+            156 STORE_FAST               6 (low)
+
+157         158 LOAD_FAST                4 (r)
+            160 LOAD_ATTR               13 (status_code)
+            162 LOAD_FAST                1 (details)
+            164 LOAD_CONST              23 ('tts_http')
+            166 STORE_SUBSCR
+
+158         168 LOAD_FAST                5 (body)
+            170 LOAD_FAST                1 (details)
+            172 LOAD_CONST              24 ('tts_body')
+            174 STORE_SUBSCR
+
+160         176 LOAD_FAST                4 (r)
+            178 LOAD_ATTR               13 (status_code)
+            180 LOAD_CONST              25 (401)
+            182 COMPARE_OP               2 (==)
+            184 POP_JUMP_IF_TRUE       202
+            186 LOAD_CONST              26 ('invalid x-api-key')
+            188 LOAD_FAST                6 (low)
+            190 CONTAINS_OP              0
+            192 POP_JUMP_IF_TRUE       202
+            194 LOAD_CONST              27 ('invalid api key')
+            196 LOAD_FAST                6 (low)
+            198 CONTAINS_OP              0
+            200 POP_JUMP_IF_FALSE      234
+
+161     >>  202 LOAD_CONST              28 ('invalid')
+            204 LOAD_FAST                1 (details)
+            206 LOAD_CONST              29 ('api_key')
+            208 STORE_SUBSCR
+
+162         210 LOAD_CONST              30 ('auth_failed')
+            212 LOAD_FAST                1 (details)
+            214 LOAD_CONST              31 ('tts')
+            216 STORE_SUBSCR
+
+163         218 LOAD_CONST              32 ('API Key 鉴权失败 (HTTP ')
+            220 LOAD_FAST                4 (r)
+            222 LOAD_ATTR               13 (status_code)
+            224 FORMAT_VALUE             0
+            226 LOAD_CONST              33 (')')
+            228 BUILD_STRING             3
+            230 STORE_FAST               2 (tts_error)
+            232 JUMP_FORWARD            92 (to 326)
+
+164     >>  234 LOAD_FAST                4 (r)
+            236 LOAD_ATTR               13 (status_code)
+            238 LOAD_CONST              34 (200)
+            240 COMPARE_OP               2 (==)
+            242 EXTENDED_ARG             1
+            244 POP_JUMP_IF_TRUE       266
+            246 LOAD_CONST              35 ('speaker')
+            248 LOAD_FAST                6 (low)
+            250 CONTAINS_OP              0
+            252 EXTENDED_ARG             1
+            254 POP_JUMP_IF_TRUE       266
+            256 LOAD_CONST              36 ('not found')
+            258 LOAD_FAST                6 (low)
+            260 CONTAINS_OP              0
+            262 EXTENDED_ARG             1
+            264 POP_JUMP_IF_FALSE      284
+
+166     >>  266 LOAD_CONST              37 ('valid')
+            268 LOAD_FAST                1 (details)
+            270 LOAD_CONST              29 ('api_key')
+            272 STORE_SUBSCR
+
+167         274 LOAD_CONST              38 ('ok')
+            276 LOAD_FAST                1 (details)
+            278 LOAD_CONST              31 ('tts')
+            280 STORE_SUBSCR
+            282 JUMP_FORWARD            42 (to 326)
+
+169     >>  284 LOAD_CONST              39 ('unknown')
+            286 LOAD_FAST                1 (details)
+            288 LOAD_CONST              29 ('api_key')
+            290 STORE_SUBSCR
+
+170         292 LOAD_CONST              40 ('http_')
+            294 LOAD_FAST                4 (r)
+            296 LOAD_ATTR               13 (status_code)
+            298 FORMAT_VALUE             0
+            300 BUILD_STRING             2
+            302 LOAD_FAST                1 (details)
+            304 LOAD_CONST              31 ('tts')
+            306 STORE_SUBSCR
+
+171         308 LOAD_CONST              41 ('TTS 探针返回 HTTP ')
+            310 LOAD_FAST                4 (r)
+            312 LOAD_ATTR               13 (status_code)
+            314 FORMAT_VALUE             0
+            316 LOAD_CONST              42 (': ')
+            318 LOAD_FAST                5 (body)
+            320 FORMAT_VALUE             0
+            322 BUILD_STRING             4
+            324 STORE_FAST               2 (tts_error)
+        >>  326 POP_BLOCK
+            328 JUMP_FORWARD            58 (to 388)
+
+172     >>  330 DUP_TOP
+            332 LOAD_GLOBAL              7 (requests)
+            334 LOAD_ATTR               14 (RequestException)
+            336 EXTENDED_ARG             1
+            338 JUMP_IF_NOT_EXC_MATCH   386
+            340 POP_TOP
+            342 STORE_FAST               7 (e)
+            344 POP_TOP
+            346 SETUP_FINALLY           30 (to 378)
+
+173         348 LOAD_CONST              43 ('network_error')
+            350 LOAD_FAST                1 (details)
+            352 LOAD_CONST              31 ('tts')
+            354 STORE_SUBSCR
+
+174         356 LOAD_CONST              44 ('TTS 探针网络异常: ')
+            358 LOAD_FAST                7 (e)
+            360 FORMAT_VALUE             0
+            362 BUILD_STRING             2
+            364 STORE_FAST               2 (tts_error)
+            366 POP_BLOCK
+            368 POP_EXCEPT
+            370 LOAD_CONST               6 (None)
+            372 STORE_FAST               7 (e)
+            374 DELETE_FAST              7 (e)
+            376 JUMP_FORWARD            10 (to 388)
+        >>  378 LOAD_CONST               6 (None)
+            380 STORE_FAST               7 (e)
+            382 DELETE_FAST              7 (e)
+            384 RERAISE
+        >>  386 RERAISE
+
+177     >>  388 LOAD_CONST               6 (None)
+            390 STORE_FAST               8 (cloning_error)
+
+178         392 LOAD_FAST                0 (self)
+            394 LOAD_ATTR                6 (app_id)
+            396 EXTENDED_ARG             1
+            398 POP_JUMP_IF_FALSE      408
+            400 LOAD_FAST                0 (self)
+            402 LOAD_ATTR               15 (access_token)
+            404 EXTENDED_ARG             1
+            406 POP_JUMP_IF_TRUE       424
+
+179     >>  408 LOAD_CONST              45 ('disabled')
+            410 LOAD_FAST                1 (details)
+            412 LOAD_CONST              46 ('cloning')
+            414 STORE_SUBSCR
+
+180         416 LOAD_CONST              47 ('未配置 App ID 或 Access Token，复刻能力不可用；仅能使用预置音色')
+            418 STORE_FAST               8 (cloning_error)
+            420 EXTENDED_ARG             1
+            422 JUMP_FORWARD           334 (to 758)
+
+182     >>  424 EXTENDED_ARG             1
+            426 SETUP_FINALLY          272 (to 700)
+
+187         428 LOAD_GLOBAL              7 (requests)
+            430 LOAD_ATTR                8 (post)
+
+188         432 LOAD_FAST                0 (self)
+            434 LOAD_ATTR                9 (endpoint)
+            436 FORMAT_VALUE             0
+            438 LOAD_CONST              48 ('/api/v1/mega_tts/status')
+            440 BUILD_STRING             2
+
+190         442 LOAD_CONST              49 ('Bearer;')
+            444 LOAD_FAST                0 (self)
+            446 LOAD_ATTR               15 (access_token)
+            448 FORMAT_VALUE             0
+            450 BUILD_STRING             2
+
+191         452 LOAD_FAST                0 (self)
+            454 LOAD_ATTR               16 (resource_id_clone)
+
+192         456 LOAD_CONST               7 ('application/json')
+
+189         458 LOAD_CONST              50 (('Authorization', 'Resource-Id', 'Content-Type'))
+            460 BUILD_CONST_KEY_MAP      3
+
+194         462 LOAD_FAST                0 (self)
+            464 LOAD_ATTR                6 (app_id)
+            466 LOAD_CONST              15 ('S_healthprobe_not_exist')
+            468 LOAD_CONST              51 (('appid', 'speaker_id'))
+            470 BUILD_CONST_KEY_MAP      2
+
+195         472 LOAD_FAST                0 (self)
+            474 LOAD_ATTR               10 (timeout)
+
+187         476 LOAD_CONST              21 (('headers', 'json', 'timeout'))
+            478 CALL_FUNCTION_KW         4
+            480 STORE_FAST               4 (r)
+
+197         482 LOAD_FAST                4 (r)
+            484 LOAD_ATTR               11 (text)
+            486 LOAD_CONST               6 (None)
+            488 LOAD_CONST              52 (400)
+            490 BUILD_SLICE              2
+            492 BINARY_SUBSCR
+            494 STORE_FAST               5 (body)
+
+198         496 LOAD_FAST                5 (body)
+            498 LOAD_METHOD             12 (lower)
+            500 CALL_METHOD              0
+            502 STORE_FAST               6 (low)
+
+199         504 LOAD_FAST                4 (r)
+            506 LOAD_ATTR               13 (status_code)
+            508 LOAD_FAST                1 (details)
+            510 LOAD_CONST              53 ('cloning_http')
+            512 STORE_SUBSCR
+
+200         514 LOAD_FAST                5 (body)
+            516 LOAD_FAST                1 (details)
+            518 LOAD_CONST              54 ('cloning_body')
+            520 STORE_SUBSCR
+
+203         522 LOAD_CONST              55 ('invalid token')
+            524 LOAD_FAST                6 (low)
+            526 CONTAINS_OP              0
+            528 EXTENDED_ARG             2
+            530 JUMP_IF_TRUE_OR_POP    578
+            532 LOAD_CONST              56 ('invalid bearer')
+            534 LOAD_FAST                6 (low)
+            536 CONTAINS_OP              0
+            538 EXTENDED_ARG             2
+            540 JUMP_IF_TRUE_OR_POP    578
+
+204         542 LOAD_CONST              57 ('token expired')
+            544 LOAD_FAST                6 (low)
+            546 CONTAINS_OP              0
+
+203         548 EXTENDED_ARG             2
+            550 JUMP_IF_TRUE_OR_POP    578
+
+204         552 LOAD_CONST              58 ('invalid access')
+            554 LOAD_FAST                6 (low)
+            556 CONTAINS_OP              0
+
+203         558 EXTENDED_ARG             2
+            560 JUMP_IF_TRUE_OR_POP    578
+
+205         562 LOAD_CONST              59 ('token 无效')
+            564 LOAD_FAST                5 (body)
+            566 CONTAINS_OP              0
+
+203         568 EXTENDED_ARG             2
+            570 JUMP_IF_TRUE_OR_POP    578
+
+205         572 LOAD_CONST              60 ('token失效')
+            574 LOAD_FAST                5 (body)
+            576 CONTAINS_OP              0
+
+202     >>  578 STORE_FAST               9 (token_explicit_invalid)
+
+208         580 LOAD_FAST                4 (r)
+            582 LOAD_ATTR               13 (status_code)
+            584 LOAD_CONST              34 (200)
+            586 COMPARE_OP               2 (==)
+            588 EXTENDED_ARG             2
+            590 POP_JUMP_IF_FALSE      602
+
+209         592 LOAD_CONST              38 ('ok')
+            594 LOAD_FAST                1 (details)
+            596 LOAD_CONST              46 ('cloning')
+            598 STORE_SUBSCR
+            600 JUMP_FORWARD            94 (to 696)
+
+210     >>  602 LOAD_FAST                4 (r)
+            604 LOAD_ATTR               13 (status_code)
+            606 LOAD_CONST              61 ((401, 403))
+            608 CONTAINS_OP              0
+            610 EXTENDED_ARG             2
+            612 POP_JUMP_IF_FALSE      662
+
+211         614 LOAD_FAST                9 (token_explicit_invalid)
+            616 EXTENDED_ARG             2
+            618 POP_JUMP_IF_FALSE      648
+
+212         620 LOAD_CONST              30 ('auth_failed')
+            622 LOAD_FAST                1 (details)
+            624 LOAD_CONST              46 ('cloning')
+            626 STORE_SUBSCR
+
+213         628 LOAD_CONST              62 ('复刻接口 Access Token 鉴权失败: ')
+            630 LOAD_FAST                5 (body)
+            632 LOAD_CONST               6 (None)
+            634 LOAD_CONST              63 (120)
+            636 BUILD_SLICE              2
+            638 BINARY_SUBSCR
+            640 FORMAT_VALUE             0
+            642 BUILD_STRING             2
+            644 STORE_FAST               8 (cloning_error)
+            646 JUMP_FORWARD            12 (to 660)
+
+215     >>  648 LOAD_CONST              64 ('not_subscribed')
+            650 LOAD_FAST                1 (details)
+            652 LOAD_CONST              46 ('cloning')
+            654 STORE_SUBSCR
+
+217         656 LOAD_CONST              65 ('复刻接口未开通授权（不影响 TTS 发语音；如要克隆音色请到豆包语音控制台为当前 App ID 开通复刻能力）')
+
+216         658 STORE_FAST               8 (cloning_error)
+        >>  660 JUMP_FORWARD            34 (to 696)
+
+221     >>  662 LOAD_CONST              40 ('http_')
+            664 LOAD_FAST                4 (r)
+            666 LOAD_ATTR               13 (status_code)
+            668 FORMAT_VALUE             0
+            670 BUILD_STRING             2
+            672 LOAD_FAST                1 (details)
+            674 LOAD_CONST              46 ('cloning')
+            676 STORE_SUBSCR
+
+222         678 LOAD_CONST              66 ('复刻探针返回 HTTP ')
+            680 LOAD_FAST                4 (r)
+            682 LOAD_ATTR               13 (status_code)
+            684 FORMAT_VALUE             0
+            686 LOAD_CONST              42 (': ')
+            688 LOAD_FAST                5 (body)
+            690 FORMAT_VALUE             0
+            692 BUILD_STRING             4
+            694 STORE_FAST               8 (cloning_error)
+        >>  696 POP_BLOCK
+            698 JUMP_FORWARD            58 (to 758)
+
+223     >>  700 DUP_TOP
+            702 LOAD_GLOBAL              7 (requests)
+            704 LOAD_ATTR               14 (RequestException)
+            706 EXTENDED_ARG             2
+            708 JUMP_IF_NOT_EXC_MATCH   756
+            710 POP_TOP
+            712 STORE_FAST               7 (e)
+            714 POP_TOP
+            716 SETUP_FINALLY           30 (to 748)
+
+224         718 LOAD_CONST              43 ('network_error')
+            720 LOAD_FAST                1 (details)
+            722 LOAD_CONST              46 ('cloning')
+            724 STORE_SUBSCR
+
+225         726 LOAD_CONST              67 ('复刻探针网络异常: ')
+            728 LOAD_FAST                7 (e)
+            730 FORMAT_VALUE             0
+            732 BUILD_STRING             2
+            734 STORE_FAST               8 (cloning_error)
+            736 POP_BLOCK
+            738 POP_EXCEPT
+            740 LOAD_CONST               6 (None)
+            742 STORE_FAST               7 (e)
+            744 DELETE_FAST              7 (e)
+            746 JUMP_FORWARD            10 (to 758)
+        >>  748 LOAD_CONST               6 (None)
+            750 STORE_FAST               7 (e)
+            752 DELETE_FAST              7 (e)
+            754 RERAISE
+        >>  756 RERAISE
+
+228     >>  758 LOAD_FAST                1 (details)
+            760 LOAD_CONST              31 ('tts')
+            762 BINARY_SUBSCR
+            764 LOAD_CONST              38 ('ok')
+            766 COMPARE_OP               2 (==)
+            768 EXTENDED_ARG             3
+            770 POP_JUMP_IF_FALSE      796
+
+229         772 LOAD_GLOBAL              1 (HealthCheckResult)
+
+230         774 LOAD_CONST              68 (True)
+            776 LOAD_FAST                1 (details)
+
+231         778 LOAD_FAST                8 (cloning_error)
+            780 EXTENDED_ARG             3
+            782 POP_JUMP_IF_FALSE      788
+            784 LOAD_FAST                8 (cloning_error)
+            786 JUMP_FORWARD             2 (to 790)
+        >>  788 LOAD_CONST               6 (None)
+
+229     >>  790 LOAD_CONST               5 (('ok', 'details', 'error'))
+            792 CALL_FUNCTION_KW         3
+            794 RETURN_VALUE
+
+233     >>  796 LOAD_GLOBAL              1 (HealthCheckResult)
+
+234         798 LOAD_CONST               3 (False)
+            800 LOAD_FAST                1 (details)
+
+235         802 LOAD_FAST                2 (tts_error)
+            804 EXTENDED_ARG             3
+            806 JUMP_IF_TRUE_OR_POP    816
+            808 LOAD_FAST                8 (cloning_error)
+            810 EXTENDED_ARG             3
+            812 JUMP_IF_TRUE_OR_POP    816
+            814 LOAD_CONST              69 ('未知失败')
+
+233     >>  816 LOAD_CONST               5 (('ok', 'details', 'error'))
+            818 CALL_FUNCTION_KW         3
+            820 RETURN_VALUE
+
+Disassembly of <code object list_voices at 0x10924bc90, file "WeRobotCore/services/voice/doubao_provider.py", line 238>:
+244           0 BUILD_LIST               0
+              2 RETURN_VALUE
+
+Disassembly of <code object clone_voice at 0x10924b500, file "WeRobotCore/services/voice/doubao_provider.py", line 248>:
+256           0 LOAD_FAST                0 (self)
+              2 LOAD_ATTR                0 (app_id)
+              4 POP_JUMP_IF_FALSE       12
+              6 LOAD_FAST                0 (self)
+              8 LOAD_ATTR                1 (access_token)
+             10 POP_JUMP_IF_TRUE        26
+
+257     >>   12 LOAD_GLOBAL              2 (CloneJob)
+
+258          14 LOAD_FAST                2 (voice_id)
+             16 LOAD_CONST               1 ('failed')
+
+259          18 LOAD_CONST               2 ('声音复刻需要同时填写 App ID + Access Token（在 AI 语音配置 → 声音复刻能力 区域）')
+
+257          20 LOAD_CONST               3 (('voice_id', 'status', 'message'))
+             22 CALL_FUNCTION_KW         3
+             24 RETURN_VALUE
+
+261     >>   26 LOAD_FAST                2 (voice_id)
+             28 POP_JUMP_IF_TRUE        44
+
+262          30 LOAD_GLOBAL              2 (CloneJob)
+             32 LOAD_CONST               4 ('')
+             34 LOAD_CONST               1 ('failed')
+             36 LOAD_CONST               5 ('voice_id (speaker_id 槽位) 必填')
+             38 LOAD_CONST               3 (('voice_id', 'status', 'message'))
+             40 CALL_FUNCTION_KW         3
+             42 RETURN_VALUE
+
+263     >>   44 LOAD_GLOBAL              3 (os)
+             46 LOAD_ATTR                4 (path)
+             48 LOAD_METHOD              5 (exists)
+             50 LOAD_FAST                1 (sample_path)
+             52 CALL_METHOD              1
+             54 POP_JUMP_IF_TRUE        76
+
+264          56 LOAD_GLOBAL              2 (CloneJob)
+             58 LOAD_FAST                2 (voice_id)
+             60 LOAD_CONST               1 ('failed')
+             62 LOAD_CONST               6 ('样本文件不存在: ')
+             64 LOAD_FAST                1 (sample_path)
+             66 FORMAT_VALUE             0
+             68 BUILD_STRING             2
+             70 LOAD_CONST               3 (('voice_id', 'status', 'message'))
+             72 CALL_FUNCTION_KW         3
+             74 RETURN_VALUE
+
+266     >>   76 LOAD_GLOBAL              3 (os)
+             78 LOAD_ATTR                4 (path)
+             80 LOAD_METHOD              6 (splitext)
+             82 LOAD_FAST                1 (sample_path)
+             84 CALL_METHOD              1
+             86 LOAD_CONST               7 (1)
+             88 BINARY_SUBSCR
+             90 LOAD_METHOD              7 (lower)
+             92 CALL_METHOD              0
+             94 STORE_FAST               5 (ext)
+
+267          96 LOAD_GLOBAL              8 (_AUDIO_EXT_MAP)
+             98 LOAD_METHOD              9 (get)
+            100 LOAD_FAST                5 (ext)
+            102 CALL_METHOD              1
+            104 STORE_FAST               6 (audio_format)
+
+268         106 LOAD_FAST                6 (audio_format)
+            108 POP_JUMP_IF_TRUE       146
+
+269         110 LOAD_GLOBAL              2 (CloneJob)
+
+270         112 LOAD_FAST                2 (voice_id)
+            114 LOAD_CONST               1 ('failed')
+
+271         116 LOAD_CONST               8 ('不支持的音频格式: ')
+            118 LOAD_FAST                5 (ext)
+            120 FORMAT_VALUE             0
+            122 LOAD_CONST               9 ('（支持 ')
+            124 LOAD_GLOBAL             10 (list)
+            126 LOAD_GLOBAL              8 (_AUDIO_EXT_MAP)
+            128 LOAD_METHOD             11 (values)
+            130 CALL_METHOD              0
+            132 CALL_FUNCTION            1
+            134 FORMAT_VALUE             0
+            136 LOAD_CONST              10 ('）')
+            138 BUILD_STRING             5
+
+269         140 LOAD_CONST               3 (('voice_id', 'status', 'message'))
+            142 CALL_FUNCTION_KW         3
+            144 RETURN_VALUE
+
+274     >>  146 SETUP_FINALLY           66 (to 214)
+
+275         148 LOAD_GLOBAL             12 (open)
+            150 LOAD_FAST                1 (sample_path)
+            152 LOAD_CONST              11 ('rb')
+            154 CALL_FUNCTION            2
+            156 SETUP_WITH              36 (to 194)
+            158 STORE_FAST               7 (f)
+
+276         160 LOAD_GLOBAL             13 (base64)
+            162 LOAD_METHOD             14 (b64encode)
+            164 LOAD_FAST                7 (f)
+            166 LOAD_METHOD             15 (read)
+            168 CALL_METHOD              0
+            170 CALL_METHOD              1
+            172 LOAD_METHOD             16 (decode)
+            174 LOAD_CONST              12 ('ascii')
+            176 CALL_METHOD              1
+            178 STORE_FAST               8 (audio_b64)
+            180 POP_BLOCK
+            182 LOAD_CONST               0 (None)
+            184 DUP_TOP
+            186 DUP_TOP
+            188 CALL_FUNCTION            3
+            190 POP_TOP
+            192 JUMP_FORWARD            16 (to 210)
+        >>  194 WITH_EXCEPT_START
+            196 POP_JUMP_IF_TRUE       200
+            198 RERAISE
+        >>  200 POP_TOP
+            202 POP_TOP
+            204 POP_TOP
+            206 POP_EXCEPT
+            208 POP_TOP
+        >>  210 POP_BLOCK
+            212 JUMP_FORWARD            58 (to 272)
+
+277     >>  214 DUP_TOP
+            216 LOAD_GLOBAL             17 (Exception)
+            218 EXTENDED_ARG             1
+            220 JUMP_IF_NOT_EXC_MATCH   270
+            222 POP_TOP
+            224 STORE_FAST               9 (e)
+            226 POP_TOP
+            228 SETUP_FINALLY           32 (to 262)
+
+278         230 LOAD_GLOBAL              2 (CloneJob)
+            232 LOAD_FAST                2 (voice_id)
+            234 LOAD_CONST               1 ('failed')
+            236 LOAD_CONST              13 ('读取样本失败: ')
+            238 LOAD_FAST                9 (e)
+            240 FORMAT_VALUE             0
+            242 BUILD_STRING             2
+            244 LOAD_CONST               3 (('voice_id', 'status', 'message'))
+            246 CALL_FUNCTION_KW         3
+            248 POP_BLOCK
+            250 ROT_FOUR
+            252 POP_EXCEPT
+            254 LOAD_CONST               0 (None)
+            256 STORE_FAST               9 (e)
+            258 DELETE_FAST              9 (e)
+            260 RETURN_VALUE
+        >>  262 LOAD_CONST               0 (None)
+            264 STORE_FAST               9 (e)
+            266 DELETE_FAST              9 (e)
+            268 RERAISE
+        >>  270 RERAISE
+
+281     >>  272 LOAD_FAST                0 (self)
+            274 LOAD_ATTR                0 (app_id)
+
+282         276 LOAD_FAST                2 (voice_id)
+
+284         278 LOAD_FAST                8 (audio_b64)
+
+285         280 LOAD_FAST                6 (audio_format)
+
+283         282 LOAD_CONST              14 (('audio_bytes', 'audio_format'))
+            284 BUILD_CONST_KEY_MAP      2
+            286 BUILD_LIST               1
+
+287         288 LOAD_CONST              15 (2)
+
+288         290 LOAD_GLOBAL             18 (_LANGUAGE_MAP)
+            292 LOAD_METHOD              9 (get)
+            294 LOAD_FAST                3 (language)
+            296 LOAD_CONST              16 (0)
+            298 CALL_METHOD              2
+
+290         300 LOAD_FAST                0 (self)
+            302 LOAD_ATTR               19 (resource_id_clone)
+            304 LOAD_METHOD             20 (endswith)
+            306 LOAD_CONST              17 ('2.0')
+            308 CALL_METHOD              1
+            310 EXTENDED_ARG             1
+            312 POP_JUMP_IF_FALSE      318
+            314 LOAD_CONST              18 (5)
+            316 JUMP_FORWARD             2 (to 320)
+        >>  318 LOAD_CONST               7 (1)
+
+280     >>  320 LOAD_CONST              19 (('appid', 'speaker_id', 'audios', 'source', 'language', 'model_type'))
+            322 BUILD_CONST_KEY_MAP      6
+            324 STORE_FAST              10 (body)
+
+292         326 LOAD_FAST                4 (text)
+            328 EXTENDED_ARG             1
+            330 POP_JUMP_IF_FALSE      340
+
+293         332 LOAD_FAST                4 (text)
+            334 LOAD_FAST               10 (body)
+            336 LOAD_CONST              20 ('text')
+            338 STORE_SUBSCR
+
+295     >>  340 SETUP_FINALLY           50 (to 392)
+
+297         342 LOAD_GLOBAL             21 (requests)
+            344 LOAD_ATTR               22 (post)
+
+298         346 LOAD_FAST                0 (self)
+            348 LOAD_ATTR               23 (endpoint)
+            350 FORMAT_VALUE             0
+            352 LOAD_CONST              21 ('/api/v1/mega_tts/audio/upload')
+            354 BUILD_STRING             2
+
+300         356 LOAD_CONST              22 ('Bearer;')
+            358 LOAD_FAST                0 (self)
+            360 LOAD_ATTR                1 (access_token)
+            362 FORMAT_VALUE             0
+            364 BUILD_STRING             2
+
+301         366 LOAD_FAST                0 (self)
+            368 LOAD_ATTR               19 (resource_id_clone)
+
+302         370 LOAD_CONST              23 ('application/json')
+
+299         372 LOAD_CONST              24 (('Authorization', 'Resource-Id', 'Content-Type'))
+            374 BUILD_CONST_KEY_MAP      3
+
+304         376 LOAD_FAST               10 (body)
+
+305         378 LOAD_FAST                0 (self)
+            380 LOAD_ATTR               24 (timeout)
+
+297         382 LOAD_CONST              25 (('headers', 'json', 'timeout'))
+            384 CALL_FUNCTION_KW         4
+            386 STORE_FAST              11 (r)
+            388 POP_BLOCK
+            390 JUMP_FORWARD            60 (to 452)
+
+307     >>  392 DUP_TOP
+            394 LOAD_GLOBAL             21 (requests)
+            396 LOAD_ATTR               25 (RequestException)
+            398 EXTENDED_ARG             1
+            400 JUMP_IF_NOT_EXC_MATCH   450
+            402 POP_TOP
+            404 STORE_FAST               9 (e)
+            406 POP_TOP
+            408 SETUP_FINALLY           32 (to 442)
+
+308         410 LOAD_GLOBAL              2 (CloneJob)
+            412 LOAD_FAST                2 (voice_id)
+            414 LOAD_CONST               1 ('failed')
+            416 LOAD_CONST              26 ('网络异常: ')
+            418 LOAD_FAST                9 (e)
+            420 FORMAT_VALUE             0
+            422 BUILD_STRING             2
+            424 LOAD_CONST               3 (('voice_id', 'status', 'message'))
+            426 CALL_FUNCTION_KW         3
+            428 POP_BLOCK
+            430 ROT_FOUR
+            432 POP_EXCEPT
+            434 LOAD_CONST               0 (None)
+            436 STORE_FAST               9 (e)
+            438 DELETE_FAST              9 (e)
+            440 RETURN_VALUE
+        >>  442 LOAD_CONST               0 (None)
+            444 STORE_FAST               9 (e)
+            446 DELETE_FAST              9 (e)
+            448 RERAISE
+        >>  450 RERAISE
+
+310     >>  452 SETUP_FINALLY           12 (to 466)
+
+311         454 LOAD_FAST               11 (r)
+            456 LOAD_METHOD             26 (json)
+            458 CALL_METHOD              0
+            460 STORE_FAST              12 (data)
+            462 POP_BLOCK
+            464 JUMP_FORWARD            38 (to 504)
+
+312     >>  466 DUP_TOP
+            468 LOAD_GLOBAL             17 (Exception)
+            470 EXTENDED_ARG             1
+            472 JUMP_IF_NOT_EXC_MATCH   502
+            474 POP_TOP
+            476 POP_TOP
+            478 POP_TOP
+
+313         480 LOAD_CONST              27 ('raw')
+            482 LOAD_FAST               11 (r)
+            484 LOAD_ATTR               27 (text)
+            486 LOAD_CONST               0 (None)
+            488 LOAD_CONST              28 (300)
+            490 BUILD_SLICE              2
+            492 BINARY_SUBSCR
+            494 BUILD_MAP                1
+            496 STORE_FAST              12 (data)
+            498 POP_EXCEPT
+            500 JUMP_FORWARD             2 (to 504)
+        >>  502 RERAISE
+
+315     >>  504 LOAD_FAST               11 (r)
+            506 LOAD_ATTR               28 (status_code)
+            508 LOAD_CONST              29 (200)
+            510 COMPARE_OP               3 (!=)
+            512 EXTENDED_ARG             2
+            514 POP_JUMP_IF_FALSE      544
+
+316         516 LOAD_GLOBAL              2 (CloneJob)
+
+317         518 LOAD_FAST                2 (voice_id)
+            520 LOAD_CONST               1 ('failed')
+
+318         522 LOAD_CONST              30 ('HTTP ')
+            524 LOAD_FAST               11 (r)
+            526 LOAD_ATTR               28 (status_code)
+            528 FORMAT_VALUE             0
+            530 LOAD_CONST              31 (': ')
+            532 LOAD_FAST               12 (data)
+            534 FORMAT_VALUE             0
+            536 BUILD_STRING             4
+
+316         538 LOAD_CONST               3 (('voice_id', 'status', 'message'))
+            540 CALL_FUNCTION_KW         3
+            542 RETURN_VALUE
+
+322     >>  544 LOAD_FAST               12 (data)
+            546 LOAD_METHOD              9 (get)
+            548 LOAD_CONST              32 ('BaseResp')
+            550 CALL_METHOD              1
+            552 EXTENDED_ARG             2
+            554 JUMP_IF_TRUE_OR_POP    558
+            556 BUILD_MAP                0
+        >>  558 LOAD_METHOD              9 (get)
+            560 LOAD_CONST              33 ('StatusCode')
+            562 CALL_METHOD              1
+            564 STORE_FAST              13 (base_status)
+
+323         566 LOAD_FAST               13 (base_status)
+            568 LOAD_CONST              34 ((0, None))
+            570 CONTAINS_OP              1
+            572 EXTENDED_ARG             2
+            574 POP_JUMP_IF_FALSE      602
+
+324         576 LOAD_GLOBAL              2 (CloneJob)
+
+325         578 LOAD_FAST                2 (voice_id)
+            580 LOAD_CONST               1 ('failed')
+
+326         582 LOAD_CONST              35 ('豆包返回错误: ')
+            584 LOAD_FAST               12 (data)
+            586 LOAD_METHOD              9 (get)
+            588 LOAD_CONST              32 ('BaseResp')
+            590 CALL_METHOD              1
+            592 FORMAT_VALUE             0
+            594 BUILD_STRING             2
+
+324         596 LOAD_CONST               3 (('voice_id', 'status', 'message'))
+            598 CALL_FUNCTION_KW         3
+            600 RETURN_VALUE
+
+328     >>  602 LOAD_GLOBAL              2 (CloneJob)
+            604 LOAD_FAST                2 (voice_id)
+            606 LOAD_CONST              36 ('training')
+            608 LOAD_CONST              37 ('已提交训练')
+            610 LOAD_CONST               3 (('voice_id', 'status', 'message'))
+            612 CALL_FUNCTION_KW         3
+            614 RETURN_VALUE
+
+Disassembly of <code object query_clone_status at 0x10924bf50, file "WeRobotCore/services/voice/doubao_provider.py", line 330>:
+331           0 LOAD_FAST                1 (voice_id)
+              2 POP_JUMP_IF_TRUE        18
+
+332           4 LOAD_GLOBAL              0 (CloneStatus)
+              6 LOAD_CONST               1 ('')
+              8 LOAD_CONST               2 ('not_found')
+             10 LOAD_CONST               3 ('voice_id 必填')
+             12 LOAD_CONST               4 (('voice_id', 'status', 'message'))
+             14 CALL_FUNCTION_KW         3
+             16 RETURN_VALUE
+
+333     >>   18 LOAD_FAST                0 (self)
+             20 LOAD_ATTR                1 (app_id)
+             22 POP_JUMP_IF_FALSE       30
+             24 LOAD_FAST                0 (self)
+             26 LOAD_ATTR                2 (access_token)
+             28 POP_JUMP_IF_TRUE        44
+
+334     >>   30 LOAD_GLOBAL              0 (CloneStatus)
+
+335          32 LOAD_FAST                1 (voice_id)
+             34 LOAD_CONST               5 ('failed')
+
+336          36 LOAD_CONST               6 ('复刻状态查询需要 App ID + Access Token')
+
+334          38 LOAD_CONST               4 (('voice_id', 'status', 'message'))
+             40 CALL_FUNCTION_KW         3
+             42 RETURN_VALUE
+
+338     >>   44 SETUP_FINALLY           66 (to 112)
+
+340          46 LOAD_GLOBAL              3 (requests)
+             48 LOAD_ATTR                4 (post)
+
+341          50 LOAD_FAST                0 (self)
+             52 LOAD_ATTR                5 (endpoint)
+             54 FORMAT_VALUE             0
+             56 LOAD_CONST               7 ('/api/v1/mega_tts/status')
+             58 BUILD_STRING             2
+
+343          60 LOAD_CONST               8 ('Bearer;')
+             62 LOAD_FAST                0 (self)
+             64 LOAD_ATTR                2 (access_token)
+             66 FORMAT_VALUE             0
+             68 BUILD_STRING             2
+
+344          70 LOAD_FAST                0 (self)
+             72 LOAD_ATTR                6 (resource_id_clone)
+
+345          74 LOAD_CONST               9 ('application/json')
+
+342          76 LOAD_CONST              10 (('Authorization', 'Resource-Id', 'Content-Type'))
+             78 BUILD_CONST_KEY_MAP      3
+
+347          80 LOAD_FAST                0 (self)
+             82 LOAD_ATTR                1 (app_id)
+             84 LOAD_FAST                1 (voice_id)
+             86 LOAD_CONST              11 (('appid', 'speaker_id'))
+             88 BUILD_CONST_KEY_MAP      2
+
+348          90 LOAD_FAST                0 (self)
+             92 LOAD_ATTR                7 (timeout)
+
+340          94 LOAD_CONST              12 (('headers', 'json', 'timeout'))
+             96 CALL_FUNCTION_KW         4
+             98 STORE_FAST               2 (r)
+
+350         100 LOAD_FAST                2 (r)
+            102 LOAD_METHOD              8 (json)
+            104 CALL_METHOD              0
+            106 STORE_FAST               3 (data)
+            108 POP_BLOCK
+            110 JUMP_FORWARD            56 (to 168)
+
+351     >>  112 DUP_TOP
+            114 LOAD_GLOBAL              9 (Exception)
+            116 JUMP_IF_NOT_EXC_MATCH   166
+            118 POP_TOP
+            120 STORE_FAST               4 (e)
+            122 POP_TOP
+            124 SETUP_FINALLY           32 (to 158)
+
+352         126 LOAD_GLOBAL              0 (CloneStatus)
+            128 LOAD_FAST                1 (voice_id)
+            130 LOAD_CONST               5 ('failed')
+            132 LOAD_CONST              13 ('查询异常: ')
+            134 LOAD_FAST                4 (e)
+            136 FORMAT_VALUE             0
+            138 BUILD_STRING             2
+            140 LOAD_CONST               4 (('voice_id', 'status', 'message'))
+            142 CALL_FUNCTION_KW         3
+            144 POP_BLOCK
+            146 ROT_FOUR
+            148 POP_EXCEPT
+            150 LOAD_CONST               0 (None)
+            152 STORE_FAST               4 (e)
+            154 DELETE_FAST              4 (e)
+            156 RETURN_VALUE
+        >>  158 LOAD_CONST               0 (None)
+            160 STORE_FAST               4 (e)
+            162 DELETE_FAST              4 (e)
+            164 RERAISE
+        >>  166 RERAISE
+
+354     >>  168 LOAD_FAST                2 (r)
+            170 LOAD_ATTR               10 (status_code)
+            172 LOAD_CONST              14 (200)
+            174 COMPARE_OP               3 (!=)
+            176 POP_JUMP_IF_FALSE      200
+
+355         178 LOAD_GLOBAL              0 (CloneStatus)
+            180 LOAD_FAST                1 (voice_id)
+            182 LOAD_CONST               5 ('failed')
+            184 LOAD_CONST              15 ('HTTP ')
+            186 LOAD_FAST                2 (r)
+            188 LOAD_ATTR               10 (status_code)
+            190 FORMAT_VALUE             0
+            192 BUILD_STRING             2
+            194 LOAD_CONST               4 (('voice_id', 'status', 'message'))
+            196 CALL_FUNCTION_KW         3
+            198 RETURN_VALUE
+
+357     >>  200 LOAD_FAST                3 (data)
+            202 LOAD_METHOD             11 (get)
+            204 LOAD_CONST              16 ('status')
+            206 CALL_METHOD              1
+            208 STORE_FAST               5 (status_code)
+
+358         210 LOAD_GLOBAL             12 (_CLONE_STATUS_MAP)
+            212 LOAD_METHOD             11 (get)
+            214 LOAD_FAST                5 (status_code)
+            216 LOAD_CONST               5 ('failed')
+            218 CALL_METHOD              2
+            220 STORE_FAST               6 (status)
+
+359         222 LOAD_FAST                3 (data)
+            224 LOAD_METHOD             11 (get)
+            226 LOAD_CONST              17 ('demo_audio')
+            228 CALL_METHOD              1
+            230 STORE_FAST               7 (demo)
+
+360         232 LOAD_GLOBAL              0 (CloneStatus)
+
+361         234 LOAD_FAST                1 (voice_id)
+            236 LOAD_FAST                6 (status)
+
+362         238 LOAD_GLOBAL             13 (isinstance)
+            240 LOAD_FAST                7 (demo)
+            242 LOAD_GLOBAL             14 (str)
+            244 CALL_FUNCTION            2
+            246 EXTENDED_ARG             0
+            248 POP_JUMP_IF_FALSE      254
+            250 LOAD_FAST                7 (demo)
+            252 JUMP_FORWARD             2 (to 256)
+        >>  254 LOAD_CONST               0 (None)
+
+363     >>  256 LOAD_FAST                3 (data)
+            258 LOAD_METHOD             11 (get)
+            260 LOAD_CONST              18 ('message')
+            262 LOAD_CONST               1 ('')
+            264 CALL_METHOD              2
+            266 EXTENDED_ARG             1
+            268 JUMP_IF_TRUE_OR_POP    272
+            270 LOAD_CONST               1 ('')
+
+360     >>  272 LOAD_CONST              19 (('voice_id', 'status', 'demo_audio_url', 'message'))
+            274 CALL_FUNCTION_KW         4
+            276 RETURN_VALUE
+
+Disassembly of <code object synthesize at 0x10924bd40, file "WeRobotCore/services/voice/doubao_provider.py", line 368>:
+375           0 LOAD_FAST                1 (text)
+              2 POP_JUMP_IF_FALSE        8
+              4 LOAD_FAST                2 (voice_id)
+              6 POP_JUMP_IF_TRUE        22
+
+376     >>    8 LOAD_GLOBAL              0 (SynthResult)
+
+377          10 LOAD_CONST               1 (False)
+             12 LOAD_CONST               2 ('INVALID_INPUT')
+
+378          14 LOAD_CONST               3 ('text 和 voice_id 均不能为空')
+
+376          16 LOAD_CONST               4 (('success', 'error_code', 'error_message'))
+             18 CALL_FUNCTION_KW         3
+             20 RETURN_VALUE
+
+381     >>   22 LOAD_GLOBAL              1 (max)
+             24 LOAD_CONST               5 (0.5)
+             26 LOAD_GLOBAL              2 (min)
+             28 LOAD_CONST               6 (2.0)
+             30 LOAD_GLOBAL              3 (float)
+             32 LOAD_FAST                4 (speed)
+             34 CALL_FUNCTION            1
+             36 CALL_FUNCTION            2
+             38 CALL_FUNCTION            2
+             40 STORE_FAST               4 (speed)
+
+382          42 LOAD_GLOBAL              4 (round)
+             44 LOAD_FAST                4 (speed)
+             46 LOAD_CONST               7 (1.0)
+             48 BINARY_SUBTRACT
+             50 LOAD_CONST               8 (100)
+             52 BINARY_MULTIPLY
+             54 CALL_FUNCTION            1
+             56 STORE_FAST               5 (speech_rate)
+
+385          58 LOAD_FAST                2 (voice_id)
+             60 LOAD_METHOD              5 (startswith)
+             62 LOAD_CONST               9 ('S_')
+             64 CALL_METHOD              1
+             66 POP_JUMP_IF_FALSE       74
+             68 LOAD_FAST                0 (self)
+             70 LOAD_ATTR                6 (resource_id_clone)
+             72 JUMP_FORWARD             4 (to 78)
+        >>   74 LOAD_FAST                0 (self)
+             76 LOAD_ATTR                7 (resource_id_tts)
+        >>   78 STORE_FAST               6 (resource_id)
+
+388          80 LOAD_CONST              10 ('uid')
+             82 LOAD_CONST              11 ('yokowebot')
+             84 BUILD_MAP                1
+
+389          86 LOAD_CONST              12 ('BidirectionalTTS')
+
+391          88 LOAD_FAST                1 (text)
+
+392          90 LOAD_FAST                2 (voice_id)
+
+394          92 LOAD_CONST              13 ('mp3')
+
+395          94 LOAD_CONST              14 (24000)
+
+393          96 LOAD_CONST              15 (('format', 'sample_rate'))
+             98 BUILD_CONST_KEY_MAP      2
+
+396         100 LOAD_FAST                5 (speech_rate)
+            102 LOAD_CONST              16 (0)
+            104 COMPARE_OP               3 (!=)
+            106 POP_JUMP_IF_FALSE      116
+            108 LOAD_CONST              17 ('speech_rate')
+            110 LOAD_FAST                5 (speech_rate)
+            112 BUILD_MAP                1
+            114 JUMP_FORWARD             2 (to 118)
+        >>  116 BUILD_MAP                0
+
+393     >>  118 DICT_UPDATE              1
+
+390         120 LOAD_CONST              18 (('text', 'speaker', 'audio_params'))
+            122 BUILD_CONST_KEY_MAP      3
+
+387         124 LOAD_CONST              19 (('user', 'namespace', 'req_params'))
+            126 BUILD_CONST_KEY_MAP      3
+            128 STORE_FAST               7 (payload)
+
+401         130 LOAD_CONST              20 ('application/json')
+
+402         132 LOAD_CONST              20 ('application/json')
+
+403         134 LOAD_FAST                0 (self)
+            136 LOAD_ATTR                8 (api_key)
+
+404         138 LOAD_FAST                6 (resource_id)
+
+405         140 LOAD_GLOBAL              9 (str)
+            142 LOAD_GLOBAL             10 (uuid)
+            144 LOAD_METHOD             11 (uuid4)
+            146 CALL_METHOD              0
+            148 CALL_FUNCTION            1
+
+400         150 LOAD_CONST              21 (('Content-Type', 'Accept', 'X-Api-Key', 'X-Api-Resource-Id', 'X-Api-Request-Id'))
+            152 BUILD_CONST_KEY_MAP      5
+            154 STORE_FAST               8 (synth_headers)
+
+407         156 LOAD_FAST                0 (self)
+            158 LOAD_ATTR               12 (app_id)
+            160 POP_JUMP_IF_FALSE      172
+
+408         162 LOAD_FAST                0 (self)
+            164 LOAD_ATTR               12 (app_id)
+            166 LOAD_FAST                8 (synth_headers)
+            168 LOAD_CONST              22 ('X-Api-App-Key')
+            170 STORE_SUBSCR
+
+409     >>  172 SETUP_FINALLY           32 (to 206)
+
+410         174 LOAD_GLOBAL             13 (requests)
+            176 LOAD_ATTR               14 (post)
+
+411         178 LOAD_FAST                0 (self)
+            180 LOAD_ATTR               15 (endpoint)
+            182 FORMAT_VALUE             0
+            184 LOAD_CONST              23 ('/api/v3/tts/unidirectional')
+            186 BUILD_STRING             2
+
+412         188 LOAD_FAST                8 (synth_headers)
+
+413         190 LOAD_FAST                7 (payload)
+
+414         192 LOAD_FAST                0 (self)
+            194 LOAD_ATTR               16 (timeout)
+
+410         196 LOAD_CONST              24 (('headers', 'json', 'timeout'))
+            198 CALL_FUNCTION_KW         4
+            200 STORE_FAST               9 (r)
+            202 POP_BLOCK
+            204 JUMP_FORWARD            60 (to 266)
+
+416     >>  206 DUP_TOP
+            208 LOAD_GLOBAL             13 (requests)
+            210 LOAD_ATTR               17 (RequestException)
+            212 EXTENDED_ARG             1
+            214 JUMP_IF_NOT_EXC_MATCH   264
+            216 POP_TOP
+            218 STORE_FAST              10 (e)
+            220 POP_TOP
+            222 SETUP_FINALLY           32 (to 256)
+
+417         224 LOAD_GLOBAL              0 (SynthResult)
+
+418         226 LOAD_CONST               1 (False)
+            228 LOAD_CONST              25 ('NETWORK_ERROR')
+
+419         230 LOAD_CONST              26 ('网络异常: ')
+            232 LOAD_FAST               10 (e)
+            234 FORMAT_VALUE             0
+            236 BUILD_STRING             2
+
+417         238 LOAD_CONST               4 (('success', 'error_code', 'error_message'))
+            240 CALL_FUNCTION_KW         3
+            242 POP_BLOCK
+            244 ROT_FOUR
+            246 POP_EXCEPT
+            248 LOAD_CONST               0 (None)
+            250 STORE_FAST              10 (e)
+            252 DELETE_FAST             10 (e)
+            254 RETURN_VALUE
+        >>  256 LOAD_CONST               0 (None)
+            258 STORE_FAST              10 (e)
+            260 DELETE_FAST             10 (e)
+            262 RERAISE
+        >>  264 RERAISE
+
+422     >>  266 LOAD_FAST                9 (r)
+            268 LOAD_ATTR               18 (text)
+            270 STORE_FAST              11 (raw)
+
+423         272 LOAD_FAST                9 (r)
+            274 LOAD_ATTR               19 (status_code)
+            276 LOAD_CONST              27 (200)
+            278 COMPARE_OP               3 (!=)
+            280 EXTENDED_ARG             1
+            282 POP_JUMP_IF_FALSE      328
+
+424         284 LOAD_GLOBAL              0 (SynthResult)
+
+425         286 LOAD_CONST               1 (False)
+            288 LOAD_CONST              28 ('HTTP_')
+            290 LOAD_FAST                9 (r)
+            292 LOAD_ATTR               19 (status_code)
+            294 FORMAT_VALUE             0
+            296 BUILD_STRING             2
+
+426         298 LOAD_CONST              29 ('豆包 TTS 返回 ')
+            300 LOAD_FAST                9 (r)
+            302 LOAD_ATTR               19 (status_code)
+            304 FORMAT_VALUE             0
+            306 LOAD_CONST              30 (': ')
+            308 LOAD_FAST               11 (raw)
+            310 LOAD_CONST               0 (None)
+            312 LOAD_CONST              31 (300)
+            314 BUILD_SLICE              2
+            316 BINARY_SUBSCR
+            318 FORMAT_VALUE             0
+            320 BUILD_STRING             4
+
+424         322 LOAD_CONST               4 (('success', 'error_code', 'error_message'))
+            324 CALL_FUNCTION_KW         3
+            326 RETURN_VALUE
+
+430     >>  328 BUILD_LIST               0
+            330 STORE_FAST              12 (audio_chunks)
+
+431         332 LOAD_GLOBAL             20 (_parse_json_objects)
+            334 LOAD_FAST               11 (raw)
+            336 CALL_FUNCTION            1
+            338 GET_ITER
+        >>  340 FOR_ITER                62 (to 404)
+            342 STORE_FAST              13 (obj)
+
+432         344 LOAD_GLOBAL             21 (_find_audio_b64)
+            346 LOAD_FAST               13 (obj)
+            348 CALL_FUNCTION            1
+            350 STORE_FAST              14 (b64)
+
+433         352 LOAD_FAST               14 (b64)
+            354 EXTENDED_ARG             1
+            356 POP_JUMP_IF_FALSE      340
+
+434         358 SETUP_FINALLY           20 (to 380)
+
+435         360 LOAD_FAST               12 (audio_chunks)
+            362 LOAD_METHOD             22 (append)
+            364 LOAD_GLOBAL             23 (base64)
+            366 LOAD_METHOD             24 (b64decode)
+            368 LOAD_FAST               14 (b64)
+            370 CALL_METHOD              1
+            372 CALL_METHOD              1
+            374 POP_TOP
+            376 POP_BLOCK
+            378 JUMP_FORWARD            20 (to 400)
+
+436     >>  380 DUP_TOP
+            382 LOAD_GLOBAL             25 (Exception)
+            384 EXTENDED_ARG             1
+            386 JUMP_IF_NOT_EXC_MATCH   398
+            388 POP_TOP
+            390 POP_TOP
+            392 POP_TOP
+
+437         394 POP_EXCEPT
+            396 JUMP_FORWARD             2 (to 400)
+        >>  398 RERAISE
+        >>  400 EXTENDED_ARG             1
+            402 JUMP_ABSOLUTE          340
+
+438     >>  404 LOAD_FAST               12 (audio_chunks)
+            406 EXTENDED_ARG             1
+            408 POP_JUMP_IF_TRUE       438
+
+439         410 LOAD_GLOBAL              0 (SynthResult)
+
+440         412 LOAD_CONST               1 (False)
+            414 LOAD_CONST              32 ('EMPTY_AUDIO')
+
+441         416 LOAD_CONST              33 ('未从响应中提取到音频: ')
+            418 LOAD_FAST               11 (raw)
+            420 LOAD_CONST               0 (None)
+            422 LOAD_CONST              31 (300)
+            424 BUILD_SLICE              2
+            426 BINARY_SUBSCR
+            428 FORMAT_VALUE             0
+            430 BUILD_STRING             2
+
+439         432 LOAD_CONST               4 (('success', 'error_code', 'error_message'))
+            434 CALL_FUNCTION_KW         3
+            436 RETURN_VALUE
+
+444     >>  438 LOAD_CONST              34 (b'')
+            440 LOAD_METHOD             26 (join)
+            442 LOAD_FAST               12 (audio_chunks)
+            444 CALL_METHOD              1
+            446 STORE_FAST              15 (audio)
+
+445         448 SETUP_FINALLY           80 (to 530)
+
+446         450 LOAD_GLOBAL             27 (os)
+            452 LOAD_ATTR               28 (makedirs)
+            454 LOAD_GLOBAL             27 (os)
+            456 LOAD_ATTR               29 (path)
+            458 LOAD_METHOD             30 (dirname)
+            460 LOAD_FAST                3 (out_path)
+            462 CALL_METHOD              1
+            464 LOAD_CONST              35 (True)
+            466 LOAD_CONST              36 (('exist_ok',))
+            468 CALL_FUNCTION_KW         2
+            470 POP_TOP
+
+447         472 LOAD_GLOBAL             31 (open)
+            474 LOAD_FAST                3 (out_path)
+            476 LOAD_CONST              37 ('wb')
+            478 CALL_FUNCTION            2
+            480 SETUP_WITH              26 (to 508)
+            482 STORE_FAST              16 (f)
+
+448         484 LOAD_FAST               16 (f)
+            486 LOAD_METHOD             32 (write)
+            488 LOAD_FAST               15 (audio)
+            490 CALL_METHOD              1
+            492 POP_TOP
+            494 POP_BLOCK
+            496 LOAD_CONST               0 (None)
+            498 DUP_TOP
+            500 DUP_TOP
+            502 CALL_FUNCTION            3
+            504 POP_TOP
+            506 JUMP_FORWARD            18 (to 526)
+        >>  508 WITH_EXCEPT_START
+            510 EXTENDED_ARG             2
+            512 POP_JUMP_IF_TRUE       516
+            514 RERAISE
+        >>  516 POP_TOP
+            518 POP_TOP
+            520 POP_TOP
+            522 POP_EXCEPT
+            524 POP_TOP
+        >>  526 POP_BLOCK
+            528 JUMP_FORWARD            58 (to 588)
+
+449     >>  530 DUP_TOP
+            532 LOAD_GLOBAL             25 (Exception)
+            534 EXTENDED_ARG             2
+            536 JUMP_IF_NOT_EXC_MATCH   586
+            538 POP_TOP
+            540 STORE_FAST              10 (e)
+            542 POP_TOP
+            544 SETUP_FINALLY           32 (to 578)
+
+450         546 LOAD_GLOBAL              0 (SynthResult)
+
+451         548 LOAD_CONST               1 (False)
+            550 LOAD_CONST              38 ('WRITE_FAILED')
+
+452         552 LOAD_CONST              39 ('写文件失败: ')
+            554 LOAD_FAST               10 (e)
+            556 FORMAT_VALUE             0
+            558 BUILD_STRING             2
+
+450         560 LOAD_CONST               4 (('success', 'error_code', 'error_message'))
+            562 CALL_FUNCTION_KW         3
+            564 POP_BLOCK
+            566 ROT_FOUR
+            568 POP_EXCEPT
+            570 LOAD_CONST               0 (None)
+            572 STORE_FAST              10 (e)
+            574 DELETE_FAST             10 (e)
+            576 RETURN_VALUE
+        >>  578 LOAD_CONST               0 (None)
+            580 STORE_FAST              10 (e)
+            582 DELETE_FAST             10 (e)
+            584 RERAISE
+        >>  586 RERAISE
+
+456     >>  588 LOAD_GLOBAL              1 (max)
+            590 LOAD_CONST               7 (1.0)
+            592 LOAD_GLOBAL             33 (len)
+            594 LOAD_FAST                1 (text)
+            596 CALL_FUNCTION            1
+            598 LOAD_CONST              40 (5.0)
+            600 BINARY_TRUE_DIVIDE
+            602 LOAD_GLOBAL              1 (max)
+            604 LOAD_FAST                4 (speed)
+            606 LOAD_CONST               5 (0.5)
+            608 CALL_FUNCTION            2
+            610 BINARY_TRUE_DIVIDE
+            612 CALL_FUNCTION            2
+            614 STORE_FAST              17 (approx_dur)
+
+457         616 LOAD_GLOBAL              0 (SynthResult)
+
+458         618 LOAD_CONST              35 (True)
+            620 LOAD_FAST                3 (out_path)
+
+459         622 LOAD_GLOBAL              4 (round)
+            624 LOAD_FAST               17 (approx_dur)
+            626 LOAD_CONST              41 (2)
+            628 CALL_FUNCTION            2
+
+460         630 LOAD_FAST                2 (voice_id)
+            632 LOAD_CONST              13 ('mp3')
+
+457         634 LOAD_CONST              42 (('success', 'audio_path', 'duration_sec', 'voice_id', 'format'))
+            636 CALL_FUNCTION_KW         5
+            638 RETURN_VALUE
+
+Disassembly of <code object _open_api_call at 0x10924b450, file "WeRobotCore/services/voice/doubao_provider.py", line 466>:
+470           0 LOAD_FAST                0 (self)
+              2 LOAD_METHOD              0 (has_open_api_creds)
+              4 CALL_METHOD              0
+              6 POP_JUMP_IF_TRUE        18
+
+471           8 LOAD_CONST               1 (False)
+             10 BUILD_MAP                0
+             12 LOAD_CONST               2 ('未配置 AccessKey/SecretKey/AppID，无法调用开放 API')
+             14 BUILD_TUPLE              3
+             16 RETURN_VALUE
+
+472     >>   18 LOAD_FAST                0 (self)
+             20 LOAD_ATTR                1 (open_api_endpoint)
+             22 LOAD_METHOD              2 (replace)
+             24 LOAD_CONST               3 ('https://')
+             26 LOAD_CONST               4 ('')
+             28 CALL_METHOD              2
+             30 LOAD_METHOD              2 (replace)
+             32 LOAD_CONST               5 ('http://')
+             34 LOAD_CONST               4 ('')
+             36 CALL_METHOD              2
+             38 STORE_FAST               3 (host)
+
+473          40 LOAD_FAST                1 (action)
+             42 LOAD_GLOBAL              3 (_OPEN_API_VERSION)
+             44 LOAD_CONST               6 (('Action', 'Version'))
+             46 BUILD_CONST_KEY_MAP      2
+             48 STORE_FAST               4 (query)
+
+474          50 LOAD_GLOBAL              4 (json)
+             52 LOAD_ATTR                5 (dumps)
+             54 LOAD_FAST                2 (body)
+             56 LOAD_CONST               1 (False)
+             58 LOAD_CONST               7 (('ensure_ascii',))
+             60 CALL_FUNCTION_KW         2
+             62 LOAD_METHOD              6 (encode)
+             64 LOAD_CONST               8 ('utf-8')
+             66 CALL_METHOD              1
+             68 STORE_FAST               5 (payload)
+
+475          70 SETUP_FINALLY           36 (to 108)
+
+476          72 LOAD_GLOBAL              7 (sign_request)
+
+477          74 LOAD_CONST               9 ('POST')
+
+478          76 LOAD_FAST                3 (host)
+
+479          78 LOAD_CONST              10 ('/')
+
+480          80 LOAD_FAST                4 (query)
+
+481          82 LOAD_FAST                5 (payload)
+
+482          84 LOAD_FAST                0 (self)
+             86 LOAD_ATTR                8 (access_key_id)
+
+483          88 LOAD_FAST                0 (self)
+             90 LOAD_ATTR                9 (secret_access_key)
+
+484          92 LOAD_GLOBAL             10 (_OPEN_API_SERVICE)
+
+485          94 LOAD_FAST                0 (self)
+             96 LOAD_ATTR               11 (open_api_region)
+
+476          98 LOAD_CONST              11 (('method', 'host', 'path', 'query', 'body', 'access_key_id', 'secret_access_key', 'service', 'region'))
+            100 CALL_FUNCTION_KW         9
+            102 STORE_FAST               6 (headers)
+            104 POP_BLOCK
+            106 JUMP_FORWARD            52 (to 160)
+
+487     >>  108 DUP_TOP
+            110 LOAD_GLOBAL             12 (Exception)
+            112 JUMP_IF_NOT_EXC_MATCH   158
+            114 POP_TOP
+            116 STORE_FAST               7 (e)
+            118 POP_TOP
+            120 SETUP_FINALLY           28 (to 150)
+
+488         122 LOAD_CONST               1 (False)
+            124 BUILD_MAP                0
+            126 LOAD_CONST              12 ('签名构造失败: ')
+            128 LOAD_FAST                7 (e)
+            130 FORMAT_VALUE             0
+            132 BUILD_STRING             2
+            134 BUILD_TUPLE              3
+            136 POP_BLOCK
+            138 ROT_FOUR
+            140 POP_EXCEPT
+            142 LOAD_CONST              13 (None)
+            144 STORE_FAST               7 (e)
+            146 DELETE_FAST              7 (e)
+            148 RETURN_VALUE
+        >>  150 LOAD_CONST              13 (None)
+            152 STORE_FAST               7 (e)
+            154 DELETE_FAST              7 (e)
+            156 RERAISE
+        >>  158 RERAISE
+
+490     >>  160 SETUP_FINALLY           34 (to 196)
+
+491         162 LOAD_GLOBAL             13 (requests)
+            164 LOAD_ATTR               14 (post)
+
+492         166 LOAD_FAST                0 (self)
+            168 LOAD_ATTR                1 (open_api_endpoint)
+            170 FORMAT_VALUE             0
+            172 LOAD_CONST              10 ('/')
+            174 BUILD_STRING             2
+
+493         176 LOAD_FAST                4 (query)
+
+494         178 LOAD_FAST                6 (headers)
+
+495         180 LOAD_FAST                5 (payload)
+
+496         182 LOAD_FAST                0 (self)
+            184 LOAD_ATTR               15 (timeout)
+
+491         186 LOAD_CONST              14 (('params', 'headers', 'data', 'timeout'))
+            188 CALL_FUNCTION_KW         5
+            190 STORE_FAST               8 (r)
+            192 POP_BLOCK
+            194 JUMP_FORWARD            56 (to 252)
+
+498     >>  196 DUP_TOP
+            198 LOAD_GLOBAL             13 (requests)
+            200 LOAD_ATTR               16 (RequestException)
+            202 EXTENDED_ARG             0
+            204 JUMP_IF_NOT_EXC_MATCH   250
+            206 POP_TOP
+            208 STORE_FAST               7 (e)
+            210 POP_TOP
+            212 SETUP_FINALLY           28 (to 242)
+
+499         214 LOAD_CONST               1 (False)
+            216 BUILD_MAP                0
+            218 LOAD_CONST              15 ('网络异常: ')
+            220 LOAD_FAST                7 (e)
+            222 FORMAT_VALUE             0
+            224 BUILD_STRING             2
+            226 BUILD_TUPLE              3
+            228 POP_BLOCK
+            230 ROT_FOUR
+            232 POP_EXCEPT
+            234 LOAD_CONST              13 (None)
+            236 STORE_FAST               7 (e)
+            238 DELETE_FAST              7 (e)
+            240 RETURN_VALUE
+        >>  242 LOAD_CONST              13 (None)
+            244 STORE_FAST               7 (e)
+            246 DELETE_FAST              7 (e)
+            248 RERAISE
+        >>  250 RERAISE
+
+501     >>  252 LOAD_FAST                8 (r)
+            254 LOAD_ATTR               17 (text)
+            256 EXTENDED_ARG             1
+            258 JUMP_IF_TRUE_OR_POP    262
+            260 LOAD_CONST               4 ('')
+        >>  262 STORE_FAST               9 (text)
+
+502         264 SETUP_FINALLY           12 (to 278)
+
+503         266 LOAD_FAST                8 (r)
+            268 LOAD_METHOD              4 (json)
+            270 CALL_METHOD              0
+            272 STORE_FAST              10 (data)
+            274 POP_BLOCK
+            276 JUMP_FORWARD            36 (to 314)
+
+504     >>  278 DUP_TOP
+            280 LOAD_GLOBAL             12 (Exception)
+            282 EXTENDED_ARG             1
+            284 JUMP_IF_NOT_EXC_MATCH   312
+            286 POP_TOP
+            288 POP_TOP
+            290 POP_TOP
+
+505         292 LOAD_CONST              16 ('raw')
+            294 LOAD_FAST                9 (text)
+            296 LOAD_CONST              13 (None)
+            298 LOAD_CONST              17 (400)
+            300 BUILD_SLICE              2
+            302 BINARY_SUBSCR
+            304 BUILD_MAP                1
+            306 STORE_FAST              10 (data)
+            308 POP_EXCEPT
+            310 JUMP_FORWARD             2 (to 314)
+        >>  312 RERAISE
+
+507     >>  314 LOAD_FAST                8 (r)
+            316 LOAD_ATTR               18 (status_code)
+            318 LOAD_CONST              18 (200)
+            320 COMPARE_OP               3 (!=)
+            322 EXTENDED_ARG             1
+            324 POP_JUMP_IF_FALSE      414
+
+508         326 LOAD_FAST               10 (data)
+            328 LOAD_METHOD             19 (get)
+            330 LOAD_CONST              19 ('ResponseMetadata')
+            332 CALL_METHOD              1
+            334 EXTENDED_ARG             1
+            336 JUMP_IF_TRUE_OR_POP    340
+            338 BUILD_MAP                0
+        >>  340 LOAD_METHOD             19 (get)
+            342 LOAD_CONST              20 ('Error')
+            344 CALL_METHOD              1
+            346 EXTENDED_ARG             1
+            348 JUMP_IF_TRUE_OR_POP    352
+            350 BUILD_MAP                0
+        >>  352 STORE_FAST              11 (err)
+
+509         354 LOAD_FAST               11 (err)
+            356 LOAD_METHOD             19 (get)
+            358 LOAD_CONST              21 ('Message')
+            360 CALL_METHOD              1
+            362 EXTENDED_ARG             1
+            364 JUMP_IF_TRUE_OR_POP    388
+            366 LOAD_FAST               11 (err)
+            368 LOAD_METHOD             19 (get)
+            370 LOAD_CONST              22 ('Code')
+            372 CALL_METHOD              1
+            374 EXTENDED_ARG             1
+            376 JUMP_IF_TRUE_OR_POP    388
+            378 LOAD_FAST                9 (text)
+            380 LOAD_CONST              13 (None)
+            382 LOAD_CONST              18 (200)
+            384 BUILD_SLICE              2
+            386 BINARY_SUBSCR
+        >>  388 STORE_FAST              12 (msg)
+
+510         390 LOAD_CONST               1 (False)
+            392 LOAD_FAST               10 (data)
+            394 LOAD_CONST              23 ('HTTP ')
+            396 LOAD_FAST                8 (r)
+            398 LOAD_ATTR               18 (status_code)
+            400 FORMAT_VALUE             0
+            402 LOAD_CONST              24 (': ')
+            404 LOAD_FAST               12 (msg)
+            406 FORMAT_VALUE             0
+            408 BUILD_STRING             4
+            410 BUILD_TUPLE              3
+            412 RETURN_VALUE
+
+512     >>  414 LOAD_FAST               10 (data)
+            416 LOAD_METHOD             19 (get)
+            418 LOAD_CONST              19 ('ResponseMetadata')
+            420 CALL_METHOD              1
+            422 EXTENDED_ARG             1
+            424 JUMP_IF_TRUE_OR_POP    428
+            426 BUILD_MAP                0
+        >>  428 STORE_FAST              13 (meta)
+
+513         430 LOAD_FAST               13 (meta)
+            432 LOAD_METHOD             19 (get)
+            434 LOAD_CONST              20 ('Error')
+            436 CALL_METHOD              1
+            438 EXTENDED_ARG             1
+            440 JUMP_IF_TRUE_OR_POP    444
+            442 BUILD_MAP                0
+        >>  444 STORE_FAST              11 (err)
+
+514         446 LOAD_FAST               11 (err)
+            448 EXTENDED_ARG             1
+            450 POP_JUMP_IF_FALSE      494
+
+515         452 LOAD_CONST               1 (False)
+            454 LOAD_FAST               10 (data)
+            456 LOAD_FAST               11 (err)
+            458 LOAD_METHOD             19 (get)
+            460 LOAD_CONST              22 ('Code')
+            462 LOAD_CONST               4 ('')
+            464 CALL_METHOD              2
+            466 FORMAT_VALUE             0
+            468 LOAD_CONST              24 (': ')
+            470 LOAD_FAST               11 (err)
+            472 LOAD_METHOD             19 (get)
+            474 LOAD_CONST              21 ('Message')
+            476 LOAD_CONST               4 ('')
+            478 CALL_METHOD              2
+            480 FORMAT_VALUE             0
+            482 BUILD_STRING             3
+            484 LOAD_METHOD             20 (strip)
+            486 LOAD_CONST              24 (': ')
+            488 CALL_METHOD              1
+            490 BUILD_TUPLE              3
+            492 RETURN_VALUE
+
+516     >>  494 LOAD_CONST              25 (True)
+            496 LOAD_FAST               10 (data)
+            498 LOAD_CONST               4 ('')
+            500 BUILD_TUPLE              3
+            502 RETURN_VALUE
+
+Disassembly of <code object list_voices_from_cloud at 0x10924b660, file "WeRobotCore/services/voice/doubao_provider.py", line 518>:
+529           0 LOAD_FAST                0 (self)
+              2 LOAD_ATTR                0 (app_id)
+
+530           4 LOAD_FAST                1 (page_number)
+
+531           6 LOAD_FAST                2 (page_size)
+
+528           8 LOAD_CONST               1 (('AppID', 'PageNumber', 'PageSize'))
+             10 BUILD_CONST_KEY_MAP      3
+             12 STORE_FAST               4 (body)
+
+533          14 LOAD_FAST                3 (state)
+             16 LOAD_CONST               2 (None)
+             18 IS_OP                    1
+             20 POP_JUMP_IF_FALSE       30
+
+534          22 LOAD_FAST                3 (state)
+             24 LOAD_FAST                4 (body)
+             26 LOAD_CONST               3 ('State')
+             28 STORE_SUBSCR
+
+535     >>   30 LOAD_FAST                0 (self)
+             32 LOAD_METHOD              1 (_open_api_call)
+             34 LOAD_CONST               4 ('BatchListMegaTTSTrainStatus')
+             36 LOAD_FAST                4 (body)
+             38 CALL_METHOD              2
+             40 UNPACK_SEQUENCE          3
+             42 STORE_FAST               5 (ok)
+             44 STORE_FAST               6 (data)
+             46 STORE_FAST               7 (err)
+
+536          48 LOAD_FAST                5 (ok)
+             50 POP_JUMP_IF_TRUE        62
+
+537          52 LOAD_CONST               5 (False)
+             54 BUILD_LIST               0
+             56 LOAD_FAST                7 (err)
+             58 BUILD_TUPLE              3
+             60 RETURN_VALUE
+
+538     >>   62 LOAD_FAST                6 (data)
+             64 LOAD_METHOD              2 (get)
+             66 LOAD_CONST               6 ('Result')
+             68 CALL_METHOD              1
+             70 JUMP_IF_TRUE_OR_POP     74
+             72 BUILD_MAP                0
+        >>   74 STORE_FAST               8 (result)
+
+539          76 LOAD_FAST                8 (result)
+             78 LOAD_METHOD              2 (get)
+             80 LOAD_CONST               7 ('Statuses')
+             82 CALL_METHOD              1
+             84 JUMP_IF_TRUE_OR_POP     88
+             86 BUILD_LIST               0
+        >>   88 STORE_FAST               9 (statuses)
+
+540          90 LOAD_CONST               8 (True)
+             92 LOAD_FAST                9 (statuses)
+             94 LOAD_CONST               9 ('')
+             96 BUILD_TUPLE              3
+             98 RETURN_VALUE
+
+Disassembly of <code object allocate_speaker_slot at 0x10924b190, file "WeRobotCore/services/voice/doubao_provider.py", line 542>:
+551           0 LOAD_FAST                0 (self)
+              2 LOAD_ATTR                0 (list_voices_from_cloud)
+              4 LOAD_CONST               1 (200)
+              6 LOAD_CONST               2 (('page_size',))
+              8 CALL_FUNCTION_KW         1
+             10 UNPACK_SEQUENCE          3
+             12 STORE_FAST               3 (before_ok)
+             14 STORE_FAST               4 (before)
+             16 STORE_FAST               5 (before_err)
+
+552          18 LOAD_FAST                3 (before_ok)
+             20 POP_JUMP_IF_TRUE        38
+
+553          22 LOAD_CONST               3 (False)
+             24 BUILD_LIST               0
+             26 LOAD_CONST               4 ('下单前查询当前列表失败: ')
+             28 LOAD_FAST                5 (before_err)
+             30 FORMAT_VALUE             0
+             32 BUILD_STRING             2
+             34 BUILD_TUPLE              3
+             36 RETURN_VALUE
+
+554     >>   38 LOAD_CONST               5 (<code object <setcomp> at 0x10924ba80, file "WeRobotCore/services/voice/doubao_provider.py", line 554>)
+             40 LOAD_CONST               6 ('DoubaoProvider.allocate_speaker_slot.<locals>.<setcomp>')
+             42 MAKE_FUNCTION            0
+             44 LOAD_FAST                4 (before)
+             46 GET_ITER
+             48 CALL_FUNCTION            1
+             50 STORE_FAST               6 (before_ids)
+
+557          52 LOAD_FAST                0 (self)
+             54 LOAD_ATTR                1 (app_id)
+
+558          56 LOAD_GLOBAL              2 (_RESOURCE_ID_VOICECLONE)
+
+559          58 LOAD_GLOBAL              3 (_RESOURCE_CODE_MODEL_STORAGE)
+
+560          60 LOAD_GLOBAL              4 (int)
+             62 LOAD_FAST                2 (months)
+             64 CALL_FUNCTION            1
+
+561          66 LOAD_GLOBAL              4 (int)
+             68 LOAD_FAST                1 (quantity)
+             70 CALL_FUNCTION            1
+
+556          72 LOAD_CONST               7 (('AppID', 'ResourceID', 'Code', 'Times', 'Quantity'))
+             74 BUILD_CONST_KEY_MAP      5
+             76 STORE_FAST               7 (order_body)
+
+563          78 LOAD_FAST                0 (self)
+             80 LOAD_METHOD              5 (_open_api_call)
+             82 LOAD_CONST               8 ('OrderAccessResourcePacks')
+             84 LOAD_FAST                7 (order_body)
+             86 CALL_METHOD              2
+             88 UNPACK_SEQUENCE          3
+             90 STORE_FAST               8 (ok)
+             92 STORE_FAST               9 (_)
+             94 STORE_FAST              10 (err)
+
+564          96 LOAD_FAST                8 (ok)
+             98 POP_JUMP_IF_TRUE       116
+
+565         100 LOAD_CONST               3 (False)
+            102 BUILD_LIST               0
+            104 LOAD_CONST               9 ('下单失败: ')
+            106 LOAD_FAST               10 (err)
+            108 FORMAT_VALUE             0
+            110 BUILD_STRING             2
+            112 BUILD_TUPLE              3
+            114 RETURN_VALUE
+
+567     >>  116 LOAD_GLOBAL              6 (time)
+            118 LOAD_METHOD              7 (sleep)
+            120 LOAD_CONST              10 (1.5)
+            122 CALL_METHOD              1
+            124 POP_TOP
+
+568         126 LOAD_FAST                0 (self)
+            128 LOAD_ATTR                0 (list_voices_from_cloud)
+            130 LOAD_CONST               1 (200)
+            132 LOAD_CONST               2 (('page_size',))
+            134 CALL_FUNCTION_KW         1
+            136 UNPACK_SEQUENCE          3
+            138 STORE_FAST              11 (after_ok)
+            140 STORE_FAST              12 (after)
+            142 STORE_FAST              13 (after_err)
+
+569         144 LOAD_FAST               11 (after_ok)
+            146 POP_JUMP_IF_TRUE       166
+
+570         148 LOAD_CONST              11 (True)
+            150 BUILD_LIST               0
+            152 LOAD_CONST              12 ('下单成功但查新列表失败: ')
+            154 LOAD_FAST               13 (after_err)
+            156 FORMAT_VALUE             0
+            158 LOAD_CONST              13 ('（可手动刷新）')
+            160 BUILD_STRING             3
+            162 BUILD_TUPLE              3
+            164 RETURN_VALUE
+
+572     >>  166 LOAD_CONST              14 (<code object <setcomp> at 0x10924b710, file "WeRobotCore/services/voice/doubao_provider.py", line 572>)
+            168 LOAD_CONST               6 ('DoubaoProvider.allocate_speaker_slot.<locals>.<setcomp>')
+            170 MAKE_FUNCTION            0
+            172 LOAD_FAST               12 (after)
+            174 GET_ITER
+            176 CALL_FUNCTION            1
+            178 STORE_FAST              14 (after_ids)
+
+573         180 LOAD_GLOBAL              8 (sorted)
+            182 LOAD_FAST               14 (after_ids)
+            184 LOAD_FAST                6 (before_ids)
+            186 BINARY_SUBTRACT
+            188 CALL_FUNCTION            1
+            190 STORE_FAST              15 (new_ids)
+
+574         192 LOAD_FAST               15 (new_ids)
+            194 POP_JUMP_IF_TRUE       206
+
+575         196 LOAD_CONST              11 (True)
+            198 BUILD_LIST               0
+            200 LOAD_CONST              15 ('下单成功但暂未拉到新槽位 ID，请片刻后手动刷新')
+            202 BUILD_TUPLE              3
+            204 RETURN_VALUE
+
+576     >>  206 LOAD_CONST              11 (True)
+            208 LOAD_FAST               15 (new_ids)
+            210 LOAD_CONST              16 ('')
+            212 BUILD_TUPLE              3
+            214 RETURN_VALUE
+
+Disassembly of <code object <setcomp> at 0x10924ba80, file "WeRobotCore/services/voice/doubao_provider.py", line 554>:
+554           0 BUILD_SET                0
+              2 LOAD_FAST                0 (.0)
+        >>    4 FOR_ITER                24 (to 30)
+              6 STORE_FAST               1 (s)
+              8 LOAD_FAST                1 (s)
+             10 LOAD_METHOD              0 (get)
+             12 LOAD_CONST               0 ('SpeakerID')
+             14 CALL_METHOD              1
+             16 POP_JUMP_IF_FALSE        4
+             18 LOAD_FAST                1 (s)
+             20 LOAD_METHOD              0 (get)
+             22 LOAD_CONST               0 ('SpeakerID')
+             24 CALL_METHOD              1
+             26 SET_ADD                  2
+             28 JUMP_ABSOLUTE            4
+        >>   30 RETURN_VALUE
+
+Disassembly of <code object <setcomp> at 0x10924b710, file "WeRobotCore/services/voice/doubao_provider.py", line 572>:
+572           0 BUILD_SET                0
+              2 LOAD_FAST                0 (.0)
+        >>    4 FOR_ITER                24 (to 30)
+              6 STORE_FAST               1 (s)
+              8 LOAD_FAST                1 (s)
+             10 LOAD_METHOD              0 (get)
+             12 LOAD_CONST               0 ('SpeakerID')
+             14 CALL_METHOD              1
+             16 POP_JUMP_IF_FALSE        4
+             18 LOAD_FAST                1 (s)
+             20 LOAD_METHOD              0 (get)
+             22 LOAD_CONST               0 ('SpeakerID')
+             24 CALL_METHOD              1
+             26 SET_ADD                  2
+             28 JUMP_ABSOLUTE            4
+        >>   30 RETURN_VALUE
+
+Disassembly of <code object _parse_json_objects at 0x10925d660, file "WeRobotCore/services/voice/doubao_provider.py", line 581>:
+583           0 BUILD_LIST               0
+              2 STORE_FAST               1 (objs)
+
+584           4 LOAD_CONST               1 (<code object <listcomp> at 0x10924b5b0, file "WeRobotCore/services/voice/doubao_provider.py", line 584>)
+              6 LOAD_CONST               2 ('_parse_json_objects.<locals>.<listcomp>')
+              8 MAKE_FUNCTION            0
+             10 LOAD_GLOBAL              0 (re)
+             12 LOAD_METHOD              1 (split)
+             14 LOAD_CONST               3 ('\\r?\\n')
+             16 LOAD_FAST                0 (raw)
+             18 CALL_METHOD              2
+             20 GET_ITER
+             22 CALL_FUNCTION            1
+             24 STORE_FAST               2 (lines)
+
+585          26 LOAD_CONST               4 (<code object <listcomp> at 0x10924b870, file "WeRobotCore/services/voice/doubao_provider.py", line 585>)
+             28 LOAD_CONST               2 ('_parse_json_objects.<locals>.<listcomp>')
+             30 MAKE_FUNCTION            0
+             32 LOAD_FAST                2 (lines)
+             34 GET_ITER
+             36 CALL_FUNCTION            1
+             38 STORE_FAST               2 (lines)
+
+586          40 LOAD_CONST               5 (<code object <listcomp> at 0x10925d5b0, file "WeRobotCore/services/voice/doubao_provider.py", line 586>)
+             42 LOAD_CONST               2 ('_parse_json_objects.<locals>.<listcomp>')
+             44 MAKE_FUNCTION            0
+             46 LOAD_FAST                2 (lines)
+             48 GET_ITER
+             50 CALL_FUNCTION            1
+             52 STORE_FAST               2 (lines)
+
+587          54 LOAD_FAST                2 (lines)
+             56 GET_ITER
+        >>   58 FOR_ITER                62 (to 122)
+             60 STORE_FAST               3 (ln)
+
+588          62 SETUP_FINALLY           34 (to 98)
+
+589          64 LOAD_GLOBAL              2 (json)
+             66 LOAD_METHOD              3 (loads)
+             68 LOAD_FAST                3 (ln)
+             70 CALL_METHOD              1
+             72 STORE_FAST               4 (o)
+
+590          74 LOAD_GLOBAL              4 (isinstance)
+             76 LOAD_FAST                4 (o)
+             78 LOAD_GLOBAL              5 (dict)
+             80 CALL_FUNCTION            2
+             82 POP_JUMP_IF_FALSE       94
+
+591          84 LOAD_FAST                1 (objs)
+             86 LOAD_METHOD              6 (append)
+             88 LOAD_FAST                4 (o)
+             90 CALL_METHOD              1
+             92 POP_TOP
+        >>   94 POP_BLOCK
+             96 JUMP_ABSOLUTE           58
+
+592     >>   98 DUP_TOP
+            100 LOAD_GLOBAL              7 (Exception)
+            102 JUMP_IF_NOT_EXC_MATCH   118
+            104 POP_TOP
+            106 POP_TOP
+            108 POP_TOP
+
+593         110 POP_EXCEPT
+            112 JUMP_ABSOLUTE           58
+            114 POP_EXCEPT
+            116 JUMP_ABSOLUTE           58
+        >>  118 RERAISE
+            120 JUMP_ABSOLUTE           58
+
+594     >>  122 LOAD_FAST                1 (objs)
+            124 POP_JUMP_IF_FALSE      130
+
+595         126 LOAD_FAST                1 (objs)
+            128 RETURN_VALUE
+
+597     >>  130 SETUP_FINALLY           58 (to 190)
+
+598         132 LOAD_GLOBAL              2 (json)
+            134 LOAD_METHOD              3 (loads)
+            136 LOAD_FAST                0 (raw)
+            138 CALL_METHOD              1
+            140 STORE_FAST               4 (o)
+
+599         142 LOAD_GLOBAL              4 (isinstance)
+            144 LOAD_FAST                4 (o)
+            146 LOAD_GLOBAL              8 (list)
+            148 CALL_FUNCTION            2
+            150 POP_JUMP_IF_FALSE      168
+
+600         152 LOAD_CONST               6 (<code object <listcomp> at 0x10925d030, file "WeRobotCore/services/voice/doubao_provider.py", line 600>)
+            154 LOAD_CONST               2 ('_parse_json_objects.<locals>.<listcomp>')
+            156 MAKE_FUNCTION            0
+            158 LOAD_FAST                4 (o)
+            160 GET_ITER
+            162 CALL_FUNCTION            1
+            164 POP_BLOCK
+            166 RETURN_VALUE
+
+601     >>  168 LOAD_GLOBAL              4 (isinstance)
+            170 LOAD_FAST                4 (o)
+            172 LOAD_GLOBAL              5 (dict)
+            174 CALL_FUNCTION            2
+            176 POP_JUMP_IF_FALSE      186
+
+602         178 LOAD_FAST                4 (o)
+            180 BUILD_LIST               1
+            182 POP_BLOCK
+            184 RETURN_VALUE
+        >>  186 POP_BLOCK
+            188 JUMP_FORWARD            18 (to 208)
+
+603     >>  190 DUP_TOP
+            192 LOAD_GLOBAL              7 (Exception)
+            194 JUMP_IF_NOT_EXC_MATCH   206
+            196 POP_TOP
+            198 POP_TOP
+            200 POP_TOP
+
+604         202 POP_EXCEPT
+            204 JUMP_FORWARD             2 (to 208)
+        >>  206 RERAISE
+
+606     >>  208 LOAD_CONST               7 (0)
+            210 STORE_FAST               5 (depth)
+
+607         212 LOAD_CONST               8 (-1)
+            214 STORE_FAST               6 (start)
+
+608         216 LOAD_CONST               9 (False)
+            218 STORE_FAST               7 (in_str)
+
+609         220 LOAD_CONST               9 (False)
+            222 STORE_FAST               8 (escape)
+
+610         224 LOAD_GLOBAL              9 (enumerate)
+            226 LOAD_FAST                0 (raw)
+            228 CALL_FUNCTION            1
+            230 GET_ITER
+        >>  232 FOR_ITER               212 (to 446)
+            234 UNPACK_SEQUENCE          2
+            236 STORE_FAST               9 (i)
+            238 STORE_FAST              10 (ch)
+
+611         240 LOAD_FAST                7 (in_str)
+            242 EXTENDED_ARG             1
+            244 POP_JUMP_IF_FALSE      288
+
+612         246 LOAD_FAST                8 (escape)
+            248 EXTENDED_ARG             1
+            250 POP_JUMP_IF_FALSE      258
+
+613         252 LOAD_CONST               9 (False)
+            254 STORE_FAST               8 (escape)
+            256 JUMP_ABSOLUTE          232
+
+614     >>  258 LOAD_FAST               10 (ch)
+            260 LOAD_CONST              10 ('\\')
+            262 COMPARE_OP               2 (==)
+            264 EXTENDED_ARG             1
+            266 POP_JUMP_IF_FALSE      274
+
+615         268 LOAD_CONST              11 (True)
+            270 STORE_FAST               8 (escape)
+            272 JUMP_ABSOLUTE          232
+
+616     >>  274 LOAD_FAST               10 (ch)
+            276 LOAD_CONST              12 ('"')
+            278 COMPARE_OP               2 (==)
+            280 POP_JUMP_IF_FALSE      232
+
+617         282 LOAD_CONST               9 (False)
+            284 STORE_FAST               7 (in_str)
+
+618         286 JUMP_ABSOLUTE          232
+
+619     >>  288 LOAD_FAST               10 (ch)
+            290 LOAD_CONST              12 ('"')
+            292 COMPARE_OP               2 (==)
+            294 EXTENDED_ARG             1
+            296 POP_JUMP_IF_FALSE      304
+
+620         298 LOAD_CONST              11 (True)
+            300 STORE_FAST               7 (in_str)
+            302 JUMP_ABSOLUTE          232
+
+621     >>  304 LOAD_FAST               10 (ch)
+            306 LOAD_CONST              13 ('{')
+            308 COMPARE_OP               2 (==)
+            310 EXTENDED_ARG             1
+            312 POP_JUMP_IF_FALSE      338
+
+622         314 LOAD_FAST                5 (depth)
+            316 LOAD_CONST               7 (0)
+            318 COMPARE_OP               2 (==)
+            320 EXTENDED_ARG             1
+            322 POP_JUMP_IF_FALSE      328
+
+623         324 LOAD_FAST                9 (i)
+            326 STORE_FAST               6 (start)
+
+624     >>  328 LOAD_FAST                5 (depth)
+            330 LOAD_CONST              14 (1)
+            332 INPLACE_ADD
+            334 STORE_FAST               5 (depth)
+            336 JUMP_ABSOLUTE          232
+
+625     >>  338 LOAD_FAST               10 (ch)
+            340 LOAD_CONST              15 ('}')
+            342 COMPARE_OP               2 (==)
+            344 POP_JUMP_IF_FALSE      232
+
+626         346 LOAD_FAST                5 (depth)
+            348 LOAD_CONST              14 (1)
+            350 INPLACE_SUBTRACT
+            352 STORE_FAST               5 (depth)
+
+627         354 LOAD_FAST                5 (depth)
+            356 LOAD_CONST               7 (0)
+            358 COMPARE_OP               2 (==)
+            360 POP_JUMP_IF_FALSE      232
+            362 LOAD_FAST                6 (start)
+            364 LOAD_CONST               7 (0)
+            366 COMPARE_OP               5 (>=)
+            368 POP_JUMP_IF_FALSE      232
+
+628         370 SETUP_FINALLY           48 (to 420)
+
+629         372 LOAD_GLOBAL              2 (json)
+            374 LOAD_METHOD              3 (loads)
+            376 LOAD_FAST                0 (raw)
+            378 LOAD_FAST                6 (start)
+            380 LOAD_FAST                9 (i)
+            382 LOAD_CONST              14 (1)
+            384 BINARY_ADD
+            386 BUILD_SLICE              2
+            388 BINARY_SUBSCR
+            390 CALL_METHOD              1
+            392 STORE_FAST               4 (o)
+
+630         394 LOAD_GLOBAL              4 (isinstance)
+            396 LOAD_FAST                4 (o)
+            398 LOAD_GLOBAL              5 (dict)
+            400 CALL_FUNCTION            2
+            402 EXTENDED_ARG             1
+            404 POP_JUMP_IF_FALSE      416
+
+631         406 LOAD_FAST                1 (objs)
+            408 LOAD_METHOD              6 (append)
+            410 LOAD_FAST                4 (o)
+            412 CALL_METHOD              1
+            414 POP_TOP
+        >>  416 POP_BLOCK
+            418 JUMP_FORWARD            20 (to 440)
+
+632     >>  420 DUP_TOP
+            422 LOAD_GLOBAL              7 (Exception)
+            424 EXTENDED_ARG             1
+            426 JUMP_IF_NOT_EXC_MATCH   438
+            428 POP_TOP
+            430 POP_TOP
+            432 POP_TOP
+
+633         434 POP_EXCEPT
+            436 JUMP_FORWARD             2 (to 440)
+        >>  438 RERAISE
+
+634     >>  440 LOAD_CONST               8 (-1)
+            442 STORE_FAST               6 (start)
+            444 JUMP_ABSOLUTE          232
+
+635     >>  446 LOAD_FAST                1 (objs)
+            448 RETURN_VALUE
+
+Disassembly of <code object <listcomp> at 0x10924b5b0, file "WeRobotCore/services/voice/doubao_provider.py", line 584>:
+584           0 BUILD_LIST               0
+              2 LOAD_FAST                0 (.0)
+        >>    4 FOR_ITER                20 (to 26)
+              6 STORE_FAST               1 (ln)
+              8 LOAD_FAST                1 (ln)
+             10 LOAD_METHOD              0 (strip)
+             12 CALL_METHOD              0
+             14 POP_JUMP_IF_FALSE        4
+             16 LOAD_FAST                1 (ln)
+             18 LOAD_METHOD              0 (strip)
+             20 CALL_METHOD              0
+             22 LIST_APPEND              2
+             24 JUMP_ABSOLUTE            4
+        >>   26 RETURN_VALUE
+
+Disassembly of <code object <listcomp> at 0x10924b870, file "WeRobotCore/services/voice/doubao_provider.py", line 585>:
+585           0 BUILD_LIST               0
+              2 LOAD_FAST                0 (.0)
+        >>    4 FOR_ITER                34 (to 40)
+              6 STORE_FAST               1 (ln)
+              8 LOAD_FAST                1 (ln)
+             10 LOAD_METHOD              0 (startswith)
+             12 LOAD_CONST               0 ('data:')
+             14 CALL_METHOD              1
+             16 POP_JUMP_IF_FALSE       34
+             18 LOAD_FAST                1 (ln)
+             20 LOAD_CONST               1 (5)
+             22 LOAD_CONST               2 (None)
+             24 BUILD_SLICE              2
+             26 BINARY_SUBSCR
+             28 LOAD_METHOD              1 (strip)
+             30 CALL_METHOD              0
+             32 JUMP_FORWARD             2 (to 36)
+        >>   34 LOAD_FAST                1 (ln)
+        >>   36 LIST_APPEND              2
+             38 JUMP_ABSOLUTE            4
+        >>   40 RETURN_VALUE
+
+Disassembly of <code object <listcomp> at 0x10925d5b0, file "WeRobotCore/services/voice/doubao_provider.py", line 586>:
+586           0 BUILD_LIST               0
+              2 LOAD_FAST                0 (.0)
+        >>    4 FOR_ITER                20 (to 26)
+              6 STORE_FAST               1 (ln)
+              8 LOAD_FAST                1 (ln)
+             10 POP_JUMP_IF_FALSE        4
+             12 LOAD_FAST                1 (ln)
+             14 LOAD_CONST               0 ('[DONE]')
+             16 COMPARE_OP               3 (!=)
+             18 POP_JUMP_IF_FALSE        4
+             20 LOAD_FAST                1 (ln)
+             22 LIST_APPEND              2
+             24 JUMP_ABSOLUTE            4
+        >>   26 RETURN_VALUE
+
+Disassembly of <code object <listcomp> at 0x10925d030, file "WeRobotCore/services/voice/doubao_provider.py", line 600>:
+600           0 BUILD_LIST               0
+              2 LOAD_FAST                0 (.0)
+        >>    4 FOR_ITER                18 (to 24)
+              6 STORE_FAST               1 (x)
+              8 LOAD_GLOBAL              0 (isinstance)
+             10 LOAD_FAST                1 (x)
+             12 LOAD_GLOBAL              1 (dict)
+             14 CALL_FUNCTION            2
+             16 POP_JUMP_IF_FALSE        4
+             18 LOAD_FAST                1 (x)
+             20 LIST_APPEND              2
+             22 JUMP_ABSOLUTE            4
+        >>   24 RETURN_VALUE
+
+Disassembly of <code object _find_audio_b64 at 0x10925d450, file "WeRobotCore/services/voice/doubao_provider.py", line 649>:
+650           0 LOAD_GLOBAL              0 (_AUDIO_PATHS)
+              2 GET_ITER
+        >>    4 FOR_ITER                92 (to 98)
+              6 STORE_FAST               1 (path)
+
+651           8 LOAD_FAST                0 (obj)
+             10 STORE_FAST               2 (cur)
+
+652          12 LOAD_CONST               1 (True)
+             14 STORE_FAST               3 (ok)
+
+653          16 LOAD_FAST                1 (path)
+             18 GET_ITER
+        >>   20 FOR_ITER                40 (to 62)
+             22 STORE_FAST               4 (k)
+
+654          24 LOAD_GLOBAL              1 (isinstance)
+             26 LOAD_FAST                2 (cur)
+             28 LOAD_GLOBAL              2 (dict)
+             30 CALL_FUNCTION            2
+             32 POP_JUMP_IF_FALSE       52
+             34 LOAD_FAST                4 (k)
+             36 LOAD_FAST                2 (cur)
+             38 CONTAINS_OP              0
+             40 POP_JUMP_IF_FALSE       52
+
+655          42 LOAD_FAST                2 (cur)
+             44 LOAD_FAST                4 (k)
+             46 BINARY_SUBSCR
+             48 STORE_FAST               2 (cur)
+             50 JUMP_ABSOLUTE           20
+
+657     >>   52 LOAD_CONST               2 (False)
+             54 STORE_FAST               3 (ok)
+
+658          56 POP_TOP
+             58 JUMP_ABSOLUTE           62
+             60 JUMP_ABSOLUTE           20
+
+659     >>   62 LOAD_FAST                3 (ok)
+             64 POP_JUMP_IF_FALSE        4
+             66 LOAD_GLOBAL              1 (isinstance)
+             68 LOAD_FAST                2 (cur)
+             70 LOAD_GLOBAL              3 (str)
+             72 CALL_FUNCTION            2
+             74 POP_JUMP_IF_FALSE        4
+             76 LOAD_GLOBAL              4 (len)
+             78 LOAD_FAST                2 (cur)
+             80 CALL_FUNCTION            1
+             82 LOAD_CONST               3 (16)
+             84 COMPARE_OP               5 (>=)
+             86 POP_JUMP_IF_FALSE        4
+
+660          88 LOAD_FAST                2 (cur)
+             90 ROT_TWO
+             92 POP_TOP
+             94 RETURN_VALUE
+             96 JUMP_ABSOLUTE            4
+
+661     >>   98 LOAD_CONST               0 (None)
+            100 RETURN_VALUE

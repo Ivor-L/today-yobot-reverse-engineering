@@ -1,0 +1,259 @@
+ 18           0 LOAD_CONST               0 (0)
+              2 LOAD_CONST               1 (('Optional', 'Tuple'))
+              4 IMPORT_NAME              0 (typing)
+              6 IMPORT_FROM              1 (Optional)
+              8 STORE_NAME               1 (Optional)
+             10 IMPORT_FROM              2 (Tuple)
+             12 STORE_NAME               2 (Tuple)
+             14 POP_TOP
+
+ 20          16 LOAD_CONST               2 (1)
+             18 LOAD_CONST               3 (('UiaLogger',))
+             20 IMPORT_NAME              3 (uia_logger)
+             22 IMPORT_FROM              4 (UiaLogger)
+             24 STORE_NAME               4 (UiaLogger)
+             26 POP_TOP
+
+ 22          28 LOAD_NAME                4 (UiaLogger)
+             30 LOAD_CONST               4 ('AccountScope')
+             32 LOAD_CONST               5 (('logger_name',))
+             34 CALL_FUNCTION_KW         1
+             36 LOAD_METHOD              5 (get_logger)
+             38 CALL_METHOD              0
+             40 STORE_NAME               6 (_logger)
+
+ 25          42 LOAD_NAME                2 (Tuple)
+             44 LOAD_NAME                1 (Optional)
+             46 LOAD_NAME                7 (str)
+             48 BINARY_SUBSCR
+             50 LOAD_NAME                1 (Optional)
+             52 LOAD_NAME                7 (str)
+             54 BINARY_SUBSCR
+             56 BUILD_TUPLE              2
+             58 BINARY_SUBSCR
+             60 LOAD_CONST               6 (('return',))
+             62 BUILD_CONST_KEY_MAP      1
+             64 LOAD_CONST               7 (<code object resolve_active_account at 0x1072e0ea0, file "WeRobotCore/core/account_scope.py", line 25>)
+             66 LOAD_CONST               8 ('resolve_active_account')
+             68 MAKE_FUNCTION            4 (annotations)
+             70 STORE_NAME               8 (resolve_active_account)
+
+ 42          72 LOAD_NAME                7 (str)
+             74 LOAD_NAME                1 (Optional)
+             76 LOAD_NAME                7 (str)
+             78 BINARY_SUBSCR
+             80 LOAD_CONST               9 (('op', 'return'))
+             82 BUILD_CONST_KEY_MAP      2
+             84 LOAD_CONST              10 (<code object warn_account_fallback at 0x1072e0870, file "WeRobotCore/core/account_scope.py", line 42>)
+             86 LOAD_CONST              11 ('warn_account_fallback')
+             88 MAKE_FUNCTION            4 (annotations)
+             90 STORE_NAME               9 (warn_account_fallback)
+
+ 61          92 LOAD_NAME               10 (int)
+             94 LOAD_CONST               6 (('return',))
+             96 BUILD_CONST_KEY_MAP      1
+             98 LOAD_CONST              12 (<code object count_manageable_accounts at 0x1072e0df0, file "WeRobotCore/core/account_scope.py", line 61>)
+            100 LOAD_CONST              13 ('count_manageable_accounts')
+            102 MAKE_FUNCTION            4 (annotations)
+            104 STORE_NAME              11 (count_manageable_accounts)
+            106 LOAD_CONST              14 (None)
+            108 RETURN_VALUE
+
+Disassembly of <code object resolve_active_account at 0x1072e0ea0, file "WeRobotCore/core/account_scope.py", line 25>:
+ 30           0 SETUP_FINALLY           68 (to 70)
+
+ 31           2 LOAD_CONST               1 (1)
+              4 LOAD_CONST               2 (('InstanceManagerV2',))
+              6 IMPORT_NAME              0 (instance_manager_v2)
+              8 IMPORT_FROM              1 (InstanceManagerV2)
+             10 STORE_FAST               0 (InstanceManagerV2)
+             12 POP_TOP
+
+ 32          14 LOAD_FAST                0 (InstanceManagerV2)
+             16 CALL_FUNCTION            0
+             18 LOAD_METHOD              2 (get_active_instance)
+             20 CALL_METHOD              0
+             22 STORE_FAST               1 (active)
+
+ 33          24 LOAD_FAST                1 (active)
+             26 POP_JUMP_IF_TRUE        34
+
+ 34          28 POP_BLOCK
+             30 LOAD_CONST               3 ((None, None))
+             32 RETURN_VALUE
+
+ 35     >>   34 LOAD_FAST                1 (active)
+             36 LOAD_METHOD              3 (get)
+             38 LOAD_CONST               4 ('account_info')
+             40 CALL_METHOD              1
+             42 JUMP_IF_TRUE_OR_POP     46
+             44 BUILD_MAP                0
+        >>   46 STORE_FAST               2 (info)
+
+ 36          48 LOAD_FAST                2 (info)
+             50 LOAD_METHOD              3 (get)
+             52 LOAD_CONST               5 ('account_id')
+             54 CALL_METHOD              1
+             56 LOAD_FAST                2 (info)
+             58 LOAD_METHOD              3 (get)
+             60 LOAD_CONST               6 ('nickname')
+             62 CALL_METHOD              1
+             64 BUILD_TUPLE              2
+             66 POP_BLOCK
+             68 RETURN_VALUE
+
+ 37     >>   70 DUP_TOP
+             72 LOAD_GLOBAL              4 (Exception)
+             74 JUMP_IF_NOT_EXC_MATCH   122
+             76 POP_TOP
+             78 STORE_FAST               3 (e)
+             80 POP_TOP
+             82 SETUP_FINALLY           30 (to 114)
+
+ 38          84 LOAD_GLOBAL              5 (_logger)
+             86 LOAD_METHOD              6 (debug)
+             88 LOAD_CONST               7 ('解析活跃实例失败: ')
+             90 LOAD_FAST                3 (e)
+             92 FORMAT_VALUE             0
+             94 BUILD_STRING             2
+             96 CALL_METHOD              1
+             98 POP_TOP
+
+ 39         100 POP_BLOCK
+            102 POP_EXCEPT
+            104 LOAD_CONST               8 (None)
+            106 STORE_FAST               3 (e)
+            108 DELETE_FAST              3 (e)
+            110 LOAD_CONST               3 ((None, None))
+            112 RETURN_VALUE
+        >>  114 LOAD_CONST               8 (None)
+            116 STORE_FAST               3 (e)
+            118 DELETE_FAST              3 (e)
+            120 RERAISE
+        >>  122 RERAISE
+            124 LOAD_CONST               8 (None)
+            126 RETURN_VALUE
+
+Disassembly of <code object warn_account_fallback at 0x1072e0870, file "WeRobotCore/core/account_scope.py", line 42>:
+ 48           0 LOAD_GLOBAL              0 (resolve_active_account)
+              2 CALL_FUNCTION            0
+              4 UNPACK_SEQUENCE          2
+              6 STORE_FAST               1 (account_id)
+              8 STORE_FAST               2 (nickname)
+
+ 49          10 LOAD_FAST                1 (account_id)
+             12 POP_JUMP_IF_FALSE       50
+
+ 50          14 LOAD_GLOBAL              1 (_logger)
+             16 LOAD_METHOD              2 (warning)
+
+ 51          18 LOAD_CONST               1 ('[账号兜底] op=')
+             20 LOAD_FAST                0 (op)
+             22 FORMAT_VALUE             0
+             24 LOAD_CONST               2 (' 未指定账号，回落到当前活跃实例 ')
+
+ 52          26 LOAD_FAST                2 (nickname)
+             28 JUMP_IF_TRUE_OR_POP     32
+             30 LOAD_CONST               3 ('?')
+
+ 51     >>   32 FORMAT_VALUE             0
+             34 LOAD_CONST               4 ('(')
+
+ 52          36 LOAD_FAST                1 (account_id)
+
+ 51          38 FORMAT_VALUE             0
+             40 LOAD_CONST               5 (')。多开场景下这可能不是用户想要的号。')
+             42 BUILD_STRING             7
+
+ 50          44 CALL_METHOD              1
+             46 POP_TOP
+             48 JUMP_FORWARD            18 (to 68)
+
+ 55     >>   50 LOAD_GLOBAL              1 (_logger)
+             52 LOAD_METHOD              2 (warning)
+
+ 56          54 LOAD_CONST               1 ('[账号兜底] op=')
+             56 LOAD_FAST                0 (op)
+             58 FORMAT_VALUE             0
+             60 LOAD_CONST               6 (' 未指定账号，且当前没有可用的活跃实例。')
+             62 BUILD_STRING             3
+
+ 55          64 CALL_METHOD              1
+             66 POP_TOP
+
+ 58     >>   68 LOAD_FAST                1 (account_id)
+             70 RETURN_VALUE
+
+Disassembly of <code object count_manageable_accounts at 0x1072e0df0, file "WeRobotCore/core/account_scope.py", line 61>:
+ 66           0 SETUP_FINALLY           42 (to 44)
+
+ 67           2 LOAD_CONST               1 (1)
+              4 LOAD_CONST               2 (('InstanceManagerV2',))
+              6 IMPORT_NAME              0 (instance_manager_v2)
+              8 IMPORT_FROM              1 (InstanceManagerV2)
+             10 STORE_FAST               0 (InstanceManagerV2)
+             12 POP_TOP
+
+ 68          14 LOAD_FAST                0 (InstanceManagerV2)
+             16 CALL_FUNCTION            0
+             18 LOAD_METHOD              2 (list_instances)
+             20 CALL_METHOD              0
+             22 STORE_FAST               1 (instances)
+
+ 69          24 LOAD_GLOBAL              3 (sum)
+             26 LOAD_CONST               3 (<code object <genexpr> at 0x1072e0710, file "WeRobotCore/core/account_scope.py", line 69>)
+             28 LOAD_CONST               4 ('count_manageable_accounts.<locals>.<genexpr>')
+             30 MAKE_FUNCTION            0
+
+ 70          32 LOAD_FAST                1 (instances)
+
+ 69          34 GET_ITER
+             36 CALL_FUNCTION            1
+             38 CALL_FUNCTION            1
+             40 POP_BLOCK
+             42 RETURN_VALUE
+
+ 74     >>   44 DUP_TOP
+             46 LOAD_GLOBAL              4 (Exception)
+             48 JUMP_IF_NOT_EXC_MATCH    62
+             50 POP_TOP
+             52 POP_TOP
+             54 POP_TOP
+
+ 75          56 POP_EXCEPT
+             58 LOAD_CONST               5 (0)
+             60 RETURN_VALUE
+        >>   62 RERAISE
+             64 LOAD_CONST               6 (None)
+             66 RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x1072e0710, file "WeRobotCore/core/account_scope.py", line 69>:
+ 69           0 LOAD_FAST                0 (.0)
+        >>    2 FOR_ITER                42 (to 46)
+
+ 70           4 STORE_FAST               1 (i)
+
+ 71           6 LOAD_FAST                1 (i)
+              8 LOAD_METHOD              0 (get)
+             10 LOAD_CONST               0 ('manually_exited')
+             12 LOAD_CONST               1 (False)
+             14 CALL_METHOD              2
+             16 POP_JUMP_IF_TRUE         2
+
+ 72          18 LOAD_FAST                1 (i)
+             20 LOAD_METHOD              0 (get)
+             22 LOAD_CONST               2 ('account_info')
+             24 CALL_METHOD              1
+             26 JUMP_IF_TRUE_OR_POP     30
+             28 BUILD_MAP                0
+        >>   30 LOAD_METHOD              0 (get)
+             32 LOAD_CONST               3 ('account_id')
+             34 CALL_METHOD              1
+             36 POP_JUMP_IF_FALSE        2
+
+ 70          38 LOAD_CONST               4 (1)
+             40 YIELD_VALUE
+             42 POP_TOP
+             44 JUMP_ABSOLUTE            2
+        >>   46 LOAD_CONST               5 (None)
+             48 RETURN_VALUE

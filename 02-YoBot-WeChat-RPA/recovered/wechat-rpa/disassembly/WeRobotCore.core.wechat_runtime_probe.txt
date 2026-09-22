@@ -1,0 +1,893 @@
+  1           0 LOAD_CONST               0 ('Non-invasive WeChat process/window probes used by the watchdog.\n\nThe probe deliberately uses Win32 window metadata only. It never focuses the\nwindow and never performs a UIA tree walk. A visible ``mmui::LoginWindow``\nbelonging to the bound WeChat PID is treated as positive evidence that manual\nlogin/QR scanning is required.\n')
+              2 STORE_NAME               0 (__doc__)
+
+  9           4 LOAD_CONST               1 (0)
+              6 LOAD_CONST               2 (('annotations',))
+              8 IMPORT_NAME              1 (__future__)
+             10 IMPORT_FROM              2 (annotations)
+             12 STORE_NAME               2 (annotations)
+             14 POP_TOP
+
+ 11          16 LOAD_CONST               1 (0)
+             18 LOAD_CONST               3 (('datetime',))
+             20 IMPORT_NAME              3 (datetime)
+             22 IMPORT_FROM              3 (datetime)
+             24 STORE_NAME               3 (datetime)
+             26 POP_TOP
+
+ 12          28 LOAD_CONST               1 (0)
+             30 LOAD_CONST               4 (('Any', 'Dict', 'List', 'Optional'))
+             32 IMPORT_NAME              4 (typing)
+             34 IMPORT_FROM              5 (Any)
+             36 STORE_NAME               5 (Any)
+             38 IMPORT_FROM              6 (Dict)
+             40 STORE_NAME               6 (Dict)
+             42 IMPORT_FROM              7 (List)
+             44 STORE_NAME               7 (List)
+             46 IMPORT_FROM              8 (Optional)
+             48 STORE_NAME               8 (Optional)
+             50 POP_TOP
+
+ 13          52 LOAD_CONST               1 (0)
+             54 LOAD_CONST               5 (None)
+             56 IMPORT_NAME              9 (sys)
+             58 STORE_NAME               9 (sys)
+
+ 16          60 LOAD_CONST               6 ('mmui::LoginWindow')
+             62 STORE_NAME              10 (LOGIN_WINDOW_CLASS)
+
+ 17          64 LOAD_CONST               7 ('wechat.exe')
+             66 LOAD_CONST               8 ('weixin.exe')
+             68 BUILD_SET                2
+             70 STORE_NAME              11 (WECHAT_PROCESS_NAMES)
+
+ 18          72 LOAD_CONST               9 (90.0)
+             74 STORE_NAME              12 (INSTANCE_INITIALIZATION_GRACE_SECONDS)
+
+ 21          76 LOAD_CONST              10 ('Dict[str, Any]')
+             78 LOAD_CONST              11 ('bool')
+             80 LOAD_CONST              12 (('instance', 'return'))
+             82 BUILD_CONST_KEY_MAP      2
+             84 LOAD_CONST              13 (<code object _is_recent_unbound_instance at 0x10924b190, file "WeRobotCore/core/wechat_runtime_probe.py", line 21>)
+             86 LOAD_CONST              14 ('_is_recent_unbound_instance')
+             88 MAKE_FUNCTION            4 (annotations)
+             90 STORE_NAME              13 (_is_recent_unbound_instance)
+
+ 39          92 LOAD_CONST              15 ('Dict[str, str]')
+             94 LOAD_CONST              16 (('return',))
+             96 BUILD_CONST_KEY_MAP      1
+             98 LOAD_CONST              17 (<code object get_desktop_interaction_status at 0x10924bd40, file "WeRobotCore/core/wechat_runtime_probe.py", line 39>)
+            100 LOAD_CONST              18 ('get_desktop_interaction_status')
+            102 MAKE_FUNCTION            4 (annotations)
+            104 STORE_NAME              14 (get_desktop_interaction_status)
+
+ 79         106 LOAD_CONST              33 ((None,))
+            108 LOAD_CONST              19 ('Optional[int]')
+            110 LOAD_CONST              20 ('List[Dict[str, Any]]')
+            112 LOAD_CONST              21 (('expected_pid', 'return'))
+            114 BUILD_CONST_KEY_MAP      2
+            116 LOAD_CONST              22 (<code object find_login_windows at 0x10924bdf0, file "WeRobotCore/core/wechat_runtime_probe.py", line 79>)
+            118 LOAD_CONST              23 ('find_login_windows')
+            120 MAKE_FUNCTION            5 (defaults, annotations)
+            122 STORE_NAME              15 (find_login_windows)
+
+130         124 LOAD_CONST              24 ('str')
+            126 LOAD_CONST              10 ('Dict[str, Any]')
+            128 LOAD_CONST              25 (('account_id', 'return'))
+            130 BUILD_CONST_KEY_MAP      2
+            132 LOAD_CONST              26 (<code object get_account_runtime_status at 0x10924b240, file "WeRobotCore/core/wechat_runtime_probe.py", line 130>)
+            134 LOAD_CONST              27 ('get_account_runtime_status')
+            136 MAKE_FUNCTION            4 (annotations)
+            138 STORE_NAME              16 (get_account_runtime_status)
+
+196         140 LOAD_CONST              28 ('List[str]')
+            142 LOAD_CONST              29 ('Dict[str, Dict[str, Any]]')
+            144 LOAD_CONST              30 (('account_ids', 'return'))
+            146 BUILD_CONST_KEY_MAP      2
+            148 LOAD_CONST              31 (<code object probe_expected_accounts at 0x10924bf50, file "WeRobotCore/core/wechat_runtime_probe.py", line 196>)
+            150 LOAD_CONST              32 ('probe_expected_accounts')
+            152 MAKE_FUNCTION            4 (annotations)
+            154 STORE_NAME              17 (probe_expected_accounts)
+            156 LOAD_CONST               5 (None)
+            158 RETURN_VALUE
+
+Disassembly of <code object _is_recent_unbound_instance at 0x10924b190, file "WeRobotCore/core/wechat_runtime_probe.py", line 21>:
+ 22           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                0 (instance)
+              4 LOAD_GLOBAL              1 (dict)
+              6 CALL_FUNCTION            2
+              8 POP_JUMP_IF_TRUE        14
+
+ 23          10 LOAD_CONST               1 (False)
+             12 RETURN_VALUE
+
+ 24     >>   14 LOAD_FAST                0 (instance)
+             16 LOAD_METHOD              2 (get)
+             18 LOAD_CONST               2 ('manually_exited')
+             20 CALL_METHOD              1
+             22 POP_JUMP_IF_TRUE        34
+             24 LOAD_FAST                0 (instance)
+             26 LOAD_METHOD              2 (get)
+             28 LOAD_CONST               3 ('initialized')
+             30 CALL_METHOD              1
+             32 POP_JUMP_IF_FALSE       38
+
+ 25     >>   34 LOAD_CONST               1 (False)
+             36 RETURN_VALUE
+
+ 26     >>   38 LOAD_FAST                0 (instance)
+             40 LOAD_METHOD              2 (get)
+             42 LOAD_CONST               4 ('account_info')
+             44 CALL_METHOD              1
+             46 JUMP_IF_TRUE_OR_POP     50
+             48 BUILD_MAP                0
+        >>   50 LOAD_METHOD              2 (get)
+             52 LOAD_CONST               5 ('account_id')
+             54 CALL_METHOD              1
+             56 POP_JUMP_IF_FALSE       62
+
+ 27          58 LOAD_CONST               1 (False)
+             60 RETURN_VALUE
+
+ 28     >>   62 LOAD_FAST                0 (instance)
+             64 LOAD_METHOD              2 (get)
+             66 LOAD_CONST               6 ('window_handle')
+             68 CALL_METHOD              1
+             70 POP_JUMP_IF_FALSE       82
+             72 LOAD_FAST                0 (instance)
+             74 LOAD_METHOD              2 (get)
+             76 LOAD_CONST               7 ('process_id')
+             78 CALL_METHOD              1
+             80 POP_JUMP_IF_TRUE        86
+
+ 29     >>   82 LOAD_CONST               1 (False)
+             84 RETURN_VALUE
+
+ 30     >>   86 SETUP_FINALLY           66 (to 154)
+
+ 31          88 LOAD_GLOBAL              3 (datetime)
+             90 LOAD_METHOD              4 (fromisoformat)
+             92 LOAD_GLOBAL              5 (str)
+             94 LOAD_FAST                0 (instance)
+             96 LOAD_METHOD              2 (get)
+             98 LOAD_CONST               8 ('start_time')
+            100 CALL_METHOD              1
+            102 JUMP_IF_TRUE_OR_POP    106
+            104 LOAD_CONST               9 ('')
+        >>  106 CALL_FUNCTION            1
+            108 CALL_METHOD              1
+            110 STORE_FAST               1 (started_at)
+
+ 32         112 LOAD_FAST                1 (started_at)
+            114 LOAD_ATTR                6 (tzinfo)
+            116 POP_JUMP_IF_FALSE      130
+            118 LOAD_GLOBAL              3 (datetime)
+            120 LOAD_METHOD              7 (now)
+            122 LOAD_FAST                1 (started_at)
+            124 LOAD_ATTR                6 (tzinfo)
+            126 CALL_METHOD              1
+            128 JUMP_FORWARD             6 (to 136)
+        >>  130 LOAD_GLOBAL              3 (datetime)
+            132 LOAD_METHOD              7 (now)
+            134 CALL_METHOD              0
+        >>  136 STORE_FAST               2 (now)
+
+ 33         138 LOAD_FAST                2 (now)
+            140 LOAD_FAST                1 (started_at)
+            142 BINARY_SUBTRACT
+            144 LOAD_METHOD              8 (total_seconds)
+            146 CALL_METHOD              0
+            148 STORE_FAST               3 (age_seconds)
+            150 POP_BLOCK
+            152 JUMP_FORWARD            20 (to 174)
+
+ 34     >>  154 DUP_TOP
+            156 LOAD_GLOBAL              9 (Exception)
+            158 JUMP_IF_NOT_EXC_MATCH   172
+            160 POP_TOP
+            162 POP_TOP
+            164 POP_TOP
+
+ 35         166 POP_EXCEPT
+            168 LOAD_CONST               1 (False)
+            170 RETURN_VALUE
+        >>  172 RERAISE
+
+ 36     >>  174 LOAD_CONST              10 (0)
+            176 LOAD_FAST                3 (age_seconds)
+            178 DUP_TOP
+            180 ROT_THREE
+            182 COMPARE_OP               1 (<=)
+            184 JUMP_IF_FALSE_OR_POP   192
+            186 LOAD_GLOBAL             10 (INSTANCE_INITIALIZATION_GRACE_SECONDS)
+            188 COMPARE_OP               1 (<=)
+            190 RETURN_VALUE
+        >>  192 ROT_TWO
+            194 POP_TOP
+            196 RETURN_VALUE
+
+Disassembly of <code object get_desktop_interaction_status at 0x10924bd40, file "WeRobotCore/core/wechat_runtime_probe.py", line 39>:
+ 47           0 LOAD_GLOBAL              0 (sys)
+              2 LOAD_ATTR                1 (platform)
+              4 LOAD_METHOD              2 (startswith)
+              6 LOAD_CONST               1 ('win')
+              8 CALL_METHOD              1
+             10 POP_JUMP_IF_TRUE        22
+
+ 48          12 LOAD_CONST               2 ('unknown')
+             14 LOAD_CONST               3 ('DESKTOP_STATUS_UNSUPPORTED')
+             16 LOAD_CONST               4 (('status', 'reason_code'))
+             18 BUILD_CONST_KEY_MAP      2
+             20 RETURN_VALUE
+
+ 49     >>   22 SETUP_FINALLY          212 (to 236)
+
+ 50          24 LOAD_CONST               5 (0)
+             26 LOAD_CONST               6 (None)
+             28 IMPORT_NAME              3 (ctypes)
+             30 STORE_FAST               0 (ctypes)
+
+ 51          32 LOAD_CONST               5 (0)
+             34 LOAD_CONST               7 (('wintypes',))
+             36 IMPORT_NAME              3 (ctypes)
+             38 IMPORT_FROM              4 (wintypes)
+             40 STORE_FAST               1 (wintypes)
+             42 POP_TOP
+
+ 53          44 LOAD_FAST                0 (ctypes)
+             46 LOAD_ATTR                5 (WinDLL)
+             48 LOAD_CONST               8 ('user32')
+             50 LOAD_CONST               9 (True)
+             52 LOAD_CONST              10 (('use_last_error',))
+             54 CALL_FUNCTION_KW         2
+             56 STORE_FAST               2 (user32)
+
+ 54          58 LOAD_FAST                1 (wintypes)
+             60 LOAD_ATTR                6 (DWORD)
+             62 LOAD_FAST                1 (wintypes)
+             64 LOAD_ATTR                7 (BOOL)
+             66 LOAD_FAST                1 (wintypes)
+             68 LOAD_ATTR                6 (DWORD)
+             70 BUILD_LIST               3
+             72 LOAD_FAST                2 (user32)
+             74 LOAD_ATTR                8 (OpenInputDesktop)
+             76 STORE_ATTR               9 (argtypes)
+
+ 55          78 LOAD_FAST                1 (wintypes)
+             80 LOAD_ATTR               10 (HANDLE)
+             82 LOAD_FAST                2 (user32)
+             84 LOAD_ATTR                8 (OpenInputDesktop)
+             86 STORE_ATTR              11 (restype)
+
+ 56          88 LOAD_FAST                1 (wintypes)
+             90 LOAD_ATTR               10 (HANDLE)
+             92 BUILD_LIST               1
+             94 LOAD_FAST                2 (user32)
+             96 LOAD_ATTR               12 (SwitchDesktop)
+             98 STORE_ATTR               9 (argtypes)
+
+ 57         100 LOAD_FAST                1 (wintypes)
+            102 LOAD_ATTR                7 (BOOL)
+            104 LOAD_FAST                2 (user32)
+            106 LOAD_ATTR               12 (SwitchDesktop)
+            108 STORE_ATTR              11 (restype)
+
+ 58         110 LOAD_FAST                1 (wintypes)
+            112 LOAD_ATTR               10 (HANDLE)
+            114 BUILD_LIST               1
+            116 LOAD_FAST                2 (user32)
+            118 LOAD_ATTR               13 (CloseDesktop)
+            120 STORE_ATTR               9 (argtypes)
+
+ 59         122 LOAD_FAST                1 (wintypes)
+            124 LOAD_ATTR                7 (BOOL)
+            126 LOAD_FAST                2 (user32)
+            128 LOAD_ATTR               13 (CloseDesktop)
+            130 STORE_ATTR              11 (restype)
+
+ 60         132 LOAD_CONST              11 (256)
+            134 STORE_FAST               3 (DESKTOP_SWITCHDESKTOP)
+
+ 61         136 LOAD_FAST                2 (user32)
+            138 LOAD_METHOD              8 (OpenInputDesktop)
+            140 LOAD_CONST               5 (0)
+            142 LOAD_CONST              12 (False)
+            144 LOAD_FAST                3 (DESKTOP_SWITCHDESKTOP)
+            146 CALL_METHOD              3
+            148 STORE_FAST               4 (desktop)
+
+ 62         150 LOAD_FAST                4 (desktop)
+            152 POP_JUMP_IF_TRUE       166
+
+ 63         154 LOAD_CONST              13 ('locked')
+            156 LOAD_CONST              14 ('WINDOWS_SESSION_LOCKED')
+            158 LOAD_CONST               4 (('status', 'reason_code'))
+            160 BUILD_CONST_KEY_MAP      2
+            162 POP_BLOCK
+            164 RETURN_VALUE
+
+ 64     >>  166 SETUP_FINALLY           28 (to 196)
+
+ 65         168 LOAD_GLOBAL             14 (bool)
+            170 LOAD_FAST                2 (user32)
+            172 LOAD_METHOD             12 (SwitchDesktop)
+            174 LOAD_FAST                4 (desktop)
+            176 CALL_METHOD              1
+            178 CALL_FUNCTION            1
+            180 STORE_FAST               5 (interactive)
+            182 POP_BLOCK
+
+ 67         184 LOAD_FAST                2 (user32)
+            186 LOAD_METHOD             13 (CloseDesktop)
+            188 LOAD_FAST                4 (desktop)
+            190 CALL_METHOD              1
+            192 POP_TOP
+            194 JUMP_FORWARD            12 (to 208)
+        >>  196 LOAD_FAST                2 (user32)
+            198 LOAD_METHOD             13 (CloseDesktop)
+            200 LOAD_FAST                4 (desktop)
+            202 CALL_METHOD              1
+            204 POP_TOP
+            206 RERAISE
+
+ 68     >>  208 LOAD_FAST                5 (interactive)
+            210 POP_JUMP_IF_FALSE      224
+
+ 69         212 LOAD_CONST              15 ('interactive')
+            214 LOAD_CONST               6 (None)
+            216 LOAD_CONST               4 (('status', 'reason_code'))
+            218 BUILD_CONST_KEY_MAP      2
+            220 POP_BLOCK
+            222 RETURN_VALUE
+
+ 70     >>  224 LOAD_CONST              13 ('locked')
+            226 LOAD_CONST              14 ('WINDOWS_SESSION_LOCKED')
+            228 LOAD_CONST               4 (('status', 'reason_code'))
+            230 BUILD_CONST_KEY_MAP      2
+            232 POP_BLOCK
+            234 RETURN_VALUE
+
+ 71     >>  236 DUP_TOP
+            238 LOAD_GLOBAL             15 (Exception)
+            240 EXTENDED_ARG             1
+            242 JUMP_IF_NOT_EXC_MATCH   296
+            244 POP_TOP
+            246 STORE_FAST               6 (exc)
+            248 POP_TOP
+            250 SETUP_FINALLY           36 (to 288)
+
+ 73         252 LOAD_CONST               2 ('unknown')
+
+ 74         254 LOAD_CONST              16 ('DESKTOP_STATUS_UNKNOWN')
+
+ 75         256 LOAD_GLOBAL             16 (str)
+            258 LOAD_FAST                6 (exc)
+            260 CALL_FUNCTION            1
+            262 LOAD_CONST               6 (None)
+            264 LOAD_CONST              17 (200)
+            266 BUILD_SLICE              2
+            268 BINARY_SUBSCR
+
+ 72         270 LOAD_CONST              18 (('status', 'reason_code', 'message'))
+            272 BUILD_CONST_KEY_MAP      3
+            274 POP_BLOCK
+            276 ROT_FOUR
+            278 POP_EXCEPT
+            280 LOAD_CONST               6 (None)
+            282 STORE_FAST               6 (exc)
+            284 DELETE_FAST              6 (exc)
+            286 RETURN_VALUE
+        >>  288 LOAD_CONST               6 (None)
+            290 STORE_FAST               6 (exc)
+            292 DELETE_FAST              6 (exc)
+            294 RERAISE
+        >>  296 RERAISE
+            298 LOAD_CONST               6 (None)
+            300 RETURN_VALUE
+
+Disassembly of <code object find_login_windows at 0x10924bdf0, file "WeRobotCore/core/wechat_runtime_probe.py", line 79>:
+ 80           0 SETUP_FINALLY           28 (to 30)
+
+ 81           2 LOAD_CONST               1 (0)
+              4 LOAD_CONST               0 (None)
+              6 IMPORT_NAME              0 (psutil)
+              8 STORE_DEREF              2 (psutil)
+
+ 82          10 LOAD_CONST               1 (0)
+             12 LOAD_CONST               0 (None)
+             14 IMPORT_NAME              1 (win32gui)
+             16 STORE_DEREF              3 (win32gui)
+
+ 83          18 LOAD_CONST               1 (0)
+             20 LOAD_CONST               0 (None)
+             22 IMPORT_NAME              2 (win32process)
+             24 STORE_DEREF              4 (win32process)
+             26 POP_BLOCK
+             28 JUMP_FORWARD            22 (to 52)
+
+ 84     >>   30 DUP_TOP
+             32 LOAD_GLOBAL              3 (Exception)
+             34 JUMP_IF_NOT_EXC_MATCH    50
+             36 POP_TOP
+             38 POP_TOP
+             40 POP_TOP
+
+ 85          42 BUILD_LIST               0
+             44 ROT_FOUR
+             46 POP_EXCEPT
+             48 RETURN_VALUE
+        >>   50 RERAISE
+
+ 87     >>   52 BUILD_LIST               0
+             54 STORE_DEREF              1 (matches)
+
+ 89          56 LOAD_CLOSURE             0 (expected_pid)
+             58 LOAD_CLOSURE             1 (matches)
+             60 LOAD_CLOSURE             2 (psutil)
+             62 LOAD_CLOSURE             3 (win32gui)
+             64 LOAD_CLOSURE             4 (win32process)
+             66 BUILD_TUPLE              5
+             68 LOAD_CONST               2 (<code object callback at 0x10924b500, file "WeRobotCore/core/wechat_runtime_probe.py", line 89>)
+             70 LOAD_CONST               3 ('find_login_windows.<locals>.callback')
+             72 MAKE_FUNCTION            8 (closure)
+             74 STORE_FAST               1 (callback)
+
+123          76 SETUP_FINALLY           16 (to 94)
+
+124          78 LOAD_DEREF               3 (win32gui)
+             80 LOAD_METHOD              4 (EnumWindows)
+             82 LOAD_FAST                1 (callback)
+             84 LOAD_CONST               0 (None)
+             86 CALL_METHOD              2
+             88 POP_TOP
+             90 POP_BLOCK
+             92 JUMP_FORWARD            22 (to 116)
+
+125     >>   94 DUP_TOP
+             96 LOAD_GLOBAL              3 (Exception)
+             98 JUMP_IF_NOT_EXC_MATCH   114
+            100 POP_TOP
+            102 POP_TOP
+            104 POP_TOP
+
+126         106 BUILD_LIST               0
+            108 ROT_FOUR
+            110 POP_EXCEPT
+            112 RETURN_VALUE
+        >>  114 RERAISE
+
+127     >>  116 LOAD_DEREF               1 (matches)
+            118 RETURN_VALUE
+
+Disassembly of <code object callback at 0x10924b500, file "WeRobotCore/core/wechat_runtime_probe.py", line 89>:
+ 90           0 SETUP_FINALLY          240 (to 242)
+
+ 91           2 LOAD_DEREF               3 (win32gui)
+              4 LOAD_METHOD              0 (IsWindow)
+              6 LOAD_FAST                0 (hwnd)
+              8 CALL_METHOD              1
+             10 POP_JUMP_IF_FALSE       22
+             12 LOAD_DEREF               3 (win32gui)
+             14 LOAD_METHOD              1 (IsWindowVisible)
+             16 LOAD_FAST                0 (hwnd)
+             18 CALL_METHOD              1
+             20 POP_JUMP_IF_TRUE        28
+
+ 92     >>   22 POP_BLOCK
+             24 LOAD_CONST               1 (True)
+             26 RETURN_VALUE
+
+ 93     >>   28 LOAD_DEREF               3 (win32gui)
+             30 LOAD_METHOD              2 (GetClassName)
+             32 LOAD_FAST                0 (hwnd)
+             34 CALL_METHOD              1
+             36 LOAD_GLOBAL              3 (LOGIN_WINDOW_CLASS)
+             38 COMPARE_OP               3 (!=)
+             40 POP_JUMP_IF_FALSE       48
+
+ 94          42 POP_BLOCK
+             44 LOAD_CONST               1 (True)
+             46 RETURN_VALUE
+
+ 95     >>   48 LOAD_DEREF               4 (win32process)
+             50 LOAD_METHOD              4 (GetWindowThreadProcessId)
+             52 LOAD_FAST                0 (hwnd)
+             54 CALL_METHOD              1
+             56 UNPACK_SEQUENCE          2
+             58 STORE_FAST               1 (_)
+             60 STORE_FAST               2 (pid)
+
+ 96          62 LOAD_GLOBAL              5 (int)
+             64 LOAD_FAST                2 (pid)
+             66 JUMP_IF_TRUE_OR_POP     70
+             68 LOAD_CONST               2 (0)
+        >>   70 CALL_FUNCTION            1
+             72 STORE_FAST               2 (pid)
+
+ 97          74 LOAD_FAST                2 (pid)
+             76 POP_JUMP_IF_FALSE       94
+             78 LOAD_DEREF               0 (expected_pid)
+             80 POP_JUMP_IF_FALSE      100
+             82 LOAD_FAST                2 (pid)
+             84 LOAD_GLOBAL              5 (int)
+             86 LOAD_DEREF               0 (expected_pid)
+             88 CALL_FUNCTION            1
+             90 COMPARE_OP               3 (!=)
+             92 POP_JUMP_IF_FALSE      100
+
+ 98     >>   94 POP_BLOCK
+             96 LOAD_CONST               1 (True)
+             98 RETURN_VALUE
+
+ 99     >>  100 LOAD_DEREF               2 (psutil)
+            102 LOAD_METHOD              6 (Process)
+            104 LOAD_FAST                2 (pid)
+            106 CALL_METHOD              1
+            108 STORE_FAST               3 (proc)
+
+100         110 LOAD_FAST                3 (proc)
+            112 LOAD_METHOD              7 (name)
+            114 CALL_METHOD              0
+            116 JUMP_IF_TRUE_OR_POP    120
+            118 LOAD_CONST               3 ('')
+        >>  120 LOAD_METHOD              8 (lower)
+            122 CALL_METHOD              0
+            124 LOAD_GLOBAL              9 (WECHAT_PROCESS_NAMES)
+            126 CONTAINS_OP              1
+            128 POP_JUMP_IF_FALSE      136
+
+101         130 POP_BLOCK
+            132 LOAD_CONST               1 (True)
+            134 RETURN_VALUE
+
+102     >>  136 LOAD_DEREF               3 (win32gui)
+            138 LOAD_METHOD             10 (GetWindowRect)
+            140 LOAD_FAST                0 (hwnd)
+            142 CALL_METHOD              1
+            144 UNPACK_SEQUENCE          4
+            146 STORE_FAST               4 (left)
+            148 STORE_FAST               5 (top)
+            150 STORE_FAST               6 (right)
+            152 STORE_FAST               7 (bottom)
+
+103         154 LOAD_FAST                6 (right)
+            156 LOAD_FAST                4 (left)
+            158 COMPARE_OP               1 (<=)
+            160 POP_JUMP_IF_TRUE       170
+            162 LOAD_FAST                7 (bottom)
+            164 LOAD_FAST                5 (top)
+            166 COMPARE_OP               1 (<=)
+            168 POP_JUMP_IF_FALSE      176
+
+104     >>  170 POP_BLOCK
+            172 LOAD_CONST               1 (True)
+            174 RETURN_VALUE
+
+105     >>  176 LOAD_DEREF               1 (matches)
+            178 LOAD_METHOD             11 (append)
+
+107         180 LOAD_GLOBAL              5 (int)
+            182 LOAD_FAST                0 (hwnd)
+            184 CALL_FUNCTION            1
+
+108         186 LOAD_FAST                2 (pid)
+
+109         188 LOAD_GLOBAL              3 (LOGIN_WINDOW_CLASS)
+
+110         190 LOAD_DEREF               3 (win32gui)
+            192 LOAD_METHOD             12 (GetWindowText)
+            194 LOAD_FAST                0 (hwnd)
+            196 CALL_METHOD              1
+            198 JUMP_IF_TRUE_OR_POP    202
+            200 LOAD_CONST               3 ('')
+
+112     >>  202 LOAD_GLOBAL              5 (int)
+            204 LOAD_FAST                4 (left)
+            206 CALL_FUNCTION            1
+
+113         208 LOAD_GLOBAL              5 (int)
+            210 LOAD_FAST                5 (top)
+            212 CALL_FUNCTION            1
+
+114         214 LOAD_GLOBAL              5 (int)
+            216 LOAD_FAST                6 (right)
+            218 CALL_FUNCTION            1
+
+115         220 LOAD_GLOBAL              5 (int)
+            222 LOAD_FAST                7 (bottom)
+            224 CALL_FUNCTION            1
+
+111         226 LOAD_CONST               4 (('left', 'top', 'right', 'bottom'))
+            228 BUILD_CONST_KEY_MAP      4
+
+106         230 LOAD_CONST               5 (('window_handle', 'process_id', 'class_name', 'window_title', 'bounding_rectangle'))
+            232 BUILD_CONST_KEY_MAP      5
+
+105         234 CALL_METHOD              1
+            236 POP_TOP
+            238 POP_BLOCK
+            240 JUMP_FORWARD            20 (to 262)
+
+119     >>  242 DUP_TOP
+            244 LOAD_GLOBAL             13 (Exception)
+            246 EXTENDED_ARG             1
+            248 JUMP_IF_NOT_EXC_MATCH   260
+            250 POP_TOP
+            252 POP_TOP
+            254 POP_TOP
+
+120         256 POP_EXCEPT
+            258 JUMP_FORWARD             2 (to 262)
+        >>  260 RERAISE
+
+121     >>  262 LOAD_CONST               1 (True)
+            264 RETURN_VALUE
+
+Disassembly of <code object get_account_runtime_status at 0x10924b240, file "WeRobotCore/core/wechat_runtime_probe.py", line 130>:
+132           0 EXTENDED_ARG             1
+              2 SETUP_FINALLY          284 (to 288)
+
+133           4 LOAD_CONST               1 (1)
+              6 LOAD_CONST               2 (('InstanceManagerV3',))
+              8 IMPORT_NAME              0 (instance_manager_v3)
+             10 IMPORT_FROM              1 (InstanceManagerV3)
+             12 STORE_FAST               1 (InstanceManagerV3)
+             14 POP_TOP
+
+135          16 LOAD_FAST                1 (InstanceManagerV3)
+             18 CALL_FUNCTION            0
+             20 STORE_FAST               2 (manager)
+
+136          22 LOAD_FAST                2 (manager)
+             24 LOAD_METHOD              2 (find_instance_by_account)
+             26 LOAD_FAST                0 (account_id)
+             28 CALL_METHOD              1
+             30 STORE_FAST               3 (instance)
+
+137          32 LOAD_FAST                3 (instance)
+             34 POP_JUMP_IF_TRUE       134
+
+138          36 LOAD_CONST               3 (<code object <listcomp> at 0x10924bc90, file "WeRobotCore/core/wechat_runtime_probe.py", line 138>)
+             38 LOAD_CONST               4 ('get_account_runtime_status.<locals>.<listcomp>')
+             40 MAKE_FUNCTION            0
+
+140          42 LOAD_FAST                2 (manager)
+             44 LOAD_METHOD              3 (list_instances)
+             46 CALL_METHOD              0
+
+138          48 GET_ITER
+             50 CALL_FUNCTION            1
+             52 STORE_FAST               4 (initializing_instances)
+
+143          54 LOAD_FAST                4 (initializing_instances)
+             56 POP_JUMP_IF_FALSE      112
+
+144          58 LOAD_FAST                4 (initializing_instances)
+             60 LOAD_CONST               5 (0)
+             62 BINARY_SUBSCR
+             64 STORE_FAST               5 (candidate)
+
+146          66 LOAD_CONST               6 ('initializing')
+
+147          68 LOAD_CONST               7 ('WECHAT_INSTANCE_INITIALIZING')
+
+148          70 LOAD_CONST               8 ('微信实例正在初始化账号信息')
+
+149          72 LOAD_GLOBAL              4 (int)
+             74 LOAD_FAST                5 (candidate)
+             76 LOAD_METHOD              5 (get)
+             78 LOAD_CONST               9 ('process_id')
+             80 CALL_METHOD              1
+             82 JUMP_IF_TRUE_OR_POP     86
+             84 LOAD_CONST               5 (0)
+        >>   86 CALL_FUNCTION            1
+
+150          88 LOAD_GLOBAL              4 (int)
+             90 LOAD_FAST                5 (candidate)
+             92 LOAD_METHOD              5 (get)
+             94 LOAD_CONST              10 ('window_handle')
+             96 CALL_METHOD              1
+             98 JUMP_IF_TRUE_OR_POP    102
+            100 LOAD_CONST               5 (0)
+        >>  102 CALL_FUNCTION            1
+
+145         104 LOAD_CONST              11 (('status', 'reason_code', 'message', 'process_id', 'window_handle'))
+            106 BUILD_CONST_KEY_MAP      5
+            108 POP_BLOCK
+            110 RETURN_VALUE
+
+153     >>  112 LOAD_CONST              12 ('instance_lost')
+
+154         114 LOAD_CONST              13 ('WECHAT_INSTANCE_NOT_FOUND')
+
+155         116 LOAD_CONST              14 ('未找到账号对应的微信实例')
+
+156         118 LOAD_GLOBAL              6 (bool)
+            120 LOAD_GLOBAL              7 (find_login_windows)
+            122 CALL_FUNCTION            0
+            124 CALL_FUNCTION            1
+
+152         126 LOAD_CONST              15 (('status', 'reason_code', 'message', 'login_window_detected'))
+            128 BUILD_CONST_KEY_MAP      4
+            130 POP_BLOCK
+            132 RETURN_VALUE
+
+159     >>  134 LOAD_GLOBAL              4 (int)
+            136 LOAD_FAST                3 (instance)
+            138 LOAD_METHOD              5 (get)
+            140 LOAD_CONST               9 ('process_id')
+            142 CALL_METHOD              1
+            144 JUMP_IF_TRUE_OR_POP    148
+            146 LOAD_CONST               5 (0)
+        >>  148 CALL_FUNCTION            1
+            150 STORE_FAST               6 (expected_pid)
+
+160         152 LOAD_GLOBAL              7 (find_login_windows)
+            154 LOAD_FAST                6 (expected_pid)
+            156 JUMP_IF_TRUE_OR_POP    160
+            158 LOAD_CONST              16 (None)
+        >>  160 LOAD_CONST              17 (('expected_pid',))
+            162 CALL_FUNCTION_KW         1
+            164 STORE_FAST               7 (login_windows)
+
+161         166 LOAD_FAST                7 (login_windows)
+            168 POP_JUMP_IF_FALSE      198
+
+163         170 LOAD_CONST              18 ('login_required')
+
+164         172 LOAD_CONST              19 ('WECHAT_LOGIN_REQUIRED')
+
+165         174 LOAD_CONST              20 ('微信已进入登录窗口，请扫码或在手机上确认登录')
+
+166         176 LOAD_FAST                6 (expected_pid)
+
+167         178 LOAD_FAST                7 (login_windows)
+            180 LOAD_CONST               5 (0)
+            182 BINARY_SUBSCR
+            184 LOAD_CONST              10 ('window_handle')
+            186 BINARY_SUBSCR
+
+168         188 LOAD_GLOBAL              8 (LOGIN_WINDOW_CLASS)
+
+162         190 LOAD_CONST              21 (('status', 'reason_code', 'message', 'process_id', 'login_window_handle', 'login_window_class'))
+            192 BUILD_CONST_KEY_MAP      6
+            194 POP_BLOCK
+            196 RETURN_VALUE
+
+171     >>  198 LOAD_FAST                2 (manager)
+            200 LOAD_METHOD              9 (check_instance_validity)
+            202 LOAD_FAST                3 (instance)
+            204 LOAD_METHOD              5 (get)
+            206 LOAD_CONST              22 ('instance_id')
+            208 CALL_METHOD              1
+            210 CALL_METHOD              1
+            212 STORE_FAST               8 (validity)
+
+172         214 LOAD_FAST                8 (validity)
+            216 LOAD_METHOD              5 (get)
+            218 LOAD_CONST              23 ('valid')
+            220 CALL_METHOD              1
+            222 EXTENDED_ARG             1
+            224 POP_JUMP_IF_FALSE      258
+
+174         226 LOAD_CONST              24 ('online')
+
+175         228 LOAD_CONST              16 (None)
+
+176         230 LOAD_CONST              25 ('微信实例在线')
+
+177         232 LOAD_FAST                6 (expected_pid)
+
+178         234 LOAD_GLOBAL              4 (int)
+            236 LOAD_FAST                3 (instance)
+            238 LOAD_METHOD              5 (get)
+            240 LOAD_CONST              10 ('window_handle')
+            242 CALL_METHOD              1
+            244 JUMP_IF_TRUE_OR_POP    248
+            246 LOAD_CONST               5 (0)
+        >>  248 CALL_FUNCTION            1
+
+173         250 LOAD_CONST              11 (('status', 'reason_code', 'message', 'process_id', 'window_handle'))
+            252 BUILD_CONST_KEY_MAP      5
+            254 POP_BLOCK
+            256 RETURN_VALUE
+
+182     >>  258 LOAD_CONST              12 ('instance_lost')
+
+183         260 LOAD_CONST              26 ('WECHAT_INSTANCE_LOST')
+
+184         262 LOAD_FAST                8 (validity)
+            264 LOAD_METHOD              5 (get)
+            266 LOAD_CONST              27 ('reason')
+            268 CALL_METHOD              1
+            270 EXTENDED_ARG             1
+            272 JUMP_IF_TRUE_OR_POP    276
+            274 LOAD_CONST              28 ('微信进程或窗口已失效')
+
+185     >>  276 LOAD_FAST                6 (expected_pid)
+
+186         278 LOAD_CONST              29 (False)
+
+181         280 LOAD_CONST              30 (('status', 'reason_code', 'message', 'process_id', 'login_window_detected'))
+            282 BUILD_CONST_KEY_MAP      5
+            284 POP_BLOCK
+            286 RETURN_VALUE
+
+188     >>  288 DUP_TOP
+            290 LOAD_GLOBAL             10 (Exception)
+            292 EXTENDED_ARG             1
+            294 JUMP_IF_NOT_EXC_MATCH   348
+            296 POP_TOP
+            298 STORE_FAST               9 (exc)
+            300 POP_TOP
+            302 SETUP_FINALLY           36 (to 340)
+
+190         304 LOAD_CONST              31 ('unknown')
+
+191         306 LOAD_CONST              32 ('WECHAT_STATUS_UNKNOWN')
+
+192         308 LOAD_GLOBAL             11 (str)
+            310 LOAD_FAST                9 (exc)
+            312 CALL_FUNCTION            1
+            314 LOAD_CONST              16 (None)
+            316 LOAD_CONST              33 (300)
+            318 BUILD_SLICE              2
+            320 BINARY_SUBSCR
+
+189         322 LOAD_CONST              34 (('status', 'reason_code', 'message'))
+            324 BUILD_CONST_KEY_MAP      3
+            326 POP_BLOCK
+            328 ROT_FOUR
+            330 POP_EXCEPT
+            332 LOAD_CONST              16 (None)
+            334 STORE_FAST               9 (exc)
+            336 DELETE_FAST              9 (exc)
+            338 RETURN_VALUE
+        >>  340 LOAD_CONST              16 (None)
+            342 STORE_FAST               9 (exc)
+            344 DELETE_FAST              9 (exc)
+            346 RERAISE
+        >>  348 RERAISE
+            350 LOAD_CONST              16 (None)
+            352 RETURN_VALUE
+
+Disassembly of <code object <listcomp> at 0x10924bc90, file "WeRobotCore/core/wechat_runtime_probe.py", line 138>:
+138           0 BUILD_LIST               0
+              2 LOAD_FAST                0 (.0)
+        >>    4 FOR_ITER                16 (to 22)
+
+140           6 STORE_FAST               1 (candidate)
+
+141           8 LOAD_GLOBAL              0 (_is_recent_unbound_instance)
+             10 LOAD_FAST                1 (candidate)
+             12 CALL_FUNCTION            1
+             14 POP_JUMP_IF_FALSE        4
+
+139          16 LOAD_FAST                1 (candidate)
+             18 LIST_APPEND              2
+             20 JUMP_ABSOLUTE            4
+        >>   22 RETURN_VALUE
+
+Disassembly of <code object probe_expected_accounts at 0x10924bf50, file "WeRobotCore/core/wechat_runtime_probe.py", line 196>:
+197           0 LOAD_CONST               1 (<code object <dictcomp> at 0x10924b870, file "WeRobotCore/core/wechat_runtime_probe.py", line 197>)
+              2 LOAD_CONST               2 ('probe_expected_accounts.<locals>.<dictcomp>')
+              4 MAKE_FUNCTION            0
+              6 LOAD_FAST                0 (account_ids)
+              8 GET_ITER
+             10 CALL_FUNCTION            1
+             12 RETURN_VALUE
+
+Disassembly of <code object <dictcomp> at 0x10924b870, file "WeRobotCore/core/wechat_runtime_probe.py", line 197>:
+197           0 BUILD_MAP                0
+              2 LOAD_FAST                0 (.0)
+        >>    4 FOR_ITER                18 (to 24)
+              6 STORE_FAST               1 (account_id)
+              8 LOAD_FAST                1 (account_id)
+             10 POP_JUMP_IF_FALSE        4
+             12 LOAD_FAST                1 (account_id)
+             14 LOAD_GLOBAL              0 (get_account_runtime_status)
+             16 LOAD_FAST                1 (account_id)
+             18 CALL_FUNCTION            1
+             20 MAP_ADD                  2
+             22 JUMP_ABSOLUTE            4
+        >>   24 RETURN_VALUE

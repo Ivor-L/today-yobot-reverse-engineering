@@ -1,0 +1,217 @@
+  1           0 LOAD_CONST               0 (0)
+              2 LOAD_CONST               1 (None)
+              4 IMPORT_NAME              0 (ctypes)
+              6 STORE_NAME               0 (ctypes)
+
+  2           8 LOAD_CONST               0 (0)
+             10 LOAD_CONST               1 (None)
+             12 IMPORT_NAME              1 (logging)
+             14 STORE_NAME               1 (logging)
+
+  3          16 LOAD_CONST               0 (0)
+             18 LOAD_CONST               2 (('Dict',))
+             20 IMPORT_NAME              2 (typing)
+             22 IMPORT_FROM              3 (Dict)
+             24 STORE_NAME               3 (Dict)
+             26 POP_TOP
+
+  4          28 LOAD_BUILD_CLASS
+             30 LOAD_CONST               3 (<code object WxParam at 0x1073ea5b0, file "WeRobotCore/core/WxParam.py", line 4>)
+             32 LOAD_CONST               4 ('WxParam')
+             34 MAKE_FUNCTION            0
+             36 LOAD_CONST               4 ('WxParam')
+             38 CALL_FUNCTION            2
+             40 STORE_NAME               4 (WxParam)
+             42 LOAD_CONST               1 (None)
+             44 RETURN_VALUE
+
+Disassembly of <code object WxParam at 0x1073ea5b0, file "WeRobotCore/core/WxParam.py", line 4>:
+  4           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('WxParam')
+              6 STORE_NAME               2 (__qualname__)
+
+  7           8 LOAD_CONST               1 (33)
+
+  8          10 LOAD_CONST               2 (34)
+
+  9          12 LOAD_CONST               3 (45)
+
+ 10          14 LOAD_CONST               4 (53)
+
+ 11          16 LOAD_CONST               5 (195)
+
+  6          18 LOAD_CONST               6 (('SYS_TEXT_HEIGHT', 'TIME_TEXT_HEIGHT', 'RECALL_TEXT_HEIGHT', 'CHAT_TEXT_HEIGHT', 'CHAT_IMG_HEIGHT'))
+             20 BUILD_CONST_KEY_MAP      5
+             22 STORE_NAME               3 (HEIGHT_1080P)
+
+ 16          24 LOAD_CONST               7 (50)
+
+ 17          26 LOAD_CONST               8 (51)
+
+ 18          28 LOAD_CONST               9 (64)
+
+ 19          30 LOAD_CONST              10 (80)
+
+ 20          32 LOAD_CONST              11 (168)
+
+ 15          34 LOAD_CONST               6 (('SYS_TEXT_HEIGHT', 'TIME_TEXT_HEIGHT', 'RECALL_TEXT_HEIGHT', 'CHAT_TEXT_HEIGHT', 'CHAT_IMG_HEIGHT'))
+             36 BUILD_CONST_KEY_MAP      5
+             38 STORE_NAME               4 (HEIGHT_2K)
+
+ 24          40 LOAD_NAME                3 (HEIGHT_1080P)
+             42 LOAD_CONST              12 ('SYS_TEXT_HEIGHT')
+             44 BINARY_SUBSCR
+             46 STORE_NAME               5 (SYS_TEXT_HEIGHT)
+
+ 25          48 LOAD_NAME                3 (HEIGHT_1080P)
+             50 LOAD_CONST              13 ('TIME_TEXT_HEIGHT')
+             52 BINARY_SUBSCR
+             54 STORE_NAME               6 (TIME_TEXT_HEIGHT)
+
+ 26          56 LOAD_NAME                3 (HEIGHT_1080P)
+             58 LOAD_CONST              14 ('RECALL_TEXT_HEIGHT')
+             60 BINARY_SUBSCR
+             62 STORE_NAME               7 (RECALL_TEXT_HEIGHT)
+
+ 27          64 LOAD_NAME                3 (HEIGHT_1080P)
+             66 LOAD_CONST              15 ('CHAT_TEXT_HEIGHT')
+             68 BINARY_SUBSCR
+             70 STORE_NAME               8 (CHAT_TEXT_HEIGHT)
+
+ 28          72 LOAD_NAME                3 (HEIGHT_1080P)
+             74 LOAD_CONST              16 ('CHAT_IMG_HEIGHT')
+             76 BINARY_SUBSCR
+             78 STORE_NAME               9 (CHAT_IMG_HEIGHT)
+
+ 30          80 BUILD_LIST               0
+             82 LOAD_CONST              17 (('[文件]', '[图片]', '[视频]', '[音乐]', '[链接]'))
+             84 LIST_EXTEND              1
+             86 STORE_NAME              10 (SpecialTypes)
+
+ 32          88 LOAD_NAME               11 (classmethod)
+
+ 33          90 LOAD_CONST              18 (<code object init_resolution at 0x1072e0b30, file "WeRobotCore/core/WxParam.py", line 32>)
+             92 LOAD_CONST              19 ('WxParam.init_resolution')
+             94 MAKE_FUNCTION            0
+             96 CALL_FUNCTION            1
+             98 STORE_NAME              12 (init_resolution)
+            100 LOAD_CONST              20 (None)
+            102 RETURN_VALUE
+
+Disassembly of <code object init_resolution at 0x1072e0b30, file "WeRobotCore/core/WxParam.py", line 32>:
+ 35           0 LOAD_GLOBAL              0 (logging)
+              2 LOAD_METHOD              1 (getLogger)
+              4 LOAD_GLOBAL              2 (__name__)
+              6 CALL_METHOD              1
+              8 STORE_FAST               1 (logger)
+
+ 36          10 SETUP_FINALLY          126 (to 138)
+
+ 37          12 LOAD_GLOBAL              3 (ctypes)
+             14 LOAD_ATTR                4 (windll)
+             16 LOAD_ATTR                5 (user32)
+             18 STORE_FAST               2 (user32)
+
+ 38          20 LOAD_FAST                2 (user32)
+             22 LOAD_METHOD              6 (GetSystemMetrics)
+             24 LOAD_CONST               1 (1)
+             26 CALL_METHOD              1
+             28 STORE_FAST               3 (screen_height)
+
+ 41          30 LOAD_FAST                3 (screen_height)
+             32 LOAD_CONST               2 (1080)
+             34 COMPARE_OP               4 (>)
+             36 POP_JUMP_IF_FALSE       50
+
+ 42          38 LOAD_FAST                0 (cls)
+             40 LOAD_ATTR                7 (HEIGHT_2K)
+             42 STORE_FAST               4 (height_config)
+
+ 43          44 LOAD_CONST               3 ('2K')
+             46 STORE_FAST               5 (resolution_type)
+             48 JUMP_FORWARD            10 (to 60)
+
+ 45     >>   50 LOAD_FAST                0 (cls)
+             52 LOAD_ATTR                8 (HEIGHT_1080P)
+             54 STORE_FAST               4 (height_config)
+
+ 46          56 LOAD_CONST               4 ('1080P')
+             58 STORE_FAST               5 (resolution_type)
+
+ 49     >>   60 LOAD_FAST                4 (height_config)
+             62 LOAD_CONST               5 ('SYS_TEXT_HEIGHT')
+             64 BINARY_SUBSCR
+             66 LOAD_FAST                0 (cls)
+             68 STORE_ATTR               9 (SYS_TEXT_HEIGHT)
+
+ 50          70 LOAD_FAST                4 (height_config)
+             72 LOAD_CONST               6 ('TIME_TEXT_HEIGHT')
+             74 BINARY_SUBSCR
+             76 LOAD_FAST                0 (cls)
+             78 STORE_ATTR              10 (TIME_TEXT_HEIGHT)
+
+ 51          80 LOAD_FAST                4 (height_config)
+             82 LOAD_CONST               7 ('RECALL_TEXT_HEIGHT')
+             84 BINARY_SUBSCR
+             86 LOAD_FAST                0 (cls)
+             88 STORE_ATTR              11 (RECALL_TEXT_HEIGHT)
+
+ 52          90 LOAD_FAST                4 (height_config)
+             92 LOAD_CONST               8 ('CHAT_TEXT_HEIGHT')
+             94 BINARY_SUBSCR
+             96 LOAD_FAST                0 (cls)
+             98 STORE_ATTR              12 (CHAT_TEXT_HEIGHT)
+
+ 53         100 LOAD_FAST                4 (height_config)
+            102 LOAD_CONST               9 ('CHAT_IMG_HEIGHT')
+            104 BINARY_SUBSCR
+            106 LOAD_FAST                0 (cls)
+            108 STORE_ATTR              13 (CHAT_IMG_HEIGHT)
+
+ 55         110 LOAD_FAST                1 (logger)
+            112 LOAD_METHOD             14 (info)
+            114 LOAD_CONST              10 ('分辨率初始化完成: ')
+            116 LOAD_FAST                5 (resolution_type)
+            118 FORMAT_VALUE             0
+            120 LOAD_CONST              11 (', 屏幕高度=')
+            122 LOAD_FAST                3 (screen_height)
+            124 FORMAT_VALUE             0
+            126 LOAD_CONST              12 ('px')
+            128 BUILD_STRING             5
+            130 CALL_METHOD              1
+            132 POP_TOP
+            134 POP_BLOCK
+            136 JUMP_FORWARD            56 (to 194)
+
+ 57     >>  138 DUP_TOP
+            140 LOAD_GLOBAL             15 (Exception)
+            142 JUMP_IF_NOT_EXC_MATCH   192
+            144 POP_TOP
+            146 STORE_FAST               6 (e)
+            148 POP_TOP
+            150 SETUP_FINALLY           32 (to 184)
+
+ 58         152 LOAD_FAST                1 (logger)
+            154 LOAD_METHOD             16 (error)
+            156 LOAD_CONST              13 ('分辨率初始化失败: ')
+            158 LOAD_GLOBAL             17 (str)
+            160 LOAD_FAST                6 (e)
+            162 CALL_FUNCTION            1
+            164 FORMAT_VALUE             0
+            166 BUILD_STRING             2
+            168 CALL_METHOD              1
+            170 POP_TOP
+            172 POP_BLOCK
+            174 POP_EXCEPT
+            176 LOAD_CONST              14 (None)
+            178 STORE_FAST               6 (e)
+            180 DELETE_FAST              6 (e)
+            182 JUMP_FORWARD            10 (to 194)
+        >>  184 LOAD_CONST              14 (None)
+            186 STORE_FAST               6 (e)
+            188 DELETE_FAST              6 (e)
+            190 RERAISE
+        >>  192 RERAISE
+        >>  194 LOAD_CONST              14 (None)
+            196 RETURN_VALUE

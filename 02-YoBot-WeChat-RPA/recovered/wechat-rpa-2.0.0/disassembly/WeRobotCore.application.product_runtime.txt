@@ -1,0 +1,391 @@
+  1           0 LOAD_CONST               0 ('Process-level publication boundary for one platform product runtime.')
+              2 STORE_NAME               0 (__doc__)
+
+  3           4 LOAD_CONST               1 (0)
+              6 LOAD_CONST               2 (('dataclass',))
+              8 IMPORT_NAME              1 (dataclasses)
+             10 IMPORT_FROM              2 (dataclass)
+             12 STORE_NAME               2 (dataclass)
+             14 POP_TOP
+
+  4          16 LOAD_CONST               1 (0)
+             18 LOAD_CONST               3 (('Callable', 'Optional'))
+             20 IMPORT_NAME              3 (typing)
+             22 IMPORT_FROM              4 (Callable)
+             24 STORE_NAME               4 (Callable)
+             26 IMPORT_FROM              5 (Optional)
+             28 STORE_NAME               5 (Optional)
+             30 POP_TOP
+
+  6          32 LOAD_CONST               1 (0)
+             34 LOAD_CONST               4 (('AutoReplyManagerBindingTarget', 'AutoReplyMonitorBindingTarget', 'AutoReplyRuntimeBindings', 'install_auto_reply_runtime_bindings'))
+             36 IMPORT_NAME              6 (WeRobotCore.application.auto_reply)
+             38 IMPORT_FROM              7 (AutoReplyManagerBindingTarget)
+             40 STORE_NAME               7 (AutoReplyManagerBindingTarget)
+             42 IMPORT_FROM              8 (AutoReplyMonitorBindingTarget)
+             44 STORE_NAME               8 (AutoReplyMonitorBindingTarget)
+             46 IMPORT_FROM              9 (AutoReplyRuntimeBindings)
+             48 STORE_NAME               9 (AutoReplyRuntimeBindings)
+             50 IMPORT_FROM             10 (install_auto_reply_runtime_bindings)
+             52 STORE_NAME              10 (install_auto_reply_runtime_bindings)
+             54 POP_TOP
+
+ 12          56 LOAD_CONST               1 (0)
+             58 LOAD_CONST               5 (('RuntimeContainer', 'RuntimeProductContract'))
+             60 IMPORT_NAME             11 (WeRobotCore.application.runtime)
+             62 IMPORT_FROM             12 (RuntimeContainer)
+             64 STORE_NAME              12 (RuntimeContainer)
+             66 IMPORT_FROM             13 (RuntimeProductContract)
+             68 STORE_NAME              13 (RuntimeProductContract)
+             70 POP_TOP
+
+ 15          72 LOAD_NAME                2 (dataclass)
+             74 LOAD_CONST               6 (True)
+             76 LOAD_CONST               7 (('frozen',))
+             78 CALL_FUNCTION_KW         1
+
+ 16          80 LOAD_BUILD_CLASS
+             82 LOAD_CONST               8 (<code object ProductRuntimeCandidate at 0x1072cfbe0, file "WeRobotCore/application/product_runtime.py", line 15>)
+             84 LOAD_CONST               9 ('ProductRuntimeCandidate')
+             86 MAKE_FUNCTION            0
+             88 LOAD_CONST               9 ('ProductRuntimeCandidate')
+             90 CALL_FUNCTION            2
+             92 CALL_FUNCTION            1
+             94 STORE_NAME              14 (ProductRuntimeCandidate)
+
+ 37          96 LOAD_BUILD_CLASS
+             98 LOAD_CONST              10 (<code object ProductRuntimeRegistration at 0x1073b9be0, file "WeRobotCore/application/product_runtime.py", line 37>)
+            100 LOAD_CONST              11 ('ProductRuntimeRegistration')
+            102 MAKE_FUNCTION            0
+            104 LOAD_CONST              11 ('ProductRuntimeRegistration')
+            106 CALL_FUNCTION            2
+            108 STORE_NAME              15 (ProductRuntimeRegistration)
+            110 LOAD_CONST              12 (None)
+            112 RETURN_VALUE
+
+Disassembly of <code object ProductRuntimeCandidate at 0x1072cfbe0, file "WeRobotCore/application/product_runtime.py", line 15>:
+ 15           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('ProductRuntimeCandidate')
+              6 STORE_NAME               2 (__qualname__)
+              8 SETUP_ANNOTATIONS
+
+ 17          10 LOAD_CONST               1 ('A complete Driver runtime and its shared product projections.')
+             12 STORE_NAME               3 (__doc__)
+
+ 19          14 LOAD_NAME                4 (RuntimeContainer)
+             16 LOAD_NAME                5 (__annotations__)
+             18 LOAD_CONST               2 ('runtime')
+             20 STORE_SUBSCR
+
+ 20          22 LOAD_NAME                6 (AutoReplyRuntimeBindings)
+             24 LOAD_NAME                5 (__annotations__)
+             26 LOAD_CONST               3 ('auto_reply')
+             28 STORE_SUBSCR
+
+ 21          30 LOAD_NAME                7 (RuntimeProductContract)
+             32 LOAD_NAME                5 (__annotations__)
+             34 LOAD_CONST               4 ('runtime_contract')
+             36 STORE_SUBSCR
+
+ 23          38 LOAD_CONST               5 (None)
+             40 LOAD_CONST               6 (('return',))
+             42 BUILD_CONST_KEY_MAP      1
+             44 LOAD_CONST               7 (<code object __post_init__ at 0x1072e0d40, file "WeRobotCore/application/product_runtime.py", line 23>)
+             46 LOAD_CONST               8 ('ProductRuntimeCandidate.__post_init__')
+             48 MAKE_FUNCTION            4 (annotations)
+             50 STORE_NAME               8 (__post_init__)
+             52 LOAD_CONST               5 (None)
+             54 RETURN_VALUE
+
+Disassembly of <code object __post_init__ at 0x1072e0d40, file "WeRobotCore/application/product_runtime.py", line 23>:
+ 24           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                0 (self)
+              4 LOAD_ATTR                1 (runtime)
+              6 LOAD_GLOBAL              2 (RuntimeContainer)
+              8 CALL_FUNCTION            2
+             10 POP_JUMP_IF_TRUE        20
+
+ 25          12 LOAD_GLOBAL              3 (TypeError)
+             14 LOAD_CONST               1 ('runtime must be RuntimeContainer')
+             16 CALL_FUNCTION            1
+             18 RAISE_VARARGS            1
+
+ 26     >>   20 LOAD_FAST                0 (self)
+             22 LOAD_ATTR                1 (runtime)
+             24 LOAD_METHOD              4 (validate)
+             26 CALL_METHOD              0
+             28 POP_TOP
+
+ 27          30 LOAD_GLOBAL              0 (isinstance)
+             32 LOAD_FAST                0 (self)
+             34 LOAD_ATTR                5 (auto_reply)
+             36 LOAD_GLOBAL              6 (AutoReplyRuntimeBindings)
+             38 CALL_FUNCTION            2
+             40 POP_JUMP_IF_TRUE        50
+
+ 28          42 LOAD_GLOBAL              3 (TypeError)
+             44 LOAD_CONST               2 ('auto_reply must be AutoReplyRuntimeBindings')
+             46 CALL_FUNCTION            1
+             48 RAISE_VARARGS            1
+
+ 29     >>   50 LOAD_GLOBAL              0 (isinstance)
+             52 LOAD_FAST                0 (self)
+             54 LOAD_ATTR                7 (runtime_contract)
+             56 LOAD_GLOBAL              8 (RuntimeProductContract)
+             58 CALL_FUNCTION            2
+             60 POP_JUMP_IF_TRUE        70
+
+ 30          62 LOAD_GLOBAL              3 (TypeError)
+             64 LOAD_CONST               3 ('runtime_contract must be RuntimeProductContract')
+             66 CALL_FUNCTION            1
+             68 RAISE_VARARGS            1
+
+ 31     >>   70 LOAD_FAST                0 (self)
+             72 LOAD_ATTR                7 (runtime_contract)
+             74 LOAD_ATTR                9 (descriptor)
+             76 LOAD_FAST                0 (self)
+             78 LOAD_ATTR                1 (runtime)
+             80 LOAD_ATTR                9 (descriptor)
+             82 COMPARE_OP               3 (!=)
+             84 POP_JUMP_IF_FALSE       94
+
+ 32          86 LOAD_GLOBAL             10 (ValueError)
+
+ 33          88 LOAD_CONST               4 ('runtime_contract descriptor must match the product runtime')
+
+ 32          90 CALL_FUNCTION            1
+             92 RAISE_VARARGS            1
+        >>   94 LOAD_CONST               0 (None)
+             96 RETURN_VALUE
+
+Disassembly of <code object ProductRuntimeRegistration at 0x1073b9be0, file "WeRobotCore/application/product_runtime.py", line 37>:
+ 37           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('ProductRuntimeRegistration')
+              6 STORE_NAME               2 (__qualname__)
+
+ 38           8 LOAD_CONST               1 ('Publish one product runtime without owning platform selection policy.\n\n    The production entry point decides whether registration is enabled and\n    supplies the platform factory.  Keeping environment/config parsing outside\n    this class means Windows and macOS share the same lifecycle rules.\n    ')
+             10 STORE_NAME               3 (__doc__)
+
+ 45          12 LOAD_CONST               2 (None)
+             14 LOAD_CONST               3 (('return',))
+             16 BUILD_CONST_KEY_MAP      1
+             18 LOAD_CONST               4 (<code object __init__ at 0x1073b9450, file "WeRobotCore/application/product_runtime.py", line 45>)
+             20 LOAD_CONST               5 ('ProductRuntimeRegistration.__init__')
+             22 MAKE_FUNCTION            4 (annotations)
+             24 STORE_NAME               4 (__init__)
+
+ 49          26 LOAD_NAME                5 (property)
+
+ 50          28 LOAD_NAME                6 (Optional)
+             30 LOAD_NAME                7 (ProductRuntimeCandidate)
+             32 BINARY_SUBSCR
+             34 LOAD_CONST               3 (('return',))
+             36 BUILD_CONST_KEY_MAP      1
+             38 LOAD_CONST               6 (<code object current at 0x1073b9920, file "WeRobotCore/application/product_runtime.py", line 49>)
+             40 LOAD_CONST               7 ('ProductRuntimeRegistration.current')
+             42 MAKE_FUNCTION            4 (annotations)
+             44 CALL_FUNCTION            1
+             46 STORE_NAME               8 (current)
+
+ 53          48 LOAD_NAME                5 (property)
+
+ 54          50 LOAD_NAME                9 (bool)
+             52 LOAD_CONST               3 (('return',))
+             54 BUILD_CONST_KEY_MAP      1
+             56 LOAD_CONST               8 (<code object is_registered at 0x1073b9a80, file "WeRobotCore/application/product_runtime.py", line 53>)
+             58 LOAD_CONST               9 ('ProductRuntimeRegistration.is_registered')
+             60 MAKE_FUNCTION            4 (annotations)
+             62 CALL_FUNCTION            1
+             64 STORE_NAME              10 (is_registered)
+
+ 61          66 LOAD_CONST               2 (None)
+
+ 62          68 LOAD_CONST               2 (None)
+
+ 63          70 LOAD_CONST               2 (None)
+
+ 57          72 LOAD_CONST              10 (('candidate_factory', 'auto_reply_manager', 'multi_chat_monitor'))
+             74 BUILD_CONST_KEY_MAP      3
+
+ 59          76 LOAD_NAME                9 (bool)
+
+ 61          78 LOAD_NAME                6 (Optional)
+             80 LOAD_NAME               11 (Callable)
+             82 BUILD_LIST               0
+             84 LOAD_NAME                7 (ProductRuntimeCandidate)
+             86 BUILD_TUPLE              2
+             88 BINARY_SUBSCR
+             90 BINARY_SUBSCR
+
+ 62          92 LOAD_NAME                6 (Optional)
+             94 LOAD_NAME               12 (AutoReplyManagerBindingTarget)
+             96 BINARY_SUBSCR
+
+ 63          98 LOAD_NAME                6 (Optional)
+            100 LOAD_NAME               13 (AutoReplyMonitorBindingTarget)
+            102 BINARY_SUBSCR
+
+ 64         104 LOAD_NAME                6 (Optional)
+            106 LOAD_NAME                7 (ProductRuntimeCandidate)
+            108 BINARY_SUBSCR
+
+ 57         110 LOAD_CONST              11 (('enabled', 'candidate_factory', 'auto_reply_manager', 'multi_chat_monitor', 'return'))
+            112 BUILD_CONST_KEY_MAP      5
+            114 LOAD_CONST              12 (<code object register_if_enabled at 0x1073b9b30, file "WeRobotCore/application/product_runtime.py", line 57>)
+            116 LOAD_CONST              13 ('ProductRuntimeRegistration.register_if_enabled')
+            118 MAKE_FUNCTION            6 (kwdefaults, annotations)
+            120 STORE_NAME              14 (register_if_enabled)
+            122 LOAD_CONST               2 (None)
+            124 RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x1073b9450, file "WeRobotCore/application/product_runtime.py", line 45>:
+ 46           0 LOAD_CONST               0 (None)
+              2 LOAD_FAST                0 (self)
+              4 STORE_ATTR               0 (_candidate)
+
+ 47           6 LOAD_CONST               0 (None)
+              8 LOAD_FAST                0 (self)
+             10 STORE_ATTR               1 (_owner_ids)
+             12 LOAD_CONST               0 (None)
+             14 RETURN_VALUE
+
+Disassembly of <code object current at 0x1073b9920, file "WeRobotCore/application/product_runtime.py", line 49>:
+ 51           0 LOAD_FAST                0 (self)
+              2 LOAD_ATTR                0 (_candidate)
+              4 RETURN_VALUE
+
+Disassembly of <code object is_registered at 0x1073b9a80, file "WeRobotCore/application/product_runtime.py", line 53>:
+ 55           0 LOAD_FAST                0 (self)
+              2 LOAD_ATTR                0 (_candidate)
+              4 LOAD_CONST               0 (None)
+              6 IS_OP                    1
+              8 RETURN_VALUE
+
+Disassembly of <code object register_if_enabled at 0x1073b9b30, file "WeRobotCore/application/product_runtime.py", line 57>:
+ 67           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                1 (enabled)
+              4 LOAD_GLOBAL              1 (bool)
+              6 CALL_FUNCTION            2
+              8 POP_JUMP_IF_TRUE        18
+
+ 68          10 LOAD_GLOBAL              2 (TypeError)
+             12 LOAD_CONST               1 ('enabled must be a boolean')
+             14 CALL_FUNCTION            1
+             16 RAISE_VARARGS            1
+
+ 70     >>   18 LOAD_CONST               2 (None)
+             20 STORE_FAST               5 (owner_ids)
+
+ 71          22 LOAD_FAST                3 (auto_reply_manager)
+             24 LOAD_CONST               2 (None)
+             26 IS_OP                    1
+             28 POP_JUMP_IF_FALSE       54
+             30 LOAD_FAST                4 (multi_chat_monitor)
+             32 LOAD_CONST               2 (None)
+             34 IS_OP                    1
+             36 POP_JUMP_IF_FALSE       54
+
+ 72          38 LOAD_GLOBAL              3 (id)
+             40 LOAD_FAST                3 (auto_reply_manager)
+             42 CALL_FUNCTION            1
+             44 LOAD_GLOBAL              3 (id)
+             46 LOAD_FAST                4 (multi_chat_monitor)
+             48 CALL_FUNCTION            1
+             50 BUILD_TUPLE              2
+             52 STORE_FAST               5 (owner_ids)
+
+ 74     >>   54 LOAD_FAST                0 (self)
+             56 LOAD_ATTR                4 (_candidate)
+             58 LOAD_CONST               2 (None)
+             60 IS_OP                    1
+             62 POP_JUMP_IF_FALSE       88
+
+ 75          64 LOAD_FAST                5 (owner_ids)
+             66 LOAD_FAST                0 (self)
+             68 LOAD_ATTR                5 (_owner_ids)
+             70 COMPARE_OP               3 (!=)
+             72 POP_JUMP_IF_FALSE       82
+
+ 76          74 LOAD_GLOBAL              6 (RuntimeError)
+
+ 77          76 LOAD_CONST               3 ('product runtime is already registered for different owners')
+
+ 76          78 CALL_FUNCTION            1
+             80 RAISE_VARARGS            1
+
+ 79     >>   82 LOAD_FAST                0 (self)
+             84 LOAD_ATTR                4 (_candidate)
+             86 RETURN_VALUE
+
+ 81     >>   88 LOAD_FAST                1 (enabled)
+             90 POP_JUMP_IF_TRUE        96
+
+ 82          92 LOAD_CONST               2 (None)
+             94 RETURN_VALUE
+
+ 83     >>   96 LOAD_GLOBAL              7 (callable)
+             98 LOAD_FAST                2 (candidate_factory)
+            100 CALL_FUNCTION            1
+            102 POP_JUMP_IF_TRUE       112
+
+ 84         104 LOAD_GLOBAL              2 (TypeError)
+            106 LOAD_CONST               4 ('candidate_factory must be callable when enabled')
+            108 CALL_FUNCTION            1
+            110 RAISE_VARARGS            1
+
+ 85     >>  112 LOAD_FAST                3 (auto_reply_manager)
+            114 LOAD_CONST               2 (None)
+            116 IS_OP                    0
+            118 POP_JUMP_IF_TRUE       128
+            120 LOAD_FAST                4 (multi_chat_monitor)
+            122 LOAD_CONST               2 (None)
+            124 IS_OP                    0
+            126 POP_JUMP_IF_FALSE      136
+
+ 86     >>  128 LOAD_GLOBAL              8 (ValueError)
+
+ 87         130 LOAD_CONST               5 ('auto_reply_manager and multi_chat_monitor are required when enabled')
+
+ 86         132 CALL_FUNCTION            1
+            134 RAISE_VARARGS            1
+
+ 90     >>  136 LOAD_FAST                2 (candidate_factory)
+            138 CALL_FUNCTION            0
+            140 STORE_FAST               6 (candidate)
+
+ 91         142 LOAD_GLOBAL              0 (isinstance)
+            144 LOAD_FAST                6 (candidate)
+            146 LOAD_GLOBAL              9 (ProductRuntimeCandidate)
+            148 CALL_FUNCTION            2
+            150 POP_JUMP_IF_TRUE       160
+
+ 92         152 LOAD_GLOBAL              2 (TypeError)
+            154 LOAD_CONST               6 ('candidate_factory must return ProductRuntimeCandidate')
+            156 CALL_FUNCTION            1
+            158 RAISE_VARARGS            1
+
+ 94     >>  160 LOAD_GLOBAL             10 (install_auto_reply_runtime_bindings)
+
+ 95         162 LOAD_FAST                6 (candidate)
+            164 LOAD_ATTR               11 (auto_reply)
+
+ 96         166 LOAD_FAST                3 (auto_reply_manager)
+
+ 97         168 LOAD_FAST                4 (multi_chat_monitor)
+
+ 94         170 LOAD_CONST               7 (('auto_reply_manager', 'multi_chat_monitor'))
+            172 CALL_FUNCTION_KW         3
+            174 POP_TOP
+
+100         176 LOAD_FAST                6 (candidate)
+            178 LOAD_FAST                0 (self)
+            180 STORE_ATTR               4 (_candidate)
+
+101         182 LOAD_FAST                5 (owner_ids)
+            184 LOAD_FAST                0 (self)
+            186 STORE_ATTR               5 (_owner_ids)
+
+102         188 LOAD_FAST                6 (candidate)
+            190 RETURN_VALUE

@@ -1,0 +1,2481 @@
+  1           0 LOAD_CONST               0 ('Windows platform services around the mature local runtime semantics.\n\nThe module is deliberately safe to import on macOS/Linux.  Native Windows\nmodules and the existing RPA helpers are loaded only when an operation is\nactually requested.  Construction never creates directories, reads secrets,\nenumerates processes, focuses a window, or launches an application.\n\nSecret persistence stays injectable because the mature product stores tokens\ninside several existing configuration documents.  A generic platform adapter\nmust not invent a second secret file or migrate the legacy license format.\n')
+              2 STORE_NAME               0 (__doc__)
+
+ 13           4 LOAD_CONST               1 (0)
+              6 LOAD_CONST               2 (('dataclass',))
+              8 IMPORT_NAME              1 (dataclasses)
+             10 IMPORT_FROM              2 (dataclass)
+             12 STORE_NAME               2 (dataclass)
+             14 POP_TOP
+
+ 14          16 LOAD_CONST               1 (0)
+             18 LOAD_CONST               3 (('Path',))
+             20 IMPORT_NAME              3 (pathlib)
+             22 IMPORT_FROM              4 (Path)
+             24 STORE_NAME               4 (Path)
+             26 POP_TOP
+
+ 15          28 LOAD_CONST               1 (0)
+             30 LOAD_CONST               4 (None)
+             32 IMPORT_NAME              5 (subprocess)
+             34 STORE_NAME               5 (subprocess)
+
+ 16          36 LOAD_CONST               1 (0)
+             38 LOAD_CONST               4 (None)
+             40 IMPORT_NAME              6 (sys)
+             42 STORE_NAME               6 (sys)
+
+ 17          44 LOAD_CONST               1 (0)
+             46 LOAD_CONST               5 (('Any', 'Callable', 'Mapping', 'Optional', 'Protocol', 'Sequence'))
+             48 IMPORT_NAME              7 (typing)
+             50 IMPORT_FROM              8 (Any)
+             52 STORE_NAME               8 (Any)
+             54 IMPORT_FROM              9 (Callable)
+             56 STORE_NAME               9 (Callable)
+             58 IMPORT_FROM             10 (Mapping)
+             60 STORE_NAME              10 (Mapping)
+             62 IMPORT_FROM             11 (Optional)
+             64 STORE_NAME              11 (Optional)
+             66 IMPORT_FROM             12 (Protocol)
+             68 STORE_NAME              12 (Protocol)
+             70 IMPORT_FROM             13 (Sequence)
+             72 STORE_NAME              13 (Sequence)
+             74 POP_TOP
+
+ 19          76 LOAD_CONST               1 (0)
+             78 LOAD_CONST               6 (('AutomationError', 'ErrorCode', 'OperationResult'))
+             80 IMPORT_NAME             14 (WeRobotCore.domain)
+             82 IMPORT_FROM             15 (AutomationError)
+             84 STORE_NAME              15 (AutomationError)
+             86 IMPORT_FROM             16 (ErrorCode)
+             88 STORE_NAME              16 (ErrorCode)
+             90 IMPORT_FROM             17 (OperationResult)
+             92 STORE_NAME              17 (OperationResult)
+             94 POP_TOP
+
+ 20          96 LOAD_CONST               1 (0)
+             98 LOAD_CONST               7 (('PermissionState', 'PermissionStatus'))
+            100 IMPORT_NAME             18 (WeRobotCore.ports.platform)
+            102 IMPORT_FROM             19 (PermissionState)
+            104 STORE_NAME              19 (PermissionState)
+            106 IMPORT_FROM             20 (PermissionStatus)
+            108 STORE_NAME              20 (PermissionStatus)
+            110 POP_TOP
+
+ 23         112 LOAD_CONST               8 ('desktop_interaction')
+            114 STORE_NAME              21 (WINDOWS_DESKTOP_INTERACTION_PERMISSION)
+
+ 26         116 LOAD_NAME                2 (dataclass)
+            118 LOAD_CONST               9 (True)
+            120 LOAD_CONST              10 (('frozen',))
+            122 CALL_FUNCTION_KW         1
+
+ 27         124 LOAD_BUILD_CLASS
+            126 LOAD_CONST              11 (<code object WindowsLegacyAppPaths at 0x1090bd9d0, file "WeRobotCore/adapters/platform/windows_legacy.py", line 26>)
+            128 LOAD_CONST              12 ('WindowsLegacyAppPaths')
+            130 MAKE_FUNCTION            0
+            132 LOAD_CONST              12 ('WindowsLegacyAppPaths')
+            134 CALL_FUNCTION            2
+            136 CALL_FUNCTION            1
+            138 STORE_NAME              22 (WindowsLegacyAppPaths)
+
+ 60         140 LOAD_BUILD_CLASS
+            142 LOAD_CONST              13 (<code object LegacySecretValueBackend at 0x1090bdbe0, file "WeRobotCore/adapters/platform/windows_legacy.py", line 60>)
+            144 LOAD_CONST              14 ('LegacySecretValueBackend')
+            146 MAKE_FUNCTION            0
+            148 LOAD_CONST              14 ('LegacySecretValueBackend')
+            150 LOAD_NAME               12 (Protocol)
+            152 CALL_FUNCTION            3
+            154 STORE_NAME              23 (LegacySecretValueBackend)
+
+ 73         156 LOAD_BUILD_CLASS
+            158 LOAD_CONST              15 (<code object SecretProtector at 0x1090bd710, file "WeRobotCore/adapters/platform/windows_legacy.py", line 73>)
+            160 LOAD_CONST              16 ('SecretProtector')
+            162 MAKE_FUNCTION            0
+            164 LOAD_CONST              16 ('SecretProtector')
+            166 LOAD_NAME               12 (Protocol)
+            168 CALL_FUNCTION            3
+            170 STORE_NAME              24 (SecretProtector)
+
+ 84         172 LOAD_BUILD_CLASS
+            174 LOAD_CONST              17 (<code object CallbackSecretValueBackend at 0x10924b710, file "WeRobotCore/adapters/platform/windows_legacy.py", line 84>)
+            176 LOAD_CONST              18 ('CallbackSecretValueBackend')
+            178 MAKE_FUNCTION            0
+            180 LOAD_CONST              18 ('CallbackSecretValueBackend')
+            182 CALL_FUNCTION            2
+            184 STORE_NAME              25 (CallbackSecretValueBackend)
+
+115         186 LOAD_BUILD_CLASS
+            188 LOAD_CONST              19 (<code object WindowsDpapiProtector at 0x10924b7c0, file "WeRobotCore/adapters/platform/windows_legacy.py", line 115>)
+            190 LOAD_CONST              20 ('WindowsDpapiProtector')
+            192 MAKE_FUNCTION            0
+            194 LOAD_CONST              20 ('WindowsDpapiProtector')
+            196 CALL_FUNCTION            2
+            198 STORE_NAME              26 (WindowsDpapiProtector)
+
+137         200 LOAD_BUILD_CLASS
+            202 LOAD_CONST              21 (<code object WindowsDpapiSecretStore at 0x109251f50, file "WeRobotCore/adapters/platform/windows_legacy.py", line 137>)
+            204 LOAD_CONST              22 ('WindowsDpapiSecretStore')
+            206 MAKE_FUNCTION            0
+            208 LOAD_CONST              22 ('WindowsDpapiSecretStore')
+            210 CALL_FUNCTION            2
+            212 STORE_NAME              27 (WindowsDpapiSecretStore)
+
+277         214 LOAD_BUILD_CLASS
+            216 LOAD_CONST              23 (<code object WindowsDesktopPermissionService at 0x10924c5b0, file "WeRobotCore/adapters/platform/windows_legacy.py", line 277>)
+            218 LOAD_CONST              24 ('WindowsDesktopPermissionService')
+            220 MAKE_FUNCTION            0
+            222 LOAD_CONST              24 ('WindowsDesktopPermissionService')
+            224 CALL_FUNCTION            2
+            226 STORE_NAME              28 (WindowsDesktopPermissionService)
+
+344         228 LOAD_BUILD_CLASS
+            230 LOAD_CONST              25 (<code object WindowsProcessFacade at 0x10924c7c0, file "WeRobotCore/adapters/platform/windows_legacy.py", line 344>)
+            232 LOAD_CONST              26 ('WindowsProcessFacade')
+            234 MAKE_FUNCTION            0
+            236 LOAD_CONST              26 ('WindowsProcessFacade')
+            238 LOAD_NAME               12 (Protocol)
+            240 CALL_FUNCTION            3
+            242 STORE_NAME              29 (WindowsProcessFacade)
+
+352         244 LOAD_BUILD_CLASS
+            246 LOAD_CONST              27 (<code object WindowsNativeProcessFacade at 0x10924cb30, file "WeRobotCore/adapters/platform/windows_legacy.py", line 352>)
+            248 LOAD_CONST              28 ('WindowsNativeProcessFacade')
+            250 MAKE_FUNCTION            0
+            252 LOAD_CONST              28 ('WindowsNativeProcessFacade')
+            254 CALL_FUNCTION            2
+            256 STORE_NAME              30 (WindowsNativeProcessFacade)
+
+411         258 LOAD_BUILD_CLASS
+            260 LOAD_CONST              29 (<code object WindowsProcessManagerAdapter at 0x10924cea0, file "WeRobotCore/adapters/platform/windows_legacy.py", line 411>)
+            262 LOAD_CONST              30 ('WindowsProcessManagerAdapter')
+            264 MAKE_FUNCTION            0
+            266 LOAD_CONST              30 ('WindowsProcessManagerAdapter')
+            268 CALL_FUNCTION            2
+            270 STORE_NAME              31 (WindowsProcessManagerAdapter)
+
+459         272 LOAD_BUILD_CLASS
+            274 LOAD_CONST              31 (<code object WindowsExecutableApplicationLauncher at 0x1092540e0, file "WeRobotCore/adapters/platform/windows_legacy.py", line 459>)
+            276 LOAD_CONST              32 ('WindowsExecutableApplicationLauncher')
+            278 MAKE_FUNCTION            0
+            280 LOAD_CONST              32 ('WindowsExecutableApplicationLauncher')
+            282 CALL_FUNCTION            2
+            284 STORE_NAME              32 (WindowsExecutableApplicationLauncher)
+            286 LOAD_CONST               4 (None)
+            288 RETURN_VALUE
+
+Disassembly of <code object WindowsLegacyAppPaths at 0x1090bd9d0, file "WeRobotCore/adapters/platform/windows_legacy.py", line 26>:
+ 26           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('WindowsLegacyAppPaths')
+              6 STORE_NAME               2 (__qualname__)
+              8 SETUP_ANNOTATIONS
+
+ 28          10 LOAD_CONST               1 ('Existing Windows roots without creating or migrating any directory.')
+             12 STORE_NAME               3 (__doc__)
+
+ 30          14 LOAD_NAME                4 (Path)
+             16 LOAD_NAME                5 (__annotations__)
+             18 LOAD_CONST               2 ('data_root')
+             20 STORE_SUBSCR
+
+ 31          22 LOAD_NAME                4 (Path)
+             24 LOAD_NAME                5 (__annotations__)
+             26 LOAD_CONST               3 ('config_root')
+             28 STORE_SUBSCR
+
+ 32          30 LOAD_NAME                4 (Path)
+             32 LOAD_NAME                5 (__annotations__)
+             34 LOAD_CONST               4 ('cache_root')
+             36 STORE_SUBSCR
+
+ 33          38 LOAD_NAME                4 (Path)
+             40 LOAD_NAME                5 (__annotations__)
+             42 LOAD_CONST               5 ('log_root')
+             44 STORE_SUBSCR
+
+ 35          46 LOAD_CONST               6 (None)
+             48 LOAD_CONST               7 (('return',))
+             50 BUILD_CONST_KEY_MAP      1
+             52 LOAD_CONST               8 (<code object __post_init__ at 0x1090bda80, file "WeRobotCore/adapters/platform/windows_legacy.py", line 35>)
+             54 LOAD_CONST               9 ('WindowsLegacyAppPaths.__post_init__')
+             56 MAKE_FUNCTION            4 (annotations)
+             58 STORE_NAME               6 (__post_init__)
+
+ 41          60 LOAD_NAME                7 (classmethod)
+
+ 42          62 LOAD_NAME                4 (Path)
+             64 LOAD_CONST               0 ('WindowsLegacyAppPaths')
+             66 LOAD_CONST              10 (('home_dir', 'return'))
+             68 BUILD_CONST_KEY_MAP      2
+             70 LOAD_CONST              11 (<code object from_home at 0x1090bdd40, file "WeRobotCore/adapters/platform/windows_legacy.py", line 41>)
+             72 LOAD_CONST              12 ('WindowsLegacyAppPaths.from_home')
+             74 MAKE_FUNCTION            4 (annotations)
+             76 CALL_FUNCTION            1
+             78 STORE_NAME               8 (from_home)
+             80 LOAD_CONST               6 (None)
+             82 RETURN_VALUE
+
+Disassembly of <code object __post_init__ at 0x1090bda80, file "WeRobotCore/adapters/platform/windows_legacy.py", line 35>:
+ 36           0 LOAD_CONST               1 (('data_root', 'config_root', 'cache_root', 'log_root'))
+              2 GET_ITER
+        >>    4 FOR_ITER                38 (to 44)
+              6 STORE_FAST               1 (field_name)
+
+ 37           8 LOAD_GLOBAL              0 (getattr)
+             10 LOAD_FAST                0 (self)
+             12 LOAD_FAST                1 (field_name)
+             14 CALL_FUNCTION            2
+             16 STORE_FAST               2 (value)
+
+ 38          18 LOAD_GLOBAL              1 (isinstance)
+             20 LOAD_FAST                2 (value)
+             22 LOAD_GLOBAL              2 (Path)
+             24 CALL_FUNCTION            2
+             26 POP_JUMP_IF_TRUE         4
+
+ 39          28 LOAD_GLOBAL              3 (TypeError)
+             30 LOAD_CONST               2 ('{} must be a pathlib.Path')
+             32 LOAD_METHOD              4 (format)
+             34 LOAD_FAST                1 (field_name)
+             36 CALL_METHOD              1
+             38 CALL_FUNCTION            1
+             40 RAISE_VARARGS            1
+             42 JUMP_ABSOLUTE            4
+        >>   44 LOAD_CONST               0 (None)
+             46 RETURN_VALUE
+
+Disassembly of <code object from_home at 0x1090bdd40, file "WeRobotCore/adapters/platform/windows_legacy.py", line 41>:
+ 50           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                1 (home_dir)
+              4 LOAD_GLOBAL              1 (Path)
+              6 CALL_FUNCTION            2
+              8 POP_JUMP_IF_TRUE        18
+
+ 51          10 LOAD_GLOBAL              2 (TypeError)
+             12 LOAD_CONST               1 ('home_dir must be a pathlib.Path')
+             14 CALL_FUNCTION            1
+             16 RAISE_VARARGS            1
+
+ 52     >>   18 LOAD_FAST                0 (cls)
+
+ 53          20 LOAD_FAST                1 (home_dir)
+             22 LOAD_CONST               2 ('.webot')
+             24 BINARY_TRUE_DIVIDE
+             26 LOAD_CONST               3 ('data')
+             28 BINARY_TRUE_DIVIDE
+
+ 54          30 LOAD_FAST                1 (home_dir)
+             32 LOAD_CONST               4 ('.yokowebot')
+             34 BINARY_TRUE_DIVIDE
+
+ 55          36 LOAD_FAST                1 (home_dir)
+             38 LOAD_CONST               2 ('.webot')
+             40 BINARY_TRUE_DIVIDE
+             42 LOAD_CONST               5 ('file_cache')
+             44 BINARY_TRUE_DIVIDE
+
+ 56          46 LOAD_FAST                1 (home_dir)
+             48 LOAD_CONST               2 ('.webot')
+             50 BINARY_TRUE_DIVIDE
+             52 LOAD_CONST               6 ('logs')
+             54 BINARY_TRUE_DIVIDE
+
+ 52          56 LOAD_CONST               7 (('data_root', 'config_root', 'cache_root', 'log_root'))
+             58 CALL_FUNCTION_KW         4
+             60 RETURN_VALUE
+
+Disassembly of <code object LegacySecretValueBackend at 0x1090bdbe0, file "WeRobotCore/adapters/platform/windows_legacy.py", line 60>:
+ 60           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('LegacySecretValueBackend')
+              6 STORE_NAME               2 (__qualname__)
+
+ 61           8 LOAD_CONST               1 ('Raw value access supplied by an existing Windows configuration store.')
+             10 STORE_NAME               3 (__doc__)
+
+ 63          12 LOAD_NAME                4 (str)
+             14 LOAD_NAME                5 (Optional)
+             16 LOAD_NAME                4 (str)
+             18 BINARY_SUBSCR
+             20 LOAD_CONST               2 (('key', 'return'))
+             22 BUILD_CONST_KEY_MAP      2
+             24 LOAD_CONST               3 (<code object read_secret_value at 0x1090bd5b0, file "WeRobotCore/adapters/platform/windows_legacy.py", line 63>)
+             26 LOAD_CONST               4 ('LegacySecretValueBackend.read_secret_value')
+             28 MAKE_FUNCTION            4 (annotations)
+             30 STORE_NAME               6 (read_secret_value)
+
+ 66          32 LOAD_NAME                4 (str)
+             34 LOAD_NAME                4 (str)
+             36 LOAD_CONST               5 (None)
+             38 LOAD_CONST               6 (('key', 'value', 'return'))
+             40 BUILD_CONST_KEY_MAP      3
+             42 LOAD_CONST               7 (<code object write_secret_value at 0x1090bddf0, file "WeRobotCore/adapters/platform/windows_legacy.py", line 66>)
+             44 LOAD_CONST               8 ('LegacySecretValueBackend.write_secret_value')
+             46 MAKE_FUNCTION            4 (annotations)
+             48 STORE_NAME               7 (write_secret_value)
+
+ 69          50 LOAD_NAME                4 (str)
+             52 LOAD_CONST               5 (None)
+             54 LOAD_CONST               2 (('key', 'return'))
+             56 BUILD_CONST_KEY_MAP      2
+             58 LOAD_CONST               9 (<code object delete_secret_value at 0x1090bd920, file "WeRobotCore/adapters/platform/windows_legacy.py", line 69>)
+             60 LOAD_CONST              10 ('LegacySecretValueBackend.delete_secret_value')
+             62 MAKE_FUNCTION            4 (annotations)
+             64 STORE_NAME               8 (delete_secret_value)
+             66 LOAD_CONST               5 (None)
+             68 RETURN_VALUE
+
+Disassembly of <code object read_secret_value at 0x1090bd5b0, file "WeRobotCore/adapters/platform/windows_legacy.py", line 63>:
+ 64           0 LOAD_CONST               0 (None)
+              2 RETURN_VALUE
+
+Disassembly of <code object write_secret_value at 0x1090bddf0, file "WeRobotCore/adapters/platform/windows_legacy.py", line 66>:
+ 67           0 LOAD_CONST               0 (None)
+              2 RETURN_VALUE
+
+Disassembly of <code object delete_secret_value at 0x1090bd920, file "WeRobotCore/adapters/platform/windows_legacy.py", line 69>:
+ 70           0 LOAD_CONST               0 (None)
+              2 RETURN_VALUE
+
+Disassembly of <code object SecretProtector at 0x1090bd710, file "WeRobotCore/adapters/platform/windows_legacy.py", line 73>:
+ 73           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('SecretProtector')
+              6 STORE_NAME               2 (__qualname__)
+
+ 74           8 LOAD_NAME                3 (str)
+             10 LOAD_NAME                3 (str)
+             12 LOAD_CONST               1 (('value', 'return'))
+             14 BUILD_CONST_KEY_MAP      2
+             16 LOAD_CONST               2 (<code object protect at 0x1090bdea0, file "WeRobotCore/adapters/platform/windows_legacy.py", line 74>)
+             18 LOAD_CONST               3 ('SecretProtector.protect')
+             20 MAKE_FUNCTION            4 (annotations)
+             22 STORE_NAME               4 (protect)
+
+ 77          24 LOAD_NAME                3 (str)
+             26 LOAD_NAME                3 (str)
+             28 LOAD_CONST               1 (('value', 'return'))
+             30 BUILD_CONST_KEY_MAP      2
+             32 LOAD_CONST               4 (<code object unprotect at 0x1090bdf50, file "WeRobotCore/adapters/platform/windows_legacy.py", line 77>)
+             34 LOAD_CONST               5 ('SecretProtector.unprotect')
+             36 MAKE_FUNCTION            4 (annotations)
+             38 STORE_NAME               5 (unprotect)
+
+ 80          40 LOAD_NAME                3 (str)
+             42 LOAD_NAME                6 (bool)
+             44 LOAD_CONST               1 (('value', 'return'))
+             46 BUILD_CONST_KEY_MAP      2
+             48 LOAD_CONST               6 (<code object is_protected at 0x1090bd660, file "WeRobotCore/adapters/platform/windows_legacy.py", line 80>)
+             50 LOAD_CONST               7 ('SecretProtector.is_protected')
+             52 MAKE_FUNCTION            4 (annotations)
+             54 STORE_NAME               7 (is_protected)
+             56 LOAD_CONST               8 (None)
+             58 RETURN_VALUE
+
+Disassembly of <code object protect at 0x1090bdea0, file "WeRobotCore/adapters/platform/windows_legacy.py", line 74>:
+ 75           0 LOAD_CONST               0 (None)
+              2 RETURN_VALUE
+
+Disassembly of <code object unprotect at 0x1090bdf50, file "WeRobotCore/adapters/platform/windows_legacy.py", line 77>:
+ 78           0 LOAD_CONST               0 (None)
+              2 RETURN_VALUE
+
+Disassembly of <code object is_protected at 0x1090bd660, file "WeRobotCore/adapters/platform/windows_legacy.py", line 80>:
+ 81           0 LOAD_CONST               0 (None)
+              2 RETURN_VALUE
+
+Disassembly of <code object CallbackSecretValueBackend at 0x10924b710, file "WeRobotCore/adapters/platform/windows_legacy.py", line 84>:
+ 84           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('CallbackSecretValueBackend')
+              6 STORE_NAME               2 (__qualname__)
+
+ 85           8 LOAD_CONST               1 ('Bind the Port to existing per-setting persistence callbacks.')
+             10 STORE_NAME               3 (__doc__)
+
+ 90          12 LOAD_NAME                4 (Callable)
+             14 LOAD_NAME                5 (str)
+             16 BUILD_LIST               1
+             18 LOAD_NAME                6 (Optional)
+             20 LOAD_NAME                5 (str)
+             22 BINARY_SUBSCR
+             24 BUILD_TUPLE              2
+             26 BINARY_SUBSCR
+
+ 91          28 LOAD_NAME                4 (Callable)
+             30 LOAD_NAME                5 (str)
+             32 LOAD_NAME                5 (str)
+             34 BUILD_LIST               2
+             36 LOAD_CONST               2 (None)
+             38 BUILD_TUPLE              2
+             40 BINARY_SUBSCR
+
+ 92          42 LOAD_NAME                4 (Callable)
+             44 LOAD_NAME                5 (str)
+             46 BUILD_LIST               1
+             48 LOAD_CONST               2 (None)
+             50 BUILD_TUPLE              2
+             52 BINARY_SUBSCR
+
+ 93          54 LOAD_CONST               2 (None)
+
+ 87          56 LOAD_CONST               3 (('reader', 'writer', 'deleter', 'return'))
+             58 BUILD_CONST_KEY_MAP      4
+             60 LOAD_CONST               4 (<code object __init__ at 0x10924bf50, file "WeRobotCore/adapters/platform/windows_legacy.py", line 87>)
+             62 LOAD_CONST               5 ('CallbackSecretValueBackend.__init__')
+             64 MAKE_FUNCTION            4 (annotations)
+             66 STORE_NAME               7 (__init__)
+
+105          68 LOAD_NAME                5 (str)
+             70 LOAD_NAME                6 (Optional)
+             72 LOAD_NAME                5 (str)
+             74 BINARY_SUBSCR
+             76 LOAD_CONST               6 (('key', 'return'))
+             78 BUILD_CONST_KEY_MAP      2
+             80 LOAD_CONST               7 (<code object read_secret_value at 0x10924b9d0, file "WeRobotCore/adapters/platform/windows_legacy.py", line 105>)
+             82 LOAD_CONST               8 ('CallbackSecretValueBackend.read_secret_value')
+             84 MAKE_FUNCTION            4 (annotations)
+             86 STORE_NAME               8 (read_secret_value)
+
+108          88 LOAD_NAME                5 (str)
+             90 LOAD_NAME                5 (str)
+             92 LOAD_CONST               2 (None)
+             94 LOAD_CONST               9 (('key', 'value', 'return'))
+             96 BUILD_CONST_KEY_MAP      3
+             98 LOAD_CONST              10 (<code object write_secret_value at 0x10924b030, file "WeRobotCore/adapters/platform/windows_legacy.py", line 108>)
+            100 LOAD_CONST              11 ('CallbackSecretValueBackend.write_secret_value')
+            102 MAKE_FUNCTION            4 (annotations)
+            104 STORE_NAME               9 (write_secret_value)
+
+111         106 LOAD_NAME                5 (str)
+            108 LOAD_CONST               2 (None)
+            110 LOAD_CONST               6 (('key', 'return'))
+            112 BUILD_CONST_KEY_MAP      2
+            114 LOAD_CONST              12 (<code object delete_secret_value at 0x10924b3a0, file "WeRobotCore/adapters/platform/windows_legacy.py", line 111>)
+            116 LOAD_CONST              13 ('CallbackSecretValueBackend.delete_secret_value')
+            118 MAKE_FUNCTION            4 (annotations)
+            120 STORE_NAME              10 (delete_secret_value)
+            122 LOAD_CONST               2 (None)
+            124 RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x10924bf50, file "WeRobotCore/adapters/platform/windows_legacy.py", line 87>:
+ 95           0 LOAD_FAST                1 (reader)
+              2 LOAD_CONST               1 ('reader')
+              4 BUILD_TUPLE              2
+
+ 96           6 LOAD_FAST                2 (writer)
+              8 LOAD_CONST               2 ('writer')
+             10 BUILD_TUPLE              2
+
+ 97          12 LOAD_FAST                3 (deleter)
+             14 LOAD_CONST               3 ('deleter')
+             16 BUILD_TUPLE              2
+
+ 94          18 BUILD_TUPLE              3
+             20 GET_ITER
+        >>   22 FOR_ITER                30 (to 54)
+             24 UNPACK_SEQUENCE          2
+             26 STORE_FAST               4 (value)
+             28 STORE_FAST               5 (name)
+
+ 99          30 LOAD_GLOBAL              0 (callable)
+             32 LOAD_FAST                4 (value)
+             34 CALL_FUNCTION            1
+             36 POP_JUMP_IF_TRUE        22
+
+100          38 LOAD_GLOBAL              1 (TypeError)
+             40 LOAD_CONST               4 ('{} must be callable')
+             42 LOAD_METHOD              2 (format)
+             44 LOAD_FAST                5 (name)
+             46 CALL_METHOD              1
+             48 CALL_FUNCTION            1
+             50 RAISE_VARARGS            1
+             52 JUMP_ABSOLUTE           22
+
+101     >>   54 LOAD_FAST                1 (reader)
+             56 LOAD_FAST                0 (self)
+             58 STORE_ATTR               3 (_reader)
+
+102          60 LOAD_FAST                2 (writer)
+             62 LOAD_FAST                0 (self)
+             64 STORE_ATTR               4 (_writer)
+
+103          66 LOAD_FAST                3 (deleter)
+             68 LOAD_FAST                0 (self)
+             70 STORE_ATTR               5 (_deleter)
+             72 LOAD_CONST               0 (None)
+             74 RETURN_VALUE
+
+Disassembly of <code object read_secret_value at 0x10924b9d0, file "WeRobotCore/adapters/platform/windows_legacy.py", line 105>:
+106           0 LOAD_FAST                0 (self)
+              2 LOAD_METHOD              0 (_reader)
+              4 LOAD_FAST                1 (key)
+              6 CALL_METHOD              1
+              8 RETURN_VALUE
+
+Disassembly of <code object write_secret_value at 0x10924b030, file "WeRobotCore/adapters/platform/windows_legacy.py", line 108>:
+109           0 LOAD_FAST                0 (self)
+              2 LOAD_METHOD              0 (_writer)
+              4 LOAD_FAST                1 (key)
+              6 LOAD_FAST                2 (value)
+              8 CALL_METHOD              2
+             10 POP_TOP
+             12 LOAD_CONST               0 (None)
+             14 RETURN_VALUE
+
+Disassembly of <code object delete_secret_value at 0x10924b3a0, file "WeRobotCore/adapters/platform/windows_legacy.py", line 111>:
+112           0 LOAD_FAST                0 (self)
+              2 LOAD_METHOD              0 (_deleter)
+              4 LOAD_FAST                1 (key)
+              6 CALL_METHOD              1
+              8 POP_TOP
+             10 LOAD_CONST               0 (None)
+             12 RETURN_VALUE
+
+Disassembly of <code object WindowsDpapiProtector at 0x10924b7c0, file "WeRobotCore/adapters/platform/windows_legacy.py", line 115>:
+115           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('WindowsDpapiProtector')
+              6 STORE_NAME               2 (__qualname__)
+
+116           8 LOAD_CONST               1 ('Use the existing DPAPI codec while rejecting its plaintext fallback.')
+             10 STORE_NAME               3 (__doc__)
+
+118          12 LOAD_NAME                4 (staticmethod)
+
+119          14 LOAD_CONST               2 (<code object _codec at 0x10924b0e0, file "WeRobotCore/adapters/platform/windows_legacy.py", line 118>)
+             16 LOAD_CONST               3 ('WindowsDpapiProtector._codec')
+             18 MAKE_FUNCTION            0
+             20 CALL_FUNCTION            1
+             22 STORE_NAME               5 (_codec)
+
+125          24 LOAD_NAME                6 (str)
+             26 LOAD_NAME                6 (str)
+             28 LOAD_CONST               4 (('value', 'return'))
+             30 BUILD_CONST_KEY_MAP      2
+             32 LOAD_CONST               5 (<code object protect at 0x10924bc90, file "WeRobotCore/adapters/platform/windows_legacy.py", line 125>)
+             34 LOAD_CONST               6 ('WindowsDpapiProtector.protect')
+             36 MAKE_FUNCTION            4 (annotations)
+             38 STORE_NAME               7 (protect)
+
+129          40 LOAD_NAME                6 (str)
+             42 LOAD_NAME                6 (str)
+             44 LOAD_CONST               4 (('value', 'return'))
+             46 BUILD_CONST_KEY_MAP      2
+             48 LOAD_CONST               7 (<code object unprotect at 0x10924b2f0, file "WeRobotCore/adapters/platform/windows_legacy.py", line 129>)
+             50 LOAD_CONST               8 ('WindowsDpapiProtector.unprotect')
+             52 MAKE_FUNCTION            4 (annotations)
+             54 STORE_NAME               8 (unprotect)
+
+133          56 LOAD_NAME                6 (str)
+             58 LOAD_NAME                9 (bool)
+             60 LOAD_CONST               4 (('value', 'return'))
+             62 BUILD_CONST_KEY_MAP      2
+             64 LOAD_CONST               9 (<code object is_protected at 0x10924b190, file "WeRobotCore/adapters/platform/windows_legacy.py", line 133>)
+             66 LOAD_CONST              10 ('WindowsDpapiProtector.is_protected')
+             68 MAKE_FUNCTION            4 (annotations)
+             70 STORE_NAME              10 (is_protected)
+             72 LOAD_CONST              11 (None)
+             74 RETURN_VALUE
+
+Disassembly of <code object _codec at 0x10924b0e0, file "WeRobotCore/adapters/platform/windows_legacy.py", line 118>:
+121           0 LOAD_CONST               1 (0)
+              2 LOAD_CONST               2 (('dpapi_crypto',))
+              4 IMPORT_NAME              0 (WeRobotCore.utils)
+              6 IMPORT_FROM              1 (dpapi_crypto)
+              8 STORE_FAST               0 (dpapi_crypto)
+             10 POP_TOP
+
+123          12 LOAD_FAST                0 (dpapi_crypto)
+             14 RETURN_VALUE
+
+Disassembly of <code object protect at 0x10924bc90, file "WeRobotCore/adapters/platform/windows_legacy.py", line 125>:
+126           0 LOAD_FAST                0 (self)
+              2 LOAD_METHOD              0 (_codec)
+              4 CALL_METHOD              0
+              6 LOAD_METHOD              1 (encrypt)
+              8 LOAD_FAST                1 (value)
+             10 CALL_METHOD              1
+             12 STORE_FAST               2 (protected)
+
+127          14 LOAD_FAST                2 (protected)
+             16 LOAD_CONST               0 (None)
+             18 IS_OP                    0
+             20 POP_JUMP_IF_FALSE       26
+             22 LOAD_CONST               1 ('')
+             24 RETURN_VALUE
+        >>   26 LOAD_GLOBAL              2 (str)
+             28 LOAD_FAST                2 (protected)
+             30 CALL_FUNCTION            1
+             32 RETURN_VALUE
+
+Disassembly of <code object unprotect at 0x10924b2f0, file "WeRobotCore/adapters/platform/windows_legacy.py", line 129>:
+130           0 LOAD_FAST                0 (self)
+              2 LOAD_METHOD              0 (_codec)
+              4 CALL_METHOD              0
+              6 LOAD_METHOD              1 (decrypt)
+              8 LOAD_FAST                1 (value)
+             10 CALL_METHOD              1
+             12 STORE_FAST               2 (plain)
+
+131          14 LOAD_FAST                2 (plain)
+             16 LOAD_CONST               0 (None)
+             18 IS_OP                    0
+             20 POP_JUMP_IF_FALSE       26
+             22 LOAD_CONST               1 ('')
+             24 RETURN_VALUE
+        >>   26 LOAD_GLOBAL              2 (str)
+             28 LOAD_FAST                2 (plain)
+             30 CALL_FUNCTION            1
+             32 RETURN_VALUE
+
+Disassembly of <code object is_protected at 0x10924b190, file "WeRobotCore/adapters/platform/windows_legacy.py", line 133>:
+134           0 LOAD_GLOBAL              0 (bool)
+              2 LOAD_FAST                0 (self)
+              4 LOAD_METHOD              1 (_codec)
+              6 CALL_METHOD              0
+              8 LOAD_METHOD              2 (is_encrypted)
+             10 LOAD_FAST                1 (value)
+             12 CALL_METHOD              1
+             14 CALL_FUNCTION            1
+             16 RETURN_VALUE
+
+Disassembly of <code object WindowsDpapiSecretStore at 0x109251f50, file "WeRobotCore/adapters/platform/windows_legacy.py", line 137>:
+137           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('WindowsDpapiSecretStore')
+              6 STORE_NAME               2 (__qualname__)
+
+138           8 LOAD_CONST               1 ('DPAPI-protected facade over existing product-owned persistence.\n\n    Historical plaintext remains readable because ``dpapi_crypto.decrypt`` is\n    intentionally backward compatible.  New writes fail closed when DPAPI is\n    unavailable, so this adapter never introduces new plaintext secrets.\n    ')
+             10 STORE_NAME               3 (__doc__)
+
+145          12 LOAD_CONST              18 ((None,))
+
+147          14 LOAD_NAME                4 (LegacySecretValueBackend)
+
+148          16 LOAD_NAME                5 (Optional)
+             18 LOAD_NAME                6 (SecretProtector)
+             20 BINARY_SUBSCR
+
+149          22 LOAD_CONST               2 (None)
+
+145          24 LOAD_CONST               3 (('backend', 'protector', 'return'))
+             26 BUILD_CONST_KEY_MAP      3
+             28 LOAD_CONST               4 (<code object __init__ at 0x10924b660, file "WeRobotCore/adapters/platform/windows_legacy.py", line 145>)
+             30 LOAD_CONST               5 ('WindowsDpapiSecretStore.__init__')
+             32 MAKE_FUNCTION            5 (defaults, annotations)
+             34 STORE_NAME               7 (__init__)
+
+162          36 LOAD_NAME                8 (staticmethod)
+
+163          38 LOAD_NAME                9 (str)
+             40 LOAD_NAME                9 (str)
+             42 LOAD_CONST               6 (('key', 'return'))
+             44 BUILD_CONST_KEY_MAP      2
+             46 LOAD_CONST               7 (<code object _validate_key at 0x10924b240, file "WeRobotCore/adapters/platform/windows_legacy.py", line 162>)
+             48 LOAD_CONST               8 ('WindowsDpapiSecretStore._validate_key')
+             50 MAKE_FUNCTION            4 (annotations)
+             52 CALL_FUNCTION            1
+             54 STORE_NAME              10 (_validate_key)
+
+171          56 LOAD_NAME                9 (str)
+             58 LOAD_NAME                5 (Optional)
+             60 LOAD_NAME                9 (str)
+             62 BINARY_SUBSCR
+             64 LOAD_CONST               6 (('key', 'return'))
+             66 BUILD_CONST_KEY_MAP      2
+             68 LOAD_CONST               9 (<code object _read_raw at 0x10924b450, file "WeRobotCore/adapters/platform/windows_legacy.py", line 171>)
+             70 LOAD_CONST              10 ('WindowsDpapiSecretStore._read_raw')
+             72 MAKE_FUNCTION            4 (annotations)
+             74 STORE_NAME              11 (_read_raw)
+
+187          76 LOAD_NAME                9 (str)
+             78 LOAD_NAME                5 (Optional)
+             80 LOAD_NAME                9 (str)
+             82 BINARY_SUBSCR
+             84 LOAD_CONST               6 (('key', 'return'))
+             86 BUILD_CONST_KEY_MAP      2
+             88 LOAD_CONST              11 (<code object get_secret at 0x109251d40, file "WeRobotCore/adapters/platform/windows_legacy.py", line 187>)
+             90 LOAD_CONST              12 ('WindowsDpapiSecretStore.get_secret')
+             92 MAKE_FUNCTION            4 (annotations)
+             94 STORE_NAME              12 (get_secret)
+
+211          96 LOAD_NAME                9 (str)
+             98 LOAD_NAME                9 (str)
+            100 LOAD_NAME               13 (OperationResult)
+            102 LOAD_CONST              13 (('key', 'value', 'return'))
+            104 BUILD_CONST_KEY_MAP      3
+            106 LOAD_CONST              14 (<code object set_secret at 0x109251df0, file "WeRobotCore/adapters/platform/windows_legacy.py", line 211>)
+            108 LOAD_CONST              15 ('WindowsDpapiSecretStore.set_secret')
+            110 MAKE_FUNCTION            4 (annotations)
+            112 STORE_NAME              14 (set_secret)
+
+255         114 LOAD_NAME                9 (str)
+            116 LOAD_NAME               13 (OperationResult)
+            118 LOAD_CONST               6 (('key', 'return'))
+            120 BUILD_CONST_KEY_MAP      2
+            122 LOAD_CONST              16 (<code object delete_secret at 0x109251ea0, file "WeRobotCore/adapters/platform/windows_legacy.py", line 255>)
+            124 LOAD_CONST              17 ('WindowsDpapiSecretStore.delete_secret')
+            126 MAKE_FUNCTION            4 (annotations)
+            128 STORE_NAME              15 (delete_secret)
+            130 LOAD_CONST               2 (None)
+            132 RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x10924b660, file "WeRobotCore/adapters/platform/windows_legacy.py", line 145>:
+150           0 LOAD_FAST                1 (backend)
+              2 LOAD_CONST               0 (None)
+              4 IS_OP                    0
+              6 POP_JUMP_IF_FALSE       16
+
+151           8 LOAD_GLOBAL              0 (ValueError)
+             10 LOAD_CONST               1 ('backend must be provided')
+             12 CALL_FUNCTION            1
+             14 RAISE_VARARGS            1
+
+152     >>   16 LOAD_CONST               2 (('read_secret_value', 'write_secret_value', 'delete_secret_value'))
+             18 GET_ITER
+        >>   20 FOR_ITER                34 (to 56)
+             22 STORE_FAST               3 (method_name)
+
+157          24 LOAD_GLOBAL              1 (callable)
+             26 LOAD_GLOBAL              2 (getattr)
+             28 LOAD_FAST                1 (backend)
+             30 LOAD_FAST                3 (method_name)
+             32 LOAD_CONST               0 (None)
+             34 CALL_FUNCTION            3
+             36 CALL_FUNCTION            1
+             38 POP_JUMP_IF_TRUE        20
+
+158          40 LOAD_GLOBAL              3 (TypeError)
+             42 LOAD_CONST               3 ('backend does not provide {}')
+             44 LOAD_METHOD              4 (format)
+             46 LOAD_FAST                3 (method_name)
+             48 CALL_METHOD              1
+             50 CALL_FUNCTION            1
+             52 RAISE_VARARGS            1
+             54 JUMP_ABSOLUTE           20
+
+159     >>   56 LOAD_FAST                1 (backend)
+             58 LOAD_FAST                0 (self)
+             60 STORE_ATTR               5 (_backend)
+
+160          62 LOAD_FAST                2 (protector)
+             64 JUMP_IF_TRUE_OR_POP     70
+             66 LOAD_GLOBAL              6 (WindowsDpapiProtector)
+             68 CALL_FUNCTION            0
+        >>   70 LOAD_FAST                0 (self)
+             72 STORE_ATTR               7 (_protector)
+             74 LOAD_CONST               0 (None)
+             76 RETURN_VALUE
+
+Disassembly of <code object _validate_key at 0x10924b240, file "WeRobotCore/adapters/platform/windows_legacy.py", line 162>:
+164           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                0 (key)
+              4 LOAD_GLOBAL              1 (str)
+              6 CALL_FUNCTION            2
+              8 POP_JUMP_IF_FALSE       18
+             10 LOAD_FAST                0 (key)
+             12 LOAD_METHOD              2 (strip)
+             14 CALL_METHOD              0
+             16 POP_JUMP_IF_TRUE        30
+
+165     >>   18 LOAD_GLOBAL              3 (AutomationError)
+
+166          20 LOAD_GLOBAL              4 (ErrorCode)
+             22 LOAD_ATTR                5 (INVALID_ARGUMENT)
+
+167          24 LOAD_CONST               1 ('secret key must be a non-empty string')
+
+165          26 CALL_FUNCTION            2
+             28 RAISE_VARARGS            1
+
+169     >>   30 LOAD_FAST                0 (key)
+             32 LOAD_METHOD              2 (strip)
+             34 CALL_METHOD              0
+             36 RETURN_VALUE
+
+Disassembly of <code object _read_raw at 0x10924b450, file "WeRobotCore/adapters/platform/windows_legacy.py", line 171>:
+172           0 SETUP_FINALLY           16 (to 18)
+
+173           2 LOAD_FAST                0 (self)
+              4 LOAD_ATTR                0 (_backend)
+              6 LOAD_METHOD              1 (read_secret_value)
+              8 LOAD_FAST                1 (key)
+             10 CALL_METHOD              1
+             12 STORE_FAST               2 (raw)
+             14 POP_BLOCK
+             16 JUMP_FORWARD            54 (to 72)
+
+174     >>   18 DUP_TOP
+             20 LOAD_GLOBAL              2 (Exception)
+             22 JUMP_IF_NOT_EXC_MATCH    70
+             24 POP_TOP
+             26 STORE_FAST               3 (exc)
+             28 POP_TOP
+             30 SETUP_FINALLY           30 (to 62)
+
+175          32 LOAD_GLOBAL              3 (AutomationError)
+
+176          34 LOAD_GLOBAL              4 (ErrorCode)
+             36 LOAD_ATTR                5 (OPERATION_FAILED)
+
+177          38 LOAD_CONST               1 ('Windows secret backend could not read key')
+
+178          40 LOAD_CONST               2 (True)
+
+175          42 LOAD_CONST               3 (('retryable',))
+             44 CALL_FUNCTION_KW         3
+
+179          46 LOAD_FAST                3 (exc)
+
+175          48 RAISE_VARARGS            2
+             50 POP_BLOCK
+             52 POP_EXCEPT
+             54 LOAD_CONST               0 (None)
+             56 STORE_FAST               3 (exc)
+             58 DELETE_FAST              3 (exc)
+             60 JUMP_FORWARD            10 (to 72)
+        >>   62 LOAD_CONST               0 (None)
+             64 STORE_FAST               3 (exc)
+             66 DELETE_FAST              3 (exc)
+             68 RERAISE
+        >>   70 RERAISE
+
+180     >>   72 LOAD_FAST                2 (raw)
+             74 LOAD_CONST               0 (None)
+             76 IS_OP                    1
+             78 POP_JUMP_IF_FALSE      102
+             80 LOAD_GLOBAL              6 (isinstance)
+             82 LOAD_FAST                2 (raw)
+             84 LOAD_GLOBAL              7 (str)
+             86 CALL_FUNCTION            2
+             88 POP_JUMP_IF_TRUE       102
+
+181          90 LOAD_GLOBAL              3 (AutomationError)
+
+182          92 LOAD_GLOBAL              4 (ErrorCode)
+             94 LOAD_ATTR                5 (OPERATION_FAILED)
+
+183          96 LOAD_CONST               4 ('Windows secret backend returned a non-string value')
+
+181          98 CALL_FUNCTION            2
+            100 RAISE_VARARGS            1
+
+185     >>  102 LOAD_FAST                2 (raw)
+            104 RETURN_VALUE
+
+Disassembly of <code object get_secret at 0x109251d40, file "WeRobotCore/adapters/platform/windows_legacy.py", line 187>:
+188           0 LOAD_FAST                0 (self)
+              2 LOAD_METHOD              0 (_validate_key)
+              4 LOAD_FAST                1 (key)
+              6 CALL_METHOD              1
+              8 STORE_FAST               2 (normalized_key)
+
+189          10 LOAD_FAST                0 (self)
+             12 LOAD_METHOD              1 (_read_raw)
+             14 LOAD_FAST                2 (normalized_key)
+             16 CALL_METHOD              1
+             18 STORE_FAST               3 (raw)
+
+190          20 LOAD_FAST                3 (raw)
+             22 LOAD_CONST               0 (None)
+             24 IS_OP                    0
+             26 POP_JUMP_IF_FALSE       32
+
+191          28 LOAD_CONST               0 (None)
+             30 RETURN_VALUE
+
+192     >>   32 SETUP_FINALLY           16 (to 50)
+
+193          34 LOAD_FAST                0 (self)
+             36 LOAD_ATTR                2 (_protector)
+             38 LOAD_METHOD              3 (unprotect)
+             40 LOAD_FAST                3 (raw)
+             42 CALL_METHOD              1
+             44 STORE_FAST               4 (plain)
+             46 POP_BLOCK
+             48 JUMP_FORWARD            50 (to 100)
+
+194     >>   50 DUP_TOP
+             52 LOAD_GLOBAL              4 (Exception)
+             54 JUMP_IF_NOT_EXC_MATCH    98
+             56 POP_TOP
+             58 STORE_FAST               5 (exc)
+             60 POP_TOP
+             62 SETUP_FINALLY           26 (to 90)
+
+195          64 LOAD_GLOBAL              5 (AutomationError)
+
+196          66 LOAD_GLOBAL              6 (ErrorCode)
+             68 LOAD_ATTR                7 (OPERATION_FAILED)
+
+197          70 LOAD_CONST               1 ('Windows secret could not be decrypted')
+
+195          72 CALL_FUNCTION            2
+
+198          74 LOAD_FAST                5 (exc)
+
+195          76 RAISE_VARARGS            2
+             78 POP_BLOCK
+             80 POP_EXCEPT
+             82 LOAD_CONST               0 (None)
+             84 STORE_FAST               5 (exc)
+             86 DELETE_FAST              5 (exc)
+             88 JUMP_FORWARD            10 (to 100)
+        >>   90 LOAD_CONST               0 (None)
+             92 STORE_FAST               5 (exc)
+             94 DELETE_FAST              5 (exc)
+             96 RERAISE
+        >>   98 RERAISE
+
+199     >>  100 LOAD_GLOBAL              8 (isinstance)
+            102 LOAD_FAST                4 (plain)
+            104 LOAD_GLOBAL              9 (str)
+            106 CALL_FUNCTION            2
+            108 POP_JUMP_IF_TRUE       122
+
+200         110 LOAD_GLOBAL              5 (AutomationError)
+
+201         112 LOAD_GLOBAL              6 (ErrorCode)
+            114 LOAD_ATTR                7 (OPERATION_FAILED)
+
+202         116 LOAD_CONST               2 ('Windows secret protector returned a non-string value')
+
+200         118 CALL_FUNCTION            2
+            120 RAISE_VARARGS            1
+
+204     >>  122 LOAD_FAST                0 (self)
+            124 LOAD_ATTR                2 (_protector)
+            126 LOAD_METHOD             10 (is_protected)
+            128 LOAD_FAST                3 (raw)
+            130 CALL_METHOD              1
+            132 POP_JUMP_IF_FALSE      154
+            134 LOAD_FAST                4 (plain)
+            136 LOAD_FAST                3 (raw)
+            138 COMPARE_OP               2 (==)
+            140 POP_JUMP_IF_FALSE      154
+
+205         142 LOAD_GLOBAL              5 (AutomationError)
+
+206         144 LOAD_GLOBAL              6 (ErrorCode)
+            146 LOAD_ATTR                7 (OPERATION_FAILED)
+
+207         148 LOAD_CONST               1 ('Windows secret could not be decrypted')
+
+205         150 CALL_FUNCTION            2
+            152 RAISE_VARARGS            1
+
+209     >>  154 LOAD_FAST                4 (plain)
+            156 RETURN_VALUE
+
+Disassembly of <code object set_secret at 0x109251df0, file "WeRobotCore/adapters/platform/windows_legacy.py", line 211>:
+212           0 SETUP_FINALLY           14 (to 16)
+
+213           2 LOAD_FAST                0 (self)
+              4 LOAD_METHOD              0 (_validate_key)
+              6 LOAD_FAST                1 (key)
+              8 CALL_METHOD              1
+             10 STORE_FAST               3 (normalized_key)
+             12 POP_BLOCK
+             14 JUMP_FORWARD            54 (to 70)
+
+214     >>   16 DUP_TOP
+             18 LOAD_GLOBAL              1 (AutomationError)
+             20 JUMP_IF_NOT_EXC_MATCH    68
+             22 POP_TOP
+             24 STORE_FAST               4 (exc)
+             26 POP_TOP
+             28 SETUP_FINALLY           30 (to 60)
+
+215          30 LOAD_GLOBAL              2 (OperationResult)
+             32 LOAD_METHOD              3 (failed)
+             34 LOAD_FAST                4 (exc)
+             36 LOAD_ATTR                4 (code)
+             38 LOAD_GLOBAL              5 (str)
+             40 LOAD_FAST                4 (exc)
+             42 CALL_FUNCTION            1
+             44 CALL_METHOD              2
+             46 POP_BLOCK
+             48 ROT_FOUR
+             50 POP_EXCEPT
+             52 LOAD_CONST               0 (None)
+             54 STORE_FAST               4 (exc)
+             56 DELETE_FAST              4 (exc)
+             58 RETURN_VALUE
+        >>   60 LOAD_CONST               0 (None)
+             62 STORE_FAST               4 (exc)
+             64 DELETE_FAST              4 (exc)
+             66 RERAISE
+        >>   68 RERAISE
+
+216     >>   70 LOAD_GLOBAL              6 (isinstance)
+             72 LOAD_FAST                2 (value)
+             74 LOAD_GLOBAL              5 (str)
+             76 CALL_FUNCTION            2
+             78 POP_JUMP_IF_FALSE       84
+             80 LOAD_FAST                2 (value)
+             82 POP_JUMP_IF_TRUE        98
+
+217     >>   84 LOAD_GLOBAL              2 (OperationResult)
+             86 LOAD_METHOD              3 (failed)
+
+218          88 LOAD_GLOBAL              7 (ErrorCode)
+             90 LOAD_ATTR                8 (INVALID_ARGUMENT)
+
+219          92 LOAD_CONST               1 ('secret value must be a non-empty string')
+
+217          94 CALL_METHOD              2
+             96 RETURN_VALUE
+
+221     >>   98 SETUP_FINALLY          150 (to 250)
+
+222         100 LOAD_FAST                0 (self)
+            102 LOAD_ATTR                9 (_protector)
+            104 LOAD_METHOD             10 (protect)
+            106 LOAD_FAST                2 (value)
+            108 CALL_METHOD              1
+            110 STORE_FAST               5 (protected)
+
+223         112 LOAD_GLOBAL              6 (isinstance)
+            114 LOAD_FAST                5 (protected)
+            116 LOAD_GLOBAL              5 (str)
+            118 CALL_FUNCTION            2
+            120 POP_JUMP_IF_FALSE      134
+            122 LOAD_FAST                0 (self)
+            124 LOAD_ATTR                9 (_protector)
+            126 LOAD_METHOD             11 (is_protected)
+
+224         128 LOAD_FAST                5 (protected)
+
+223         130 CALL_METHOD              1
+            132 POP_JUMP_IF_TRUE       150
+
+226     >>  134 LOAD_GLOBAL              2 (OperationResult)
+            136 LOAD_METHOD              3 (failed)
+
+227         138 LOAD_GLOBAL              7 (ErrorCode)
+            140 LOAD_ATTR               12 (CAPABILITY_UNAVAILABLE)
+
+228         142 LOAD_CONST               2 ('Windows DPAPI protection is unavailable; secret was not stored')
+
+226         144 CALL_METHOD              2
+            146 POP_BLOCK
+            148 RETURN_VALUE
+
+230     >>  150 LOAD_FAST                0 (self)
+            152 LOAD_ATTR               13 (_backend)
+            154 LOAD_METHOD             14 (write_secret_value)
+            156 LOAD_FAST                3 (normalized_key)
+            158 LOAD_FAST                5 (protected)
+            160 CALL_METHOD              2
+            162 POP_TOP
+
+231         164 LOAD_FAST                0 (self)
+            166 LOAD_METHOD             15 (_read_raw)
+            168 LOAD_FAST                3 (normalized_key)
+            170 CALL_METHOD              1
+            172 STORE_FAST               6 (raw_readback)
+
+232         174 LOAD_FAST                6 (raw_readback)
+            176 LOAD_FAST                5 (protected)
+            178 COMPARE_OP               3 (!=)
+            180 POP_JUMP_IF_FALSE      198
+
+233         182 LOAD_GLOBAL              2 (OperationResult)
+            184 LOAD_METHOD              3 (failed)
+
+234         186 LOAD_GLOBAL              7 (ErrorCode)
+            188 LOAD_ATTR               16 (ACTION_NOT_VERIFIED)
+
+235         190 LOAD_CONST               3 ('Windows secret write could not be verified')
+
+233         192 CALL_METHOD              2
+            194 POP_BLOCK
+            196 RETURN_VALUE
+
+237     >>  198 LOAD_FAST                0 (self)
+            200 LOAD_ATTR                9 (_protector)
+            202 LOAD_METHOD             17 (unprotect)
+            204 LOAD_FAST                6 (raw_readback)
+            206 CALL_METHOD              1
+            208 STORE_FAST               7 (plain_readback)
+
+238         210 LOAD_FAST                7 (plain_readback)
+            212 LOAD_FAST                2 (value)
+            214 COMPARE_OP               3 (!=)
+            216 POP_JUMP_IF_FALSE      234
+
+239         218 LOAD_GLOBAL              2 (OperationResult)
+            220 LOAD_METHOD              3 (failed)
+
+240         222 LOAD_GLOBAL              7 (ErrorCode)
+            224 LOAD_ATTR               16 (ACTION_NOT_VERIFIED)
+
+241         226 LOAD_CONST               3 ('Windows secret write could not be verified')
+
+239         228 CALL_METHOD              2
+            230 POP_BLOCK
+            232 RETURN_VALUE
+
+243     >>  234 LOAD_GLOBAL              2 (OperationResult)
+            236 LOAD_ATTR               18 (succeeded)
+
+244         238 LOAD_CONST               4 ('secret stored with Windows DPAPI')
+
+245         240 LOAD_CONST               5 (True)
+
+243         242 LOAD_CONST               6 (('verified',))
+            244 CALL_FUNCTION_KW         2
+            246 POP_BLOCK
+            248 RETURN_VALUE
+
+247     >>  250 DUP_TOP
+            252 LOAD_GLOBAL              1 (AutomationError)
+            254 EXTENDED_ARG             1
+            256 JUMP_IF_NOT_EXC_MATCH   310
+            258 POP_TOP
+            260 STORE_FAST               4 (exc)
+            262 POP_TOP
+            264 SETUP_FINALLY           36 (to 302)
+
+248         266 LOAD_GLOBAL              2 (OperationResult)
+            268 LOAD_ATTR                3 (failed)
+            270 LOAD_FAST                4 (exc)
+            272 LOAD_ATTR                4 (code)
+            274 LOAD_GLOBAL              5 (str)
+            276 LOAD_FAST                4 (exc)
+            278 CALL_FUNCTION            1
+            280 LOAD_FAST                4 (exc)
+            282 LOAD_ATTR               19 (retryable)
+            284 LOAD_CONST               7 (('retryable',))
+            286 CALL_FUNCTION_KW         3
+            288 POP_BLOCK
+            290 ROT_FOUR
+            292 POP_EXCEPT
+            294 LOAD_CONST               0 (None)
+            296 STORE_FAST               4 (exc)
+            298 DELETE_FAST              4 (exc)
+            300 RETURN_VALUE
+        >>  302 LOAD_CONST               0 (None)
+            304 STORE_FAST               4 (exc)
+            306 DELETE_FAST              4 (exc)
+            308 RERAISE
+
+249     >>  310 DUP_TOP
+            312 LOAD_GLOBAL             20 (Exception)
+            314 EXTENDED_ARG             1
+            316 JUMP_IF_NOT_EXC_MATCH   342
+            318 POP_TOP
+            320 POP_TOP
+            322 POP_TOP
+
+250         324 LOAD_GLOBAL              2 (OperationResult)
+            326 LOAD_METHOD              3 (failed)
+
+251         328 LOAD_GLOBAL              7 (ErrorCode)
+            330 LOAD_ATTR               21 (OPERATION_FAILED)
+
+252         332 LOAD_CONST               8 ('Windows secret could not be stored')
+
+250         334 CALL_METHOD              2
+            336 ROT_FOUR
+            338 POP_EXCEPT
+            340 RETURN_VALUE
+        >>  342 RERAISE
+            344 LOAD_CONST               0 (None)
+            346 RETURN_VALUE
+
+Disassembly of <code object delete_secret at 0x109251ea0, file "WeRobotCore/adapters/platform/windows_legacy.py", line 255>:
+256           0 SETUP_FINALLY           14 (to 16)
+
+257           2 LOAD_FAST                0 (self)
+              4 LOAD_METHOD              0 (_validate_key)
+              6 LOAD_FAST                1 (key)
+              8 CALL_METHOD              1
+             10 STORE_FAST               2 (normalized_key)
+             12 POP_BLOCK
+             14 JUMP_FORWARD            54 (to 70)
+
+258     >>   16 DUP_TOP
+             18 LOAD_GLOBAL              1 (AutomationError)
+             20 JUMP_IF_NOT_EXC_MATCH    68
+             22 POP_TOP
+             24 STORE_FAST               3 (exc)
+             26 POP_TOP
+             28 SETUP_FINALLY           30 (to 60)
+
+259          30 LOAD_GLOBAL              2 (OperationResult)
+             32 LOAD_METHOD              3 (failed)
+             34 LOAD_FAST                3 (exc)
+             36 LOAD_ATTR                4 (code)
+             38 LOAD_GLOBAL              5 (str)
+             40 LOAD_FAST                3 (exc)
+             42 CALL_FUNCTION            1
+             44 CALL_METHOD              2
+             46 POP_BLOCK
+             48 ROT_FOUR
+             50 POP_EXCEPT
+             52 LOAD_CONST               0 (None)
+             54 STORE_FAST               3 (exc)
+             56 DELETE_FAST              3 (exc)
+             58 RETURN_VALUE
+        >>   60 LOAD_CONST               0 (None)
+             62 STORE_FAST               3 (exc)
+             64 DELETE_FAST              3 (exc)
+             66 RERAISE
+        >>   68 RERAISE
+
+260     >>   70 SETUP_FINALLY           58 (to 130)
+
+261          72 LOAD_FAST                0 (self)
+             74 LOAD_ATTR                6 (_backend)
+             76 LOAD_METHOD              7 (delete_secret_value)
+             78 LOAD_FAST                2 (normalized_key)
+             80 CALL_METHOD              1
+             82 POP_TOP
+
+262          84 LOAD_FAST                0 (self)
+             86 LOAD_METHOD              8 (_read_raw)
+             88 LOAD_FAST                2 (normalized_key)
+             90 CALL_METHOD              1
+             92 LOAD_CONST               0 (None)
+             94 IS_OP                    1
+             96 POP_JUMP_IF_FALSE      114
+
+263          98 LOAD_GLOBAL              2 (OperationResult)
+            100 LOAD_METHOD              3 (failed)
+
+264         102 LOAD_GLOBAL              9 (ErrorCode)
+            104 LOAD_ATTR               10 (ACTION_NOT_VERIFIED)
+
+265         106 LOAD_CONST               1 ('Windows secret deletion could not be verified')
+
+263         108 CALL_METHOD              2
+            110 POP_BLOCK
+            112 RETURN_VALUE
+
+267     >>  114 LOAD_GLOBAL              2 (OperationResult)
+            116 LOAD_ATTR               11 (succeeded)
+            118 LOAD_CONST               2 ('secret deleted')
+            120 LOAD_CONST               3 (True)
+            122 LOAD_CONST               4 (('verified',))
+            124 CALL_FUNCTION_KW         2
+            126 POP_BLOCK
+            128 RETURN_VALUE
+
+268     >>  130 DUP_TOP
+            132 LOAD_GLOBAL              1 (AutomationError)
+            134 JUMP_IF_NOT_EXC_MATCH   188
+            136 POP_TOP
+            138 STORE_FAST               3 (exc)
+            140 POP_TOP
+            142 SETUP_FINALLY           36 (to 180)
+
+269         144 LOAD_GLOBAL              2 (OperationResult)
+            146 LOAD_ATTR                3 (failed)
+            148 LOAD_FAST                3 (exc)
+            150 LOAD_ATTR                4 (code)
+            152 LOAD_GLOBAL              5 (str)
+            154 LOAD_FAST                3 (exc)
+            156 CALL_FUNCTION            1
+            158 LOAD_FAST                3 (exc)
+            160 LOAD_ATTR               12 (retryable)
+            162 LOAD_CONST               5 (('retryable',))
+            164 CALL_FUNCTION_KW         3
+            166 POP_BLOCK
+            168 ROT_FOUR
+            170 POP_EXCEPT
+            172 LOAD_CONST               0 (None)
+            174 STORE_FAST               3 (exc)
+            176 DELETE_FAST              3 (exc)
+            178 RETURN_VALUE
+        >>  180 LOAD_CONST               0 (None)
+            182 STORE_FAST               3 (exc)
+            184 DELETE_FAST              3 (exc)
+            186 RERAISE
+
+270     >>  188 DUP_TOP
+            190 LOAD_GLOBAL             13 (Exception)
+            192 JUMP_IF_NOT_EXC_MATCH   218
+            194 POP_TOP
+            196 POP_TOP
+            198 POP_TOP
+
+271         200 LOAD_GLOBAL              2 (OperationResult)
+            202 LOAD_METHOD              3 (failed)
+
+272         204 LOAD_GLOBAL              9 (ErrorCode)
+            206 LOAD_ATTR               14 (OPERATION_FAILED)
+
+273         208 LOAD_CONST               6 ('Windows secret could not be deleted')
+
+271         210 CALL_METHOD              2
+            212 ROT_FOUR
+            214 POP_EXCEPT
+            216 RETURN_VALUE
+        >>  218 RERAISE
+            220 LOAD_CONST               0 (None)
+            222 RETURN_VALUE
+
+Disassembly of <code object WindowsDesktopPermissionService at 0x10924c5b0, file "WeRobotCore/adapters/platform/windows_legacy.py", line 277>:
+277           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('WindowsDesktopPermissionService')
+              6 STORE_NAME               2 (__qualname__)
+
+278           8 LOAD_CONST               1 ('Expose Windows input-desktop readiness without requesting new rights.')
+             10 STORE_NAME               3 (__doc__)
+
+280          12 LOAD_CONST              17 ((None,))
+             14 LOAD_NAME                4 (Optional)
+             16 LOAD_NAME                5 (Callable)
+             18 BUILD_LIST               0
+             20 LOAD_NAME                6 (Mapping)
+             22 LOAD_NAME                7 (str)
+             24 LOAD_NAME                8 (Any)
+             26 BUILD_TUPLE              2
+             28 BINARY_SUBSCR
+             30 BUILD_TUPLE              2
+             32 BINARY_SUBSCR
+             34 BINARY_SUBSCR
+             36 LOAD_CONST               2 (None)
+             38 LOAD_CONST               3 (('probe', 'return'))
+             40 BUILD_CONST_KEY_MAP      2
+             42 LOAD_CONST               4 (<code object __init__ at 0x10924c0e0, file "WeRobotCore/adapters/platform/windows_legacy.py", line 280>)
+             44 LOAD_CONST               5 ('WindowsDesktopPermissionService.__init__')
+             46 MAKE_FUNCTION            5 (defaults, annotations)
+             48 STORE_NAME               9 (__init__)
+
+283          50 LOAD_NAME               10 (staticmethod)
+
+284          52 LOAD_NAME                6 (Mapping)
+             54 LOAD_NAME                7 (str)
+             56 LOAD_NAME                8 (Any)
+             58 BUILD_TUPLE              2
+             60 BINARY_SUBSCR
+             62 LOAD_CONST               6 (('return',))
+             64 BUILD_CONST_KEY_MAP      1
+             66 LOAD_CONST               7 (<code object _probe_current_desktop at 0x10924c190, file "WeRobotCore/adapters/platform/windows_legacy.py", line 283>)
+             68 LOAD_CONST               8 ('WindowsDesktopPermissionService._probe_current_desktop')
+             70 MAKE_FUNCTION            4 (annotations)
+             72 CALL_FUNCTION            1
+             74 STORE_NAME              11 (_probe_current_desktop)
+
+291          76 LOAD_NAME                7 (str)
+             78 LOAD_NAME               12 (PermissionState)
+             80 LOAD_CONST               9 (('name', 'return'))
+             82 BUILD_CONST_KEY_MAP      2
+             84 LOAD_CONST              10 (<code object _check_one at 0x10924c2f0, file "WeRobotCore/adapters/platform/windows_legacy.py", line 291>)
+             86 LOAD_CONST              11 ('WindowsDesktopPermissionService._check_one')
+             88 MAKE_FUNCTION            4 (annotations)
+             90 STORE_NAME              13 (_check_one)
+
+335          92 LOAD_NAME               14 (Sequence)
+             94 LOAD_NAME                7 (str)
+             96 BINARY_SUBSCR
+             98 LOAD_NAME               14 (Sequence)
+            100 LOAD_NAME               12 (PermissionState)
+            102 BINARY_SUBSCR
+            104 LOAD_CONST              12 (('names', 'return'))
+            106 BUILD_CONST_KEY_MAP      2
+            108 LOAD_CONST              13 (<code object check at 0x10924c450, file "WeRobotCore/adapters/platform/windows_legacy.py", line 335>)
+            110 LOAD_CONST              14 ('WindowsDesktopPermissionService.check')
+            112 MAKE_FUNCTION            4 (annotations)
+            114 STORE_NAME              15 (check)
+
+338         116 LOAD_NAME                7 (str)
+            118 LOAD_NAME               12 (PermissionState)
+            120 LOAD_CONST               9 (('name', 'return'))
+            122 BUILD_CONST_KEY_MAP      2
+            124 LOAD_CONST              15 (<code object request at 0x10924c500, file "WeRobotCore/adapters/platform/windows_legacy.py", line 338>)
+            126 LOAD_CONST              16 ('WindowsDesktopPermissionService.request')
+            128 MAKE_FUNCTION            4 (annotations)
+            130 STORE_NAME              16 (request)
+            132 LOAD_CONST               2 (None)
+            134 RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x10924c0e0, file "WeRobotCore/adapters/platform/windows_legacy.py", line 280>:
+281           0 LOAD_FAST                1 (probe)
+              2 JUMP_IF_TRUE_OR_POP      8
+              4 LOAD_FAST                0 (self)
+              6 LOAD_ATTR                0 (_probe_current_desktop)
+        >>    8 LOAD_FAST                0 (self)
+             10 STORE_ATTR               1 (_probe)
+             12 LOAD_CONST               0 (None)
+             14 RETURN_VALUE
+
+Disassembly of <code object _probe_current_desktop at 0x10924c190, file "WeRobotCore/adapters/platform/windows_legacy.py", line 283>:
+285           0 LOAD_CONST               1 (0)
+              2 LOAD_CONST               2 (('get_desktop_interaction_status',))
+              4 IMPORT_NAME              0 (WeRobotCore.core.wechat_runtime_probe)
+              6 IMPORT_FROM              1 (get_desktop_interaction_status)
+              8 STORE_FAST               0 (get_desktop_interaction_status)
+             10 POP_TOP
+
+289          12 LOAD_FAST                0 (get_desktop_interaction_status)
+             14 CALL_FUNCTION            0
+             16 RETURN_VALUE
+
+Disassembly of <code object _check_one at 0x10924c2f0, file "WeRobotCore/adapters/platform/windows_legacy.py", line 291>:
+292           0 LOAD_FAST                1 (name)
+              2 LOAD_GLOBAL              0 (WINDOWS_DESKTOP_INTERACTION_PERMISSION)
+              4 COMPARE_OP               3 (!=)
+              6 POP_JUMP_IF_FALSE       24
+
+293           8 LOAD_GLOBAL              1 (PermissionState)
+
+294          10 LOAD_FAST                1 (name)
+
+295          12 LOAD_GLOBAL              2 (PermissionStatus)
+             14 LOAD_ATTR                3 (UNAVAILABLE)
+
+296          16 LOAD_CONST               1 ('This permission is not managed by the Windows platform adapter.')
+
+293          18 LOAD_CONST               2 (('name', 'status', 'guidance'))
+             20 CALL_FUNCTION_KW         3
+             22 RETURN_VALUE
+
+298     >>   24 SETUP_FINALLY           12 (to 38)
+
+299          26 LOAD_FAST                0 (self)
+             28 LOAD_METHOD              4 (_probe)
+             30 CALL_METHOD              0
+             32 STORE_FAST               2 (result)
+             34 POP_BLOCK
+             36 JUMP_FORWARD            58 (to 96)
+
+300     >>   38 DUP_TOP
+             40 LOAD_GLOBAL              5 (Exception)
+             42 JUMP_IF_NOT_EXC_MATCH    94
+             44 POP_TOP
+             46 STORE_FAST               3 (exc)
+             48 POP_TOP
+             50 SETUP_FINALLY           34 (to 86)
+
+301          52 LOAD_GLOBAL              1 (PermissionState)
+
+302          54 LOAD_FAST                1 (name)
+
+303          56 LOAD_GLOBAL              2 (PermissionStatus)
+             58 LOAD_ATTR                6 (NOT_DETERMINED)
+
+304          60 LOAD_CONST               3 ('Windows desktop state could not be determined: {}')
+             62 LOAD_METHOD              7 (format)
+
+305          64 LOAD_FAST                3 (exc)
+
+304          66 CALL_METHOD              1
+
+301          68 LOAD_CONST               2 (('name', 'status', 'guidance'))
+             70 CALL_FUNCTION_KW         3
+             72 POP_BLOCK
+             74 ROT_FOUR
+             76 POP_EXCEPT
+             78 LOAD_CONST               0 (None)
+             80 STORE_FAST               3 (exc)
+             82 DELETE_FAST              3 (exc)
+             84 RETURN_VALUE
+        >>   86 LOAD_CONST               0 (None)
+             88 STORE_FAST               3 (exc)
+             90 DELETE_FAST              3 (exc)
+             92 RERAISE
+        >>   94 RERAISE
+
+308     >>   96 LOAD_GLOBAL              8 (isinstance)
+             98 LOAD_FAST                2 (result)
+            100 LOAD_GLOBAL              9 (Mapping)
+            102 CALL_FUNCTION            2
+            104 POP_JUMP_IF_TRUE       122
+
+309         106 LOAD_GLOBAL              1 (PermissionState)
+
+310         108 LOAD_FAST                1 (name)
+
+311         110 LOAD_GLOBAL              2 (PermissionStatus)
+            112 LOAD_ATTR                6 (NOT_DETERMINED)
+
+312         114 LOAD_CONST               4 ('Windows input desktop probe returned invalid evidence.')
+
+309         116 LOAD_CONST               2 (('name', 'status', 'guidance'))
+            118 CALL_FUNCTION_KW         3
+            120 RETURN_VALUE
+
+314     >>  122 LOAD_GLOBAL             10 (str)
+            124 LOAD_FAST                2 (result)
+            126 LOAD_METHOD             11 (get)
+            128 LOAD_CONST               5 ('status')
+            130 CALL_METHOD              1
+            132 JUMP_IF_TRUE_OR_POP    136
+            134 LOAD_CONST               6 ('unknown')
+        >>  136 CALL_FUNCTION            1
+            138 LOAD_METHOD             12 (strip)
+            140 CALL_METHOD              0
+            142 LOAD_METHOD             13 (lower)
+            144 CALL_METHOD              0
+            146 STORE_FAST               4 (status)
+
+315         148 LOAD_FAST                4 (status)
+            150 LOAD_CONST               7 ('interactive')
+            152 COMPARE_OP               2 (==)
+            154 POP_JUMP_IF_FALSE      170
+
+316         156 LOAD_GLOBAL              1 (PermissionState)
+            158 LOAD_FAST                1 (name)
+            160 LOAD_GLOBAL              2 (PermissionStatus)
+            162 LOAD_ATTR               14 (GRANTED)
+            164 LOAD_CONST               8 (('name', 'status'))
+            166 CALL_FUNCTION_KW         2
+            168 RETURN_VALUE
+
+317     >>  170 LOAD_FAST                4 (status)
+            172 LOAD_CONST               9 ('locked')
+            174 COMPARE_OP               2 (==)
+            176 POP_JUMP_IF_FALSE      194
+
+318         178 LOAD_GLOBAL              1 (PermissionState)
+
+319         180 LOAD_FAST                1 (name)
+
+320         182 LOAD_GLOBAL              2 (PermissionStatus)
+            184 LOAD_ATTR               15 (DENIED)
+
+321         186 LOAD_CONST              10 ('Unlock the Windows user session before running RPA.')
+
+318         188 LOAD_CONST               2 (('name', 'status', 'guidance'))
+            190 CALL_FUNCTION_KW         3
+            192 RETURN_VALUE
+
+323     >>  194 LOAD_FAST                4 (status)
+            196 LOAD_CONST               6 ('unknown')
+            198 COMPARE_OP               2 (==)
+            200 POP_JUMP_IF_FALSE      218
+
+324         202 LOAD_GLOBAL              1 (PermissionState)
+
+325         204 LOAD_FAST                1 (name)
+
+326         206 LOAD_GLOBAL              2 (PermissionStatus)
+            208 LOAD_ATTR                6 (NOT_DETERMINED)
+
+327         210 LOAD_CONST              11 ('Windows input desktop availability could not be verified.')
+
+324         212 LOAD_CONST               2 (('name', 'status', 'guidance'))
+            214 CALL_FUNCTION_KW         3
+            216 RETURN_VALUE
+
+329     >>  218 LOAD_GLOBAL              1 (PermissionState)
+
+330         220 LOAD_FAST                1 (name)
+
+331         222 LOAD_GLOBAL              2 (PermissionStatus)
+            224 LOAD_ATTR                3 (UNAVAILABLE)
+
+332         226 LOAD_CONST              12 ('Windows desktop interaction is unavailable in this process.')
+
+329         228 LOAD_CONST               2 (('name', 'status', 'guidance'))
+            230 CALL_FUNCTION_KW         3
+            232 RETURN_VALUE
+
+Disassembly of <code object check at 0x10924c450, file "WeRobotCore/adapters/platform/windows_legacy.py", line 335>:
+336           0 LOAD_GLOBAL              0 (tuple)
+              2 LOAD_CLOSURE             0 (self)
+              4 BUILD_TUPLE              1
+              6 LOAD_CONST               1 (<code object <genexpr> at 0x10924c3a0, file "WeRobotCore/adapters/platform/windows_legacy.py", line 336>)
+              8 LOAD_CONST               2 ('WindowsDesktopPermissionService.check.<locals>.<genexpr>')
+             10 MAKE_FUNCTION            8 (closure)
+             12 LOAD_FAST                1 (names)
+             14 GET_ITER
+             16 CALL_FUNCTION            1
+             18 CALL_FUNCTION            1
+             20 RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x10924c3a0, file "WeRobotCore/adapters/platform/windows_legacy.py", line 336>:
+336           0 LOAD_FAST                0 (.0)
+        >>    2 FOR_ITER                16 (to 20)
+              4 STORE_FAST               1 (name)
+              6 LOAD_DEREF               0 (self)
+              8 LOAD_METHOD              0 (_check_one)
+             10 LOAD_FAST                1 (name)
+             12 CALL_METHOD              1
+             14 YIELD_VALUE
+             16 POP_TOP
+             18 JUMP_ABSOLUTE            2
+        >>   20 LOAD_CONST               0 (None)
+             22 RETURN_VALUE
+
+Disassembly of <code object request at 0x10924c500, file "WeRobotCore/adapters/platform/windows_legacy.py", line 338>:
+341           0 LOAD_FAST                0 (self)
+              2 LOAD_METHOD              0 (_check_one)
+              4 LOAD_FAST                1 (name)
+              6 CALL_METHOD              1
+              8 RETURN_VALUE
+
+Disassembly of <code object WindowsProcessFacade at 0x10924c7c0, file "WeRobotCore/adapters/platform/windows_legacy.py", line 344>:
+344           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('WindowsProcessFacade')
+              6 STORE_NAME               2 (__qualname__)
+
+345           8 LOAD_NAME                3 (int)
+             10 LOAD_NAME                4 (bool)
+             12 LOAD_CONST               1 (('process_id', 'return'))
+             14 BUILD_CONST_KEY_MAP      2
+             16 LOAD_CONST               2 (<code object is_process_running at 0x10924c660, file "WeRobotCore/adapters/platform/windows_legacy.py", line 345>)
+             18 LOAD_CONST               3 ('WindowsProcessFacade.is_process_running')
+             20 MAKE_FUNCTION            4 (annotations)
+             22 STORE_NAME               5 (is_process_running)
+
+348          24 LOAD_NAME                3 (int)
+             26 LOAD_NAME                4 (bool)
+             28 LOAD_CONST               1 (('process_id', 'return'))
+             30 BUILD_CONST_KEY_MAP      2
+             32 LOAD_CONST               4 (<code object bring_process_to_front at 0x10924c710, file "WeRobotCore/adapters/platform/windows_legacy.py", line 348>)
+             34 LOAD_CONST               5 ('WindowsProcessFacade.bring_process_to_front')
+             36 MAKE_FUNCTION            4 (annotations)
+             38 STORE_NAME               6 (bring_process_to_front)
+             40 LOAD_CONST               6 (None)
+             42 RETURN_VALUE
+
+Disassembly of <code object is_process_running at 0x10924c660, file "WeRobotCore/adapters/platform/windows_legacy.py", line 345>:
+346           0 LOAD_CONST               0 (None)
+              2 RETURN_VALUE
+
+Disassembly of <code object bring_process_to_front at 0x10924c710, file "WeRobotCore/adapters/platform/windows_legacy.py", line 348>:
+349           0 LOAD_CONST               0 (None)
+              2 RETURN_VALUE
+
+Disassembly of <code object WindowsNativeProcessFacade at 0x10924cb30, file "WeRobotCore/adapters/platform/windows_legacy.py", line 352>:
+352           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('WindowsNativeProcessFacade')
+              6 STORE_NAME               2 (__qualname__)
+
+353           8 LOAD_CONST               1 ('Lazy Win32 implementation reusing the mature focus helper.')
+             10 STORE_NAME               3 (__doc__)
+
+355          12 LOAD_NAME                4 (int)
+             14 LOAD_NAME                5 (bool)
+             16 LOAD_CONST               2 (('process_id', 'return'))
+             18 BUILD_CONST_KEY_MAP      2
+             20 LOAD_CONST               3 (<code object is_process_running at 0x10924c870, file "WeRobotCore/adapters/platform/windows_legacy.py", line 355>)
+             22 LOAD_CONST               4 ('WindowsNativeProcessFacade.is_process_running')
+             24 MAKE_FUNCTION            4 (annotations)
+             26 STORE_NAME               6 (is_process_running)
+
+366          28 LOAD_NAME                7 (staticmethod)
+
+367          30 LOAD_NAME                4 (int)
+             32 LOAD_NAME                8 (Optional)
+             34 LOAD_NAME                4 (int)
+             36 BINARY_SUBSCR
+             38 LOAD_CONST               2 (('process_id', 'return'))
+             40 BUILD_CONST_KEY_MAP      2
+             42 LOAD_CONST               5 (<code object _find_process_window at 0x10924c9d0, file "WeRobotCore/adapters/platform/windows_legacy.py", line 366>)
+             44 LOAD_CONST               6 ('WindowsNativeProcessFacade._find_process_window')
+             46 MAKE_FUNCTION            4 (annotations)
+             48 CALL_FUNCTION            1
+             50 STORE_NAME               9 (_find_process_window)
+
+393          52 LOAD_NAME                4 (int)
+             54 LOAD_NAME                5 (bool)
+             56 LOAD_CONST               2 (('process_id', 'return'))
+             58 BUILD_CONST_KEY_MAP      2
+             60 LOAD_CONST               7 (<code object bring_process_to_front at 0x10924ca80, file "WeRobotCore/adapters/platform/windows_legacy.py", line 393>)
+             62 LOAD_CONST               8 ('WindowsNativeProcessFacade.bring_process_to_front')
+             64 MAKE_FUNCTION            4 (annotations)
+             66 STORE_NAME              10 (bring_process_to_front)
+             68 LOAD_CONST               9 (None)
+             70 RETURN_VALUE
+
+Disassembly of <code object is_process_running at 0x10924c870, file "WeRobotCore/adapters/platform/windows_legacy.py", line 355>:
+356           0 LOAD_GLOBAL              0 (sys)
+              2 LOAD_ATTR                1 (platform)
+              4 LOAD_METHOD              2 (startswith)
+              6 LOAD_CONST               1 ('win')
+              8 CALL_METHOD              1
+             10 POP_JUMP_IF_TRUE        16
+
+357          12 LOAD_CONST               2 (False)
+             14 RETURN_VALUE
+
+358     >>   16 LOAD_CONST               3 (0)
+             18 LOAD_CONST               0 (None)
+             20 IMPORT_NAME              3 (psutil)
+             22 STORE_FAST               2 (psutil)
+
+360          24 SETUP_FINALLY           38 (to 64)
+
+361          26 LOAD_FAST                2 (psutil)
+             28 LOAD_METHOD              4 (Process)
+             30 LOAD_FAST                1 (process_id)
+             32 CALL_METHOD              1
+             34 STORE_FAST               3 (process)
+
+362          36 LOAD_GLOBAL              5 (bool)
+             38 LOAD_FAST                3 (process)
+             40 LOAD_METHOD              6 (is_running)
+             42 CALL_METHOD              0
+             44 JUMP_IF_FALSE_OR_POP    58
+             46 LOAD_FAST                3 (process)
+             48 LOAD_METHOD              7 (status)
+             50 CALL_METHOD              0
+             52 LOAD_FAST                2 (psutil)
+             54 LOAD_ATTR                8 (STATUS_ZOMBIE)
+             56 COMPARE_OP               3 (!=)
+        >>   58 CALL_FUNCTION            1
+             60 POP_BLOCK
+             62 RETURN_VALUE
+
+363     >>   64 DUP_TOP
+             66 LOAD_FAST                2 (psutil)
+             68 LOAD_ATTR                9 (NoSuchProcess)
+             70 LOAD_FAST                2 (psutil)
+             72 LOAD_ATTR               10 (AccessDenied)
+             74 LOAD_GLOBAL             11 (ValueError)
+             76 BUILD_TUPLE              3
+             78 JUMP_IF_NOT_EXC_MATCH    92
+             80 POP_TOP
+             82 POP_TOP
+             84 POP_TOP
+
+364          86 POP_EXCEPT
+             88 LOAD_CONST               2 (False)
+             90 RETURN_VALUE
+        >>   92 RERAISE
+             94 LOAD_CONST               0 (None)
+             96 RETURN_VALUE
+
+Disassembly of <code object _find_process_window at 0x10924c9d0, file "WeRobotCore/adapters/platform/windows_legacy.py", line 366>:
+368           0 LOAD_CONST               1 (0)
+              2 LOAD_CONST               0 (None)
+              4 IMPORT_NAME              0 (win32gui)
+              6 STORE_DEREF              2 (win32gui)
+
+369           8 LOAD_CONST               1 (0)
+             10 LOAD_CONST               0 (None)
+             12 IMPORT_NAME              1 (win32process)
+             14 STORE_DEREF              3 (win32process)
+
+371          16 BUILD_LIST               0
+             18 STORE_DEREF              0 (candidates)
+
+373          20 LOAD_CLOSURE             0 (candidates)
+             22 LOAD_CLOSURE             1 (process_id)
+             24 LOAD_CLOSURE             2 (win32gui)
+             26 LOAD_CLOSURE             3 (win32process)
+             28 BUILD_TUPLE              4
+             30 LOAD_CONST               2 (<code object visit at 0x10924c920, file "WeRobotCore/adapters/platform/windows_legacy.py", line 373>)
+             32 LOAD_CONST               3 ('WindowsNativeProcessFacade._find_process_window.<locals>.visit')
+             34 MAKE_FUNCTION            8 (closure)
+             36 STORE_FAST               1 (visit)
+
+387          38 LOAD_DEREF               2 (win32gui)
+             40 LOAD_METHOD              2 (EnumWindows)
+             42 LOAD_FAST                1 (visit)
+             44 LOAD_CONST               0 (None)
+             46 CALL_METHOD              2
+             48 POP_TOP
+
+388          50 LOAD_DEREF               0 (candidates)
+             52 POP_JUMP_IF_TRUE        58
+
+389          54 LOAD_CONST               0 (None)
+             56 RETURN_VALUE
+
+390     >>   58 LOAD_DEREF               0 (candidates)
+             60 LOAD_ATTR                3 (sort)
+             62 LOAD_CONST               4 (True)
+             64 LOAD_CONST               5 (('reverse',))
+             66 CALL_FUNCTION_KW         1
+             68 POP_TOP
+
+391          70 LOAD_DEREF               0 (candidates)
+             72 LOAD_CONST               1 (0)
+             74 BINARY_SUBSCR
+             76 LOAD_CONST               6 (1)
+             78 BINARY_SUBSCR
+             80 RETURN_VALUE
+
+Disassembly of <code object visit at 0x10924c920, file "WeRobotCore/adapters/platform/windows_legacy.py", line 373>:
+374           0 SETUP_FINALLY          140 (to 142)
+
+375           2 LOAD_DEREF               3 (win32process)
+              4 LOAD_METHOD              0 (GetWindowThreadProcessId)
+              6 LOAD_FAST                0 (hwnd)
+              8 CALL_METHOD              1
+             10 UNPACK_SEQUENCE          2
+             12 STORE_FAST               1 (_)
+             14 STORE_FAST               2 (owner_pid)
+
+376          16 LOAD_GLOBAL              1 (int)
+             18 LOAD_FAST                2 (owner_pid)
+             20 JUMP_IF_TRUE_OR_POP     24
+             22 LOAD_CONST               1 (0)
+        >>   24 CALL_FUNCTION            1
+             26 LOAD_DEREF               1 (process_id)
+             28 COMPARE_OP               3 (!=)
+             30 POP_JUMP_IF_TRUE        42
+             32 LOAD_DEREF               2 (win32gui)
+             34 LOAD_METHOD              2 (IsWindow)
+             36 LOAD_FAST                0 (hwnd)
+             38 CALL_METHOD              1
+             40 POP_JUMP_IF_TRUE        48
+
+377     >>   42 POP_BLOCK
+             44 LOAD_CONST               2 (True)
+             46 RETURN_VALUE
+
+378     >>   48 LOAD_DEREF               2 (win32gui)
+             50 LOAD_METHOD              3 (IsWindowVisible)
+             52 LOAD_FAST                0 (hwnd)
+             54 CALL_METHOD              1
+             56 POP_JUMP_IF_TRUE        74
+             58 LOAD_DEREF               2 (win32gui)
+             60 LOAD_METHOD              4 (IsIconic)
+             62 LOAD_FAST                0 (hwnd)
+             64 CALL_METHOD              1
+             66 POP_JUMP_IF_TRUE        74
+
+379          68 POP_BLOCK
+             70 LOAD_CONST               2 (True)
+             72 RETURN_VALUE
+
+380     >>   74 LOAD_DEREF               2 (win32gui)
+             76 LOAD_METHOD              5 (GetWindowRect)
+             78 LOAD_FAST                0 (hwnd)
+             80 CALL_METHOD              1
+             82 UNPACK_SEQUENCE          4
+             84 STORE_FAST               3 (left)
+             86 STORE_FAST               4 (top)
+             88 STORE_FAST               5 (right)
+             90 STORE_FAST               6 (bottom)
+
+381          92 LOAD_GLOBAL              6 (max)
+             94 LOAD_CONST               1 (0)
+             96 LOAD_FAST                5 (right)
+             98 LOAD_FAST                3 (left)
+            100 BINARY_SUBTRACT
+            102 CALL_FUNCTION            2
+            104 LOAD_GLOBAL              6 (max)
+            106 LOAD_CONST               1 (0)
+            108 LOAD_FAST                6 (bottom)
+            110 LOAD_FAST                4 (top)
+            112 BINARY_SUBTRACT
+            114 CALL_FUNCTION            2
+            116 BINARY_MULTIPLY
+            118 STORE_FAST               7 (area)
+
+382         120 LOAD_DEREF               0 (candidates)
+            122 LOAD_METHOD              7 (append)
+            124 LOAD_FAST                7 (area)
+            126 LOAD_GLOBAL              1 (int)
+            128 LOAD_FAST                0 (hwnd)
+            130 CALL_FUNCTION            1
+            132 BUILD_TUPLE              2
+            134 CALL_METHOD              1
+            136 POP_TOP
+            138 POP_BLOCK
+            140 JUMP_FORWARD            18 (to 160)
+
+383     >>  142 DUP_TOP
+            144 LOAD_GLOBAL              8 (Exception)
+            146 JUMP_IF_NOT_EXC_MATCH   158
+            148 POP_TOP
+            150 POP_TOP
+            152 POP_TOP
+
+384         154 POP_EXCEPT
+            156 JUMP_FORWARD             2 (to 160)
+        >>  158 RERAISE
+
+385     >>  160 LOAD_CONST               2 (True)
+            162 RETURN_VALUE
+
+Disassembly of <code object bring_process_to_front at 0x10924ca80, file "WeRobotCore/adapters/platform/windows_legacy.py", line 393>:
+394           0 LOAD_GLOBAL              0 (sys)
+              2 LOAD_ATTR                1 (platform)
+              4 LOAD_METHOD              2 (startswith)
+              6 LOAD_CONST               1 ('win')
+              8 CALL_METHOD              1
+             10 POP_JUMP_IF_TRUE        16
+
+395          12 LOAD_CONST               2 (False)
+             14 RETURN_VALUE
+
+396     >>   16 LOAD_CONST               3 (0)
+             18 LOAD_CONST               0 (None)
+             20 IMPORT_NAME              3 (win32gui)
+             22 STORE_FAST               2 (win32gui)
+
+397          24 LOAD_CONST               3 (0)
+             26 LOAD_CONST               0 (None)
+             28 IMPORT_NAME              4 (win32process)
+             30 STORE_FAST               3 (win32process)
+
+399          32 LOAD_CONST               3 (0)
+             34 LOAD_CONST               4 (('force_focus_window',))
+             36 IMPORT_NAME              5 (WeRobotCore.utils.window_utils)
+             38 IMPORT_FROM              6 (force_focus_window)
+             40 STORE_FAST               4 (force_focus_window)
+             42 POP_TOP
+
+401          44 LOAD_FAST                0 (self)
+             46 LOAD_METHOD              7 (_find_process_window)
+             48 LOAD_FAST                1 (process_id)
+             50 CALL_METHOD              1
+             52 STORE_FAST               5 (hwnd)
+
+402          54 LOAD_FAST                5 (hwnd)
+             56 POP_JUMP_IF_FALSE       66
+             58 LOAD_FAST                4 (force_focus_window)
+             60 LOAD_FAST                5 (hwnd)
+             62 CALL_FUNCTION            1
+             64 POP_JUMP_IF_TRUE        70
+
+403     >>   66 LOAD_CONST               2 (False)
+             68 RETURN_VALUE
+
+404     >>   70 LOAD_GLOBAL              8 (int)
+             72 LOAD_FAST                2 (win32gui)
+             74 LOAD_METHOD              9 (GetForegroundWindow)
+             76 CALL_METHOD              0
+             78 JUMP_IF_TRUE_OR_POP     82
+             80 LOAD_CONST               3 (0)
+        >>   82 CALL_FUNCTION            1
+             84 STORE_FAST               6 (foreground)
+
+405          86 LOAD_FAST                6 (foreground)
+             88 POP_JUMP_IF_TRUE        94
+
+406          90 LOAD_CONST               2 (False)
+             92 RETURN_VALUE
+
+407     >>   94 LOAD_FAST                3 (win32process)
+             96 LOAD_METHOD             10 (GetWindowThreadProcessId)
+             98 LOAD_FAST                6 (foreground)
+            100 CALL_METHOD              1
+            102 UNPACK_SEQUENCE          2
+            104 STORE_FAST               7 (_)
+            106 STORE_FAST               8 (foreground_pid)
+
+408         108 LOAD_GLOBAL              8 (int)
+            110 LOAD_FAST                8 (foreground_pid)
+            112 JUMP_IF_TRUE_OR_POP    116
+            114 LOAD_CONST               3 (0)
+        >>  116 CALL_FUNCTION            1
+            118 LOAD_FAST                1 (process_id)
+            120 COMPARE_OP               2 (==)
+            122 RETURN_VALUE
+
+Disassembly of <code object WindowsProcessManagerAdapter at 0x10924cea0, file "WeRobotCore/adapters/platform/windows_legacy.py", line 411>:
+411           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('WindowsProcessManagerAdapter')
+              6 STORE_NAME               2 (__qualname__)
+
+412           8 LOAD_CONST              12 ((None,))
+             10 LOAD_NAME                3 (Optional)
+             12 LOAD_NAME                4 (WindowsProcessFacade)
+             14 BINARY_SUBSCR
+             16 LOAD_CONST               1 (None)
+             18 LOAD_CONST               2 (('facade', 'return'))
+             20 BUILD_CONST_KEY_MAP      2
+             22 LOAD_CONST               3 (<code object __init__ at 0x10924cbe0, file "WeRobotCore/adapters/platform/windows_legacy.py", line 412>)
+             24 LOAD_CONST               4 ('WindowsProcessManagerAdapter.__init__')
+             26 MAKE_FUNCTION            5 (defaults, annotations)
+             28 STORE_NAME               5 (__init__)
+
+415          30 LOAD_NAME                6 (staticmethod)
+
+416          32 LOAD_NAME                7 (int)
+             34 LOAD_NAME                8 (bool)
+             36 LOAD_CONST               5 (('process_id', 'return'))
+             38 BUILD_CONST_KEY_MAP      2
+             40 LOAD_CONST               6 (<code object _valid_process_id at 0x10924cc90, file "WeRobotCore/adapters/platform/windows_legacy.py", line 415>)
+             42 LOAD_CONST               7 ('WindowsProcessManagerAdapter._valid_process_id')
+             44 MAKE_FUNCTION            4 (annotations)
+             46 CALL_FUNCTION            1
+             48 STORE_NAME               9 (_valid_process_id)
+
+423          50 LOAD_NAME                7 (int)
+             52 LOAD_NAME                8 (bool)
+             54 LOAD_CONST               5 (('process_id', 'return'))
+             56 BUILD_CONST_KEY_MAP      2
+             58 LOAD_CONST               8 (<code object is_running at 0x10924cd40, file "WeRobotCore/adapters/platform/windows_legacy.py", line 423>)
+             60 LOAD_CONST               9 ('WindowsProcessManagerAdapter.is_running')
+             62 MAKE_FUNCTION            4 (annotations)
+             64 STORE_NAME              10 (is_running)
+
+431          66 LOAD_NAME                7 (int)
+             68 LOAD_NAME               11 (OperationResult)
+             70 LOAD_CONST               5 (('process_id', 'return'))
+             72 BUILD_CONST_KEY_MAP      2
+             74 LOAD_CONST              10 (<code object bring_to_front at 0x10924cdf0, file "WeRobotCore/adapters/platform/windows_legacy.py", line 431>)
+             76 LOAD_CONST              11 ('WindowsProcessManagerAdapter.bring_to_front')
+             78 MAKE_FUNCTION            4 (annotations)
+             80 STORE_NAME              12 (bring_to_front)
+             82 LOAD_CONST               1 (None)
+             84 RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x10924cbe0, file "WeRobotCore/adapters/platform/windows_legacy.py", line 412>:
+413           0 LOAD_FAST                1 (facade)
+              2 JUMP_IF_TRUE_OR_POP      8
+              4 LOAD_GLOBAL              0 (WindowsNativeProcessFacade)
+              6 CALL_FUNCTION            0
+        >>    8 LOAD_FAST                0 (self)
+             10 STORE_ATTR               1 (_facade)
+             12 LOAD_CONST               0 (None)
+             14 RETURN_VALUE
+
+Disassembly of <code object _valid_process_id at 0x10924cc90, file "WeRobotCore/adapters/platform/windows_legacy.py", line 415>:
+418           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                0 (process_id)
+              4 LOAD_GLOBAL              1 (int)
+              6 CALL_FUNCTION            2
+              8 JUMP_IF_FALSE_OR_POP    28
+
+419          10 LOAD_GLOBAL              0 (isinstance)
+             12 LOAD_FAST                0 (process_id)
+             14 LOAD_GLOBAL              2 (bool)
+             16 CALL_FUNCTION            2
+             18 UNARY_NOT
+
+418          20 JUMP_IF_FALSE_OR_POP    28
+
+420          22 LOAD_FAST                0 (process_id)
+             24 LOAD_CONST               1 (0)
+             26 COMPARE_OP               4 (>)
+
+417     >>   28 RETURN_VALUE
+
+Disassembly of <code object is_running at 0x10924cd40, file "WeRobotCore/adapters/platform/windows_legacy.py", line 423>:
+424           0 LOAD_FAST                0 (self)
+              2 LOAD_METHOD              0 (_valid_process_id)
+              4 LOAD_FAST                1 (process_id)
+              6 CALL_METHOD              1
+              8 POP_JUMP_IF_TRUE        14
+
+425          10 LOAD_CONST               1 (False)
+             12 RETURN_VALUE
+
+426     >>   14 SETUP_FINALLY           18 (to 34)
+
+427          16 LOAD_GLOBAL              1 (bool)
+             18 LOAD_FAST                0 (self)
+             20 LOAD_ATTR                2 (_facade)
+             22 LOAD_METHOD              3 (is_process_running)
+             24 LOAD_FAST                1 (process_id)
+             26 CALL_METHOD              1
+             28 CALL_FUNCTION            1
+             30 POP_BLOCK
+             32 RETURN_VALUE
+
+428     >>   34 DUP_TOP
+             36 LOAD_GLOBAL              4 (Exception)
+             38 JUMP_IF_NOT_EXC_MATCH    52
+             40 POP_TOP
+             42 POP_TOP
+             44 POP_TOP
+
+429          46 POP_EXCEPT
+             48 LOAD_CONST               1 (False)
+             50 RETURN_VALUE
+        >>   52 RERAISE
+             54 LOAD_CONST               0 (None)
+             56 RETURN_VALUE
+
+Disassembly of <code object bring_to_front at 0x10924cdf0, file "WeRobotCore/adapters/platform/windows_legacy.py", line 431>:
+432           0 LOAD_FAST                0 (self)
+              2 LOAD_METHOD              0 (_valid_process_id)
+              4 LOAD_FAST                1 (process_id)
+              6 CALL_METHOD              1
+              8 POP_JUMP_IF_TRUE        24
+
+433          10 LOAD_GLOBAL              1 (OperationResult)
+             12 LOAD_METHOD              2 (failed)
+
+434          14 LOAD_GLOBAL              3 (ErrorCode)
+             16 LOAD_ATTR                4 (INVALID_ARGUMENT)
+
+435          18 LOAD_CONST               1 ('process_id must be a positive integer')
+
+433          20 CALL_METHOD              2
+             22 RETURN_VALUE
+
+437     >>   24 LOAD_FAST                0 (self)
+             26 LOAD_METHOD              5 (is_running)
+             28 LOAD_FAST                1 (process_id)
+             30 CALL_METHOD              1
+             32 GET_AWAITABLE
+             34 LOAD_CONST               0 (None)
+             36 YIELD_FROM
+             38 POP_JUMP_IF_TRUE        54
+
+438          40 LOAD_GLOBAL              1 (OperationResult)
+             42 LOAD_METHOD              2 (failed)
+
+439          44 LOAD_GLOBAL              3 (ErrorCode)
+             46 LOAD_ATTR                6 (INSTANCE_NOT_FOUND)
+
+440          48 LOAD_CONST               2 ('process is not running')
+
+438          50 CALL_METHOD              2
+             52 RETURN_VALUE
+
+442     >>   54 SETUP_FINALLY           20 (to 76)
+
+443          56 LOAD_GLOBAL              7 (bool)
+             58 LOAD_FAST                0 (self)
+             60 LOAD_ATTR                8 (_facade)
+             62 LOAD_METHOD              9 (bring_process_to_front)
+             64 LOAD_FAST                1 (process_id)
+             66 CALL_METHOD              1
+             68 CALL_FUNCTION            1
+             70 STORE_FAST               2 (focused)
+             72 POP_BLOCK
+             74 JUMP_FORWARD            60 (to 136)
+
+444     >>   76 DUP_TOP
+             78 LOAD_GLOBAL             10 (Exception)
+             80 JUMP_IF_NOT_EXC_MATCH   134
+             82 POP_TOP
+             84 STORE_FAST               3 (exc)
+             86 POP_TOP
+             88 SETUP_FINALLY           36 (to 126)
+
+445          90 LOAD_GLOBAL              1 (OperationResult)
+             92 LOAD_ATTR                2 (failed)
+
+446          94 LOAD_GLOBAL              3 (ErrorCode)
+             96 LOAD_ATTR               11 (OPERATION_FAILED)
+
+447          98 LOAD_CONST               3 ('Windows process could not be brought to front: {}')
+            100 LOAD_METHOD             12 (format)
+            102 LOAD_FAST                3 (exc)
+            104 CALL_METHOD              1
+
+448         106 LOAD_CONST               4 (True)
+
+445         108 LOAD_CONST               5 (('retryable',))
+            110 CALL_FUNCTION_KW         3
+            112 POP_BLOCK
+            114 ROT_FOUR
+            116 POP_EXCEPT
+            118 LOAD_CONST               0 (None)
+            120 STORE_FAST               3 (exc)
+            122 DELETE_FAST              3 (exc)
+            124 RETURN_VALUE
+        >>  126 LOAD_CONST               0 (None)
+            128 STORE_FAST               3 (exc)
+            130 DELETE_FAST              3 (exc)
+            132 RERAISE
+        >>  134 RERAISE
+
+450     >>  136 LOAD_FAST                2 (focused)
+            138 POP_JUMP_IF_TRUE       158
+
+451         140 LOAD_GLOBAL              1 (OperationResult)
+            142 LOAD_ATTR                2 (failed)
+
+452         144 LOAD_GLOBAL              3 (ErrorCode)
+            146 LOAD_ATTR               13 (ACTION_NOT_VERIFIED)
+
+453         148 LOAD_CONST               6 ('Windows did not verify the process as frontmost')
+
+454         150 LOAD_CONST               4 (True)
+
+451         152 LOAD_CONST               5 (('retryable',))
+            154 CALL_FUNCTION_KW         3
+            156 RETURN_VALUE
+
+456     >>  158 LOAD_GLOBAL              1 (OperationResult)
+            160 LOAD_ATTR               14 (succeeded)
+            162 LOAD_CONST               7 ('process is frontmost')
+            164 LOAD_CONST               4 (True)
+            166 LOAD_CONST               8 (('verified',))
+            168 CALL_FUNCTION_KW         2
+            170 RETURN_VALUE
+
+Disassembly of <code object WindowsExecutableApplicationLauncher at 0x1092540e0, file "WeRobotCore/adapters/platform/windows_legacy.py", line 459>:
+459           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('WindowsExecutableApplicationLauncher')
+              6 STORE_NAME               2 (__qualname__)
+
+460           8 LOAD_CONST               1 ("Launch only explicitly registered executable paths.\n\n    The adapter does not close existing WeChat processes, enable Narrator, or\n    duplicate the product's multi-open route.  Those remain explicit shared\n    workflows above this low-level platform primitive.\n    ")
+             10 STORE_NAME               3 (__doc__)
+
+467          12 LOAD_CONST              10 ((None,))
+
+469          14 LOAD_NAME                4 (Mapping)
+             16 LOAD_NAME                5 (str)
+             18 LOAD_NAME                6 (Path)
+             20 BUILD_TUPLE              2
+             22 BINARY_SUBSCR
+
+470          24 LOAD_NAME                7 (Optional)
+             26 LOAD_NAME                8 (Callable)
+             28 LOAD_CONST               3 (Ellipsis)
+             30 LOAD_NAME                9 (Any)
+             32 BUILD_TUPLE              2
+             34 BINARY_SUBSCR
+             36 BINARY_SUBSCR
+
+471          38 LOAD_CONST               2 (None)
+
+467          40 LOAD_CONST               4 (('application_paths', 'process_factory', 'return'))
+             42 BUILD_CONST_KEY_MAP      3
+             44 LOAD_CONST               5 (<code object __init__ at 0x10924cf50, file "WeRobotCore/adapters/platform/windows_legacy.py", line 467>)
+             46 LOAD_CONST               6 ('WindowsExecutableApplicationLauncher.__init__')
+             48 MAKE_FUNCTION            5 (defaults, annotations)
+             50 STORE_NAME              10 (__init__)
+
+484          52 LOAD_NAME                5 (str)
+             54 LOAD_NAME               11 (OperationResult)
+             56 LOAD_CONST               7 (('application_id', 'return'))
+             58 BUILD_CONST_KEY_MAP      2
+             60 LOAD_CONST               8 (<code object launch at 0x109254030, file "WeRobotCore/adapters/platform/windows_legacy.py", line 484>)
+             62 LOAD_CONST               9 ('WindowsExecutableApplicationLauncher.launch')
+             64 MAKE_FUNCTION            4 (annotations)
+             66 STORE_NAME              12 (launch)
+             68 LOAD_CONST               2 (None)
+             70 RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x10924cf50, file "WeRobotCore/adapters/platform/windows_legacy.py", line 467>:
+472           0 LOAD_FAST                1 (application_paths)
+              2 LOAD_CONST               0 (None)
+              4 IS_OP                    0
+              6 POP_JUMP_IF_FALSE       16
+
+473           8 LOAD_GLOBAL              0 (ValueError)
+             10 LOAD_CONST               1 ('application_paths must be provided')
+             12 CALL_FUNCTION            1
+             14 RAISE_VARARGS            1
+
+474     >>   16 BUILD_MAP                0
+             18 STORE_FAST               3 (normalized)
+
+475          20 LOAD_FAST                1 (application_paths)
+             22 LOAD_METHOD              1 (items)
+             24 CALL_METHOD              0
+             26 GET_ITER
+        >>   28 FOR_ITER                64 (to 94)
+             30 UNPACK_SEQUENCE          2
+             32 STORE_FAST               4 (application_id)
+             34 STORE_FAST               5 (path)
+
+476          36 LOAD_GLOBAL              2 (isinstance)
+             38 LOAD_FAST                4 (application_id)
+             40 LOAD_GLOBAL              3 (str)
+             42 CALL_FUNCTION            2
+             44 POP_JUMP_IF_FALSE       54
+             46 LOAD_FAST                4 (application_id)
+             48 LOAD_METHOD              4 (strip)
+             50 CALL_METHOD              0
+             52 POP_JUMP_IF_TRUE        62
+
+477     >>   54 LOAD_GLOBAL              0 (ValueError)
+             56 LOAD_CONST               2 ('application ids must be non-empty strings')
+             58 CALL_FUNCTION            1
+             60 RAISE_VARARGS            1
+
+478     >>   62 LOAD_GLOBAL              2 (isinstance)
+             64 LOAD_FAST                5 (path)
+             66 LOAD_GLOBAL              5 (Path)
+             68 CALL_FUNCTION            2
+             70 POP_JUMP_IF_TRUE        80
+
+479          72 LOAD_GLOBAL              6 (TypeError)
+             74 LOAD_CONST               3 ('application paths must be pathlib.Path values')
+             76 CALL_FUNCTION            1
+             78 RAISE_VARARGS            1
+
+480     >>   80 LOAD_FAST                5 (path)
+             82 LOAD_FAST                3 (normalized)
+             84 LOAD_FAST                4 (application_id)
+             86 LOAD_METHOD              4 (strip)
+             88 CALL_METHOD              0
+             90 STORE_SUBSCR
+             92 JUMP_ABSOLUTE           28
+
+481     >>   94 LOAD_FAST                3 (normalized)
+             96 LOAD_FAST                0 (self)
+             98 STORE_ATTR               7 (_application_paths)
+
+482         100 LOAD_FAST                2 (process_factory)
+            102 JUMP_IF_TRUE_OR_POP    108
+            104 LOAD_GLOBAL              8 (subprocess)
+            106 LOAD_ATTR                9 (Popen)
+        >>  108 LOAD_FAST                0 (self)
+            110 STORE_ATTR              10 (_process_factory)
+            112 LOAD_CONST               0 (None)
+            114 RETURN_VALUE
+
+Disassembly of <code object launch at 0x109254030, file "WeRobotCore/adapters/platform/windows_legacy.py", line 484>:
+485           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                1 (application_id)
+              4 LOAD_GLOBAL              1 (str)
+              6 CALL_FUNCTION            2
+              8 POP_JUMP_IF_FALSE       18
+             10 LOAD_FAST                1 (application_id)
+             12 LOAD_METHOD              2 (strip)
+             14 CALL_METHOD              0
+             16 POP_JUMP_IF_TRUE        32
+
+486     >>   18 LOAD_GLOBAL              3 (OperationResult)
+             20 LOAD_METHOD              4 (failed)
+
+487          22 LOAD_GLOBAL              5 (ErrorCode)
+             24 LOAD_ATTR                6 (INVALID_ARGUMENT)
+
+488          26 LOAD_CONST               1 ('application_id must be a non-empty string')
+
+486          28 CALL_METHOD              2
+             30 RETURN_VALUE
+
+490     >>   32 LOAD_FAST                1 (application_id)
+             34 LOAD_METHOD              2 (strip)
+             36 CALL_METHOD              0
+             38 STORE_FAST               2 (normalized_id)
+
+491          40 LOAD_FAST                0 (self)
+             42 LOAD_ATTR                7 (_application_paths)
+             44 LOAD_METHOD              8 (get)
+             46 LOAD_FAST                2 (normalized_id)
+             48 CALL_METHOD              1
+             50 STORE_FAST               3 (executable)
+
+492          52 LOAD_FAST                3 (executable)
+             54 LOAD_CONST               0 (None)
+             56 IS_OP                    0
+             58 POP_JUMP_IF_FALSE       80
+
+493          60 LOAD_GLOBAL              3 (OperationResult)
+             62 LOAD_METHOD              4 (failed)
+
+494          64 LOAD_GLOBAL              5 (ErrorCode)
+             66 LOAD_ATTR                9 (CAPABILITY_UNAVAILABLE)
+
+495          68 LOAD_CONST               2 ('application is not registered: {}')
+             70 LOAD_METHOD             10 (format)
+             72 LOAD_FAST                2 (normalized_id)
+             74 CALL_METHOD              1
+
+493          76 CALL_METHOD              2
+             78 RETURN_VALUE
+
+497     >>   80 LOAD_FAST                3 (executable)
+             82 LOAD_METHOD             11 (is_file)
+             84 CALL_METHOD              0
+             86 POP_JUMP_IF_TRUE       102
+
+498          88 LOAD_GLOBAL              3 (OperationResult)
+             90 LOAD_METHOD              4 (failed)
+
+499          92 LOAD_GLOBAL              5 (ErrorCode)
+             94 LOAD_ATTR               12 (INSTANCE_NOT_FOUND)
+
+500          96 LOAD_CONST               3 ('registered application executable was not found')
+
+498          98 CALL_METHOD              2
+            100 RETURN_VALUE
+
+502     >>  102 SETUP_FINALLY           50 (to 154)
+
+503         104 LOAD_FAST                0 (self)
+            106 LOAD_ATTR               13 (_process_factory)
+
+504         108 LOAD_GLOBAL              1 (str)
+            110 LOAD_FAST                3 (executable)
+            112 CALL_FUNCTION            1
+            114 BUILD_LIST               1
+
+505         116 LOAD_GLOBAL              1 (str)
+            118 LOAD_FAST                3 (executable)
+            120 LOAD_ATTR               14 (parent)
+            122 CALL_FUNCTION            1
+
+503         124 LOAD_CONST               4 (('cwd',))
+            126 CALL_FUNCTION_KW         2
+            128 STORE_FAST               4 (process)
+
+507         130 LOAD_GLOBAL             15 (int)
+            132 LOAD_GLOBAL             16 (getattr)
+            134 LOAD_FAST                4 (process)
+            136 LOAD_CONST               5 ('pid')
+            138 LOAD_CONST               6 (0)
+            140 CALL_FUNCTION            3
+            142 JUMP_IF_TRUE_OR_POP    146
+            144 LOAD_CONST               6 (0)
+        >>  146 CALL_FUNCTION            1
+            148 STORE_FAST               5 (process_id)
+            150 POP_BLOCK
+            152 JUMP_FORWARD            60 (to 214)
+
+508     >>  154 DUP_TOP
+            156 LOAD_GLOBAL             17 (Exception)
+            158 JUMP_IF_NOT_EXC_MATCH   212
+            160 POP_TOP
+            162 STORE_FAST               6 (exc)
+            164 POP_TOP
+            166 SETUP_FINALLY           36 (to 204)
+
+509         168 LOAD_GLOBAL              3 (OperationResult)
+            170 LOAD_ATTR                4 (failed)
+
+510         172 LOAD_GLOBAL              5 (ErrorCode)
+            174 LOAD_ATTR               18 (OPERATION_FAILED)
+
+511         176 LOAD_CONST               7 ('application launch failed: {}')
+            178 LOAD_METHOD             10 (format)
+            180 LOAD_FAST                6 (exc)
+            182 CALL_METHOD              1
+
+512         184 LOAD_CONST               8 (True)
+
+509         186 LOAD_CONST               9 (('retryable',))
+            188 CALL_FUNCTION_KW         3
+            190 POP_BLOCK
+            192 ROT_FOUR
+            194 POP_EXCEPT
+            196 LOAD_CONST               0 (None)
+            198 STORE_FAST               6 (exc)
+            200 DELETE_FAST              6 (exc)
+            202 RETURN_VALUE
+        >>  204 LOAD_CONST               0 (None)
+            206 STORE_FAST               6 (exc)
+            208 DELETE_FAST              6 (exc)
+            210 RERAISE
+        >>  212 RERAISE
+
+514     >>  214 LOAD_FAST                5 (process_id)
+            216 LOAD_CONST               6 (0)
+            218 COMPARE_OP               1 (<=)
+            220 POP_JUMP_IF_FALSE      236
+
+515         222 LOAD_GLOBAL              3 (OperationResult)
+            224 LOAD_METHOD              4 (failed)
+
+516         226 LOAD_GLOBAL              5 (ErrorCode)
+            228 LOAD_ATTR               19 (ACTION_NOT_VERIFIED)
+
+517         230 LOAD_CONST              10 ('application launch returned no process id')
+
+515         232 CALL_METHOD              2
+            234 RETURN_VALUE
+
+519     >>  236 LOAD_GLOBAL              3 (OperationResult)
+            238 LOAD_ATTR               20 (succeeded)
+
+520         240 LOAD_CONST              11 ('application process launched')
+
+523         242 LOAD_CONST              12 (False)
+
+524         244 LOAD_CONST              13 ('process_id')
+            246 LOAD_FAST                5 (process_id)
+            248 BUILD_MAP                1
+
+519         250 LOAD_CONST              14 (('verified', 'data'))
+            252 CALL_FUNCTION_KW         3
+            254 RETURN_VALUE

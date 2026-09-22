@@ -1,0 +1,151 @@
+  1           0 LOAD_CONST               0 ('Explicit Windows composition for the shared Startup workflow.')
+              2 STORE_NAME               0 (__doc__)
+
+  3           4 LOAD_CONST               1 (0)
+              6 LOAD_CONST               2 (('Optional',))
+              8 IMPORT_NAME              1 (typing)
+             10 IMPORT_FROM              2 (Optional)
+             12 STORE_NAME               2 (Optional)
+             14 POP_TOP
+
+  5          16 LOAD_CONST               1 (0)
+             18 LOAD_CONST               3 (('WindowsLegacyStartupBackend', 'WindowsLegacyStartupOperations'))
+             20 IMPORT_NAME              3 (WeRobotCore.adapters.wechat.windows_legacy)
+             22 IMPORT_FROM              4 (WindowsLegacyStartupBackend)
+             24 STORE_NAME               4 (WindowsLegacyStartupBackend)
+             26 IMPORT_FROM              5 (WindowsLegacyStartupOperations)
+             28 STORE_NAME               5 (WindowsLegacyStartupOperations)
+             30 POP_TOP
+
+  9          32 LOAD_CONST               1 (0)
+             34 LOAD_CONST               4 (('InstanceInventorySource',))
+             36 IMPORT_NAME              6 (WeRobotCore.application.instances)
+             38 IMPORT_FROM              7 (InstanceInventorySource)
+             40 STORE_NAME               7 (InstanceInventorySource)
+             42 POP_TOP
+
+ 10          44 LOAD_CONST               1 (0)
+             46 LOAD_CONST               5 (('StartupWorkflowRegistration', 'StartupWorkflowService'))
+             48 IMPORT_NAME              8 (WeRobotCore.application.startup)
+             50 IMPORT_FROM              9 (StartupWorkflowRegistration)
+             52 STORE_NAME               9 (StartupWorkflowRegistration)
+             54 IMPORT_FROM             10 (StartupWorkflowService)
+             56 STORE_NAME              10 (StartupWorkflowService)
+             58 POP_TOP
+
+ 20          60 LOAD_CONST               6 (None)
+
+ 21          62 LOAD_CONST               6 (None)
+
+ 16          64 LOAD_CONST               7 (('inventory', 'operations'))
+             66 BUILD_CONST_KEY_MAP      2
+
+ 18          68 LOAD_NAME               11 (bool)
+
+ 19          70 LOAD_NAME                9 (StartupWorkflowRegistration)
+
+ 20          72 LOAD_NAME                2 (Optional)
+             74 LOAD_NAME                7 (InstanceInventorySource)
+             76 BINARY_SUBSCR
+
+ 21          78 LOAD_NAME                2 (Optional)
+             80 LOAD_NAME                5 (WindowsLegacyStartupOperations)
+             82 BINARY_SUBSCR
+
+ 22          84 LOAD_NAME                2 (Optional)
+             86 LOAD_NAME               10 (StartupWorkflowService)
+             88 BINARY_SUBSCR
+
+ 16          90 LOAD_CONST               8 (('enabled', 'registration', 'inventory', 'operations', 'return'))
+             92 BUILD_CONST_KEY_MAP      5
+             94 LOAD_CONST               9 (<code object register_windows_startup_workflow at 0x1072e0f50, file "WeRobotCore/bootstrap/windows_startup.py", line 16>)
+             96 LOAD_CONST              10 ('register_windows_startup_workflow')
+             98 MAKE_FUNCTION            6 (kwdefaults, annotations)
+            100 STORE_NAME              12 (register_windows_startup_workflow)
+            102 LOAD_CONST               6 (None)
+            104 RETURN_VALUE
+
+Disassembly of <code object register_windows_startup_workflow at 0x1072e0f50, file "WeRobotCore/bootstrap/windows_startup.py", line 16>:
+ 25           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                1 (registration)
+              4 LOAD_GLOBAL              1 (StartupWorkflowRegistration)
+              6 CALL_FUNCTION            2
+              8 POP_JUMP_IF_TRUE        18
+
+ 26          10 LOAD_GLOBAL              2 (TypeError)
+             12 LOAD_CONST               1 ('registration must be StartupWorkflowRegistration')
+             14 CALL_FUNCTION            1
+             16 RAISE_VARARGS            1
+
+ 27     >>   18 LOAD_GLOBAL              0 (isinstance)
+             20 LOAD_FAST                0 (enabled)
+             22 LOAD_GLOBAL              3 (bool)
+             24 CALL_FUNCTION            2
+             26 POP_JUMP_IF_TRUE        36
+
+ 28          28 LOAD_GLOBAL              2 (TypeError)
+             30 LOAD_CONST               2 ('enabled must be a boolean')
+             32 CALL_FUNCTION            1
+             34 RAISE_VARARGS            1
+
+ 29     >>   36 LOAD_FAST                0 (enabled)
+             38 POP_JUMP_IF_TRUE        50
+
+ 30          40 LOAD_FAST                1 (registration)
+             42 LOAD_METHOD              4 (register_if_enabled)
+             44 LOAD_CONST               3 (False)
+             46 CALL_METHOD              1
+             48 RETURN_VALUE
+
+ 31     >>   50 LOAD_GLOBAL              0 (isinstance)
+             52 LOAD_DEREF               0 (inventory)
+             54 LOAD_GLOBAL              5 (InstanceInventorySource)
+             56 CALL_FUNCTION            2
+             58 POP_JUMP_IF_TRUE        68
+
+ 32          60 LOAD_GLOBAL              2 (TypeError)
+             62 LOAD_CONST               4 ('inventory must implement InstanceInventorySource')
+             64 CALL_FUNCTION            1
+             66 RAISE_VARARGS            1
+
+ 33     >>   68 LOAD_GLOBAL              0 (isinstance)
+             70 LOAD_DEREF               1 (operations)
+             72 LOAD_GLOBAL              6 (WindowsLegacyStartupOperations)
+             74 CALL_FUNCTION            2
+             76 POP_JUMP_IF_TRUE        86
+
+ 34          78 LOAD_GLOBAL              2 (TypeError)
+             80 LOAD_CONST               5 ('operations must implement WindowsLegacyStartupOperations')
+             82 CALL_FUNCTION            1
+             84 RAISE_VARARGS            1
+
+ 36     >>   86 LOAD_FAST                1 (registration)
+             88 LOAD_ATTR                4 (register_if_enabled)
+
+ 37          90 LOAD_CONST               6 (True)
+
+ 38          92 LOAD_CLOSURE             0 (inventory)
+             94 LOAD_CLOSURE             1 (operations)
+             96 BUILD_TUPLE              2
+             98 LOAD_CONST               7 (<code object <lambda> at 0x1072e0870, file "WeRobotCore/bootstrap/windows_startup.py", line 38>)
+            100 LOAD_CONST               8 ('register_windows_startup_workflow.<locals>.<lambda>')
+            102 MAKE_FUNCTION            8 (closure)
+
+ 36         104 LOAD_CONST               9 (('service_factory',))
+            106 CALL_FUNCTION_KW         2
+            108 RETURN_VALUE
+
+Disassembly of <code object <lambda> at 0x1072e0870, file "WeRobotCore/bootstrap/windows_startup.py", line 38>:
+ 38           0 LOAD_GLOBAL              0 (StartupWorkflowService)
+
+ 39           2 LOAD_GLOBAL              1 (WindowsLegacyStartupBackend)
+
+ 40           4 LOAD_DEREF               0 (inventory)
+
+ 41           6 LOAD_DEREF               1 (operations)
+
+ 39           8 LOAD_CONST               1 (('inventory', 'operations'))
+             10 CALL_FUNCTION_KW         2
+
+ 38          12 CALL_FUNCTION            1
+             14 RETURN_VALUE

@@ -1,0 +1,384 @@
+  1           0 LOAD_CONST               0 (0)
+              2 LOAD_CONST               1 (('Dict', 'List', 'Any', 'Optional'))
+              4 IMPORT_NAME              0 (typing)
+              6 IMPORT_FROM              1 (Dict)
+              8 STORE_NAME               1 (Dict)
+             10 IMPORT_FROM              2 (List)
+             12 STORE_NAME               2 (List)
+             14 IMPORT_FROM              3 (Any)
+             16 STORE_NAME               3 (Any)
+             18 IMPORT_FROM              4 (Optional)
+             20 STORE_NAME               4 (Optional)
+             22 POP_TOP
+
+  2          24 LOAD_CONST               0 (0)
+             26 LOAD_CONST               2 (('CustomerAPIManager',))
+             28 IMPORT_NAME              5 (WeRobotCore.api.customer_api.api_manager)
+             30 IMPORT_FROM              6 (CustomerAPIManager)
+             32 STORE_NAME               6 (CustomerAPIManager)
+             34 POP_TOP
+
+  3          36 LOAD_CONST               0 (0)
+             38 LOAD_CONST               3 (('WeChatDBManager',))
+             40 IMPORT_NAME              7 (WeRobotCore.core.db_manager)
+             42 IMPORT_FROM              8 (WeChatDBManager)
+             44 STORE_NAME               9 (DBManager)
+             46 POP_TOP
+
+  4          48 LOAD_CONST               0 (0)
+             50 LOAD_CONST               4 (('get_logger',))
+             52 IMPORT_NAME             10 (WeRobotCore.utils.logger)
+             54 IMPORT_FROM             11 (get_logger)
+             56 STORE_NAME              11 (get_logger)
+             58 POP_TOP
+
+  5          60 LOAD_CONST               0 (0)
+             62 LOAD_CONST               5 (('ConfigManager',))
+             64 IMPORT_NAME             12 (WeRobotCore.utils.config_manager)
+             66 IMPORT_FROM             13 (ConfigManager)
+             68 STORE_NAME              13 (ConfigManager)
+             70 POP_TOP
+
+  6          72 LOAD_CONST               0 (0)
+             74 LOAD_CONST               6 (('WeChat',))
+             76 IMPORT_NAME             14 (WeRobotCore.core.WeChatType)
+             78 IMPORT_FROM             15 (WeChat)
+             80 STORE_NAME              15 (WeChat)
+             82 POP_TOP
+
+  8          84 LOAD_NAME               11 (get_logger)
+             86 LOAD_CONST               7 ('validate_mobile_service')
+             88 CALL_FUNCTION            1
+             90 STORE_NAME              16 (logger)
+
+ 10          92 LOAD_BUILD_CLASS
+             94 LOAD_CONST               8 (<code object ValidateMobileService at 0x10924b920, file "WeRobotCore/services/validate_mobile_service.py", line 10>)
+             96 LOAD_CONST               9 ('ValidateMobileService')
+             98 MAKE_FUNCTION            0
+            100 LOAD_CONST               9 ('ValidateMobileService')
+            102 CALL_FUNCTION            2
+            104 STORE_NAME              17 (ValidateMobileService)
+            106 LOAD_CONST              10 (None)
+            108 RETURN_VALUE
+
+Disassembly of <code object ValidateMobileService at 0x10924b920, file "WeRobotCore/services/validate_mobile_service.py", line 10>:
+ 10           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('ValidateMobileService')
+              6 STORE_NAME               2 (__qualname__)
+
+ 11           8 LOAD_CONST               1 ('待验真号码服务')
+             10 STORE_NAME               3 (__doc__)
+
+ 13          12 LOAD_CONST               2 (<code object __init__ at 0x10924bc90, file "WeRobotCore/services/validate_mobile_service.py", line 13>)
+             14 LOAD_CONST               3 ('ValidateMobileService.__init__')
+             16 MAKE_FUNCTION            0
+             18 STORE_NAME               4 (__init__)
+
+ 18          20 LOAD_NAME                5 (ConfigManager)
+             22 LOAD_CONST               4 (('return',))
+             24 BUILD_CONST_KEY_MAP      1
+             26 LOAD_CONST               5 (<code object _get_config_manager at 0x10924b500, file "WeRobotCore/services/validate_mobile_service.py", line 18>)
+             28 LOAD_CONST               6 ('ValidateMobileService._get_config_manager')
+             30 MAKE_FUNCTION            4 (annotations)
+             32 STORE_NAME               6 (_get_config_manager)
+
+ 33          34 LOAD_NAME                7 (str)
+             36 LOAD_NAME                8 (Dict)
+             38 LOAD_NAME                7 (str)
+             40 LOAD_NAME                9 (Any)
+             42 BUILD_TUPLE              2
+             44 BINARY_SUBSCR
+             46 LOAD_CONST               7 (('customer_id', 'return'))
+             48 BUILD_CONST_KEY_MAP      2
+             50 LOAD_CONST               8 (<code object sync_mobile_list at 0x10924b7c0, file "WeRobotCore/services/validate_mobile_service.py", line 33>)
+             52 LOAD_CONST               9 ('ValidateMobileService.sync_mobile_list')
+             54 MAKE_FUNCTION            4 (annotations)
+             56 STORE_NAME              10 (sync_mobile_list)
+             58 LOAD_CONST              10 (None)
+             60 RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x10924bc90, file "WeRobotCore/services/validate_mobile_service.py", line 13>:
+ 14           0 LOAD_GLOBAL              0 (CustomerAPIManager)
+              2 CALL_FUNCTION            0
+              4 LOAD_FAST                0 (self)
+              6 STORE_ATTR               1 (api_manager)
+
+ 15           8 LOAD_GLOBAL              2 (DBManager)
+             10 CALL_FUNCTION            0
+             12 LOAD_FAST                0 (self)
+             14 STORE_ATTR               3 (db_manager)
+
+ 16          16 LOAD_CONST               0 (None)
+             18 LOAD_FAST                0 (self)
+             20 STORE_ATTR               4 (config_manager)
+             22 LOAD_CONST               0 (None)
+             24 RETURN_VALUE
+
+Disassembly of <code object _get_config_manager at 0x10924b500, file "WeRobotCore/services/validate_mobile_service.py", line 18>:
+ 20           0 LOAD_FAST                0 (self)
+              2 LOAD_ATTR                0 (config_manager)
+              4 LOAD_CONST               1 (None)
+              6 IS_OP                    0
+              8 POP_JUMP_IF_FALSE       78
+
+ 22          10 SETUP_FINALLY           46 (to 58)
+
+ 23          12 LOAD_GLOBAL              1 (WeChat)
+             14 CALL_FUNCTION            0
+             16 STORE_FAST               1 (wechat_type)
+
+ 24          18 LOAD_FAST                1 (wechat_type)
+             20 LOAD_ATTR                2 (account_info)
+             22 LOAD_METHOD              3 (get)
+             24 LOAD_CONST               2 ('account_id')
+             26 CALL_METHOD              1
+             28 STORE_FAST               2 (account_id)
+
+ 25          30 LOAD_FAST                2 (account_id)
+             32 POP_JUMP_IF_FALSE       46
+
+ 26          34 LOAD_GLOBAL              4 (ConfigManager)
+             36 LOAD_FAST                2 (account_id)
+             38 CALL_FUNCTION            1
+             40 LOAD_FAST                0 (self)
+             42 STORE_ATTR               0 (config_manager)
+             44 JUMP_FORWARD             8 (to 54)
+
+ 28     >>   46 LOAD_GLOBAL              4 (ConfigManager)
+             48 CALL_FUNCTION            0
+             50 LOAD_FAST                0 (self)
+             52 STORE_ATTR               0 (config_manager)
+        >>   54 POP_BLOCK
+             56 JUMP_FORWARD            20 (to 78)
+
+ 29     >>   58 POP_TOP
+             60 POP_TOP
+             62 POP_TOP
+
+ 30          64 LOAD_GLOBAL              4 (ConfigManager)
+             66 CALL_FUNCTION            0
+             68 LOAD_FAST                0 (self)
+             70 STORE_ATTR               0 (config_manager)
+             72 POP_EXCEPT
+             74 JUMP_FORWARD             2 (to 78)
+             76 RERAISE
+
+ 31     >>   78 LOAD_FAST                0 (self)
+             80 LOAD_ATTR                0 (config_manager)
+             82 RETURN_VALUE
+
+Disassembly of <code object sync_mobile_list at 0x10924b7c0, file "WeRobotCore/services/validate_mobile_service.py", line 33>:
+ 35           0 EXTENDED_ARG             1
+              2 SETUP_FINALLY          272 (to 276)
+
+ 36           4 LOAD_FAST                0 (self)
+              6 LOAD_METHOD              0 (_get_config_manager)
+              8 CALL_METHOD              0
+             10 STORE_FAST               2 (config_manager)
+
+ 39          12 LOAD_FAST                2 (config_manager)
+             14 LOAD_METHOD              1 (get_friend_last_sync_time)
+             16 LOAD_FAST                1 (customer_id)
+             18 CALL_METHOD              1
+             20 STORE_FAST               3 (last_sync_time)
+
+ 42          22 LOAD_FAST                3 (last_sync_time)
+             24 LOAD_CONST               1 (None)
+             26 IS_OP                    0
+             28 POP_JUMP_IF_FALSE       62
+
+ 43          30 LOAD_FAST                2 (config_manager)
+             32 LOAD_METHOD              2 (get_default_start_time)
+             34 CALL_METHOD              0
+             36 STORE_FAST               4 (start_time)
+
+ 44          38 LOAD_GLOBAL              3 (logger)
+             40 LOAD_METHOD              4 (info)
+             42 LOAD_CONST               2 ('首次同步客户 ')
+             44 LOAD_FAST                1 (customer_id)
+             46 FORMAT_VALUE             0
+             48 LOAD_CONST               3 ('，使用默认开始时间: ')
+             50 LOAD_FAST                4 (start_time)
+             52 FORMAT_VALUE             0
+             54 BUILD_STRING             4
+             56 CALL_METHOD              1
+             58 POP_TOP
+             60 JUMP_FORWARD            26 (to 88)
+
+ 46     >>   62 LOAD_FAST                3 (last_sync_time)
+             64 STORE_FAST               4 (start_time)
+
+ 47          66 LOAD_GLOBAL              3 (logger)
+             68 LOAD_METHOD              4 (info)
+             70 LOAD_CONST               4 ('增量同步客户 ')
+             72 LOAD_FAST                1 (customer_id)
+             74 FORMAT_VALUE             0
+             76 LOAD_CONST               5 ('，从上次同步时间开始: ')
+             78 LOAD_FAST                4 (start_time)
+             80 FORMAT_VALUE             0
+             82 BUILD_STRING             4
+             84 CALL_METHOD              1
+             86 POP_TOP
+
+ 50     >>   88 LOAD_FAST                0 (self)
+             90 LOAD_ATTR                5 (api_manager)
+             92 LOAD_METHOD              6 (get_friends_data)
+             94 LOAD_FAST                1 (customer_id)
+             96 LOAD_FAST                4 (start_time)
+             98 CALL_METHOD              2
+            100 GET_AWAITABLE
+            102 LOAD_CONST               1 (None)
+            104 YIELD_FROM
+            106 STORE_FAST               5 (friends_data)
+
+ 53         108 LOAD_FAST                5 (friends_data)
+            110 POP_JUMP_IF_FALSE      238
+            112 LOAD_GLOBAL              7 (len)
+            114 LOAD_FAST                5 (friends_data)
+            116 CALL_FUNCTION            1
+            118 LOAD_CONST               6 (0)
+            120 COMPARE_OP               4 (>)
+            122 POP_JUMP_IF_FALSE      238
+
+ 54         124 LOAD_GLOBAL              3 (logger)
+            126 LOAD_METHOD              4 (info)
+            128 LOAD_CONST               7 ('接口返回 ')
+            130 LOAD_GLOBAL              7 (len)
+            132 LOAD_FAST                5 (friends_data)
+            134 CALL_FUNCTION            1
+            136 FORMAT_VALUE             0
+            138 LOAD_CONST               8 (' 条待添加好友数据')
+            140 BUILD_STRING             3
+            142 CALL_METHOD              1
+            144 POP_TOP
+
+ 55         146 LOAD_FAST                0 (self)
+            148 LOAD_ATTR                8 (db_manager)
+            150 LOAD_METHOD              9 (add_friend_list)
+            152 LOAD_FAST                5 (friends_data)
+            154 CALL_METHOD              1
+            156 STORE_FAST               6 (success)
+
+ 57         158 LOAD_FAST                6 (success)
+            160 POP_JUMP_IF_FALSE      214
+
+ 59         162 LOAD_FAST                2 (config_manager)
+            164 LOAD_METHOD             10 (save_friend_last_sync_time)
+            166 LOAD_FAST                1 (customer_id)
+            168 CALL_METHOD              1
+            170 POP_TOP
+
+ 62         172 LOAD_FAST                0 (self)
+            174 LOAD_ATTR                8 (db_manager)
+            176 LOAD_METHOD             11 (get_pending_friend_count)
+            178 CALL_METHOD              0
+            180 STORE_FAST               7 (pending_count)
+
+ 65         182 LOAD_CONST               9 (True)
+
+ 66         184 LOAD_GLOBAL              7 (len)
+            186 LOAD_FAST                5 (friends_data)
+            188 CALL_FUNCTION            1
+
+ 67         190 LOAD_FAST                7 (pending_count)
+
+ 68         192 LOAD_CONST              10 ('成功同步 ')
+            194 LOAD_GLOBAL              7 (len)
+            196 LOAD_FAST                5 (friends_data)
+            198 CALL_FUNCTION            1
+            200 FORMAT_VALUE             0
+            202 LOAD_CONST              11 (' 条新好友数据')
+            204 BUILD_STRING             3
+
+ 64         206 LOAD_CONST              12 (('success', 'count', 'remaining', 'message'))
+            208 BUILD_CONST_KEY_MAP      4
+            210 POP_BLOCK
+            212 RETURN_VALUE
+
+ 71     >>  214 LOAD_GLOBAL              3 (logger)
+            216 LOAD_METHOD             12 (error)
+            218 LOAD_CONST              13 ('保存接口好友数据到数据库失败')
+            220 CALL_METHOD              1
+            222 POP_TOP
+
+ 73         224 LOAD_CONST              14 (False)
+
+ 74         226 LOAD_CONST              13 ('保存接口好友数据到数据库失败')
+
+ 72         228 LOAD_CONST              15 (('success', 'message'))
+            230 BUILD_CONST_KEY_MAP      2
+            232 POP_BLOCK
+            234 RETURN_VALUE
+            236 JUMP_FORWARD            34 (to 272)
+
+ 77     >>  238 LOAD_GLOBAL              3 (logger)
+            240 LOAD_METHOD              4 (info)
+            242 LOAD_CONST              16 ('未获取到可添加的好友')
+            244 CALL_METHOD              1
+            246 POP_TOP
+
+ 79         248 LOAD_FAST                2 (config_manager)
+            250 LOAD_METHOD             10 (save_friend_last_sync_time)
+            252 LOAD_FAST                1 (customer_id)
+            254 CALL_METHOD              1
+            256 POP_TOP
+
+ 82         258 LOAD_CONST               9 (True)
+
+ 83         260 LOAD_CONST               6 (0)
+
+ 84         262 LOAD_CONST              16 ('未获取到可添加的好友')
+
+ 81         264 LOAD_CONST              17 (('success', 'count', 'message'))
+            266 BUILD_CONST_KEY_MAP      3
+            268 POP_BLOCK
+            270 RETURN_VALUE
+        >>  272 POP_BLOCK
+            274 JUMP_FORWARD            78 (to 354)
+
+ 87     >>  276 DUP_TOP
+            278 LOAD_GLOBAL             13 (Exception)
+            280 EXTENDED_ARG             1
+            282 JUMP_IF_NOT_EXC_MATCH   352
+            284 POP_TOP
+            286 STORE_FAST               8 (e)
+            288 POP_TOP
+            290 SETUP_FINALLY           52 (to 344)
+
+ 88         292 LOAD_GLOBAL              3 (logger)
+            294 LOAD_METHOD             12 (error)
+            296 LOAD_CONST              18 ('同步待添加好友数据失败: ')
+            298 LOAD_GLOBAL             14 (str)
+            300 LOAD_FAST                8 (e)
+            302 CALL_FUNCTION            1
+            304 FORMAT_VALUE             0
+            306 BUILD_STRING             2
+            308 CALL_METHOD              1
+            310 POP_TOP
+
+ 90         312 LOAD_CONST              14 (False)
+
+ 91         314 LOAD_CONST              18 ('同步待添加好友数据失败: ')
+            316 LOAD_GLOBAL             14 (str)
+            318 LOAD_FAST                8 (e)
+            320 CALL_FUNCTION            1
+            322 FORMAT_VALUE             0
+            324 BUILD_STRING             2
+
+ 89         326 LOAD_CONST              15 (('success', 'message'))
+            328 BUILD_CONST_KEY_MAP      2
+            330 POP_BLOCK
+            332 ROT_FOUR
+            334 POP_EXCEPT
+            336 LOAD_CONST               1 (None)
+            338 STORE_FAST               8 (e)
+            340 DELETE_FAST              8 (e)
+            342 RETURN_VALUE
+        >>  344 LOAD_CONST               1 (None)
+            346 STORE_FAST               8 (e)
+            348 DELETE_FAST              8 (e)
+            350 RERAISE
+        >>  352 RERAISE
+        >>  354 LOAD_CONST               1 (None)
+            356 RETURN_VALUE

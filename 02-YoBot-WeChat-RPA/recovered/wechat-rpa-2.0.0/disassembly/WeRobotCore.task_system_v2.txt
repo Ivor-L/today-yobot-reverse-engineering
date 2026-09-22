@@ -1,0 +1,100 @@
+  1           0 LOAD_CONST               0 ('Task System V2 compatibility exports.\n\nImporting the package must not construct or import a platform RPA client.\nWindows callers can keep importing ``AutoFollowTask`` from this package; the\ntask module is loaded only when that specific attribute is requested.\n')
+              2 STORE_NAME               0 (__doc__)
+
+  8           4 LOAD_CONST               1 (0)
+              6 LOAD_CONST               2 (('import_module',))
+              8 IMPORT_NAME              1 (importlib)
+             10 IMPORT_FROM              2 (import_module)
+             12 STORE_NAME               2 (import_module)
+             14 POP_TOP
+
+ 10          16 LOAD_CONST               3 (1)
+             18 LOAD_CONST               4 (('TaskPriority', 'TaskStatus', 'TaskType'))
+             20 IMPORT_NAME              3 (base)
+             22 IMPORT_FROM              4 (TaskPriority)
+             24 STORE_NAME               4 (TaskPriority)
+             26 IMPORT_FROM              5 (TaskStatus)
+             28 STORE_NAME               5 (TaskStatus)
+             30 IMPORT_FROM              6 (TaskType)
+             32 STORE_NAME               6 (TaskType)
+             34 POP_TOP
+
+ 12          36 BUILD_LIST               0
+             38 LOAD_CONST               5 (('TaskType', 'TaskPriority', 'TaskStatus', 'AutoFollowTask'))
+             40 LIST_EXTEND              1
+             42 STORE_NAME               7 (__all__)
+
+ 15          44 LOAD_CONST               6 ('AutoFollowTask')
+             46 LOAD_CONST               7 (('.tasks.auto_follow_task', 'AutoFollowTask'))
+
+ 14          48 BUILD_MAP                1
+             50 STORE_NAME               8 (_LAZY_EXPORTS)
+
+ 19          52 LOAD_CONST               8 (<code object __getattr__ at 0x1073aa870, file "WeRobotCore/task_system_v2/__init__.py", line 19>)
+             54 LOAD_CONST               9 ('__getattr__')
+             56 MAKE_FUNCTION            0
+             58 STORE_NAME               9 (__getattr__)
+
+ 29          60 LOAD_CONST              10 (<code object __dir__ at 0x1073aaea0, file "WeRobotCore/task_system_v2/__init__.py", line 29>)
+             62 LOAD_CONST              11 ('__dir__')
+             64 MAKE_FUNCTION            0
+             66 STORE_NAME              10 (__dir__)
+             68 LOAD_CONST              12 (None)
+             70 RETURN_VALUE
+
+Disassembly of <code object __getattr__ at 0x1073aa870, file "WeRobotCore/task_system_v2/__init__.py", line 19>:
+ 20           0 LOAD_GLOBAL              0 (_LAZY_EXPORTS)
+              2 LOAD_METHOD              1 (get)
+              4 LOAD_FAST                0 (name)
+              6 CALL_METHOD              1
+              8 STORE_FAST               1 (target)
+
+ 21          10 LOAD_FAST                1 (target)
+             12 LOAD_CONST               0 (None)
+             14 IS_OP                    0
+             16 POP_JUMP_IF_FALSE       34
+
+ 22          18 LOAD_GLOBAL              2 (AttributeError)
+             20 LOAD_CONST               1 ('module {!r} has no attribute {!r}')
+             22 LOAD_METHOD              3 (format)
+             24 LOAD_GLOBAL              4 (__name__)
+             26 LOAD_FAST                0 (name)
+             28 CALL_METHOD              2
+             30 CALL_FUNCTION            1
+             32 RAISE_VARARGS            1
+
+ 23     >>   34 LOAD_FAST                1 (target)
+             36 UNPACK_SEQUENCE          2
+             38 STORE_FAST               2 (module_name)
+             40 STORE_FAST               3 (attribute_name)
+
+ 24          42 LOAD_GLOBAL              5 (getattr)
+             44 LOAD_GLOBAL              6 (import_module)
+             46 LOAD_FAST                2 (module_name)
+             48 LOAD_GLOBAL              4 (__name__)
+             50 CALL_FUNCTION            2
+             52 LOAD_FAST                3 (attribute_name)
+             54 CALL_FUNCTION            2
+             56 STORE_FAST               4 (value)
+
+ 25          58 LOAD_FAST                4 (value)
+             60 LOAD_GLOBAL              7 (globals)
+             62 CALL_FUNCTION            0
+             64 LOAD_FAST                0 (name)
+             66 STORE_SUBSCR
+
+ 26          68 LOAD_FAST                4 (value)
+             70 RETURN_VALUE
+
+Disassembly of <code object __dir__ at 0x1073aaea0, file "WeRobotCore/task_system_v2/__init__.py", line 29>:
+ 30           0 LOAD_GLOBAL              0 (sorted)
+              2 LOAD_GLOBAL              1 (set)
+              4 LOAD_GLOBAL              2 (globals)
+              6 CALL_FUNCTION            0
+              8 CALL_FUNCTION            1
+             10 LOAD_GLOBAL              1 (set)
+             12 LOAD_GLOBAL              3 (__all__)
+             14 CALL_FUNCTION            1
+             16 BINARY_OR
+             18 CALL_FUNCTION            1
+             20 RETURN_VALUE

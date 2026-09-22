@@ -1,0 +1,1302 @@
+  1           0 LOAD_CONST               0 ("Run long contact synchronization without blocking the API event loop.\n\nContact collection is a synchronous UI Automation operation and may take a\nlong time for large address books.  Running it directly in an ``async`` route\nblocks FastAPI's event loop, which also prevents the worker heartbeat and\n``/api/health`` endpoint from responding.  The external supervisor then\nmistakes the busy worker for a dead worker and restarts it.\n\nContact syncs use the same single UIA worker as chat polling and sending.\n``WeChat`` instances are scoped by thread, so the instance must be resolved\nand initialized inside that worker.\n")
+              2 STORE_NAME               0 (__doc__)
+
+ 14           4 LOAD_CONST               1 (0)
+              6 LOAD_CONST               2 (('annotations',))
+              8 IMPORT_NAME              1 (__future__)
+             10 IMPORT_FROM              2 (annotations)
+             12 STORE_NAME               2 (annotations)
+             14 POP_TOP
+
+ 16          16 LOAD_CONST               1 (0)
+             18 LOAD_CONST               3 (None)
+             20 IMPORT_NAME              3 (asyncio)
+             22 STORE_NAME               3 (asyncio)
+
+ 17          24 LOAD_CONST               1 (0)
+             26 LOAD_CONST               3 (None)
+             28 IMPORT_NAME              4 (logging)
+             30 STORE_NAME               4 (logging)
+
+ 18          32 LOAD_CONST               1 (0)
+             34 LOAD_CONST               3 (None)
+             36 IMPORT_NAME              5 (threading)
+             38 STORE_NAME               5 (threading)
+
+ 19          40 LOAD_CONST               1 (0)
+             42 LOAD_CONST               3 (None)
+             44 IMPORT_NAME              6 (uuid)
+             46 STORE_NAME               6 (uuid)
+
+ 20          48 LOAD_CONST               1 (0)
+             50 LOAD_CONST               4 (('partial',))
+             52 IMPORT_NAME              7 (functools)
+             54 IMPORT_FROM              8 (partial)
+             56 STORE_NAME               8 (partial)
+             58 POP_TOP
+
+ 21          60 LOAD_CONST               1 (0)
+             62 LOAD_CONST               5 (('Any', 'Dict', 'Optional'))
+             64 IMPORT_NAME              9 (typing)
+             66 IMPORT_FROM             10 (Any)
+             68 STORE_NAME              10 (Any)
+             70 IMPORT_FROM             11 (Dict)
+             72 STORE_NAME              11 (Dict)
+             74 IMPORT_FROM             12 (Optional)
+             76 STORE_NAME              12 (Optional)
+             78 POP_TOP
+
+ 24          80 LOAD_NAME                5 (threading)
+             82 LOAD_METHOD             13 (Lock)
+             84 CALL_METHOD              0
+             86 STORE_NAME              14 (_CONTACT_SYNC_STATE_LOCK)
+
+ 25          88 LOAD_CONST               6 ('idle')
+             90 STORE_GLOBAL            15 (_CONTACT_SYNC_STATE)
+
+ 28          92 LOAD_BUILD_CLASS
+             94 LOAD_CONST               7 (<code object ContactSyncBusyError at 0x10924ca80, file "WeRobotCore/api/contact_sync_runner.py", line 28>)
+             96 LOAD_CONST               8 ('ContactSyncBusyError')
+             98 MAKE_FUNCTION            0
+            100 LOAD_CONST               8 ('ContactSyncBusyError')
+            102 LOAD_NAME               16 (RuntimeError)
+            104 CALL_FUNCTION            3
+            106 STORE_NAME              17 (ContactSyncBusyError)
+
+ 32         108 LOAD_CONST               9 ('bool')
+            110 LOAD_CONST              10 (('return',))
+            112 BUILD_CONST_KEY_MAP      1
+            114 LOAD_CONST              11 (<code object is_contact_sync_active at 0x10924c0e0, file "WeRobotCore/api/contact_sync_runner.py", line 32>)
+            116 LOAD_CONST              12 ('is_contact_sync_active')
+            118 MAKE_FUNCTION            4 (annotations)
+            120 STORE_NAME              18 (is_contact_sync_active)
+
+ 38         122 LOAD_CONST               9 ('bool')
+            124 LOAD_CONST              10 (('return',))
+            126 BUILD_CONST_KEY_MAP      1
+            128 LOAD_CONST              13 (<code object is_contact_sync_in_progress at 0x10924c190, file "WeRobotCore/api/contact_sync_runner.py", line 38>)
+            130 LOAD_CONST              14 ('is_contact_sync_in_progress')
+            132 MAKE_FUNCTION            4 (annotations)
+            134 STORE_NAME              19 (is_contact_sync_in_progress)
+
+ 44         136 LOAD_CONST              15 ('None')
+            138 LOAD_CONST              10 (('return',))
+            140 BUILD_CONST_KEY_MAP      1
+            142 LOAD_CONST              16 (<code object _claim_contact_sync at 0x109244660, file "WeRobotCore/api/contact_sync_runner.py", line 44>)
+            144 LOAD_CONST              17 ('_claim_contact_sync')
+            146 MAKE_FUNCTION            4 (annotations)
+            148 STORE_NAME              20 (_claim_contact_sync)
+
+ 52         150 LOAD_CONST              15 ('None')
+            152 LOAD_CONST              10 (('return',))
+            154 BUILD_CONST_KEY_MAP      1
+            156 LOAD_CONST              18 (<code object _mark_contact_sync_running at 0x109244a80, file "WeRobotCore/api/contact_sync_runner.py", line 52>)
+            158 LOAD_CONST              19 ('_mark_contact_sync_running')
+            160 MAKE_FUNCTION            4 (annotations)
+            162 STORE_NAME              21 (_mark_contact_sync_running)
+
+ 58         164 LOAD_CONST              15 ('None')
+            166 LOAD_CONST              10 (('return',))
+            168 BUILD_CONST_KEY_MAP      1
+            170 LOAD_CONST              20 (<code object _release_contact_sync at 0x1092449d0, file "WeRobotCore/api/contact_sync_runner.py", line 58>)
+            172 LOAD_CONST              21 ('_release_contact_sync')
+            174 MAKE_FUNCTION            4 (annotations)
+            176 STORE_NAME              22 (_release_contact_sync)
+
+ 64         178 LOAD_CONST              22 ('Optional[str]')
+            180 LOAD_CONST              23 ('str')
+            182 LOAD_CONST              24 (('account_id', 'return'))
+            184 BUILD_CONST_KEY_MAP      2
+            186 LOAD_CONST              25 (<code object _resolve_account_id at 0x109244be0, file "WeRobotCore/api/contact_sync_runner.py", line 64>)
+            188 LOAD_CONST              26 ('_resolve_account_id')
+            190 MAKE_FUNCTION            4 (annotations)
+            192 STORE_NAME              23 (_resolve_account_id)
+
+ 81         194 LOAD_CONST              23 ('str')
+            196 LOAD_CONST              27 (('account_id',))
+            198 BUILD_CONST_KEY_MAP      1
+            200 LOAD_CONST              28 (<code object _ensure_thread_wechat at 0x1092447c0, file "WeRobotCore/api/contact_sync_runner.py", line 81>)
+            202 LOAD_CONST              29 ('_ensure_thread_wechat')
+            204 MAKE_FUNCTION            4 (annotations)
+            206 STORE_NAME              24 (_ensure_thread_wechat)
+
+ 90         208 LOAD_CONST              30 ('Any')
+            210 LOAD_CONST              30 ('Any')
+            212 LOAD_CONST              31 ('Dict[str, Any]')
+            214 LOAD_CONST              32 (('raw_result', 'wx', 'return'))
+            216 BUILD_CONST_KEY_MAP      3
+            218 LOAD_CONST              33 (<code object _normalize_result at 0x109244870, file "WeRobotCore/api/contact_sync_runner.py", line 90>)
+            220 LOAD_CONST              34 ('_normalize_result')
+            222 MAKE_FUNCTION            4 (annotations)
+            224 STORE_NAME              25 (_normalize_result)
+
+115         226 LOAD_CONST              22 ('Optional[str]')
+            228 LOAD_CONST              23 ('str')
+            230 LOAD_CONST               9 ('bool')
+            232 LOAD_CONST              31 ('Dict[str, Any]')
+            234 LOAD_CONST              35 (('account_id', 'contact_type', 'incremental', 'return'))
+            236 BUILD_CONST_KEY_MAP      4
+            238 LOAD_CONST              36 (<code object _run_contact_sync_in_thread at 0x1092445b0, file "WeRobotCore/api/contact_sync_runner.py", line 115>)
+            240 LOAD_CONST              37 ('_run_contact_sync_in_thread')
+            242 MAKE_FUNCTION            4 (annotations)
+            244 STORE_NAME              26 (_run_contact_sync_in_thread)
+
+138         246 LOAD_CONST              38 (<code object _acquire_manual_permission at 0x109244c90, file "WeRobotCore/api/contact_sync_runner.py", line 138>)
+            248 LOAD_CONST              39 ('_acquire_manual_permission')
+            250 MAKE_FUNCTION            0
+            252 STORE_NAME              27 (_acquire_manual_permission)
+
+168         254 LOAD_CONST              31 ('Dict[str, Any]')
+            256 LOAD_CONST              10 (('return',))
+            258 BUILD_CONST_KEY_MAP      1
+            260 LOAD_CONST              40 (<code object _pause_chat_monitor_for_sync at 0x1092442f0, file "WeRobotCore/api/contact_sync_runner.py", line 168>)
+            262 LOAD_CONST              41 ('_pause_chat_monitor_for_sync')
+            264 MAKE_FUNCTION            4 (annotations)
+            266 STORE_NAME              28 (_pause_chat_monitor_for_sync)
+
+182         268 LOAD_CONST              42 ('Optional[Dict[str, Any]]')
+            270 LOAD_CONST              15 ('None')
+            272 LOAD_CONST              43 (('state', 'return'))
+            274 BUILD_CONST_KEY_MAP      2
+            276 LOAD_CONST              44 (<code object _resume_chat_monitor_after_sync at 0x109244030, file "WeRobotCore/api/contact_sync_runner.py", line 182>)
+            278 LOAD_CONST              45 ('_resume_chat_monitor_after_sync')
+            280 MAKE_FUNCTION            4 (annotations)
+            282 STORE_NAME              29 (_resume_chat_monitor_after_sync)
+
+207         284 LOAD_CONST              15 ('None')
+            286 LOAD_CONST              10 (('return',))
+            288 BUILD_CONST_KEY_MAP      1
+            290 LOAD_CONST              46 (<code object _wait_for_existing_chat_uia at 0x109244710, file "WeRobotCore/api/contact_sync_runner.py", line 207>)
+            292 LOAD_CONST              47 ('_wait_for_existing_chat_uia')
+            294 MAKE_FUNCTION            4 (annotations)
+            296 STORE_NAME              30 (_wait_for_existing_chat_uia)
+
+214         298 LOAD_CONST              48 (<code object _submit_contact_sync at 0x109244920, file "WeRobotCore/api/contact_sync_runner.py", line 214>)
+            300 LOAD_CONST              49 ('_submit_contact_sync')
+            302 MAKE_FUNCTION            0
+            304 STORE_NAME              31 (_submit_contact_sync)
+
+221         306 LOAD_CONST              31 ('Dict[str, Any]')
+            308 LOAD_CONST              10 (('return',))
+            310 BUILD_CONST_KEY_MAP      1
+            312 LOAD_CONST              50 (<code object _enter_contact_sync_runtime_phase at 0x109244df0, file "WeRobotCore/api/contact_sync_runner.py", line 221>)
+            314 LOAD_CONST              51 ('_enter_contact_sync_runtime_phase')
+            316 MAKE_FUNCTION            4 (annotations)
+            318 STORE_NAME              32 (_enter_contact_sync_runtime_phase)
+
+234         320 LOAD_CONST              42 ('Optional[Dict[str, Any]]')
+            322 LOAD_CONST              15 ('None')
+            324 LOAD_CONST              52 (('previous_phase', 'return'))
+            326 BUILD_CONST_KEY_MAP      2
+            328 LOAD_CONST              53 (<code object _restore_runtime_phase at 0x109244f50, file "WeRobotCore/api/contact_sync_runner.py", line 234>)
+            330 LOAD_CONST              54 ('_restore_runtime_phase')
+            332 MAKE_FUNCTION            4 (annotations)
+            334 STORE_NAME              33 (_restore_runtime_phase)
+
+255         336 LOAD_CONST              42 ('Optional[Dict[str, Any]]')
+            338 LOAD_CONST              30 ('Any')
+            340 LOAD_CONST              22 ('Optional[str]')
+            342 LOAD_CONST              42 ('Optional[Dict[str, Any]]')
+            344 LOAD_CONST              15 ('None')
+            346 LOAD_CONST              55 (('monitor_state', 'permission_manager', 'permission_task_id', 'previous_runtime_phase', 'return'))
+            348 BUILD_CONST_KEY_MAP      5
+            350 LOAD_CONST              56 (<code object _cleanup_contact_sync at 0x109244500, file "WeRobotCore/api/contact_sync_runner.py", line 255>)
+            352 LOAD_CONST              57 ('_cleanup_contact_sync')
+            354 MAKE_FUNCTION            4 (annotations)
+            356 STORE_NAME              34 (_cleanup_contact_sync)
+
+282         358 LOAD_CONST              58 (False)
+
+283         360 LOAD_CONST              58 (False)
+
+278         362 LOAD_CONST              59 (('incremental', 'permission_already_held'))
+            364 BUILD_CONST_KEY_MAP      2
+            366 LOAD_CONST              22 ('Optional[str]')
+            368 LOAD_CONST              23 ('str')
+            370 LOAD_CONST               9 ('bool')
+            372 LOAD_CONST               9 ('bool')
+            374 LOAD_CONST              31 ('Dict[str, Any]')
+            376 LOAD_CONST              60 (('account_id', 'contact_type', 'incremental', 'permission_already_held', 'return'))
+            378 BUILD_CONST_KEY_MAP      5
+            380 LOAD_CONST              61 (<code object run_contact_sync at 0x109244b30, file "WeRobotCore/api/contact_sync_runner.py", line 278>)
+            382 LOAD_CONST              62 ('run_contact_sync')
+            384 MAKE_FUNCTION            6 (kwdefaults, annotations)
+            386 STORE_NAME              35 (run_contact_sync)
+            388 LOAD_CONST               3 (None)
+            390 RETURN_VALUE
+
+Disassembly of <code object ContactSyncBusyError at 0x10924ca80, file "WeRobotCore/api/contact_sync_runner.py", line 28>:
+ 28           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('ContactSyncBusyError')
+              6 STORE_NAME               2 (__qualname__)
+
+ 29           8 LOAD_CONST               1 ('Raised when another UI-exclusive contact sync is already in progress.')
+             10 STORE_NAME               3 (__doc__)
+             12 LOAD_CONST               2 (None)
+             14 RETURN_VALUE
+
+Disassembly of <code object is_contact_sync_active at 0x10924c0e0, file "WeRobotCore/api/contact_sync_runner.py", line 32>:
+ 34           0 LOAD_GLOBAL              0 (_CONTACT_SYNC_STATE_LOCK)
+              2 SETUP_WITH              24 (to 28)
+              4 POP_TOP
+
+ 35           6 LOAD_GLOBAL              1 (_CONTACT_SYNC_STATE)
+              8 LOAD_CONST               1 ('running')
+             10 COMPARE_OP               2 (==)
+             12 POP_BLOCK
+             14 ROT_TWO
+             16 LOAD_CONST               2 (None)
+             18 DUP_TOP
+             20 DUP_TOP
+             22 CALL_FUNCTION            3
+             24 POP_TOP
+             26 RETURN_VALUE
+        >>   28 WITH_EXCEPT_START
+             30 POP_JUMP_IF_TRUE        34
+             32 RERAISE
+        >>   34 POP_TOP
+             36 POP_TOP
+             38 POP_TOP
+             40 POP_EXCEPT
+             42 POP_TOP
+             44 LOAD_CONST               2 (None)
+             46 RETURN_VALUE
+
+Disassembly of <code object is_contact_sync_in_progress at 0x10924c190, file "WeRobotCore/api/contact_sync_runner.py", line 38>:
+ 40           0 LOAD_GLOBAL              0 (_CONTACT_SYNC_STATE_LOCK)
+              2 SETUP_WITH              24 (to 28)
+              4 POP_TOP
+
+ 41           6 LOAD_GLOBAL              1 (_CONTACT_SYNC_STATE)
+              8 LOAD_CONST               1 ('idle')
+             10 COMPARE_OP               3 (!=)
+             12 POP_BLOCK
+             14 ROT_TWO
+             16 LOAD_CONST               2 (None)
+             18 DUP_TOP
+             20 DUP_TOP
+             22 CALL_FUNCTION            3
+             24 POP_TOP
+             26 RETURN_VALUE
+        >>   28 WITH_EXCEPT_START
+             30 POP_JUMP_IF_TRUE        34
+             32 RERAISE
+        >>   34 POP_TOP
+             36 POP_TOP
+             38 POP_TOP
+             40 POP_EXCEPT
+             42 POP_TOP
+             44 LOAD_CONST               2 (None)
+             46 RETURN_VALUE
+
+Disassembly of <code object _claim_contact_sync at 0x109244660, file "WeRobotCore/api/contact_sync_runner.py", line 44>:
+ 46           0 LOAD_GLOBAL              0 (_CONTACT_SYNC_STATE_LOCK)
+              2 SETUP_WITH              36 (to 40)
+              4 POP_TOP
+
+ 47           6 LOAD_GLOBAL              1 (_CONTACT_SYNC_STATE)
+              8 LOAD_CONST               1 ('idle')
+             10 COMPARE_OP               3 (!=)
+             12 POP_JUMP_IF_FALSE       22
+
+ 48          14 LOAD_GLOBAL              2 (ContactSyncBusyError)
+             16 LOAD_CONST               2 ('已有通讯录同步正在执行，请等待完成后再试')
+             18 CALL_FUNCTION            1
+             20 RAISE_VARARGS            1
+
+ 49     >>   22 LOAD_CONST               3 ('pending')
+             24 STORE_GLOBAL             1 (_CONTACT_SYNC_STATE)
+             26 POP_BLOCK
+             28 LOAD_CONST               0 (None)
+             30 DUP_TOP
+             32 DUP_TOP
+             34 CALL_FUNCTION            3
+             36 POP_TOP
+             38 JUMP_FORWARD            16 (to 56)
+        >>   40 WITH_EXCEPT_START
+             42 POP_JUMP_IF_TRUE        46
+             44 RERAISE
+        >>   46 POP_TOP
+             48 POP_TOP
+             50 POP_TOP
+             52 POP_EXCEPT
+             54 POP_TOP
+        >>   56 LOAD_CONST               0 (None)
+             58 RETURN_VALUE
+
+Disassembly of <code object _mark_contact_sync_running at 0x109244a80, file "WeRobotCore/api/contact_sync_runner.py", line 52>:
+ 54           0 LOAD_GLOBAL              0 (_CONTACT_SYNC_STATE_LOCK)
+              2 SETUP_WITH              20 (to 24)
+              4 POP_TOP
+
+ 55           6 LOAD_CONST               1 ('running')
+              8 STORE_GLOBAL             1 (_CONTACT_SYNC_STATE)
+             10 POP_BLOCK
+             12 LOAD_CONST               0 (None)
+             14 DUP_TOP
+             16 DUP_TOP
+             18 CALL_FUNCTION            3
+             20 POP_TOP
+             22 JUMP_FORWARD            16 (to 40)
+        >>   24 WITH_EXCEPT_START
+             26 POP_JUMP_IF_TRUE        30
+             28 RERAISE
+        >>   30 POP_TOP
+             32 POP_TOP
+             34 POP_TOP
+             36 POP_EXCEPT
+             38 POP_TOP
+        >>   40 LOAD_CONST               0 (None)
+             42 RETURN_VALUE
+
+Disassembly of <code object _release_contact_sync at 0x1092449d0, file "WeRobotCore/api/contact_sync_runner.py", line 58>:
+ 60           0 LOAD_GLOBAL              0 (_CONTACT_SYNC_STATE_LOCK)
+              2 SETUP_WITH              20 (to 24)
+              4 POP_TOP
+
+ 61           6 LOAD_CONST               1 ('idle')
+              8 STORE_GLOBAL             1 (_CONTACT_SYNC_STATE)
+             10 POP_BLOCK
+             12 LOAD_CONST               0 (None)
+             14 DUP_TOP
+             16 DUP_TOP
+             18 CALL_FUNCTION            3
+             20 POP_TOP
+             22 JUMP_FORWARD            16 (to 40)
+        >>   24 WITH_EXCEPT_START
+             26 POP_JUMP_IF_TRUE        30
+             28 RERAISE
+        >>   30 POP_TOP
+             32 POP_TOP
+             34 POP_TOP
+             36 POP_EXCEPT
+             38 POP_TOP
+        >>   40 LOAD_CONST               0 (None)
+             42 RETURN_VALUE
+
+Disassembly of <code object _resolve_account_id at 0x109244be0, file "WeRobotCore/api/contact_sync_runner.py", line 64>:
+ 65           0 LOAD_FAST                0 (account_id)
+              2 POP_JUMP_IF_FALSE        8
+
+ 66           4 LOAD_FAST                0 (account_id)
+              6 RETURN_VALUE
+
+ 70     >>    8 LOAD_CONST               1 (0)
+             10 LOAD_CONST               2 (('InstanceManagerV2',))
+             12 IMPORT_NAME              0 (WeRobotCore.core.instance_manager_v2)
+             14 IMPORT_FROM              1 (InstanceManagerV2)
+             16 STORE_FAST               1 (InstanceManagerV2)
+             18 POP_TOP
+
+ 72          20 LOAD_FAST                1 (InstanceManagerV2)
+             22 CALL_FUNCTION            0
+             24 LOAD_METHOD              2 (get_active_instance)
+             26 CALL_METHOD              0
+             28 STORE_FAST               2 (active_instance)
+
+ 73          30 LOAD_FAST                2 (active_instance)
+             32 POP_JUMP_IF_FALSE       46
+             34 LOAD_FAST                2 (active_instance)
+             36 LOAD_METHOD              3 (get)
+             38 LOAD_CONST               3 ('manually_exited')
+             40 LOAD_CONST               4 (False)
+             42 CALL_METHOD              2
+             44 POP_JUMP_IF_FALSE       54
+
+ 74     >>   46 LOAD_GLOBAL              4 (ValueError)
+             48 LOAD_CONST               5 ('未找到活跃的微信窗口，请先刷新账号并选择微信实例')
+             50 CALL_FUNCTION            1
+             52 RAISE_VARARGS            1
+
+ 75     >>   54 LOAD_FAST                2 (active_instance)
+             56 LOAD_METHOD              3 (get)
+             58 LOAD_CONST               6 ('account_info')
+             60 CALL_METHOD              1
+             62 JUMP_IF_TRUE_OR_POP     66
+             64 BUILD_MAP                0
+        >>   66 LOAD_METHOD              3 (get)
+             68 LOAD_CONST               7 ('account_id')
+             70 CALL_METHOD              1
+             72 STORE_FAST               3 (active_account_id)
+
+ 76          74 LOAD_FAST                3 (active_account_id)
+             76 POP_JUMP_IF_TRUE        86
+
+ 77          78 LOAD_GLOBAL              4 (ValueError)
+             80 LOAD_CONST               8 ('当前微信实例尚未初始化，请先刷新账号')
+             82 CALL_FUNCTION            1
+             84 RAISE_VARARGS            1
+
+ 78     >>   86 LOAD_FAST                3 (active_account_id)
+             88 RETURN_VALUE
+
+Disassembly of <code object _ensure_thread_wechat at 0x1092447c0, file "WeRobotCore/api/contact_sync_runner.py", line 81>:
+ 85           0 LOAD_CONST               1 (0)
+              2 LOAD_CONST               2 (('ensure_thread_wechat',))
+              4 IMPORT_NAME              0 (WeRobotCore.api.chat)
+              6 IMPORT_FROM              1 (ensure_thread_wechat)
+              8 STORE_FAST               1 (ensure_thread_wechat)
+             10 POP_TOP
+
+ 87          12 LOAD_FAST                1 (ensure_thread_wechat)
+             14 LOAD_FAST                0 (account_id)
+             16 CALL_FUNCTION            1
+             18 RETURN_VALUE
+
+Disassembly of <code object _normalize_result at 0x109244870, file "WeRobotCore/api/contact_sync_runner.py", line 90>:
+ 91           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                0 (raw_result)
+              4 LOAD_GLOBAL              1 (dict)
+              6 CALL_FUNCTION            2
+              8 POP_JUMP_IF_FALSE       64
+
+ 92          10 LOAD_GLOBAL              2 (bool)
+             12 LOAD_FAST                0 (raw_result)
+             14 LOAD_METHOD              3 (get)
+             16 LOAD_CONST               1 ('success')
+             18 LOAD_CONST               2 (False)
+             20 CALL_METHOD              2
+             22 CALL_FUNCTION            1
+             24 STORE_FAST               2 (success)
+
+ 93          26 LOAD_GLOBAL              4 (str)
+             28 LOAD_FAST                0 (raw_result)
+             30 LOAD_METHOD              3 (get)
+             32 LOAD_CONST               3 ('message')
+             34 CALL_METHOD              1
+             36 JUMP_IF_TRUE_OR_POP     40
+             38 LOAD_CONST               4 ('')
+        >>   40 CALL_FUNCTION            1
+             42 STORE_FAST               3 (message)
+
+ 94          44 LOAD_GLOBAL              5 (int)
+             46 LOAD_FAST                0 (raw_result)
+             48 LOAD_METHOD              3 (get)
+             50 LOAD_CONST               5 ('contacts_count')
+             52 CALL_METHOD              1
+             54 JUMP_IF_TRUE_OR_POP     58
+             56 LOAD_CONST               6 (0)
+        >>   58 CALL_FUNCTION            1
+             60 STORE_FAST               4 (contacts_count)
+             62 JUMP_FORWARD            16 (to 80)
+
+ 96     >>   64 LOAD_GLOBAL              2 (bool)
+             66 LOAD_FAST                0 (raw_result)
+             68 CALL_FUNCTION            1
+             70 STORE_FAST               2 (success)
+
+ 97          72 LOAD_CONST               4 ('')
+             74 STORE_FAST               3 (message)
+
+ 98          76 LOAD_CONST               6 (0)
+             78 STORE_FAST               4 (contacts_count)
+
+100     >>   80 LOAD_FAST                2 (success)
+             82 POP_JUMP_IF_TRUE       108
+             84 LOAD_FAST                3 (message)
+             86 POP_JUMP_IF_TRUE       108
+
+101          88 LOAD_GLOBAL              4 (str)
+
+102          90 LOAD_GLOBAL              6 (getattr)
+             92 LOAD_FAST                1 (wx)
+             94 LOAD_CONST               7 ('last_sync_error')
+             96 LOAD_CONST               0 (None)
+             98 CALL_FUNCTION            3
+            100 JUMP_IF_TRUE_OR_POP    104
+
+103         102 LOAD_CONST               8 ('同步通讯录失败，请查看运行日志')
+
+101     >>  104 CALL_FUNCTION            1
+            106 STORE_FAST               3 (message)
+
+107     >>  108 LOAD_FAST                2 (success)
+
+108         110 LOAD_FAST                3 (message)
+
+109         112 LOAD_FAST                4 (contacts_count)
+
+110         114 LOAD_GLOBAL              1 (dict)
+            116 LOAD_GLOBAL              6 (getattr)
+            118 LOAD_FAST                1 (wx)
+            120 LOAD_CONST               9 ('account_info')
+            122 LOAD_CONST               0 (None)
+            124 CALL_FUNCTION            3
+            126 JUMP_IF_TRUE_OR_POP    130
+            128 BUILD_MAP                0
+        >>  130 CALL_FUNCTION            1
+
+111         132 LOAD_FAST                0 (raw_result)
+
+106         134 LOAD_CONST              10 (('success', 'message', 'contacts_count', 'account_info', 'raw_result'))
+            136 BUILD_CONST_KEY_MAP      5
+            138 RETURN_VALUE
+
+Disassembly of <code object _run_contact_sync_in_thread at 0x1092445b0, file "WeRobotCore/api/contact_sync_runner.py", line 115>:
+120           0 LOAD_GLOBAL              0 (_resolve_account_id)
+              2 LOAD_FAST                0 (account_id)
+              4 CALL_FUNCTION            1
+              6 STORE_FAST               3 (resolved_account_id)
+
+121           8 LOAD_GLOBAL              1 (_ensure_thread_wechat)
+             10 LOAD_FAST                3 (resolved_account_id)
+             12 CALL_FUNCTION            1
+             14 STORE_FAST               4 (wx)
+
+123          16 LOAD_FAST                1 (contact_type)
+             18 LOAD_CONST               1 ('group')
+             20 COMPARE_OP               2 (==)
+             22 POP_JUMP_IF_FALSE       34
+
+124          24 LOAD_FAST                4 (wx)
+             26 LOAD_METHOD              2 (sync_groups)
+             28 CALL_METHOD              0
+             30 STORE_FAST               5 (raw_result)
+             32 JUMP_FORWARD            64 (to 98)
+
+125     >>   34 LOAD_FAST                1 (contact_type)
+             36 LOAD_CONST               2 ('friend')
+             38 COMPARE_OP               2 (==)
+             40 POP_JUMP_IF_FALSE       84
+
+126          42 LOAD_CONST               0 (None)
+             44 STORE_FAST               6 (existing_names)
+
+127          46 LOAD_FAST                2 (incremental)
+             48 POP_JUMP_IF_FALSE       70
+
+128          50 LOAD_CONST               3 (0)
+             52 LOAD_CONST               4 (('get_current_contact_names',))
+             54 IMPORT_NAME              3 (WeRobotCore.api.friend)
+             56 IMPORT_FROM              4 (get_current_contact_names)
+             58 STORE_FAST               7 (get_current_contact_names)
+             60 POP_TOP
+
+130          62 LOAD_FAST                7 (get_current_contact_names)
+             64 LOAD_FAST                3 (resolved_account_id)
+             66 CALL_FUNCTION            1
+             68 STORE_FAST               6 (existing_names)
+
+131     >>   70 LOAD_FAST                4 (wx)
+             72 LOAD_ATTR                5 (sync_contacts)
+             74 LOAD_FAST                6 (existing_names)
+             76 LOAD_CONST               5 (('existing_names',))
+             78 CALL_FUNCTION_KW         1
+             80 STORE_FAST               5 (raw_result)
+             82 JUMP_FORWARD            14 (to 98)
+
+133     >>   84 LOAD_GLOBAL              6 (ValueError)
+             86 LOAD_CONST               6 ('不支持的通讯录同步类型: ')
+             88 LOAD_FAST                1 (contact_type)
+             90 FORMAT_VALUE             0
+             92 BUILD_STRING             2
+             94 CALL_FUNCTION            1
+             96 RAISE_VARARGS            1
+
+135     >>   98 LOAD_GLOBAL              7 (_normalize_result)
+            100 LOAD_FAST                5 (raw_result)
+            102 LOAD_FAST                4 (wx)
+            104 CALL_FUNCTION            2
+            106 RETURN_VALUE
+
+Disassembly of <code object _acquire_manual_permission at 0x109244c90, file "WeRobotCore/api/contact_sync_runner.py", line 138>:
+140           0 LOAD_CONST               1 (0)
+              2 LOAD_CONST               2 (('get_permission_manager',))
+              4 IMPORT_NAME              0 (WeRobotCore.task_system_v3.permission_manager)
+              6 IMPORT_FROM              1 (get_permission_manager)
+              8 STORE_FAST               0 (get_permission_manager)
+             10 POP_TOP
+
+141          12 LOAD_CONST               1 (0)
+             14 LOAD_CONST               3 (('PermissionLevel', 'PermissionRequest', 'TaskPriority', 'TaskType'))
+             16 IMPORT_NAME              2 (WeRobotCore.task_system_v3.types)
+             18 IMPORT_FROM              3 (PermissionLevel)
+             20 STORE_FAST               1 (PermissionLevel)
+             22 IMPORT_FROM              4 (PermissionRequest)
+             24 STORE_FAST               2 (PermissionRequest)
+             26 IMPORT_FROM              5 (TaskPriority)
+             28 STORE_FAST               3 (TaskPriority)
+             30 IMPORT_FROM              6 (TaskType)
+             32 STORE_FAST               4 (TaskType)
+             34 POP_TOP
+
+148          36 LOAD_FAST                0 (get_permission_manager)
+             38 CALL_FUNCTION            0
+             40 STORE_FAST               5 (permission_manager)
+
+149          42 LOAD_FAST                5 (permission_manager)
+             44 LOAD_METHOD              7 (get_current_holder)
+             46 CALL_METHOD              0
+             48 LOAD_CONST               4 (None)
+             50 IS_OP                    1
+             52 POP_JUMP_IF_FALSE       62
+
+150          54 LOAD_GLOBAL              8 (ContactSyncBusyError)
+             56 LOAD_CONST               5 ('RPA 正在执行其他任务，请等待任务完成后再同步通讯录')
+             58 CALL_FUNCTION            1
+             60 RAISE_VARARGS            1
+
+152     >>   62 LOAD_CONST               6 ('manual_contact_sync_')
+             64 LOAD_GLOBAL              9 (uuid)
+             66 LOAD_METHOD             10 (uuid4)
+             68 CALL_METHOD              0
+             70 LOAD_ATTR               11 (hex)
+             72 FORMAT_VALUE             0
+             74 BUILD_STRING             2
+             76 STORE_FAST               6 (task_id)
+
+153          78 LOAD_FAST                2 (PermissionRequest)
+
+154          80 LOAD_CONST               7 ('manual_contact_sync')
+
+155          82 LOAD_FAST                6 (task_id)
+
+156          84 LOAD_FAST                4 (TaskType)
+             86 LOAD_ATTR               12 (SYNC_CONTACTS)
+
+157          88 LOAD_FAST                1 (PermissionLevel)
+             90 LOAD_ATTR               13 (EXCLUSIVE)
+
+158          92 LOAD_FAST                3 (TaskPriority)
+             94 LOAD_ATTR               14 (MEDIUM)
+
+159          96 LOAD_CONST               8 (3600)
+
+160          98 LOAD_CONST               8 (3600)
+
+161         100 LOAD_CONST               9 (False)
+
+153         102 LOAD_CONST              10 (('scheduler_name', 'task_id', 'task_type', 'permission_level', 'priority', 'estimated_duration', 'timeout_seconds', 'pause_chat_monitor'))
+            104 CALL_FUNCTION_KW         8
+            106 STORE_FAST               7 (request)
+
+163         108 LOAD_FAST                5 (permission_manager)
+            110 LOAD_METHOD             15 (request_permission)
+            112 LOAD_FAST                7 (request)
+            114 CALL_METHOD              1
+            116 GET_AWAITABLE
+            118 LOAD_CONST               4 (None)
+            120 YIELD_FROM
+            122 POP_JUMP_IF_TRUE       132
+
+164         124 LOAD_GLOBAL              8 (ContactSyncBusyError)
+            126 LOAD_CONST              11 ('未能获得 RPA 执行权限，请稍后重试')
+            128 CALL_FUNCTION            1
+            130 RAISE_VARARGS            1
+
+165     >>  132 LOAD_FAST                5 (permission_manager)
+            134 LOAD_FAST                6 (task_id)
+            136 BUILD_TUPLE              2
+            138 RETURN_VALUE
+
+Disassembly of <code object _pause_chat_monitor_for_sync at 0x1092442f0, file "WeRobotCore/api/contact_sync_runner.py", line 168>:
+170           0 LOAD_CONST               1 (0)
+              2 LOAD_CONST               2 (('multi_chat_monitor',))
+              4 IMPORT_NAME              0 (WeRobotCore.task_system_v2.multi_chat_monitor)
+              6 IMPORT_FROM              1 (multi_chat_monitor)
+              8 STORE_FAST               0 (multi_chat_monitor)
+             10 POP_TOP
+
+173          12 LOAD_FAST                0 (multi_chat_monitor)
+
+174          14 LOAD_GLOBAL              2 (bool)
+             16 LOAD_FAST                0 (multi_chat_monitor)
+             18 LOAD_METHOD              3 (is_running)
+             20 CALL_METHOD              0
+             22 CALL_FUNCTION            1
+
+175          24 LOAD_GLOBAL              4 (getattr)
+             26 LOAD_FAST                0 (multi_chat_monitor)
+             28 LOAD_CONST               3 ('_reply_mode')
+             30 LOAD_CONST               4 ('local')
+             32 CALL_FUNCTION            3
+
+172          34 LOAD_CONST               5 (('monitor', 'was_running', 'reply_mode'))
+             36 BUILD_CONST_KEY_MAP      3
+             38 STORE_FAST               1 (state)
+
+177          40 LOAD_FAST                1 (state)
+             42 LOAD_CONST               6 ('was_running')
+             44 BINARY_SUBSCR
+             46 POP_JUMP_IF_FALSE       66
+
+178          48 LOAD_FAST                0 (multi_chat_monitor)
+             50 LOAD_ATTR                5 (stop_monitoring_all)
+             52 LOAD_CONST               7 (False)
+             54 LOAD_CONST               8 (('user_initiated',))
+             56 CALL_FUNCTION_KW         1
+             58 GET_AWAITABLE
+             60 LOAD_CONST               9 (None)
+             62 YIELD_FROM
+             64 POP_TOP
+
+179     >>   66 LOAD_FAST                1 (state)
+             68 RETURN_VALUE
+
+Disassembly of <code object _resume_chat_monitor_after_sync at 0x109244030, file "WeRobotCore/api/contact_sync_runner.py", line 182>:
+183           0 LOAD_FAST                0 (state)
+              2 POP_JUMP_IF_FALSE       14
+              4 LOAD_FAST                0 (state)
+              6 LOAD_METHOD              0 (get)
+              8 LOAD_CONST               1 ('was_running')
+             10 CALL_METHOD              1
+             12 POP_JUMP_IF_TRUE        18
+
+184     >>   14 LOAD_CONST               0 (None)
+             16 RETURN_VALUE
+
+186     >>   18 LOAD_FAST                0 (state)
+             20 LOAD_CONST               2 ('monitor')
+             22 BINARY_SUBSCR
+             24 STORE_FAST               1 (monitor)
+
+187          26 SETUP_FINALLY           46 (to 74)
+
+188          28 LOAD_CONST               3 (0)
+             30 LOAD_CONST               4 (('load_feature_state',))
+             32 IMPORT_NAME              1 (WeRobotCore.core.watchdog_state)
+             34 IMPORT_FROM              2 (load_feature_state)
+             36 STORE_FAST               2 (load_feature_state)
+             38 POP_TOP
+
+190          40 LOAD_FAST                2 (load_feature_state)
+             42 CALL_FUNCTION            0
+             44 LOAD_METHOD              0 (get)
+             46 LOAD_CONST               5 ('auto_reply')
+             48 CALL_METHOD              1
+             50 JUMP_IF_TRUE_OR_POP     54
+             52 BUILD_MAP                0
+        >>   54 STORE_FAST               3 (auto_reply_intent)
+
+191          56 LOAD_GLOBAL              3 (bool)
+             58 LOAD_FAST                3 (auto_reply_intent)
+             60 LOAD_METHOD              0 (get)
+             62 LOAD_CONST               6 ('enabled')
+             64 CALL_METHOD              1
+             66 CALL_FUNCTION            1
+             68 STORE_FAST               4 (should_resume)
+             70 POP_BLOCK
+             72 JUMP_FORWARD            22 (to 96)
+
+192     >>   74 DUP_TOP
+             76 LOAD_GLOBAL              4 (Exception)
+             78 JUMP_IF_NOT_EXC_MATCH    94
+             80 POP_TOP
+             82 POP_TOP
+             84 POP_TOP
+
+195          86 LOAD_CONST               7 (True)
+             88 STORE_FAST               4 (should_resume)
+             90 POP_EXCEPT
+             92 JUMP_FORWARD             2 (to 96)
+        >>   94 RERAISE
+
+197     >>   96 LOAD_FAST                4 (should_resume)
+             98 POP_JUMP_IF_FALSE      176
+            100 LOAD_GLOBAL              5 (getattr)
+            102 LOAD_FAST                1 (monitor)
+            104 LOAD_CONST               8 ('_user_paused')
+            106 LOAD_CONST               9 (False)
+            108 CALL_FUNCTION            3
+            110 POP_JUMP_IF_TRUE       176
+
+198         112 SETUP_FINALLY           34 (to 148)
+
+199         114 LOAD_FAST                1 (monitor)
+            116 LOAD_ATTR                6 (start_monitoring_all)
+
+200         118 LOAD_CONST               9 (False)
+
+201         120 LOAD_FAST                0 (state)
+            122 LOAD_METHOD              0 (get)
+            124 LOAD_CONST              10 ('reply_mode')
+            126 CALL_METHOD              1
+            128 JUMP_IF_TRUE_OR_POP    132
+            130 LOAD_CONST              11 ('local')
+
+199     >>  132 LOAD_CONST              12 (('initiated', 'reply_mode'))
+            134 CALL_FUNCTION_KW         2
+            136 GET_AWAITABLE
+            138 LOAD_CONST               0 (None)
+            140 YIELD_FROM
+            142 POP_TOP
+            144 POP_BLOCK
+            146 JUMP_FORWARD            28 (to 176)
+
+203     >>  148 DUP_TOP
+            150 LOAD_GLOBAL              4 (Exception)
+            152 JUMP_IF_NOT_EXC_MATCH   174
+            154 POP_TOP
+            156 POP_TOP
+            158 POP_TOP
+
+204         160 LOAD_GLOBAL              7 (logging)
+            162 LOAD_METHOD              8 (exception)
+            164 LOAD_CONST              13 ('通讯录同步完成后恢复自动回复监听失败')
+            166 CALL_METHOD              1
+            168 POP_TOP
+            170 POP_EXCEPT
+            172 JUMP_FORWARD             2 (to 176)
+        >>  174 RERAISE
+        >>  176 LOAD_CONST               0 (None)
+            178 RETURN_VALUE
+
+Disassembly of <code object _wait_for_existing_chat_uia at 0x109244710, file "WeRobotCore/api/contact_sync_runner.py", line 207>:
+209           0 LOAD_CONST               1 (0)
+              2 LOAD_CONST               2 (('wait_for_uia_idle',))
+              4 IMPORT_NAME              0 (WeRobotCore.api.chat)
+              6 IMPORT_FROM              1 (wait_for_uia_idle)
+              8 STORE_FAST               0 (wait_for_uia_idle)
+             10 POP_TOP
+
+211          12 LOAD_FAST                0 (wait_for_uia_idle)
+             14 CALL_FUNCTION            0
+             16 GET_AWAITABLE
+             18 LOAD_CONST               3 (None)
+             20 YIELD_FROM
+             22 POP_TOP
+             24 LOAD_CONST               3 (None)
+             26 RETURN_VALUE
+
+Disassembly of <code object _submit_contact_sync at 0x109244920, file "WeRobotCore/api/contact_sync_runner.py", line 214>:
+216           0 LOAD_CONST               1 (0)
+              2 LOAD_CONST               2 (('submit_uia_work',))
+              4 IMPORT_NAME              0 (WeRobotCore.api.chat)
+              6 IMPORT_FROM              1 (submit_uia_work)
+              8 STORE_FAST               1 (submit_uia_work)
+             10 POP_TOP
+
+218          12 LOAD_FAST                1 (submit_uia_work)
+             14 LOAD_FAST                0 (work)
+             16 CALL_FUNCTION            1
+             18 RETURN_VALUE
+
+Disassembly of <code object _enter_contact_sync_runtime_phase at 0x109244df0, file "WeRobotCore/api/contact_sync_runner.py", line 221>:
+223           0 LOAD_CONST               1 (0)
+              2 LOAD_CONST               2 (('get_runtime_telemetry', 'set_runtime_phase'))
+              4 IMPORT_NAME              0 (WeRobotCore.core.watchdog_state)
+              6 IMPORT_FROM              1 (get_runtime_telemetry)
+              8 STORE_FAST               0 (get_runtime_telemetry)
+             10 IMPORT_FROM              2 (set_runtime_phase)
+             12 STORE_FAST               1 (set_runtime_phase)
+             14 POP_TOP
+
+225          16 LOAD_GLOBAL              3 (dict)
+             18 LOAD_FAST                0 (get_runtime_telemetry)
+             20 CALL_FUNCTION            0
+             22 LOAD_METHOD              4 (get)
+             24 LOAD_CONST               3 ('phase')
+             26 CALL_METHOD              1
+             28 JUMP_IF_TRUE_OR_POP     32
+             30 BUILD_MAP                0
+        >>   32 CALL_FUNCTION            1
+             34 STORE_FAST               2 (previous_phase)
+
+226          36 LOAD_FAST                1 (set_runtime_phase)
+
+227          38 LOAD_CONST               4 ('maintenance')
+
+228          40 LOAD_CONST               5 ('CONTACT_SYNC_RUNNING')
+
+229          42 LOAD_CONST               6 ('正在同步通讯录，自动回复监听已临时暂停')
+
+226          44 CALL_FUNCTION            3
+             46 POP_TOP
+
+231          48 LOAD_FAST                2 (previous_phase)
+             50 RETURN_VALUE
+
+Disassembly of <code object _restore_runtime_phase at 0x109244f50, file "WeRobotCore/api/contact_sync_runner.py", line 234>:
+235           0 LOAD_FAST                0 (previous_phase)
+              2 LOAD_CONST               0 (None)
+              4 IS_OP                    0
+              6 POP_JUMP_IF_FALSE       12
+
+236           8 LOAD_CONST               0 (None)
+             10 RETURN_VALUE
+
+238     >>   12 LOAD_CONST               1 (0)
+             14 LOAD_CONST               2 (('get_runtime_telemetry', 'set_runtime_phase'))
+             16 IMPORT_NAME              0 (WeRobotCore.core.watchdog_state)
+             18 IMPORT_FROM              1 (get_runtime_telemetry)
+             20 STORE_FAST               1 (get_runtime_telemetry)
+             22 IMPORT_FROM              2 (set_runtime_phase)
+             24 STORE_FAST               2 (set_runtime_phase)
+             26 POP_TOP
+
+240          28 LOAD_FAST                1 (get_runtime_telemetry)
+             30 CALL_FUNCTION            0
+             32 LOAD_METHOD              3 (get)
+             34 LOAD_CONST               3 ('phase')
+             36 CALL_METHOD              1
+             38 JUMP_IF_TRUE_OR_POP     42
+             40 BUILD_MAP                0
+        >>   42 STORE_FAST               3 (current_phase)
+
+244          44 LOAD_FAST                3 (current_phase)
+             46 LOAD_METHOD              3 (get)
+             48 LOAD_CONST               4 ('status')
+             50 CALL_METHOD              1
+             52 LOAD_CONST               5 ('maintenance')
+             54 COMPARE_OP               2 (==)
+
+243          56 POP_JUMP_IF_FALSE       72
+
+245          58 LOAD_FAST                3 (current_phase)
+             60 LOAD_METHOD              3 (get)
+             62 LOAD_CONST               6 ('reason_code')
+             64 CALL_METHOD              1
+             66 LOAD_CONST               7 ('CONTACT_SYNC_RUNNING')
+             68 COMPARE_OP               2 (==)
+
+243          70 POP_JUMP_IF_TRUE        76
+
+247     >>   72 LOAD_CONST               0 (None)
+             74 RETURN_VALUE
+
+248     >>   76 LOAD_FAST                2 (set_runtime_phase)
+
+249          78 LOAD_FAST                0 (previous_phase)
+             80 LOAD_METHOD              3 (get)
+             82 LOAD_CONST               4 ('status')
+             84 CALL_METHOD              1
+             86 JUMP_IF_TRUE_OR_POP     90
+             88 LOAD_CONST               8 ('idle')
+
+250     >>   90 LOAD_FAST                0 (previous_phase)
+             92 LOAD_METHOD              3 (get)
+             94 LOAD_CONST               6 ('reason_code')
+             96 CALL_METHOD              1
+
+251          98 LOAD_FAST                0 (previous_phase)
+            100 LOAD_METHOD              3 (get)
+            102 LOAD_CONST               9 ('message')
+            104 CALL_METHOD              1
+            106 JUMP_IF_TRUE_OR_POP    110
+            108 LOAD_CONST              10 ('')
+
+248     >>  110 CALL_FUNCTION            3
+            112 POP_TOP
+            114 LOAD_CONST               0 (None)
+            116 RETURN_VALUE
+
+Disassembly of <code object _cleanup_contact_sync at 0x109244500, file "WeRobotCore/api/contact_sync_runner.py", line 255>:
+263           0 LOAD_GLOBAL              0 (_release_contact_sync)
+              2 CALL_FUNCTION            0
+              4 POP_TOP
+
+264           6 SETUP_FINALLY          132 (to 140)
+              8 SETUP_FINALLY           18 (to 28)
+
+265          10 LOAD_GLOBAL              1 (_resume_chat_monitor_after_sync)
+             12 LOAD_FAST                0 (monitor_state)
+             14 CALL_FUNCTION            1
+             16 GET_AWAITABLE
+             18 LOAD_CONST               0 (None)
+             20 YIELD_FROM
+             22 POP_TOP
+             24 POP_BLOCK
+             26 JUMP_FORWARD            28 (to 56)
+
+266     >>   28 DUP_TOP
+             30 LOAD_GLOBAL              2 (Exception)
+             32 JUMP_IF_NOT_EXC_MATCH    54
+             34 POP_TOP
+             36 POP_TOP
+             38 POP_TOP
+
+269          40 LOAD_GLOBAL              3 (logging)
+             42 LOAD_METHOD              4 (exception)
+             44 LOAD_CONST               1 ('通讯录同步清理阶段恢复自动回复监听失败')
+             46 CALL_METHOD              1
+             48 POP_TOP
+             50 POP_EXCEPT
+             52 JUMP_FORWARD             2 (to 56)
+        >>   54 RERAISE
+        >>   56 POP_BLOCK
+
+271          58 SETUP_FINALLY           44 (to 104)
+
+272          60 LOAD_GLOBAL              5 (_restore_runtime_phase)
+             62 LOAD_FAST                3 (previous_runtime_phase)
+             64 CALL_FUNCTION            1
+             66 POP_TOP
+             68 POP_BLOCK
+
+274          70 LOAD_FAST                1 (permission_manager)
+             72 LOAD_CONST               0 (None)
+             74 IS_OP                    1
+             76 POP_JUMP_IF_FALSE      138
+             78 LOAD_FAST                2 (permission_task_id)
+             80 LOAD_CONST               0 (None)
+             82 IS_OP                    1
+             84 POP_JUMP_IF_FALSE      138
+
+275          86 LOAD_FAST                1 (permission_manager)
+             88 LOAD_METHOD              6 (release_permission)
+             90 LOAD_FAST                2 (permission_task_id)
+             92 CALL_METHOD              1
+             94 GET_AWAITABLE
+             96 LOAD_CONST               0 (None)
+             98 YIELD_FROM
+            100 POP_TOP
+            102 JUMP_ABSOLUTE          222
+
+274     >>  104 LOAD_FAST                1 (permission_manager)
+            106 LOAD_CONST               0 (None)
+            108 IS_OP                    1
+            110 POP_JUMP_IF_FALSE      136
+            112 LOAD_FAST                2 (permission_task_id)
+            114 LOAD_CONST               0 (None)
+            116 IS_OP                    1
+            118 POP_JUMP_IF_FALSE      136
+
+275         120 LOAD_FAST                1 (permission_manager)
+            122 LOAD_METHOD              6 (release_permission)
+            124 LOAD_FAST                2 (permission_task_id)
+            126 CALL_METHOD              1
+            128 GET_AWAITABLE
+            130 LOAD_CONST               0 (None)
+            132 YIELD_FROM
+            134 POP_TOP
+        >>  136 RERAISE
+        >>  138 JUMP_FORWARD            82 (to 222)
+
+271     >>  140 SETUP_FINALLY           44 (to 186)
+
+272         142 LOAD_GLOBAL              5 (_restore_runtime_phase)
+            144 LOAD_FAST                3 (previous_runtime_phase)
+            146 CALL_FUNCTION            1
+            148 POP_TOP
+            150 POP_BLOCK
+
+274         152 LOAD_FAST                1 (permission_manager)
+            154 LOAD_CONST               0 (None)
+            156 IS_OP                    1
+            158 POP_JUMP_IF_FALSE      220
+            160 LOAD_FAST                2 (permission_task_id)
+            162 LOAD_CONST               0 (None)
+            164 IS_OP                    1
+            166 POP_JUMP_IF_FALSE      220
+
+275         168 LOAD_FAST                1 (permission_manager)
+            170 LOAD_METHOD              6 (release_permission)
+            172 LOAD_FAST                2 (permission_task_id)
+            174 CALL_METHOD              1
+            176 GET_AWAITABLE
+            178 LOAD_CONST               0 (None)
+            180 YIELD_FROM
+            182 POP_TOP
+            184 JUMP_FORWARD            34 (to 220)
+
+274     >>  186 LOAD_FAST                1 (permission_manager)
+            188 LOAD_CONST               0 (None)
+            190 IS_OP                    1
+            192 POP_JUMP_IF_FALSE      218
+            194 LOAD_FAST                2 (permission_task_id)
+            196 LOAD_CONST               0 (None)
+            198 IS_OP                    1
+            200 POP_JUMP_IF_FALSE      218
+
+275         202 LOAD_FAST                1 (permission_manager)
+            204 LOAD_METHOD              6 (release_permission)
+            206 LOAD_FAST                2 (permission_task_id)
+            208 CALL_METHOD              1
+            210 GET_AWAITABLE
+            212 LOAD_CONST               0 (None)
+            214 YIELD_FROM
+            216 POP_TOP
+        >>  218 RERAISE
+        >>  220 RERAISE
+        >>  222 LOAD_CONST               0 (None)
+            224 RETURN_VALUE
+
+Disassembly of <code object run_contact_sync at 0x109244b30, file "WeRobotCore/api/contact_sync_runner.py", line 278>:
+286           0 LOAD_GLOBAL              0 (_claim_contact_sync)
+              2 CALL_FUNCTION            0
+              4 POP_TOP
+
+287           6 LOAD_CONST               1 (None)
+              8 STORE_FAST               4 (permission_manager)
+
+288          10 LOAD_CONST               1 (None)
+             12 STORE_FAST               5 (permission_task_id)
+
+289          14 LOAD_CONST               1 (None)
+             16 STORE_FAST               6 (monitor_state)
+
+290          18 LOAD_CONST               1 (None)
+             20 STORE_FAST               7 (previous_runtime_phase)
+
+291          22 SETUP_FINALLY          236 (to 260)
+
+292          24 LOAD_FAST                3 (permission_already_held)
+             26 POP_JUMP_IF_TRUE        44
+
+293          28 LOAD_GLOBAL              1 (_acquire_manual_permission)
+             30 CALL_FUNCTION            0
+             32 GET_AWAITABLE
+             34 LOAD_CONST               1 (None)
+             36 YIELD_FROM
+             38 UNPACK_SEQUENCE          2
+             40 STORE_FAST               4 (permission_manager)
+             42 STORE_FAST               5 (permission_task_id)
+
+295     >>   44 LOAD_GLOBAL              2 (_mark_contact_sync_running)
+             46 CALL_FUNCTION            0
+             48 POP_TOP
+
+296          50 LOAD_GLOBAL              3 (_enter_contact_sync_runtime_phase)
+             52 CALL_FUNCTION            0
+             54 STORE_FAST               7 (previous_runtime_phase)
+
+297          56 LOAD_GLOBAL              4 (_pause_chat_monitor_for_sync)
+             58 CALL_FUNCTION            0
+             60 GET_AWAITABLE
+             62 LOAD_CONST               1 (None)
+             64 YIELD_FROM
+             66 STORE_FAST               6 (monitor_state)
+
+298          68 LOAD_GLOBAL              5 (_wait_for_existing_chat_uia)
+             70 CALL_FUNCTION            0
+             72 GET_AWAITABLE
+             74 LOAD_CONST               1 (None)
+             76 YIELD_FROM
+             78 POP_TOP
+
+300          80 LOAD_GLOBAL              6 (partial)
+
+301          82 LOAD_GLOBAL              7 (_run_contact_sync_in_thread)
+
+302          84 LOAD_FAST                0 (account_id)
+
+303          86 LOAD_FAST                1 (contact_type)
+
+304          88 LOAD_FAST                2 (incremental)
+
+300          90 CALL_FUNCTION            4
+             92 STORE_FAST               8 (work)
+
+306          94 LOAD_GLOBAL              8 (_submit_contact_sync)
+             96 LOAD_FAST                8 (work)
+             98 CALL_FUNCTION            1
+            100 STORE_FAST               9 (future)
+
+307         102 SETUP_FINALLY           40 (to 144)
+
+310         104 LOAD_GLOBAL              9 (asyncio)
+            106 LOAD_METHOD             10 (shield)
+            108 LOAD_FAST                9 (future)
+            110 CALL_METHOD              1
+            112 GET_AWAITABLE
+            114 LOAD_CONST               1 (None)
+            116 YIELD_FROM
+            118 POP_BLOCK
+            120 POP_BLOCK
+
+320         122 LOAD_GLOBAL             11 (_cleanup_contact_sync)
+
+321         124 LOAD_FAST                6 (monitor_state)
+
+322         126 LOAD_FAST                4 (permission_manager)
+
+323         128 LOAD_FAST                5 (permission_task_id)
+
+324         130 LOAD_FAST                7 (previous_runtime_phase)
+
+320         132 CALL_FUNCTION            4
+            134 GET_AWAITABLE
+            136 LOAD_CONST               1 (None)
+            138 YIELD_FROM
+            140 POP_TOP
+
+310         142 RETURN_VALUE
+
+311     >>  144 DUP_TOP
+            146 LOAD_GLOBAL              9 (asyncio)
+            148 LOAD_ATTR               12 (CancelledError)
+            150 JUMP_IF_NOT_EXC_MATCH   234
+            152 POP_TOP
+            154 STORE_FAST              10 (cancellation)
+            156 POP_TOP
+            158 SETUP_FINALLY           66 (to 226)
+
+312         160 SETUP_FINALLY           20 (to 182)
+
+313         162 LOAD_GLOBAL              9 (asyncio)
+            164 LOAD_METHOD             10 (shield)
+            166 LOAD_FAST                9 (future)
+            168 CALL_METHOD              1
+            170 GET_AWAITABLE
+            172 LOAD_CONST               1 (None)
+            174 YIELD_FROM
+            176 POP_TOP
+            178 POP_BLOCK
+            180 JUMP_FORWARD            28 (to 210)
+
+314     >>  182 DUP_TOP
+            184 LOAD_GLOBAL             13 (Exception)
+            186 JUMP_IF_NOT_EXC_MATCH   208
+            188 POP_TOP
+            190 POP_TOP
+            192 POP_TOP
+
+317         194 LOAD_GLOBAL             14 (logging)
+            196 LOAD_METHOD             15 (exception)
+            198 LOAD_CONST               2 ('通讯录同步调用方取消后，后台 UIA 操作执行失败')
+            200 CALL_METHOD              1
+            202 POP_TOP
+            204 POP_EXCEPT
+            206 JUMP_FORWARD             2 (to 210)
+        >>  208 RERAISE
+
+318     >>  210 LOAD_FAST               10 (cancellation)
+            212 RAISE_VARARGS            1
+            214 POP_BLOCK
+            216 POP_EXCEPT
+            218 LOAD_CONST               1 (None)
+            220 STORE_FAST              10 (cancellation)
+            222 DELETE_FAST             10 (cancellation)
+            224 JUMP_FORWARD            10 (to 236)
+        >>  226 LOAD_CONST               1 (None)
+            228 STORE_FAST              10 (cancellation)
+            230 DELETE_FAST             10 (cancellation)
+            232 RERAISE
+        >>  234 RERAISE
+        >>  236 POP_BLOCK
+
+320         238 LOAD_GLOBAL             11 (_cleanup_contact_sync)
+
+321         240 LOAD_FAST                6 (monitor_state)
+
+322         242 LOAD_FAST                4 (permission_manager)
+
+323         244 LOAD_FAST                5 (permission_task_id)
+
+324         246 LOAD_FAST                7 (previous_runtime_phase)
+
+320         248 CALL_FUNCTION            4
+            250 GET_AWAITABLE
+            252 LOAD_CONST               1 (None)
+            254 YIELD_FROM
+            256 POP_TOP
+            258 JUMP_FORWARD            22 (to 282)
+        >>  260 LOAD_GLOBAL             11 (_cleanup_contact_sync)
+
+321         262 LOAD_FAST                6 (monitor_state)
+
+322         264 LOAD_FAST                4 (permission_manager)
+
+323         266 LOAD_FAST                5 (permission_task_id)
+
+324         268 LOAD_FAST                7 (previous_runtime_phase)
+
+320         270 CALL_FUNCTION            4
+            272 GET_AWAITABLE
+            274 LOAD_CONST               1 (None)
+            276 YIELD_FROM
+            278 POP_TOP
+            280 RERAISE
+        >>  282 LOAD_CONST               1 (None)
+            284 RETURN_VALUE

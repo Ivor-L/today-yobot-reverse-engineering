@@ -1,0 +1,176 @@
+  1           0 LOAD_CONST               0 ('Process-local publication boundary for one Startup workflow service.')
+              2 STORE_NAME               0 (__doc__)
+
+  3           4 LOAD_CONST               1 (0)
+              6 LOAD_CONST               2 (('Callable', 'Optional'))
+              8 IMPORT_NAME              1 (typing)
+             10 IMPORT_FROM              2 (Callable)
+             12 STORE_NAME               2 (Callable)
+             14 IMPORT_FROM              3 (Optional)
+             16 STORE_NAME               3 (Optional)
+             18 POP_TOP
+
+  5          20 LOAD_CONST               3 (1)
+             22 LOAD_CONST               4 (('StartupWorkflowService',))
+             24 IMPORT_NAME              4 (workflow)
+             26 IMPORT_FROM              5 (StartupWorkflowService)
+             28 STORE_NAME               5 (StartupWorkflowService)
+             30 POP_TOP
+
+  8          32 LOAD_BUILD_CLASS
+             34 LOAD_CONST               5 (<code object StartupWorkflowRegistration at 0x109244be0, file "WeRobotCore/application/startup/registration.py", line 8>)
+             36 LOAD_CONST               6 ('StartupWorkflowRegistration')
+             38 MAKE_FUNCTION            0
+             40 LOAD_CONST               6 ('StartupWorkflowRegistration')
+             42 CALL_FUNCTION            2
+             44 STORE_NAME               6 (StartupWorkflowRegistration)
+             46 LOAD_CONST               7 (None)
+             48 RETURN_VALUE
+
+Disassembly of <code object StartupWorkflowRegistration at 0x109244be0, file "WeRobotCore/application/startup/registration.py", line 8>:
+  8           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('StartupWorkflowRegistration')
+              6 STORE_NAME               2 (__qualname__)
+
+  9           8 LOAD_CONST               1 ('Publish one explicitly enabled service without platform selection.')
+             10 STORE_NAME               3 (__doc__)
+
+ 11          12 LOAD_CONST               2 (None)
+             14 LOAD_CONST               3 (('return',))
+             16 BUILD_CONST_KEY_MAP      1
+             18 LOAD_CONST               4 (<code object __init__ at 0x1092449d0, file "WeRobotCore/application/startup/registration.py", line 11>)
+             20 LOAD_CONST               5 ('StartupWorkflowRegistration.__init__')
+             22 MAKE_FUNCTION            4 (annotations)
+             24 STORE_NAME               4 (__init__)
+
+ 14          26 LOAD_NAME                5 (property)
+
+ 15          28 LOAD_NAME                6 (Optional)
+             30 LOAD_NAME                7 (StartupWorkflowService)
+             32 BINARY_SUBSCR
+             34 LOAD_CONST               3 (('return',))
+             36 BUILD_CONST_KEY_MAP      1
+             38 LOAD_CONST               6 (<code object current at 0x109244870, file "WeRobotCore/application/startup/registration.py", line 14>)
+             40 LOAD_CONST               7 ('StartupWorkflowRegistration.current')
+             42 MAKE_FUNCTION            4 (annotations)
+             44 CALL_FUNCTION            1
+             46 STORE_NAME               8 (current)
+
+ 18          48 LOAD_NAME                5 (property)
+
+ 19          50 LOAD_NAME                9 (bool)
+             52 LOAD_CONST               3 (('return',))
+             54 BUILD_CONST_KEY_MAP      1
+             56 LOAD_CONST               8 (<code object is_registered at 0x1092445b0, file "WeRobotCore/application/startup/registration.py", line 18>)
+             58 LOAD_CONST               9 ('StartupWorkflowRegistration.is_registered')
+             60 MAKE_FUNCTION            4 (annotations)
+             62 CALL_FUNCTION            1
+             64 STORE_NAME              10 (is_registered)
+
+ 26          66 LOAD_CONST               2 (None)
+
+ 22          68 LOAD_CONST              10 (('service_factory',))
+             70 BUILD_CONST_KEY_MAP      1
+
+ 24          72 LOAD_NAME                9 (bool)
+
+ 26          74 LOAD_NAME                6 (Optional)
+             76 LOAD_NAME               11 (Callable)
+             78 BUILD_LIST               0
+             80 LOAD_NAME                7 (StartupWorkflowService)
+             82 BUILD_TUPLE              2
+             84 BINARY_SUBSCR
+             86 BINARY_SUBSCR
+
+ 27          88 LOAD_NAME                6 (Optional)
+             90 LOAD_NAME                7 (StartupWorkflowService)
+             92 BINARY_SUBSCR
+
+ 22          94 LOAD_CONST              11 (('enabled', 'service_factory', 'return'))
+             96 BUILD_CONST_KEY_MAP      3
+             98 LOAD_CONST              12 (<code object register_if_enabled at 0x109244b30, file "WeRobotCore/application/startup/registration.py", line 22>)
+            100 LOAD_CONST              13 ('StartupWorkflowRegistration.register_if_enabled')
+            102 MAKE_FUNCTION            6 (kwdefaults, annotations)
+            104 STORE_NAME              12 (register_if_enabled)
+            106 LOAD_CONST               2 (None)
+            108 RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x1092449d0, file "WeRobotCore/application/startup/registration.py", line 11>:
+ 12           0 LOAD_CONST               0 (None)
+              2 LOAD_FAST                0 (self)
+              4 STORE_ATTR               0 (_service)
+              6 LOAD_CONST               0 (None)
+              8 RETURN_VALUE
+
+Disassembly of <code object current at 0x109244870, file "WeRobotCore/application/startup/registration.py", line 14>:
+ 16           0 LOAD_FAST                0 (self)
+              2 LOAD_ATTR                0 (_service)
+              4 RETURN_VALUE
+
+Disassembly of <code object is_registered at 0x1092445b0, file "WeRobotCore/application/startup/registration.py", line 18>:
+ 20           0 LOAD_FAST                0 (self)
+              2 LOAD_ATTR                0 (_service)
+              4 LOAD_CONST               0 (None)
+              6 IS_OP                    1
+              8 RETURN_VALUE
+
+Disassembly of <code object register_if_enabled at 0x109244b30, file "WeRobotCore/application/startup/registration.py", line 22>:
+ 28           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                1 (enabled)
+              4 LOAD_GLOBAL              1 (bool)
+              6 CALL_FUNCTION            2
+              8 POP_JUMP_IF_TRUE        18
+
+ 29          10 LOAD_GLOBAL              2 (TypeError)
+             12 LOAD_CONST               1 ('enabled must be a boolean')
+             14 CALL_FUNCTION            1
+             16 RAISE_VARARGS            1
+
+ 30     >>   18 LOAD_FAST                0 (self)
+             20 LOAD_ATTR                3 (_service)
+             22 LOAD_CONST               0 (None)
+             24 IS_OP                    1
+             26 POP_JUMP_IF_FALSE       34
+
+ 31          28 LOAD_FAST                0 (self)
+             30 LOAD_ATTR                3 (_service)
+             32 RETURN_VALUE
+
+ 32     >>   34 LOAD_FAST                1 (enabled)
+             36 POP_JUMP_IF_TRUE        42
+
+ 33          38 LOAD_CONST               0 (None)
+             40 RETURN_VALUE
+
+ 34     >>   42 LOAD_GLOBAL              4 (callable)
+             44 LOAD_FAST                2 (service_factory)
+             46 CALL_FUNCTION            1
+             48 POP_JUMP_IF_TRUE        58
+
+ 35          50 LOAD_GLOBAL              2 (TypeError)
+             52 LOAD_CONST               2 ('service_factory must be callable when enabled')
+             54 CALL_FUNCTION            1
+             56 RAISE_VARARGS            1
+
+ 36     >>   58 LOAD_FAST                2 (service_factory)
+             60 CALL_FUNCTION            0
+             62 STORE_FAST               3 (service)
+
+ 37          64 LOAD_GLOBAL              0 (isinstance)
+             66 LOAD_FAST                3 (service)
+             68 LOAD_GLOBAL              5 (StartupWorkflowService)
+             70 CALL_FUNCTION            2
+             72 POP_JUMP_IF_TRUE        82
+
+ 38          74 LOAD_GLOBAL              2 (TypeError)
+             76 LOAD_CONST               3 ('service_factory must return StartupWorkflowService')
+             78 CALL_FUNCTION            1
+             80 RAISE_VARARGS            1
+
+ 39     >>   82 LOAD_FAST                3 (service)
+             84 LOAD_FAST                0 (self)
+             86 STORE_ATTR               3 (_service)
+
+ 40          88 LOAD_FAST                3 (service)
+             90 RETURN_VALUE

@@ -1,0 +1,44 @@
+  1           0 LOAD_CONST               0 ('Platform-neutral automatic follow-up workflow.\n\nThe AI service graph stays lazy so composing the signed Control process does\nnot import network clients or inspect the host environment.\n')
+              2 STORE_NAME               0 (__doc__)
+
+  7           4 LOAD_CONST               1 (1)
+              6 LOAD_CONST               2 (('AutoFollowRuntime',))
+              8 IMPORT_NAME              1 (runtime)
+             10 IMPORT_FROM              2 (AutoFollowRuntime)
+             12 STORE_NAME               2 (AutoFollowRuntime)
+             14 POP_TOP
+
+ 10          16 LOAD_CONST               3 (<code object __getattr__ at 0x1072e0870, file "WeRobotCore/application/auto_follow/__init__.py", line 10>)
+             18 LOAD_CONST               4 ('__getattr__')
+             20 MAKE_FUNCTION            0
+             22 STORE_NAME               3 (__getattr__)
+
+ 18          24 LOAD_CONST               5 ('AutoFollowRuntime')
+             26 LOAD_CONST               6 ('AutoFollowWorkflow')
+             28 BUILD_LIST               2
+             30 STORE_NAME               4 (__all__)
+             32 LOAD_CONST               7 (None)
+             34 RETURN_VALUE
+
+Disassembly of <code object __getattr__ at 0x1072e0870, file "WeRobotCore/application/auto_follow/__init__.py", line 10>:
+ 11           0 LOAD_FAST                0 (name)
+              2 LOAD_CONST               1 ('AutoFollowWorkflow')
+              4 COMPARE_OP               2 (==)
+              6 POP_JUMP_IF_FALSE       24
+
+ 12           8 LOAD_CONST               2 (1)
+             10 LOAD_CONST               3 (('AutoFollowWorkflow',))
+             12 IMPORT_NAME              0 (workflow)
+             14 IMPORT_FROM              1 (AutoFollowWorkflow)
+             16 STORE_FAST               1 (AutoFollowWorkflow)
+             18 POP_TOP
+
+ 14          20 LOAD_FAST                1 (AutoFollowWorkflow)
+             22 RETURN_VALUE
+
+ 15     >>   24 LOAD_GLOBAL              2 (AttributeError)
+             26 LOAD_FAST                0 (name)
+             28 CALL_FUNCTION            1
+             30 RAISE_VARARGS            1
+             32 LOAD_CONST               0 (None)
+             34 RETURN_VALUE

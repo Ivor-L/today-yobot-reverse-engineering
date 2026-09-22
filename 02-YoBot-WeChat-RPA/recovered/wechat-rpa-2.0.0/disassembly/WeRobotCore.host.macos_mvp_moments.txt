@@ -1,0 +1,2273 @@
+  1           0 LOAD_CONST               0 ('Legacy Vue AI Moments API over the process-owned macOS manager.')
+              2 STORE_NAME               0 (__doc__)
+
+  3           4 LOAD_CONST               1 (0)
+              6 LOAD_CONST               2 (('annotations',))
+              8 IMPORT_NAME              1 (__future__)
+             10 IMPORT_FROM              2 (annotations)
+             12 STORE_NAME               2 (annotations)
+             14 POP_TOP
+
+  5          16 LOAD_CONST               1 (0)
+             18 LOAD_CONST               3 (None)
+             20 IMPORT_NAME              3 (hmac)
+             22 STORE_NAME               3 (hmac)
+
+  6          24 LOAD_CONST               1 (0)
+             26 LOAD_CONST               4 (('datetime',))
+             28 IMPORT_NAME              4 (datetime)
+             30 IMPORT_FROM              4 (datetime)
+             32 STORE_NAME               4 (datetime)
+             34 POP_TOP
+
+  7          36 LOAD_CONST               1 (0)
+             38 LOAD_CONST               5 (('Path',))
+             40 IMPORT_NAME              5 (pathlib)
+             42 IMPORT_FROM              6 (Path)
+             44 STORE_NAME               6 (Path)
+             46 POP_TOP
+
+  8          48 LOAD_CONST               1 (0)
+             50 LOAD_CONST               3 (None)
+             52 IMPORT_NAME              7 (shutil)
+             54 STORE_NAME               7 (shutil)
+
+  9          56 LOAD_CONST               1 (0)
+             58 LOAD_CONST               3 (None)
+             60 IMPORT_NAME              8 (subprocess)
+             62 STORE_NAME               8 (subprocess)
+
+ 10          64 LOAD_CONST               1 (0)
+             66 LOAD_CONST               6 (('Any', 'Dict', 'Mapping', 'Optional'))
+             68 IMPORT_NAME              9 (typing)
+             70 IMPORT_FROM             10 (Any)
+             72 STORE_NAME              10 (Any)
+             74 IMPORT_FROM             11 (Dict)
+             76 STORE_NAME              11 (Dict)
+             78 IMPORT_FROM             12 (Mapping)
+             80 STORE_NAME              12 (Mapping)
+             82 IMPORT_FROM             13 (Optional)
+             84 STORE_NAME              13 (Optional)
+             86 POP_TOP
+
+ 11          88 LOAD_CONST               1 (0)
+             90 LOAD_CONST               7 (('uuid4',))
+             92 IMPORT_NAME             14 (uuid)
+             94 IMPORT_FROM             15 (uuid4)
+             96 STORE_NAME              15 (uuid4)
+             98 POP_TOP
+
+ 13         100 LOAD_CONST               1 (0)
+            102 LOAD_CONST               8 (('APIRouter', 'HTTPException', 'Security', 'status'))
+            104 IMPORT_NAME             16 (fastapi)
+            106 IMPORT_FROM             17 (APIRouter)
+            108 STORE_NAME              17 (APIRouter)
+            110 IMPORT_FROM             18 (HTTPException)
+            112 STORE_NAME              18 (HTTPException)
+            114 IMPORT_FROM             19 (Security)
+            116 STORE_NAME              19 (Security)
+            118 IMPORT_FROM             20 (status)
+            120 STORE_NAME              20 (status)
+            122 POP_TOP
+
+ 14         124 LOAD_CONST               1 (0)
+            126 LOAD_CONST               9 (('JSONResponse',))
+            128 IMPORT_NAME             21 (fastapi.responses)
+            130 IMPORT_FROM             22 (JSONResponse)
+            132 STORE_NAME              22 (JSONResponse)
+            134 POP_TOP
+
+ 15         136 LOAD_CONST               1 (0)
+            138 LOAD_CONST              10 (('APIKeyHeader',))
+            140 IMPORT_NAME             23 (fastapi.security)
+            142 IMPORT_FROM             24 (APIKeyHeader)
+            144 STORE_NAME              24 (APIKeyHeader)
+            146 POP_TOP
+
+ 16         148 LOAD_CONST               1 (0)
+            150 LOAD_CONST              11 (('BaseModel', 'ConfigDict', 'Field'))
+            152 IMPORT_NAME             25 (pydantic)
+            154 IMPORT_FROM             26 (BaseModel)
+            156 STORE_NAME              26 (BaseModel)
+            158 IMPORT_FROM             27 (ConfigDict)
+            160 STORE_NAME              27 (ConfigDict)
+            162 IMPORT_FROM             28 (Field)
+            164 STORE_NAME              28 (Field)
+            166 POP_TOP
+
+ 18         168 LOAD_CONST               1 (0)
+            170 LOAD_CONST              12 (('MOMENT_MAX_MEDIA_FILES', 'MOMENT_MEDIA_SUFFIXES'))
+            172 IMPORT_NAME             29 (WeRobotCore.application.moment_post)
+            174 IMPORT_FROM             30 (MOMENT_MAX_MEDIA_FILES)
+            176 STORE_NAME              30 (MOMENT_MAX_MEDIA_FILES)
+            178 IMPORT_FROM             31 (MOMENT_MEDIA_SUFFIXES)
+            180 STORE_NAME              31 (MOMENT_MEDIA_SUFFIXES)
+            182 POP_TOP
+
+ 22         184 LOAD_CONST               1 (0)
+            186 LOAD_CONST              13 (('MACOS_MVP_CAPABILITY_NAMES',))
+            188 IMPORT_NAME             32 (WeRobotCore.bootstrap.macos_capabilities)
+            190 IMPORT_FROM             33 (MACOS_MVP_CAPABILITY_NAMES)
+            192 STORE_NAME              33 (MACOS_MVP_CAPABILITY_NAMES)
+            194 POP_TOP
+
+ 23         196 LOAD_CONST               1 (0)
+            198 LOAD_CONST              14 (('task_logger',))
+            200 IMPORT_NAME             34 (WeRobotCore.utils.logger)
+            202 IMPORT_FROM             35 (task_logger)
+            204 STORE_NAME              35 (task_logger)
+            206 POP_TOP
+
+ 25         208 LOAD_CONST              15 (1)
+            210 LOAD_CONST              16 (('MacOSControlProcessRuntime',))
+            212 IMPORT_NAME             36 (macos_process)
+            214 IMPORT_FROM             37 (MacOSControlProcessRuntime)
+            216 STORE_NAME              37 (MacOSControlProcessRuntime)
+            218 POP_TOP
+
+ 28         220 LOAD_CONST              17 ('yokowebot_macos_mvp_moments_installed')
+            222 STORE_NAME              38 (_INSTALLATION_STATE_KEY)
+
+ 31         224 LOAD_BUILD_CLASS
+            226 LOAD_CONST              18 (<code object MacOSAgentPostMomentRequest at 0x1073aa0e0, file "WeRobotCore/host/macos_mvp_moments.py", line 31>)
+            228 LOAD_CONST              19 ('MacOSAgentPostMomentRequest')
+            230 MAKE_FUNCTION            0
+            232 LOAD_CONST              19 ('MacOSAgentPostMomentRequest')
+            234 LOAD_NAME               26 (BaseModel)
+            236 CALL_FUNCTION            3
+            238 STORE_NAME              39 (MacOSAgentPostMomentRequest)
+
+ 40         240 LOAD_CONST              20 ('Any')
+            242 LOAD_CONST              21 ('str')
+            244 LOAD_CONST              22 (('value', 'return'))
+            246 BUILD_CONST_KEY_MAP      2
+            248 LOAD_CONST              23 (<code object _safe_plan_name at 0x1073aa870, file "WeRobotCore/host/macos_mvp_moments.py", line 40>)
+            250 LOAD_CONST              24 ('_safe_plan_name')
+            252 MAKE_FUNCTION            4 (annotations)
+            254 STORE_NAME              40 (_safe_plan_name)
+
+ 53         256 LOAD_CONST              21 ('str')
+            258 LOAD_CONST              25 (('return',))
+            260 BUILD_CONST_KEY_MAP      1
+            262 LOAD_CONST              26 (<code object _default_folder_selector at 0x1073aa5b0, file "WeRobotCore/host/macos_mvp_moments.py", line 53>)
+            264 LOAD_CONST              27 ('_default_folder_selector')
+            266 MAKE_FUNCTION            4 (annotations)
+            268 STORE_NAME              41 (_default_folder_selector)
+
+ 70         270 LOAD_CONST              28 ('Path')
+            272 LOAD_CONST              29 ('None')
+            274 LOAD_CONST              30 (('path', 'return'))
+            276 BUILD_CONST_KEY_MAP      2
+            278 LOAD_CONST              31 (<code object _default_folder_opener at 0x1073aab30, file "WeRobotCore/host/macos_mvp_moments.py", line 70>)
+            280 LOAD_CONST              32 ('_default_folder_opener')
+            282 MAKE_FUNCTION            4 (annotations)
+            284 STORE_NAME              42 (_default_folder_opener)
+
+ 86         286 LOAD_CONST               3 (None)
+
+ 87         288 LOAD_CONST               3 (None)
+
+ 88         290 LOAD_NAME               41 (_default_folder_selector)
+
+ 89         292 LOAD_NAME               42 (_default_folder_opener)
+
+ 80         294 LOAD_CONST              33 (('post_manager', 'material_root', 'folder_selector', 'folder_opener'))
+            296 BUILD_CONST_KEY_MAP      4
+            298 LOAD_CONST              21 ('str')
+            300 LOAD_CONST              34 ('Optional[Path]')
+            302 LOAD_CONST              35 ('APIRouter')
+            304 LOAD_CONST              36 (('api_key', 'material_root', 'return'))
+            306 BUILD_CONST_KEY_MAP      3
+            308 LOAD_CONST              37 (<code object create_macos_mvp_moments_router at 0x1073ab500, file "WeRobotCore/host/macos_mvp_moments.py", line 80>)
+            310 LOAD_CONST              38 ('create_macos_mvp_moments_router')
+            312 MAKE_FUNCTION            6 (kwdefaults, annotations)
+            314 STORE_NAME              43 (create_macos_mvp_moments_router)
+
+379         316 LOAD_CONST              39 ('MacOSControlProcessRuntime')
+            318 LOAD_CONST              29 ('None')
+            320 LOAD_CONST              40 (('runtime', 'return'))
+            322 BUILD_CONST_KEY_MAP      2
+            324 LOAD_CONST              41 (<code object install_macos_mvp_moments_routes at 0x1073abd40, file "WeRobotCore/host/macos_mvp_moments.py", line 379>)
+            326 LOAD_CONST              42 ('install_macos_mvp_moments_routes')
+            328 MAKE_FUNCTION            4 (annotations)
+            330 STORE_NAME              44 (install_macos_mvp_moments_routes)
+
+426         332 BUILD_LIST               0
+            334 LOAD_CONST              43 (('create_macos_mvp_moments_router', 'install_macos_mvp_moments_routes', 'MacOSAgentPostMomentRequest'))
+            336 LIST_EXTEND              1
+            338 STORE_NAME              45 (__all__)
+            340 LOAD_CONST               3 (None)
+            342 RETURN_VALUE
+
+Disassembly of <code object MacOSAgentPostMomentRequest at 0x1073aa0e0, file "WeRobotCore/host/macos_mvp_moments.py", line 31>:
+ 31           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('MacOSAgentPostMomentRequest')
+              6 STORE_NAME               2 (__qualname__)
+              8 SETUP_ANNOTATIONS
+
+ 32          10 LOAD_CONST               1 ('')
+             12 STORE_NAME               3 (material_folder)
+             14 LOAD_CONST               2 ('str')
+             16 LOAD_NAME                4 (__annotations__)
+             18 LOAD_CONST               3 ('material_folder')
+             20 STORE_SUBSCR
+
+ 33          22 LOAD_CONST               1 ('')
+             24 STORE_NAME               5 (content)
+             26 LOAD_CONST               2 ('str')
+             28 LOAD_NAME                4 (__annotations__)
+             30 LOAD_CONST               4 ('content')
+             32 STORE_SUBSCR
+
+ 34          34 LOAD_CONST               5 (None)
+             36 STORE_NAME               6 (files)
+             38 LOAD_CONST               6 ('Optional[list[str]]')
+             40 LOAD_NAME                4 (__annotations__)
+             42 LOAD_CONST               7 ('files')
+             44 STORE_SUBSCR
+
+ 35          46 LOAD_NAME                7 (Field)
+             48 LOAD_CONST               5 (None)
+             50 LOAD_CONST               8 ('accountId')
+             52 LOAD_CONST               9 (('default', 'alias'))
+             54 CALL_FUNCTION_KW         2
+             56 STORE_NAME               8 (account_id)
+             58 LOAD_CONST              10 ('Optional[str]')
+             60 LOAD_NAME                4 (__annotations__)
+             62 LOAD_CONST              11 ('account_id')
+             64 STORE_SUBSCR
+
+ 37          66 LOAD_NAME                9 (ConfigDict)
+             68 LOAD_CONST              12 (True)
+             70 LOAD_CONST              13 (('populate_by_name',))
+             72 CALL_FUNCTION_KW         1
+             74 STORE_NAME              10 (model_config)
+             76 LOAD_CONST               5 (None)
+             78 RETURN_VALUE
+
+Disassembly of <code object _safe_plan_name at 0x1073aa870, file "WeRobotCore/host/macos_mvp_moments.py", line 40>:
+ 41           0 LOAD_GLOBAL              0 (str)
+              2 LOAD_FAST                0 (value)
+              4 JUMP_IF_TRUE_OR_POP      8
+              6 LOAD_CONST               1 ('')
+        >>    8 CALL_FUNCTION            1
+             10 LOAD_METHOD              1 (strip)
+             12 CALL_METHOD              0
+             14 STORE_FAST               1 (name)
+
+ 43          16 LOAD_FAST                1 (name)
+
+ 42          18 POP_JUMP_IF_FALSE       56
+
+ 44          20 LOAD_FAST                1 (name)
+             22 LOAD_CONST               2 (frozenset({'..', '.'}))
+             24 CONTAINS_OP              0
+
+ 42          26 POP_JUMP_IF_TRUE        56
+
+ 45          28 LOAD_CONST               3 ('/')
+             30 LOAD_FAST                1 (name)
+             32 CONTAINS_OP              0
+
+ 42          34 POP_JUMP_IF_TRUE        56
+
+ 46          36 LOAD_CONST               4 ('\\')
+             38 LOAD_FAST                1 (name)
+             40 CONTAINS_OP              0
+
+ 42          42 POP_JUMP_IF_TRUE        56
+
+ 47          44 LOAD_GLOBAL              2 (len)
+             46 LOAD_FAST                1 (name)
+             48 CALL_FUNCTION            1
+             50 LOAD_CONST               5 (128)
+             52 COMPARE_OP               4 (>)
+
+ 42          54 POP_JUMP_IF_FALSE       64
+
+ 49     >>   56 LOAD_GLOBAL              3 (ValueError)
+             58 LOAD_CONST               6 ('素材计划名称无效')
+             60 CALL_FUNCTION            1
+             62 RAISE_VARARGS            1
+
+ 50     >>   64 LOAD_FAST                1 (name)
+             66 RETURN_VALUE
+
+Disassembly of <code object _default_folder_selector at 0x1073aa5b0, file "WeRobotCore/host/macos_mvp_moments.py", line 53>:
+ 54           0 LOAD_GLOBAL              0 (subprocess)
+              2 LOAD_ATTR                1 (run)
+
+ 55           4 BUILD_LIST               0
+              6 LOAD_CONST               1 (('osascript', '-e', 'POSIX path of (choose folder with prompt "请选择朋友圈素材计划文件夹")'))
+              8 LIST_EXTEND              1
+
+ 60          10 LOAD_CONST               2 (False)
+
+ 61          12 LOAD_CONST               3 (True)
+
+ 62          14 LOAD_CONST               3 (True)
+
+ 63          16 LOAD_CONST               4 (120)
+
+ 54          18 LOAD_CONST               5 (('check', 'capture_output', 'text', 'timeout'))
+             20 CALL_FUNCTION_KW         5
+             22 STORE_FAST               0 (result)
+
+ 65          24 LOAD_FAST                0 (result)
+             26 LOAD_ATTR                2 (returncode)
+             28 LOAD_CONST               6 (0)
+             30 COMPARE_OP               3 (!=)
+             32 POP_JUMP_IF_FALSE       38
+
+ 66          34 LOAD_CONST               7 ('')
+             36 RETURN_VALUE
+
+ 67     >>   38 LOAD_FAST                0 (result)
+             40 LOAD_ATTR                3 (stdout)
+             42 LOAD_METHOD              4 (strip)
+             44 CALL_METHOD              0
+             46 LOAD_METHOD              5 (rstrip)
+             48 LOAD_CONST               8 ('/')
+             50 CALL_METHOD              1
+             52 RETURN_VALUE
+
+Disassembly of <code object _default_folder_opener at 0x1073aab30, file "WeRobotCore/host/macos_mvp_moments.py", line 70>:
+ 71           0 LOAD_GLOBAL              0 (subprocess)
+              2 LOAD_ATTR                1 (Popen)
+
+ 72           4 LOAD_CONST               1 ('open')
+              6 LOAD_GLOBAL              2 (str)
+              8 LOAD_FAST                0 (path)
+             10 CALL_FUNCTION            1
+             12 BUILD_LIST               2
+
+ 73          14 LOAD_GLOBAL              0 (subprocess)
+             16 LOAD_ATTR                3 (DEVNULL)
+
+ 74          18 LOAD_GLOBAL              0 (subprocess)
+             20 LOAD_ATTR                3 (DEVNULL)
+
+ 75          22 LOAD_GLOBAL              0 (subprocess)
+             24 LOAD_ATTR                3 (DEVNULL)
+
+ 76          26 LOAD_CONST               2 (True)
+
+ 71          28 LOAD_CONST               3 (('stdin', 'stdout', 'stderr', 'start_new_session'))
+             30 CALL_FUNCTION_KW         5
+             32 POP_TOP
+             34 LOAD_CONST               0 (None)
+             36 RETURN_VALUE
+
+Disassembly of <code object create_macos_mvp_moments_router at 0x1073ab500, file "WeRobotCore/host/macos_mvp_moments.py", line 80>:
+ 91           0 LOAD_CONST               1 (('toggle_moment_comment_task', 'get_all_tasks'))
+              2 GET_ITER
+        >>    4 FOR_ITER                34 (to 40)
+              6 STORE_FAST               8 (method)
+
+ 92           8 LOAD_GLOBAL              0 (callable)
+             10 LOAD_GLOBAL              1 (getattr)
+             12 LOAD_DEREF               5 (manager)
+             14 LOAD_FAST                8 (method)
+             16 LOAD_CONST               0 (None)
+             18 CALL_FUNCTION            3
+             20 CALL_FUNCTION            1
+             22 POP_JUMP_IF_TRUE         4
+
+ 93          24 LOAD_GLOBAL              2 (TypeError)
+             26 LOAD_CONST               2 ('manager must expose {}()')
+             28 LOAD_METHOD              3 (format)
+             30 LOAD_FAST                8 (method)
+             32 CALL_METHOD              1
+             34 CALL_FUNCTION            1
+             36 RAISE_VARARGS            1
+             38 JUMP_ABSOLUTE            4
+
+ 94     >>   40 LOAD_GLOBAL              0 (callable)
+             42 LOAD_DEREF               1 (configuration_factory)
+             44 CALL_FUNCTION            1
+             46 POP_JUMP_IF_TRUE        56
+
+ 95          48 LOAD_GLOBAL              2 (TypeError)
+             50 LOAD_CONST               3 ('configuration_factory must be callable')
+             52 CALL_FUNCTION            1
+             54 RAISE_VARARGS            1
+
+ 96     >>   56 LOAD_GLOBAL              4 (isinstance)
+             58 LOAD_DEREF               0 (api_key)
+             60 LOAD_GLOBAL              5 (str)
+             62 CALL_FUNCTION            2
+             64 POP_JUMP_IF_FALSE       74
+             66 LOAD_DEREF               0 (api_key)
+             68 LOAD_METHOD              6 (strip)
+             70 CALL_METHOD              0
+             72 POP_JUMP_IF_TRUE        82
+
+ 97     >>   74 LOAD_GLOBAL              7 (ValueError)
+             76 LOAD_CONST               4 ('api_key must be non-empty text')
+             78 CALL_FUNCTION            1
+             80 RAISE_VARARGS            1
+
+ 98     >>   82 LOAD_DEREF               6 (post_manager)
+             84 LOAD_CONST               0 (None)
+             86 IS_OP                    1
+             88 POP_JUMP_IF_FALSE      180
+
+ 99          90 LOAD_CONST               5 (('create_tasks', 'post_moment_direct', 'get_tasks', 'cancel_task'))
+             92 GET_ITER
+        >>   94 FOR_ITER                34 (to 130)
+             96 STORE_FAST               8 (method)
+
+100          98 LOAD_GLOBAL              0 (callable)
+            100 LOAD_GLOBAL              1 (getattr)
+            102 LOAD_DEREF               6 (post_manager)
+            104 LOAD_FAST                8 (method)
+            106 LOAD_CONST               0 (None)
+            108 CALL_FUNCTION            3
+            110 CALL_FUNCTION            1
+            112 POP_JUMP_IF_TRUE        94
+
+101         114 LOAD_GLOBAL              2 (TypeError)
+            116 LOAD_CONST               6 ('post_manager must expose {}()')
+            118 LOAD_METHOD              3 (format)
+            120 LOAD_FAST                8 (method)
+            122 CALL_METHOD              1
+            124 CALL_FUNCTION            1
+            126 RAISE_VARARGS            1
+            128 JUMP_ABSOLUTE           94
+
+102     >>  130 LOAD_GLOBAL              4 (isinstance)
+            132 LOAD_FAST                5 (material_root)
+            134 LOAD_GLOBAL              8 (Path)
+            136 CALL_FUNCTION            2
+            138 POP_JUMP_IF_FALSE      148
+            140 LOAD_FAST                5 (material_root)
+            142 LOAD_METHOD              9 (is_absolute)
+            144 CALL_METHOD              0
+            146 POP_JUMP_IF_TRUE       156
+
+103     >>  148 LOAD_GLOBAL              7 (ValueError)
+            150 LOAD_CONST               7 ('material_root must be an absolute pathlib.Path')
+            152 CALL_FUNCTION            1
+            154 RAISE_VARARGS            1
+
+104     >>  156 LOAD_GLOBAL              0 (callable)
+            158 LOAD_DEREF               3 (folder_selector)
+            160 CALL_FUNCTION            1
+            162 POP_JUMP_IF_FALSE      172
+            164 LOAD_GLOBAL              0 (callable)
+            166 LOAD_DEREF               2 (folder_opener)
+            168 CALL_FUNCTION            1
+            170 POP_JUMP_IF_TRUE       180
+
+105     >>  172 LOAD_GLOBAL              2 (TypeError)
+            174 LOAD_CONST               8 ('folder adapters must be callable')
+            176 CALL_FUNCTION            1
+            178 RAISE_VARARGS            1
+
+106     >>  180 LOAD_GLOBAL             10 (APIKeyHeader)
+            182 LOAD_CONST               9 ('X-API-Key')
+            184 LOAD_CONST              10 (False)
+            186 LOAD_CONST              11 (('name', 'auto_error'))
+            188 CALL_FUNCTION_KW         2
+            190 STORE_FAST               9 (header)
+
+108         192 LOAD_GLOBAL             11 (Security)
+            194 LOAD_FAST                9 (header)
+            196 CALL_FUNCTION            1
+            198 BUILD_TUPLE              1
+            200 LOAD_CONST              12 ('str')
+            202 LOAD_CONST              12 ('str')
+            204 LOAD_CONST              13 (('presented', 'return'))
+            206 BUILD_CONST_KEY_MAP      2
+            208 LOAD_CLOSURE             0 (api_key)
+            210 BUILD_TUPLE              1
+            212 LOAD_CONST              14 (<code object authenticate at 0x1073aa240, file "WeRobotCore/host/macos_mvp_moments.py", line 108>)
+            214 LOAD_CONST              15 ('create_macos_mvp_moments_router.<locals>.authenticate')
+            216 MAKE_FUNCTION           13 (defaults, annotations, closure)
+            218 STORE_FAST              10 (authenticate)
+
+116         220 LOAD_GLOBAL             12 (APIRouter)
+            222 CALL_FUNCTION            0
+            224 STORE_FAST              11 (router)
+
+118         226 LOAD_FAST               11 (router)
+            228 LOAD_METHOD             13 (post)
+            230 LOAD_CONST              16 ('/api/moment/toggle-auto-comment')
+            232 CALL_METHOD              1
+
+121         234 LOAD_GLOBAL             11 (Security)
+            236 LOAD_FAST               10 (authenticate)
+            238 CALL_FUNCTION            1
+
+119         240 BUILD_TUPLE              1
+            242 LOAD_CONST              17 ('Dict[str, Any]')
+            244 LOAD_CONST              12 ('str')
+            246 LOAD_CONST              18 (('settings', '_key'))
+            248 BUILD_CONST_KEY_MAP      2
+            250 LOAD_CLOSURE             1 (configuration_factory)
+            252 LOAD_CLOSURE             4 (gateway)
+            254 LOAD_CLOSURE             5 (manager)
+            256 BUILD_TUPLE              3
+            258 LOAD_CONST              19 (<code object toggle_auto_comment at 0x1073aabe0, file "WeRobotCore/host/macos_mvp_moments.py", line 118>)
+            260 LOAD_CONST              20 ('create_macos_mvp_moments_router.<locals>.toggle_auto_comment')
+            262 MAKE_FUNCTION           13 (defaults, annotations, closure)
+            264 CALL_FUNCTION            1
+            266 STORE_FAST              12 (toggle_auto_comment)
+
+199         268 LOAD_FAST               11 (router)
+            270 LOAD_METHOD             14 (get)
+            272 LOAD_CONST              21 ('/api/moment/interactions')
+            274 CALL_METHOD              1
+
+200         276 LOAD_GLOBAL             11 (Security)
+            278 LOAD_FAST               10 (authenticate)
+            280 CALL_FUNCTION            1
+            282 BUILD_TUPLE              1
+            284 LOAD_CONST              12 ('str')
+            286 LOAD_CONST              22 (('_key',))
+            288 BUILD_CONST_KEY_MAP      1
+            290 LOAD_CONST              23 (<code object get_moment_interactions at 0x1073b99d0, file "WeRobotCore/host/macos_mvp_moments.py", line 199>)
+            292 LOAD_CONST              24 ('create_macos_mvp_moments_router.<locals>.get_moment_interactions')
+            294 MAKE_FUNCTION            5 (defaults, annotations)
+            296 CALL_FUNCTION            1
+            298 STORE_FAST              13 (get_moment_interactions)
+
+206         300 LOAD_DEREF               6 (post_manager)
+            302 LOAD_CONST               0 (None)
+            304 IS_OP                    1
+            306 EXTENDED_ARG             2
+            308 POP_JUMP_IF_FALSE      698
+
+207         310 LOAD_FAST                5 (material_root)
+            312 LOAD_METHOD             15 (resolve)
+            314 CALL_METHOD              0
+            316 STORE_DEREF              7 (root)
+
+209         318 LOAD_FAST               11 (router)
+            320 LOAD_METHOD             14 (get)
+            322 LOAD_CONST              25 ('/api/moment-material/plans')
+            324 CALL_METHOD              1
+
+210         326 LOAD_GLOBAL             11 (Security)
+            328 LOAD_FAST               10 (authenticate)
+            330 CALL_FUNCTION            1
+            332 BUILD_TUPLE              1
+            334 LOAD_CONST              12 ('str')
+            336 LOAD_CONST              22 (('_key',))
+            338 BUILD_CONST_KEY_MAP      1
+            340 LOAD_CLOSURE             7 (root)
+            342 BUILD_TUPLE              1
+            344 LOAD_CONST              26 (<code object list_moment_plans at 0x1073b95b0, file "WeRobotCore/host/macos_mvp_moments.py", line 209>)
+            346 LOAD_CONST              27 ('create_macos_mvp_moments_router.<locals>.list_moment_plans')
+            348 MAKE_FUNCTION           13 (defaults, annotations, closure)
+            350 CALL_FUNCTION            1
+            352 STORE_FAST              14 (list_moment_plans)
+
+219         354 LOAD_FAST               11 (router)
+            356 LOAD_METHOD             13 (post)
+            358 LOAD_CONST              28 ('/api/moment-material/create-folder')
+            360 CALL_METHOD              1
+
+222         362 LOAD_GLOBAL             11 (Security)
+            364 LOAD_FAST               10 (authenticate)
+            366 CALL_FUNCTION            1
+
+220         368 BUILD_TUPLE              1
+            370 LOAD_CONST              17 ('Dict[str, Any]')
+            372 LOAD_CONST              12 ('str')
+            374 LOAD_CONST              29 (('item', '_key'))
+            376 BUILD_CONST_KEY_MAP      2
+            378 LOAD_CLOSURE             7 (root)
+            380 BUILD_TUPLE              1
+            382 LOAD_CONST              30 (<code object create_moment_folder at 0x1073b9710, file "WeRobotCore/host/macos_mvp_moments.py", line 219>)
+            384 LOAD_CONST              31 ('create_macos_mvp_moments_router.<locals>.create_moment_folder')
+            386 MAKE_FUNCTION           13 (defaults, annotations, closure)
+            388 CALL_FUNCTION            1
+            390 STORE_FAST              15 (create_moment_folder)
+
+237         392 LOAD_FAST               11 (router)
+            394 LOAD_METHOD             14 (get)
+            396 LOAD_CONST              32 ('/api/moment-material/groups')
+            398 CALL_METHOD              1
+
+240         400 LOAD_GLOBAL             11 (Security)
+            402 LOAD_FAST               10 (authenticate)
+            404 CALL_FUNCTION            1
+
+238         406 BUILD_TUPLE              1
+            408 LOAD_CONST              12 ('str')
+            410 LOAD_CONST              12 ('str')
+            412 LOAD_CONST              33 (('plan_name', '_key'))
+            414 BUILD_CONST_KEY_MAP      2
+            416 LOAD_CLOSURE             7 (root)
+            418 BUILD_TUPLE              1
+            420 LOAD_CONST              34 (<code object list_moment_groups at 0x1073b9660, file "WeRobotCore/host/macos_mvp_moments.py", line 237>)
+            422 LOAD_CONST              35 ('create_macos_mvp_moments_router.<locals>.list_moment_groups')
+            424 MAKE_FUNCTION           13 (defaults, annotations, closure)
+            426 CALL_FUNCTION            1
+            428 STORE_FAST              16 (list_moment_groups)
+
+253         430 LOAD_FAST               11 (router)
+            432 LOAD_METHOD             14 (get)
+            434 LOAD_CONST              36 ('/api/moment-material/select-folder')
+            436 CALL_METHOD              1
+
+254         438 LOAD_GLOBAL             11 (Security)
+            440 LOAD_FAST               10 (authenticate)
+            442 CALL_FUNCTION            1
+            444 BUILD_TUPLE              1
+            446 LOAD_CONST              12 ('str')
+            448 LOAD_CONST              22 (('_key',))
+            450 BUILD_CONST_KEY_MAP      1
+            452 LOAD_CLOSURE             3 (folder_selector)
+            454 BUILD_TUPLE              1
+            456 LOAD_CONST              37 (<code object select_moment_folder at 0x1073b9030, file "WeRobotCore/host/macos_mvp_moments.py", line 253>)
+            458 LOAD_CONST              38 ('create_macos_mvp_moments_router.<locals>.select_moment_folder')
+            460 MAKE_FUNCTION           13 (defaults, annotations, closure)
+            462 CALL_FUNCTION            1
+            464 STORE_FAST              17 (select_moment_folder)
+
+273         466 LOAD_FAST               11 (router)
+            468 LOAD_METHOD             14 (get)
+            470 LOAD_CONST              39 ('/api/moment-material/open-folder')
+            472 CALL_METHOD              1
+
+276         474 LOAD_GLOBAL             11 (Security)
+            476 LOAD_FAST               10 (authenticate)
+            478 CALL_FUNCTION            1
+
+274         480 BUILD_TUPLE              1
+            482 LOAD_CONST              12 ('str')
+            484 LOAD_CONST              12 ('str')
+            486 LOAD_CONST              40 (('path', '_key'))
+            488 BUILD_CONST_KEY_MAP      2
+            490 LOAD_CLOSURE             2 (folder_opener)
+            492 BUILD_TUPLE              1
+            494 LOAD_CONST              41 (<code object open_moment_folder at 0x1073b90e0, file "WeRobotCore/host/macos_mvp_moments.py", line 273>)
+            496 LOAD_CONST              42 ('create_macos_mvp_moments_router.<locals>.open_moment_folder')
+            498 MAKE_FUNCTION           13 (defaults, annotations, closure)
+            500 CALL_FUNCTION            1
+            502 STORE_FAST              18 (open_moment_folder)
+
+287         504 LOAD_FAST               11 (router)
+            506 LOAD_METHOD             13 (post)
+            508 LOAD_CONST              43 ('/api/moment/post-task')
+            510 CALL_METHOD              1
+
+290         512 LOAD_GLOBAL             11 (Security)
+            514 LOAD_FAST               10 (authenticate)
+            516 CALL_FUNCTION            1
+
+288         518 BUILD_TUPLE              1
+            520 LOAD_CONST              17 ('Dict[str, Any]')
+            522 LOAD_CONST              12 ('str')
+            524 LOAD_CONST              18 (('settings', '_key'))
+            526 BUILD_CONST_KEY_MAP      2
+            528 LOAD_CLOSURE             6 (post_manager)
+            530 BUILD_TUPLE              1
+            532 LOAD_CONST              44 (<code object create_moment_post_task at 0x1073b9b30, file "WeRobotCore/host/macos_mvp_moments.py", line 287>)
+            534 LOAD_CONST              45 ('create_macos_mvp_moments_router.<locals>.create_moment_post_task')
+            536 MAKE_FUNCTION           13 (defaults, annotations, closure)
+            538 CALL_FUNCTION            1
+            540 STORE_FAST              19 (create_moment_post_task)
+
+297         542 LOAD_FAST               11 (router)
+            544 LOAD_METHOD             14 (get)
+            546 LOAD_CONST              46 ('/api/moment/post-tasks')
+            548 CALL_METHOD              1
+
+298         550 LOAD_GLOBAL             11 (Security)
+            552 LOAD_FAST               10 (authenticate)
+            554 CALL_FUNCTION            1
+            556 BUILD_TUPLE              1
+            558 LOAD_CONST              12 ('str')
+            560 LOAD_CONST              22 (('_key',))
+            562 BUILD_CONST_KEY_MAP      1
+            564 LOAD_CLOSURE             6 (post_manager)
+            566 BUILD_TUPLE              1
+            568 LOAD_CONST              47 (<code object list_moment_post_tasks at 0x1073b9c90, file "WeRobotCore/host/macos_mvp_moments.py", line 297>)
+            570 LOAD_CONST              48 ('create_macos_mvp_moments_router.<locals>.list_moment_post_tasks')
+            572 MAKE_FUNCTION           13 (defaults, annotations, closure)
+            574 CALL_FUNCTION            1
+            576 STORE_FAST              20 (list_moment_post_tasks)
+
+301         578 LOAD_FAST               11 (router)
+            580 LOAD_METHOD             13 (post)
+            582 LOAD_CONST              49 ('/api/moment/post-task/cancel')
+            584 CALL_METHOD              1
+
+304         586 LOAD_GLOBAL             11 (Security)
+            588 LOAD_FAST               10 (authenticate)
+            590 CALL_FUNCTION            1
+
+302         592 BUILD_TUPLE              1
+            594 LOAD_CONST              17 ('Dict[str, Any]')
+            596 LOAD_CONST              12 ('str')
+            598 LOAD_CONST              29 (('item', '_key'))
+            600 BUILD_CONST_KEY_MAP      2
+            602 LOAD_CLOSURE             6 (post_manager)
+            604 BUILD_TUPLE              1
+            606 LOAD_CONST              50 (<code object cancel_moment_post_task at 0x1073b9450, file "WeRobotCore/host/macos_mvp_moments.py", line 301>)
+            608 LOAD_CONST              51 ('create_macos_mvp_moments_router.<locals>.cancel_moment_post_task')
+            610 MAKE_FUNCTION           13 (defaults, annotations, closure)
+            612 CALL_FUNCTION            1
+            614 STORE_FAST              21 (cancel_moment_post_task)
+
+308         616 LOAD_FAST               11 (router)
+            618 LOAD_METHOD             14 (get)
+            620 LOAD_CONST              52 ('/api/moment/post-logs')
+            622 CALL_METHOD              1
+
+309         624 LOAD_GLOBAL             11 (Security)
+            626 LOAD_FAST               10 (authenticate)
+            628 CALL_FUNCTION            1
+            630 BUILD_TUPLE              1
+            632 LOAD_CONST              12 ('str')
+            634 LOAD_CONST              22 (('_key',))
+            636 BUILD_CONST_KEY_MAP      1
+            638 LOAD_CONST              53 (<code object get_moment_post_logs at 0x1073b93a0, file "WeRobotCore/host/macos_mvp_moments.py", line 308>)
+            640 LOAD_CONST              54 ('create_macos_mvp_moments_router.<locals>.get_moment_post_logs')
+            642 MAKE_FUNCTION            5 (defaults, annotations)
+            644 CALL_FUNCTION            1
+            646 STORE_FAST              22 (get_moment_post_logs)
+
+312         648 LOAD_FAST               11 (router)
+            650 LOAD_METHOD             13 (post)
+            652 LOAD_CONST              55 ('/api/agent/post_moment')
+            654 CALL_METHOD              1
+
+313         656 LOAD_FAST               11 (router)
+            658 LOAD_METHOD             13 (post)
+            660 LOAD_CONST              56 ('/api/agent/post_moment/')
+            662 CALL_METHOD              1
+
+316         664 LOAD_GLOBAL             11 (Security)
+            666 LOAD_FAST               10 (authenticate)
+            668 CALL_FUNCTION            1
+
+314         670 BUILD_TUPLE              1
+            672 LOAD_CONST              57 ('MacOSAgentPostMomentRequest')
+            674 LOAD_CONST              12 ('str')
+            676 LOAD_CONST              58 (('request', '_key'))
+            678 BUILD_CONST_KEY_MAP      2
+            680 LOAD_CLOSURE             6 (post_manager)
+            682 LOAD_CLOSURE             7 (root)
+            684 BUILD_TUPLE              2
+            686 LOAD_CONST              59 (<code object agent_post_moment at 0x1073abea0, file "WeRobotCore/host/macos_mvp_moments.py", line 312>)
+            688 LOAD_CONST              60 ('create_macos_mvp_moments_router.<locals>.agent_post_moment')
+            690 MAKE_FUNCTION           13 (defaults, annotations, closure)
+            692 CALL_FUNCTION            1
+            694 CALL_FUNCTION            1
+            696 STORE_FAST              23 (agent_post_moment)
+
+376     >>  698 LOAD_FAST               11 (router)
+            700 RETURN_VALUE
+
+Disassembly of <code object authenticate at 0x1073aa240, file "WeRobotCore/host/macos_mvp_moments.py", line 108>:
+109           0 LOAD_GLOBAL              0 (hmac)
+              2 LOAD_METHOD              1 (compare_digest)
+              4 LOAD_FAST                0 (presented)
+              6 JUMP_IF_TRUE_OR_POP     10
+              8 LOAD_CONST               1 ('')
+        >>   10 LOAD_DEREF               0 (api_key)
+             12 CALL_METHOD              2
+             14 POP_JUMP_IF_TRUE        36
+
+110          16 LOAD_GLOBAL              2 (HTTPException)
+
+111          18 LOAD_GLOBAL              3 (status)
+             20 LOAD_ATTR                4 (HTTP_403_FORBIDDEN)
+
+112          22 LOAD_CONST               2 ('MACOS_MVP_API_KEY_INVALID')
+             24 LOAD_CONST               3 ('invalid API key')
+             26 LOAD_CONST               4 (('code', 'message'))
+             28 BUILD_CONST_KEY_MAP      2
+
+110          30 LOAD_CONST               5 (('status_code', 'detail'))
+             32 CALL_FUNCTION_KW         2
+             34 RAISE_VARARGS            1
+
+114     >>   36 LOAD_FAST                0 (presented)
+             38 RETURN_VALUE
+
+Disassembly of <code object toggle_auto_comment at 0x1073aabe0, file "WeRobotCore/host/macos_mvp_moments.py", line 118>:
+123           0 LOAD_FAST                0 (settings)
+              2 LOAD_METHOD              0 (get)
+              4 LOAD_CONST               1 ('enabled')
+              6 CALL_METHOD              1
+              8 LOAD_CONST               2 (True)
+             10 IS_OP                    0
+             12 STORE_FAST               2 (enabled)
+
+124          14 LOAD_FAST                0 (settings)
+             16 LOAD_METHOD              0 (get)
+             18 LOAD_CONST               3 ('selectedAccounts')
+             20 CALL_METHOD              1
+             22 JUMP_IF_TRUE_OR_POP     26
+             24 BUILD_LIST               0
+        >>   26 STORE_FAST               3 (selected_accounts)
+
+125          28 LOAD_FAST                2 (enabled)
+             30 POP_JUMP_IF_FALSE       88
+             32 LOAD_FAST                3 (selected_accounts)
+             34 POP_JUMP_IF_TRUE        88
+
+126          36 LOAD_GLOBAL              1 (tuple)
+             38 LOAD_DEREF               1 (gateway)
+             40 LOAD_ATTR                2 (runtime)
+             42 LOAD_ATTR                3 (instances)
+             44 LOAD_METHOD              4 (list_attached)
+             46 CALL_METHOD              0
+             48 GET_AWAITABLE
+             50 LOAD_CONST               0 (None)
+             52 YIELD_FROM
+             54 CALL_FUNCTION            1
+             56 STORE_FAST               4 (attached)
+
+127          58 LOAD_CONST               4 (<code object <listcomp> at 0x1073aaf50, file "WeRobotCore/host/macos_mvp_moments.py", line 127>)
+             60 LOAD_CONST               5 ('create_macos_mvp_moments_router.<locals>.toggle_auto_comment.<locals>.<listcomp>')
+             62 MAKE_FUNCTION            0
+
+129          64 LOAD_FAST                4 (attached)
+
+127          66 GET_ITER
+             68 CALL_FUNCTION            1
+             70 STORE_FAST               5 (account_ids)
+
+132          72 LOAD_GLOBAL              5 (len)
+             74 LOAD_FAST                5 (account_ids)
+             76 CALL_FUNCTION            1
+             78 LOAD_CONST               6 (1)
+             80 COMPARE_OP               2 (==)
+             82 POP_JUMP_IF_FALSE       88
+
+133          84 LOAD_FAST                5 (account_ids)
+             86 STORE_FAST               3 (selected_accounts)
+
+134     >>   88 LOAD_FAST                3 (selected_accounts)
+             90 POP_JUMP_IF_FALSE      112
+             92 LOAD_GLOBAL              6 (str)
+             94 LOAD_FAST                3 (selected_accounts)
+             96 LOAD_CONST               7 (0)
+             98 BINARY_SUBSCR
+            100 JUMP_IF_TRUE_OR_POP    104
+            102 LOAD_CONST               8 ('')
+        >>  104 CALL_FUNCTION            1
+            106 LOAD_METHOD              7 (strip)
+            108 CALL_METHOD              0
+            110 JUMP_FORWARD             2 (to 114)
+        >>  112 LOAD_CONST               8 ('')
+        >>  114 STORE_FAST               6 (account_id)
+
+135         116 BUILD_MAP                0
+            118 STORE_FAST               7 (history)
+
+136         120 SETUP_FINALLY           62 (to 184)
+
+139         122 LOAD_FAST                6 (account_id)
+
+138         124 POP_JUMP_IF_FALSE      136
+            126 LOAD_DEREF               0 (configuration_factory)
+            128 LOAD_METHOD              8 (for_account)
+            130 LOAD_FAST                6 (account_id)
+            132 CALL_METHOD              1
+            134 JUMP_FORWARD             6 (to 142)
+
+140     >>  136 LOAD_DEREF               0 (configuration_factory)
+            138 LOAD_METHOD              9 (global_configuration)
+            140 CALL_METHOD              0
+
+137     >>  142 STORE_FAST               8 (configuration)
+
+142         144 LOAD_FAST                8 (configuration)
+            146 LOAD_METHOD             10 (load_config)
+            148 LOAD_CONST               9 ('sop_cache')
+            150 CALL_METHOD              1
+            152 STORE_FAST               9 (cached)
+
+143         154 LOAD_FAST                9 (cached)
+            156 LOAD_METHOD              0 (get)
+            158 LOAD_CONST              10 ('commentConfig')
+            160 BUILD_MAP                0
+            162 CALL_METHOD              2
+            164 STORE_FAST              10 (value)
+
+144         166 LOAD_GLOBAL             11 (isinstance)
+            168 LOAD_FAST               10 (value)
+            170 LOAD_GLOBAL             12 (Mapping)
+            172 CALL_FUNCTION            2
+            174 POP_JUMP_IF_FALSE      180
+
+145         176 LOAD_FAST               10 (value)
+            178 STORE_FAST               7 (history)
+        >>  180 POP_BLOCK
+            182 JUMP_FORWARD            22 (to 206)
+
+146     >>  184 DUP_TOP
+            186 LOAD_GLOBAL             13 (Exception)
+            188 JUMP_IF_NOT_EXC_MATCH   204
+            190 POP_TOP
+            192 POP_TOP
+            194 POP_TOP
+
+147         196 BUILD_MAP                0
+            198 STORE_FAST               7 (history)
+            200 POP_EXCEPT
+            202 JUMP_FORWARD             2 (to 206)
+        >>  204 RERAISE
+
+148     >>  206 LOAD_FAST                2 (enabled)
+            208 EXTENDED_ARG             1
+            210 POP_JUMP_IF_FALSE      306
+
+149         212 LOAD_FAST                0 (settings)
+            214 LOAD_METHOD              0 (get)
+            216 LOAD_CONST              11 ('interactionMode')
+            218 CALL_METHOD              1
+            220 JUMP_IF_TRUE_OR_POP    230
+            222 LOAD_FAST                7 (history)
+            224 LOAD_METHOD              0 (get)
+            226 LOAD_CONST              11 ('interactionMode')
+            228 CALL_METHOD              1
+        >>  230 STORE_FAST              11 (interaction_mode)
+
+150         232 LOAD_FAST                0 (settings)
+            234 LOAD_METHOD              0 (get)
+            236 LOAD_CONST              12 ('agentId')
+            238 CALL_METHOD              1
+            240 JUMP_IF_TRUE_OR_POP    250
+            242 LOAD_FAST                7 (history)
+            244 LOAD_METHOD              0 (get)
+            246 LOAD_CONST              12 ('agentId')
+            248 CALL_METHOD              1
+        >>  250 STORE_FAST              12 (agent_id)
+
+151         252 LOAD_FAST               11 (interaction_mode)
+            254 EXTENDED_ARG             1
+            256 POP_JUMP_IF_FALSE      264
+            258 LOAD_FAST               12 (agent_id)
+            260 EXTENDED_ARG             1
+            262 POP_JUMP_IF_TRUE       282
+
+152     >>  264 LOAD_GLOBAL             14 (JSONResponse)
+
+153         266 LOAD_CONST              13 (400)
+
+155         268 LOAD_CONST              14 (False)
+
+156         270 LOAD_CONST              15 ('开启任务失败：缺少必传参数 interactionMode 或 agentId，且未找到历史配置')
+
+154         272 LOAD_CONST              16 (('success', 'error'))
+            274 BUILD_CONST_KEY_MAP      2
+
+152         276 LOAD_CONST              17 (('status_code', 'content'))
+            278 CALL_FUNCTION_KW         2
+            280 RETURN_VALUE
+
+159     >>  282 LOAD_FAST                3 (selected_accounts)
+            284 EXTENDED_ARG             1
+            286 POP_JUMP_IF_TRUE       306
+
+160         288 LOAD_GLOBAL             14 (JSONResponse)
+
+161         290 LOAD_CONST              13 (400)
+
+162         292 LOAD_CONST              14 (False)
+            294 LOAD_CONST              18 ('开启任务失败：请选择微信账号')
+            296 LOAD_CONST              16 (('success', 'error'))
+            298 BUILD_CONST_KEY_MAP      2
+
+160         300 LOAD_CONST              17 (('status_code', 'content'))
+            302 CALL_FUNCTION_KW         2
+            304 RETURN_VALUE
+
+165     >>  306 LOAD_FAST                0 (settings)
+            308 LOAD_METHOD              0 (get)
+            310 LOAD_CONST              19 ('commentLimit')
+            312 LOAD_FAST                7 (history)
+            314 LOAD_METHOD              0 (get)
+            316 LOAD_CONST              19 ('commentLimit')
+            318 LOAD_CONST              20 (100)
+            320 CALL_METHOD              2
+            322 CALL_METHOD              2
+
+166         324 LOAD_FAST                0 (settings)
+            326 LOAD_METHOD              0 (get)
+            328 LOAD_CONST              21 ('perFriendLimit')
+            330 LOAD_FAST                7 (history)
+            332 LOAD_METHOD              0 (get)
+            334 LOAD_CONST              21 ('perFriendLimit')
+            336 LOAD_CONST              22 (2)
+            338 CALL_METHOD              2
+            340 CALL_METHOD              2
+
+167         342 LOAD_FAST                0 (settings)
+            344 LOAD_METHOD              0 (get)
+            346 LOAD_CONST              23 ('autoLike')
+            348 LOAD_FAST                7 (history)
+            350 LOAD_METHOD              0 (get)
+            352 LOAD_CONST              23 ('autoLike')
+            354 LOAD_CONST              14 (False)
+            356 CALL_METHOD              2
+            358 CALL_METHOD              2
+
+168         360 LOAD_FAST                0 (settings)
+            362 LOAD_METHOD              0 (get)
+            364 LOAD_CONST              11 ('interactionMode')
+            366 LOAD_FAST                7 (history)
+            368 LOAD_METHOD              0 (get)
+            370 LOAD_CONST              11 ('interactionMode')
+            372 LOAD_CONST              24 ('like_and_comment')
+            374 CALL_METHOD              2
+            376 CALL_METHOD              2
+
+169         378 LOAD_FAST                0 (settings)
+            380 LOAD_METHOD              0 (get)
+            382 LOAD_CONST              12 ('agentId')
+            384 LOAD_FAST                7 (history)
+            386 LOAD_METHOD              0 (get)
+            388 LOAD_CONST              12 ('agentId')
+            390 LOAD_CONST               8 ('')
+            392 CALL_METHOD              2
+            394 CALL_METHOD              2
+
+170         396 LOAD_FAST                0 (settings)
+            398 LOAD_METHOD              0 (get)
+            400 LOAD_CONST              25 ('checkInterval')
+            402 LOAD_FAST                7 (history)
+            404 LOAD_METHOD              0 (get)
+            406 LOAD_CONST              25 ('checkInterval')
+            408 LOAD_CONST              26 (120)
+            410 CALL_METHOD              2
+            412 CALL_METHOD              2
+
+171         414 LOAD_FAST                0 (settings)
+            416 LOAD_METHOD              0 (get)
+            418 LOAD_CONST              27 ('reachLastPosition')
+            420 LOAD_FAST                7 (history)
+            422 LOAD_METHOD              0 (get)
+            424 LOAD_CONST              27 ('reachLastPosition')
+            426 LOAD_CONST              28 ('stop')
+            428 CALL_METHOD              2
+            430 CALL_METHOD              2
+
+174         432 LOAD_FAST                0 (settings)
+            434 LOAD_METHOD              0 (get)
+            436 LOAD_CONST              29 ('blacklist')
+            438 LOAD_FAST                7 (history)
+            440 LOAD_METHOD              0 (get)
+            442 LOAD_CONST              29 ('blacklist')
+            444 LOAD_CONST               8 ('')
+            446 CALL_METHOD              2
+            448 CALL_METHOD              2
+
+173         450 EXTENDED_ARG             1
+            452 POP_JUMP_IF_FALSE      484
+            454 LOAD_GLOBAL              6 (str)
+            456 LOAD_FAST                0 (settings)
+            458 LOAD_METHOD              0 (get)
+            460 LOAD_CONST              29 ('blacklist')
+            462 LOAD_FAST                7 (history)
+            464 LOAD_METHOD              0 (get)
+            466 LOAD_CONST              29 ('blacklist')
+            468 LOAD_CONST               8 ('')
+            470 CALL_METHOD              2
+            472 CALL_METHOD              2
+            474 CALL_FUNCTION            1
+            476 LOAD_METHOD             15 (split)
+            478 LOAD_CONST              30 ('、')
+            480 CALL_METHOD              1
+            482 JUMP_FORWARD             2 (to 486)
+
+175     >>  484 BUILD_LIST               0
+
+177     >>  486 LOAD_FAST                0 (settings)
+            488 LOAD_METHOD              0 (get)
+            490 LOAD_CONST              31 ('selectedTags')
+            492 LOAD_FAST                7 (history)
+            494 LOAD_METHOD              0 (get)
+            496 LOAD_CONST              31 ('selectedTags')
+            498 BUILD_LIST               0
+            500 CALL_METHOD              2
+            502 CALL_METHOD              2
+
+178         504 LOAD_FAST                0 (settings)
+            506 LOAD_METHOD              0 (get)
+            508 LOAD_CONST              32 ('multiCycleEnabled')
+            510 LOAD_CONST              14 (False)
+            512 CALL_METHOD              2
+
+179         514 LOAD_FAST                3 (selected_accounts)
+
+164         516 LOAD_CONST              33 (('commentLimit', 'perFriendLimit', 'autoLike', 'interactionMode', 'agentId', 'checkInterval', 'reachLastPosition', 'blacklist', 'selectedTags', 'multiCycleEnabled', 'selectedAccounts'))
+            518 BUILD_CONST_KEY_MAP     11
+            520 STORE_FAST              13 (params)
+
+181         522 LOAD_DEREF               2 (manager)
+            524 LOAD_ATTR               16 (toggle_moment_comment_task)
+
+182         526 LOAD_FAST                2 (enabled)
+
+183         528 LOAD_FAST                2 (enabled)
+            530 EXTENDED_ARG             2
+            532 POP_JUMP_IF_FALSE      538
+            534 LOAD_FAST               13 (params)
+            536 JUMP_FORWARD             2 (to 540)
+        >>  538 LOAD_CONST               0 (None)
+
+181     >>  540 LOAD_CONST              34 (('enabled', 'params'))
+            542 CALL_FUNCTION_KW         2
+            544 GET_AWAITABLE
+            546 LOAD_CONST               0 (None)
+            548 YIELD_FROM
+            550 STORE_FAST              14 (result)
+
+185         552 LOAD_FAST               14 (result)
+            554 LOAD_METHOD              0 (get)
+            556 LOAD_CONST              35 ('success')
+            558 CALL_METHOD              1
+            560 EXTENDED_ARG             2
+            562 POP_JUMP_IF_TRUE       590
+
+186         564 LOAD_GLOBAL             14 (JSONResponse)
+
+187         566 LOAD_CONST              36 (500)
+
+188         568 LOAD_CONST              14 (False)
+            570 LOAD_FAST               14 (result)
+            572 LOAD_METHOD              0 (get)
+            574 LOAD_CONST              37 ('message')
+            576 LOAD_CONST              38 ('操作失败')
+            578 CALL_METHOD              2
+            580 LOAD_CONST              16 (('success', 'error'))
+            582 BUILD_CONST_KEY_MAP      2
+
+186         584 LOAD_CONST              17 (('status_code', 'content'))
+            586 CALL_FUNCTION_KW         2
+            588 RETURN_VALUE
+
+191     >>  590 LOAD_CONST               2 (True)
+
+193         592 LOAD_FAST               14 (result)
+            594 LOAD_METHOD              0 (get)
+            596 LOAD_CONST              39 ('task_id')
+            598 CALL_METHOD              1
+
+194         600 LOAD_FAST                2 (enabled)
+            602 EXTENDED_ARG             2
+            604 POP_JUMP_IF_FALSE      610
+            606 LOAD_CONST              40 ('running')
+            608 JUMP_FORWARD             2 (to 612)
+        >>  610 LOAD_CONST              41 ('cancelled')
+
+195     >>  612 LOAD_FAST                2 (enabled)
+            614 EXTENDED_ARG             2
+            616 POP_JUMP_IF_FALSE      622
+            618 LOAD_FAST               13 (params)
+            620 JUMP_FORWARD             2 (to 624)
+        >>  622 LOAD_CONST               0 (None)
+
+192     >>  624 LOAD_CONST              42 (('task_id', 'status', 'params'))
+            626 BUILD_CONST_KEY_MAP      3
+
+190         628 LOAD_CONST              43 (('success', 'data'))
+            630 BUILD_CONST_KEY_MAP      2
+            632 RETURN_VALUE
+
+Disassembly of <code object <listcomp> at 0x1073aaf50, file "WeRobotCore/host/macos_mvp_moments.py", line 127>:
+127           0 BUILD_LIST               0
+              2 LOAD_FAST                0 (.0)
+        >>    4 FOR_ITER                26 (to 32)
+
+129           6 STORE_FAST               1 (item)
+
+130           8 LOAD_GLOBAL              0 (getattr)
+             10 LOAD_FAST                1 (item)
+             12 LOAD_CONST               0 ('account_id')
+             14 LOAD_CONST               1 (None)
+             16 CALL_FUNCTION            3
+             18 POP_JUMP_IF_FALSE        4
+
+128          20 LOAD_GLOBAL              1 (str)
+             22 LOAD_FAST                1 (item)
+             24 LOAD_ATTR                2 (account_id)
+             26 CALL_FUNCTION            1
+             28 LIST_APPEND              2
+             30 JUMP_ABSOLUTE            4
+        >>   32 RETURN_VALUE
+
+Disassembly of <code object get_moment_interactions at 0x1073b99d0, file "WeRobotCore/host/macos_mvp_moments.py", line 199>:
+201           0 SETUP_FINALLY           16 (to 18)
+
+202           2 LOAD_CONST               1 (True)
+              4 LOAD_GLOBAL              0 (task_logger)
+              6 LOAD_METHOD              1 (get_moment_logs)
+              8 CALL_METHOD              0
+             10 LOAD_CONST               2 (('success', 'data'))
+             12 BUILD_CONST_KEY_MAP      2
+             14 POP_BLOCK
+             16 RETURN_VALUE
+
+203     >>   18 DUP_TOP
+             20 LOAD_GLOBAL              2 (Exception)
+             22 JUMP_IF_NOT_EXC_MATCH    66
+             24 POP_TOP
+             26 STORE_FAST               1 (exc)
+             28 POP_TOP
+             30 SETUP_FINALLY           26 (to 58)
+
+204          32 LOAD_CONST               3 (False)
+             34 LOAD_GLOBAL              3 (str)
+             36 LOAD_FAST                1 (exc)
+             38 CALL_FUNCTION            1
+             40 LOAD_CONST               4 (('success', 'error'))
+             42 BUILD_CONST_KEY_MAP      2
+             44 POP_BLOCK
+             46 ROT_FOUR
+             48 POP_EXCEPT
+             50 LOAD_CONST               0 (None)
+             52 STORE_FAST               1 (exc)
+             54 DELETE_FAST              1 (exc)
+             56 RETURN_VALUE
+        >>   58 LOAD_CONST               0 (None)
+             60 STORE_FAST               1 (exc)
+             62 DELETE_FAST              1 (exc)
+             64 RERAISE
+        >>   66 RERAISE
+             68 LOAD_CONST               0 (None)
+             70 RETURN_VALUE
+
+Disassembly of <code object list_moment_plans at 0x1073b95b0, file "WeRobotCore/host/macos_mvp_moments.py", line 209>:
+211           0 LOAD_DEREF               0 (root)
+              2 LOAD_ATTR                0 (mkdir)
+              4 LOAD_CONST               1 (True)
+              6 LOAD_CONST               1 (True)
+              8 LOAD_CONST               2 (('parents', 'exist_ok'))
+             10 CALL_FUNCTION_KW         2
+             12 POP_TOP
+
+212          14 LOAD_GLOBAL              1 (sorted)
+             16 LOAD_CONST               3 (<code object <genexpr> at 0x1073b9ea0, file "WeRobotCore/host/macos_mvp_moments.py", line 212>)
+             18 LOAD_CONST               4 ('create_macos_mvp_moments_router.<locals>.list_moment_plans.<locals>.<genexpr>')
+             20 MAKE_FUNCTION            0
+
+214          22 LOAD_DEREF               0 (root)
+             24 LOAD_METHOD              2 (iterdir)
+             26 CALL_METHOD              0
+
+212          28 GET_ITER
+             30 CALL_FUNCTION            1
+             32 CALL_FUNCTION            1
+             34 STORE_FAST               1 (plans)
+
+217          36 LOAD_CONST               1 (True)
+             38 LOAD_FAST                1 (plans)
+             40 LOAD_GLOBAL              3 (str)
+             42 LOAD_DEREF               0 (root)
+             44 CALL_FUNCTION            1
+             46 LOAD_CONST               5 (('success', 'plans', 'base'))
+             48 BUILD_CONST_KEY_MAP      3
+             50 RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x1073b9ea0, file "WeRobotCore/host/macos_mvp_moments.py", line 212>:
+212           0 LOAD_FAST                0 (.0)
+        >>    2 FOR_ITER                28 (to 32)
+
+214           4 STORE_FAST               1 (item)
+
+215           6 LOAD_FAST                1 (item)
+              8 LOAD_METHOD              0 (is_dir)
+             10 CALL_METHOD              0
+             12 POP_JUMP_IF_FALSE        2
+             14 LOAD_FAST                1 (item)
+             16 LOAD_METHOD              1 (is_symlink)
+             18 CALL_METHOD              0
+             20 POP_JUMP_IF_TRUE         2
+
+213          22 LOAD_FAST                1 (item)
+             24 LOAD_ATTR                2 (name)
+             26 YIELD_VALUE
+             28 POP_TOP
+             30 JUMP_ABSOLUTE            2
+        >>   32 LOAD_CONST               0 (None)
+             34 RETURN_VALUE
+
+Disassembly of <code object create_moment_folder at 0x1073b9710, file "WeRobotCore/host/macos_mvp_moments.py", line 219>:
+224           0 SETUP_FINALLY          104 (to 106)
+
+225           2 LOAD_GLOBAL              0 (_safe_plan_name)
+              4 LOAD_FAST                0 (item)
+              6 LOAD_METHOD              1 (get)
+              8 LOAD_CONST               1 ('plan_name')
+             10 CALL_METHOD              1
+             12 CALL_FUNCTION            1
+             14 STORE_FAST               2 (name)
+
+226          16 LOAD_DEREF               0 (root)
+             18 LOAD_ATTR                2 (mkdir)
+             20 LOAD_CONST               2 (True)
+             22 LOAD_CONST               2 (True)
+             24 LOAD_CONST               3 (('parents', 'exist_ok'))
+             26 CALL_FUNCTION_KW         2
+             28 POP_TOP
+
+227          30 LOAD_DEREF               0 (root)
+             32 LOAD_FAST                2 (name)
+             34 BINARY_TRUE_DIVIDE
+             36 STORE_FAST               3 (target)
+
+228          38 LOAD_FAST                3 (target)
+             40 LOAD_METHOD              3 (exists)
+             42 CALL_METHOD              0
+             44 POP_JUMP_IF_FALSE       72
+
+229          46 LOAD_DEREF               0 (root)
+             48 LOAD_CONST               4 ('{}_{}')
+             50 LOAD_METHOD              4 (format)
+
+230          52 LOAD_FAST                2 (name)
+             54 LOAD_GLOBAL              5 (datetime)
+             56 LOAD_METHOD              6 (now)
+             58 CALL_METHOD              0
+             60 LOAD_METHOD              7 (strftime)
+             62 LOAD_CONST               5 ('%Y%m%d%H%M%S')
+             64 CALL_METHOD              1
+
+229          66 CALL_METHOD              2
+             68 BINARY_TRUE_DIVIDE
+             70 STORE_FAST               3 (target)
+
+232     >>   72 LOAD_FAST                3 (target)
+             74 LOAD_ATTR                2 (mkdir)
+             76 LOAD_CONST               6 (False)
+             78 LOAD_CONST               6 (False)
+             80 LOAD_CONST               3 (('parents', 'exist_ok'))
+             82 CALL_FUNCTION_KW         2
+             84 POP_TOP
+
+233          86 LOAD_CONST               2 (True)
+             88 LOAD_GLOBAL              8 (str)
+             90 LOAD_FAST                3 (target)
+             92 CALL_FUNCTION            1
+             94 LOAD_FAST                3 (target)
+             96 LOAD_ATTR                9 (name)
+             98 LOAD_CONST               7 (('success', 'path', 'name'))
+            100 BUILD_CONST_KEY_MAP      3
+            102 POP_BLOCK
+            104 RETURN_VALUE
+
+234     >>  106 DUP_TOP
+            108 LOAD_GLOBAL             10 (Exception)
+            110 JUMP_IF_NOT_EXC_MATCH   154
+            112 POP_TOP
+            114 STORE_FAST               4 (exc)
+            116 POP_TOP
+            118 SETUP_FINALLY           26 (to 146)
+
+235         120 LOAD_CONST               6 (False)
+            122 LOAD_GLOBAL              8 (str)
+            124 LOAD_FAST                4 (exc)
+            126 CALL_FUNCTION            1
+            128 LOAD_CONST               8 (('success', 'error'))
+            130 BUILD_CONST_KEY_MAP      2
+            132 POP_BLOCK
+            134 ROT_FOUR
+            136 POP_EXCEPT
+            138 LOAD_CONST               0 (None)
+            140 STORE_FAST               4 (exc)
+            142 DELETE_FAST              4 (exc)
+            144 RETURN_VALUE
+        >>  146 LOAD_CONST               0 (None)
+            148 STORE_FAST               4 (exc)
+            150 DELETE_FAST              4 (exc)
+            152 RERAISE
+        >>  154 RERAISE
+            156 LOAD_CONST               0 (None)
+            158 RETURN_VALUE
+
+Disassembly of <code object list_moment_groups at 0x1073b9660, file "WeRobotCore/host/macos_mvp_moments.py", line 237>:
+242           0 SETUP_FINALLY           58 (to 60)
+
+243           2 LOAD_DEREF               0 (root)
+              4 LOAD_GLOBAL              0 (_safe_plan_name)
+              6 LOAD_FAST                0 (plan_name)
+              8 CALL_FUNCTION            1
+             10 BINARY_TRUE_DIVIDE
+             12 STORE_FAST               2 (plan)
+
+244          14 LOAD_FAST                2 (plan)
+             16 LOAD_METHOD              1 (is_dir)
+             18 CALL_METHOD              0
+             20 POP_JUMP_IF_TRUE        26
+             22 BUILD_LIST               0
+             24 JUMP_FORWARD            20 (to 46)
+        >>   26 LOAD_GLOBAL              2 (sorted)
+             28 LOAD_CONST               1 (<code object <genexpr> at 0x1073b9d40, file "WeRobotCore/host/macos_mvp_moments.py", line 244>)
+             30 LOAD_CONST               2 ('create_macos_mvp_moments_router.<locals>.list_moment_groups.<locals>.<genexpr>')
+             32 MAKE_FUNCTION            0
+
+246          34 LOAD_FAST                2 (plan)
+             36 LOAD_METHOD              3 (iterdir)
+             38 CALL_METHOD              0
+
+244          40 GET_ITER
+             42 CALL_FUNCTION            1
+             44 CALL_FUNCTION            1
+        >>   46 STORE_FAST               3 (groups)
+
+249          48 LOAD_CONST               3 (True)
+             50 LOAD_FAST                3 (groups)
+             52 LOAD_CONST               4 (('success', 'groups'))
+             54 BUILD_CONST_KEY_MAP      2
+             56 POP_BLOCK
+             58 RETURN_VALUE
+
+250     >>   60 DUP_TOP
+             62 LOAD_GLOBAL              4 (Exception)
+             64 JUMP_IF_NOT_EXC_MATCH   108
+             66 POP_TOP
+             68 STORE_FAST               4 (exc)
+             70 POP_TOP
+             72 SETUP_FINALLY           26 (to 100)
+
+251          74 LOAD_CONST               5 (False)
+             76 LOAD_GLOBAL              5 (str)
+             78 LOAD_FAST                4 (exc)
+             80 CALL_FUNCTION            1
+             82 LOAD_CONST               6 (('success', 'error'))
+             84 BUILD_CONST_KEY_MAP      2
+             86 POP_BLOCK
+             88 ROT_FOUR
+             90 POP_EXCEPT
+             92 LOAD_CONST               0 (None)
+             94 STORE_FAST               4 (exc)
+             96 DELETE_FAST              4 (exc)
+             98 RETURN_VALUE
+        >>  100 LOAD_CONST               0 (None)
+            102 STORE_FAST               4 (exc)
+            104 DELETE_FAST              4 (exc)
+            106 RERAISE
+        >>  108 RERAISE
+            110 LOAD_CONST               0 (None)
+            112 RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x1073b9d40, file "WeRobotCore/host/macos_mvp_moments.py", line 244>:
+244           0 LOAD_FAST                0 (.0)
+        >>    2 FOR_ITER                28 (to 32)
+
+246           4 STORE_FAST               1 (item)
+
+247           6 LOAD_FAST                1 (item)
+              8 LOAD_METHOD              0 (is_dir)
+             10 CALL_METHOD              0
+             12 POP_JUMP_IF_FALSE        2
+             14 LOAD_FAST                1 (item)
+             16 LOAD_METHOD              1 (is_symlink)
+             18 CALL_METHOD              0
+             20 POP_JUMP_IF_TRUE         2
+
+245          22 LOAD_FAST                1 (item)
+             24 LOAD_ATTR                2 (name)
+             26 YIELD_VALUE
+             28 POP_TOP
+             30 JUMP_ABSOLUTE            2
+        >>   32 LOAD_CONST               0 (None)
+             34 RETURN_VALUE
+
+Disassembly of <code object select_moment_folder at 0x1073b9030, file "WeRobotCore/host/macos_mvp_moments.py", line 253>:
+255           0 SETUP_FINALLY          124 (to 126)
+
+256           2 LOAD_CONST               1 (0)
+              4 LOAD_CONST               0 (None)
+              6 IMPORT_NAME              0 (asyncio)
+              8 STORE_FAST               1 (asyncio)
+
+258          10 LOAD_FAST                1 (asyncio)
+             12 LOAD_METHOD              1 (to_thread)
+             14 LOAD_DEREF               0 (folder_selector)
+             16 CALL_METHOD              1
+             18 GET_AWAITABLE
+             20 LOAD_CONST               0 (None)
+             22 YIELD_FROM
+             24 STORE_FAST               2 (selected)
+
+259          26 LOAD_FAST                2 (selected)
+             28 POP_JUMP_IF_TRUE        42
+
+260          30 LOAD_CONST               2 (False)
+             32 LOAD_CONST               3 ('未选择素材文件夹')
+             34 LOAD_CONST               4 (('success', 'error'))
+             36 BUILD_CONST_KEY_MAP      2
+             38 POP_BLOCK
+             40 RETURN_VALUE
+
+261     >>   42 LOAD_GLOBAL              2 (Path)
+             44 LOAD_FAST                2 (selected)
+             46 CALL_FUNCTION            1
+             48 LOAD_METHOD              3 (expanduser)
+             50 CALL_METHOD              0
+             52 LOAD_METHOD              4 (resolve)
+             54 CALL_METHOD              0
+             56 STORE_FAST               3 (path)
+
+262          58 LOAD_FAST                3 (path)
+             60 LOAD_METHOD              5 (is_dir)
+             62 CALL_METHOD              0
+             64 POP_JUMP_IF_FALSE       74
+             66 LOAD_FAST                3 (path)
+             68 LOAD_METHOD              6 (is_symlink)
+             70 CALL_METHOD              0
+             72 POP_JUMP_IF_FALSE       86
+
+263     >>   74 LOAD_CONST               2 (False)
+             76 LOAD_CONST               5 ('选择的素材文件夹无效')
+             78 LOAD_CONST               4 (('success', 'error'))
+             80 BUILD_CONST_KEY_MAP      2
+             82 POP_BLOCK
+             84 RETURN_VALUE
+
+264     >>   86 LOAD_GLOBAL              7 (sorted)
+             88 LOAD_CONST               6 (<code object <genexpr> at 0x1073b9240, file "WeRobotCore/host/macos_mvp_moments.py", line 264>)
+             90 LOAD_CONST               7 ('create_macos_mvp_moments_router.<locals>.select_moment_folder.<locals>.<genexpr>')
+             92 MAKE_FUNCTION            0
+
+266          94 LOAD_FAST                3 (path)
+             96 LOAD_METHOD              8 (iterdir)
+             98 CALL_METHOD              0
+
+264         100 GET_ITER
+            102 CALL_FUNCTION            1
+            104 CALL_FUNCTION            1
+            106 STORE_FAST               4 (groups)
+
+269         108 LOAD_CONST               8 (True)
+            110 LOAD_GLOBAL              9 (str)
+            112 LOAD_FAST                3 (path)
+            114 CALL_FUNCTION            1
+            116 LOAD_FAST                4 (groups)
+            118 LOAD_CONST               9 (('success', 'selected', 'groups'))
+            120 BUILD_CONST_KEY_MAP      3
+            122 POP_BLOCK
+            124 RETURN_VALUE
+
+270     >>  126 DUP_TOP
+            128 LOAD_GLOBAL             10 (Exception)
+            130 JUMP_IF_NOT_EXC_MATCH   174
+            132 POP_TOP
+            134 STORE_FAST               5 (exc)
+            136 POP_TOP
+            138 SETUP_FINALLY           26 (to 166)
+
+271         140 LOAD_CONST               2 (False)
+            142 LOAD_GLOBAL              9 (str)
+            144 LOAD_FAST                5 (exc)
+            146 CALL_FUNCTION            1
+            148 LOAD_CONST               4 (('success', 'error'))
+            150 BUILD_CONST_KEY_MAP      2
+            152 POP_BLOCK
+            154 ROT_FOUR
+            156 POP_EXCEPT
+            158 LOAD_CONST               0 (None)
+            160 STORE_FAST               5 (exc)
+            162 DELETE_FAST              5 (exc)
+            164 RETURN_VALUE
+        >>  166 LOAD_CONST               0 (None)
+            168 STORE_FAST               5 (exc)
+            170 DELETE_FAST              5 (exc)
+            172 RERAISE
+        >>  174 RERAISE
+            176 LOAD_CONST               0 (None)
+            178 RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x1073b9240, file "WeRobotCore/host/macos_mvp_moments.py", line 264>:
+264           0 LOAD_FAST                0 (.0)
+        >>    2 FOR_ITER                28 (to 32)
+
+266           4 STORE_FAST               1 (item)
+
+267           6 LOAD_FAST                1 (item)
+              8 LOAD_METHOD              0 (is_dir)
+             10 CALL_METHOD              0
+             12 POP_JUMP_IF_FALSE        2
+             14 LOAD_FAST                1 (item)
+             16 LOAD_METHOD              1 (is_symlink)
+             18 CALL_METHOD              0
+             20 POP_JUMP_IF_TRUE         2
+
+265          22 LOAD_FAST                1 (item)
+             24 LOAD_ATTR                2 (name)
+             26 YIELD_VALUE
+             28 POP_TOP
+             30 JUMP_ABSOLUTE            2
+        >>   32 LOAD_CONST               0 (None)
+             34 RETURN_VALUE
+
+Disassembly of <code object open_moment_folder at 0x1073b90e0, file "WeRobotCore/host/macos_mvp_moments.py", line 273>:
+278           0 SETUP_FINALLY           62 (to 64)
+
+279           2 LOAD_GLOBAL              0 (Path)
+              4 LOAD_FAST                0 (path)
+              6 CALL_FUNCTION            1
+              8 LOAD_METHOD              1 (expanduser)
+             10 CALL_METHOD              0
+             12 LOAD_METHOD              2 (resolve)
+             14 CALL_METHOD              0
+             16 STORE_FAST               2 (target)
+
+280          18 LOAD_FAST                2 (target)
+             20 LOAD_METHOD              3 (is_dir)
+             22 CALL_METHOD              0
+             24 POP_JUMP_IF_FALSE       34
+             26 LOAD_FAST                2 (target)
+             28 LOAD_METHOD              4 (is_symlink)
+             30 CALL_METHOD              0
+             32 POP_JUMP_IF_FALSE       46
+
+281     >>   34 LOAD_CONST               1 (False)
+             36 LOAD_CONST               2 ('素材文件夹不存在')
+             38 LOAD_CONST               3 (('success', 'error'))
+             40 BUILD_CONST_KEY_MAP      2
+             42 POP_BLOCK
+             44 RETURN_VALUE
+
+282     >>   46 LOAD_DEREF               0 (folder_opener)
+             48 LOAD_FAST                2 (target)
+             50 CALL_FUNCTION            1
+             52 POP_TOP
+
+283          54 LOAD_CONST               4 ('success')
+             56 LOAD_CONST               5 (True)
+             58 BUILD_MAP                1
+             60 POP_BLOCK
+             62 RETURN_VALUE
+
+284     >>   64 DUP_TOP
+             66 LOAD_GLOBAL              5 (Exception)
+             68 JUMP_IF_NOT_EXC_MATCH   112
+             70 POP_TOP
+             72 STORE_FAST               3 (exc)
+             74 POP_TOP
+             76 SETUP_FINALLY           26 (to 104)
+
+285          78 LOAD_CONST               1 (False)
+             80 LOAD_GLOBAL              6 (str)
+             82 LOAD_FAST                3 (exc)
+             84 CALL_FUNCTION            1
+             86 LOAD_CONST               3 (('success', 'error'))
+             88 BUILD_CONST_KEY_MAP      2
+             90 POP_BLOCK
+             92 ROT_FOUR
+             94 POP_EXCEPT
+             96 LOAD_CONST               0 (None)
+             98 STORE_FAST               3 (exc)
+            100 DELETE_FAST              3 (exc)
+            102 RETURN_VALUE
+        >>  104 LOAD_CONST               0 (None)
+            106 STORE_FAST               3 (exc)
+            108 DELETE_FAST              3 (exc)
+            110 RERAISE
+        >>  112 RERAISE
+            114 LOAD_CONST               0 (None)
+            116 RETURN_VALUE
+
+Disassembly of <code object create_moment_post_task at 0x1073b9b30, file "WeRobotCore/host/macos_mvp_moments.py", line 287>:
+292           0 LOAD_DEREF               0 (post_manager)
+              2 LOAD_METHOD              0 (create_tasks)
+              4 LOAD_FAST                0 (settings)
+              6 CALL_METHOD              1
+              8 GET_AWAITABLE
+             10 LOAD_CONST               0 (None)
+             12 YIELD_FROM
+             14 STORE_FAST               2 (result)
+
+293          16 LOAD_FAST                2 (result)
+             18 LOAD_METHOD              1 (get)
+             20 LOAD_CONST               1 ('success')
+             22 CALL_METHOD              1
+             24 POP_JUMP_IF_FALSE       44
+
+294          26 LOAD_CONST               2 (True)
+             28 LOAD_FAST                2 (result)
+             30 LOAD_METHOD              1 (get)
+             32 LOAD_CONST               3 ('task_ids')
+             34 BUILD_LIST               0
+             36 CALL_METHOD              2
+             38 LOAD_CONST               4 (('success', 'task_ids'))
+             40 BUILD_CONST_KEY_MAP      2
+             42 RETURN_VALUE
+
+295     >>   44 LOAD_GLOBAL              2 (JSONResponse)
+             46 LOAD_CONST               5 (400)
+             48 LOAD_FAST                2 (result)
+             50 LOAD_CONST               6 (('status_code', 'content'))
+             52 CALL_FUNCTION_KW         2
+             54 RETURN_VALUE
+
+Disassembly of <code object list_moment_post_tasks at 0x1073b9c90, file "WeRobotCore/host/macos_mvp_moments.py", line 297>:
+299           0 LOAD_DEREF               0 (post_manager)
+              2 LOAD_METHOD              0 (get_tasks)
+              4 CALL_METHOD              0
+              6 GET_AWAITABLE
+              8 LOAD_CONST               0 (None)
+             10 YIELD_FROM
+             12 RETURN_VALUE
+
+Disassembly of <code object cancel_moment_post_task at 0x1073b9450, file "WeRobotCore/host/macos_mvp_moments.py", line 301>:
+306           0 LOAD_DEREF               0 (post_manager)
+              2 LOAD_METHOD              0 (cancel_task)
+              4 LOAD_GLOBAL              1 (str)
+              6 LOAD_FAST                0 (item)
+              8 LOAD_METHOD              2 (get)
+             10 LOAD_CONST               1 ('task_id')
+             12 CALL_METHOD              1
+             14 JUMP_IF_TRUE_OR_POP     18
+             16 LOAD_CONST               2 ('')
+        >>   18 CALL_FUNCTION            1
+             20 CALL_METHOD              1
+             22 GET_AWAITABLE
+             24 LOAD_CONST               0 (None)
+             26 YIELD_FROM
+             28 RETURN_VALUE
+
+Disassembly of <code object get_moment_post_logs at 0x1073b93a0, file "WeRobotCore/host/macos_mvp_moments.py", line 308>:
+310           0 LOAD_CONST               1 (True)
+              2 LOAD_GLOBAL              0 (task_logger)
+              4 LOAD_METHOD              1 (get_moment_post_logs)
+              6 CALL_METHOD              0
+              8 LOAD_CONST               2 (('success', 'logs'))
+             10 BUILD_CONST_KEY_MAP      2
+             12 RETURN_VALUE
+
+Disassembly of <code object agent_post_moment at 0x1073abea0, file "WeRobotCore/host/macos_mvp_moments.py", line 312>:
+318           0 LOAD_FAST                0 (request)
+              2 LOAD_ATTR                0 (material_folder)
+              4 STORE_FAST               2 (material_folder)
+
+319           6 LOAD_FAST                0 (request)
+              8 LOAD_ATTR                1 (files)
+             10 EXTENDED_ARG             1
+             12 POP_JUMP_IF_FALSE      310
+             14 LOAD_FAST                2 (material_folder)
+             16 EXTENDED_ARG             1
+             18 POP_JUMP_IF_TRUE       310
+
+324          20 LOAD_DEREF               1 (root)
+             22 LOAD_ATTR                2 (parent)
+             24 LOAD_CONST               1 ('moment_staging')
+             26 BINARY_TRUE_DIVIDE
+             28 LOAD_GLOBAL              3 (uuid4)
+             30 CALL_FUNCTION            0
+             32 LOAD_ATTR                4 (hex)
+             34 BINARY_TRUE_DIVIDE
+             36 STORE_FAST               3 (staging)
+
+325          38 LOAD_CONST               2 (0)
+             40 STORE_FAST               4 (copied)
+
+326          42 SETUP_FINALLY          198 (to 242)
+
+327          44 LOAD_FAST                3 (staging)
+             46 LOAD_ATTR                5 (mkdir)
+             48 LOAD_CONST               3 (True)
+             50 LOAD_CONST               4 (False)
+             52 LOAD_CONST               5 (('parents', 'exist_ok'))
+             54 CALL_FUNCTION_KW         2
+             56 POP_TOP
+
+328          58 LOAD_FAST                3 (staging)
+             60 LOAD_CONST               6 ('.yokowebot-moment-staging')
+             62 BINARY_TRUE_DIVIDE
+             64 LOAD_ATTR                6 (touch)
+
+329          66 LOAD_CONST               4 (False)
+
+328          68 LOAD_CONST               7 (('exist_ok',))
+             70 CALL_FUNCTION_KW         1
+             72 POP_TOP
+
+331          74 LOAD_FAST                0 (request)
+             76 LOAD_ATTR                1 (files)
+             78 GET_ITER
+        >>   80 FOR_ITER               132 (to 214)
+             82 STORE_FAST               5 (raw)
+
+332          84 LOAD_GLOBAL              7 (Path)
+             86 LOAD_FAST                5 (raw)
+             88 CALL_FUNCTION            1
+             90 LOAD_METHOD              8 (expanduser)
+             92 CALL_METHOD              0
+             94 STORE_FAST               6 (candidate)
+
+333          96 LOAD_FAST                6 (candidate)
+             98 LOAD_METHOD              9 (is_symlink)
+            100 CALL_METHOD              0
+            102 POP_JUMP_IF_FALSE      106
+
+334         104 JUMP_ABSOLUTE           80
+
+335     >>  106 LOAD_FAST                6 (candidate)
+            108 LOAD_METHOD             10 (resolve)
+            110 CALL_METHOD              0
+            112 STORE_FAST               7 (source)
+
+337         114 LOAD_FAST                7 (source)
+            116 LOAD_METHOD             11 (is_file)
+            118 CALL_METHOD              0
+
+336         120 POP_JUMP_IF_FALSE       80
+
+338         122 LOAD_FAST                7 (source)
+            124 LOAD_ATTR               12 (name)
+            126 LOAD_METHOD             13 (startswith)
+            128 LOAD_CONST               8 ('.')
+            130 CALL_METHOD              1
+
+336         132 POP_JUMP_IF_TRUE        80
+
+339         134 LOAD_FAST                7 (source)
+            136 LOAD_ATTR               14 (suffix)
+            138 LOAD_METHOD             15 (casefold)
+            140 CALL_METHOD              0
+            142 LOAD_GLOBAL             16 (MOMENT_MEDIA_SUFFIXES)
+            144 CONTAINS_OP              1
+
+336         146 POP_JUMP_IF_FALSE      150
+
+341         148 JUMP_ABSOLUTE           80
+
+342     >>  150 LOAD_FAST                3 (staging)
+            152 LOAD_FAST                7 (source)
+            154 LOAD_ATTR               12 (name)
+            156 BINARY_TRUE_DIVIDE
+            158 STORE_FAST               8 (target)
+
+343         160 LOAD_FAST                8 (target)
+            162 LOAD_METHOD             17 (exists)
+            164 CALL_METHOD              0
+            166 POP_JUMP_IF_FALSE      176
+
+344         168 LOAD_GLOBAL             18 (ValueError)
+            170 LOAD_CONST               9 ('朋友圈素材文件名不能重复')
+            172 CALL_FUNCTION            1
+            174 RAISE_VARARGS            1
+
+345     >>  176 LOAD_GLOBAL             19 (shutil)
+            178 LOAD_METHOD             20 (copy2)
+            180 LOAD_FAST                7 (source)
+            182 LOAD_FAST                8 (target)
+            184 CALL_METHOD              2
+            186 POP_TOP
+
+346         188 LOAD_FAST                4 (copied)
+            190 LOAD_CONST              10 (1)
+            192 INPLACE_ADD
+            194 STORE_FAST               4 (copied)
+
+347         196 LOAD_FAST                4 (copied)
+            198 LOAD_GLOBAL             21 (MOMENT_MAX_MEDIA_FILES)
+            200 COMPARE_OP               4 (>)
+            202 POP_JUMP_IF_FALSE       80
+
+348         204 LOAD_GLOBAL             18 (ValueError)
+            206 LOAD_CONST              11 ('单条朋友圈最多支持 9 个图片或视频素材')
+            208 CALL_FUNCTION            1
+            210 RAISE_VARARGS            1
+            212 JUMP_ABSOLUTE           80
+
+349     >>  214 LOAD_FAST                4 (copied)
+            216 LOAD_CONST               2 (0)
+            218 COMPARE_OP               2 (==)
+            220 POP_JUMP_IF_FALSE      230
+
+350         222 LOAD_GLOBAL             18 (ValueError)
+            224 LOAD_CONST              12 ('未找到可用的朋友圈素材文件')
+            226 CALL_FUNCTION            1
+            228 RAISE_VARARGS            1
+
+351     >>  230 LOAD_GLOBAL             22 (str)
+            232 LOAD_FAST                3 (staging)
+            234 CALL_FUNCTION            1
+            236 STORE_FAST               2 (material_folder)
+            238 POP_BLOCK
+            240 JUMP_FORWARD            68 (to 310)
+
+352     >>  242 DUP_TOP
+            244 LOAD_GLOBAL             23 (Exception)
+            246 EXTENDED_ARG             1
+            248 JUMP_IF_NOT_EXC_MATCH   308
+            250 POP_TOP
+            252 STORE_FAST               9 (exc)
+            254 POP_TOP
+            256 SETUP_FINALLY           42 (to 300)
+
+353         258 LOAD_GLOBAL             19 (shutil)
+            260 LOAD_ATTR               24 (rmtree)
+            262 LOAD_FAST                3 (staging)
+            264 LOAD_CONST               3 (True)
+            266 LOAD_CONST              13 (('ignore_errors',))
+            268 CALL_FUNCTION_KW         2
+            270 POP_TOP
+
+355         272 LOAD_CONST               4 (False)
+
+356         274 LOAD_CONST              14 ('处理文件失败: {}')
+            276 LOAD_METHOD             25 (format)
+            278 LOAD_FAST                9 (exc)
+            280 CALL_METHOD              1
+
+354         282 LOAD_CONST              15 (('success', 'error'))
+            284 BUILD_CONST_KEY_MAP      2
+            286 POP_BLOCK
+            288 ROT_FOUR
+            290 POP_EXCEPT
+            292 LOAD_CONST               0 (None)
+            294 STORE_FAST               9 (exc)
+            296 DELETE_FAST              9 (exc)
+            298 RETURN_VALUE
+        >>  300 LOAD_CONST               0 (None)
+            302 STORE_FAST               9 (exc)
+            304 DELETE_FAST              9 (exc)
+            306 RERAISE
+        >>  308 RERAISE
+
+358     >>  310 LOAD_FAST                2 (material_folder)
+            312 EXTENDED_ARG             1
+            314 POP_JUMP_IF_TRUE       334
+            316 LOAD_FAST                0 (request)
+            318 LOAD_ATTR               26 (content)
+            320 EXTENDED_ARG             1
+            322 POP_JUMP_IF_TRUE       334
+
+359         324 LOAD_CONST               4 (False)
+            326 LOAD_CONST              16 ('素材文件夹和文案不能同时为空')
+            328 LOAD_CONST              15 (('success', 'error'))
+            330 BUILD_CONST_KEY_MAP      2
+            332 RETURN_VALUE
+
+360     >>  334 LOAD_GLOBAL             27 (bool)
+            336 LOAD_FAST                0 (request)
+            338 LOAD_ATTR                1 (files)
+            340 EXTENDED_ARG             1
+            342 JUMP_IF_FALSE_OR_POP   350
+            344 LOAD_FAST                0 (request)
+            346 LOAD_ATTR                0 (material_folder)
+            348 UNARY_NOT
+        >>  350 CALL_FUNCTION            1
+            352 STORE_FAST              10 (cleanup_staging)
+
+361         354 SETUP_FINALLY           32 (to 388)
+
+362         356 LOAD_DEREF               0 (post_manager)
+            358 LOAD_ATTR               28 (post_moment_direct)
+
+363         360 LOAD_FAST                0 (request)
+            362 LOAD_ATTR               26 (content)
+
+364         364 LOAD_FAST                2 (material_folder)
+
+365         366 LOAD_FAST                0 (request)
+            368 LOAD_ATTR               29 (account_id)
+
+366         370 LOAD_FAST               10 (cleanup_staging)
+
+362         372 LOAD_CONST              17 (('account_id', 'cleanup_material_folder'))
+            374 CALL_FUNCTION_KW         4
+            376 GET_AWAITABLE
+            378 LOAD_CONST               0 (None)
+            380 YIELD_FROM
+            382 STORE_FAST              11 (result)
+            384 POP_BLOCK
+            386 JUMP_FORWARD            42 (to 430)
+
+368     >>  388 DUP_TOP
+            390 LOAD_GLOBAL             23 (Exception)
+            392 EXTENDED_ARG             1
+            394 JUMP_IF_NOT_EXC_MATCH   428
+            396 POP_TOP
+            398 POP_TOP
+            400 POP_TOP
+
+369         402 LOAD_FAST               10 (cleanup_staging)
+            404 EXTENDED_ARG             1
+            406 POP_JUMP_IF_FALSE      422
+
+370         408 LOAD_GLOBAL             19 (shutil)
+            410 LOAD_ATTR               24 (rmtree)
+            412 LOAD_FAST                2 (material_folder)
+            414 LOAD_CONST               3 (True)
+            416 LOAD_CONST              13 (('ignore_errors',))
+            418 CALL_FUNCTION_KW         2
+            420 POP_TOP
+
+371     >>  422 RAISE_VARARGS            0
+            424 POP_EXCEPT
+            426 JUMP_FORWARD             2 (to 430)
+        >>  428 RERAISE
+
+372     >>  430 LOAD_FAST               10 (cleanup_staging)
+            432 EXTENDED_ARG             1
+            434 POP_JUMP_IF_FALSE      462
+            436 LOAD_FAST               11 (result)
+            438 LOAD_METHOD             30 (get)
+            440 LOAD_CONST              18 ('success')
+            442 CALL_METHOD              1
+            444 EXTENDED_ARG             1
+            446 POP_JUMP_IF_TRUE       462
+
+373         448 LOAD_GLOBAL             19 (shutil)
+            450 LOAD_ATTR               24 (rmtree)
+            452 LOAD_FAST                2 (material_folder)
+            454 LOAD_CONST               3 (True)
+            456 LOAD_CONST              13 (('ignore_errors',))
+            458 CALL_FUNCTION_KW         2
+            460 POP_TOP
+
+374     >>  462 LOAD_FAST               11 (result)
+            464 RETURN_VALUE
+
+Disassembly of <code object install_macos_mvp_moments_routes at 0x1073abd40, file "WeRobotCore/host/macos_mvp_moments.py", line 379>:
+380           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                0 (runtime)
+              4 LOAD_GLOBAL              1 (MacOSControlProcessRuntime)
+              6 CALL_FUNCTION            2
+              8 POP_JUMP_IF_TRUE        18
+
+381          10 LOAD_GLOBAL              2 (TypeError)
+             12 LOAD_CONST               1 ('runtime must be MacOSControlProcessRuntime')
+             14 CALL_FUNCTION            1
+             16 RAISE_VARARGS            1
+
+382     >>   18 LOAD_FAST                0 (runtime)
+             20 LOAD_ATTR                3 (app)
+             22 STORE_FAST               1 (app)
+
+383          24 LOAD_GLOBAL              4 (getattr)
+             26 LOAD_FAST                1 (app)
+             28 LOAD_ATTR                5 (state)
+             30 LOAD_GLOBAL              6 (_INSTALLATION_STATE_KEY)
+             32 LOAD_CONST               2 (False)
+             34 CALL_FUNCTION            3
+             36 POP_JUMP_IF_FALSE       46
+
+384          38 LOAD_GLOBAL              7 (RuntimeError)
+             40 LOAD_CONST               3 ('the macOS Moments routes are already installed')
+             42 CALL_FUNCTION            1
+             44 RAISE_VARARGS            1
+
+385     >>   46 LOAD_FAST                0 (runtime)
+             48 LOAD_ATTR                8 (preparation)
+             50 LOAD_ATTR                9 (launch_plan)
+             52 LOAD_ATTR               10 (inputs)
+             54 STORE_FAST               2 (inputs)
+
+386          56 LOAD_FAST                0 (runtime)
+             58 LOAD_ATTR               11 (product_owner)
+             60 LOAD_ATTR               12 (capability_catalog)
+             62 LOAD_METHOD             13 (snapshot_capabilities)
+             64 CALL_METHOD              0
+             66 STORE_FAST               3 (states)
+
+387          68 LOAD_GLOBAL             14 (set)
+             70 LOAD_FAST                3 (states)
+             72 CALL_FUNCTION            1
+             74 LOAD_GLOBAL             14 (set)
+             76 LOAD_GLOBAL             15 (MACOS_MVP_CAPABILITY_NAMES)
+             78 CALL_FUNCTION            1
+             80 COMPARE_OP               3 (!=)
+             82 POP_JUMP_IF_TRUE       106
+             84 LOAD_GLOBAL             16 (all)
+             86 LOAD_CONST               4 (<code object <genexpr> at 0x1073abdf0, file "WeRobotCore/host/macos_mvp_moments.py", line 387>)
+             88 LOAD_CONST               5 ('install_macos_mvp_moments_routes.<locals>.<genexpr>')
+             90 MAKE_FUNCTION            0
+
+388          92 LOAD_FAST                3 (states)
+             94 LOAD_METHOD             17 (values)
+             96 CALL_METHOD              0
+
+387          98 GET_ITER
+            100 CALL_FUNCTION            1
+            102 CALL_FUNCTION            1
+            104 POP_JUMP_IF_TRUE       114
+
+390     >>  106 LOAD_GLOBAL              7 (RuntimeError)
+
+391         108 LOAD_CONST               6 ('macOS Moments routes require the complete capability catalog')
+
+390         110 CALL_FUNCTION            1
+            112 RAISE_VARARGS            1
+
+393     >>  114 LOAD_FAST                0 (runtime)
+            116 LOAD_ATTR               18 (dependencies)
+            118 LOAD_ATTR               19 (moment_comment_manager)
+            120 STORE_FAST               4 (manager)
+
+394         122 LOAD_FAST                4 (manager)
+            124 LOAD_CONST               0 (None)
+            126 IS_OP                    0
+            128 POP_JUMP_IF_FALSE      138
+
+395         130 LOAD_GLOBAL              7 (RuntimeError)
+            132 LOAD_CONST               7 ('the macOS process has no Moments manager')
+            134 CALL_FUNCTION            1
+            136 RAISE_VARARGS            1
+
+396     >>  138 LOAD_FAST                0 (runtime)
+            140 LOAD_ATTR               18 (dependencies)
+            142 LOAD_ATTR               20 (moment_post_manager)
+            144 STORE_FAST               5 (post_manager)
+
+397         146 LOAD_FAST                5 (post_manager)
+            148 LOAD_CONST               0 (None)
+            150 IS_OP                    0
+            152 POP_JUMP_IF_FALSE      162
+
+398         154 LOAD_GLOBAL              7 (RuntimeError)
+            156 LOAD_CONST               8 ('the macOS process has no Moment-post manager')
+            158 CALL_FUNCTION            1
+            160 RAISE_VARARGS            1
+
+399     >>  162 LOAD_FAST                0 (runtime)
+            164 LOAD_ATTR               11 (product_owner)
+            166 LOAD_ATTR               21 (configuration_factory)
+            168 STORE_FAST               6 (configuration_factory)
+
+400         170 LOAD_FAST                6 (configuration_factory)
+            172 LOAD_CONST               0 (None)
+            174 IS_OP                    0
+            176 POP_JUMP_IF_FALSE      186
+
+401         178 LOAD_GLOBAL              7 (RuntimeError)
+            180 LOAD_CONST               9 ('the macOS process has no configuration factory')
+            182 CALL_FUNCTION            1
+            184 RAISE_VARARGS            1
+
+403     >>  186 LOAD_GLOBAL             22 (tuple)
+            188 LOAD_CONST              10 (<code object <genexpr> at 0x1073ab660, file "WeRobotCore/host/macos_mvp_moments.py", line 403>)
+            190 LOAD_CONST               5 ('install_macos_mvp_moments_routes.<locals>.<genexpr>')
+            192 MAKE_FUNCTION            0
+
+405         194 LOAD_FAST                1 (app)
+            196 LOAD_ATTR               23 (router)
+            198 LOAD_ATTR               24 (routes)
+
+403         200 GET_ITER
+            202 CALL_FUNCTION            1
+            204 CALL_FUNCTION            1
+            206 STORE_FAST               7 (frontend)
+
+408         208 LOAD_FAST                7 (frontend)
+            210 POP_JUMP_IF_FALSE      220
+            212 LOAD_FAST                7 (frontend)
+            214 LOAD_CONST              11 (0)
+            216 BINARY_SUBSCR
+            218 JUMP_FORWARD             2 (to 222)
+        >>  220 LOAD_CONST               0 (None)
+        >>  222 STORE_FAST               8 (frontend_route)
+
+409         224 LOAD_FAST                8 (frontend_route)
+            226 LOAD_CONST               0 (None)
+            228 IS_OP                    1
+            230 POP_JUMP_IF_FALSE      246
+
+410         232 LOAD_FAST                1 (app)
+            234 LOAD_ATTR               23 (router)
+            236 LOAD_ATTR               24 (routes)
+            238 LOAD_METHOD             25 (remove)
+            240 LOAD_FAST                8 (frontend_route)
+            242 CALL_METHOD              1
+            244 POP_TOP
+
+411     >>  246 LOAD_FAST                1 (app)
+            248 LOAD_METHOD             26 (include_router)
+
+412         250 LOAD_GLOBAL             27 (create_macos_mvp_moments_router)
+
+413         252 LOAD_FAST                4 (manager)
+
+414         254 LOAD_FAST                6 (configuration_factory)
+
+415         256 LOAD_FAST                0 (runtime)
+            258 LOAD_ATTR               11 (product_owner)
+            260 LOAD_ATTR               28 (publication)
+            262 LOAD_ATTR               29 (composition)
+            264 LOAD_ATTR               30 (runtime_bundle)
+            266 LOAD_ATTR               31 (gateway)
+
+416         268 LOAD_FAST                2 (inputs)
+            270 LOAD_ATTR               32 (credentials)
+            272 LOAD_ATTR               33 (local_api_key)
+
+417         274 LOAD_FAST                5 (post_manager)
+
+418         276 LOAD_FAST                0 (runtime)
+            278 LOAD_ATTR               18 (dependencies)
+            280 LOAD_ATTR               34 (paths)
+            282 LOAD_ATTR               35 (data_root)
+            284 LOAD_CONST              12 ('moment_material')
+            286 BINARY_TRUE_DIVIDE
+
+412         288 LOAD_CONST              13 (('manager', 'configuration_factory', 'gateway', 'api_key', 'post_manager', 'material_root'))
+            290 CALL_FUNCTION_KW         6
+
+411         292 CALL_METHOD              1
+            294 POP_TOP
+
+421         296 LOAD_FAST                8 (frontend_route)
+            298 LOAD_CONST               0 (None)
+            300 IS_OP                    1
+            302 EXTENDED_ARG             1
+            304 POP_JUMP_IF_FALSE      320
+
+422         306 LOAD_FAST                1 (app)
+            308 LOAD_ATTR               23 (router)
+            310 LOAD_ATTR               24 (routes)
+            312 LOAD_METHOD             36 (append)
+            314 LOAD_FAST                8 (frontend_route)
+            316 CALL_METHOD              1
+            318 POP_TOP
+
+423     >>  320 LOAD_GLOBAL             37 (setattr)
+            322 LOAD_FAST                1 (app)
+            324 LOAD_ATTR                5 (state)
+            326 LOAD_GLOBAL              6 (_INSTALLATION_STATE_KEY)
+            328 LOAD_CONST              14 (True)
+            330 CALL_FUNCTION            3
+            332 POP_TOP
+            334 LOAD_CONST               0 (None)
+            336 RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x1073abdf0, file "WeRobotCore/host/macos_mvp_moments.py", line 387>:
+387           0 LOAD_FAST                0 (.0)
+        >>    2 FOR_ITER                12 (to 16)
+
+388           4 STORE_FAST               1 (item)
+              6 LOAD_FAST                1 (item)
+              8 LOAD_ATTR                0 (available)
+             10 YIELD_VALUE
+             12 POP_TOP
+             14 JUMP_ABSOLUTE            2
+        >>   16 LOAD_CONST               0 (None)
+             18 RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x1073ab660, file "WeRobotCore/host/macos_mvp_moments.py", line 403>:
+403           0 LOAD_FAST                0 (.0)
+        >>    2 FOR_ITER                26 (to 30)
+
+405           4 STORE_FAST               1 (route)
+
+406           6 LOAD_GLOBAL              0 (getattr)
+              8 LOAD_FAST                1 (route)
+             10 LOAD_CONST               0 ('name')
+             12 LOAD_CONST               1 (None)
+             14 CALL_FUNCTION            3
+             16 LOAD_CONST               2 ('unified_frontend')
+             18 COMPARE_OP               2 (==)
+             20 POP_JUMP_IF_FALSE        2
+
+404          22 LOAD_FAST                1 (route)
+             24 YIELD_VALUE
+             26 POP_TOP
+             28 JUMP_ABSOLUTE            2
+        >>   30 LOAD_CONST               1 (None)
+             32 RETURN_VALUE

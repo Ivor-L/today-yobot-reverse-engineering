@@ -1,0 +1,1611 @@
+  1           0 LOAD_CONST               0 ('macOS account projection for shared AutoReply business operations.')
+              2 STORE_NAME               0 (__doc__)
+
+  3           4 LOAD_CONST               1 (0)
+              6 LOAD_CONST               2 (('annotations',))
+              8 IMPORT_NAME              1 (__future__)
+             10 IMPORT_FROM              2 (annotations)
+             12 STORE_NAME               2 (annotations)
+             14 POP_TOP
+
+  5          16 LOAD_CONST               1 (0)
+             18 LOAD_CONST               3 (None)
+             20 IMPORT_NAME              3 (logging)
+             22 STORE_NAME               3 (logging)
+
+  6          24 LOAD_CONST               1 (0)
+             26 LOAD_CONST               3 (None)
+             28 IMPORT_NAME              4 (hashlib)
+             30 STORE_NAME               4 (hashlib)
+
+  7          32 LOAD_CONST               1 (0)
+             34 LOAD_CONST               3 (None)
+             36 IMPORT_NAME              5 (re)
+             38 STORE_NAME               5 (re)
+
+  8          40 LOAD_CONST               1 (0)
+             42 LOAD_CONST               4 (('Path',))
+             44 IMPORT_NAME              6 (pathlib)
+             46 IMPORT_FROM              7 (Path)
+             48 STORE_NAME               7 (Path)
+             50 POP_TOP
+
+  9          52 LOAD_CONST               1 (0)
+             54 LOAD_CONST               5 (('MappingProxyType',))
+             56 IMPORT_NAME              8 (types)
+             58 IMPORT_FROM              9 (MappingProxyType)
+             60 STORE_NAME               9 (MappingProxyType)
+             62 POP_TOP
+
+ 10          64 LOAD_CONST               1 (0)
+             66 LOAD_CONST               6 (('Any', 'Callable', 'List', 'Mapping', 'Optional', 'Sequence'))
+             68 IMPORT_NAME             10 (typing)
+             70 IMPORT_FROM             11 (Any)
+             72 STORE_NAME              11 (Any)
+             74 IMPORT_FROM             12 (Callable)
+             76 STORE_NAME              12 (Callable)
+             78 IMPORT_FROM             13 (List)
+             80 STORE_NAME              13 (List)
+             82 IMPORT_FROM             14 (Mapping)
+             84 STORE_NAME              14 (Mapping)
+             86 IMPORT_FROM             15 (Optional)
+             88 STORE_NAME              15 (Optional)
+             90 IMPORT_FROM             16 (Sequence)
+             92 STORE_NAME              16 (Sequence)
+             94 POP_TOP
+
+ 12          96 LOAD_CONST               1 (0)
+             98 LOAD_CONST               7 (('AutomationError', 'CapabilityName', 'ChatType', 'ErrorCode', 'MessageContentType', 'MessageDirection', 'OperationResult'))
+            100 IMPORT_NAME             17 (WeRobotCore.domain)
+            102 IMPORT_FROM             18 (AutomationError)
+            104 STORE_NAME              18 (AutomationError)
+            106 IMPORT_FROM             19 (CapabilityName)
+            108 STORE_NAME              19 (CapabilityName)
+            110 IMPORT_FROM             20 (ChatType)
+            112 STORE_NAME              20 (ChatType)
+            114 IMPORT_FROM             21 (ErrorCode)
+            116 STORE_NAME              21 (ErrorCode)
+            118 IMPORT_FROM             22 (MessageContentType)
+            120 STORE_NAME              22 (MessageContentType)
+            122 IMPORT_FROM             23 (MessageDirection)
+            124 STORE_NAME              23 (MessageDirection)
+            126 IMPORT_FROM             24 (OperationResult)
+            128 STORE_NAME              24 (OperationResult)
+            130 POP_TOP
+
+ 21         132 LOAD_CONST               1 (0)
+            134 LOAD_CONST               8 (('AutoReplyAccountRuntime', 'AutoReplyAccountRuntimeFactory', 'require_account_runtime', 'unsupported_account_runtime_feature'))
+            136 IMPORT_NAME             25 (WeRobotCore.application.auto_reply.runtime_dependencies)
+            138 IMPORT_FROM             26 (AutoReplyAccountRuntime)
+            140 STORE_NAME              26 (AutoReplyAccountRuntime)
+            142 IMPORT_FROM             27 (AutoReplyAccountRuntimeFactory)
+            144 STORE_NAME              27 (AutoReplyAccountRuntimeFactory)
+            146 IMPORT_FROM             28 (require_account_runtime)
+            148 STORE_NAME              28 (require_account_runtime)
+            150 IMPORT_FROM             29 (unsupported_account_runtime_feature)
+            152 STORE_NAME              29 (unsupported_account_runtime_feature)
+            154 POP_TOP
+
+ 28         156 LOAD_NAME                3 (logging)
+            158 LOAD_METHOD             30 (getLogger)
+            160 LOAD_NAME               31 (__name__)
+            162 CALL_METHOD              1
+            164 STORE_NAME              32 (logger)
+
+ 29         166 LOAD_NAME                5 (re)
+            168 LOAD_METHOD             33 (compile)
+
+ 30         170 LOAD_CONST               9 ('macos-message-[A-Za-z0-9_-]+-(?P<digest>[0-9a-f]{16})\\.(?:jpg|png)')
+
+ 29         172 CALL_METHOD              1
+            174 STORE_NAME              34 (_IMAGE_CACHE_NAME)
+
+ 32         176 LOAD_CONST              10 (10485760)
+            178 STORE_NAME              35 (_MAX_INCOMING_IMAGE_BYTES)
+
+ 35         180 LOAD_CONST              11 ('Any')
+            182 LOAD_CONST              12 ('Optional[str]')
+            184 LOAD_CONST              13 (('candidate', 'return'))
+            186 BUILD_CONST_KEY_MAP      2
+            188 LOAD_CONST              14 (<code object _verified_incoming_image_path at 0x1090bd920, file "WeRobotCore/adapters/auto_reply/macos_account_runtime.py", line 35>)
+            190 LOAD_CONST              15 ('_verified_incoming_image_path')
+            192 MAKE_FUNCTION            4 (annotations)
+            194 STORE_NAME              36 (_verified_incoming_image_path)
+
+ 69         196 LOAD_CONST              16 ('str')
+            198 LOAD_CONST              16 ('str')
+            200 LOAD_CONST              17 (('value', 'return'))
+            202 BUILD_CONST_KEY_MAP      2
+            204 LOAD_CONST              18 (<code object _account_id at 0x1090bdc90, file "WeRobotCore/adapters/auto_reply/macos_account_runtime.py", line 69>)
+            206 LOAD_CONST              19 ('_account_id')
+            208 MAKE_FUNCTION            4 (annotations)
+            210 STORE_NAME              37 (_account_id)
+
+ 75         212 LOAD_BUILD_CLASS
+            214 LOAD_CONST              20 (<code object MacOSAutoReplyAccountRuntime at 0x109244710, file "WeRobotCore/adapters/auto_reply/macos_account_runtime.py", line 75>)
+            216 LOAD_CONST              21 ('MacOSAutoReplyAccountRuntime')
+            218 MAKE_FUNCTION            0
+            220 LOAD_CONST              21 ('MacOSAutoReplyAccountRuntime')
+            222 CALL_FUNCTION            2
+            224 STORE_NAME              38 (MacOSAutoReplyAccountRuntime)
+
+393         226 LOAD_BUILD_CLASS
+            228 LOAD_CONST              22 (<code object MacOSAutoReplyAccountRuntimeFactory at 0x109244920, file "WeRobotCore/adapters/auto_reply/macos_account_runtime.py", line 393>)
+            230 LOAD_CONST              23 ('MacOSAutoReplyAccountRuntimeFactory')
+            232 MAKE_FUNCTION            0
+            234 LOAD_CONST              23 ('MacOSAutoReplyAccountRuntimeFactory')
+            236 CALL_FUNCTION            2
+            238 STORE_NAME              39 (MacOSAutoReplyAccountRuntimeFactory)
+
+434         240 LOAD_CONST              21 ('MacOSAutoReplyAccountRuntime')
+
+435         242 LOAD_CONST              23 ('MacOSAutoReplyAccountRuntimeFactory')
+
+433         244 BUILD_LIST               2
+            246 STORE_NAME              40 (__all__)
+            248 LOAD_CONST               3 (None)
+            250 RETURN_VALUE
+
+Disassembly of <code object _verified_incoming_image_path at 0x1090bd920, file "WeRobotCore/adapters/auto_reply/macos_account_runtime.py", line 35>:
+ 43           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                0 (candidate)
+              4 LOAD_GLOBAL              1 (str)
+              6 CALL_FUNCTION            2
+              8 POP_JUMP_IF_FALSE       18
+             10 LOAD_FAST                0 (candidate)
+             12 LOAD_METHOD              2 (strip)
+             14 CALL_METHOD              0
+             16 POP_JUMP_IF_TRUE        22
+
+ 44     >>   18 LOAD_CONST               1 (None)
+             20 RETURN_VALUE
+
+ 45     >>   22 LOAD_GLOBAL              3 (Path)
+             24 LOAD_FAST                0 (candidate)
+             26 CALL_FUNCTION            1
+             28 STORE_FAST               1 (source)
+
+ 46          30 LOAD_FAST                1 (source)
+             32 LOAD_METHOD              4 (is_absolute)
+             34 CALL_METHOD              0
+             36 POP_JUMP_IF_TRUE        42
+
+ 47          38 LOAD_CONST               1 (None)
+             40 RETURN_VALUE
+
+ 48     >>   42 LOAD_GLOBAL              5 (_IMAGE_CACHE_NAME)
+             44 LOAD_METHOD              6 (fullmatch)
+             46 LOAD_FAST                1 (source)
+             48 LOAD_ATTR                7 (name)
+             50 CALL_METHOD              1
+             52 STORE_FAST               2 (match)
+
+ 49          54 LOAD_FAST                2 (match)
+             56 LOAD_CONST               1 (None)
+             58 IS_OP                    0
+             60 POP_JUMP_IF_FALSE       66
+
+ 50          62 LOAD_CONST               1 (None)
+             64 RETURN_VALUE
+
+ 51     >>   66 SETUP_FINALLY          182 (to 250)
+
+ 52          68 LOAD_FAST                1 (source)
+             70 LOAD_ATTR                8 (resolve)
+             72 LOAD_CONST               2 (True)
+             74 LOAD_CONST               3 (('strict',))
+             76 CALL_FUNCTION_KW         1
+             78 STORE_FAST               3 (resolved)
+
+ 53          80 LOAD_FAST                3 (resolved)
+             82 LOAD_METHOD              9 (is_file)
+             84 CALL_METHOD              0
+             86 POP_JUMP_IF_TRUE        94
+
+ 54          88 POP_BLOCK
+             90 LOAD_CONST               1 (None)
+             92 RETURN_VALUE
+
+ 55     >>   94 LOAD_FAST                3 (resolved)
+             96 LOAD_METHOD             10 (stat)
+             98 CALL_METHOD              0
+            100 LOAD_ATTR               11 (st_size)
+            102 STORE_FAST               4 (size)
+
+ 56         104 LOAD_CONST               4 (0)
+            106 LOAD_FAST                4 (size)
+            108 DUP_TOP
+            110 ROT_THREE
+            112 COMPARE_OP               0 (<)
+            114 POP_JUMP_IF_FALSE      124
+            116 LOAD_GLOBAL             12 (_MAX_INCOMING_IMAGE_BYTES)
+            118 COMPARE_OP               1 (<=)
+            120 POP_JUMP_IF_TRUE       132
+            122 JUMP_FORWARD             2 (to 126)
+        >>  124 POP_TOP
+
+ 57     >>  126 POP_BLOCK
+            128 LOAD_CONST               1 (None)
+            130 RETURN_VALUE
+
+ 58     >>  132 LOAD_GLOBAL             13 (hashlib)
+            134 LOAD_METHOD             14 (sha256)
+            136 CALL_METHOD              0
+            138 STORE_FAST               5 (digest)
+
+ 59         140 LOAD_FAST                3 (resolved)
+            142 LOAD_METHOD             15 (open)
+            144 LOAD_CONST               5 ('rb')
+            146 CALL_METHOD              1
+            148 SETUP_WITH              42 (to 192)
+            150 STORE_FAST               6 (image_file)
+
+ 60     >>  152 LOAD_FAST                6 (image_file)
+            154 LOAD_METHOD             16 (read)
+            156 LOAD_CONST               6 (65536)
+            158 CALL_METHOD              1
+            160 DUP_TOP
+            162 STORE_FAST               7 (chunk)
+            164 POP_JUMP_IF_FALSE      178
+
+ 61         166 LOAD_FAST                5 (digest)
+            168 LOAD_METHOD             17 (update)
+            170 LOAD_FAST                7 (chunk)
+            172 CALL_METHOD              1
+            174 POP_TOP
+            176 JUMP_ABSOLUTE          152
+        >>  178 POP_BLOCK
+            180 LOAD_CONST               1 (None)
+            182 DUP_TOP
+            184 DUP_TOP
+            186 CALL_FUNCTION            3
+            188 POP_TOP
+            190 JUMP_FORWARD            16 (to 208)
+        >>  192 WITH_EXCEPT_START
+            194 POP_JUMP_IF_TRUE       198
+            196 RERAISE
+        >>  198 POP_TOP
+            200 POP_TOP
+            202 POP_TOP
+            204 POP_EXCEPT
+            206 POP_TOP
+
+ 62     >>  208 LOAD_FAST                5 (digest)
+            210 LOAD_METHOD             18 (hexdigest)
+            212 CALL_METHOD              0
+            214 LOAD_CONST               1 (None)
+            216 LOAD_CONST               7 (16)
+            218 BUILD_SLICE              2
+            220 BINARY_SUBSCR
+            222 LOAD_FAST                2 (match)
+            224 LOAD_METHOD             19 (group)
+            226 LOAD_CONST               8 ('digest')
+            228 CALL_METHOD              1
+            230 COMPARE_OP               3 (!=)
+            232 POP_JUMP_IF_FALSE      240
+
+ 63         234 POP_BLOCK
+            236 LOAD_CONST               1 (None)
+            238 RETURN_VALUE
+
+ 64     >>  240 LOAD_GLOBAL              1 (str)
+            242 LOAD_FAST                3 (resolved)
+            244 CALL_FUNCTION            1
+            246 POP_BLOCK
+            248 RETURN_VALUE
+
+ 65     >>  250 DUP_TOP
+            252 LOAD_GLOBAL             20 (OSError)
+            254 EXTENDED_ARG             1
+            256 JUMP_IF_NOT_EXC_MATCH   270
+            258 POP_TOP
+            260 POP_TOP
+            262 POP_TOP
+
+ 66         264 POP_EXCEPT
+            266 LOAD_CONST               1 (None)
+            268 RETURN_VALUE
+        >>  270 RERAISE
+            272 LOAD_CONST               1 (None)
+            274 RETURN_VALUE
+
+Disassembly of <code object _account_id at 0x1090bdc90, file "WeRobotCore/adapters/auto_reply/macos_account_runtime.py", line 69>:
+ 70           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                0 (value)
+              4 LOAD_GLOBAL              1 (str)
+              6 CALL_FUNCTION            2
+              8 POP_JUMP_IF_FALSE       18
+             10 LOAD_FAST                0 (value)
+             12 LOAD_METHOD              2 (strip)
+             14 CALL_METHOD              0
+             16 POP_JUMP_IF_TRUE        26
+
+ 71     >>   18 LOAD_GLOBAL              3 (ValueError)
+             20 LOAD_CONST               1 ('account_id must be a non-empty string')
+             22 CALL_FUNCTION            1
+             24 RAISE_VARARGS            1
+
+ 72     >>   26 LOAD_FAST                0 (value)
+             28 LOAD_METHOD              2 (strip)
+             30 CALL_METHOD              0
+             32 RETURN_VALUE
+
+Disassembly of <code object MacOSAutoReplyAccountRuntime at 0x109244710, file "WeRobotCore/adapters/auto_reply/macos_account_runtime.py", line 75>:
+ 75           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('MacOSAutoReplyAccountRuntime')
+              6 STORE_NAME               2 (__qualname__)
+
+ 76           8 LOAD_CONST               1 ('Expose identity while rejecting unimplemented native side effects.\n\n    Conversation reads and standard text writes already use the shared\n    ``AutomationContext`` ports. This object exists only for mature code that\n    still needs account identity or optional advanced Windows-native actions.\n    ')
+             10 STORE_NAME               3 (__doc__)
+
+ 87          12 LOAD_CONST               2 (None)
+
+ 88          14 LOAD_CONST               2 (None)
+
+ 83          16 LOAD_CONST               3 (('driver', 'contact_store'))
+             18 BUILD_CONST_KEY_MAP      2
+             20 LOAD_CONST               4 ('str')
+             22 LOAD_CONST               5 ('None')
+             24 LOAD_CONST               6 (('account_id', 'return'))
+             26 BUILD_CONST_KEY_MAP      2
+             28 LOAD_CONST               7 (<code object __init__ at 0x1090bd660, file "WeRobotCore/adapters/auto_reply/macos_account_runtime.py", line 83>)
+             30 LOAD_CONST               8 ('MacOSAutoReplyAccountRuntime.__init__')
+             32 MAKE_FUNCTION            6 (kwdefaults, annotations)
+             34 STORE_NAME               4 (__init__)
+
+ 95          36 LOAD_NAME                5 (property)
+
+ 96          38 LOAD_CONST               9 ('Mapping[str, Any]')
+             40 LOAD_CONST              10 (('return',))
+             42 BUILD_CONST_KEY_MAP      1
+             44 LOAD_CONST              11 (<code object account_info at 0x1090bd5b0, file "WeRobotCore/adapters/auto_reply/macos_account_runtime.py", line 95>)
+             46 LOAD_CONST              12 ('MacOSAutoReplyAccountRuntime.account_info')
+             48 MAKE_FUNCTION            4 (annotations)
+             50 CALL_FUNCTION            1
+             52 STORE_NAME               6 (account_info)
+
+ 99          54 LOAD_NAME                5 (property)
+
+100          56 LOAD_CONST              13 ('Optional[Sequence[int]]')
+             58 LOAD_CONST              10 (('return',))
+             60 BUILD_CONST_KEY_MAP      1
+             62 LOAD_CONST              14 (<code object wechat_build at 0x1090bd9d0, file "WeRobotCore/adapters/auto_reply/macos_account_runtime.py", line 99>)
+             64 LOAD_CONST              15 ('MacOSAutoReplyAccountRuntime.wechat_build')
+             66 MAKE_FUNCTION            4 (annotations)
+             68 CALL_FUNCTION            1
+             70 STORE_NAME               7 (wechat_build)
+
+103          72 LOAD_CONST              16 ('Any')
+             74 LOAD_CONST              17 ('Optional[str]')
+             76 LOAD_CONST              18 (('message_id', 'return'))
+             78 BUILD_CONST_KEY_MAP      2
+             80 LOAD_CONST              19 (<code object get_group_msg_sender at 0x1090bda80, file "WeRobotCore/adapters/auto_reply/macos_account_runtime.py", line 103>)
+             82 LOAD_CONST              20 ('MacOSAutoReplyAccountRuntime.get_group_msg_sender')
+             84 MAKE_FUNCTION            4 (annotations)
+             86 STORE_NAME               8 (get_group_msg_sender)
+
+106          88 LOAD_CONST               4 ('str')
+             90 LOAD_CONST               4 ('str')
+             92 LOAD_CONST               4 ('str')
+             94 LOAD_CONST              17 ('Optional[str]')
+             96 LOAD_CONST              21 (('message_id', 'session_id', 'session_name', 'return'))
+             98 BUILD_CONST_KEY_MAP      4
+            100 LOAD_CONST              22 (<code object resolve_group_msg_sender at 0x1090bdbe0, file "WeRobotCore/adapters/auto_reply/macos_account_runtime.py", line 106>)
+            102 LOAD_CONST              23 ('MacOSAutoReplyAccountRuntime.resolve_group_msg_sender')
+            104 MAKE_FUNCTION            4 (annotations)
+            106 STORE_NAME               9 (resolve_group_msg_sender)
+
+126         108 LOAD_CONST              58 ((1,))
+            110 LOAD_CONST              16 ('Any')
+            112 LOAD_CONST              25 ('int')
+            114 LOAD_CONST              26 ('Optional[List[str]]')
+            116 LOAD_CONST              27 (('message_id', 'max_images', 'return'))
+            118 BUILD_CONST_KEY_MAP      3
+            120 LOAD_CONST              28 (<code object get_images_by_id at 0x1090bdea0, file "WeRobotCore/adapters/auto_reply/macos_account_runtime.py", line 126>)
+            122 LOAD_CONST              29 ('MacOSAutoReplyAccountRuntime.get_images_by_id')
+            124 MAKE_FUNCTION            5 (defaults, annotations)
+            126 STORE_NAME              10 (get_images_by_id)
+
+136         128 LOAD_NAME               11 (staticmethod)
+
+137         130 LOAD_CONST              16 ('Any')
+            132 LOAD_CONST              17 ('Optional[str]')
+            134 LOAD_CONST              30 (('candidate', 'return'))
+            136 BUILD_CONST_KEY_MAP      2
+            138 LOAD_CONST              31 (<code object verified_incoming_image_path at 0x1090bddf0, file "WeRobotCore/adapters/auto_reply/macos_account_runtime.py", line 136>)
+            140 LOAD_CONST              32 ('MacOSAutoReplyAccountRuntime.verified_incoming_image_path')
+            142 MAKE_FUNCTION            4 (annotations)
+            144 CALL_FUNCTION            1
+            146 STORE_NAME              12 (verified_incoming_image_path)
+
+147         148 LOAD_CONST              24 (1)
+
+140         150 LOAD_CONST              33 (('max_images',))
+            152 BUILD_CONST_KEY_MAP      1
+            154 LOAD_CONST               4 ('str')
+            156 LOAD_CONST               4 ('str')
+            158 LOAD_CONST               4 ('str')
+            160 LOAD_CONST               4 ('str')
+            162 LOAD_CONST              25 ('int')
+            164 LOAD_CONST              34 ('List[str]')
+            166 LOAD_CONST              35 (('message_id', 'fingerprint', 'session_id', 'session_name', 'max_images', 'return'))
+            168 BUILD_CONST_KEY_MAP      6
+            170 LOAD_CONST              36 (<code object resolve_images_by_id at 0x1092443a0, file "WeRobotCore/adapters/auto_reply/macos_account_runtime.py", line 140>)
+            172 LOAD_CONST              37 ('MacOSAutoReplyAccountRuntime.resolve_images_by_id')
+            174 MAKE_FUNCTION            6 (kwdefaults, annotations)
+            176 STORE_NAME              13 (resolve_images_by_id)
+
+216         178 LOAD_CONST               4 ('str')
+            180 LOAD_CONST              16 ('Any')
+            182 LOAD_CONST              38 (('feature', 'return'))
+            184 BUILD_CONST_KEY_MAP      2
+            186 LOAD_CONST              39 (<code object require_native_client at 0x1092442f0, file "WeRobotCore/adapters/auto_reply/macos_account_runtime.py", line 216>)
+            188 LOAD_CONST              40 ('MacOSAutoReplyAccountRuntime.require_native_client')
+            190 MAKE_FUNCTION            4 (annotations)
+            192 STORE_NAME              14 (require_native_client)
+
+219         194 LOAD_CONST               4 ('str')
+            196 LOAD_CONST               4 ('str')
+            198 LOAD_CONST              41 ('OperationResult')
+            200 LOAD_CONST              42 (('recipient_name', 'message', 'return'))
+            202 BUILD_CONST_KEY_MAP      3
+            204 LOAD_CONST              43 (<code object send_transfer_notification at 0x109244030, file "WeRobotCore/adapters/auto_reply/macos_account_runtime.py", line 219>)
+            206 LOAD_CONST              44 ('MacOSAutoReplyAccountRuntime.send_transfer_notification')
+            208 MAKE_FUNCTION            4 (annotations)
+            210 STORE_NAME              15 (send_transfer_notification)
+
+271         212 LOAD_CONST               4 ('str')
+            214 LOAD_CONST               4 ('str')
+            216 LOAD_CONST               9 ('Mapping[str, Any]')
+            218 LOAD_CONST              45 (('session_id', 'session_name', 'return'))
+            220 BUILD_CONST_KEY_MAP      3
+            222 LOAD_CONST              46 (<code object refresh_friend_profile at 0x1092440e0, file "WeRobotCore/adapters/auto_reply/macos_account_runtime.py", line 271>)
+            224 LOAD_CONST              47 ('MacOSAutoReplyAccountRuntime.refresh_friend_profile')
+            226 MAKE_FUNCTION            4 (annotations)
+            228 STORE_NAME              16 (refresh_friend_profile)
+
+306         230 LOAD_CONST              48 ('Sequence[str]')
+            232 LOAD_CONST               4 ('str')
+            234 LOAD_CONST               9 ('Mapping[str, Any]')
+            236 LOAD_CONST              49 (('friend_nicknames', 'group_name', 'return'))
+            238 BUILD_CONST_KEY_MAP      3
+            240 LOAD_CONST              50 (<code object invite_friends_to_group at 0x109244450, file "WeRobotCore/adapters/auto_reply/macos_account_runtime.py", line 306>)
+            242 LOAD_CONST              51 ('MacOSAutoReplyAccountRuntime.invite_friends_to_group')
+            244 MAKE_FUNCTION            4 (annotations)
+            246 STORE_NAME              17 (invite_friends_to_group)
+
+333         248 LOAD_CONST               4 ('str')
+            250 LOAD_CONST               4 ('str')
+            252 LOAD_CONST               4 ('str')
+            254 LOAD_CONST               9 ('Mapping[str, Any]')
+            256 LOAD_CONST              52 (('session_id', 'session_name', 'message_id', 'return'))
+            258 BUILD_CONST_KEY_MAP      4
+            260 LOAD_CONST              53 (<code object join_group_by_invite at 0x1092445b0, file "WeRobotCore/adapters/auto_reply/macos_account_runtime.py", line 333>)
+            262 LOAD_CONST              54 ('MacOSAutoReplyAccountRuntime.join_group_by_invite')
+            264 MAKE_FUNCTION            4 (annotations)
+            266 STORE_NAME              18 (join_group_by_invite)
+
+362         268 LOAD_CONST               4 ('str')
+            270 LOAD_CONST               4 ('str')
+            272 LOAD_CONST               4 ('str')
+            274 LOAD_CONST               4 ('str')
+            276 LOAD_CONST               9 ('Mapping[str, Any]')
+            278 LOAD_CONST              55 (('session_id', 'session_name', 'message_id', 'target_session_name', 'return'))
+            280 BUILD_CONST_KEY_MAP      5
+            282 LOAD_CONST              56 (<code object forward_message at 0x109244660, file "WeRobotCore/adapters/auto_reply/macos_account_runtime.py", line 362>)
+            284 LOAD_CONST              57 ('MacOSAutoReplyAccountRuntime.forward_message')
+            286 MAKE_FUNCTION            4 (annotations)
+            288 STORE_NAME              19 (forward_message)
+            290 LOAD_CONST               2 (None)
+            292 RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x1090bd660, file "WeRobotCore/adapters/auto_reply/macos_account_runtime.py", line 83>:
+ 90           0 LOAD_GLOBAL              0 (_account_id)
+              2 LOAD_FAST                1 (account_id)
+              4 CALL_FUNCTION            1
+              6 STORE_FAST               4 (normalized)
+
+ 91           8 LOAD_GLOBAL              1 (MappingProxyType)
+             10 LOAD_CONST               1 ('account_id')
+             12 LOAD_FAST                4 (normalized)
+             14 BUILD_MAP                1
+             16 CALL_FUNCTION            1
+             18 LOAD_FAST                0 (self)
+             20 STORE_ATTR               2 (_account_info)
+
+ 92          22 LOAD_FAST                2 (driver)
+             24 LOAD_FAST                0 (self)
+             26 STORE_ATTR               3 (_driver)
+
+ 93          28 LOAD_FAST                3 (contact_store)
+             30 LOAD_FAST                0 (self)
+             32 STORE_ATTR               4 (_contact_store)
+             34 LOAD_CONST               0 (None)
+             36 RETURN_VALUE
+
+Disassembly of <code object account_info at 0x1090bd5b0, file "WeRobotCore/adapters/auto_reply/macos_account_runtime.py", line 95>:
+ 97           0 LOAD_FAST                0 (self)
+              2 LOAD_ATTR                0 (_account_info)
+              4 RETURN_VALUE
+
+Disassembly of <code object wechat_build at 0x1090bd9d0, file "WeRobotCore/adapters/auto_reply/macos_account_runtime.py", line 99>:
+101           0 LOAD_CONST               0 (None)
+              2 RETURN_VALUE
+
+Disassembly of <code object get_group_msg_sender at 0x1090bda80, file "WeRobotCore/adapters/auto_reply/macos_account_runtime.py", line 103>:
+104           0 LOAD_GLOBAL              0 (unsupported_account_runtime_feature)
+              2 LOAD_CONST               1 ('group_member_resolution')
+              4 CALL_FUNCTION            1
+              6 RAISE_VARARGS            1
+              8 LOAD_CONST               0 (None)
+             10 RETURN_VALUE
+
+Disassembly of <code object resolve_group_msg_sender at 0x1090bdbe0, file "WeRobotCore/adapters/auto_reply/macos_account_runtime.py", line 106>:
+113           0 LOAD_FAST                0 (self)
+              2 LOAD_ATTR                0 (_driver)
+              4 LOAD_CONST               0 (None)
+              6 IS_OP                    0
+              8 POP_JUMP_IF_FALSE       18
+
+114          10 LOAD_GLOBAL              1 (unsupported_account_runtime_feature)
+             12 LOAD_CONST               1 ('group_member_resolution')
+             14 CALL_FUNCTION            1
+             16 RAISE_VARARGS            1
+
+115     >>   18 LOAD_FAST                0 (self)
+             20 LOAD_ATTR                2 (_account_info)
+             22 LOAD_CONST               2 ('account_id')
+             24 BINARY_SUBSCR
+             26 STORE_FAST               4 (account_id)
+
+116          28 LOAD_FAST                0 (self)
+             30 LOAD_ATTR                0 (_driver)
+             32 LOAD_METHOD              3 (get_by_account)
+             34 LOAD_FAST                4 (account_id)
+             36 CALL_METHOD              1
+             38 GET_AWAITABLE
+             40 LOAD_CONST               0 (None)
+             42 YIELD_FROM
+             44 STORE_FAST               5 (instance)
+
+117          46 LOAD_FAST                5 (instance)
+             48 LOAD_CONST               0 (None)
+             50 IS_OP                    0
+             52 POP_JUMP_IF_FALSE       62
+
+118          54 LOAD_GLOBAL              1 (unsupported_account_runtime_feature)
+             56 LOAD_CONST               1 ('group_member_resolution')
+             58 CALL_FUNCTION            1
+             60 RAISE_VARARGS            1
+
+119     >>   62 LOAD_FAST                0 (self)
+             64 LOAD_ATTR                0 (_driver)
+             66 LOAD_METHOD              4 (read_group_message_sender)
+
+120          68 LOAD_FAST                5 (instance)
+             70 LOAD_ATTR                5 (instance_id)
+
+121          72 LOAD_FAST                2 (session_id)
+
+122          74 LOAD_FAST                3 (session_name)
+
+123          76 LOAD_FAST                1 (message_id)
+
+119          78 CALL_METHOD              4
+             80 GET_AWAITABLE
+             82 LOAD_CONST               0 (None)
+             84 YIELD_FROM
+             86 RETURN_VALUE
+
+Disassembly of <code object get_images_by_id at 0x1090bdea0, file "WeRobotCore/adapters/auto_reply/macos_account_runtime.py", line 126>:
+134           0 LOAD_GLOBAL              0 (unsupported_account_runtime_feature)
+              2 LOAD_CONST               1 ('message_image_download')
+              4 CALL_FUNCTION            1
+              6 RAISE_VARARGS            1
+              8 LOAD_CONST               0 (None)
+             10 RETURN_VALUE
+
+Disassembly of <code object verified_incoming_image_path at 0x1090bddf0, file "WeRobotCore/adapters/auto_reply/macos_account_runtime.py", line 136>:
+138           0 LOAD_GLOBAL              0 (_verified_incoming_image_path)
+              2 LOAD_FAST                0 (candidate)
+              4 CALL_FUNCTION            1
+              6 RETURN_VALUE
+
+Disassembly of <code object resolve_images_by_id at 0x1092443a0, file "WeRobotCore/adapters/auto_reply/macos_account_runtime.py", line 140>:
+158           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                1 (message_id)
+              4 LOAD_GLOBAL              1 (str)
+              6 CALL_FUNCTION            2
+              8 POP_JUMP_IF_FALSE       18
+             10 LOAD_FAST                1 (message_id)
+             12 LOAD_METHOD              2 (strip)
+             14 CALL_METHOD              0
+             16 POP_JUMP_IF_TRUE        22
+
+159     >>   18 BUILD_LIST               0
+             20 RETURN_VALUE
+
+160     >>   22 LOAD_GLOBAL              0 (isinstance)
+             24 LOAD_FAST                2 (fingerprint)
+             26 LOAD_GLOBAL              1 (str)
+             28 CALL_FUNCTION            2
+             30 POP_JUMP_IF_FALSE       40
+             32 LOAD_FAST                2 (fingerprint)
+             34 LOAD_METHOD              2 (strip)
+             36 CALL_METHOD              0
+             38 POP_JUMP_IF_TRUE        44
+
+161     >>   40 BUILD_LIST               0
+             42 RETURN_VALUE
+
+162     >>   44 LOAD_GLOBAL              0 (isinstance)
+             46 LOAD_FAST                3 (session_id)
+             48 LOAD_GLOBAL              1 (str)
+             50 CALL_FUNCTION            2
+             52 POP_JUMP_IF_FALSE       62
+             54 LOAD_FAST                3 (session_id)
+             56 LOAD_METHOD              2 (strip)
+             58 CALL_METHOD              0
+             60 POP_JUMP_IF_TRUE        66
+
+163     >>   62 BUILD_LIST               0
+             64 RETURN_VALUE
+
+164     >>   66 LOAD_GLOBAL              0 (isinstance)
+             68 LOAD_FAST                4 (session_name)
+             70 LOAD_GLOBAL              1 (str)
+             72 CALL_FUNCTION            2
+             74 POP_JUMP_IF_FALSE       84
+             76 LOAD_FAST                4 (session_name)
+             78 LOAD_METHOD              2 (strip)
+             80 CALL_METHOD              0
+             82 POP_JUMP_IF_TRUE        88
+
+165     >>   84 BUILD_LIST               0
+             86 RETURN_VALUE
+
+166     >>   88 LOAD_GLOBAL              0 (isinstance)
+             90 LOAD_FAST                5 (max_images)
+             92 LOAD_GLOBAL              3 (bool)
+             94 CALL_FUNCTION            2
+             96 POP_JUMP_IF_TRUE       116
+             98 LOAD_GLOBAL              0 (isinstance)
+            100 LOAD_FAST                5 (max_images)
+            102 LOAD_GLOBAL              4 (int)
+            104 CALL_FUNCTION            2
+            106 POP_JUMP_IF_FALSE      116
+            108 LOAD_FAST                5 (max_images)
+            110 LOAD_CONST               1 (1)
+            112 COMPARE_OP               0 (<)
+            114 POP_JUMP_IF_FALSE      124
+
+167     >>  116 LOAD_GLOBAL              5 (ValueError)
+            118 LOAD_CONST               2 ('max_images must be a positive integer')
+            120 CALL_FUNCTION            1
+            122 RAISE_VARARGS            1
+
+168     >>  124 LOAD_FAST                0 (self)
+            126 LOAD_ATTR                6 (_driver)
+            128 LOAD_CONST               3 (None)
+            130 IS_OP                    0
+            132 POP_JUMP_IF_FALSE      142
+
+169         134 LOAD_GLOBAL              7 (unsupported_account_runtime_feature)
+            136 LOAD_CONST               4 ('message_image_download')
+            138 CALL_FUNCTION            1
+            140 RAISE_VARARGS            1
+
+170     >>  142 LOAD_FAST                0 (self)
+            144 LOAD_ATTR                6 (_driver)
+            146 LOAD_METHOD              8 (get_by_account)
+            148 LOAD_FAST                0 (self)
+            150 LOAD_ATTR                9 (_account_info)
+            152 LOAD_CONST               5 ('account_id')
+            154 BINARY_SUBSCR
+            156 CALL_METHOD              1
+            158 GET_AWAITABLE
+            160 LOAD_CONST               3 (None)
+            162 YIELD_FROM
+            164 STORE_FAST               6 (instance)
+
+171         166 LOAD_FAST                6 (instance)
+            168 LOAD_CONST               3 (None)
+            170 IS_OP                    0
+            172 POP_JUMP_IF_FALSE      182
+
+172         174 LOAD_GLOBAL              7 (unsupported_account_runtime_feature)
+            176 LOAD_CONST               4 ('message_image_download')
+            178 CALL_FUNCTION            1
+            180 RAISE_VARARGS            1
+
+173     >>  182 LOAD_FAST                0 (self)
+            184 LOAD_ATTR                6 (_driver)
+            186 LOAD_ATTR               10 (read_messages)
+
+174         188 LOAD_FAST                6 (instance)
+            190 LOAD_ATTR               11 (instance_id)
+
+175         192 LOAD_FAST                3 (session_id)
+            194 LOAD_METHOD              2 (strip)
+            196 CALL_METHOD              0
+
+176         198 LOAD_CONST               6 (25)
+
+177         200 LOAD_CONST               7 (True)
+
+173         202 LOAD_CONST               8 (('limit', 'parse_files'))
+            204 CALL_FUNCTION_KW         4
+            206 GET_AWAITABLE
+            208 LOAD_CONST               3 (None)
+            210 YIELD_FROM
+            212 STORE_FAST               7 (conversation)
+
+179         214 LOAD_FAST                7 (conversation)
+            216 LOAD_ATTR               12 (messages)
+            218 GET_ITER
+        >>  220 FOR_ITER               208 (to 430)
+            222 STORE_FAST               8 (message)
+
+181         224 LOAD_FAST                8 (message)
+            226 LOAD_ATTR               13 (message_id)
+            228 LOAD_FAST                1 (message_id)
+            230 LOAD_METHOD              2 (strip)
+            232 CALL_METHOD              0
+            234 COMPARE_OP               3 (!=)
+
+180         236 POP_JUMP_IF_TRUE       220
+
+182         238 LOAD_FAST                8 (message)
+            240 LOAD_ATTR               14 (fingerprint)
+            242 LOAD_FAST                2 (fingerprint)
+            244 LOAD_METHOD              2 (strip)
+            246 CALL_METHOD              0
+            248 COMPARE_OP               3 (!=)
+
+180         250 POP_JUMP_IF_TRUE       220
+
+183         252 LOAD_FAST                8 (message)
+            254 LOAD_ATTR               15 (direction)
+            256 LOAD_GLOBAL             16 (MessageDirection)
+            258 LOAD_ATTR               17 (INCOMING)
+            260 IS_OP                    1
+
+180         262 POP_JUMP_IF_TRUE       220
+
+184         264 LOAD_FAST                8 (message)
+            266 LOAD_ATTR               18 (content_type)
+            268 LOAD_GLOBAL             19 (MessageContentType)
+            270 LOAD_ATTR               20 (IMAGE)
+            272 IS_OP                    1
+
+180         274 EXTENDED_ARG             1
+            276 POP_JUMP_IF_FALSE      280
+
+186         278 JUMP_ABSOLUTE          220
+
+187     >>  280 BUILD_LIST               0
+            282 STORE_FAST               9 (paths)
+
+188         284 LOAD_FAST                8 (message)
+            286 LOAD_ATTR               21 (attachments)
+            288 GET_ITER
+        >>  290 FOR_ITER               102 (to 394)
+            292 STORE_FAST              10 (attachment)
+
+189         294 LOAD_FAST               10 (attachment)
+            296 LOAD_ATTR               18 (content_type)
+            298 LOAD_GLOBAL             19 (MessageContentType)
+            300 LOAD_ATTR               20 (IMAGE)
+            302 IS_OP                    1
+            304 EXTENDED_ARG             1
+            306 POP_JUMP_IF_FALSE      312
+
+190         308 EXTENDED_ARG             1
+            310 JUMP_ABSOLUTE          290
+
+191     >>  312 LOAD_FAST               10 (attachment)
+            314 LOAD_ATTR               22 (metadata)
+            316 LOAD_METHOD             23 (get)
+            318 LOAD_CONST               9 ('path')
+            320 CALL_METHOD              1
+            322 STORE_FAST              11 (metadata_path)
+
+192         324 LOAD_FAST               11 (metadata_path)
+            326 EXTENDED_ARG             1
+            328 JUMP_IF_TRUE_OR_POP    334
+            330 LOAD_FAST               10 (attachment)
+            332 LOAD_ATTR               24 (asset_id)
+        >>  334 STORE_FAST              12 (candidate)
+
+193         336 LOAD_GLOBAL             25 (_verified_incoming_image_path)
+            338 LOAD_FAST               12 (candidate)
+            340 CALL_FUNCTION            1
+            342 STORE_FAST              13 (path)
+
+194         344 LOAD_FAST               13 (path)
+            346 EXTENDED_ARG             1
+            348 POP_JUMP_IF_FALSE      370
+            350 LOAD_FAST               13 (path)
+            352 LOAD_FAST                9 (paths)
+            354 CONTAINS_OP              1
+            356 EXTENDED_ARG             1
+            358 POP_JUMP_IF_FALSE      370
+
+195         360 LOAD_FAST                9 (paths)
+            362 LOAD_METHOD             26 (append)
+            364 LOAD_FAST               13 (path)
+            366 CALL_METHOD              1
+            368 POP_TOP
+
+196     >>  370 LOAD_GLOBAL             27 (len)
+            372 LOAD_FAST                9 (paths)
+            374 CALL_FUNCTION            1
+            376 LOAD_FAST                5 (max_images)
+            378 COMPARE_OP               5 (>=)
+            380 EXTENDED_ARG             1
+            382 POP_JUMP_IF_FALSE      290
+
+197         384 POP_TOP
+            386 EXTENDED_ARG             1
+            388 JUMP_ABSOLUTE          394
+            390 EXTENDED_ARG             1
+            392 JUMP_ABSOLUTE          290
+
+198     >>  394 LOAD_FAST                9 (paths)
+            396 EXTENDED_ARG             1
+            398 POP_JUMP_IF_TRUE       422
+
+199         400 LOAD_GLOBAL             28 (logger)
+            402 LOAD_METHOD             29 (warning)
+
+200         404 LOAD_CONST              10 ('Mac image reread matched the incoming message but has no valid local attachment: account_id=%s session_id=%s message_id=%s')
+
+202         406 LOAD_FAST                0 (self)
+            408 LOAD_ATTR                9 (_account_info)
+            410 LOAD_CONST               5 ('account_id')
+            412 BINARY_SUBSCR
+
+203         414 LOAD_FAST                3 (session_id)
+
+204         416 LOAD_FAST                1 (message_id)
+
+199         418 CALL_METHOD              4
+            420 POP_TOP
+
+206     >>  422 LOAD_FAST                9 (paths)
+            424 ROT_TWO
+            426 POP_TOP
+            428 RETURN_VALUE
+
+207     >>  430 LOAD_GLOBAL             28 (logger)
+            432 LOAD_METHOD             29 (warning)
+
+208         434 LOAD_CONST              11 ('Mac image reread did not find the same incoming image fingerprint: account_id=%s session_id=%s message_id=%s')
+
+210         436 LOAD_FAST                0 (self)
+            438 LOAD_ATTR                9 (_account_info)
+            440 LOAD_CONST               5 ('account_id')
+            442 BINARY_SUBSCR
+
+211         444 LOAD_FAST                3 (session_id)
+
+212         446 LOAD_FAST                1 (message_id)
+
+207         448 CALL_METHOD              4
+            450 POP_TOP
+
+214         452 BUILD_LIST               0
+            454 RETURN_VALUE
+
+Disassembly of <code object require_native_client at 0x1092442f0, file "WeRobotCore/adapters/auto_reply/macos_account_runtime.py", line 216>:
+217           0 LOAD_GLOBAL              0 (unsupported_account_runtime_feature)
+              2 LOAD_FAST                1 (feature)
+              4 CALL_FUNCTION            1
+              6 RAISE_VARARGS            1
+              8 LOAD_CONST               0 (None)
+             10 RETURN_VALUE
+
+Disassembly of <code object send_transfer_notification at 0x109244030, file "WeRobotCore/adapters/auto_reply/macos_account_runtime.py", line 219>:
+230           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                1 (recipient_name)
+              4 LOAD_GLOBAL              1 (str)
+              6 CALL_FUNCTION            2
+              8 POP_JUMP_IF_FALSE       18
+             10 LOAD_FAST                1 (recipient_name)
+             12 LOAD_METHOD              2 (strip)
+             14 CALL_METHOD              0
+             16 POP_JUMP_IF_TRUE        26
+
+231     >>   18 LOAD_GLOBAL              3 (ValueError)
+             20 LOAD_CONST               1 ('recipient_name must be non-empty text')
+             22 CALL_FUNCTION            1
+             24 RAISE_VARARGS            1
+
+232     >>   26 LOAD_GLOBAL              0 (isinstance)
+             28 LOAD_FAST                2 (message)
+             30 LOAD_GLOBAL              1 (str)
+             32 CALL_FUNCTION            2
+             34 POP_JUMP_IF_FALSE       44
+             36 LOAD_FAST                2 (message)
+             38 LOAD_METHOD              2 (strip)
+             40 CALL_METHOD              0
+             42 POP_JUMP_IF_TRUE        52
+
+233     >>   44 LOAD_GLOBAL              3 (ValueError)
+             46 LOAD_CONST               2 ('message must be non-empty text')
+             48 CALL_FUNCTION            1
+             50 RAISE_VARARGS            1
+
+234     >>   52 LOAD_FAST                0 (self)
+             54 LOAD_ATTR                4 (_driver)
+             56 LOAD_CONST               3 (None)
+             58 IS_OP                    0
+             60 POP_JUMP_IF_FALSE       76
+
+235          62 LOAD_GLOBAL              5 (OperationResult)
+             64 LOAD_METHOD              6 (failed)
+
+236          66 LOAD_GLOBAL              7 (ErrorCode)
+             68 LOAD_ATTR                8 (CAPABILITY_UNAVAILABLE)
+
+237          70 LOAD_CONST               4 ('macOS transfer notification Driver is unavailable')
+
+235          72 CALL_METHOD              2
+             74 RETURN_VALUE
+
+239     >>   76 SETUP_FINALLY          116 (to 194)
+
+240          78 LOAD_FAST                0 (self)
+             80 LOAD_ATTR                4 (_driver)
+             82 LOAD_METHOD              9 (get_by_account)
+
+241          84 LOAD_FAST                0 (self)
+             86 LOAD_ATTR               10 (_account_info)
+             88 LOAD_CONST               5 ('account_id')
+             90 BINARY_SUBSCR
+
+240          92 CALL_METHOD              1
+             94 GET_AWAITABLE
+             96 LOAD_CONST               3 (None)
+             98 YIELD_FROM
+            100 STORE_FAST               3 (instance)
+
+243         102 LOAD_FAST                3 (instance)
+            104 LOAD_CONST               3 (None)
+            106 IS_OP                    0
+            108 POP_JUMP_IF_FALSE      126
+
+244         110 LOAD_GLOBAL              5 (OperationResult)
+            112 LOAD_METHOD              6 (failed)
+
+245         114 LOAD_GLOBAL              7 (ErrorCode)
+            116 LOAD_ATTR               11 (ELEMENT_NOT_FOUND)
+
+246         118 LOAD_CONST               6 ('the configured WeChat account is not attached')
+
+244         120 CALL_METHOD              2
+            122 POP_BLOCK
+            124 RETURN_VALUE
+
+248     >>  126 LOAD_FAST                0 (self)
+            128 LOAD_ATTR                4 (_driver)
+            130 LOAD_ATTR               12 (resolve_conversation_by_name)
+
+249         132 LOAD_FAST                3 (instance)
+            134 LOAD_ATTR               13 (instance_id)
+
+250         136 LOAD_FAST                1 (recipient_name)
+            138 LOAD_METHOD              2 (strip)
+            140 CALL_METHOD              0
+
+251         142 LOAD_GLOBAL             14 (ChatType)
+            144 LOAD_ATTR               15 (UNKNOWN)
+
+252         146 LOAD_GLOBAL             16 (CapabilityName)
+            148 LOAD_ATTR               17 (MESSAGE_SEND_TEXT)
+            150 LOAD_ATTR               18 (value)
+
+248         152 LOAD_CONST               7 (('required_capability',))
+            154 CALL_FUNCTION_KW         4
+            156 GET_AWAITABLE
+            158 LOAD_CONST               3 (None)
+            160 YIELD_FROM
+            162 STORE_FAST               4 (recipient)
+
+254         164 LOAD_FAST                0 (self)
+            166 LOAD_ATTR                4 (_driver)
+            168 LOAD_METHOD             19 (send_text)
+
+255         170 LOAD_FAST                3 (instance)
+            172 LOAD_ATTR               13 (instance_id)
+
+256         174 LOAD_FAST                4 (recipient)
+            176 LOAD_ATTR               20 (session_id)
+
+257         178 LOAD_FAST                2 (message)
+
+254         180 CALL_METHOD              3
+            182 GET_AWAITABLE
+            184 LOAD_CONST               3 (None)
+            186 YIELD_FROM
+            188 STORE_FAST               5 (result)
+            190 POP_BLOCK
+            192 JUMP_FORWARD            60 (to 254)
+
+259     >>  194 DUP_TOP
+            196 LOAD_GLOBAL             21 (AutomationError)
+            198 EXTENDED_ARG             0
+            200 JUMP_IF_NOT_EXC_MATCH   252
+            202 POP_TOP
+            204 STORE_FAST               6 (exc)
+            206 POP_TOP
+            208 SETUP_FINALLY           34 (to 244)
+
+260         210 LOAD_GLOBAL              5 (OperationResult)
+            212 LOAD_METHOD              6 (failed)
+            214 LOAD_FAST                6 (exc)
+            216 LOAD_ATTR               22 (code)
+            218 LOAD_GLOBAL              1 (str)
+            220 LOAD_FAST                6 (exc)
+            222 CALL_FUNCTION            1
+            224 LOAD_FAST                6 (exc)
+            226 LOAD_ATTR               23 (retryable)
+            228 CALL_METHOD              3
+            230 POP_BLOCK
+            232 ROT_FOUR
+            234 POP_EXCEPT
+            236 LOAD_CONST               3 (None)
+            238 STORE_FAST               6 (exc)
+            240 DELETE_FAST              6 (exc)
+            242 RETURN_VALUE
+        >>  244 LOAD_CONST               3 (None)
+            246 STORE_FAST               6 (exc)
+            248 DELETE_FAST              6 (exc)
+            250 RERAISE
+        >>  252 RERAISE
+
+261     >>  254 LOAD_GLOBAL              0 (isinstance)
+            256 LOAD_FAST                5 (result)
+            258 LOAD_GLOBAL              5 (OperationResult)
+            260 CALL_FUNCTION            2
+            262 EXTENDED_ARG             1
+            264 POP_JUMP_IF_TRUE       274
+
+262         266 LOAD_GLOBAL             24 (TypeError)
+            268 LOAD_CONST               8 ('macOS transfer Driver must return OperationResult')
+            270 CALL_FUNCTION            1
+            272 RAISE_VARARGS            1
+
+263     >>  274 LOAD_FAST                5 (result)
+            276 LOAD_ATTR               25 (success)
+            278 EXTENDED_ARG             1
+            280 POP_JUMP_IF_TRUE       286
+
+264         282 LOAD_FAST                5 (result)
+            284 RETURN_VALUE
+
+265     >>  286 LOAD_GLOBAL              5 (OperationResult)
+            288 LOAD_ATTR               26 (succeeded)
+
+266         290 LOAD_FAST                5 (result)
+            292 LOAD_ATTR               27 (message)
+
+267         294 LOAD_FAST                5 (result)
+            296 LOAD_ATTR               28 (verified)
+
+268         298 BUILD_MAP                0
+            300 LOAD_FAST                5 (result)
+            302 LOAD_ATTR               29 (data)
+            304 DICT_UPDATE              1
+            306 LOAD_CONST               9 ('session_id')
+            308 LOAD_FAST                4 (recipient)
+            310 LOAD_ATTR               20 (session_id)
+            312 BUILD_MAP                1
+            314 DICT_UPDATE              1
+
+265         316 LOAD_CONST              10 (('verified', 'data'))
+            318 CALL_FUNCTION_KW         3
+            320 RETURN_VALUE
+
+Disassembly of <code object refresh_friend_profile at 0x1092440e0, file "WeRobotCore/adapters/auto_reply/macos_account_runtime.py", line 271>:
+279           0 LOAD_FAST                0 (self)
+              2 LOAD_ATTR                0 (_driver)
+              4 LOAD_CONST               1 (None)
+              6 IS_OP                    0
+              8 POP_JUMP_IF_TRUE        20
+             10 LOAD_FAST                0 (self)
+             12 LOAD_ATTR                1 (_contact_store)
+             14 LOAD_CONST               1 (None)
+             16 IS_OP                    0
+             18 POP_JUMP_IF_FALSE       28
+
+280     >>   20 LOAD_GLOBAL              2 (unsupported_account_runtime_feature)
+             22 LOAD_CONST               2 ('friend_profile_refresh')
+             24 CALL_FUNCTION            1
+             26 RAISE_VARARGS            1
+
+281     >>   28 LOAD_FAST                0 (self)
+             30 LOAD_ATTR                3 (_account_info)
+             32 LOAD_CONST               3 ('account_id')
+             34 BINARY_SUBSCR
+             36 STORE_FAST               3 (account_id)
+
+282          38 LOAD_FAST                0 (self)
+             40 LOAD_ATTR                0 (_driver)
+             42 LOAD_METHOD              4 (get_by_account)
+             44 LOAD_FAST                3 (account_id)
+             46 CALL_METHOD              1
+             48 GET_AWAITABLE
+             50 LOAD_CONST               1 (None)
+             52 YIELD_FROM
+             54 STORE_FAST               4 (instance)
+
+283          56 LOAD_FAST                4 (instance)
+             58 LOAD_CONST               1 (None)
+             60 IS_OP                    0
+             62 POP_JUMP_IF_FALSE       72
+
+284          64 LOAD_GLOBAL              2 (unsupported_account_runtime_feature)
+             66 LOAD_CONST               2 ('friend_profile_refresh')
+             68 CALL_FUNCTION            1
+             70 RAISE_VARARGS            1
+
+285     >>   72 LOAD_FAST                0 (self)
+             74 LOAD_ATTR                0 (_driver)
+             76 LOAD_METHOD              5 (read_chat_contact_profile)
+
+286          78 LOAD_FAST                4 (instance)
+             80 LOAD_ATTR                6 (instance_id)
+
+287          82 LOAD_FAST                1 (session_id)
+
+288          84 LOAD_FAST                2 (session_name)
+
+285          86 CALL_METHOD              3
+             88 GET_AWAITABLE
+             90 LOAD_CONST               1 (None)
+             92 YIELD_FROM
+             94 STORE_FAST               5 (contact)
+
+290          96 LOAD_FAST                0 (self)
+             98 LOAD_ATTR                1 (_contact_store)
+            100 LOAD_METHOD              7 (upsert_contact)
+
+291         102 LOAD_FAST                3 (account_id)
+
+292         104 LOAD_FAST                5 (contact)
+
+290         106 CALL_METHOD              2
+            108 GET_AWAITABLE
+            110 LOAD_CONST               1 (None)
+            112 YIELD_FROM
+            114 STORE_FAST               6 (persistence)
+
+295         116 LOAD_CONST               4 (True)
+
+296         118 LOAD_CONST               5 ('chat contact profile saved')
+
+298         120 LOAD_FAST                5 (contact)
+            122 LOAD_ATTR                8 (metadata)
+            124 LOAD_METHOD              9 (get)
+            126 LOAD_CONST               6 ('nickname')
+            128 CALL_METHOD              1
+            130 JUMP_IF_TRUE_OR_POP    136
+            132 LOAD_FAST                5 (contact)
+            134 LOAD_ATTR               10 (name)
+
+299     >>  136 LOAD_FAST                5 (contact)
+            138 LOAD_ATTR               11 (contact_id)
+
+300         140 LOAD_FAST                5 (contact)
+            142 LOAD_ATTR               12 (remark)
+            144 JUMP_IF_TRUE_OR_POP    148
+            146 LOAD_CONST               7 ('')
+
+301     >>  148 LOAD_GLOBAL             13 (list)
+            150 LOAD_FAST                5 (contact)
+            152 LOAD_ATTR               14 (tags)
+            154 CALL_FUNCTION            1
+
+297         156 LOAD_CONST               8 (('nickname', 'wechat_id', 'remark_name', 'tags'))
+            158 BUILD_CONST_KEY_MAP      4
+
+303         160 LOAD_GLOBAL             15 (dict)
+            162 LOAD_FAST                6 (persistence)
+            164 CALL_FUNCTION            1
+
+294         166 LOAD_CONST               9 (('success', 'message', 'friend_info', 'persistence'))
+            168 BUILD_CONST_KEY_MAP      4
+            170 RETURN_VALUE
+
+Disassembly of <code object invite_friends_to_group at 0x109244450, file "WeRobotCore/adapters/auto_reply/macos_account_runtime.py", line 306>:
+313           0 LOAD_FAST                0 (self)
+              2 LOAD_ATTR                0 (_driver)
+              4 LOAD_CONST               1 (None)
+              6 IS_OP                    0
+              8 POP_JUMP_IF_FALSE       18
+
+314          10 LOAD_GLOBAL              1 (unsupported_account_runtime_feature)
+             12 LOAD_CONST               2 ('group_member_invite')
+             14 CALL_FUNCTION            1
+             16 RAISE_VARARGS            1
+
+315     >>   18 LOAD_FAST                0 (self)
+             20 LOAD_ATTR                2 (_account_info)
+             22 LOAD_CONST               3 ('account_id')
+             24 BINARY_SUBSCR
+             26 STORE_FAST               3 (account_id)
+
+316          28 LOAD_FAST                0 (self)
+             30 LOAD_ATTR                0 (_driver)
+             32 LOAD_METHOD              3 (get_by_account)
+             34 LOAD_FAST                3 (account_id)
+             36 CALL_METHOD              1
+             38 GET_AWAITABLE
+             40 LOAD_CONST               1 (None)
+             42 YIELD_FROM
+             44 STORE_FAST               4 (instance)
+
+317          46 LOAD_FAST                4 (instance)
+             48 LOAD_CONST               1 (None)
+             50 IS_OP                    0
+             52 POP_JUMP_IF_FALSE       62
+
+318          54 LOAD_GLOBAL              1 (unsupported_account_runtime_feature)
+             56 LOAD_CONST               2 ('group_member_invite')
+             58 CALL_FUNCTION            1
+             60 RAISE_VARARGS            1
+
+319     >>   62 LOAD_FAST                0 (self)
+             64 LOAD_ATTR                0 (_driver)
+             66 LOAD_METHOD              4 (invite_friends_to_group)
+
+320          68 LOAD_FAST                4 (instance)
+             70 LOAD_ATTR                5 (instance_id)
+
+321          72 LOAD_FAST                1 (friend_nicknames)
+
+322          74 LOAD_FAST                2 (group_name)
+
+319          76 CALL_METHOD              3
+             78 GET_AWAITABLE
+             80 LOAD_CONST               1 (None)
+             82 YIELD_FROM
+             84 STORE_FAST               5 (result)
+
+325          86 LOAD_FAST                5 (result)
+             88 LOAD_ATTR                6 (success)
+
+326          90 LOAD_FAST                5 (result)
+             92 LOAD_ATTR                7 (message)
+
+327          94 LOAD_FAST                5 (result)
+             96 LOAD_ATTR                8 (data)
+             98 LOAD_METHOD              9 (get)
+            100 LOAD_CONST               4 ('status')
+            102 LOAD_CONST               5 ('failed')
+            104 CALL_METHOD              2
+
+328         106 LOAD_FAST                5 (result)
+            108 LOAD_ATTR                8 (data)
+            110 LOAD_METHOD              9 (get)
+            112 LOAD_CONST               6 ('invited_count')
+            114 LOAD_CONST               7 (0)
+            116 CALL_METHOD              2
+
+329         118 LOAD_FAST                5 (result)
+            120 LOAD_ATTR               10 (verified)
+
+330         122 LOAD_FAST                5 (result)
+            124 LOAD_ATTR               11 (retryable)
+
+324         126 LOAD_CONST               8 (('success', 'message', 'status', 'invited_count', 'verified', 'retryable'))
+            128 BUILD_CONST_KEY_MAP      6
+            130 RETURN_VALUE
+
+Disassembly of <code object join_group_by_invite at 0x1092445b0, file "WeRobotCore/adapters/auto_reply/macos_account_runtime.py", line 333>:
+342           0 LOAD_FAST                0 (self)
+              2 LOAD_ATTR                0 (_driver)
+              4 LOAD_CONST               1 (None)
+              6 IS_OP                    0
+              8 POP_JUMP_IF_FALSE       18
+
+343          10 LOAD_GLOBAL              1 (unsupported_account_runtime_feature)
+             12 LOAD_CONST               2 ('group_invite_join')
+             14 CALL_FUNCTION            1
+             16 RAISE_VARARGS            1
+
+344     >>   18 LOAD_FAST                0 (self)
+             20 LOAD_ATTR                2 (_account_info)
+             22 LOAD_CONST               3 ('account_id')
+             24 BINARY_SUBSCR
+             26 STORE_FAST               4 (account_id)
+
+345          28 LOAD_FAST                0 (self)
+             30 LOAD_ATTR                0 (_driver)
+             32 LOAD_METHOD              3 (get_by_account)
+             34 LOAD_FAST                4 (account_id)
+             36 CALL_METHOD              1
+             38 GET_AWAITABLE
+             40 LOAD_CONST               1 (None)
+             42 YIELD_FROM
+             44 STORE_FAST               5 (instance)
+
+346          46 LOAD_FAST                5 (instance)
+             48 LOAD_CONST               1 (None)
+             50 IS_OP                    0
+             52 POP_JUMP_IF_FALSE       62
+
+347          54 LOAD_GLOBAL              1 (unsupported_account_runtime_feature)
+             56 LOAD_CONST               2 ('group_invite_join')
+             58 CALL_FUNCTION            1
+             60 RAISE_VARARGS            1
+
+348     >>   62 LOAD_FAST                0 (self)
+             64 LOAD_ATTR                0 (_driver)
+             66 LOAD_METHOD              4 (join_group_by_invite)
+
+349          68 LOAD_FAST                5 (instance)
+             70 LOAD_ATTR                5 (instance_id)
+
+350          72 LOAD_FAST                1 (session_id)
+
+351          74 LOAD_FAST                3 (message_id)
+
+348          76 CALL_METHOD              3
+             78 GET_AWAITABLE
+             80 LOAD_CONST               1 (None)
+             82 YIELD_FROM
+             84 STORE_FAST               6 (result)
+
+354          86 LOAD_FAST                6 (result)
+             88 LOAD_ATTR                6 (success)
+
+355          90 LOAD_GLOBAL              7 (bool)
+             92 LOAD_FAST                6 (result)
+             94 LOAD_ATTR                8 (data)
+             96 LOAD_METHOD              9 (get)
+             98 LOAD_CONST               4 ('already_joined')
+            100 LOAD_CONST               5 (False)
+            102 CALL_METHOD              2
+            104 CALL_FUNCTION            1
+
+356         106 LOAD_FAST                6 (result)
+            108 LOAD_ATTR                8 (data)
+            110 LOAD_METHOD              9 (get)
+            112 LOAD_CONST               6 ('status')
+            114 LOAD_CONST               7 ('failed')
+            116 CALL_METHOD              2
+
+357         118 LOAD_FAST                6 (result)
+            120 LOAD_ATTR               10 (message)
+
+358         122 LOAD_FAST                6 (result)
+            124 LOAD_ATTR               11 (verified)
+
+359         126 LOAD_FAST                6 (result)
+            128 LOAD_ATTR               12 (retryable)
+
+353         130 LOAD_CONST               8 (('success', 'already_joined', 'status', 'message', 'verified', 'retryable'))
+            132 BUILD_CONST_KEY_MAP      6
+            134 RETURN_VALUE
+
+Disassembly of <code object forward_message at 0x109244660, file "WeRobotCore/adapters/auto_reply/macos_account_runtime.py", line 362>:
+372           0 LOAD_FAST                0 (self)
+              2 LOAD_ATTR                0 (_driver)
+              4 LOAD_CONST               1 (None)
+              6 IS_OP                    0
+              8 POP_JUMP_IF_FALSE       18
+
+373          10 LOAD_GLOBAL              1 (unsupported_account_runtime_feature)
+             12 LOAD_CONST               2 ('message_forward')
+             14 CALL_FUNCTION            1
+             16 RAISE_VARARGS            1
+
+374     >>   18 LOAD_FAST                0 (self)
+             20 LOAD_ATTR                2 (_account_info)
+             22 LOAD_CONST               3 ('account_id')
+             24 BINARY_SUBSCR
+             26 STORE_FAST               5 (account_id)
+
+375          28 LOAD_FAST                0 (self)
+             30 LOAD_ATTR                0 (_driver)
+             32 LOAD_METHOD              3 (get_by_account)
+             34 LOAD_FAST                5 (account_id)
+             36 CALL_METHOD              1
+             38 GET_AWAITABLE
+             40 LOAD_CONST               1 (None)
+             42 YIELD_FROM
+             44 STORE_FAST               6 (instance)
+
+376          46 LOAD_FAST                6 (instance)
+             48 LOAD_CONST               1 (None)
+             50 IS_OP                    0
+             52 POP_JUMP_IF_FALSE       62
+
+377          54 LOAD_GLOBAL              1 (unsupported_account_runtime_feature)
+             56 LOAD_CONST               2 ('message_forward')
+             58 CALL_FUNCTION            1
+             60 RAISE_VARARGS            1
+
+378     >>   62 LOAD_FAST                0 (self)
+             64 LOAD_ATTR                0 (_driver)
+             66 LOAD_METHOD              4 (forward_message)
+
+379          68 LOAD_FAST                6 (instance)
+             70 LOAD_ATTR                5 (instance_id)
+
+380          72 LOAD_FAST                1 (session_id)
+
+381          74 LOAD_FAST                3 (message_id)
+
+382          76 LOAD_FAST                4 (target_session_name)
+
+378          78 CALL_METHOD              4
+             80 GET_AWAITABLE
+             82 LOAD_CONST               1 (None)
+             84 YIELD_FROM
+             86 STORE_FAST               7 (result)
+
+385          88 LOAD_FAST                7 (result)
+             90 LOAD_ATTR                6 (success)
+
+386          92 LOAD_FAST                7 (result)
+             94 LOAD_ATTR                7 (data)
+             96 LOAD_METHOD              8 (get)
+             98 LOAD_CONST               4 ('status')
+            100 LOAD_CONST               5 ('failed')
+            102 CALL_METHOD              2
+
+387         104 LOAD_FAST                7 (result)
+            106 LOAD_ATTR                9 (message)
+
+388         108 LOAD_FAST                7 (result)
+            110 LOAD_ATTR               10 (verified)
+
+389         112 LOAD_FAST                7 (result)
+            114 LOAD_ATTR               11 (retryable)
+
+384         116 LOAD_CONST               6 (('success', 'status', 'message', 'verified', 'retryable'))
+            118 BUILD_CONST_KEY_MAP      5
+            120 RETURN_VALUE
+
+Disassembly of <code object MacOSAutoReplyAccountRuntimeFactory at 0x109244920, file "WeRobotCore/adapters/auto_reply/macos_account_runtime.py", line 393>:
+393           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('MacOSAutoReplyAccountRuntimeFactory')
+              6 STORE_NAME               2 (__qualname__)
+
+394           8 LOAD_CONST               1 ('Cache one immutable identity projection per attached account.')
+             10 STORE_NAME               3 (__doc__)
+
+396          12 LOAD_CONST              13 ((None, None))
+             14 LOAD_CONST               3 ('Optional[Callable[[str], Any]]')
+             16 LOAD_CONST               4 ('None')
+             18 LOAD_CONST               5 (('contact_store_factory', 'return'))
+             20 BUILD_CONST_KEY_MAP      2
+             22 LOAD_CONST               6 (<code object __init__ at 0x1092447c0, file "WeRobotCore/adapters/auto_reply/macos_account_runtime.py", line 396>)
+             24 LOAD_CONST               7 ('MacOSAutoReplyAccountRuntimeFactory.__init__')
+             26 MAKE_FUNCTION            5 (defaults, annotations)
+             28 STORE_NAME               4 (__init__)
+
+411          30 LOAD_CONST               8 ('Optional[str]')
+             32 LOAD_CONST               9 ('AutoReplyAccountRuntime')
+             34 LOAD_CONST              10 (('account_id', 'return'))
+             36 BUILD_CONST_KEY_MAP      2
+             38 LOAD_CONST              11 (<code object for_account at 0x109244870, file "WeRobotCore/adapters/auto_reply/macos_account_runtime.py", line 411>)
+             40 LOAD_CONST              12 ('MacOSAutoReplyAccountRuntimeFactory.for_account')
+             42 MAKE_FUNCTION            4 (annotations)
+             44 STORE_NAME               5 (for_account)
+             46 LOAD_CONST               2 (None)
+             48 RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x1092447c0, file "WeRobotCore/adapters/auto_reply/macos_account_runtime.py", line 396>:
+401           0 LOAD_FAST                2 (contact_store_factory)
+              2 LOAD_CONST               0 (None)
+              4 IS_OP                    1
+              6 POP_JUMP_IF_FALSE       24
+              8 LOAD_GLOBAL              0 (callable)
+             10 LOAD_FAST                2 (contact_store_factory)
+             12 CALL_FUNCTION            1
+             14 POP_JUMP_IF_TRUE        24
+
+402          16 LOAD_GLOBAL              1 (TypeError)
+             18 LOAD_CONST               1 ('contact_store_factory must be callable')
+             20 CALL_FUNCTION            1
+             22 RAISE_VARARGS            1
+
+403     >>   24 LOAD_FAST                1 (driver)
+             26 LOAD_CONST               0 (None)
+             28 IS_OP                    0
+             30 LOAD_FAST                2 (contact_store_factory)
+             32 LOAD_CONST               0 (None)
+             34 IS_OP                    0
+             36 COMPARE_OP               3 (!=)
+             38 POP_JUMP_IF_FALSE       48
+
+404          40 LOAD_GLOBAL              2 (ValueError)
+
+405          42 LOAD_CONST               2 ('driver and contact_store_factory must be configured together')
+
+404          44 CALL_FUNCTION            1
+             46 RAISE_VARARGS            1
+
+407     >>   48 LOAD_FAST                1 (driver)
+             50 LOAD_FAST                0 (self)
+             52 STORE_ATTR               3 (_driver)
+
+408          54 LOAD_FAST                2 (contact_store_factory)
+             56 LOAD_FAST                0 (self)
+             58 STORE_ATTR               4 (_contact_store_factory)
+
+409          60 BUILD_MAP                0
+             62 LOAD_FAST                0 (self)
+             64 STORE_ATTR               5 (_runtimes)
+             66 LOAD_CONST               0 (None)
+             68 RETURN_VALUE
+
+Disassembly of <code object for_account at 0x109244870, file "WeRobotCore/adapters/auto_reply/macos_account_runtime.py", line 411>:
+415           0 LOAD_FAST                1 (account_id)
+              2 LOAD_CONST               0 (None)
+              4 IS_OP                    0
+              6 POP_JUMP_IF_FALSE       16
+
+416           8 LOAD_GLOBAL              0 (ValueError)
+             10 LOAD_CONST               1 ('macOS auto-reply requires an explicit account_id')
+             12 CALL_FUNCTION            1
+             14 RAISE_VARARGS            1
+
+417     >>   16 LOAD_GLOBAL              1 (_account_id)
+             18 LOAD_FAST                1 (account_id)
+             20 CALL_FUNCTION            1
+             22 STORE_FAST               2 (normalized)
+
+418          24 LOAD_FAST                0 (self)
+             26 LOAD_ATTR                2 (_runtimes)
+             28 LOAD_METHOD              3 (get)
+             30 LOAD_FAST                2 (normalized)
+             32 CALL_METHOD              1
+             34 STORE_FAST               3 (runtime)
+
+419          36 LOAD_FAST                3 (runtime)
+             38 LOAD_CONST               0 (None)
+             40 IS_OP                    0
+             42 POP_JUMP_IF_FALSE       90
+
+420          44 LOAD_GLOBAL              4 (MacOSAutoReplyAccountRuntime)
+
+421          46 LOAD_FAST                2 (normalized)
+
+422          48 LOAD_FAST                0 (self)
+             50 LOAD_ATTR                5 (_driver)
+
+425          52 LOAD_FAST                0 (self)
+             54 LOAD_ATTR                6 (_contact_store_factory)
+             56 LOAD_CONST               0 (None)
+             58 IS_OP                    0
+
+424          60 POP_JUMP_IF_FALSE       66
+             62 LOAD_CONST               0 (None)
+             64 JUMP_FORWARD             8 (to 74)
+
+426     >>   66 LOAD_FAST                0 (self)
+             68 LOAD_METHOD              6 (_contact_store_factory)
+             70 LOAD_FAST                2 (normalized)
+             72 CALL_METHOD              1
+
+420     >>   74 LOAD_CONST               2 (('driver', 'contact_store'))
+             76 CALL_FUNCTION_KW         3
+             78 STORE_FAST               3 (runtime)
+
+429          80 LOAD_FAST                3 (runtime)
+             82 LOAD_FAST                0 (self)
+             84 LOAD_ATTR                2 (_runtimes)
+             86 LOAD_FAST                2 (normalized)
+             88 STORE_SUBSCR
+
+430     >>   90 LOAD_GLOBAL              7 (require_account_runtime)
+             92 LOAD_FAST                3 (runtime)
+             94 CALL_FUNCTION            1
+             96 RETURN_VALUE

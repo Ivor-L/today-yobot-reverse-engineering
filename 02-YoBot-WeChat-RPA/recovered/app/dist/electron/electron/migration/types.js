@@ -1,0 +1,1 @@
+export const MIGRATION_FORMAT_VERSION = 1;

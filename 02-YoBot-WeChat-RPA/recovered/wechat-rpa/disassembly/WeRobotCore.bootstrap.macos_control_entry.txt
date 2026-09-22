@@ -1,0 +1,670 @@
+  1           0 LOAD_CONST               0 ('Production composition roots for the macOS Control process.\n\nThis module is imported only after the signed entry has selected an explicit\nstartup mode.  Plugin and standalone launches share the same reviewed product,\nprocess and Host owners; only their authorization adapters and frontend inputs\ndiffer.  No function in this module starts the server.  Standalone activation,\nentry publication and Capability publication remain separate release gates.\n')
+              2 STORE_NAME               0 (__doc__)
+
+ 10           4 LOAD_CONST               1 (0)
+              6 LOAD_CONST               2 (('annotations',))
+              8 IMPORT_NAME              1 (__future__)
+             10 IMPORT_FROM              2 (annotations)
+             12 STORE_NAME               2 (annotations)
+             14 POP_TOP
+
+ 12          16 LOAD_CONST               1 (0)
+             18 LOAD_CONST               3 (('Path',))
+             20 IMPORT_NAME              3 (pathlib)
+             22 IMPORT_FROM              4 (Path)
+             24 STORE_NAME               4 (Path)
+             26 POP_TOP
+
+ 13          28 LOAD_CONST               1 (0)
+             30 LOAD_CONST               4 (('Iterable', 'Mapping', 'Optional', 'Sequence'))
+             32 IMPORT_NAME              5 (typing)
+             34 IMPORT_FROM              6 (Iterable)
+             36 STORE_NAME               6 (Iterable)
+             38 IMPORT_FROM              7 (Mapping)
+             40 STORE_NAME               7 (Mapping)
+             42 IMPORT_FROM              8 (Optional)
+             44 STORE_NAME               8 (Optional)
+             46 IMPORT_FROM              9 (Sequence)
+             48 STORE_NAME               9 (Sequence)
+             50 POP_TOP
+
+ 15          52 LOAD_CONST               1 (0)
+             54 LOAD_CONST               5 (('MacKeychainSecretStore', 'MacSecurityKeychainBackend'))
+             56 IMPORT_NAME             10 (WeRobotCore.adapters.platform)
+             58 IMPORT_FROM             11 (MacKeychainSecretStore)
+             60 STORE_NAME              11 (MacKeychainSecretStore)
+             62 IMPORT_FROM             12 (MacSecurityKeychainBackend)
+             64 STORE_NAME              12 (MacSecurityKeychainBackend)
+             66 POP_TOP
+
+ 19          68 LOAD_CONST               1 (0)
+             70 LOAD_CONST               6 (('ControlLegacyLicenseVerifier',))
+             72 IMPORT_NAME             13 (WeRobotCore.application.control_access)
+             74 IMPORT_FROM             14 (ControlLegacyLicenseVerifier)
+             76 STORE_NAME              14 (ControlLegacyLicenseVerifier)
+             78 POP_TOP
+
+ 20          80 LOAD_CONST               1 (0)
+             82 LOAD_CONST               7 (('FrontendDirectory',))
+             84 IMPORT_NAME             15 (WeRobotCore.host.control_app)
+             86 IMPORT_FROM             16 (FrontendDirectory)
+             88 STORE_NAME              16 (FrontendDirectory)
+             90 POP_TOP
+
+ 21          92 LOAD_CONST               1 (0)
+             94 LOAD_CONST               8 (('resolve_macos_control_launch_inputs',))
+             96 IMPORT_NAME             17 (WeRobotCore.host.macos_launch)
+             98 IMPORT_FROM             18 (resolve_macos_control_launch_inputs)
+            100 STORE_NAME              18 (resolve_macos_control_launch_inputs)
+            102 POP_TOP
+
+ 22         104 LOAD_CONST               1 (0)
+            106 LOAD_CONST               9 (('MacOSControlProcessRuntime', 'bind_macos_control_process_runtime'))
+            108 IMPORT_NAME             19 (WeRobotCore.host.macos_process)
+            110 IMPORT_FROM             20 (MacOSControlProcessRuntime)
+            112 STORE_NAME              20 (MacOSControlProcessRuntime)
+            114 IMPORT_FROM             21 (bind_macos_control_process_runtime)
+            116 STORE_NAME              21 (bind_macos_control_process_runtime)
+            118 POP_TOP
+
+ 26         120 LOAD_CONST               1 (0)
+            122 LOAD_CONST              10 (('prepare_macos_control_runtime',))
+            124 IMPORT_NAME             22 (WeRobotCore.host.macos_runtime)
+            126 IMPORT_FROM             23 (prepare_macos_control_runtime)
+            128 STORE_NAME              23 (prepare_macos_control_runtime)
+            130 POP_TOP
+
+ 27         132 LOAD_CONST               1 (0)
+            134 LOAD_CONST              11 (('resolve_macos_control_frontend_directory',))
+            136 IMPORT_NAME             24 (WeRobotCore.packaging)
+            138 IMPORT_FROM             25 (resolve_macos_control_frontend_directory)
+            140 STORE_NAME              25 (resolve_macos_control_frontend_directory)
+            142 POP_TOP
+
+ 28         144 LOAD_CONST               1 (0)
+            146 LOAD_CONST              12 (('configure_log_root',))
+            148 IMPORT_NAME             26 (WeRobotCore.utils.logger)
+            150 IMPORT_FROM             27 (configure_log_root)
+            152 STORE_NAME              27 (configure_log_root)
+            154 POP_TOP
+
+ 30         156 LOAD_CONST              13 (1)
+            158 LOAD_CONST              14 (('MACOS_MVP_CAPABILITY_NAMES',))
+            160 IMPORT_NAME             28 (macos_capabilities)
+            162 IMPORT_FROM             29 (MACOS_MVP_CAPABILITY_NAMES)
+            164 STORE_NAME              29 (MACOS_MVP_CAPABILITY_NAMES)
+            166 POP_TOP
+
+ 31         168 LOAD_CONST              13 (1)
+            170 LOAD_CONST              15 (('create_macos_control_process_dependencies',))
+            172 IMPORT_NAME             30 (macos_control_process)
+            174 IMPORT_FROM             31 (create_macos_control_process_dependencies)
+            176 STORE_NAME              31 (create_macos_control_process_dependencies)
+            178 POP_TOP
+
+ 32         180 LOAD_CONST              13 (1)
+            182 LOAD_CONST              16 (('MacOSControlProductOwner',))
+            184 IMPORT_NAME             32 (macos_control_product)
+            186 IMPORT_FROM             33 (MacOSControlProductOwner)
+            188 STORE_NAME              33 (MacOSControlProductOwner)
+            190 POP_TOP
+
+ 33         192 LOAD_CONST              13 (1)
+            194 LOAD_CONST              17 (('install_macos_product_helper', 'load_macos_product_bundle_manifest'))
+            196 IMPORT_NAME             34 (macos_product)
+            198 IMPORT_FROM             35 (install_macos_product_helper)
+            200 STORE_NAME              35 (install_macos_product_helper)
+            202 IMPORT_FROM             36 (load_macos_product_bundle_manifest)
+            204 STORE_NAME              36 (load_macos_product_bundle_manifest)
+            206 POP_TOP
+
+ 47         208 LOAD_CONST              18 (None)
+
+ 48         210 LOAD_CONST              19 (())
+
+ 39         212 LOAD_CONST              20 (('frontend_directory', 'experimental_capabilities'))
+            214 BUILD_CONST_KEY_MAP      2
+            216 LOAD_CONST              21 ('Sequence[str]')
+            218 LOAD_CONST              22 ('Mapping[str, str]')
+            220 LOAD_CONST              23 ('Path')
+            222 LOAD_CONST              23 ('Path')
+            224 LOAD_CONST              24 ('bool')
+            226 LOAD_CONST              25 ('Optional[ControlLegacyLicenseVerifier]')
+            228 LOAD_CONST              26 ('FrontendDirectory')
+            230 LOAD_CONST              27 ('Iterable[str]')
+            232 LOAD_CONST              28 ('MacOSControlProcessRuntime')
+            234 LOAD_CONST              29 (('arguments', 'environment', 'home_dir', 'control_bundle_path', 'expected_backend_mode', 'legacy_license_verifier', 'frontend_directory', 'experimental_capabilities', 'return'))
+            236 BUILD_CONST_KEY_MAP      9
+            238 LOAD_CONST              30 (<code object _prepare_macos_control_process at 0x10924c030, file "WeRobotCore/bootstrap/macos_control_entry.py", line 39>)
+            240 LOAD_CONST              31 ('_prepare_macos_control_process')
+            242 MAKE_FUNCTION            6 (kwdefaults, annotations)
+            244 STORE_NAME              37 (_prepare_macos_control_process)
+
+177         246 LOAD_CONST              21 ('Sequence[str]')
+            248 LOAD_CONST              22 ('Mapping[str, str]')
+            250 LOAD_CONST              23 ('Path')
+            252 LOAD_CONST              23 ('Path')
+            254 LOAD_CONST              28 ('MacOSControlProcessRuntime')
+            256 LOAD_CONST              32 (('arguments', 'environment', 'home_dir', 'control_bundle_path', 'return'))
+            258 BUILD_CONST_KEY_MAP      5
+            260 LOAD_CONST              33 (<code object prepare_macos_control_plugin_process at 0x10924c7c0, file "WeRobotCore/bootstrap/macos_control_entry.py", line 177>)
+            262 LOAD_CONST              34 ('prepare_macos_control_plugin_process')
+            264 MAKE_FUNCTION            4 (annotations)
+            266 STORE_NAME              38 (prepare_macos_control_plugin_process)
+
+213         268 LOAD_CONST              18 (None)
+
+214         270 LOAD_CONST              19 (())
+
+206         272 LOAD_CONST              20 (('frontend_directory', 'experimental_capabilities'))
+            274 BUILD_CONST_KEY_MAP      2
+            276 LOAD_CONST              21 ('Sequence[str]')
+            278 LOAD_CONST              22 ('Mapping[str, str]')
+            280 LOAD_CONST              23 ('Path')
+            282 LOAD_CONST              23 ('Path')
+            284 LOAD_CONST              35 ('ControlLegacyLicenseVerifier')
+            286 LOAD_CONST              36 ('Optional[Path]')
+            288 LOAD_CONST              27 ('Iterable[str]')
+            290 LOAD_CONST              28 ('MacOSControlProcessRuntime')
+            292 LOAD_CONST              37 (('arguments', 'environment', 'home_dir', 'control_bundle_path', 'legacy_license_verifier', 'frontend_directory', 'experimental_capabilities', 'return'))
+            294 BUILD_CONST_KEY_MAP      8
+            296 LOAD_CONST              38 (<code object prepare_macos_control_standalone_process at 0x10924cf50, file "WeRobotCore/bootstrap/macos_control_entry.py", line 206>)
+            298 LOAD_CONST              39 ('prepare_macos_control_standalone_process')
+            300 MAKE_FUNCTION            6 (kwdefaults, annotations)
+            302 STORE_NAME              39 (prepare_macos_control_standalone_process)
+
+237         304 LOAD_CONST              34 ('prepare_macos_control_plugin_process')
+
+238         306 LOAD_CONST              39 ('prepare_macos_control_standalone_process')
+
+236         308 BUILD_LIST               2
+            310 STORE_NAME              40 (__all__)
+            312 LOAD_CONST              18 (None)
+            314 RETURN_VALUE
+
+Disassembly of <code object _prepare_macos_control_process at 0x10924c030, file "WeRobotCore/bootstrap/macos_control_entry.py", line 39>:
+ 59           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                4 (expected_backend_mode)
+              4 LOAD_GLOBAL              1 (bool)
+              6 CALL_FUNCTION            2
+              8 POP_JUMP_IF_TRUE        18
+
+ 60          10 LOAD_GLOBAL              2 (TypeError)
+             12 LOAD_CONST               1 ('expected_backend_mode must be a boolean')
+             14 CALL_FUNCTION            1
+             16 RAISE_VARARGS            1
+
+ 61     >>   18 LOAD_FAST                4 (expected_backend_mode)
+             20 POP_JUMP_IF_TRUE        38
+             22 LOAD_GLOBAL              3 (callable)
+             24 LOAD_FAST                5 (legacy_license_verifier)
+             26 CALL_FUNCTION            1
+             28 POP_JUMP_IF_TRUE        38
+
+ 62          30 LOAD_GLOBAL              2 (TypeError)
+             32 LOAD_CONST               2 ('legacy_license_verifier must be callable')
+             34 CALL_FUNCTION            1
+             36 RAISE_VARARGS            1
+
+ 63     >>   38 LOAD_GLOBAL              0 (isinstance)
+             40 LOAD_FAST                7 (experimental_capabilities)
+             42 LOAD_GLOBAL              4 (str)
+             44 LOAD_GLOBAL              5 (bytes)
+             46 BUILD_TUPLE              2
+             48 CALL_FUNCTION            2
+             50 POP_JUMP_IF_FALSE       60
+
+ 64          52 LOAD_GLOBAL              2 (TypeError)
+
+ 65          54 LOAD_CONST               3 ('experimental_capabilities must be an iterable of strings')
+
+ 64          56 CALL_FUNCTION            1
+             58 RAISE_VARARGS            1
+
+ 67     >>   60 LOAD_GLOBAL              6 (tuple)
+             62 LOAD_FAST                7 (experimental_capabilities)
+             64 CALL_FUNCTION            1
+             66 STORE_FAST               8 (capability_names)
+
+ 68          68 LOAD_GLOBAL              7 (any)
+             70 LOAD_CONST               4 (<code object <genexpr> at 0x10924cc90, file "WeRobotCore/bootstrap/macos_control_entry.py", line 68>)
+             72 LOAD_CONST               5 ('_prepare_macos_control_process.<locals>.<genexpr>')
+             74 MAKE_FUNCTION            0
+             76 LOAD_FAST                8 (capability_names)
+             78 GET_ITER
+             80 CALL_FUNCTION            1
+             82 CALL_FUNCTION            1
+             84 POP_JUMP_IF_FALSE       94
+
+ 69          86 LOAD_GLOBAL              2 (TypeError)
+             88 LOAD_CONST               6 ('experimental_capabilities must contain only strings')
+             90 CALL_FUNCTION            1
+             92 RAISE_VARARGS            1
+
+ 71     >>   94 LOAD_GLOBAL              8 (resolve_macos_control_launch_inputs)
+
+ 72          96 LOAD_FAST                0 (arguments)
+
+ 73          98 LOAD_FAST                1 (environment)
+
+ 74         100 LOAD_FAST                2 (home_dir)
+
+ 71         102 LOAD_CONST               7 (('arguments', 'environment', 'home_dir'))
+            104 CALL_FUNCTION_KW         3
+            106 STORE_FAST               9 (inputs)
+
+ 76         108 LOAD_FAST                9 (inputs)
+            110 LOAD_ATTR                9 (backend_mode)
+            112 LOAD_FAST                4 (expected_backend_mode)
+            114 IS_OP                    1
+            116 POP_JUMP_IF_FALSE      138
+
+ 77         118 LOAD_FAST                4 (expected_backend_mode)
+            120 POP_JUMP_IF_FALSE      130
+
+ 78         122 LOAD_GLOBAL             10 (ValueError)
+            124 LOAD_CONST               8 ('macOS Control plugin startup requires --no-ui')
+            126 CALL_FUNCTION            1
+            128 RAISE_VARARGS            1
+
+ 79     >>  130 LOAD_GLOBAL             10 (ValueError)
+            132 LOAD_CONST               9 ('macOS Control standalone startup rejects --no-ui')
+            134 CALL_FUNCTION            1
+            136 RAISE_VARARGS            1
+
+ 80     >>  138 LOAD_FAST                4 (expected_backend_mode)
+            140 POP_JUMP_IF_FALSE      236
+
+ 81         142 LOAD_FAST                9 (inputs)
+            144 LOAD_ATTR               11 (credentials)
+            146 LOAD_ATTR               12 (rpa_token)
+            148 LOAD_CONST              10 (None)
+            150 IS_OP                    0
+            152 POP_JUMP_IF_FALSE      162
+
+ 82         154 LOAD_GLOBAL             10 (ValueError)
+
+ 83         156 LOAD_CONST              11 ('macOS Control plugin startup requires YOKO_RPA_TOKEN')
+
+ 82         158 CALL_FUNCTION            1
+            160 RAISE_VARARGS            1
+
+ 85     >>  162 LOAD_FAST                9 (inputs)
+            164 LOAD_ATTR               13 (remote_api_base)
+            166 LOAD_CONST              10 (None)
+            168 IS_OP                    0
+            170 POP_JUMP_IF_FALSE      180
+
+ 86         172 LOAD_GLOBAL             10 (ValueError)
+
+ 87         174 LOAD_CONST              12 ('macOS Control plugin startup requires YOKO_API_BASE')
+
+ 86         176 CALL_FUNCTION            1
+            178 RAISE_VARARGS            1
+
+ 89     >>  180 LOAD_FAST                9 (inputs)
+            182 LOAD_ATTR               14 (runtime_id)
+            184 LOAD_CONST              10 (None)
+            186 IS_OP                    0
+            188 POP_JUMP_IF_FALSE      198
+
+ 90         190 LOAD_GLOBAL             10 (ValueError)
+
+ 91         192 LOAD_CONST              13 ('macOS Control plugin startup requires YOKO_RPA_RUNTIME_ID')
+
+ 90         194 CALL_FUNCTION            1
+            196 RAISE_VARARGS            1
+
+ 93     >>  198 LOAD_FAST                9 (inputs)
+            200 LOAD_ATTR               15 (machine_code)
+            202 LOAD_CONST              10 (None)
+            204 IS_OP                    0
+            206 POP_JUMP_IF_FALSE      216
+
+ 94         208 LOAD_GLOBAL             10 (ValueError)
+            210 LOAD_CONST              14 ('macOS Control plugin startup requires YOKO_RPA_MACHINE_CODE')
+            212 CALL_FUNCTION            1
+            214 RAISE_VARARGS            1
+
+ 95     >>  216 LOAD_FAST                9 (inputs)
+            218 LOAD_ATTR               11 (credentials)
+            220 LOAD_ATTR               16 (local_api_key)
+            222 LOAD_CONST              15 ('yoko_test')
+            224 COMPARE_OP               2 (==)
+            226 POP_JUMP_IF_FALSE      236
+
+ 96         228 LOAD_GLOBAL             10 (ValueError)
+            230 LOAD_CONST              16 ('macOS Control plugin requires a runtime loopback credential')
+            232 CALL_FUNCTION            1
+            234 RAISE_VARARGS            1
+
+101     >>  236 LOAD_GLOBAL             17 (load_macos_product_bundle_manifest)
+            238 LOAD_FAST                3 (control_bundle_path)
+            240 CALL_FUNCTION            1
+            242 STORE_FAST              10 (manifest)
+
+102         244 LOAD_FAST                4 (expected_backend_mode)
+            246 EXTENDED_ARG             1
+            248 POP_JUMP_IF_FALSE      268
+            250 LOAD_FAST                6 (frontend_directory)
+            252 LOAD_CONST              10 (None)
+            254 IS_OP                    0
+            256 EXTENDED_ARG             1
+            258 POP_JUMP_IF_FALSE      268
+
+106         260 LOAD_GLOBAL             18 (resolve_macos_control_frontend_directory)
+
+107         262 LOAD_FAST                3 (control_bundle_path)
+
+106         264 CALL_FUNCTION            1
+            266 STORE_FAST               6 (frontend_directory)
+
+109     >>  268 LOAD_GLOBAL             19 (install_macos_product_helper)
+
+110         270 LOAD_FAST               10 (manifest)
+
+111         272 LOAD_FAST                2 (home_dir)
+
+109         274 LOAD_CONST              17 (('home_dir',))
+            276 CALL_FUNCTION_KW         2
+            278 STORE_FAST              11 (runtime_helper_bundle_path)
+
+114         280 LOAD_GLOBAL             20 (configure_log_root)
+            282 LOAD_FAST                9 (inputs)
+            284 LOAD_ATTR               21 (app_paths)
+            286 LOAD_ATTR               22 (log_root)
+            288 CALL_FUNCTION            1
+            290 POP_TOP
+
+115         292 LOAD_GLOBAL             23 (MacSecurityKeychainBackend)
+            294 CALL_FUNCTION            0
+            296 STORE_FAST              12 (keychain_backend)
+
+116         298 LOAD_GLOBAL             24 (MacKeychainSecretStore)
+            300 LOAD_FAST               12 (keychain_backend)
+            302 LOAD_CONST              18 (('backend',))
+            304 CALL_FUNCTION_KW         1
+            306 STORE_FAST              13 (secret_store)
+
+117         308 LOAD_GLOBAL             25 (create_macos_control_process_dependencies)
+
+118         310 LOAD_FAST                9 (inputs)
+            312 LOAD_ATTR               21 (app_paths)
+
+117         314 LOAD_CONST              19 (('paths',))
+            316 CALL_FUNCTION_KW         1
+            318 STORE_FAST              14 (dependencies)
+
+120         320 LOAD_GLOBAL             26 (dict)
+
+121         322 LOAD_FAST                3 (control_bundle_path)
+
+122         324 LOAD_FAST               11 (runtime_helper_bundle_path)
+
+123         326 LOAD_FAST                2 (home_dir)
+
+124         328 LOAD_FAST               14 (dependencies)
+            330 LOAD_ATTR               27 (auto_reply_manager)
+
+125         332 LOAD_FAST               14 (dependencies)
+            334 LOAD_ATTR               28 (multi_chat_monitor)
+
+126         336 LOAD_FAST               14 (dependencies)
+            338 LOAD_ATTR               29 (private_agent_probe)
+
+127         340 LOAD_FAST               12 (keychain_backend)
+
+120         342 LOAD_CONST              20 (('control_bundle_path', 'runtime_helper_bundle_path', 'home_dir', 'auto_reply_manager', 'multi_chat_monitor', 'private_agent_probe', 'secret_backend'))
+            344 CALL_FUNCTION_KW         7
+            346 STORE_FAST              15 (product_owner_arguments)
+
+129         348 LOAD_GLOBAL             30 (getattr)
+            350 LOAD_FAST               14 (dependencies)
+            352 LOAD_CONST              21 ('mass_sending_manager')
+            354 LOAD_CONST              10 (None)
+            356 CALL_FUNCTION            3
+            358 LOAD_CONST              10 (None)
+            360 IS_OP                    1
+            362 EXTENDED_ARG             1
+            364 POP_JUMP_IF_FALSE      376
+
+131         366 LOAD_FAST               14 (dependencies)
+            368 LOAD_ATTR               31 (mass_sending_manager)
+
+130         370 LOAD_FAST               15 (product_owner_arguments)
+            372 LOAD_CONST              21 ('mass_sending_manager')
+            374 STORE_SUBSCR
+
+133     >>  376 LOAD_GLOBAL             30 (getattr)
+            378 LOAD_FAST               14 (dependencies)
+            380 LOAD_CONST              22 ('auto_follow_manager')
+            382 LOAD_CONST              10 (None)
+            384 CALL_FUNCTION            3
+            386 LOAD_CONST              10 (None)
+            388 IS_OP                    1
+            390 EXTENDED_ARG             1
+            392 POP_JUMP_IF_FALSE      404
+
+135         394 LOAD_FAST               14 (dependencies)
+            396 LOAD_ATTR               32 (auto_follow_manager)
+
+134         398 LOAD_FAST               15 (product_owner_arguments)
+            400 LOAD_CONST              22 ('auto_follow_manager')
+            402 STORE_SUBSCR
+
+137     >>  404 LOAD_GLOBAL             30 (getattr)
+            406 LOAD_FAST               14 (dependencies)
+            408 LOAD_CONST              23 ('moment_comment_manager')
+            410 LOAD_CONST              10 (None)
+            412 CALL_FUNCTION            3
+            414 LOAD_CONST              10 (None)
+            416 IS_OP                    1
+            418 EXTENDED_ARG             1
+            420 POP_JUMP_IF_FALSE      432
+
+139         422 LOAD_FAST               14 (dependencies)
+            424 LOAD_ATTR               33 (moment_comment_manager)
+
+138         426 LOAD_FAST               15 (product_owner_arguments)
+            428 LOAD_CONST              23 ('moment_comment_manager')
+            430 STORE_SUBSCR
+
+141     >>  432 LOAD_GLOBAL             30 (getattr)
+            434 LOAD_FAST               14 (dependencies)
+            436 LOAD_CONST              24 ('moment_post_manager')
+            438 LOAD_CONST              10 (None)
+            440 CALL_FUNCTION            3
+            442 LOAD_CONST              10 (None)
+            444 IS_OP                    1
+            446 EXTENDED_ARG             1
+            448 POP_JUMP_IF_FALSE      460
+
+143         450 LOAD_FAST               14 (dependencies)
+            452 LOAD_ATTR               34 (moment_post_manager)
+
+142         454 LOAD_FAST               15 (product_owner_arguments)
+            456 LOAD_CONST              24 ('moment_post_manager')
+            458 STORE_SUBSCR
+
+145     >>  460 LOAD_GLOBAL             30 (getattr)
+            462 LOAD_FAST               14 (dependencies)
+            464 LOAD_CONST              25 ('add_friend_manager')
+            466 LOAD_CONST              10 (None)
+            468 CALL_FUNCTION            3
+            470 LOAD_CONST              10 (None)
+            472 IS_OP                    1
+            474 EXTENDED_ARG             1
+            476 POP_JUMP_IF_FALSE      488
+
+147         478 LOAD_FAST               14 (dependencies)
+            480 LOAD_ATTR               35 (add_friend_manager)
+
+146         482 LOAD_FAST               15 (product_owner_arguments)
+            484 LOAD_CONST              25 ('add_friend_manager')
+            486 STORE_SUBSCR
+
+149     >>  488 LOAD_GLOBAL             30 (getattr)
+            490 LOAD_FAST               14 (dependencies)
+            492 LOAD_CONST              26 ('friend_request_manager')
+            494 LOAD_CONST              10 (None)
+            496 CALL_FUNCTION            3
+            498 LOAD_CONST              10 (None)
+            500 IS_OP                    1
+            502 EXTENDED_ARG             2
+            504 POP_JUMP_IF_FALSE      516
+
+151         506 LOAD_FAST               14 (dependencies)
+            508 LOAD_ATTR               36 (friend_request_manager)
+
+150         510 LOAD_FAST               15 (product_owner_arguments)
+            512 LOAD_CONST              26 ('friend_request_manager')
+            514 STORE_SUBSCR
+
+153     >>  516 LOAD_GLOBAL             30 (getattr)
+            518 LOAD_FAST               14 (dependencies)
+            520 LOAD_CONST              27 ('sync_contacts_manager')
+            522 LOAD_CONST              10 (None)
+            524 CALL_FUNCTION            3
+            526 LOAD_CONST              10 (None)
+            528 IS_OP                    1
+            530 EXTENDED_ARG             2
+            532 POP_JUMP_IF_FALSE      544
+
+155         534 LOAD_FAST               14 (dependencies)
+            536 LOAD_ATTR               37 (sync_contacts_manager)
+
+154         538 LOAD_FAST               15 (product_owner_arguments)
+            540 LOAD_CONST              27 ('sync_contacts_manager')
+            542 STORE_SUBSCR
+
+157     >>  544 LOAD_FAST                8 (capability_names)
+            546 EXTENDED_ARG             2
+            548 POP_JUMP_IF_FALSE      558
+
+158         550 LOAD_FAST                8 (capability_names)
+            552 LOAD_FAST               15 (product_owner_arguments)
+            554 LOAD_CONST              28 ('experimental_capabilities')
+            556 STORE_SUBSCR
+
+159     >>  558 LOAD_GLOBAL             38 (MacOSControlProductOwner)
+            560 BUILD_TUPLE              0
+            562 BUILD_MAP                0
+            564 LOAD_FAST               15 (product_owner_arguments)
+            566 DICT_MERGE               1
+            568 CALL_FUNCTION_EX         1
+            570 STORE_FAST              16 (product_owner)
+
+160         572 LOAD_GLOBAL             39 (prepare_macos_control_runtime)
+
+161         574 LOAD_FAST                9 (inputs)
+
+162         576 LOAD_FAST               13 (secret_store)
+
+163         578 LOAD_FAST               16 (product_owner)
+            580 LOAD_ATTR               40 (publication_factory)
+
+165         582 LOAD_FAST               16 (product_owner)
+            584 LOAD_ATTR               41 (auto_reply_service_factory_builder)
+
+167         586 LOAD_FAST                5 (legacy_license_verifier)
+
+168         588 LOAD_FAST                6 (frontend_directory)
+
+160         590 LOAD_CONST              29 (('inputs', 'secret_store', 'publication_factory', 'auto_reply_service_factory_builder', 'legacy_license_verifier', 'frontend_directory'))
+            592 CALL_FUNCTION_KW         6
+            594 GET_AWAITABLE
+            596 LOAD_CONST              10 (None)
+            598 YIELD_FROM
+            600 STORE_FAST              17 (preparation)
+
+170         602 LOAD_GLOBAL             42 (bind_macos_control_process_runtime)
+
+171         604 LOAD_FAST               17 (preparation)
+
+172         606 LOAD_FAST               16 (product_owner)
+
+173         608 LOAD_FAST               14 (dependencies)
+
+170         610 LOAD_CONST              30 (('preparation', 'product_owner', 'dependencies'))
+            612 CALL_FUNCTION_KW         3
+            614 RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x10924cc90, file "WeRobotCore/bootstrap/macos_control_entry.py", line 68>:
+ 68           0 LOAD_FAST                0 (.0)
+        >>    2 FOR_ITER                18 (to 22)
+              4 STORE_FAST               1 (name)
+              6 LOAD_GLOBAL              0 (isinstance)
+              8 LOAD_FAST                1 (name)
+             10 LOAD_GLOBAL              1 (str)
+             12 CALL_FUNCTION            2
+             14 UNARY_NOT
+             16 YIELD_VALUE
+             18 POP_TOP
+             20 JUMP_ABSOLUTE            2
+        >>   22 LOAD_CONST               0 (None)
+             24 RETURN_VALUE
+
+Disassembly of <code object prepare_macos_control_plugin_process at 0x10924c7c0, file "WeRobotCore/bootstrap/macos_control_entry.py", line 177>:
+186           0 LOAD_GLOBAL              0 (_prepare_macos_control_process)
+
+187           2 LOAD_FAST                0 (arguments)
+
+188           4 LOAD_FAST                1 (environment)
+
+189           6 LOAD_FAST                2 (home_dir)
+
+190           8 LOAD_FAST                3 (control_bundle_path)
+
+191          10 LOAD_CONST               1 (True)
+
+192          12 LOAD_CONST               2 (None)
+
+193          14 LOAD_GLOBAL              1 (MACOS_MVP_CAPABILITY_NAMES)
+
+186          16 LOAD_CONST               3 (('arguments', 'environment', 'home_dir', 'control_bundle_path', 'expected_backend_mode', 'legacy_license_verifier', 'experimental_capabilities'))
+             18 CALL_FUNCTION_KW         7
+             20 GET_AWAITABLE
+             22 LOAD_CONST               2 (None)
+             24 YIELD_FROM
+             26 STORE_FAST               4 (runtime)
+
+198          28 LOAD_CONST               4 (0)
+             30 LOAD_CONST               5 (('install_macos_business_routes',))
+             32 IMPORT_NAME              2 (WeRobotCore.host.macos_business_routes)
+             34 IMPORT_FROM              3 (install_macos_business_routes)
+             36 STORE_FAST               5 (install_macos_business_routes)
+             38 POP_TOP
+
+202          40 LOAD_FAST                5 (install_macos_business_routes)
+             42 LOAD_FAST                4 (runtime)
+             44 CALL_FUNCTION            1
+             46 POP_TOP
+
+203          48 LOAD_FAST                4 (runtime)
+             50 RETURN_VALUE
+
+Disassembly of <code object prepare_macos_control_standalone_process at 0x10924cf50, file "WeRobotCore/bootstrap/macos_control_entry.py", line 206>:
+224           0 LOAD_GLOBAL              0 (_prepare_macos_control_process)
+
+225           2 LOAD_FAST                0 (arguments)
+
+226           4 LOAD_FAST                1 (environment)
+
+227           6 LOAD_FAST                2 (home_dir)
+
+228           8 LOAD_FAST                3 (control_bundle_path)
+
+229          10 LOAD_CONST               1 (False)
+
+230          12 LOAD_FAST                4 (legacy_license_verifier)
+
+231          14 LOAD_FAST                5 (frontend_directory)
+
+232          16 LOAD_FAST                6 (experimental_capabilities)
+
+224          18 LOAD_CONST               2 (('arguments', 'environment', 'home_dir', 'control_bundle_path', 'expected_backend_mode', 'legacy_license_verifier', 'frontend_directory', 'experimental_capabilities'))
+             20 CALL_FUNCTION_KW         8
+             22 GET_AWAITABLE
+             24 LOAD_CONST               3 (None)
+             26 YIELD_FROM
+             28 RETURN_VALUE

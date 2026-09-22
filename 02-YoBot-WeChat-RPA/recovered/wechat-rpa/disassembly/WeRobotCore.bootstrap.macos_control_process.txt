@@ -1,0 +1,2972 @@
+  1           0 LOAD_CONST               0 ('Explicit process ownership for the shared macOS task system.\n\nImporting this module does not import the V2/V3 task systems, create their\nsingletons, touch product storage, load native frameworks, or perform a\nnetwork request.  The signed macOS entry must call\n``create_macos_control_process_dependencies`` exactly once and pass the\nreturned shared Manager/Monitor to ``MacOSControlProductOwner``.\n')
+              2 STORE_NAME               0 (__doc__)
+
+ 10           4 LOAD_CONST               1 (0)
+              6 LOAD_CONST               2 (('annotations',))
+              8 IMPORT_NAME              1 (__future__)
+             10 IMPORT_FROM              2 (annotations)
+             12 STORE_NAME               2 (annotations)
+             14 POP_TOP
+
+ 12          16 LOAD_CONST               1 (0)
+             18 LOAD_CONST               3 (None)
+             20 IMPORT_NAME              3 (asyncio)
+             22 STORE_NAME               3 (asyncio)
+
+ 13          24 LOAD_CONST               1 (0)
+             26 LOAD_CONST               4 (('dataclass',))
+             28 IMPORT_NAME              4 (dataclasses)
+             30 IMPORT_FROM              5 (dataclass)
+             32 STORE_NAME               5 (dataclass)
+             34 POP_TOP
+
+ 14          36 LOAD_CONST               1 (0)
+             38 LOAD_CONST               5 (('Path',))
+             40 IMPORT_NAME              6 (pathlib)
+             42 IMPORT_FROM              7 (Path)
+             44 STORE_NAME               7 (Path)
+             46 POP_TOP
+
+ 15          48 LOAD_CONST               1 (0)
+             50 LOAD_CONST               6 (('Any', 'Awaitable', 'Callable', 'Mapping', 'Optional'))
+             52 IMPORT_NAME              8 (typing)
+             54 IMPORT_FROM              9 (Any)
+             56 STORE_NAME               9 (Any)
+             58 IMPORT_FROM             10 (Awaitable)
+             60 STORE_NAME              10 (Awaitable)
+             62 IMPORT_FROM             11 (Callable)
+             64 STORE_NAME              11 (Callable)
+             66 IMPORT_FROM             12 (Mapping)
+             68 STORE_NAME              12 (Mapping)
+             70 IMPORT_FROM             13 (Optional)
+             72 STORE_NAME              13 (Optional)
+             74 POP_TOP
+
+ 17          76 LOAD_CONST               1 (0)
+             78 LOAD_CONST               7 (('MacOSAppPaths',))
+             80 IMPORT_NAME             14 (WeRobotCore.adapters.platform.macos_native)
+             82 IMPORT_FROM             15 (MacOSAppPaths)
+             84 STORE_NAME              15 (MacOSAppPaths)
+             86 POP_TOP
+
+ 18          88 LOAD_CONST               1 (0)
+             90 LOAD_CONST               8 (('PrivateAgentCapabilityProbe',))
+             92 IMPORT_NAME             16 (WeRobotCore.application.auto_reply.config_readiness)
+             94 IMPORT_FROM             17 (PrivateAgentCapabilityProbe)
+             96 STORE_NAME              17 (PrivateAgentCapabilityProbe)
+             98 POP_TOP
+
+ 23         100 LOAD_CONST               9 ('str')
+            102 LOAD_CONST              10 ('Optional[str]')
+            104 LOAD_CONST              11 ('Mapping[str, Any]')
+            106 LOAD_CONST              12 (('api_url', 'api_token', 'return'))
+            108 BUILD_CONST_KEY_MAP      3
+            110 LOAD_CONST              13 (<code object probe_private_agent_capabilities at 0x10924c450, file "WeRobotCore/bootstrap/macos_control_process.py", line 23>)
+            112 LOAD_CONST              14 ('probe_private_agent_capabilities')
+            114 MAKE_FUNCTION            4 (annotations)
+            116 STORE_NAME              18 (probe_private_agent_capabilities)
+
+ 40         118 LOAD_CONST              15 ('Any')
+            120 LOAD_CONST               9 ('str')
+            122 LOAD_CONST              16 ('Callable[..., Any]')
+            124 LOAD_CONST              17 (('owner', 'name', 'return'))
+            126 BUILD_CONST_KEY_MAP      3
+            128 LOAD_CONST              18 (<code object _require_callable at 0x10924cea0, file "WeRobotCore/bootstrap/macos_control_process.py", line 40>)
+            130 LOAD_CONST              19 ('_require_callable')
+            132 MAKE_FUNCTION            4 (annotations)
+            134 STORE_NAME              19 (_require_callable)
+
+ 47         136 LOAD_BUILD_CLASS
+            138 LOAD_CONST              20 (<code object MacOSTaskSystemLifecycle at 0x109244920, file "WeRobotCore/bootstrap/macos_control_process.py", line 47>)
+            140 LOAD_CONST              21 ('MacOSTaskSystemLifecycle')
+            142 MAKE_FUNCTION            0
+            144 LOAD_CONST              21 ('MacOSTaskSystemLifecycle')
+            146 CALL_FUNCTION            2
+            148 STORE_NAME              20 (MacOSTaskSystemLifecycle)
+
+445         150 LOAD_NAME                5 (dataclass)
+            152 LOAD_CONST              22 (True)
+            154 LOAD_CONST              23 (('frozen',))
+            156 CALL_FUNCTION_KW         1
+
+446         158 LOAD_BUILD_CLASS
+            160 LOAD_CONST              24 (<code object MacOSControlProcessDependencies at 0x109244450, file "WeRobotCore/bootstrap/macos_control_process.py", line 445>)
+            162 LOAD_CONST              25 ('MacOSControlProcessDependencies')
+            164 MAKE_FUNCTION            0
+            166 LOAD_CONST              25 ('MacOSControlProcessDependencies')
+            168 CALL_FUNCTION            2
+            170 CALL_FUNCTION            1
+            172 STORE_NAME              21 (MacOSControlProcessDependencies)
+
+498         174 LOAD_NAME               18 (probe_private_agent_capabilities)
+
+494         176 LOAD_CONST              26 (('private_agent_probe',))
+            178 BUILD_CONST_KEY_MAP      1
+            180 LOAD_CONST              27 ('MacOSAppPaths')
+            182 LOAD_CONST              28 ('PrivateAgentCapabilityProbe')
+            184 LOAD_CONST              25 ('MacOSControlProcessDependencies')
+            186 LOAD_CONST              29 (('paths', 'private_agent_probe', 'return'))
+            188 BUILD_CONST_KEY_MAP      3
+            190 LOAD_CONST              30 (<code object create_macos_control_process_dependencies at 0x109244be0, file "WeRobotCore/bootstrap/macos_control_process.py", line 494>)
+            192 LOAD_CONST              31 ('create_macos_control_process_dependencies')
+            194 MAKE_FUNCTION            6 (kwdefaults, annotations)
+            196 STORE_NAME              22 (create_macos_control_process_dependencies)
+
+722         198 BUILD_LIST               0
+            200 LOAD_CONST              32 (('MacOSControlProcessDependencies', 'MacOSTaskSystemLifecycle', 'create_macos_control_process_dependencies', 'probe_private_agent_capabilities'))
+            202 LIST_EXTEND              1
+            204 STORE_NAME              23 (__all__)
+            206 LOAD_CONST               3 (None)
+            208 RETURN_VALUE
+
+Disassembly of <code object probe_private_agent_capabilities at 0x10924c450, file "WeRobotCore/bootstrap/macos_control_process.py", line 23>:
+ 35           0 LOAD_CONST               1 (0)
+              2 LOAD_CONST               2 (('probe_capabilities',))
+              4 IMPORT_NAME              0 (WeRobotCore.services.agentic_service)
+              6 IMPORT_FROM              1 (probe_capabilities)
+              8 STORE_FAST               2 (probe_capabilities)
+             10 POP_TOP
+
+ 37          12 LOAD_FAST                2 (probe_capabilities)
+             14 LOAD_FAST                0 (api_url)
+             16 LOAD_FAST                1 (api_token)
+             18 CALL_FUNCTION            2
+             20 GET_AWAITABLE
+             22 LOAD_CONST               3 (None)
+             24 YIELD_FROM
+             26 RETURN_VALUE
+
+Disassembly of <code object _require_callable at 0x10924cea0, file "WeRobotCore/bootstrap/macos_control_process.py", line 40>:
+ 41           0 LOAD_GLOBAL              0 (getattr)
+              2 LOAD_FAST                0 (owner)
+              4 LOAD_FAST                1 (name)
+              6 LOAD_CONST               0 (None)
+              8 CALL_FUNCTION            3
+             10 STORE_FAST               2 (value)
+
+ 42          12 LOAD_GLOBAL              1 (callable)
+             14 LOAD_FAST                2 (value)
+             16 CALL_FUNCTION            1
+             18 POP_JUMP_IF_TRUE        42
+
+ 43          20 LOAD_GLOBAL              2 (TypeError)
+             22 LOAD_CONST               1 ('{} must expose {}()')
+             24 LOAD_METHOD              3 (format)
+             26 LOAD_GLOBAL              4 (type)
+             28 LOAD_FAST                0 (owner)
+             30 CALL_FUNCTION            1
+             32 LOAD_ATTR                5 (__name__)
+             34 LOAD_FAST                1 (name)
+             36 CALL_METHOD              2
+             38 CALL_FUNCTION            1
+             40 RAISE_VARARGS            1
+
+ 44     >>   42 LOAD_FAST                2 (value)
+             44 RETURN_VALUE
+
+Disassembly of <code object MacOSTaskSystemLifecycle at 0x109244920, file "WeRobotCore/bootstrap/macos_control_process.py", line 47>:
+ 47           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('MacOSTaskSystemLifecycle')
+              6 STORE_NAME               2 (__qualname__)
+
+ 48           8 LOAD_CONST               1 ('Start and stop one explicitly rooted AutoReply task system.\n\n    Windows registers the V3 manager callbacks in ``api_server`` startup and\n    otherwise lets the Scheduler fall back to ``DataManager`` on first use.\n    The standalone macOS process cannot inherit either implicit owner.  This\n    lifecycle therefore fixes the Scheduler database path before any monitor\n    can create a task and shuts Monitor -> Manager -> Scheduler down in that\n    order.\n    ')
+             10 STORE_NAME               3 (__doc__)
+
+ 66          12 LOAD_CONST               2 (None)
+
+ 67          14 LOAD_CONST               2 (None)
+
+ 68          16 LOAD_CONST               2 (None)
+
+ 69          18 LOAD_CONST               2 (None)
+
+ 70          20 LOAD_CONST               2 (None)
+
+ 71          22 LOAD_CONST               2 (None)
+
+ 72          24 LOAD_CONST               2 (None)
+
+ 58          26 LOAD_CONST               3 (('mass_sending_manager', 'auto_follow_manager', 'moment_comment_manager', 'moment_post_manager', 'add_friend_manager', 'friend_request_manager', 'sync_contacts_manager'))
+             28 BUILD_CONST_KEY_MAP      7
+             30 LOAD_CONST               4 ('MacOSAppPaths')
+             32 LOAD_CONST               5 ('Any')
+             34 LOAD_CONST               5 ('Any')
+             36 LOAD_CONST               5 ('Any')
+             38 LOAD_CONST               5 ('Any')
+             40 LOAD_CONST               5 ('Any')
+             42 LOAD_CONST               5 ('Any')
+             44 LOAD_CONST               5 ('Any')
+             46 LOAD_CONST               5 ('Any')
+             48 LOAD_CONST               5 ('Any')
+             50 LOAD_CONST               5 ('Any')
+             52 LOAD_CONST               5 ('Any')
+             54 LOAD_CONST               6 ('None')
+             56 LOAD_CONST               7 (('paths', 'scheduler', 'permission_manager', 'auto_reply_manager', 'multi_chat_monitor', 'mass_sending_manager', 'auto_follow_manager', 'moment_comment_manager', 'moment_post_manager', 'add_friend_manager', 'friend_request_manager', 'sync_contacts_manager', 'return'))
+             58 BUILD_CONST_KEY_MAP     13
+             60 LOAD_CONST               8 (<code object __init__ at 0x10924c9d0, file "WeRobotCore/bootstrap/macos_control_process.py", line 58>)
+             62 LOAD_CONST               9 ('MacOSTaskSystemLifecycle.__init__')
+             64 MAKE_FUNCTION            6 (kwdefaults, annotations)
+             66 STORE_NAME               4 (__init__)
+
+134          68 LOAD_NAME                5 (property)
+
+135          70 LOAD_CONST              10 ('Path')
+             72 LOAD_CONST              11 (('return',))
+             74 BUILD_CONST_KEY_MAP      1
+             76 LOAD_CONST              12 (<code object scheduler_database_path at 0x10924c2f0, file "WeRobotCore/bootstrap/macos_control_process.py", line 134>)
+             78 LOAD_CONST              13 ('MacOSTaskSystemLifecycle.scheduler_database_path')
+             80 MAKE_FUNCTION            4 (annotations)
+             82 CALL_FUNCTION            1
+             84 STORE_NAME               6 (scheduler_database_path)
+
+138          86 LOAD_NAME                5 (property)
+
+139          88 LOAD_CONST               4 ('MacOSAppPaths')
+             90 LOAD_CONST              11 (('return',))
+             92 BUILD_CONST_KEY_MAP      1
+             94 LOAD_CONST              14 (<code object paths at 0x10924c3a0, file "WeRobotCore/bootstrap/macos_control_process.py", line 138>)
+             96 LOAD_CONST              15 ('MacOSTaskSystemLifecycle.paths')
+             98 MAKE_FUNCTION            4 (annotations)
+            100 CALL_FUNCTION            1
+            102 STORE_NAME               7 (paths)
+
+142         104 LOAD_NAME                5 (property)
+
+143         106 LOAD_CONST               5 ('Any')
+            108 LOAD_CONST              11 (('return',))
+            110 BUILD_CONST_KEY_MAP      1
+            112 LOAD_CONST              16 (<code object scheduler at 0x10924c870, file "WeRobotCore/bootstrap/macos_control_process.py", line 142>)
+            114 LOAD_CONST              17 ('MacOSTaskSystemLifecycle.scheduler')
+            116 MAKE_FUNCTION            4 (annotations)
+            118 CALL_FUNCTION            1
+            120 STORE_NAME               8 (scheduler)
+
+146         122 LOAD_NAME                5 (property)
+
+147         124 LOAD_CONST               5 ('Any')
+            126 LOAD_CONST              11 (('return',))
+            128 BUILD_CONST_KEY_MAP      1
+            130 LOAD_CONST              18 (<code object permission_manager at 0x10924ca80, file "WeRobotCore/bootstrap/macos_control_process.py", line 146>)
+            132 LOAD_CONST              19 ('MacOSTaskSystemLifecycle.permission_manager')
+            134 MAKE_FUNCTION            4 (annotations)
+            136 CALL_FUNCTION            1
+            138 STORE_NAME               9 (permission_manager)
+
+150         140 LOAD_NAME                5 (property)
+
+151         142 LOAD_CONST               5 ('Any')
+            144 LOAD_CONST              11 (('return',))
+            146 BUILD_CONST_KEY_MAP      1
+            148 LOAD_CONST              20 (<code object auto_reply_manager at 0x10924c0e0, file "WeRobotCore/bootstrap/macos_control_process.py", line 150>)
+            150 LOAD_CONST              21 ('MacOSTaskSystemLifecycle.auto_reply_manager')
+            152 MAKE_FUNCTION            4 (annotations)
+            154 CALL_FUNCTION            1
+            156 STORE_NAME              10 (auto_reply_manager)
+
+154         158 LOAD_NAME                5 (property)
+
+155         160 LOAD_CONST               5 ('Any')
+            162 LOAD_CONST              11 (('return',))
+            164 BUILD_CONST_KEY_MAP      1
+            166 LOAD_CONST              22 (<code object multi_chat_monitor at 0x10924cbe0, file "WeRobotCore/bootstrap/macos_control_process.py", line 154>)
+            168 LOAD_CONST              23 ('MacOSTaskSystemLifecycle.multi_chat_monitor')
+            170 MAKE_FUNCTION            4 (annotations)
+            172 CALL_FUNCTION            1
+            174 STORE_NAME              11 (multi_chat_monitor)
+
+158         176 LOAD_NAME                5 (property)
+
+159         178 LOAD_CONST               5 ('Any')
+            180 LOAD_CONST              11 (('return',))
+            182 BUILD_CONST_KEY_MAP      1
+            184 LOAD_CONST              24 (<code object mass_sending_manager at 0x10924c920, file "WeRobotCore/bootstrap/macos_control_process.py", line 158>)
+            186 LOAD_CONST              25 ('MacOSTaskSystemLifecycle.mass_sending_manager')
+            188 MAKE_FUNCTION            4 (annotations)
+            190 CALL_FUNCTION            1
+            192 STORE_NAME              12 (mass_sending_manager)
+
+162         194 LOAD_NAME                5 (property)
+
+163         196 LOAD_CONST               5 ('Any')
+            198 LOAD_CONST              11 (('return',))
+            200 BUILD_CONST_KEY_MAP      1
+            202 LOAD_CONST              26 (<code object auto_follow_manager at 0x10924c660, file "WeRobotCore/bootstrap/macos_control_process.py", line 162>)
+            204 LOAD_CONST              27 ('MacOSTaskSystemLifecycle.auto_follow_manager')
+            206 MAKE_FUNCTION            4 (annotations)
+            208 CALL_FUNCTION            1
+            210 STORE_NAME              13 (auto_follow_manager)
+
+166         212 LOAD_NAME                5 (property)
+
+167         214 LOAD_CONST               5 ('Any')
+            216 LOAD_CONST              11 (('return',))
+            218 BUILD_CONST_KEY_MAP      1
+            220 LOAD_CONST              28 (<code object moment_comment_manager at 0x10924c5b0, file "WeRobotCore/bootstrap/macos_control_process.py", line 166>)
+            222 LOAD_CONST              29 ('MacOSTaskSystemLifecycle.moment_comment_manager')
+            224 MAKE_FUNCTION            4 (annotations)
+            226 CALL_FUNCTION            1
+            228 STORE_NAME              14 (moment_comment_manager)
+
+170         230 LOAD_NAME                5 (property)
+
+171         232 LOAD_CONST               5 ('Any')
+            234 LOAD_CONST              11 (('return',))
+            236 BUILD_CONST_KEY_MAP      1
+            238 LOAD_CONST              30 (<code object moment_post_manager at 0x10924c190, file "WeRobotCore/bootstrap/macos_control_process.py", line 170>)
+            240 LOAD_CONST              31 ('MacOSTaskSystemLifecycle.moment_post_manager')
+            242 MAKE_FUNCTION            4 (annotations)
+            244 CALL_FUNCTION            1
+            246 STORE_NAME              15 (moment_post_manager)
+
+174         248 LOAD_NAME                5 (property)
+
+175         250 LOAD_CONST               5 ('Any')
+            252 LOAD_CONST              11 (('return',))
+            254 BUILD_CONST_KEY_MAP      1
+            256 LOAD_CONST              32 (<code object add_friend_manager at 0x10924c500, file "WeRobotCore/bootstrap/macos_control_process.py", line 174>)
+            258 LOAD_CONST              33 ('MacOSTaskSystemLifecycle.add_friend_manager')
+            260 MAKE_FUNCTION            4 (annotations)
+            262 CALL_FUNCTION            1
+            264 STORE_NAME              16 (add_friend_manager)
+
+178         266 LOAD_NAME                5 (property)
+
+179         268 LOAD_CONST               5 ('Any')
+            270 LOAD_CONST              11 (('return',))
+            272 BUILD_CONST_KEY_MAP      1
+            274 LOAD_CONST              34 (<code object friend_request_manager at 0x10924cd40, file "WeRobotCore/bootstrap/macos_control_process.py", line 178>)
+            276 LOAD_CONST              35 ('MacOSTaskSystemLifecycle.friend_request_manager')
+            278 MAKE_FUNCTION            4 (annotations)
+            280 CALL_FUNCTION            1
+            282 STORE_NAME              17 (friend_request_manager)
+
+182         284 LOAD_NAME                5 (property)
+
+183         286 LOAD_CONST               5 ('Any')
+            288 LOAD_CONST              11 (('return',))
+            290 BUILD_CONST_KEY_MAP      1
+            292 LOAD_CONST              36 (<code object sync_contacts_manager at 0x10924cdf0, file "WeRobotCore/bootstrap/macos_control_process.py", line 182>)
+            294 LOAD_CONST              37 ('MacOSTaskSystemLifecycle.sync_contacts_manager')
+            296 MAKE_FUNCTION            4 (annotations)
+            298 CALL_FUNCTION            1
+            300 STORE_NAME              18 (sync_contacts_manager)
+
+186         302 LOAD_NAME                5 (property)
+
+187         304 LOAD_CONST              38 ('str')
+            306 LOAD_CONST              11 (('return',))
+            308 BUILD_CONST_KEY_MAP      1
+            310 LOAD_CONST              39 (<code object state at 0x109244870, file "WeRobotCore/bootstrap/macos_control_process.py", line 186>)
+            312 LOAD_CONST              40 ('MacOSTaskSystemLifecycle.state')
+            314 MAKE_FUNCTION            4 (annotations)
+            316 CALL_FUNCTION            1
+            318 STORE_NAME              19 (state)
+
+190         320 LOAD_NAME                5 (property)
+
+191         322 LOAD_CONST              41 ('bool')
+            324 LOAD_CONST              11 (('return',))
+            326 BUILD_CONST_KEY_MAP      1
+            328 LOAD_CONST              42 (<code object started at 0x109244d40, file "WeRobotCore/bootstrap/macos_control_process.py", line 190>)
+            330 LOAD_CONST              43 ('MacOSTaskSystemLifecycle.started')
+            332 MAKE_FUNCTION            4 (annotations)
+            334 CALL_FUNCTION            1
+            336 STORE_NAME              20 (started)
+
+194         338 LOAD_CONST              44 ('asyncio.Lock')
+            340 LOAD_CONST              11 (('return',))
+            342 BUILD_CONST_KEY_MAP      1
+            344 LOAD_CONST              45 (<code object _lock at 0x1092443a0, file "WeRobotCore/bootstrap/macos_control_process.py", line 194>)
+            346 LOAD_CONST              46 ('MacOSTaskSystemLifecycle._lock')
+            348 MAKE_FUNCTION            4 (annotations)
+            350 STORE_NAME              21 (_lock)
+
+201         352 LOAD_CONST               6 ('None')
+            354 LOAD_CONST              11 (('return',))
+            356 BUILD_CONST_KEY_MAP      1
+            358 LOAD_CONST              47 (<code object start at 0x1092442f0, file "WeRobotCore/bootstrap/macos_control_process.py", line 201>)
+            360 LOAD_CONST              48 ('MacOSTaskSystemLifecycle.start')
+            362 MAKE_FUNCTION            4 (annotations)
+            364 STORE_NAME              22 (start)
+
+344         366 LOAD_CONST               6 ('None')
+            368 LOAD_CONST              11 (('return',))
+            370 BUILD_CONST_KEY_MAP      1
+            372 LOAD_CONST              49 (<code object stop at 0x1092440e0, file "WeRobotCore/bootstrap/macos_control_process.py", line 344>)
+            374 LOAD_CONST              50 ('MacOSTaskSystemLifecycle.stop')
+            376 MAKE_FUNCTION            4 (annotations)
+            378 STORE_NAME              23 (stop)
+            380 LOAD_CONST               2 (None)
+            382 RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x10924c9d0, file "WeRobotCore/bootstrap/macos_control_process.py", line 58>:
+ 74           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                1 (paths)
+              4 LOAD_GLOBAL              1 (MacOSAppPaths)
+              6 CALL_FUNCTION            2
+              8 POP_JUMP_IF_TRUE        18
+
+ 75          10 LOAD_GLOBAL              2 (TypeError)
+             12 LOAD_CONST               1 ('paths must be MacOSAppPaths')
+             14 CALL_FUNCTION            1
+             16 RAISE_VARARGS            1
+
+ 77     >>   18 LOAD_FAST                2 (scheduler)
+             20 LOAD_CONST               2 (('initialize', 'process_existing_tasks', 'shutdown'))
+             22 BUILD_TUPLE              2
+
+ 78          24 LOAD_FAST                4 (auto_reply_manager)
+             26 LOAD_CONST               3 (('start', 'stop', 'is_running'))
+             28 BUILD_TUPLE              2
+
+ 80          30 LOAD_FAST                5 (multi_chat_monitor)
+
+ 81          32 LOAD_CONST               4 (('start_monitoring_all', 'stop_monitoring_all', 'is_running'))
+
+ 79          34 BUILD_TUPLE              2
+
+ 76          36 BUILD_TUPLE              3
+             38 GET_ITER
+        >>   40 FOR_ITER                28 (to 70)
+             42 UNPACK_SEQUENCE          2
+             44 STORE_FAST              13 (owner)
+             46 STORE_FAST              14 (methods)
+
+ 84          48 LOAD_FAST               14 (methods)
+             50 GET_ITER
+        >>   52 FOR_ITER                14 (to 68)
+             54 STORE_FAST              15 (method)
+
+ 85          56 LOAD_GLOBAL              3 (_require_callable)
+             58 LOAD_FAST               13 (owner)
+             60 LOAD_FAST               15 (method)
+             62 CALL_FUNCTION            2
+             64 POP_TOP
+             66 JUMP_ABSOLUTE           52
+        >>   68 JUMP_ABSOLUTE           40
+
+ 86     >>   70 LOAD_FAST                6 (mass_sending_manager)
+             72 LOAD_CONST               0 (None)
+             74 IS_OP                    1
+             76 POP_JUMP_IF_FALSE       98
+
+ 87          78 LOAD_CONST               5 (('start', 'stop', 'bind_runtime'))
+             80 GET_ITER
+        >>   82 FOR_ITER                14 (to 98)
+             84 STORE_FAST              15 (method)
+
+ 88          86 LOAD_GLOBAL              3 (_require_callable)
+             88 LOAD_FAST                6 (mass_sending_manager)
+             90 LOAD_FAST               15 (method)
+             92 CALL_FUNCTION            2
+             94 POP_TOP
+             96 JUMP_ABSOLUTE           82
+
+ 89     >>   98 LOAD_FAST                7 (auto_follow_manager)
+            100 LOAD_CONST               0 (None)
+            102 IS_OP                    1
+            104 POP_JUMP_IF_FALSE      126
+
+ 90         106 LOAD_CONST               5 (('start', 'stop', 'bind_runtime'))
+            108 GET_ITER
+        >>  110 FOR_ITER                14 (to 126)
+            112 STORE_FAST              15 (method)
+
+ 91         114 LOAD_GLOBAL              3 (_require_callable)
+            116 LOAD_FAST                7 (auto_follow_manager)
+            118 LOAD_FAST               15 (method)
+            120 CALL_FUNCTION            2
+            122 POP_TOP
+            124 JUMP_ABSOLUTE          110
+
+ 92     >>  126 LOAD_FAST                8 (moment_comment_manager)
+            128 LOAD_CONST               0 (None)
+            130 IS_OP                    1
+            132 POP_JUMP_IF_FALSE      154
+
+ 93         134 LOAD_CONST               5 (('start', 'stop', 'bind_runtime'))
+            136 GET_ITER
+        >>  138 FOR_ITER                14 (to 154)
+            140 STORE_FAST              15 (method)
+
+ 94         142 LOAD_GLOBAL              3 (_require_callable)
+            144 LOAD_FAST                8 (moment_comment_manager)
+            146 LOAD_FAST               15 (method)
+            148 CALL_FUNCTION            2
+            150 POP_TOP
+            152 JUMP_ABSOLUTE          138
+
+ 95     >>  154 LOAD_FAST                9 (moment_post_manager)
+            156 LOAD_CONST               0 (None)
+            158 IS_OP                    1
+            160 POP_JUMP_IF_FALSE      182
+
+ 96         162 LOAD_CONST               5 (('start', 'stop', 'bind_runtime'))
+            164 GET_ITER
+        >>  166 FOR_ITER                14 (to 182)
+            168 STORE_FAST              15 (method)
+
+ 97         170 LOAD_GLOBAL              3 (_require_callable)
+            172 LOAD_FAST                9 (moment_post_manager)
+            174 LOAD_FAST               15 (method)
+            176 CALL_FUNCTION            2
+            178 POP_TOP
+            180 JUMP_ABSOLUTE          166
+
+ 98     >>  182 LOAD_FAST               10 (add_friend_manager)
+            184 LOAD_CONST               0 (None)
+            186 IS_OP                    1
+            188 POP_JUMP_IF_FALSE      210
+
+ 99         190 LOAD_CONST               6 (('start', 'stop', 'bind_runtime', 'bind_configuration_factory'))
+            192 GET_ITER
+        >>  194 FOR_ITER                14 (to 210)
+            196 STORE_FAST              15 (method)
+
+105         198 LOAD_GLOBAL              3 (_require_callable)
+            200 LOAD_FAST               10 (add_friend_manager)
+            202 LOAD_FAST               15 (method)
+            204 CALL_FUNCTION            2
+            206 POP_TOP
+            208 JUMP_ABSOLUTE          194
+
+106     >>  210 LOAD_FAST               11 (friend_request_manager)
+            212 LOAD_CONST               0 (None)
+            214 IS_OP                    1
+            216 POP_JUMP_IF_FALSE      238
+
+107         218 LOAD_CONST               6 (('start', 'stop', 'bind_runtime', 'bind_configuration_factory'))
+            220 GET_ITER
+        >>  222 FOR_ITER                14 (to 238)
+            224 STORE_FAST              15 (method)
+
+113         226 LOAD_GLOBAL              3 (_require_callable)
+            228 LOAD_FAST               11 (friend_request_manager)
+            230 LOAD_FAST               15 (method)
+            232 CALL_FUNCTION            2
+            234 POP_TOP
+            236 JUMP_ABSOLUTE          222
+
+114     >>  238 LOAD_FAST               12 (sync_contacts_manager)
+            240 LOAD_CONST               0 (None)
+            242 IS_OP                    1
+            244 EXTENDED_ARG             1
+            246 POP_JUMP_IF_FALSE      268
+
+115         248 LOAD_CONST               5 (('start', 'stop', 'bind_runtime'))
+            250 GET_ITER
+        >>  252 FOR_ITER                14 (to 268)
+            254 STORE_FAST              15 (method)
+
+116         256 LOAD_GLOBAL              3 (_require_callable)
+            258 LOAD_FAST               12 (sync_contacts_manager)
+            260 LOAD_FAST               15 (method)
+            262 CALL_FUNCTION            2
+            264 POP_TOP
+            266 JUMP_ABSOLUTE          252
+
+118     >>  268 LOAD_FAST                1 (paths)
+            270 LOAD_FAST                0 (self)
+            272 STORE_ATTR               4 (_paths)
+
+119         274 LOAD_FAST                2 (scheduler)
+            276 LOAD_FAST                0 (self)
+            278 STORE_ATTR               5 (_scheduler)
+
+120         280 LOAD_FAST                3 (permission_manager)
+            282 LOAD_FAST                0 (self)
+            284 STORE_ATTR               6 (_permission_manager)
+
+121         286 LOAD_FAST                4 (auto_reply_manager)
+            288 LOAD_FAST                0 (self)
+            290 STORE_ATTR               7 (_auto_reply_manager)
+
+122         292 LOAD_FAST                5 (multi_chat_monitor)
+            294 LOAD_FAST                0 (self)
+            296 STORE_ATTR               8 (_multi_chat_monitor)
+
+123         298 LOAD_FAST                6 (mass_sending_manager)
+            300 LOAD_FAST                0 (self)
+            302 STORE_ATTR               9 (_mass_sending_manager)
+
+124         304 LOAD_FAST                7 (auto_follow_manager)
+            306 LOAD_FAST                0 (self)
+            308 STORE_ATTR              10 (_auto_follow_manager)
+
+125         310 LOAD_FAST                8 (moment_comment_manager)
+            312 LOAD_FAST                0 (self)
+            314 STORE_ATTR              11 (_moment_comment_manager)
+
+126         316 LOAD_FAST                9 (moment_post_manager)
+            318 LOAD_FAST                0 (self)
+            320 STORE_ATTR              12 (_moment_post_manager)
+
+127         322 LOAD_FAST               10 (add_friend_manager)
+            324 LOAD_FAST                0 (self)
+            326 STORE_ATTR              13 (_add_friend_manager)
+
+128         328 LOAD_FAST               11 (friend_request_manager)
+            330 LOAD_FAST                0 (self)
+            332 STORE_ATTR              14 (_friend_request_manager)
+
+129         334 LOAD_FAST               12 (sync_contacts_manager)
+            336 LOAD_FAST                0 (self)
+            338 STORE_ATTR              15 (_sync_contacts_manager)
+
+130         340 LOAD_CONST               7 ('new')
+            342 LOAD_FAST                0 (self)
+            344 STORE_ATTR              16 (_state)
+
+132         346 LOAD_CONST               0 (None)
+            348 LOAD_FAST                0 (self)
+            350 STORE_ATTR              17 (_transition_lock)
+            352 LOAD_CONST               0 (None)
+            354 RETURN_VALUE
+
+Disassembly of <code object scheduler_database_path at 0x10924c2f0, file "WeRobotCore/bootstrap/macos_control_process.py", line 134>:
+136           0 LOAD_FAST                0 (self)
+              2 LOAD_ATTR                0 (_paths)
+              4 LOAD_ATTR                1 (data_root)
+              6 LOAD_CONST               1 ('scheduler_v3.db')
+              8 BINARY_TRUE_DIVIDE
+             10 RETURN_VALUE
+
+Disassembly of <code object paths at 0x10924c3a0, file "WeRobotCore/bootstrap/macos_control_process.py", line 138>:
+140           0 LOAD_FAST                0 (self)
+              2 LOAD_ATTR                0 (_paths)
+              4 RETURN_VALUE
+
+Disassembly of <code object scheduler at 0x10924c870, file "WeRobotCore/bootstrap/macos_control_process.py", line 142>:
+144           0 LOAD_FAST                0 (self)
+              2 LOAD_ATTR                0 (_scheduler)
+              4 RETURN_VALUE
+
+Disassembly of <code object permission_manager at 0x10924ca80, file "WeRobotCore/bootstrap/macos_control_process.py", line 146>:
+148           0 LOAD_FAST                0 (self)
+              2 LOAD_ATTR                0 (_permission_manager)
+              4 RETURN_VALUE
+
+Disassembly of <code object auto_reply_manager at 0x10924c0e0, file "WeRobotCore/bootstrap/macos_control_process.py", line 150>:
+152           0 LOAD_FAST                0 (self)
+              2 LOAD_ATTR                0 (_auto_reply_manager)
+              4 RETURN_VALUE
+
+Disassembly of <code object multi_chat_monitor at 0x10924cbe0, file "WeRobotCore/bootstrap/macos_control_process.py", line 154>:
+156           0 LOAD_FAST                0 (self)
+              2 LOAD_ATTR                0 (_multi_chat_monitor)
+              4 RETURN_VALUE
+
+Disassembly of <code object mass_sending_manager at 0x10924c920, file "WeRobotCore/bootstrap/macos_control_process.py", line 158>:
+160           0 LOAD_FAST                0 (self)
+              2 LOAD_ATTR                0 (_mass_sending_manager)
+              4 RETURN_VALUE
+
+Disassembly of <code object auto_follow_manager at 0x10924c660, file "WeRobotCore/bootstrap/macos_control_process.py", line 162>:
+164           0 LOAD_FAST                0 (self)
+              2 LOAD_ATTR                0 (_auto_follow_manager)
+              4 RETURN_VALUE
+
+Disassembly of <code object moment_comment_manager at 0x10924c5b0, file "WeRobotCore/bootstrap/macos_control_process.py", line 166>:
+168           0 LOAD_FAST                0 (self)
+              2 LOAD_ATTR                0 (_moment_comment_manager)
+              4 RETURN_VALUE
+
+Disassembly of <code object moment_post_manager at 0x10924c190, file "WeRobotCore/bootstrap/macos_control_process.py", line 170>:
+172           0 LOAD_FAST                0 (self)
+              2 LOAD_ATTR                0 (_moment_post_manager)
+              4 RETURN_VALUE
+
+Disassembly of <code object add_friend_manager at 0x10924c500, file "WeRobotCore/bootstrap/macos_control_process.py", line 174>:
+176           0 LOAD_FAST                0 (self)
+              2 LOAD_ATTR                0 (_add_friend_manager)
+              4 RETURN_VALUE
+
+Disassembly of <code object friend_request_manager at 0x10924cd40, file "WeRobotCore/bootstrap/macos_control_process.py", line 178>:
+180           0 LOAD_FAST                0 (self)
+              2 LOAD_ATTR                0 (_friend_request_manager)
+              4 RETURN_VALUE
+
+Disassembly of <code object sync_contacts_manager at 0x10924cdf0, file "WeRobotCore/bootstrap/macos_control_process.py", line 182>:
+184           0 LOAD_FAST                0 (self)
+              2 LOAD_ATTR                0 (_sync_contacts_manager)
+              4 RETURN_VALUE
+
+Disassembly of <code object state at 0x109244870, file "WeRobotCore/bootstrap/macos_control_process.py", line 186>:
+188           0 LOAD_FAST                0 (self)
+              2 LOAD_ATTR                0 (_state)
+              4 RETURN_VALUE
+
+Disassembly of <code object started at 0x109244d40, file "WeRobotCore/bootstrap/macos_control_process.py", line 190>:
+192           0 LOAD_FAST                0 (self)
+              2 LOAD_ATTR                0 (_state)
+              4 LOAD_CONST               1 ('running')
+              6 COMPARE_OP               2 (==)
+              8 RETURN_VALUE
+
+Disassembly of <code object _lock at 0x1092443a0, file "WeRobotCore/bootstrap/macos_control_process.py", line 194>:
+195           0 LOAD_FAST                0 (self)
+              2 LOAD_ATTR                0 (_transition_lock)
+              4 STORE_FAST               1 (lock)
+
+196           6 LOAD_FAST                1 (lock)
+              8 LOAD_CONST               0 (None)
+             10 IS_OP                    0
+             12 POP_JUMP_IF_FALSE       28
+
+197          14 LOAD_GLOBAL              1 (asyncio)
+             16 LOAD_METHOD              2 (Lock)
+             18 CALL_METHOD              0
+             20 STORE_FAST               1 (lock)
+
+198          22 LOAD_FAST                1 (lock)
+             24 LOAD_FAST                0 (self)
+             26 STORE_ATTR               0 (_transition_lock)
+
+199     >>   28 LOAD_FAST                1 (lock)
+             30 RETURN_VALUE
+
+Disassembly of <code object start at 0x1092442f0, file "WeRobotCore/bootstrap/macos_control_process.py", line 201>:
+204           0 LOAD_FAST                0 (self)
+              2 LOAD_METHOD              0 (_lock)
+              4 CALL_METHOD              0
+              6 BEFORE_ASYNC_WITH
+              8 GET_AWAITABLE
+             10 LOAD_CONST               1 (None)
+             12 YIELD_FROM
+             14 EXTENDED_ARG             4
+             16 SETUP_ASYNC_WITH      1064 (to 1082)
+             18 POP_TOP
+
+205          20 LOAD_FAST                0 (self)
+             22 LOAD_ATTR                1 (_state)
+             24 LOAD_CONST               2 ('running')
+             26 COMPARE_OP               2 (==)
+             28 POP_JUMP_IF_FALSE       52
+
+206          30 POP_BLOCK
+             32 LOAD_CONST               1 (None)
+             34 DUP_TOP
+             36 DUP_TOP
+             38 CALL_FUNCTION            3
+             40 GET_AWAITABLE
+             42 LOAD_CONST               1 (None)
+             44 YIELD_FROM
+             46 POP_TOP
+             48 LOAD_CONST               1 (None)
+             50 RETURN_VALUE
+
+207     >>   52 LOAD_FAST                0 (self)
+             54 LOAD_ATTR                1 (_state)
+             56 LOAD_CONST               3 (('new',))
+             58 CONTAINS_OP              1
+             60 POP_JUMP_IF_FALSE       78
+
+208          62 LOAD_GLOBAL              2 (RuntimeError)
+
+209          64 LOAD_CONST               4 ('macOS task system cannot start from state {}')
+             66 LOAD_METHOD              3 (format)
+
+210          68 LOAD_FAST                0 (self)
+             70 LOAD_ATTR                1 (_state)
+
+209          72 CALL_METHOD              1
+
+208          74 CALL_FUNCTION            1
+             76 RAISE_VARARGS            1
+
+214     >>   78 LOAD_CONST               5 ('starting')
+             80 LOAD_FAST                0 (self)
+             82 STORE_ATTR               1 (_state)
+
+215          84 LOAD_CONST               6 (False)
+             86 STORE_FAST               1 (scheduler_started)
+
+216          88 LOAD_CONST               6 (False)
+             90 STORE_FAST               2 (manager_started)
+
+217          92 LOAD_CONST               6 (False)
+             94 STORE_FAST               3 (mass_manager_started)
+
+218          96 LOAD_CONST               6 (False)
+             98 STORE_FAST               4 (follow_manager_started)
+
+219         100 LOAD_CONST               6 (False)
+            102 STORE_FAST               5 (moment_manager_started)
+
+220         104 LOAD_CONST               6 (False)
+            106 STORE_FAST               6 (moment_post_manager_started)
+
+221         108 LOAD_CONST               6 (False)
+            110 STORE_FAST               7 (add_friend_manager_started)
+
+222         112 LOAD_CONST               6 (False)
+            114 STORE_FAST               8 (friend_request_manager_started)
+
+223         116 LOAD_CONST               6 (False)
+            118 STORE_FAST               9 (sync_contacts_manager_started)
+
+224         120 EXTENDED_ARG             1
+            122 SETUP_FINALLY          448 (to 572)
+
+225         124 LOAD_FAST                0 (self)
+            126 LOAD_ATTR                4 (scheduler_database_path)
+            128 STORE_FAST              10 (database_path)
+
+226         130 LOAD_FAST               10 (database_path)
+            132 LOAD_ATTR                5 (parent)
+            134 LOAD_ATTR                6 (mkdir)
+            136 LOAD_CONST               7 (True)
+            138 LOAD_CONST               7 (True)
+            140 LOAD_CONST               8 (('parents', 'exist_ok'))
+            142 CALL_FUNCTION_KW         2
+            144 POP_TOP
+
+227         146 LOAD_FAST                0 (self)
+            148 LOAD_ATTR                7 (_scheduler)
+            150 LOAD_ATTR                8 (initialize)
+
+228         152 LOAD_GLOBAL              9 (str)
+            154 LOAD_FAST               10 (database_path)
+            156 CALL_FUNCTION            1
+
+229         158 LOAD_FAST                0 (self)
+            160 LOAD_ATTR               10 (_permission_manager)
+
+230         162 LOAD_CONST               6 (False)
+
+227         164 LOAD_CONST               9 (('db_path', 'permission_manager', 'auto_resume_tasks'))
+            166 CALL_FUNCTION_KW         3
+            168 GET_AWAITABLE
+            170 LOAD_CONST               1 (None)
+            172 YIELD_FROM
+            174 STORE_FAST              11 (initialized)
+
+232         176 LOAD_FAST               11 (initialized)
+            178 POP_JUMP_IF_TRUE       188
+
+233         180 LOAD_GLOBAL              2 (RuntimeError)
+            182 LOAD_CONST              10 ('shared Scheduler initialization failed')
+            184 CALL_FUNCTION            1
+            186 RAISE_VARARGS            1
+
+234     >>  188 LOAD_CONST               7 (True)
+            190 STORE_FAST               1 (scheduler_started)
+
+236         192 LOAD_FAST                0 (self)
+            194 LOAD_ATTR               11 (_mass_sending_manager)
+            196 LOAD_CONST               1 (None)
+            198 IS_OP                    1
+            200 POP_JUMP_IF_FALSE      234
+
+237         202 LOAD_GLOBAL             12 (bool)
+
+238         204 LOAD_FAST                0 (self)
+            206 LOAD_ATTR               11 (_mass_sending_manager)
+            208 LOAD_METHOD             13 (start)
+            210 CALL_METHOD              0
+            212 GET_AWAITABLE
+            214 LOAD_CONST               1 (None)
+            216 YIELD_FROM
+
+237         218 CALL_FUNCTION            1
+            220 STORE_FAST               3 (mass_manager_started)
+
+240         222 LOAD_FAST                3 (mass_manager_started)
+            224 POP_JUMP_IF_TRUE       234
+
+241         226 LOAD_GLOBAL              2 (RuntimeError)
+            228 LOAD_CONST              11 ('Mac mass-sending manager start failed')
+            230 CALL_FUNCTION            1
+            232 RAISE_VARARGS            1
+
+243     >>  234 LOAD_FAST                0 (self)
+            236 LOAD_ATTR               14 (_auto_follow_manager)
+            238 LOAD_CONST               1 (None)
+            240 IS_OP                    1
+            242 EXTENDED_ARG             1
+            244 POP_JUMP_IF_FALSE      280
+
+244         246 LOAD_GLOBAL             12 (bool)
+
+245         248 LOAD_FAST                0 (self)
+            250 LOAD_ATTR               14 (_auto_follow_manager)
+            252 LOAD_METHOD             13 (start)
+            254 CALL_METHOD              0
+            256 GET_AWAITABLE
+            258 LOAD_CONST               1 (None)
+            260 YIELD_FROM
+
+244         262 CALL_FUNCTION            1
+            264 STORE_FAST               4 (follow_manager_started)
+
+247         266 LOAD_FAST                4 (follow_manager_started)
+            268 EXTENDED_ARG             1
+            270 POP_JUMP_IF_TRUE       280
+
+248         272 LOAD_GLOBAL              2 (RuntimeError)
+            274 LOAD_CONST              12 ('Mac automatic-follow manager start failed')
+            276 CALL_FUNCTION            1
+            278 RAISE_VARARGS            1
+
+250     >>  280 LOAD_FAST                0 (self)
+            282 LOAD_ATTR               15 (_moment_comment_manager)
+            284 LOAD_CONST               1 (None)
+            286 IS_OP                    1
+            288 EXTENDED_ARG             1
+            290 POP_JUMP_IF_FALSE      326
+
+251         292 LOAD_GLOBAL             12 (bool)
+
+252         294 LOAD_FAST                0 (self)
+            296 LOAD_ATTR               15 (_moment_comment_manager)
+            298 LOAD_METHOD             13 (start)
+            300 CALL_METHOD              0
+            302 GET_AWAITABLE
+            304 LOAD_CONST               1 (None)
+            306 YIELD_FROM
+
+251         308 CALL_FUNCTION            1
+            310 STORE_FAST               5 (moment_manager_started)
+
+254         312 LOAD_FAST                5 (moment_manager_started)
+            314 EXTENDED_ARG             1
+            316 POP_JUMP_IF_TRUE       326
+
+255         318 LOAD_GLOBAL              2 (RuntimeError)
+            320 LOAD_CONST              13 ('Mac Moments manager start failed')
+            322 CALL_FUNCTION            1
+            324 RAISE_VARARGS            1
+
+257     >>  326 LOAD_FAST                0 (self)
+            328 LOAD_ATTR               16 (_moment_post_manager)
+            330 LOAD_CONST               1 (None)
+            332 IS_OP                    1
+            334 EXTENDED_ARG             1
+            336 POP_JUMP_IF_FALSE      372
+
+258         338 LOAD_GLOBAL             12 (bool)
+
+259         340 LOAD_FAST                0 (self)
+            342 LOAD_ATTR               16 (_moment_post_manager)
+            344 LOAD_METHOD             13 (start)
+            346 CALL_METHOD              0
+            348 GET_AWAITABLE
+            350 LOAD_CONST               1 (None)
+            352 YIELD_FROM
+
+258         354 CALL_FUNCTION            1
+            356 STORE_FAST               6 (moment_post_manager_started)
+
+261         358 LOAD_FAST                6 (moment_post_manager_started)
+            360 EXTENDED_ARG             1
+            362 POP_JUMP_IF_TRUE       372
+
+262         364 LOAD_GLOBAL              2 (RuntimeError)
+            366 LOAD_CONST              14 ('Mac Moment-post manager start failed')
+            368 CALL_FUNCTION            1
+            370 RAISE_VARARGS            1
+
+264     >>  372 LOAD_FAST                0 (self)
+            374 LOAD_ATTR               17 (_add_friend_manager)
+            376 LOAD_CONST               1 (None)
+            378 IS_OP                    1
+            380 EXTENDED_ARG             1
+            382 POP_JUMP_IF_FALSE      418
+
+265         384 LOAD_GLOBAL             12 (bool)
+
+266         386 LOAD_FAST                0 (self)
+            388 LOAD_ATTR               17 (_add_friend_manager)
+            390 LOAD_METHOD             13 (start)
+            392 CALL_METHOD              0
+            394 GET_AWAITABLE
+            396 LOAD_CONST               1 (None)
+            398 YIELD_FROM
+
+265         400 CALL_FUNCTION            1
+            402 STORE_FAST               7 (add_friend_manager_started)
+
+268         404 LOAD_FAST                7 (add_friend_manager_started)
+            406 EXTENDED_ARG             1
+            408 POP_JUMP_IF_TRUE       418
+
+269         410 LOAD_GLOBAL              2 (RuntimeError)
+            412 LOAD_CONST              15 ('Mac automatic friend-add manager start failed')
+            414 CALL_FUNCTION            1
+            416 RAISE_VARARGS            1
+
+271     >>  418 LOAD_FAST                0 (self)
+            420 LOAD_ATTR               18 (_friend_request_manager)
+            422 LOAD_CONST               1 (None)
+            424 IS_OP                    1
+            426 EXTENDED_ARG             1
+            428 POP_JUMP_IF_FALSE      464
+
+272         430 LOAD_GLOBAL             12 (bool)
+
+273         432 LOAD_FAST                0 (self)
+            434 LOAD_ATTR               18 (_friend_request_manager)
+            436 LOAD_METHOD             13 (start)
+            438 CALL_METHOD              0
+            440 GET_AWAITABLE
+            442 LOAD_CONST               1 (None)
+            444 YIELD_FROM
+
+272         446 CALL_FUNCTION            1
+            448 STORE_FAST               8 (friend_request_manager_started)
+
+275         450 LOAD_FAST                8 (friend_request_manager_started)
+            452 EXTENDED_ARG             1
+            454 POP_JUMP_IF_TRUE       464
+
+276         456 LOAD_GLOBAL              2 (RuntimeError)
+
+277         458 LOAD_CONST              16 ('Mac automatic friend-request manager start failed')
+
+276         460 CALL_FUNCTION            1
+            462 RAISE_VARARGS            1
+
+280     >>  464 LOAD_FAST                0 (self)
+            466 LOAD_ATTR               19 (_sync_contacts_manager)
+            468 LOAD_CONST               1 (None)
+            470 IS_OP                    1
+            472 EXTENDED_ARG             1
+            474 POP_JUMP_IF_FALSE      510
+
+281         476 LOAD_GLOBAL             12 (bool)
+
+282         478 LOAD_FAST                0 (self)
+            480 LOAD_ATTR               19 (_sync_contacts_manager)
+            482 LOAD_METHOD             13 (start)
+            484 CALL_METHOD              0
+            486 GET_AWAITABLE
+            488 LOAD_CONST               1 (None)
+            490 YIELD_FROM
+
+281         492 CALL_FUNCTION            1
+            494 STORE_FAST               9 (sync_contacts_manager_started)
+
+284         496 LOAD_FAST                9 (sync_contacts_manager_started)
+            498 EXTENDED_ARG             1
+            500 POP_JUMP_IF_TRUE       510
+
+285         502 LOAD_GLOBAL              2 (RuntimeError)
+            504 LOAD_CONST              17 ('Mac scheduled contact-sync manager start failed')
+            506 CALL_FUNCTION            1
+            508 RAISE_VARARGS            1
+
+290     >>  510 LOAD_FAST                0 (self)
+            512 LOAD_ATTR                7 (_scheduler)
+            514 LOAD_METHOD             20 (process_existing_tasks)
+            516 CALL_METHOD              0
+            518 GET_AWAITABLE
+            520 LOAD_CONST               1 (None)
+            522 YIELD_FROM
+            524 POP_TOP
+
+291         526 LOAD_GLOBAL             12 (bool)
+            528 LOAD_FAST                0 (self)
+            530 LOAD_ATTR               21 (_auto_reply_manager)
+            532 LOAD_METHOD             13 (start)
+            534 CALL_METHOD              0
+            536 GET_AWAITABLE
+            538 LOAD_CONST               1 (None)
+            540 YIELD_FROM
+            542 CALL_FUNCTION            1
+            544 STORE_FAST               2 (manager_started)
+
+292         546 LOAD_FAST                2 (manager_started)
+            548 EXTENDED_ARG             2
+            550 POP_JUMP_IF_TRUE       560
+
+293         552 LOAD_GLOBAL              2 (RuntimeError)
+            554 LOAD_CONST              18 ('shared AutoReplyManager start failed')
+            556 CALL_FUNCTION            1
+            558 RAISE_VARARGS            1
+
+294     >>  560 LOAD_CONST               2 ('running')
+            562 LOAD_FAST                0 (self)
+            564 STORE_ATTR               1 (_state)
+            566 POP_BLOCK
+            568 EXTENDED_ARG             1
+            570 JUMP_FORWARD           488 (to 1060)
+
+295     >>  572 DUP_TOP
+            574 LOAD_GLOBAL             22 (Exception)
+            576 EXTENDED_ARG             4
+            578 JUMP_IF_NOT_EXC_MATCH  1058
+            580 POP_TOP
+            582 STORE_FAST              12 (exc)
+            584 POP_TOP
+            586 EXTENDED_ARG             1
+            588 SETUP_FINALLY          460 (to 1050)
+
+296         590 LOAD_FAST                2 (manager_started)
+            592 EXTENDED_ARG             2
+            594 POP_JUMP_IF_FALSE      638
+
+297         596 SETUP_FINALLY           20 (to 618)
+
+298         598 LOAD_FAST                0 (self)
+            600 LOAD_ATTR               21 (_auto_reply_manager)
+            602 LOAD_METHOD             23 (stop)
+            604 CALL_METHOD              0
+            606 GET_AWAITABLE
+            608 LOAD_CONST               1 (None)
+            610 YIELD_FROM
+            612 POP_TOP
+            614 POP_BLOCK
+            616 JUMP_FORWARD            20 (to 638)
+
+299     >>  618 DUP_TOP
+            620 LOAD_GLOBAL             22 (Exception)
+            622 EXTENDED_ARG             2
+            624 JUMP_IF_NOT_EXC_MATCH   636
+            626 POP_TOP
+            628 POP_TOP
+            630 POP_TOP
+
+300         632 POP_EXCEPT
+            634 JUMP_FORWARD             2 (to 638)
+        >>  636 RERAISE
+
+301     >>  638 LOAD_FAST                3 (mass_manager_started)
+            640 EXTENDED_ARG             2
+            642 POP_JUMP_IF_FALSE      686
+
+302         644 SETUP_FINALLY           20 (to 666)
+
+303         646 LOAD_FAST                0 (self)
+            648 LOAD_ATTR               11 (_mass_sending_manager)
+            650 LOAD_METHOD             23 (stop)
+            652 CALL_METHOD              0
+            654 GET_AWAITABLE
+            656 LOAD_CONST               1 (None)
+            658 YIELD_FROM
+            660 POP_TOP
+            662 POP_BLOCK
+            664 JUMP_FORWARD            20 (to 686)
+
+304     >>  666 DUP_TOP
+            668 LOAD_GLOBAL             22 (Exception)
+            670 EXTENDED_ARG             2
+            672 JUMP_IF_NOT_EXC_MATCH   684
+            674 POP_TOP
+            676 POP_TOP
+            678 POP_TOP
+
+305         680 POP_EXCEPT
+            682 JUMP_FORWARD             2 (to 686)
+        >>  684 RERAISE
+
+306     >>  686 LOAD_FAST                4 (follow_manager_started)
+            688 EXTENDED_ARG             2
+            690 POP_JUMP_IF_FALSE      734
+
+307         692 SETUP_FINALLY           20 (to 714)
+
+308         694 LOAD_FAST                0 (self)
+            696 LOAD_ATTR               14 (_auto_follow_manager)
+            698 LOAD_METHOD             23 (stop)
+            700 CALL_METHOD              0
+            702 GET_AWAITABLE
+            704 LOAD_CONST               1 (None)
+            706 YIELD_FROM
+            708 POP_TOP
+            710 POP_BLOCK
+            712 JUMP_FORWARD            20 (to 734)
+
+309     >>  714 DUP_TOP
+            716 LOAD_GLOBAL             22 (Exception)
+            718 EXTENDED_ARG             2
+            720 JUMP_IF_NOT_EXC_MATCH   732
+            722 POP_TOP
+            724 POP_TOP
+            726 POP_TOP
+
+310         728 POP_EXCEPT
+            730 JUMP_FORWARD             2 (to 734)
+        >>  732 RERAISE
+
+311     >>  734 LOAD_FAST                5 (moment_manager_started)
+            736 EXTENDED_ARG             3
+            738 POP_JUMP_IF_FALSE      782
+
+312         740 SETUP_FINALLY           20 (to 762)
+
+313         742 LOAD_FAST                0 (self)
+            744 LOAD_ATTR               15 (_moment_comment_manager)
+            746 LOAD_METHOD             23 (stop)
+            748 CALL_METHOD              0
+            750 GET_AWAITABLE
+            752 LOAD_CONST               1 (None)
+            754 YIELD_FROM
+            756 POP_TOP
+            758 POP_BLOCK
+            760 JUMP_FORWARD            20 (to 782)
+
+314     >>  762 DUP_TOP
+            764 LOAD_GLOBAL             22 (Exception)
+            766 EXTENDED_ARG             3
+            768 JUMP_IF_NOT_EXC_MATCH   780
+            770 POP_TOP
+            772 POP_TOP
+            774 POP_TOP
+
+315         776 POP_EXCEPT
+            778 JUMP_FORWARD             2 (to 782)
+        >>  780 RERAISE
+
+316     >>  782 LOAD_FAST                6 (moment_post_manager_started)
+            784 EXTENDED_ARG             3
+            786 POP_JUMP_IF_FALSE      830
+
+317         788 SETUP_FINALLY           20 (to 810)
+
+318         790 LOAD_FAST                0 (self)
+            792 LOAD_ATTR               16 (_moment_post_manager)
+            794 LOAD_METHOD             23 (stop)
+            796 CALL_METHOD              0
+            798 GET_AWAITABLE
+            800 LOAD_CONST               1 (None)
+            802 YIELD_FROM
+            804 POP_TOP
+            806 POP_BLOCK
+            808 JUMP_FORWARD            20 (to 830)
+
+319     >>  810 DUP_TOP
+            812 LOAD_GLOBAL             22 (Exception)
+            814 EXTENDED_ARG             3
+            816 JUMP_IF_NOT_EXC_MATCH   828
+            818 POP_TOP
+            820 POP_TOP
+            822 POP_TOP
+
+320         824 POP_EXCEPT
+            826 JUMP_FORWARD             2 (to 830)
+        >>  828 RERAISE
+
+321     >>  830 LOAD_FAST                7 (add_friend_manager_started)
+            832 EXTENDED_ARG             3
+            834 POP_JUMP_IF_FALSE      878
+
+322         836 SETUP_FINALLY           20 (to 858)
+
+323         838 LOAD_FAST                0 (self)
+            840 LOAD_ATTR               17 (_add_friend_manager)
+            842 LOAD_METHOD             23 (stop)
+            844 CALL_METHOD              0
+            846 GET_AWAITABLE
+            848 LOAD_CONST               1 (None)
+            850 YIELD_FROM
+            852 POP_TOP
+            854 POP_BLOCK
+            856 JUMP_FORWARD            20 (to 878)
+
+324     >>  858 DUP_TOP
+            860 LOAD_GLOBAL             22 (Exception)
+            862 EXTENDED_ARG             3
+            864 JUMP_IF_NOT_EXC_MATCH   876
+            866 POP_TOP
+            868 POP_TOP
+            870 POP_TOP
+
+325         872 POP_EXCEPT
+            874 JUMP_FORWARD             2 (to 878)
+        >>  876 RERAISE
+
+326     >>  878 LOAD_FAST                8 (friend_request_manager_started)
+            880 EXTENDED_ARG             3
+            882 POP_JUMP_IF_FALSE      926
+
+327         884 SETUP_FINALLY           20 (to 906)
+
+328         886 LOAD_FAST                0 (self)
+            888 LOAD_ATTR               18 (_friend_request_manager)
+            890 LOAD_METHOD             23 (stop)
+            892 CALL_METHOD              0
+            894 GET_AWAITABLE
+            896 LOAD_CONST               1 (None)
+            898 YIELD_FROM
+            900 POP_TOP
+            902 POP_BLOCK
+            904 JUMP_FORWARD            20 (to 926)
+
+329     >>  906 DUP_TOP
+            908 LOAD_GLOBAL             22 (Exception)
+            910 EXTENDED_ARG             3
+            912 JUMP_IF_NOT_EXC_MATCH   924
+            914 POP_TOP
+            916 POP_TOP
+            918 POP_TOP
+
+330         920 POP_EXCEPT
+            922 JUMP_FORWARD             2 (to 926)
+        >>  924 RERAISE
+
+331     >>  926 LOAD_FAST                9 (sync_contacts_manager_started)
+            928 EXTENDED_ARG             3
+            930 POP_JUMP_IF_FALSE      974
+
+332         932 SETUP_FINALLY           20 (to 954)
+
+333         934 LOAD_FAST                0 (self)
+            936 LOAD_ATTR               19 (_sync_contacts_manager)
+            938 LOAD_METHOD             23 (stop)
+            940 CALL_METHOD              0
+            942 GET_AWAITABLE
+            944 LOAD_CONST               1 (None)
+            946 YIELD_FROM
+            948 POP_TOP
+            950 POP_BLOCK
+            952 JUMP_FORWARD            20 (to 974)
+
+334     >>  954 DUP_TOP
+            956 LOAD_GLOBAL             22 (Exception)
+            958 EXTENDED_ARG             3
+            960 JUMP_IF_NOT_EXC_MATCH   972
+            962 POP_TOP
+            964 POP_TOP
+            966 POP_TOP
+
+335         968 POP_EXCEPT
+            970 JUMP_FORWARD             2 (to 974)
+        >>  972 RERAISE
+
+336     >>  974 LOAD_FAST                1 (scheduler_started)
+            976 EXTENDED_ARG             3
+            978 POP_JUMP_IF_FALSE     1022
+
+337         980 SETUP_FINALLY           20 (to 1002)
+
+338         982 LOAD_FAST                0 (self)
+            984 LOAD_ATTR                7 (_scheduler)
+            986 LOAD_METHOD             24 (shutdown)
+            988 CALL_METHOD              0
+            990 GET_AWAITABLE
+            992 LOAD_CONST               1 (None)
+            994 YIELD_FROM
+            996 POP_TOP
+            998 POP_BLOCK
+           1000 JUMP_FORWARD            20 (to 1022)
+
+339     >> 1002 DUP_TOP
+           1004 LOAD_GLOBAL             22 (Exception)
+           1006 EXTENDED_ARG             3
+           1008 JUMP_IF_NOT_EXC_MATCH  1020
+           1010 POP_TOP
+           1012 POP_TOP
+           1014 POP_TOP
+
+340        1016 POP_EXCEPT
+           1018 JUMP_FORWARD             2 (to 1022)
+        >> 1020 RERAISE
+
+341     >> 1022 LOAD_CONST              19 ('failed')
+           1024 LOAD_FAST                0 (self)
+           1026 STORE_ATTR               1 (_state)
+
+342        1028 LOAD_GLOBAL              2 (RuntimeError)
+           1030 LOAD_CONST              20 ('macOS task system startup failed')
+           1032 CALL_FUNCTION            1
+           1034 LOAD_FAST               12 (exc)
+           1036 RAISE_VARARGS            2
+           1038 POP_BLOCK
+           1040 POP_EXCEPT
+           1042 LOAD_CONST               1 (None)
+           1044 STORE_FAST              12 (exc)
+           1046 DELETE_FAST             12 (exc)
+           1048 JUMP_FORWARD            10 (to 1060)
+        >> 1050 LOAD_CONST               1 (None)
+           1052 STORE_FAST              12 (exc)
+           1054 DELETE_FAST             12 (exc)
+           1056 RERAISE
+        >> 1058 RERAISE
+        >> 1060 POP_BLOCK
+           1062 LOAD_CONST               1 (None)
+           1064 DUP_TOP
+           1066 DUP_TOP
+           1068 CALL_FUNCTION            3
+           1070 GET_AWAITABLE
+           1072 LOAD_CONST               1 (None)
+           1074 YIELD_FROM
+           1076 POP_TOP
+           1078 EXTENDED_ARG             4
+           1080 JUMP_ABSOLUTE         1106
+        >> 1082 WITH_EXCEPT_START
+           1084 GET_AWAITABLE
+           1086 LOAD_CONST               1 (None)
+           1088 YIELD_FROM
+           1090 EXTENDED_ARG             4
+           1092 POP_JUMP_IF_TRUE      1096
+           1094 RERAISE
+        >> 1096 POP_TOP
+           1098 POP_TOP
+           1100 POP_TOP
+           1102 POP_EXCEPT
+           1104 POP_TOP
+        >> 1106 LOAD_CONST               1 (None)
+           1108 RETURN_VALUE
+
+Disassembly of <code object stop at 0x1092440e0, file "WeRobotCore/bootstrap/macos_control_process.py", line 344>:
+347           0 LOAD_FAST                0 (self)
+              2 LOAD_METHOD              0 (_lock)
+              4 CALL_METHOD              0
+              6 BEFORE_ASYNC_WITH
+              8 GET_AWAITABLE
+             10 LOAD_CONST               1 (None)
+             12 YIELD_FROM
+             14 EXTENDED_ARG             4
+             16 SETUP_ASYNC_WITH      1142 (to 1160)
+             18 POP_TOP
+
+348          20 LOAD_FAST                0 (self)
+             22 LOAD_ATTR                1 (_state)
+             24 LOAD_CONST               2 ('stopped')
+             26 COMPARE_OP               2 (==)
+             28 POP_JUMP_IF_FALSE       52
+
+349          30 POP_BLOCK
+             32 LOAD_CONST               1 (None)
+             34 DUP_TOP
+             36 DUP_TOP
+             38 CALL_FUNCTION            3
+             40 GET_AWAITABLE
+             42 LOAD_CONST               1 (None)
+             44 YIELD_FROM
+             46 POP_TOP
+             48 LOAD_CONST               1 (None)
+             50 RETURN_VALUE
+
+350     >>   52 LOAD_FAST                0 (self)
+             54 LOAD_ATTR                1 (_state)
+             56 LOAD_CONST               3 ('new')
+             58 COMPARE_OP               2 (==)
+             60 POP_JUMP_IF_FALSE       90
+
+351          62 LOAD_CONST               2 ('stopped')
+             64 LOAD_FAST                0 (self)
+             66 STORE_ATTR               1 (_state)
+
+352          68 POP_BLOCK
+             70 LOAD_CONST               1 (None)
+             72 DUP_TOP
+             74 DUP_TOP
+             76 CALL_FUNCTION            3
+             78 GET_AWAITABLE
+             80 LOAD_CONST               1 (None)
+             82 YIELD_FROM
+             84 POP_TOP
+             86 LOAD_CONST               1 (None)
+             88 RETURN_VALUE
+
+353     >>   90 LOAD_FAST                0 (self)
+             92 LOAD_ATTR                1 (_state)
+             94 LOAD_CONST               4 (('running', 'failed'))
+             96 CONTAINS_OP              1
+             98 POP_JUMP_IF_FALSE      116
+
+354         100 LOAD_GLOBAL              2 (RuntimeError)
+
+355         102 LOAD_CONST               5 ('macOS task system cannot stop from state {}')
+            104 LOAD_METHOD              3 (format)
+
+356         106 LOAD_FAST                0 (self)
+            108 LOAD_ATTR                1 (_state)
+
+355         110 CALL_METHOD              1
+
+354         112 CALL_FUNCTION            1
+            114 RAISE_VARARGS            1
+
+360     >>  116 LOAD_CONST               6 ('stopping')
+            118 LOAD_FAST                0 (self)
+            120 STORE_ATTR               1 (_state)
+
+361         122 BUILD_LIST               0
+            124 STORE_FAST               1 (errors)
+
+362         126 SETUP_FINALLY           24 (to 152)
+
+363         128 LOAD_FAST                0 (self)
+            130 LOAD_ATTR                4 (_multi_chat_monitor)
+            132 LOAD_ATTR                5 (stop_monitoring_all)
+
+364         134 LOAD_CONST               7 (False)
+
+363         136 LOAD_CONST               8 (('user_initiated',))
+            138 CALL_FUNCTION_KW         1
+            140 GET_AWAITABLE
+            142 LOAD_CONST               1 (None)
+            144 YIELD_FROM
+            146 POP_TOP
+            148 POP_BLOCK
+            150 JUMP_FORWARD            46 (to 198)
+
+366     >>  152 DUP_TOP
+            154 LOAD_GLOBAL              6 (Exception)
+            156 JUMP_IF_NOT_EXC_MATCH   196
+            158 POP_TOP
+            160 STORE_FAST               2 (exc)
+            162 POP_TOP
+            164 SETUP_FINALLY           22 (to 188)
+
+367         166 LOAD_FAST                1 (errors)
+            168 LOAD_METHOD              7 (append)
+            170 LOAD_FAST                2 (exc)
+            172 CALL_METHOD              1
+            174 POP_TOP
+            176 POP_BLOCK
+            178 POP_EXCEPT
+            180 LOAD_CONST               1 (None)
+            182 STORE_FAST               2 (exc)
+            184 DELETE_FAST              2 (exc)
+            186 JUMP_FORWARD            10 (to 198)
+        >>  188 LOAD_CONST               1 (None)
+            190 STORE_FAST               2 (exc)
+            192 DELETE_FAST              2 (exc)
+            194 RERAISE
+        >>  196 RERAISE
+
+368     >>  198 SETUP_FINALLY           42 (to 242)
+
+369         200 LOAD_FAST                0 (self)
+            202 LOAD_ATTR                8 (_auto_reply_manager)
+            204 LOAD_METHOD              9 (stop)
+            206 CALL_METHOD              0
+            208 GET_AWAITABLE
+            210 LOAD_CONST               1 (None)
+            212 YIELD_FROM
+            214 STORE_FAST               3 (stopped)
+
+370         216 LOAD_FAST                3 (stopped)
+            218 LOAD_CONST               7 (False)
+            220 IS_OP                    0
+            222 POP_JUMP_IF_FALSE      238
+
+371         224 LOAD_FAST                1 (errors)
+            226 LOAD_METHOD              7 (append)
+            228 LOAD_GLOBAL              2 (RuntimeError)
+            230 LOAD_CONST               9 ('AutoReplyManager stop failed')
+            232 CALL_FUNCTION            1
+            234 CALL_METHOD              1
+            236 POP_TOP
+        >>  238 POP_BLOCK
+            240 JUMP_FORWARD            48 (to 290)
+
+372     >>  242 DUP_TOP
+            244 LOAD_GLOBAL              6 (Exception)
+            246 EXTENDED_ARG             1
+            248 JUMP_IF_NOT_EXC_MATCH   288
+            250 POP_TOP
+            252 STORE_FAST               2 (exc)
+            254 POP_TOP
+            256 SETUP_FINALLY           22 (to 280)
+
+373         258 LOAD_FAST                1 (errors)
+            260 LOAD_METHOD              7 (append)
+            262 LOAD_FAST                2 (exc)
+            264 CALL_METHOD              1
+            266 POP_TOP
+            268 POP_BLOCK
+            270 POP_EXCEPT
+            272 LOAD_CONST               1 (None)
+            274 STORE_FAST               2 (exc)
+            276 DELETE_FAST              2 (exc)
+            278 JUMP_FORWARD            10 (to 290)
+        >>  280 LOAD_CONST               1 (None)
+            282 STORE_FAST               2 (exc)
+            284 DELETE_FAST              2 (exc)
+            286 RERAISE
+        >>  288 RERAISE
+
+374     >>  290 LOAD_FAST                0 (self)
+            292 LOAD_ATTR               10 (_mass_sending_manager)
+            294 LOAD_CONST               1 (None)
+            296 IS_OP                    1
+            298 EXTENDED_ARG             1
+            300 POP_JUMP_IF_FALSE      396
+
+375         302 SETUP_FINALLY           44 (to 348)
+
+376         304 LOAD_FAST                0 (self)
+            306 LOAD_ATTR               10 (_mass_sending_manager)
+            308 LOAD_METHOD              9 (stop)
+            310 CALL_METHOD              0
+            312 GET_AWAITABLE
+            314 LOAD_CONST               1 (None)
+            316 YIELD_FROM
+            318 STORE_FAST               3 (stopped)
+
+377         320 LOAD_FAST                3 (stopped)
+            322 LOAD_CONST               7 (False)
+            324 IS_OP                    0
+            326 EXTENDED_ARG             1
+            328 POP_JUMP_IF_FALSE      344
+
+378         330 LOAD_FAST                1 (errors)
+            332 LOAD_METHOD              7 (append)
+
+379         334 LOAD_GLOBAL              2 (RuntimeError)
+            336 LOAD_CONST              10 ('Mac mass-sending manager stop failed')
+            338 CALL_FUNCTION            1
+
+378         340 CALL_METHOD              1
+            342 POP_TOP
+        >>  344 POP_BLOCK
+            346 JUMP_FORWARD            48 (to 396)
+
+381     >>  348 DUP_TOP
+            350 LOAD_GLOBAL              6 (Exception)
+            352 EXTENDED_ARG             1
+            354 JUMP_IF_NOT_EXC_MATCH   394
+            356 POP_TOP
+            358 STORE_FAST               2 (exc)
+            360 POP_TOP
+            362 SETUP_FINALLY           22 (to 386)
+
+382         364 LOAD_FAST                1 (errors)
+            366 LOAD_METHOD              7 (append)
+            368 LOAD_FAST                2 (exc)
+            370 CALL_METHOD              1
+            372 POP_TOP
+            374 POP_BLOCK
+            376 POP_EXCEPT
+            378 LOAD_CONST               1 (None)
+            380 STORE_FAST               2 (exc)
+            382 DELETE_FAST              2 (exc)
+            384 JUMP_FORWARD            10 (to 396)
+        >>  386 LOAD_CONST               1 (None)
+            388 STORE_FAST               2 (exc)
+            390 DELETE_FAST              2 (exc)
+            392 RERAISE
+        >>  394 RERAISE
+
+383     >>  396 LOAD_FAST                0 (self)
+            398 LOAD_ATTR               11 (_auto_follow_manager)
+            400 LOAD_CONST               1 (None)
+            402 IS_OP                    1
+            404 EXTENDED_ARG             1
+            406 POP_JUMP_IF_FALSE      502
+
+384         408 SETUP_FINALLY           44 (to 454)
+
+385         410 LOAD_FAST                0 (self)
+            412 LOAD_ATTR               11 (_auto_follow_manager)
+            414 LOAD_METHOD              9 (stop)
+            416 CALL_METHOD              0
+            418 GET_AWAITABLE
+            420 LOAD_CONST               1 (None)
+            422 YIELD_FROM
+            424 STORE_FAST               3 (stopped)
+
+386         426 LOAD_FAST                3 (stopped)
+            428 LOAD_CONST               7 (False)
+            430 IS_OP                    0
+            432 EXTENDED_ARG             1
+            434 POP_JUMP_IF_FALSE      450
+
+387         436 LOAD_FAST                1 (errors)
+            438 LOAD_METHOD              7 (append)
+
+388         440 LOAD_GLOBAL              2 (RuntimeError)
+            442 LOAD_CONST              11 ('Mac automatic-follow manager stop failed')
+            444 CALL_FUNCTION            1
+
+387         446 CALL_METHOD              1
+            448 POP_TOP
+        >>  450 POP_BLOCK
+            452 JUMP_FORWARD            48 (to 502)
+
+390     >>  454 DUP_TOP
+            456 LOAD_GLOBAL              6 (Exception)
+            458 EXTENDED_ARG             1
+            460 JUMP_IF_NOT_EXC_MATCH   500
+            462 POP_TOP
+            464 STORE_FAST               2 (exc)
+            466 POP_TOP
+            468 SETUP_FINALLY           22 (to 492)
+
+391         470 LOAD_FAST                1 (errors)
+            472 LOAD_METHOD              7 (append)
+            474 LOAD_FAST                2 (exc)
+            476 CALL_METHOD              1
+            478 POP_TOP
+            480 POP_BLOCK
+            482 POP_EXCEPT
+            484 LOAD_CONST               1 (None)
+            486 STORE_FAST               2 (exc)
+            488 DELETE_FAST              2 (exc)
+            490 JUMP_FORWARD            10 (to 502)
+        >>  492 LOAD_CONST               1 (None)
+            494 STORE_FAST               2 (exc)
+            496 DELETE_FAST              2 (exc)
+            498 RERAISE
+        >>  500 RERAISE
+
+392     >>  502 LOAD_FAST                0 (self)
+            504 LOAD_ATTR               12 (_moment_comment_manager)
+            506 LOAD_CONST               1 (None)
+            508 IS_OP                    1
+            510 EXTENDED_ARG             2
+            512 POP_JUMP_IF_FALSE      608
+
+393         514 SETUP_FINALLY           44 (to 560)
+
+394         516 LOAD_FAST                0 (self)
+            518 LOAD_ATTR               12 (_moment_comment_manager)
+            520 LOAD_METHOD              9 (stop)
+            522 CALL_METHOD              0
+            524 GET_AWAITABLE
+            526 LOAD_CONST               1 (None)
+            528 YIELD_FROM
+            530 STORE_FAST               3 (stopped)
+
+395         532 LOAD_FAST                3 (stopped)
+            534 LOAD_CONST               7 (False)
+            536 IS_OP                    0
+            538 EXTENDED_ARG             2
+            540 POP_JUMP_IF_FALSE      556
+
+396         542 LOAD_FAST                1 (errors)
+            544 LOAD_METHOD              7 (append)
+            546 LOAD_GLOBAL              2 (RuntimeError)
+            548 LOAD_CONST              12 ('Mac Moments manager stop failed')
+            550 CALL_FUNCTION            1
+            552 CALL_METHOD              1
+            554 POP_TOP
+        >>  556 POP_BLOCK
+            558 JUMP_FORWARD            48 (to 608)
+
+397     >>  560 DUP_TOP
+            562 LOAD_GLOBAL              6 (Exception)
+            564 EXTENDED_ARG             2
+            566 JUMP_IF_NOT_EXC_MATCH   606
+            568 POP_TOP
+            570 STORE_FAST               2 (exc)
+            572 POP_TOP
+            574 SETUP_FINALLY           22 (to 598)
+
+398         576 LOAD_FAST                1 (errors)
+            578 LOAD_METHOD              7 (append)
+            580 LOAD_FAST                2 (exc)
+            582 CALL_METHOD              1
+            584 POP_TOP
+            586 POP_BLOCK
+            588 POP_EXCEPT
+            590 LOAD_CONST               1 (None)
+            592 STORE_FAST               2 (exc)
+            594 DELETE_FAST              2 (exc)
+            596 JUMP_FORWARD            10 (to 608)
+        >>  598 LOAD_CONST               1 (None)
+            600 STORE_FAST               2 (exc)
+            602 DELETE_FAST              2 (exc)
+            604 RERAISE
+        >>  606 RERAISE
+
+399     >>  608 LOAD_FAST                0 (self)
+            610 LOAD_ATTR               13 (_moment_post_manager)
+            612 LOAD_CONST               1 (None)
+            614 IS_OP                    1
+            616 EXTENDED_ARG             2
+            618 POP_JUMP_IF_FALSE      714
+
+400         620 SETUP_FINALLY           44 (to 666)
+
+401         622 LOAD_FAST                0 (self)
+            624 LOAD_ATTR               13 (_moment_post_manager)
+            626 LOAD_METHOD              9 (stop)
+            628 CALL_METHOD              0
+            630 GET_AWAITABLE
+            632 LOAD_CONST               1 (None)
+            634 YIELD_FROM
+            636 STORE_FAST               3 (stopped)
+
+402         638 LOAD_FAST                3 (stopped)
+            640 LOAD_CONST               7 (False)
+            642 IS_OP                    0
+            644 EXTENDED_ARG             2
+            646 POP_JUMP_IF_FALSE      662
+
+403         648 LOAD_FAST                1 (errors)
+            650 LOAD_METHOD              7 (append)
+            652 LOAD_GLOBAL              2 (RuntimeError)
+            654 LOAD_CONST              13 ('Mac Moment-post manager stop failed')
+            656 CALL_FUNCTION            1
+            658 CALL_METHOD              1
+            660 POP_TOP
+        >>  662 POP_BLOCK
+            664 JUMP_FORWARD            48 (to 714)
+
+404     >>  666 DUP_TOP
+            668 LOAD_GLOBAL              6 (Exception)
+            670 EXTENDED_ARG             2
+            672 JUMP_IF_NOT_EXC_MATCH   712
+            674 POP_TOP
+            676 STORE_FAST               2 (exc)
+            678 POP_TOP
+            680 SETUP_FINALLY           22 (to 704)
+
+405         682 LOAD_FAST                1 (errors)
+            684 LOAD_METHOD              7 (append)
+            686 LOAD_FAST                2 (exc)
+            688 CALL_METHOD              1
+            690 POP_TOP
+            692 POP_BLOCK
+            694 POP_EXCEPT
+            696 LOAD_CONST               1 (None)
+            698 STORE_FAST               2 (exc)
+            700 DELETE_FAST              2 (exc)
+            702 JUMP_FORWARD            10 (to 714)
+        >>  704 LOAD_CONST               1 (None)
+            706 STORE_FAST               2 (exc)
+            708 DELETE_FAST              2 (exc)
+            710 RERAISE
+        >>  712 RERAISE
+
+406     >>  714 LOAD_FAST                0 (self)
+            716 LOAD_ATTR               14 (_add_friend_manager)
+            718 LOAD_CONST               1 (None)
+            720 IS_OP                    1
+            722 EXTENDED_ARG             3
+            724 POP_JUMP_IF_FALSE      820
+
+407         726 SETUP_FINALLY           44 (to 772)
+
+408         728 LOAD_FAST                0 (self)
+            730 LOAD_ATTR               14 (_add_friend_manager)
+            732 LOAD_METHOD              9 (stop)
+            734 CALL_METHOD              0
+            736 GET_AWAITABLE
+            738 LOAD_CONST               1 (None)
+            740 YIELD_FROM
+            742 STORE_FAST               3 (stopped)
+
+409         744 LOAD_FAST                3 (stopped)
+            746 LOAD_CONST               7 (False)
+            748 IS_OP                    0
+            750 EXTENDED_ARG             3
+            752 POP_JUMP_IF_FALSE      768
+
+410         754 LOAD_FAST                1 (errors)
+            756 LOAD_METHOD              7 (append)
+
+411         758 LOAD_GLOBAL              2 (RuntimeError)
+            760 LOAD_CONST              14 ('Mac automatic friend-add manager stop failed')
+            762 CALL_FUNCTION            1
+
+410         764 CALL_METHOD              1
+            766 POP_TOP
+        >>  768 POP_BLOCK
+            770 JUMP_FORWARD            48 (to 820)
+
+413     >>  772 DUP_TOP
+            774 LOAD_GLOBAL              6 (Exception)
+            776 EXTENDED_ARG             3
+            778 JUMP_IF_NOT_EXC_MATCH   818
+            780 POP_TOP
+            782 STORE_FAST               2 (exc)
+            784 POP_TOP
+            786 SETUP_FINALLY           22 (to 810)
+
+414         788 LOAD_FAST                1 (errors)
+            790 LOAD_METHOD              7 (append)
+            792 LOAD_FAST                2 (exc)
+            794 CALL_METHOD              1
+            796 POP_TOP
+            798 POP_BLOCK
+            800 POP_EXCEPT
+            802 LOAD_CONST               1 (None)
+            804 STORE_FAST               2 (exc)
+            806 DELETE_FAST              2 (exc)
+            808 JUMP_FORWARD            10 (to 820)
+        >>  810 LOAD_CONST               1 (None)
+            812 STORE_FAST               2 (exc)
+            814 DELETE_FAST              2 (exc)
+            816 RERAISE
+        >>  818 RERAISE
+
+415     >>  820 LOAD_FAST                0 (self)
+            822 LOAD_ATTR               15 (_friend_request_manager)
+            824 LOAD_CONST               1 (None)
+            826 IS_OP                    1
+            828 EXTENDED_ARG             3
+            830 POP_JUMP_IF_FALSE      926
+
+416         832 SETUP_FINALLY           44 (to 878)
+
+417         834 LOAD_FAST                0 (self)
+            836 LOAD_ATTR               15 (_friend_request_manager)
+            838 LOAD_METHOD              9 (stop)
+            840 CALL_METHOD              0
+            842 GET_AWAITABLE
+            844 LOAD_CONST               1 (None)
+            846 YIELD_FROM
+            848 STORE_FAST               3 (stopped)
+
+418         850 LOAD_FAST                3 (stopped)
+            852 LOAD_CONST               7 (False)
+            854 IS_OP                    0
+            856 EXTENDED_ARG             3
+            858 POP_JUMP_IF_FALSE      874
+
+419         860 LOAD_FAST                1 (errors)
+            862 LOAD_METHOD              7 (append)
+
+420         864 LOAD_GLOBAL              2 (RuntimeError)
+
+421         866 LOAD_CONST              15 ('Mac automatic friend-request manager stop failed')
+
+420         868 CALL_FUNCTION            1
+
+419         870 CALL_METHOD              1
+            872 POP_TOP
+        >>  874 POP_BLOCK
+            876 JUMP_FORWARD            48 (to 926)
+
+424     >>  878 DUP_TOP
+            880 LOAD_GLOBAL              6 (Exception)
+            882 EXTENDED_ARG             3
+            884 JUMP_IF_NOT_EXC_MATCH   924
+            886 POP_TOP
+            888 STORE_FAST               2 (exc)
+            890 POP_TOP
+            892 SETUP_FINALLY           22 (to 916)
+
+425         894 LOAD_FAST                1 (errors)
+            896 LOAD_METHOD              7 (append)
+            898 LOAD_FAST                2 (exc)
+            900 CALL_METHOD              1
+            902 POP_TOP
+            904 POP_BLOCK
+            906 POP_EXCEPT
+            908 LOAD_CONST               1 (None)
+            910 STORE_FAST               2 (exc)
+            912 DELETE_FAST              2 (exc)
+            914 JUMP_FORWARD            10 (to 926)
+        >>  916 LOAD_CONST               1 (None)
+            918 STORE_FAST               2 (exc)
+            920 DELETE_FAST              2 (exc)
+            922 RERAISE
+        >>  924 RERAISE
+
+426     >>  926 LOAD_FAST                0 (self)
+            928 LOAD_ATTR               16 (_sync_contacts_manager)
+            930 LOAD_CONST               1 (None)
+            932 IS_OP                    1
+            934 EXTENDED_ARG             4
+            936 POP_JUMP_IF_FALSE     1032
+
+427         938 SETUP_FINALLY           44 (to 984)
+
+428         940 LOAD_FAST                0 (self)
+            942 LOAD_ATTR               16 (_sync_contacts_manager)
+            944 LOAD_METHOD              9 (stop)
+            946 CALL_METHOD              0
+            948 GET_AWAITABLE
+            950 LOAD_CONST               1 (None)
+            952 YIELD_FROM
+            954 STORE_FAST               3 (stopped)
+
+429         956 LOAD_FAST                3 (stopped)
+            958 LOAD_CONST               7 (False)
+            960 IS_OP                    0
+            962 EXTENDED_ARG             3
+            964 POP_JUMP_IF_FALSE      980
+
+430         966 LOAD_FAST                1 (errors)
+            968 LOAD_METHOD              7 (append)
+
+431         970 LOAD_GLOBAL              2 (RuntimeError)
+            972 LOAD_CONST              16 ('Mac scheduled contact-sync manager stop failed')
+            974 CALL_FUNCTION            1
+
+430         976 CALL_METHOD              1
+            978 POP_TOP
+        >>  980 POP_BLOCK
+            982 JUMP_FORWARD            48 (to 1032)
+
+433     >>  984 DUP_TOP
+            986 LOAD_GLOBAL              6 (Exception)
+            988 EXTENDED_ARG             4
+            990 JUMP_IF_NOT_EXC_MATCH  1030
+            992 POP_TOP
+            994 STORE_FAST               2 (exc)
+            996 POP_TOP
+            998 SETUP_FINALLY           22 (to 1022)
+
+434        1000 LOAD_FAST                1 (errors)
+           1002 LOAD_METHOD              7 (append)
+           1004 LOAD_FAST                2 (exc)
+           1006 CALL_METHOD              1
+           1008 POP_TOP
+           1010 POP_BLOCK
+           1012 POP_EXCEPT
+           1014 LOAD_CONST               1 (None)
+           1016 STORE_FAST               2 (exc)
+           1018 DELETE_FAST              2 (exc)
+           1020 JUMP_FORWARD            10 (to 1032)
+        >> 1022 LOAD_CONST               1 (None)
+           1024 STORE_FAST               2 (exc)
+           1026 DELETE_FAST              2 (exc)
+           1028 RERAISE
+        >> 1030 RERAISE
+
+435     >> 1032 SETUP_FINALLY           20 (to 1054)
+
+436        1034 LOAD_FAST                0 (self)
+           1036 LOAD_ATTR               17 (_scheduler)
+           1038 LOAD_METHOD             18 (shutdown)
+           1040 CALL_METHOD              0
+           1042 GET_AWAITABLE
+           1044 LOAD_CONST               1 (None)
+           1046 YIELD_FROM
+           1048 POP_TOP
+           1050 POP_BLOCK
+           1052 JUMP_FORWARD            48 (to 1102)
+
+437     >> 1054 DUP_TOP
+           1056 LOAD_GLOBAL              6 (Exception)
+           1058 EXTENDED_ARG             4
+           1060 JUMP_IF_NOT_EXC_MATCH  1100
+           1062 POP_TOP
+           1064 STORE_FAST               2 (exc)
+           1066 POP_TOP
+           1068 SETUP_FINALLY           22 (to 1092)
+
+438        1070 LOAD_FAST                1 (errors)
+           1072 LOAD_METHOD              7 (append)
+           1074 LOAD_FAST                2 (exc)
+           1076 CALL_METHOD              1
+           1078 POP_TOP
+           1080 POP_BLOCK
+           1082 POP_EXCEPT
+           1084 LOAD_CONST               1 (None)
+           1086 STORE_FAST               2 (exc)
+           1088 DELETE_FAST              2 (exc)
+           1090 JUMP_FORWARD            10 (to 1102)
+        >> 1092 LOAD_CONST               1 (None)
+           1094 STORE_FAST               2 (exc)
+           1096 DELETE_FAST              2 (exc)
+           1098 RERAISE
+        >> 1100 RERAISE
+
+440     >> 1102 LOAD_FAST                1 (errors)
+           1104 EXTENDED_ARG             4
+           1106 POP_JUMP_IF_TRUE      1112
+           1108 LOAD_CONST               2 ('stopped')
+           1110 JUMP_FORWARD             2 (to 1114)
+        >> 1112 LOAD_CONST              17 ('failed')
+        >> 1114 LOAD_FAST                0 (self)
+           1116 STORE_ATTR               1 (_state)
+
+441        1118 LOAD_FAST                1 (errors)
+           1120 EXTENDED_ARG             4
+           1122 POP_JUMP_IF_FALSE     1138
+
+442        1124 LOAD_GLOBAL              2 (RuntimeError)
+           1126 LOAD_CONST              18 ('macOS task system shutdown failed')
+           1128 CALL_FUNCTION            1
+           1130 LOAD_FAST                1 (errors)
+           1132 LOAD_CONST              19 (0)
+           1134 BINARY_SUBSCR
+           1136 RAISE_VARARGS            2
+        >> 1138 POP_BLOCK
+           1140 LOAD_CONST               1 (None)
+           1142 DUP_TOP
+           1144 DUP_TOP
+           1146 CALL_FUNCTION            3
+           1148 GET_AWAITABLE
+           1150 LOAD_CONST               1 (None)
+           1152 YIELD_FROM
+           1154 POP_TOP
+           1156 EXTENDED_ARG             4
+           1158 JUMP_ABSOLUTE         1184
+        >> 1160 WITH_EXCEPT_START
+           1162 GET_AWAITABLE
+           1164 LOAD_CONST               1 (None)
+           1166 YIELD_FROM
+           1168 EXTENDED_ARG             4
+           1170 POP_JUMP_IF_TRUE      1174
+           1172 RERAISE
+        >> 1174 POP_TOP
+           1176 POP_TOP
+           1178 POP_TOP
+           1180 POP_EXCEPT
+           1182 POP_TOP
+        >> 1184 LOAD_CONST               1 (None)
+           1186 RETURN_VALUE
+
+Disassembly of <code object MacOSControlProcessDependencies at 0x109244450, file "WeRobotCore/bootstrap/macos_control_process.py", line 445>:
+445           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('MacOSControlProcessDependencies')
+              6 STORE_NAME               2 (__qualname__)
+              8 SETUP_ANNOTATIONS
+
+447          10 LOAD_CONST               1 ('The one shared process graph consumed by the Mac product owner.')
+             12 STORE_NAME               3 (__doc__)
+
+449          14 LOAD_CONST               2 ('MacOSAppPaths')
+             16 LOAD_NAME                4 (__annotations__)
+             18 LOAD_CONST               3 ('paths')
+             20 STORE_SUBSCR
+
+450          22 LOAD_CONST               4 ('Any')
+             24 LOAD_NAME                4 (__annotations__)
+             26 LOAD_CONST               5 ('scheduler')
+             28 STORE_SUBSCR
+
+451          30 LOAD_CONST               4 ('Any')
+             32 LOAD_NAME                4 (__annotations__)
+             34 LOAD_CONST               6 ('permission_manager')
+             36 STORE_SUBSCR
+
+452          38 LOAD_CONST               4 ('Any')
+             40 LOAD_NAME                4 (__annotations__)
+             42 LOAD_CONST               7 ('auto_reply_manager')
+             44 STORE_SUBSCR
+
+453          46 LOAD_CONST               4 ('Any')
+             48 LOAD_NAME                4 (__annotations__)
+             50 LOAD_CONST               8 ('multi_chat_monitor')
+             52 STORE_SUBSCR
+
+454          54 LOAD_CONST               9 ('PrivateAgentCapabilityProbe')
+             56 LOAD_NAME                4 (__annotations__)
+             58 LOAD_CONST              10 ('private_agent_probe')
+             60 STORE_SUBSCR
+
+455          62 LOAD_CONST              11 ('MacOSTaskSystemLifecycle')
+             64 LOAD_NAME                4 (__annotations__)
+             66 LOAD_CONST              12 ('task_system_lifecycle')
+             68 STORE_SUBSCR
+
+456          70 LOAD_CONST              13 (None)
+             72 STORE_NAME               5 (mass_sending_manager)
+             74 LOAD_CONST               4 ('Any')
+             76 LOAD_NAME                4 (__annotations__)
+             78 LOAD_CONST              14 ('mass_sending_manager')
+             80 STORE_SUBSCR
+
+457          82 LOAD_CONST              13 (None)
+             84 STORE_NAME               6 (auto_follow_manager)
+             86 LOAD_CONST               4 ('Any')
+             88 LOAD_NAME                4 (__annotations__)
+             90 LOAD_CONST              15 ('auto_follow_manager')
+             92 STORE_SUBSCR
+
+458          94 LOAD_CONST              13 (None)
+             96 STORE_NAME               7 (moment_comment_manager)
+             98 LOAD_CONST               4 ('Any')
+            100 LOAD_NAME                4 (__annotations__)
+            102 LOAD_CONST              16 ('moment_comment_manager')
+            104 STORE_SUBSCR
+
+459         106 LOAD_CONST              13 (None)
+            108 STORE_NAME               8 (moment_post_manager)
+            110 LOAD_CONST               4 ('Any')
+            112 LOAD_NAME                4 (__annotations__)
+            114 LOAD_CONST              17 ('moment_post_manager')
+            116 STORE_SUBSCR
+
+460         118 LOAD_CONST              13 (None)
+            120 STORE_NAME               9 (add_friend_manager)
+            122 LOAD_CONST               4 ('Any')
+            124 LOAD_NAME                4 (__annotations__)
+            126 LOAD_CONST              18 ('add_friend_manager')
+            128 STORE_SUBSCR
+
+461         130 LOAD_CONST              13 (None)
+            132 STORE_NAME              10 (friend_request_manager)
+            134 LOAD_CONST               4 ('Any')
+            136 LOAD_NAME                4 (__annotations__)
+            138 LOAD_CONST              19 ('friend_request_manager')
+            140 STORE_SUBSCR
+
+462         142 LOAD_CONST              13 (None)
+            144 STORE_NAME              11 (sync_contacts_manager)
+            146 LOAD_CONST               4 ('Any')
+            148 LOAD_NAME                4 (__annotations__)
+            150 LOAD_CONST              20 ('sync_contacts_manager')
+            152 STORE_SUBSCR
+
+464         154 LOAD_CONST              21 ('None')
+            156 LOAD_CONST              22 (('return',))
+            158 BUILD_CONST_KEY_MAP      1
+            160 LOAD_CONST              23 (<code object __post_init__ at 0x109244df0, file "WeRobotCore/bootstrap/macos_control_process.py", line 464>)
+            162 LOAD_CONST              24 ('MacOSControlProcessDependencies.__post_init__')
+            164 MAKE_FUNCTION            4 (annotations)
+            166 STORE_NAME              12 (__post_init__)
+            168 LOAD_CONST              13 (None)
+            170 RETURN_VALUE
+
+Disassembly of <code object __post_init__ at 0x109244df0, file "WeRobotCore/bootstrap/macos_control_process.py", line 464>:
+465           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                0 (self)
+              4 LOAD_ATTR                1 (paths)
+              6 LOAD_GLOBAL              2 (MacOSAppPaths)
+              8 CALL_FUNCTION            2
+             10 POP_JUMP_IF_TRUE        20
+
+466          12 LOAD_GLOBAL              3 (TypeError)
+             14 LOAD_CONST               1 ('paths must be MacOSAppPaths')
+             16 CALL_FUNCTION            1
+             18 RAISE_VARARGS            1
+
+467     >>   20 LOAD_GLOBAL              4 (callable)
+             22 LOAD_FAST                0 (self)
+             24 LOAD_ATTR                5 (private_agent_probe)
+             26 CALL_FUNCTION            1
+             28 POP_JUMP_IF_TRUE        38
+
+468          30 LOAD_GLOBAL              3 (TypeError)
+             32 LOAD_CONST               2 ('private_agent_probe must be callable')
+             34 CALL_FUNCTION            1
+             36 RAISE_VARARGS            1
+
+469     >>   38 LOAD_GLOBAL              0 (isinstance)
+             40 LOAD_FAST                0 (self)
+             42 LOAD_ATTR                6 (task_system_lifecycle)
+             44 LOAD_GLOBAL              7 (MacOSTaskSystemLifecycle)
+             46 CALL_FUNCTION            2
+             48 POP_JUMP_IF_TRUE        58
+
+470          50 LOAD_GLOBAL              3 (TypeError)
+
+471          52 LOAD_CONST               3 ('task_system_lifecycle must be MacOSTaskSystemLifecycle')
+
+470          54 CALL_FUNCTION            1
+             56 RAISE_VARARGS            1
+
+473     >>   58 LOAD_FAST                0 (self)
+             60 LOAD_ATTR                6 (task_system_lifecycle)
+             62 STORE_FAST               1 (lifecycle)
+
+475          64 LOAD_CONST               4 ('paths')
+             66 LOAD_FAST                0 (self)
+             68 LOAD_ATTR                1 (paths)
+             70 BUILD_TUPLE              2
+
+476          72 LOAD_CONST               5 ('scheduler')
+             74 LOAD_FAST                0 (self)
+             76 LOAD_ATTR                8 (scheduler)
+             78 BUILD_TUPLE              2
+
+477          80 LOAD_CONST               6 ('permission_manager')
+             82 LOAD_FAST                0 (self)
+             84 LOAD_ATTR                9 (permission_manager)
+             86 BUILD_TUPLE              2
+
+478          88 LOAD_CONST               7 ('auto_reply_manager')
+             90 LOAD_FAST                0 (self)
+             92 LOAD_ATTR               10 (auto_reply_manager)
+             94 BUILD_TUPLE              2
+
+479          96 LOAD_CONST               8 ('multi_chat_monitor')
+             98 LOAD_FAST                0 (self)
+            100 LOAD_ATTR               11 (multi_chat_monitor)
+            102 BUILD_TUPLE              2
+
+480         104 LOAD_CONST               9 ('mass_sending_manager')
+            106 LOAD_FAST                0 (self)
+            108 LOAD_ATTR               12 (mass_sending_manager)
+            110 BUILD_TUPLE              2
+
+481         112 LOAD_CONST              10 ('auto_follow_manager')
+            114 LOAD_FAST                0 (self)
+            116 LOAD_ATTR               13 (auto_follow_manager)
+            118 BUILD_TUPLE              2
+
+482         120 LOAD_CONST              11 ('moment_comment_manager')
+            122 LOAD_FAST                0 (self)
+            124 LOAD_ATTR               14 (moment_comment_manager)
+            126 BUILD_TUPLE              2
+
+483         128 LOAD_CONST              12 ('moment_post_manager')
+            130 LOAD_FAST                0 (self)
+            132 LOAD_ATTR               15 (moment_post_manager)
+            134 BUILD_TUPLE              2
+
+484         136 LOAD_CONST              13 ('add_friend_manager')
+            138 LOAD_FAST                0 (self)
+            140 LOAD_ATTR               16 (add_friend_manager)
+            142 BUILD_TUPLE              2
+
+485         144 LOAD_CONST              14 ('friend_request_manager')
+            146 LOAD_FAST                0 (self)
+            148 LOAD_ATTR               17 (friend_request_manager)
+            150 BUILD_TUPLE              2
+
+486         152 LOAD_CONST              15 ('sync_contacts_manager')
+            154 LOAD_FAST                0 (self)
+            156 LOAD_ATTR               18 (sync_contacts_manager)
+            158 BUILD_TUPLE              2
+
+474         160 BUILD_TUPLE             12
+            162 GET_ITER
+        >>  164 FOR_ITER                36 (to 202)
+            166 UNPACK_SEQUENCE          2
+            168 STORE_FAST               2 (name)
+            170 STORE_FAST               3 (dependency)
+
+488         172 LOAD_GLOBAL             19 (getattr)
+            174 LOAD_FAST                1 (lifecycle)
+            176 LOAD_FAST                2 (name)
+            178 CALL_FUNCTION            2
+            180 LOAD_FAST                3 (dependency)
+            182 IS_OP                    1
+            184 POP_JUMP_IF_FALSE      164
+
+489         186 LOAD_GLOBAL             20 (ValueError)
+
+490         188 LOAD_CONST              16 ('task_system_lifecycle uses another {}')
+            190 LOAD_METHOD             21 (format)
+            192 LOAD_FAST                2 (name)
+            194 CALL_METHOD              1
+
+489         196 CALL_FUNCTION            1
+            198 RAISE_VARARGS            1
+            200 JUMP_ABSOLUTE          164
+        >>  202 LOAD_CONST               0 (None)
+            204 RETURN_VALUE
+
+Disassembly of <code object create_macos_control_process_dependencies at 0x109244be0, file "WeRobotCore/bootstrap/macos_control_process.py", line 494>:
+508           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                0 (paths)
+              4 LOAD_GLOBAL              1 (MacOSAppPaths)
+              6 CALL_FUNCTION            2
+              8 POP_JUMP_IF_TRUE        18
+
+509          10 LOAD_GLOBAL              2 (TypeError)
+             12 LOAD_CONST               1 ('paths must be MacOSAppPaths')
+             14 CALL_FUNCTION            1
+             16 RAISE_VARARGS            1
+
+510     >>   18 LOAD_GLOBAL              3 (callable)
+             20 LOAD_FAST                1 (private_agent_probe)
+             22 CALL_FUNCTION            1
+             24 POP_JUMP_IF_TRUE        34
+
+511          26 LOAD_GLOBAL              2 (TypeError)
+             28 LOAD_CONST               2 ('private_agent_probe must be callable')
+             30 CALL_FUNCTION            1
+             32 RAISE_VARARGS            1
+
+515     >>   34 LOAD_CONST               3 (0)
+             36 LOAD_CONST               4 (('get_permission_manager',))
+             38 IMPORT_NAME              4 (WeRobotCore.task_system_v3.permission_manager)
+             40 IMPORT_FROM              5 (get_permission_manager)
+             42 STORE_FAST               2 (get_permission_manager)
+             44 POP_TOP
+
+518          46 LOAD_CONST               3 (0)
+             48 LOAD_CONST               5 (('GlobalManagerRegistry', 'get_auto_reply_manager', 'get_scheduler', 'register_all_managers'))
+             50 IMPORT_NAME              6 (WeRobotCore.task_system_v3.unified_manager_pattern)
+             52 IMPORT_FROM              7 (GlobalManagerRegistry)
+             54 STORE_DEREF              0 (GlobalManagerRegistry)
+             56 IMPORT_FROM              8 (get_auto_reply_manager)
+             58 STORE_FAST               3 (get_auto_reply_manager)
+             60 IMPORT_FROM              9 (get_scheduler)
+             62 STORE_FAST               4 (get_scheduler)
+             64 IMPORT_FROM             10 (register_all_managers)
+             66 STORE_FAST               5 (register_all_managers)
+             68 POP_TOP
+
+525          70 LOAD_GLOBAL             11 (tuple)
+             72 LOAD_CLOSURE             0 (GlobalManagerRegistry)
+             74 BUILD_TUPLE              1
+             76 LOAD_CONST               6 (<code object <genexpr> at 0x1092447c0, file "WeRobotCore/bootstrap/macos_control_process.py", line 525>)
+             78 LOAD_CONST               7 ('create_macos_control_process_dependencies.<locals>.<genexpr>')
+             80 MAKE_FUNCTION            8 (closure)
+
+527          82 LOAD_CONST               8 (('unified_scheduler', 'auto_reply_manager', 'mass_sending_manager', 'auto_follow_manager', 'moment_comment_manager', 'moment_post_manager', 'add_friend_manager', 'friend_request_manager', 'sync_contacts_manager'))
+
+525          84 GET_ITER
+             86 CALL_FUNCTION            1
+             88 CALL_FUNCTION            1
+             90 STORE_FAST               6 (occupied)
+
+540          92 LOAD_FAST                6 (occupied)
+             94 POP_JUMP_IF_FALSE      116
+
+541          96 LOAD_GLOBAL             12 (RuntimeError)
+
+542          98 LOAD_CONST               9 ('macOS process dependencies are already occupied: {}')
+            100 LOAD_METHOD             13 (format)
+
+543         102 LOAD_CONST              10 (', ')
+            104 LOAD_METHOD             14 (join)
+            106 LOAD_FAST                6 (occupied)
+            108 CALL_METHOD              1
+
+542         110 CALL_METHOD              1
+
+541         112 CALL_FUNCTION            1
+            114 RAISE_VARARGS            1
+
+547     >>  116 LOAD_FAST                5 (register_all_managers)
+            118 CALL_FUNCTION            0
+            120 POP_TOP
+
+548         122 LOAD_FAST                4 (get_scheduler)
+            124 CALL_FUNCTION            0
+            126 STORE_FAST               7 (scheduler)
+
+549         128 LOAD_FAST                2 (get_permission_manager)
+            130 CALL_FUNCTION            0
+            132 STORE_FAST               8 (permission_manager)
+
+550         134 LOAD_FAST                3 (get_auto_reply_manager)
+
+551         136 LOAD_FAST                7 (scheduler)
+
+552         138 LOAD_FAST                8 (permission_manager)
+
+550         140 LOAD_CONST              11 (('scheduler', 'permission_manager'))
+            142 CALL_FUNCTION_KW         2
+            144 STORE_FAST               9 (auto_reply_manager)
+
+554         146 LOAD_CONST               3 (0)
+            148 LOAD_CONST              12 (('MacOSMassSendingManager',))
+            150 IMPORT_NAME             15 (WeRobotCore.task_system_v3.macos_mass_sending_manager)
+            152 IMPORT_FROM             16 (MacOSMassSendingManager)
+            154 STORE_FAST              10 (MacOSMassSendingManager)
+            156 POP_TOP
+
+558         158 LOAD_FAST               10 (MacOSMassSendingManager)
+
+559         160 LOAD_FAST                7 (scheduler)
+
+560         162 LOAD_FAST                8 (permission_manager)
+
+561         164 LOAD_FAST                0 (paths)
+            166 LOAD_ATTR               17 (data_root)
+            168 LOAD_CONST              13 ('mass_sending')
+            170 BINARY_TRUE_DIVIDE
+
+558         172 LOAD_CONST              14 (('scheduler', 'permission_manager', 'state_root'))
+            174 CALL_FUNCTION_KW         3
+            176 STORE_DEREF              4 (mass_sending_manager)
+
+563         178 LOAD_CONST               3 (0)
+            180 LOAD_CONST              15 (('MacOSAutoFollowManager',))
+            182 IMPORT_NAME             18 (WeRobotCore.task_system_v3.macos_auto_follow_manager)
+            184 IMPORT_FROM             19 (MacOSAutoFollowManager)
+            186 STORE_FAST              11 (MacOSAutoFollowManager)
+            188 POP_TOP
+
+567         190 LOAD_FAST               11 (MacOSAutoFollowManager)
+
+568         192 LOAD_FAST                7 (scheduler)
+
+569         194 LOAD_FAST                8 (permission_manager)
+
+570         196 LOAD_FAST                0 (paths)
+            198 LOAD_ATTR               17 (data_root)
+            200 LOAD_CONST              16 ('auto_follow')
+            202 BINARY_TRUE_DIVIDE
+
+567         204 LOAD_CONST              17 (('scheduler', 'permission_manager', 'log_root'))
+            206 CALL_FUNCTION_KW         3
+            208 STORE_DEREF              2 (auto_follow_manager)
+
+572         210 LOAD_CONST               3 (0)
+            212 LOAD_CONST              18 (('MacOSMomentCommentManager',))
+            214 IMPORT_NAME             20 (WeRobotCore.task_system_v3.macos_moment_comment_manager)
+            216 IMPORT_FROM             21 (MacOSMomentCommentManager)
+            218 STORE_FAST              12 (MacOSMomentCommentManager)
+            220 POP_TOP
+
+576         222 LOAD_FAST               12 (MacOSMomentCommentManager)
+
+577         224 LOAD_FAST                7 (scheduler)
+
+578         226 LOAD_FAST                8 (permission_manager)
+
+576         228 LOAD_CONST              11 (('scheduler', 'permission_manager'))
+            230 CALL_FUNCTION_KW         2
+            232 STORE_DEREF              5 (moment_comment_manager)
+
+580         234 LOAD_CONST               3 (0)
+            236 LOAD_CONST              19 (('MacOSMomentPostManager',))
+            238 IMPORT_NAME             22 (WeRobotCore.task_system_v3.macos_moment_post_manager)
+            240 IMPORT_FROM             23 (MacOSMomentPostManager)
+            242 STORE_FAST              13 (MacOSMomentPostManager)
+            244 POP_TOP
+
+584         246 LOAD_FAST               13 (MacOSMomentPostManager)
+
+585         248 LOAD_FAST                7 (scheduler)
+
+586         250 LOAD_FAST                8 (permission_manager)
+
+584         252 LOAD_CONST              11 (('scheduler', 'permission_manager'))
+            254 CALL_FUNCTION_KW         2
+            256 STORE_DEREF              6 (moment_post_manager)
+
+588         258 LOAD_CONST               3 (0)
+            260 LOAD_CONST              20 (('MacOSAddFriendManager',))
+            262 IMPORT_NAME             24 (WeRobotCore.task_system_v3.macos_add_friend_manager)
+            264 IMPORT_FROM             25 (MacOSAddFriendManager)
+            266 STORE_FAST              14 (MacOSAddFriendManager)
+            268 POP_TOP
+
+592         270 LOAD_FAST               14 (MacOSAddFriendManager)
+
+593         272 LOAD_FAST                7 (scheduler)
+
+594         274 LOAD_FAST                8 (permission_manager)
+
+595         276 LOAD_FAST                0 (paths)
+            278 LOAD_ATTR               17 (data_root)
+            280 LOAD_CONST              21 ('friend_add')
+            282 BINARY_TRUE_DIVIDE
+            284 LOAD_CONST              22 ('friend_add.db')
+            286 BINARY_TRUE_DIVIDE
+
+592         288 LOAD_CONST              23 (('scheduler', 'permission_manager', 'database_path'))
+            290 CALL_FUNCTION_KW         3
+            292 STORE_DEREF              1 (add_friend_manager)
+
+597         294 LOAD_CONST               3 (0)
+            296 LOAD_CONST              24 (('MacOSFriendRequestManager',))
+            298 IMPORT_NAME             26 (WeRobotCore.task_system_v3.macos_friend_request_manager)
+            300 IMPORT_FROM             27 (MacOSFriendRequestManager)
+            302 STORE_FAST              15 (MacOSFriendRequestManager)
+            304 POP_TOP
+
+601         306 LOAD_FAST               15 (MacOSFriendRequestManager)
+
+602         308 LOAD_FAST                7 (scheduler)
+
+603         310 LOAD_FAST                8 (permission_manager)
+
+601         312 LOAD_CONST              11 (('scheduler', 'permission_manager'))
+            314 CALL_FUNCTION_KW         2
+            316 STORE_DEREF              3 (friend_request_manager)
+
+605         318 LOAD_CONST               3 (0)
+            320 LOAD_CONST              25 (('SyncContactsManager',))
+            322 IMPORT_NAME             28 (WeRobotCore.task_system_v3.sync_contacts_manager)
+            324 IMPORT_FROM             29 (SyncContactsManager)
+            326 STORE_FAST              16 (SyncContactsManager)
+            328 POP_TOP
+
+609         330 LOAD_FAST               16 (SyncContactsManager)
+
+610         332 LOAD_FAST                7 (scheduler)
+
+611         334 LOAD_FAST                8 (permission_manager)
+
+609         336 CALL_FUNCTION            2
+            338 STORE_DEREF              7 (sync_contacts_manager)
+
+617         340 LOAD_DEREF               0 (GlobalManagerRegistry)
+            342 LOAD_METHOD             30 (register_manager_type)
+
+618         344 LOAD_CONST              26 ('mass_sending_manager')
+
+619         346 LOAD_CLOSURE             4 (mass_sending_manager)
+            348 BUILD_TUPLE              1
+            350 LOAD_CONST              27 (<code object <lambda> at 0x109244c90, file "WeRobotCore/bootstrap/macos_control_process.py", line 619>)
+            352 LOAD_CONST              28 ('create_macos_control_process_dependencies.<locals>.<lambda>')
+            354 MAKE_FUNCTION            8 (closure)
+
+617         356 CALL_METHOD              2
+            358 POP_TOP
+
+621         360 LOAD_DEREF               0 (GlobalManagerRegistry)
+            362 LOAD_METHOD             30 (register_manager_type)
+
+622         364 LOAD_CONST              29 ('auto_follow_manager')
+
+623         366 LOAD_CLOSURE             2 (auto_follow_manager)
+            368 BUILD_TUPLE              1
+            370 LOAD_CONST              30 (<code object <lambda> at 0x109244710, file "WeRobotCore/bootstrap/macos_control_process.py", line 623>)
+            372 LOAD_CONST              28 ('create_macos_control_process_dependencies.<locals>.<lambda>')
+            374 MAKE_FUNCTION            8 (closure)
+
+621         376 CALL_METHOD              2
+            378 POP_TOP
+
+625         380 LOAD_DEREF               0 (GlobalManagerRegistry)
+            382 LOAD_METHOD             30 (register_manager_type)
+
+626         384 LOAD_CONST              31 ('moment_comment_manager')
+
+627         386 LOAD_CLOSURE             5 (moment_comment_manager)
+            388 BUILD_TUPLE              1
+            390 LOAD_CONST              32 (<code object <lambda> at 0x109244a80, file "WeRobotCore/bootstrap/macos_control_process.py", line 627>)
+            392 LOAD_CONST              28 ('create_macos_control_process_dependencies.<locals>.<lambda>')
+            394 MAKE_FUNCTION            8 (closure)
+
+625         396 CALL_METHOD              2
+            398 POP_TOP
+
+629         400 LOAD_DEREF               0 (GlobalManagerRegistry)
+            402 LOAD_METHOD             30 (register_manager_type)
+
+630         404 LOAD_CONST              33 ('moment_post_manager')
+
+631         406 LOAD_CLOSURE             6 (moment_post_manager)
+            408 BUILD_TUPLE              1
+            410 LOAD_CONST              34 (<code object <lambda> at 0x109244660, file "WeRobotCore/bootstrap/macos_control_process.py", line 631>)
+            412 LOAD_CONST              28 ('create_macos_control_process_dependencies.<locals>.<lambda>')
+            414 MAKE_FUNCTION            8 (closure)
+
+629         416 CALL_METHOD              2
+            418 POP_TOP
+
+633         420 LOAD_DEREF               0 (GlobalManagerRegistry)
+            422 LOAD_METHOD             30 (register_manager_type)
+
+634         424 LOAD_CONST              35 ('add_friend_manager')
+
+635         426 LOAD_CLOSURE             1 (add_friend_manager)
+            428 BUILD_TUPLE              1
+            430 LOAD_CONST              36 (<code object <lambda> at 0x109244500, file "WeRobotCore/bootstrap/macos_control_process.py", line 635>)
+            432 LOAD_CONST              28 ('create_macos_control_process_dependencies.<locals>.<lambda>')
+            434 MAKE_FUNCTION            8 (closure)
+
+633         436 CALL_METHOD              2
+            438 POP_TOP
+
+637         440 LOAD_DEREF               0 (GlobalManagerRegistry)
+            442 LOAD_METHOD             30 (register_manager_type)
+
+638         444 LOAD_CONST              37 ('friend_request_manager')
+
+639         446 LOAD_CLOSURE             3 (friend_request_manager)
+            448 BUILD_TUPLE              1
+            450 LOAD_CONST              38 (<code object <lambda> at 0x109244030, file "WeRobotCore/bootstrap/macos_control_process.py", line 639>)
+            452 LOAD_CONST              28 ('create_macos_control_process_dependencies.<locals>.<lambda>')
+            454 MAKE_FUNCTION            8 (closure)
+
+637         456 CALL_METHOD              2
+            458 POP_TOP
+
+641         460 LOAD_DEREF               0 (GlobalManagerRegistry)
+            462 LOAD_METHOD             30 (register_manager_type)
+
+642         464 LOAD_CONST              39 ('sync_contacts_manager')
+
+643         466 LOAD_CLOSURE             7 (sync_contacts_manager)
+            468 BUILD_TUPLE              1
+            470 LOAD_CONST              40 (<code object <lambda> at 0x109244f50, file "WeRobotCore/bootstrap/macos_control_process.py", line 643>)
+            472 LOAD_CONST              28 ('create_macos_control_process_dependencies.<locals>.<lambda>')
+            474 MAKE_FUNCTION            8 (closure)
+
+641         476 CALL_METHOD              2
+            478 POP_TOP
+
+645         480 LOAD_DEREF               0 (GlobalManagerRegistry)
+            482 LOAD_METHOD             31 (get_or_create_manager)
+
+646         484 LOAD_CONST              26 ('mass_sending_manager')
+
+645         486 CALL_METHOD              1
+
+647         488 LOAD_DEREF               4 (mass_sending_manager)
+
+645         490 IS_OP                    1
+            492 EXTENDED_ARG             1
+            494 POP_JUMP_IF_FALSE      504
+
+648         496 LOAD_GLOBAL             12 (RuntimeError)
+            498 LOAD_CONST              41 ('failed to claim Mac mass-sending manager')
+            500 CALL_FUNCTION            1
+            502 RAISE_VARARGS            1
+
+649     >>  504 LOAD_DEREF               0 (GlobalManagerRegistry)
+            506 LOAD_METHOD             31 (get_or_create_manager)
+
+650         508 LOAD_CONST              29 ('auto_follow_manager')
+
+649         510 CALL_METHOD              1
+
+651         512 LOAD_DEREF               2 (auto_follow_manager)
+
+649         514 IS_OP                    1
+            516 EXTENDED_ARG             2
+            518 POP_JUMP_IF_FALSE      528
+
+652         520 LOAD_GLOBAL             12 (RuntimeError)
+            522 LOAD_CONST              42 ('failed to claim Mac automatic-follow manager')
+            524 CALL_FUNCTION            1
+            526 RAISE_VARARGS            1
+
+653     >>  528 LOAD_DEREF               0 (GlobalManagerRegistry)
+            530 LOAD_METHOD             31 (get_or_create_manager)
+
+654         532 LOAD_CONST              31 ('moment_comment_manager')
+
+653         534 CALL_METHOD              1
+
+655         536 LOAD_DEREF               5 (moment_comment_manager)
+
+653         538 IS_OP                    1
+            540 EXTENDED_ARG             2
+            542 POP_JUMP_IF_FALSE      552
+
+656         544 LOAD_GLOBAL             12 (RuntimeError)
+            546 LOAD_CONST              43 ('failed to claim Mac Moments manager')
+            548 CALL_FUNCTION            1
+            550 RAISE_VARARGS            1
+
+657     >>  552 LOAD_DEREF               0 (GlobalManagerRegistry)
+            554 LOAD_METHOD             31 (get_or_create_manager)
+
+658         556 LOAD_CONST              33 ('moment_post_manager')
+
+657         558 CALL_METHOD              1
+
+659         560 LOAD_DEREF               6 (moment_post_manager)
+
+657         562 IS_OP                    1
+            564 EXTENDED_ARG             2
+            566 POP_JUMP_IF_FALSE      576
+
+660         568 LOAD_GLOBAL             12 (RuntimeError)
+            570 LOAD_CONST              44 ('failed to claim Mac Moment-post manager')
+            572 CALL_FUNCTION            1
+            574 RAISE_VARARGS            1
+
+661     >>  576 LOAD_DEREF               0 (GlobalManagerRegistry)
+            578 LOAD_METHOD             31 (get_or_create_manager)
+
+662         580 LOAD_CONST              35 ('add_friend_manager')
+
+661         582 CALL_METHOD              1
+
+663         584 LOAD_DEREF               1 (add_friend_manager)
+
+661         586 IS_OP                    1
+            588 EXTENDED_ARG             2
+            590 POP_JUMP_IF_FALSE      600
+
+664         592 LOAD_GLOBAL             12 (RuntimeError)
+            594 LOAD_CONST              45 ('failed to claim Mac automatic friend-add manager')
+            596 CALL_FUNCTION            1
+            598 RAISE_VARARGS            1
+
+665     >>  600 LOAD_DEREF               0 (GlobalManagerRegistry)
+            602 LOAD_METHOD             31 (get_or_create_manager)
+
+666         604 LOAD_CONST              37 ('friend_request_manager')
+
+665         606 CALL_METHOD              1
+
+667         608 LOAD_DEREF               3 (friend_request_manager)
+
+665         610 IS_OP                    1
+            612 EXTENDED_ARG             2
+            614 POP_JUMP_IF_FALSE      624
+
+668         616 LOAD_GLOBAL             12 (RuntimeError)
+            618 LOAD_CONST              46 ('failed to claim Mac automatic friend-request manager')
+            620 CALL_FUNCTION            1
+            622 RAISE_VARARGS            1
+
+669     >>  624 LOAD_DEREF               0 (GlobalManagerRegistry)
+            626 LOAD_METHOD             31 (get_or_create_manager)
+
+670         628 LOAD_CONST              39 ('sync_contacts_manager')
+
+669         630 CALL_METHOD              1
+
+671         632 LOAD_DEREF               7 (sync_contacts_manager)
+
+669         634 IS_OP                    1
+            636 EXTENDED_ARG             2
+            638 POP_JUMP_IF_FALSE      648
+
+672         640 LOAD_GLOBAL             12 (RuntimeError)
+            642 LOAD_CONST              47 ('failed to claim Mac scheduled contact-sync manager')
+            644 CALL_FUNCTION            1
+            646 RAISE_VARARGS            1
+
+674     >>  648 LOAD_CONST               3 (0)
+            650 LOAD_CONST              48 (('multi_chat_monitor',))
+            652 IMPORT_NAME             32 (WeRobotCore.task_system_v2.multi_chat_monitor)
+            654 IMPORT_FROM             33 (multi_chat_monitor)
+            656 STORE_FAST              17 (multi_chat_monitor)
+            658 POP_TOP
+
+676         660 LOAD_FAST                9 (auto_reply_manager)
+            662 LOAD_METHOD             34 (is_running)
+            664 CALL_METHOD              0
+            666 EXTENDED_ARG             2
+            668 POP_JUMP_IF_TRUE       680
+            670 LOAD_FAST               17 (multi_chat_monitor)
+            672 LOAD_METHOD             34 (is_running)
+            674 CALL_METHOD              0
+            676 EXTENDED_ARG             2
+            678 POP_JUMP_IF_FALSE      688
+
+677     >>  680 LOAD_GLOBAL             12 (RuntimeError)
+            682 LOAD_CONST              49 ('shared AutoReply owners must be stopped before binding')
+            684 CALL_FUNCTION            1
+            686 RAISE_VARARGS            1
+
+678     >>  688 LOAD_GLOBAL             35 (getattr)
+            690 LOAD_FAST               17 (multi_chat_monitor)
+            692 LOAD_CONST              50 ('instance_monitors')
+            694 LOAD_CONST              51 (None)
+            696 CALL_FUNCTION            3
+            698 EXTENDED_ARG             2
+            700 POP_JUMP_IF_FALSE      710
+
+679         702 LOAD_GLOBAL             12 (RuntimeError)
+            704 LOAD_CONST              52 ('shared MultiChatMonitor already owns account monitors')
+            706 CALL_FUNCTION            1
+            708 RAISE_VARARGS            1
+
+680     >>  710 LOAD_GLOBAL             35 (getattr)
+            712 LOAD_FAST                9 (auto_reply_manager)
+            714 LOAD_CONST              53 ('scheduler')
+            716 LOAD_CONST              51 (None)
+            718 CALL_FUNCTION            3
+            720 LOAD_FAST                7 (scheduler)
+            722 IS_OP                    1
+            724 EXTENDED_ARG             2
+            726 POP_JUMP_IF_FALSE      736
+
+681         728 LOAD_GLOBAL             12 (RuntimeError)
+            730 LOAD_CONST              54 ('AutoReplyManager does not own the claimed Scheduler')
+            732 CALL_FUNCTION            1
+            734 RAISE_VARARGS            1
+
+683     >>  736 LOAD_GLOBAL             35 (getattr)
+            738 LOAD_FAST                9 (auto_reply_manager)
+            740 LOAD_CONST              55 ('permission_manager')
+            742 LOAD_CONST              51 (None)
+            744 CALL_FUNCTION            3
+
+684         746 LOAD_FAST                8 (permission_manager)
+
+683         748 IS_OP                    1
+
+682         750 EXTENDED_ARG             2
+            752 POP_JUMP_IF_FALSE      762
+
+686         754 LOAD_GLOBAL             12 (RuntimeError)
+
+687         756 LOAD_CONST              56 ('AutoReplyManager does not own the claimed PermissionManager')
+
+686         758 CALL_FUNCTION            1
+            760 RAISE_VARARGS            1
+
+690     >>  762 LOAD_GLOBAL             36 (MacOSTaskSystemLifecycle)
+
+691         764 LOAD_FAST                0 (paths)
+
+692         766 LOAD_FAST                7 (scheduler)
+
+693         768 LOAD_FAST                8 (permission_manager)
+
+694         770 LOAD_FAST                9 (auto_reply_manager)
+
+695         772 LOAD_FAST               17 (multi_chat_monitor)
+
+696         774 LOAD_DEREF               4 (mass_sending_manager)
+
+697         776 LOAD_DEREF               2 (auto_follow_manager)
+
+698         778 LOAD_DEREF               5 (moment_comment_manager)
+
+699         780 LOAD_DEREF               6 (moment_post_manager)
+
+700         782 LOAD_DEREF               1 (add_friend_manager)
+
+701         784 LOAD_DEREF               3 (friend_request_manager)
+
+702         786 LOAD_DEREF               7 (sync_contacts_manager)
+
+690         788 LOAD_CONST              57 (('paths', 'scheduler', 'permission_manager', 'auto_reply_manager', 'multi_chat_monitor', 'mass_sending_manager', 'auto_follow_manager', 'moment_comment_manager', 'moment_post_manager', 'add_friend_manager', 'friend_request_manager', 'sync_contacts_manager'))
+            790 CALL_FUNCTION_KW        12
+            792 STORE_FAST              18 (lifecycle)
+
+704         794 LOAD_GLOBAL             37 (MacOSControlProcessDependencies)
+
+705         796 LOAD_FAST                0 (paths)
+
+706         798 LOAD_FAST                7 (scheduler)
+
+707         800 LOAD_FAST                8 (permission_manager)
+
+708         802 LOAD_FAST                9 (auto_reply_manager)
+
+709         804 LOAD_FAST               17 (multi_chat_monitor)
+
+710         806 LOAD_FAST                1 (private_agent_probe)
+
+711         808 LOAD_FAST               18 (lifecycle)
+
+712         810 LOAD_DEREF               4 (mass_sending_manager)
+
+713         812 LOAD_DEREF               2 (auto_follow_manager)
+
+714         814 LOAD_DEREF               5 (moment_comment_manager)
+
+715         816 LOAD_DEREF               6 (moment_post_manager)
+
+716         818 LOAD_DEREF               1 (add_friend_manager)
+
+717         820 LOAD_DEREF               3 (friend_request_manager)
+
+718         822 LOAD_DEREF               7 (sync_contacts_manager)
+
+704         824 LOAD_CONST              58 (('paths', 'scheduler', 'permission_manager', 'auto_reply_manager', 'multi_chat_monitor', 'private_agent_probe', 'task_system_lifecycle', 'mass_sending_manager', 'auto_follow_manager', 'moment_comment_manager', 'moment_post_manager', 'add_friend_manager', 'friend_request_manager', 'sync_contacts_manager'))
+            826 CALL_FUNCTION_KW        14
+            828 RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x1092447c0, file "WeRobotCore/bootstrap/macos_control_process.py", line 525>:
+525           0 LOAD_FAST                0 (.0)
+        >>    2 FOR_ITER                24 (to 28)
+
+527           4 STORE_FAST               1 (name)
+
+538           6 LOAD_DEREF               0 (GlobalManagerRegistry)
+              8 LOAD_METHOD              0 (get_manager)
+             10 LOAD_FAST                1 (name)
+             12 CALL_METHOD              1
+             14 LOAD_CONST               0 (None)
+             16 IS_OP                    1
+             18 POP_JUMP_IF_FALSE        2
+
+526          20 LOAD_FAST                1 (name)
+             22 YIELD_VALUE
+             24 POP_TOP
+             26 JUMP_ABSOLUTE            2
+        >>   28 LOAD_CONST               0 (None)
+             30 RETURN_VALUE
+
+Disassembly of <code object <lambda> at 0x109244c90, file "WeRobotCore/bootstrap/macos_control_process.py", line 619>:
+619           0 LOAD_DEREF               0 (mass_sending_manager)
+              2 RETURN_VALUE
+
+Disassembly of <code object <lambda> at 0x109244710, file "WeRobotCore/bootstrap/macos_control_process.py", line 623>:
+623           0 LOAD_DEREF               0 (auto_follow_manager)
+              2 RETURN_VALUE
+
+Disassembly of <code object <lambda> at 0x109244a80, file "WeRobotCore/bootstrap/macos_control_process.py", line 627>:
+627           0 LOAD_DEREF               0 (moment_comment_manager)
+              2 RETURN_VALUE
+
+Disassembly of <code object <lambda> at 0x109244660, file "WeRobotCore/bootstrap/macos_control_process.py", line 631>:
+631           0 LOAD_DEREF               0 (moment_post_manager)
+              2 RETURN_VALUE
+
+Disassembly of <code object <lambda> at 0x109244500, file "WeRobotCore/bootstrap/macos_control_process.py", line 635>:
+635           0 LOAD_DEREF               0 (add_friend_manager)
+              2 RETURN_VALUE
+
+Disassembly of <code object <lambda> at 0x109244030, file "WeRobotCore/bootstrap/macos_control_process.py", line 639>:
+639           0 LOAD_DEREF               0 (friend_request_manager)
+              2 RETURN_VALUE
+
+Disassembly of <code object <lambda> at 0x109244f50, file "WeRobotCore/bootstrap/macos_control_process.py", line 643>:
+643           0 LOAD_DEREF               0 (sync_contacts_manager)
+              2 RETURN_VALUE

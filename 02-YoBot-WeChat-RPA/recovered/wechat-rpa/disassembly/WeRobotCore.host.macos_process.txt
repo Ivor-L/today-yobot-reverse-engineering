@@ -1,0 +1,990 @@
+  1           0 LOAD_CONST               0 ('Bind one prepared macOS Host to its process-owned task lifecycle.\n\nThis is the final no-server ownership check before the signed entry may call\nthe runner.  Binding adds FastAPI startup/shutdown handlers in memory only; it\ndoes not start the lifecycle, create storage, open a socket, access Keychain,\nor inspect WeChat.\n')
+              2 STORE_NAME               0 (__doc__)
+
+  9           4 LOAD_CONST               1 (0)
+              6 LOAD_CONST               2 (('annotations',))
+              8 IMPORT_NAME              1 (__future__)
+             10 IMPORT_FROM              2 (annotations)
+             12 STORE_NAME               2 (annotations)
+             14 POP_TOP
+
+ 11          16 LOAD_CONST               1 (0)
+             18 LOAD_CONST               3 (None)
+             20 IMPORT_NAME              3 (asyncio)
+             22 STORE_NAME               3 (asyncio)
+
+ 12          24 LOAD_CONST               1 (0)
+             26 LOAD_CONST               4 (('dataclass',))
+             28 IMPORT_NAME              4 (dataclasses)
+             30 IMPORT_FROM              5 (dataclass)
+             32 STORE_NAME               5 (dataclass)
+             34 POP_TOP
+
+ 13          36 LOAD_CONST               1 (0)
+             38 LOAD_CONST               5 (('Optional',))
+             40 IMPORT_NAME              6 (typing)
+             42 IMPORT_FROM              7 (Optional)
+             44 STORE_NAME               7 (Optional)
+             46 POP_TOP
+
+ 15          48 LOAD_CONST               1 (0)
+             50 LOAD_CONST               6 (('FastAPI',))
+             52 IMPORT_NAME              8 (fastapi)
+             54 IMPORT_FROM              9 (FastAPI)
+             56 STORE_NAME               9 (FastAPI)
+             58 POP_TOP
+
+ 17          60 LOAD_CONST               1 (0)
+             62 LOAD_CONST               7 (('MacOSControlProcessDependencies', 'MacOSTaskSystemLifecycle'))
+             64 IMPORT_NAME             10 (WeRobotCore.bootstrap.macos_control_process)
+             66 IMPORT_FROM             11 (MacOSControlProcessDependencies)
+             68 STORE_NAME              11 (MacOSControlProcessDependencies)
+             70 IMPORT_FROM             12 (MacOSTaskSystemLifecycle)
+             72 STORE_NAME              12 (MacOSTaskSystemLifecycle)
+             74 POP_TOP
+
+ 21          76 LOAD_CONST               1 (0)
+             78 LOAD_CONST               8 (('MacOSControlProductOwner',))
+             80 IMPORT_NAME             13 (WeRobotCore.bootstrap.macos_control_product)
+             82 IMPORT_FROM             14 (MacOSControlProductOwner)
+             84 STORE_NAME              14 (MacOSControlProductOwner)
+             86 POP_TOP
+
+ 23          88 LOAD_CONST               9 (1)
+             90 LOAD_CONST              10 (('MacOSControlRuntimePreparation',))
+             92 IMPORT_NAME             15 (macos_runtime)
+             94 IMPORT_FROM             16 (MacOSControlRuntimePreparation)
+             96 STORE_NAME              16 (MacOSControlRuntimePreparation)
+             98 POP_TOP
+
+ 26         100 LOAD_CONST              11 ('yokowebot_macos_process_runtime')
+            102 STORE_NAME              17 (_PROCESS_RUNTIME_STATE_KEY)
+
+ 29         104 LOAD_NAME                5 (dataclass)
+            106 LOAD_CONST              12 (True)
+            108 LOAD_CONST              13 (('frozen',))
+            110 CALL_FUNCTION_KW         1
+
+ 30         112 LOAD_BUILD_CLASS
+            114 LOAD_CONST              14 (<code object MacOSControlProcessRuntime at 0x10924bd40, file "WeRobotCore/host/macos_process.py", line 29>)
+            116 LOAD_CONST              15 ('MacOSControlProcessRuntime')
+            118 MAKE_FUNCTION            0
+            120 LOAD_CONST              15 ('MacOSControlProcessRuntime')
+            122 CALL_FUNCTION            2
+            124 CALL_FUNCTION            1
+            126 STORE_NAME              18 (MacOSControlProcessRuntime)
+
+ 64         128 LOAD_CONST              16 ('MacOSControlRuntimePreparation')
+            130 LOAD_CONST              17 ('MacOSControlProductOwner')
+            132 LOAD_CONST              18 ('MacOSControlProcessDependencies')
+            134 LOAD_CONST              15 ('MacOSControlProcessRuntime')
+            136 LOAD_CONST              19 (('preparation', 'product_owner', 'dependencies', 'return'))
+            138 BUILD_CONST_KEY_MAP      4
+            140 LOAD_CONST              20 (<code object bind_macos_control_process_runtime at 0x10924bb30, file "WeRobotCore/host/macos_process.py", line 64>)
+            142 LOAD_CONST              21 ('bind_macos_control_process_runtime')
+            144 MAKE_FUNCTION            4 (annotations)
+            146 STORE_NAME              19 (bind_macos_control_process_runtime)
+
+225         148 LOAD_CONST              15 ('MacOSControlProcessRuntime')
+
+226         150 LOAD_CONST              21 ('bind_macos_control_process_runtime')
+
+224         152 BUILD_LIST               2
+            154 STORE_NAME              20 (__all__)
+            156 LOAD_CONST               3 (None)
+            158 RETURN_VALUE
+
+Disassembly of <code object MacOSControlProcessRuntime at 0x10924bd40, file "WeRobotCore/host/macos_process.py", line 29>:
+ 29           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('MacOSControlProcessRuntime')
+              6 STORE_NAME               2 (__qualname__)
+              8 SETUP_ANNOTATIONS
+
+ 31          10 LOAD_CONST               1 ('A prepared Host whose startup/shutdown ownership is complete.')
+             12 STORE_NAME               3 (__doc__)
+
+ 33          14 LOAD_CONST               2 ('MacOSControlRuntimePreparation')
+             16 LOAD_NAME                4 (__annotations__)
+             18 LOAD_CONST               3 ('preparation')
+             20 STORE_SUBSCR
+
+ 34          22 LOAD_CONST               4 ('MacOSControlProductOwner')
+             24 LOAD_NAME                4 (__annotations__)
+             26 LOAD_CONST               5 ('product_owner')
+             28 STORE_SUBSCR
+
+ 35          30 LOAD_CONST               6 ('MacOSControlProcessDependencies')
+             32 LOAD_NAME                4 (__annotations__)
+             34 LOAD_CONST               7 ('dependencies')
+             36 STORE_SUBSCR
+
+ 36          38 LOAD_CONST               8 ('FastAPI')
+             40 LOAD_NAME                4 (__annotations__)
+             42 LOAD_CONST               9 ('app')
+             44 STORE_SUBSCR
+
+ 37          46 LOAD_CONST              10 ('MacOSTaskSystemLifecycle')
+             48 LOAD_NAME                4 (__annotations__)
+             50 LOAD_CONST              11 ('task_system_lifecycle')
+             52 STORE_SUBSCR
+
+ 39          54 LOAD_CONST              12 ('None')
+             56 LOAD_CONST              13 (('return',))
+             58 BUILD_CONST_KEY_MAP      1
+             60 LOAD_CONST              14 (<code object __post_init__ at 0x10924b450, file "WeRobotCore/host/macos_process.py", line 39>)
+             62 LOAD_CONST              15 ('MacOSControlProcessRuntime.__post_init__')
+             64 MAKE_FUNCTION            4 (annotations)
+             66 STORE_NAME               5 (__post_init__)
+             68 LOAD_CONST              16 (None)
+             70 RETURN_VALUE
+
+Disassembly of <code object __post_init__ at 0x10924b450, file "WeRobotCore/host/macos_process.py", line 39>:
+ 40           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                0 (self)
+              4 LOAD_ATTR                1 (preparation)
+              6 LOAD_GLOBAL              2 (MacOSControlRuntimePreparation)
+              8 CALL_FUNCTION            2
+             10 POP_JUMP_IF_TRUE        20
+
+ 41          12 LOAD_GLOBAL              3 (TypeError)
+
+ 42          14 LOAD_CONST               1 ('preparation must be MacOSControlRuntimePreparation')
+
+ 41          16 CALL_FUNCTION            1
+             18 RAISE_VARARGS            1
+
+ 44     >>   20 LOAD_GLOBAL              0 (isinstance)
+             22 LOAD_FAST                0 (self)
+             24 LOAD_ATTR                4 (product_owner)
+             26 LOAD_GLOBAL              5 (MacOSControlProductOwner)
+             28 CALL_FUNCTION            2
+             30 POP_JUMP_IF_TRUE        40
+
+ 45          32 LOAD_GLOBAL              3 (TypeError)
+             34 LOAD_CONST               2 ('product_owner must be MacOSControlProductOwner')
+             36 CALL_FUNCTION            1
+             38 RAISE_VARARGS            1
+
+ 46     >>   40 LOAD_GLOBAL              0 (isinstance)
+
+ 47          42 LOAD_FAST                0 (self)
+             44 LOAD_ATTR                6 (dependencies)
+
+ 48          46 LOAD_GLOBAL              7 (MacOSControlProcessDependencies)
+
+ 46          48 CALL_FUNCTION            2
+             50 POP_JUMP_IF_TRUE        60
+
+ 50          52 LOAD_GLOBAL              3 (TypeError)
+
+ 51          54 LOAD_CONST               3 ('dependencies must be MacOSControlProcessDependencies')
+
+ 50          56 CALL_FUNCTION            1
+             58 RAISE_VARARGS            1
+
+ 53     >>   60 LOAD_GLOBAL              0 (isinstance)
+             62 LOAD_FAST                0 (self)
+             64 LOAD_ATTR                8 (app)
+             66 LOAD_GLOBAL              9 (FastAPI)
+             68 CALL_FUNCTION            2
+             70 POP_JUMP_IF_TRUE        80
+
+ 54          72 LOAD_GLOBAL              3 (TypeError)
+             74 LOAD_CONST               4 ('app must be FastAPI')
+             76 CALL_FUNCTION            1
+             78 RAISE_VARARGS            1
+
+ 55     >>   80 LOAD_GLOBAL              0 (isinstance)
+
+ 56          82 LOAD_FAST                0 (self)
+             84 LOAD_ATTR               10 (task_system_lifecycle)
+
+ 57          86 LOAD_GLOBAL             11 (MacOSTaskSystemLifecycle)
+
+ 55          88 CALL_FUNCTION            2
+             90 POP_JUMP_IF_TRUE       100
+
+ 59          92 LOAD_GLOBAL              3 (TypeError)
+
+ 60          94 LOAD_CONST               5 ('task_system_lifecycle must be MacOSTaskSystemLifecycle')
+
+ 59          96 CALL_FUNCTION            1
+             98 RAISE_VARARGS            1
+        >>  100 LOAD_CONST               0 (None)
+            102 RETURN_VALUE
+
+Disassembly of <code object bind_macos_control_process_runtime at 0x10924bb30, file "WeRobotCore/host/macos_process.py", line 64>:
+ 72           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                0 (preparation)
+              4 LOAD_GLOBAL              1 (MacOSControlRuntimePreparation)
+              6 CALL_FUNCTION            2
+              8 POP_JUMP_IF_TRUE        18
+
+ 73          10 LOAD_GLOBAL              2 (TypeError)
+             12 LOAD_CONST               1 ('preparation must be MacOSControlRuntimePreparation')
+             14 CALL_FUNCTION            1
+             16 RAISE_VARARGS            1
+
+ 74     >>   18 LOAD_GLOBAL              0 (isinstance)
+             20 LOAD_FAST                1 (product_owner)
+             22 LOAD_GLOBAL              3 (MacOSControlProductOwner)
+             24 CALL_FUNCTION            2
+             26 POP_JUMP_IF_TRUE        36
+
+ 75          28 LOAD_GLOBAL              2 (TypeError)
+             30 LOAD_CONST               2 ('product_owner must be MacOSControlProductOwner')
+             32 CALL_FUNCTION            1
+             34 RAISE_VARARGS            1
+
+ 76     >>   36 LOAD_GLOBAL              0 (isinstance)
+             38 LOAD_FAST                2 (dependencies)
+             40 LOAD_GLOBAL              4 (MacOSControlProcessDependencies)
+             42 CALL_FUNCTION            2
+             44 POP_JUMP_IF_TRUE        54
+
+ 77          46 LOAD_GLOBAL              2 (TypeError)
+
+ 78          48 LOAD_CONST               3 ('dependencies must be MacOSControlProcessDependencies')
+
+ 77          50 CALL_FUNCTION            1
+             52 RAISE_VARARGS            1
+
+ 81     >>   54 LOAD_FAST                0 (preparation)
+             56 LOAD_ATTR                5 (launch_plan)
+             58 STORE_FAST               3 (launch_plan)
+
+ 82          60 LOAD_FAST                3 (launch_plan)
+             62 LOAD_ATTR                6 (host)
+             64 LOAD_ATTR                7 (app)
+             66 STORE_FAST               4 (app)
+
+ 83          68 LOAD_GLOBAL              0 (isinstance)
+             70 LOAD_FAST                4 (app)
+             72 LOAD_GLOBAL              8 (FastAPI)
+             74 CALL_FUNCTION            2
+             76 POP_JUMP_IF_TRUE        86
+
+ 84          78 LOAD_GLOBAL              2 (TypeError)
+             80 LOAD_CONST               4 ('prepared Host must contain a FastAPI app')
+             82 CALL_FUNCTION            1
+             84 RAISE_VARARGS            1
+
+ 85     >>   86 LOAD_FAST                1 (product_owner)
+             88 LOAD_ATTR                9 (publication)
+             90 STORE_FAST               5 (publication)
+
+ 86          92 LOAD_FAST                5 (publication)
+             94 LOAD_CONST               5 (None)
+             96 IS_OP                    0
+             98 POP_JUMP_IF_FALSE      108
+
+ 87         100 LOAD_GLOBAL             10 (RuntimeError)
+            102 LOAD_CONST               6 ('macOS product owner has not published its graph')
+            104 CALL_FUNCTION            1
+            106 RAISE_VARARGS            1
+
+ 88     >>  108 LOAD_FAST                3 (launch_plan)
+            110 LOAD_ATTR                6 (host)
+            112 LOAD_ATTR                9 (publication)
+            114 LOAD_FAST                5 (publication)
+            116 IS_OP                    1
+            118 POP_JUMP_IF_FALSE      128
+
+ 89         120 LOAD_GLOBAL             10 (RuntimeError)
+            122 LOAD_CONST               7 ('prepared Host belongs to another product owner')
+            124 CALL_FUNCTION            1
+            126 RAISE_VARARGS            1
+
+ 90     >>  128 LOAD_FAST                3 (launch_plan)
+            130 LOAD_ATTR               11 (inputs)
+            132 LOAD_ATTR               12 (app_paths)
+            134 LOAD_FAST                1 (product_owner)
+            136 LOAD_ATTR               13 (paths)
+            138 COMPARE_OP               3 (!=)
+            140 POP_JUMP_IF_FALSE      150
+
+ 91         142 LOAD_GLOBAL             10 (RuntimeError)
+            144 LOAD_CONST               8 ('launch inputs and product owner paths differ')
+            146 CALL_FUNCTION            1
+            148 RAISE_VARARGS            1
+
+ 92     >>  150 LOAD_FAST                2 (dependencies)
+            152 LOAD_ATTR               13 (paths)
+            154 LOAD_FAST                1 (product_owner)
+            156 LOAD_ATTR               13 (paths)
+            158 COMPARE_OP               3 (!=)
+            160 POP_JUMP_IF_FALSE      170
+
+ 93         162 LOAD_GLOBAL             10 (RuntimeError)
+            164 LOAD_CONST               9 ('process dependencies and product owner paths differ')
+            166 CALL_FUNCTION            1
+            168 RAISE_VARARGS            1
+
+ 94     >>  170 LOAD_FAST                1 (product_owner)
+            172 LOAD_ATTR               14 (auto_reply_manager)
+            174 LOAD_FAST                2 (dependencies)
+            176 LOAD_ATTR               14 (auto_reply_manager)
+            178 IS_OP                    1
+            180 POP_JUMP_IF_FALSE      190
+
+ 95         182 LOAD_GLOBAL             10 (RuntimeError)
+            184 LOAD_CONST              10 ('product owner uses another AutoReplyManager')
+            186 CALL_FUNCTION            1
+            188 RAISE_VARARGS            1
+
+ 96     >>  190 LOAD_FAST                1 (product_owner)
+            192 LOAD_ATTR               15 (multi_chat_monitor)
+            194 LOAD_FAST                2 (dependencies)
+            196 LOAD_ATTR               15 (multi_chat_monitor)
+            198 IS_OP                    1
+            200 POP_JUMP_IF_FALSE      210
+
+ 97         202 LOAD_GLOBAL             10 (RuntimeError)
+            204 LOAD_CONST              11 ('product owner uses another MultiChatMonitor')
+            206 CALL_FUNCTION            1
+            208 RAISE_VARARGS            1
+
+ 98     >>  210 LOAD_FAST                1 (product_owner)
+            212 LOAD_ATTR               16 (private_agent_probe)
+            214 LOAD_FAST                2 (dependencies)
+            216 LOAD_ATTR               16 (private_agent_probe)
+            218 IS_OP                    1
+            220 POP_JUMP_IF_FALSE      230
+
+ 99         222 LOAD_GLOBAL             10 (RuntimeError)
+            224 LOAD_CONST              12 ('product owner uses another private Agent probe')
+            226 CALL_FUNCTION            1
+            228 RAISE_VARARGS            1
+
+101     >>  230 LOAD_FAST                2 (dependencies)
+            232 LOAD_ATTR               17 (task_system_lifecycle)
+            234 STORE_DEREF              2 (lifecycle)
+
+102         236 LOAD_DEREF               2 (lifecycle)
+            238 LOAD_ATTR               18 (state)
+            240 LOAD_CONST              13 ('new')
+            242 COMPARE_OP               3 (!=)
+            244 POP_JUMP_IF_FALSE      254
+
+103         246 LOAD_GLOBAL             10 (RuntimeError)
+            248 LOAD_CONST              14 ('task system lifecycle must be new when bound')
+            250 CALL_FUNCTION            1
+            252 RAISE_VARARGS            1
+
+104     >>  254 LOAD_GLOBAL             19 (getattr)
+            256 LOAD_FAST                4 (app)
+            258 LOAD_ATTR               18 (state)
+            260 LOAD_GLOBAL             20 (_PROCESS_RUNTIME_STATE_KEY)
+            262 LOAD_CONST               5 (None)
+            264 CALL_FUNCTION            3
+            266 LOAD_CONST               5 (None)
+            268 IS_OP                    1
+            270 EXTENDED_ARG             1
+            272 POP_JUMP_IF_FALSE      282
+
+105         274 LOAD_GLOBAL             10 (RuntimeError)
+            276 LOAD_CONST              15 ('prepared Host already has a process runtime')
+            278 CALL_FUNCTION            1
+            280 RAISE_VARARGS            1
+
+107     >>  282 LOAD_GLOBAL             21 (MacOSControlProcessRuntime)
+
+108         284 LOAD_FAST                0 (preparation)
+
+109         286 LOAD_FAST                1 (product_owner)
+
+110         288 LOAD_FAST                2 (dependencies)
+
+111         290 LOAD_FAST                4 (app)
+
+112         292 LOAD_DEREF               2 (lifecycle)
+
+107         294 LOAD_CONST              16 (('preparation', 'product_owner', 'dependencies', 'app', 'task_system_lifecycle'))
+            296 CALL_FUNCTION_KW         5
+            298 STORE_FAST               6 (runtime)
+
+115         300 LOAD_FAST                0 (preparation)
+            302 LOAD_ATTR               22 (runtime_lease_owner)
+            304 STORE_DEREF              3 (runtime_lease_owner)
+
+116         306 LOAD_FAST                5 (publication)
+            308 LOAD_ATTR               23 (composition)
+            310 LOAD_ATTR               24 (runtime_bundle)
+            312 LOAD_ATTR               25 (helper_client)
+            314 STORE_DEREF              1 (helper_client)
+
+117         316 LOAD_FAST                0 (preparation)
+            318 LOAD_ATTR               26 (access_authorizer)
+            320 STORE_FAST               7 (access_authorizer)
+
+118         322 LOAD_FAST                7 (access_authorizer)
+            324 LOAD_CONST               5 (None)
+            326 IS_OP                    0
+            328 EXTENDED_ARG             1
+            330 POP_JUMP_IF_FALSE      348
+            332 LOAD_DEREF               3 (runtime_lease_owner)
+            334 LOAD_CONST               5 (None)
+            336 IS_OP                    1
+            338 EXTENDED_ARG             1
+            340 POP_JUMP_IF_FALSE      348
+
+119         342 LOAD_DEREF               3 (runtime_lease_owner)
+            344 LOAD_ATTR               27 (authorize)
+            346 STORE_FAST               7 (access_authorizer)
+
+120     >>  348 LOAD_FAST                3 (launch_plan)
+            350 LOAD_ATTR               11 (inputs)
+            352 LOAD_ATTR               28 (backend_mode)
+            354 EXTENDED_ARG             1
+            356 POP_JUMP_IF_FALSE      376
+            358 LOAD_FAST                7 (access_authorizer)
+            360 LOAD_CONST               5 (None)
+            362 IS_OP                    0
+            364 EXTENDED_ARG             1
+            366 POP_JUMP_IF_FALSE      376
+
+121         368 LOAD_GLOBAL             10 (RuntimeError)
+            370 LOAD_CONST              17 ('macOS plugin requires a business access authorizer')
+            372 CALL_FUNCTION            1
+            374 RAISE_VARARGS            1
+
+122     >>  376 LOAD_FAST                7 (access_authorizer)
+            378 LOAD_CONST               5 (None)
+            380 IS_OP                    1
+            382 EXTENDED_ARG             1
+            384 POP_JUMP_IF_FALSE      476
+
+123         386 LOAD_GLOBAL             19 (getattr)
+
+124         388 LOAD_FAST                2 (dependencies)
+            390 LOAD_ATTR               29 (scheduler)
+
+125         392 LOAD_CONST              18 ('bind_execution_authorizer')
+
+126         394 LOAD_CONST               5 (None)
+
+123         396 CALL_FUNCTION            3
+            398 STORE_FAST               8 (bind_task_authorizer)
+
+128         400 LOAD_GLOBAL             30 (callable)
+            402 LOAD_FAST                8 (bind_task_authorizer)
+            404 CALL_FUNCTION            1
+            406 EXTENDED_ARG             1
+            408 POP_JUMP_IF_TRUE       418
+
+129         410 LOAD_GLOBAL             10 (RuntimeError)
+
+130         412 LOAD_CONST              19 ('macOS Scheduler does not expose the runtime access gate')
+
+129         414 CALL_FUNCTION            1
+            416 RAISE_VARARGS            1
+
+132     >>  418 LOAD_GLOBAL             19 (getattr)
+            420 LOAD_FAST                2 (dependencies)
+            422 LOAD_ATTR               29 (scheduler)
+            424 LOAD_CONST              20 ('execution_authorizer_bound')
+            426 LOAD_CONST              21 (False)
+            428 CALL_FUNCTION            3
+            430 EXTENDED_ARG             1
+            432 POP_JUMP_IF_FALSE      442
+
+133         434 LOAD_GLOBAL             10 (RuntimeError)
+            436 LOAD_CONST              22 ('macOS Scheduler access gate is already bound')
+            438 CALL_FUNCTION            1
+            440 RAISE_VARARGS            1
+
+134     >>  442 LOAD_DEREF               1 (helper_client)
+            444 LOAD_ATTR               31 (access_authorizer_bound)
+            446 EXTENDED_ARG             1
+            448 POP_JUMP_IF_FALSE      458
+
+135         450 LOAD_GLOBAL             10 (RuntimeError)
+            452 LOAD_CONST              23 ('macOS Helper access gate is already bound')
+            454 CALL_FUNCTION            1
+            456 RAISE_VARARGS            1
+
+136     >>  458 LOAD_FAST                8 (bind_task_authorizer)
+            460 LOAD_FAST                7 (access_authorizer)
+            462 CALL_FUNCTION            1
+            464 POP_TOP
+
+137         466 LOAD_DEREF               1 (helper_client)
+            468 LOAD_METHOD             32 (bind_access_authorizer)
+            470 LOAD_FAST                7 (access_authorizer)
+            472 CALL_METHOD              1
+            474 POP_TOP
+
+138     >>  476 LOAD_CONST               5 (None)
+            478 STORE_DEREF              0 (business_stop_lock)
+
+140         480 LOAD_CONST              24 ('asyncio.Lock')
+            482 LOAD_CONST              25 (('return',))
+            484 BUILD_CONST_KEY_MAP      1
+            486 LOAD_CLOSURE             0 (business_stop_lock)
+            488 BUILD_TUPLE              1
+            490 LOAD_CONST              26 (<code object stop_lock at 0x10924ba80, file "WeRobotCore/host/macos_process.py", line 140>)
+            492 LOAD_CONST              27 ('bind_macos_control_process_runtime.<locals>.stop_lock')
+            494 MAKE_FUNCTION           12 (annotations, closure)
+            496 STORE_DEREF              6 (stop_lock)
+
+146         498 LOAD_CONST              28 ('None')
+            500 LOAD_CONST              25 (('return',))
+            502 BUILD_CONST_KEY_MAP      1
+            504 LOAD_CLOSURE             1 (helper_client)
+            506 LOAD_CLOSURE             2 (lifecycle)
+            508 LOAD_CLOSURE             6 (stop_lock)
+            510 BUILD_TUPLE              3
+            512 LOAD_CONST              29 (<code object stop_business at 0x10924b660, file "WeRobotCore/host/macos_process.py", line 146>)
+            514 LOAD_CONST              30 ('bind_macos_control_process_runtime.<locals>.stop_business')
+            516 MAKE_FUNCTION           12 (annotations, closure)
+            518 STORE_DEREF              4 (stop_business)
+
+156         520 LOAD_CONST              31 ('str')
+            522 LOAD_CONST              28 ('None')
+            524 LOAD_CONST              32 (('_code', 'return'))
+            526 BUILD_CONST_KEY_MAP      2
+            528 LOAD_CLOSURE             4 (stop_business)
+            530 BUILD_TUPLE              1
+            532 LOAD_CONST              33 (<code object stop_business_for_access_loss at 0x10924b190, file "WeRobotCore/host/macos_process.py", line 156>)
+            534 LOAD_CONST              34 ('bind_macos_control_process_runtime.<locals>.stop_business_for_access_loss')
+            536 MAKE_FUNCTION           12 (annotations, closure)
+            538 STORE_DEREF              5 (stop_business_for_access_loss)
+
+159         540 LOAD_CONST              28 ('None')
+            542 LOAD_CONST              25 (('return',))
+            544 BUILD_CONST_KEY_MAP      1
+            546 LOAD_CLOSURE             4 (stop_business)
+            548 BUILD_TUPLE              1
+            550 LOAD_CONST              35 (<code object shutdown_after_unbind at 0x10924b030, file "WeRobotCore/host/macos_process.py", line 159>)
+            552 LOAD_CONST              36 ('bind_macos_control_process_runtime.<locals>.shutdown_after_unbind')
+            554 MAKE_FUNCTION           12 (annotations, closure)
+            556 STORE_FAST               9 (shutdown_after_unbind)
+
+169         558 LOAD_FAST                9 (shutdown_after_unbind)
+            560 LOAD_FAST                4 (app)
+            562 LOAD_ATTR               18 (state)
+            564 STORE_ATTR              33 (license_shutdown)
+
+171         566 LOAD_CONST              28 ('None')
+            568 LOAD_CONST              25 (('return',))
+            570 BUILD_CONST_KEY_MAP      1
+            572 LOAD_CLOSURE             1 (helper_client)
+            574 LOAD_CLOSURE             2 (lifecycle)
+            576 LOAD_CLOSURE             3 (runtime_lease_owner)
+            578 LOAD_CLOSURE             4 (stop_business)
+            580 LOAD_CLOSURE             5 (stop_business_for_access_loss)
+            582 BUILD_TUPLE              5
+            584 LOAD_CONST              37 (<code object startup_runtime at 0x10924bc90, file "WeRobotCore/host/macos_process.py", line 171>)
+            586 LOAD_CONST              38 ('bind_macos_control_process_runtime.<locals>.startup_runtime')
+            588 MAKE_FUNCTION           12 (annotations, closure)
+            590 STORE_FAST              10 (startup_runtime)
+
+201         592 LOAD_CONST              28 ('None')
+            594 LOAD_CONST              25 (('return',))
+            596 BUILD_CONST_KEY_MAP      1
+            598 LOAD_CLOSURE             3 (runtime_lease_owner)
+            600 LOAD_CLOSURE             4 (stop_business)
+            602 BUILD_TUPLE              2
+            604 LOAD_CONST              39 (<code object shutdown_runtime at 0x10924b3a0, file "WeRobotCore/host/macos_process.py", line 201>)
+            606 LOAD_CONST              40 ('bind_macos_control_process_runtime.<locals>.shutdown_runtime')
+            608 MAKE_FUNCTION           12 (annotations, closure)
+            610 STORE_FAST              11 (shutdown_runtime)
+
+218         612 LOAD_FAST                4 (app)
+            614 LOAD_METHOD             34 (add_event_handler)
+            616 LOAD_CONST              41 ('startup')
+            618 LOAD_FAST               10 (startup_runtime)
+            620 CALL_METHOD              2
+            622 POP_TOP
+
+219         624 LOAD_FAST                4 (app)
+            626 LOAD_METHOD             34 (add_event_handler)
+            628 LOAD_CONST              42 ('shutdown')
+            630 LOAD_FAST               11 (shutdown_runtime)
+            632 CALL_METHOD              2
+            634 POP_TOP
+
+220         636 LOAD_GLOBAL             35 (setattr)
+            638 LOAD_FAST                4 (app)
+            640 LOAD_ATTR               18 (state)
+            642 LOAD_GLOBAL             20 (_PROCESS_RUNTIME_STATE_KEY)
+            644 LOAD_FAST                6 (runtime)
+            646 CALL_FUNCTION            3
+            648 POP_TOP
+
+221         650 LOAD_FAST                6 (runtime)
+            652 RETURN_VALUE
+
+Disassembly of <code object stop_lock at 0x10924ba80, file "WeRobotCore/host/macos_process.py", line 140>:
+142           0 LOAD_DEREF               0 (business_stop_lock)
+              2 LOAD_CONST               0 (None)
+              4 IS_OP                    0
+              6 POP_JUMP_IF_FALSE       16
+
+143           8 LOAD_GLOBAL              0 (asyncio)
+             10 LOAD_METHOD              1 (Lock)
+             12 CALL_METHOD              0
+             14 STORE_DEREF              0 (business_stop_lock)
+
+144     >>   16 LOAD_DEREF               0 (business_stop_lock)
+             18 RETURN_VALUE
+
+Disassembly of <code object stop_business at 0x10924b660, file "WeRobotCore/host/macos_process.py", line 146>:
+147           0 LOAD_DEREF               2 (stop_lock)
+              2 CALL_FUNCTION            0
+              4 BEFORE_ASYNC_WITH
+              6 GET_AWAITABLE
+              8 LOAD_CONST               0 (None)
+             10 YIELD_FROM
+             12 SETUP_ASYNC_WITH        72 (to 86)
+             14 POP_TOP
+
+148          16 SETUP_FINALLY           32 (to 50)
+
+149          18 LOAD_DEREF               1 (lifecycle)
+             20 LOAD_METHOD              0 (stop)
+             22 CALL_METHOD              0
+             24 GET_AWAITABLE
+             26 LOAD_CONST               0 (None)
+             28 YIELD_FROM
+             30 POP_TOP
+             32 POP_BLOCK
+
+154          34 LOAD_DEREF               0 (helper_client)
+             36 LOAD_METHOD              1 (close)
+             38 CALL_METHOD              0
+             40 GET_AWAITABLE
+             42 LOAD_CONST               0 (None)
+             44 YIELD_FROM
+             46 POP_TOP
+             48 JUMP_FORWARD            16 (to 66)
+        >>   50 LOAD_DEREF               0 (helper_client)
+             52 LOAD_METHOD              1 (close)
+             54 CALL_METHOD              0
+             56 GET_AWAITABLE
+             58 LOAD_CONST               0 (None)
+             60 YIELD_FROM
+             62 POP_TOP
+             64 RERAISE
+        >>   66 POP_BLOCK
+             68 LOAD_CONST               0 (None)
+             70 DUP_TOP
+             72 DUP_TOP
+             74 CALL_FUNCTION            3
+             76 GET_AWAITABLE
+             78 LOAD_CONST               0 (None)
+             80 YIELD_FROM
+             82 POP_TOP
+             84 JUMP_ABSOLUTE          108
+        >>   86 WITH_EXCEPT_START
+             88 GET_AWAITABLE
+             90 LOAD_CONST               0 (None)
+             92 YIELD_FROM
+             94 POP_JUMP_IF_TRUE        98
+             96 RERAISE
+        >>   98 POP_TOP
+            100 POP_TOP
+            102 POP_TOP
+            104 POP_EXCEPT
+            106 POP_TOP
+        >>  108 LOAD_CONST               0 (None)
+            110 RETURN_VALUE
+
+Disassembly of <code object stop_business_for_access_loss at 0x10924b190, file "WeRobotCore/host/macos_process.py", line 156>:
+157           0 LOAD_DEREF               0 (stop_business)
+              2 CALL_FUNCTION            0
+              4 GET_AWAITABLE
+              6 LOAD_CONST               0 (None)
+              8 YIELD_FROM
+             10 POP_TOP
+             12 LOAD_CONST               0 (None)
+             14 RETURN_VALUE
+
+Disassembly of <code object shutdown_after_unbind at 0x10924b030, file "WeRobotCore/host/macos_process.py", line 159>:
+162           0 LOAD_CONST               1 (0)
+              2 LOAD_CONST               0 (None)
+              4 IMPORT_NAME              0 (os)
+              6 STORE_FAST               0 (os)
+
+163           8 LOAD_CONST               1 (0)
+             10 LOAD_CONST               0 (None)
+             12 IMPORT_NAME              1 (signal)
+             14 STORE_FAST               1 (signal)
+
+164          16 SETUP_FINALLY           34 (to 52)
+
+165          18 LOAD_DEREF               0 (stop_business)
+             20 CALL_FUNCTION            0
+             22 GET_AWAITABLE
+             24 LOAD_CONST               0 (None)
+             26 YIELD_FROM
+             28 POP_TOP
+             30 POP_BLOCK
+
+167          32 LOAD_FAST                0 (os)
+             34 LOAD_METHOD              2 (kill)
+             36 LOAD_FAST                0 (os)
+             38 LOAD_METHOD              3 (getpid)
+             40 CALL_METHOD              0
+             42 LOAD_FAST                1 (signal)
+             44 LOAD_ATTR                4 (SIGTERM)
+             46 CALL_METHOD              2
+             48 POP_TOP
+             50 JUMP_FORWARD            20 (to 72)
+        >>   52 LOAD_FAST                0 (os)
+             54 LOAD_METHOD              2 (kill)
+             56 LOAD_FAST                0 (os)
+             58 LOAD_METHOD              3 (getpid)
+             60 CALL_METHOD              0
+             62 LOAD_FAST                1 (signal)
+             64 LOAD_ATTR                4 (SIGTERM)
+             66 CALL_METHOD              2
+             68 POP_TOP
+             70 RERAISE
+        >>   72 LOAD_CONST               0 (None)
+             74 RETURN_VALUE
+
+Disassembly of <code object startup_runtime at 0x10924bc90, file "WeRobotCore/host/macos_process.py", line 171>:
+172           0 LOAD_DEREF               2 (runtime_lease_owner)
+              2 LOAD_CONST               0 (None)
+              4 IS_OP                    1
+              6 POP_JUMP_IF_FALSE       58
+
+173           8 LOAD_DEREF               2 (runtime_lease_owner)
+             10 LOAD_METHOD              0 (acquire)
+             12 CALL_METHOD              0
+             14 GET_AWAITABLE
+             16 LOAD_CONST               0 (None)
+             18 YIELD_FROM
+             20 STORE_FAST               0 (verification)
+
+174          22 LOAD_FAST                0 (verification)
+             24 LOAD_ATTR                1 (granted)
+             26 POP_JUMP_IF_TRUE        58
+
+175          28 LOAD_DEREF               2 (runtime_lease_owner)
+             30 LOAD_METHOD              2 (stop)
+             32 CALL_METHOD              0
+             34 GET_AWAITABLE
+             36 LOAD_CONST               0 (None)
+             38 YIELD_FROM
+             40 POP_TOP
+
+176          42 LOAD_GLOBAL              3 (RuntimeError)
+
+177          44 LOAD_CONST               1 ('macOS Control runtime lease rejected: {}')
+             46 LOAD_METHOD              4 (format)
+
+178          48 LOAD_FAST                0 (verification)
+             50 LOAD_ATTR                5 (code)
+
+177          52 CALL_METHOD              1
+
+176          54 CALL_FUNCTION            1
+             56 RAISE_VARARGS            1
+
+181     >>   58 SETUP_FINALLY           78 (to 138)
+
+182          60 LOAD_DEREF               1 (lifecycle)
+             62 LOAD_METHOD              6 (start)
+             64 CALL_METHOD              0
+             66 GET_AWAITABLE
+             68 LOAD_CONST               0 (None)
+             70 YIELD_FROM
+             72 POP_TOP
+
+183          74 LOAD_DEREF               2 (runtime_lease_owner)
+             76 LOAD_CONST               0 (None)
+             78 IS_OP                    1
+             80 POP_JUMP_IF_FALSE      134
+
+184          82 LOAD_DEREF               2 (runtime_lease_owner)
+             84 LOAD_METHOD              7 (authorize)
+             86 CALL_METHOD              0
+             88 GET_AWAITABLE
+             90 LOAD_CONST               0 (None)
+             92 YIELD_FROM
+             94 STORE_FAST               1 (decision)
+
+185          96 LOAD_FAST                1 (decision)
+             98 LOAD_ATTR                8 (allowed)
+            100 POP_JUMP_IF_TRUE       122
+
+186         102 LOAD_DEREF               3 (stop_business)
+            104 CALL_FUNCTION            0
+            106 GET_AWAITABLE
+            108 LOAD_CONST               0 (None)
+            110 YIELD_FROM
+            112 POP_TOP
+
+187         114 LOAD_GLOBAL              3 (RuntimeError)
+
+188         116 LOAD_CONST               2 ('macOS Control runtime lease expired during startup')
+
+187         118 CALL_FUNCTION            1
+            120 RAISE_VARARGS            1
+
+190     >>  122 LOAD_DEREF               2 (runtime_lease_owner)
+            124 LOAD_ATTR                9 (begin_heartbeat)
+
+191         126 LOAD_DEREF               4 (stop_business_for_access_loss)
+
+190         128 LOAD_CONST               3 (('access_lost_handler',))
+            130 CALL_FUNCTION_KW         1
+            132 POP_TOP
+        >>  134 POP_BLOCK
+            136 JUMP_FORWARD            86 (to 224)
+
+193     >>  138 DUP_TOP
+            140 LOAD_GLOBAL             10 (Exception)
+            142 JUMP_IF_NOT_EXC_MATCH   222
+            144 POP_TOP
+            146 POP_TOP
+            148 POP_TOP
+
+194         150 SETUP_FINALLY           40 (to 192)
+
+195         152 LOAD_DEREF               0 (helper_client)
+            154 LOAD_METHOD             11 (close)
+            156 CALL_METHOD              0
+            158 GET_AWAITABLE
+            160 LOAD_CONST               0 (None)
+            162 YIELD_FROM
+            164 POP_TOP
+            166 POP_BLOCK
+
+197         168 LOAD_DEREF               2 (runtime_lease_owner)
+            170 LOAD_CONST               0 (None)
+            172 IS_OP                    1
+            174 POP_JUMP_IF_FALSE      216
+
+198         176 LOAD_DEREF               2 (runtime_lease_owner)
+            178 LOAD_METHOD              2 (stop)
+            180 CALL_METHOD              0
+            182 GET_AWAITABLE
+            184 LOAD_CONST               0 (None)
+            186 YIELD_FROM
+            188 POP_TOP
+            190 JUMP_FORWARD            24 (to 216)
+
+197     >>  192 LOAD_DEREF               2 (runtime_lease_owner)
+            194 LOAD_CONST               0 (None)
+            196 IS_OP                    1
+            198 POP_JUMP_IF_FALSE      214
+
+198         200 LOAD_DEREF               2 (runtime_lease_owner)
+            202 LOAD_METHOD              2 (stop)
+            204 CALL_METHOD              0
+            206 GET_AWAITABLE
+            208 LOAD_CONST               0 (None)
+            210 YIELD_FROM
+            212 POP_TOP
+        >>  214 RERAISE
+
+199     >>  216 RAISE_VARARGS            0
+            218 POP_EXCEPT
+            220 JUMP_FORWARD             2 (to 224)
+        >>  222 RERAISE
+        >>  224 LOAD_CONST               0 (None)
+            226 RETURN_VALUE
+
+Disassembly of <code object shutdown_runtime at 0x10924b3a0, file "WeRobotCore/host/macos_process.py", line 201>:
+202           0 LOAD_CONST               0 (None)
+              2 STORE_FAST               0 (business_error)
+
+203           4 SETUP_FINALLY           16 (to 22)
+
+204           6 LOAD_DEREF               1 (stop_business)
+              8 CALL_FUNCTION            0
+             10 GET_AWAITABLE
+             12 LOAD_CONST               0 (None)
+             14 YIELD_FROM
+             16 POP_TOP
+             18 POP_BLOCK
+             20 JUMP_FORWARD            40 (to 62)
+
+205     >>   22 DUP_TOP
+             24 LOAD_GLOBAL              0 (Exception)
+             26 JUMP_IF_NOT_EXC_MATCH    60
+             28 POP_TOP
+             30 STORE_FAST               1 (exc)
+             32 POP_TOP
+             34 SETUP_FINALLY           16 (to 52)
+
+206          36 LOAD_FAST                1 (exc)
+             38 STORE_FAST               0 (business_error)
+             40 POP_BLOCK
+             42 POP_EXCEPT
+             44 LOAD_CONST               0 (None)
+             46 STORE_FAST               1 (exc)
+             48 DELETE_FAST              1 (exc)
+             50 JUMP_FORWARD            10 (to 62)
+        >>   52 LOAD_CONST               0 (None)
+             54 STORE_FAST               1 (exc)
+             56 DELETE_FAST              1 (exc)
+             58 RERAISE
+        >>   60 RERAISE
+
+207     >>   62 LOAD_CONST               0 (None)
+             64 STORE_FAST               2 (lease_error)
+
+208          66 LOAD_DEREF               0 (runtime_lease_owner)
+             68 LOAD_CONST               0 (None)
+             70 IS_OP                    1
+             72 POP_JUMP_IF_FALSE      134
+
+209          74 SETUP_FINALLY           18 (to 94)
+
+210          76 LOAD_DEREF               0 (runtime_lease_owner)
+             78 LOAD_METHOD              1 (stop)
+             80 CALL_METHOD              0
+             82 GET_AWAITABLE
+             84 LOAD_CONST               0 (None)
+             86 YIELD_FROM
+             88 POP_TOP
+             90 POP_BLOCK
+             92 JUMP_FORWARD            40 (to 134)
+
+211     >>   94 DUP_TOP
+             96 LOAD_GLOBAL              0 (Exception)
+             98 JUMP_IF_NOT_EXC_MATCH   132
+            100 POP_TOP
+            102 STORE_FAST               1 (exc)
+            104 POP_TOP
+            106 SETUP_FINALLY           16 (to 124)
+
+212         108 LOAD_FAST                1 (exc)
+            110 STORE_FAST               2 (lease_error)
+            112 POP_BLOCK
+            114 POP_EXCEPT
+            116 LOAD_CONST               0 (None)
+            118 STORE_FAST               1 (exc)
+            120 DELETE_FAST              1 (exc)
+            122 JUMP_FORWARD            10 (to 134)
+        >>  124 LOAD_CONST               0 (None)
+            126 STORE_FAST               1 (exc)
+            128 DELETE_FAST              1 (exc)
+            130 RERAISE
+        >>  132 RERAISE
+
+213     >>  134 LOAD_FAST                0 (business_error)
+            136 LOAD_CONST               0 (None)
+            138 IS_OP                    1
+            140 POP_JUMP_IF_TRUE       150
+            142 LOAD_FAST                2 (lease_error)
+            144 LOAD_CONST               0 (None)
+            146 IS_OP                    1
+            148 POP_JUMP_IF_FALSE      164
+
+214     >>  150 LOAD_GLOBAL              2 (RuntimeError)
+            152 LOAD_CONST               1 ('macOS Control runtime shutdown failed')
+            154 CALL_FUNCTION            1
+
+215         156 LOAD_FAST                0 (business_error)
+            158 JUMP_IF_TRUE_OR_POP    162
+            160 LOAD_FAST                2 (lease_error)
+
+214     >>  162 RAISE_VARARGS            2
+        >>  164 LOAD_CONST               0 (None)
+            166 RETURN_VALUE

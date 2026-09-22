@@ -1,0 +1,225 @@
+  1           0 LOAD_CONST               0 ('Backward-compatible views of the process-external Supervisor status.')
+              2 STORE_NAME               0 (__doc__)
+
+  3           4 LOAD_CONST               1 (0)
+              6 LOAD_CONST               2 (('annotations',))
+              8 IMPORT_NAME              1 (__future__)
+             10 IMPORT_FROM              2 (annotations)
+             12 STORE_NAME               2 (annotations)
+             14 POP_TOP
+
+  5          16 LOAD_CONST               1 (0)
+             18 LOAD_CONST               3 (('Any', 'Dict', 'Mapping'))
+             20 IMPORT_NAME              3 (typing)
+             22 IMPORT_FROM              4 (Any)
+             24 STORE_NAME               4 (Any)
+             26 IMPORT_FROM              5 (Dict)
+             28 STORE_NAME               5 (Dict)
+             30 IMPORT_FROM              6 (Mapping)
+             32 STORE_NAME               6 (Mapping)
+             34 POP_TOP
+
+ 20          36 LOAD_CONST               4 (9922)
+             38 STORE_NAME               7 (BACKEND_API_PORT)
+
+ 23          40 LOAD_CONST              31 ((None,))
+             42 LOAD_CONST               6 ('Mapping[str, Any] | None')
+             44 LOAD_CONST               7 ('int | None')
+             46 LOAD_CONST               8 ('int')
+             48 LOAD_CONST               9 (('heartbeat', 'worker_pid', 'return'))
+             50 BUILD_CONST_KEY_MAP      3
+             52 LOAD_CONST              10 (<code object worker_api_port at 0x1092445b0, file "WeRobotCore/core/supervisor_contract.py", line 23>)
+             54 LOAD_CONST              11 ('worker_api_port')
+             56 MAKE_FUNCTION            5 (defaults, annotations)
+             58 STORE_NAME               8 (worker_api_port)
+
+ 49          60 LOAD_CONST              12 ('微信停留在登录窗口，请先扫码登录')
+
+ 50          62 LOAD_CONST              13 ('有托管的微信号没有找到对应的微信窗口，请把它重新打开')
+
+ 51          64 LOAD_CONST              14 ('托管的微信窗口已关闭或进程已退出，请重新打开该微信')
+
+ 52          66 LOAD_CONST              15 ('托管的微信窗口已关闭，请重新打开该微信')
+
+ 53          68 LOAD_CONST              16 ('当前登录的微信号与托管时绑定的不一致，请换回原账号或重新绑定')
+
+ 54          70 LOAD_CONST              17 ('有新托管的微信号还没纳入自动回复，请到微信 BOT 页面重新开启一次自动回复，或退出该号的托管')
+
+ 55          72 LOAD_CONST              18 ('部分托管的微信号当前不可用，请检查这些微信是否都已打开并登录')
+
+ 56          74 LOAD_CONST              19 ('无法确认微信运行状态，请确认微信已打开并登录')
+
+ 48          76 LOAD_CONST              20 (('WECHAT_LOGIN_REQUIRED', 'WECHAT_INSTANCE_NOT_FOUND', 'WECHAT_INSTANCE_LOST', 'WECHAT_WINDOW_LOST', 'WECHAT_ACCOUNT_MISMATCH', 'WECHAT_UNEXPECTED_ACCOUNT', 'WECHAT_PARTIAL_ACCOUNTS_UNAVAILABLE', 'WECHAT_STATUS_UNKNOWN'))
+             78 BUILD_CONST_KEY_MAP      8
+             80 STORE_NAME               9 (_ACTION_REQUIRED_MESSAGES)
+
+ 60          82 LOAD_CONST              21 ('str | None')
+             84 LOAD_CONST              22 ('str')
+             86 LOAD_CONST              23 (('reason_code', 'return'))
+             88 BUILD_CONST_KEY_MAP      2
+             90 LOAD_CONST              24 (<code object action_required_message at 0x109244870, file "WeRobotCore/core/supervisor_contract.py", line 60>)
+             92 LOAD_CONST              25 ('action_required_message')
+             94 MAKE_FUNCTION            4 (annotations)
+             96 STORE_NAME              10 (action_required_message)
+
+ 67          98 LOAD_CONST              26 ('Mapping[str, Any]')
+            100 LOAD_CONST              21 ('str | None')
+            102 LOAD_CONST              27 ('Dict[str, Any]')
+            104 LOAD_CONST              28 (('snapshot', 'contract_version', 'return'))
+            106 BUILD_CONST_KEY_MAP      3
+            108 LOAD_CONST              29 (<code object supervisor_status_for_contract at 0x109244d40, file "WeRobotCore/core/supervisor_contract.py", line 67>)
+            110 LOAD_CONST              30 ('supervisor_status_for_contract')
+            112 MAKE_FUNCTION            4 (annotations)
+            114 STORE_NAME              11 (supervisor_status_for_contract)
+            116 LOAD_CONST               5 (None)
+            118 RETURN_VALUE
+
+Disassembly of <code object worker_api_port at 0x1092445b0, file "WeRobotCore/core/supervisor_contract.py", line 23>:
+ 32           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                0 (heartbeat)
+              4 LOAD_GLOBAL              1 (Mapping)
+              6 CALL_FUNCTION            2
+              8 POP_JUMP_IF_TRUE        14
+
+ 33          10 LOAD_GLOBAL              2 (BACKEND_API_PORT)
+             12 RETURN_VALUE
+
+ 34     >>   14 LOAD_FAST                1 (worker_pid)
+             16 LOAD_CONST               1 (None)
+             18 IS_OP                    1
+             20 POP_JUMP_IF_FALSE       40
+             22 LOAD_FAST                0 (heartbeat)
+             24 LOAD_METHOD              3 (get)
+             26 LOAD_CONST               2 ('pid')
+             28 CALL_METHOD              1
+             30 LOAD_FAST                1 (worker_pid)
+             32 COMPARE_OP               3 (!=)
+             34 POP_JUMP_IF_FALSE       40
+
+ 35          36 LOAD_GLOBAL              2 (BACKEND_API_PORT)
+             38 RETURN_VALUE
+
+ 36     >>   40 LOAD_FAST                0 (heartbeat)
+             42 LOAD_METHOD              3 (get)
+             44 LOAD_CONST               3 ('api_port')
+             46 CALL_METHOD              1
+             48 STORE_FAST               2 (port)
+
+ 37          50 LOAD_GLOBAL              0 (isinstance)
+             52 LOAD_FAST                2 (port)
+             54 LOAD_GLOBAL              4 (int)
+             56 CALL_FUNCTION            2
+             58 POP_JUMP_IF_FALSE       88
+             60 LOAD_CONST               4 (0)
+             62 LOAD_FAST                2 (port)
+             64 DUP_TOP
+             66 ROT_THREE
+             68 COMPARE_OP               0 (<)
+             70 POP_JUMP_IF_FALSE       80
+             72 LOAD_CONST               5 (65536)
+             74 COMPARE_OP               0 (<)
+             76 POP_JUMP_IF_FALSE       88
+             78 JUMP_FORWARD             4 (to 84)
+        >>   80 POP_TOP
+             82 JUMP_FORWARD             4 (to 88)
+
+ 38     >>   84 LOAD_FAST                2 (port)
+             86 RETURN_VALUE
+
+ 39     >>   88 LOAD_GLOBAL              2 (BACKEND_API_PORT)
+             90 RETURN_VALUE
+
+Disassembly of <code object action_required_message at 0x109244870, file "WeRobotCore/core/supervisor_contract.py", line 60>:
+ 62           0 LOAD_GLOBAL              0 (_ACTION_REQUIRED_MESSAGES)
+              2 LOAD_METHOD              1 (get)
+
+ 63           4 LOAD_FAST                0 (reason_code)
+              6 JUMP_IF_TRUE_OR_POP     10
+              8 LOAD_CONST               1 ('')
+        >>   10 LOAD_CONST               2 ('微信需要人工处理，请确认托管的微信都已打开并登录')
+
+ 62          12 CALL_METHOD              2
+             14 RETURN_VALUE
+
+Disassembly of <code object supervisor_status_for_contract at 0x109244d40, file "WeRobotCore/core/supervisor_contract.py", line 67>:
+ 71           0 LOAD_GLOBAL              0 (dict)
+              2 LOAD_FAST                0 (snapshot)
+              4 JUMP_IF_TRUE_OR_POP      8
+              6 BUILD_MAP                0
+        >>    8 CALL_FUNCTION            1
+             10 STORE_FAST               2 (data)
+
+ 73          12 LOAD_GLOBAL              1 (str)
+             14 LOAD_FAST                1 (contract_version)
+             16 JUMP_IF_TRUE_OR_POP     20
+             18 LOAD_CONST               1 ('1')
+        >>   20 CALL_FUNCTION            1
+             22 LOAD_CONST               2 ('2')
+             24 COMPARE_OP               3 (!=)
+
+ 72          26 POP_JUMP_IF_FALSE      130
+
+ 74          28 LOAD_FAST                2 (data)
+             30 LOAD_METHOD              2 (get)
+             32 LOAD_CONST               3 ('status')
+             34 CALL_METHOD              1
+             36 LOAD_CONST               4 ('action_required')
+             38 COMPARE_OP               2 (==)
+
+ 72          40 POP_JUMP_IF_FALSE      130
+
+ 75          42 LOAD_FAST                2 (data)
+             44 LOAD_METHOD              2 (get)
+             46 LOAD_CONST               5 ('worker_health_ok')
+             48 CALL_METHOD              1
+             50 LOAD_CONST               6 (False)
+             52 IS_OP                    1
+
+ 72          54 POP_JUMP_IF_FALSE      130
+
+ 77          56 LOAD_FAST                2 (data)
+             58 LOAD_METHOD              2 (get)
+             60 LOAD_CONST               3 ('status')
+             62 CALL_METHOD              1
+             64 LOAD_FAST                2 (data)
+             66 LOAD_CONST               7 ('business_status')
+             68 STORE_SUBSCR
+
+ 78          70 LOAD_FAST                2 (data)
+             72 LOAD_METHOD              2 (get)
+             74 LOAD_CONST               8 ('reason_code')
+             76 CALL_METHOD              1
+             78 LOAD_FAST                2 (data)
+             80 LOAD_CONST               9 ('business_reason_code')
+             82 STORE_SUBSCR
+
+ 79          84 LOAD_FAST                2 (data)
+             86 LOAD_METHOD              2 (get)
+             88 LOAD_CONST              10 ('message')
+             90 CALL_METHOD              1
+             92 LOAD_FAST                2 (data)
+             94 LOAD_CONST              11 ('business_message')
+             96 STORE_SUBSCR
+
+ 80          98 LOAD_CONST              12 ('idle')
+            100 LOAD_FAST                2 (data)
+            102 LOAD_CONST               3 ('status')
+            104 STORE_SUBSCR
+
+ 81         106 LOAD_CONST              13 (None)
+            108 LOAD_FAST                2 (data)
+            110 LOAD_CONST               8 ('reason_code')
+            112 STORE_SUBSCR
+
+ 82         114 LOAD_CONST              14 ('RPA Worker 可访问，等待客户端执行微信初始化')
+            116 LOAD_FAST                2 (data)
+            118 LOAD_CONST              10 ('message')
+            120 STORE_SUBSCR
+
+ 83         122 LOAD_CONST              15 (True)
+            124 LOAD_FAST                2 (data)
+            126 LOAD_CONST              16 ('legacy_remediation_compatible')
+            128 STORE_SUBSCR
+
+ 84     >>  130 LOAD_FAST                2 (data)
+            132 RETURN_VALUE

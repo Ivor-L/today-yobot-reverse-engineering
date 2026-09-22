@@ -1,0 +1,346 @@
+  1           0 LOAD_CONST               0 ('Normalized contact and group facts shared by contact providers.')
+              2 STORE_NAME               0 (__doc__)
+
+  3           4 LOAD_CONST               1 (0)
+              6 LOAD_CONST               2 (('dataclass', 'field'))
+              8 IMPORT_NAME              1 (dataclasses)
+             10 IMPORT_FROM              2 (dataclass)
+             12 STORE_NAME               2 (dataclass)
+             14 IMPORT_FROM              3 (field)
+             16 STORE_NAME               3 (field)
+             18 POP_TOP
+
+  4          20 LOAD_CONST               1 (0)
+             22 LOAD_CONST               3 (('Any', 'Mapping', 'Optional', 'Tuple'))
+             24 IMPORT_NAME              4 (typing)
+             26 IMPORT_FROM              5 (Any)
+             28 STORE_NAME               5 (Any)
+             30 IMPORT_FROM              6 (Mapping)
+             32 STORE_NAME               6 (Mapping)
+             34 IMPORT_FROM              7 (Optional)
+             36 STORE_NAME               7 (Optional)
+             38 IMPORT_FROM              8 (Tuple)
+             40 STORE_NAME               8 (Tuple)
+             42 POP_TOP
+
+  7          44 LOAD_NAME                2 (dataclass)
+             46 LOAD_CONST               4 (True)
+             48 LOAD_CONST               5 (('frozen',))
+             50 CALL_FUNCTION_KW         1
+
+  8          52 LOAD_BUILD_CLASS
+             54 LOAD_CONST               6 (<code object ContactRecord at 0x1073aac90, file "WeRobotCore/domain/models/contacts.py", line 7>)
+             56 LOAD_CONST               7 ('ContactRecord')
+             58 MAKE_FUNCTION            0
+             60 LOAD_CONST               7 ('ContactRecord')
+             62 CALL_FUNCTION            2
+             64 CALL_FUNCTION            1
+             66 STORE_NAME               9 (ContactRecord)
+
+ 25          68 LOAD_NAME                2 (dataclass)
+             70 LOAD_CONST               4 (True)
+             72 LOAD_CONST               5 (('frozen',))
+             74 CALL_FUNCTION_KW         1
+
+ 26          76 LOAD_BUILD_CLASS
+             78 LOAD_CONST               8 (<code object GroupRecord at 0x1073aa0e0, file "WeRobotCore/domain/models/contacts.py", line 25>)
+             80 LOAD_CONST               9 ('GroupRecord')
+             82 MAKE_FUNCTION            0
+             84 LOAD_CONST               9 ('GroupRecord')
+             86 CALL_FUNCTION            2
+             88 CALL_FUNCTION            1
+             90 STORE_NAME              10 (GroupRecord)
+             92 LOAD_CONST              10 (None)
+             94 RETURN_VALUE
+
+Disassembly of <code object ContactRecord at 0x1073aac90, file "WeRobotCore/domain/models/contacts.py", line 7>:
+  7           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('ContactRecord')
+              6 STORE_NAME               2 (__qualname__)
+              8 SETUP_ANNOTATIONS
+
+  9          10 LOAD_NAME                3 (str)
+             12 LOAD_NAME                4 (__annotations__)
+             14 LOAD_CONST               1 ('account_id')
+             16 STORE_SUBSCR
+
+ 10          18 LOAD_NAME                3 (str)
+             20 LOAD_NAME                4 (__annotations__)
+             22 LOAD_CONST               2 ('contact_id')
+             24 STORE_SUBSCR
+
+ 11          26 LOAD_NAME                3 (str)
+             28 LOAD_NAME                4 (__annotations__)
+             30 LOAD_CONST               3 ('name')
+             32 STORE_SUBSCR
+
+ 12          34 LOAD_CONST               4 (None)
+             36 STORE_NAME               5 (remark)
+             38 LOAD_NAME                6 (Optional)
+             40 LOAD_NAME                3 (str)
+             42 BINARY_SUBSCR
+             44 LOAD_NAME                4 (__annotations__)
+             46 LOAD_CONST               5 ('remark')
+             48 STORE_SUBSCR
+
+ 13          50 LOAD_NAME                7 (field)
+             52 LOAD_NAME                8 (tuple)
+             54 LOAD_CONST               6 (('default_factory',))
+             56 CALL_FUNCTION_KW         1
+             58 STORE_NAME               9 (tags)
+             60 LOAD_NAME               10 (Tuple)
+             62 LOAD_NAME                3 (str)
+             64 LOAD_CONST               7 (Ellipsis)
+             66 BUILD_TUPLE              2
+             68 BINARY_SUBSCR
+             70 LOAD_NAME                4 (__annotations__)
+             72 LOAD_CONST               8 ('tags')
+             74 STORE_SUBSCR
+
+ 14          76 LOAD_NAME                7 (field)
+             78 LOAD_NAME               11 (dict)
+             80 LOAD_CONST               6 (('default_factory',))
+             82 CALL_FUNCTION_KW         1
+             84 STORE_NAME              12 (metadata)
+             86 LOAD_NAME               13 (Mapping)
+             88 LOAD_NAME                3 (str)
+             90 LOAD_NAME               14 (Any)
+             92 BUILD_TUPLE              2
+             94 BINARY_SUBSCR
+             96 LOAD_NAME                4 (__annotations__)
+             98 LOAD_CONST               9 ('metadata')
+            100 STORE_SUBSCR
+
+ 16         102 LOAD_CONST               4 (None)
+            104 LOAD_CONST              10 (('return',))
+            106 BUILD_CONST_KEY_MAP      1
+            108 LOAD_CONST              11 (<code object __post_init__ at 0x1073aa5b0, file "WeRobotCore/domain/models/contacts.py", line 16>)
+            110 LOAD_CONST              12 ('ContactRecord.__post_init__')
+            112 MAKE_FUNCTION            4 (annotations)
+            114 STORE_NAME              15 (__post_init__)
+            116 LOAD_CONST               4 (None)
+            118 RETURN_VALUE
+
+Disassembly of <code object __post_init__ at 0x1073aa5b0, file "WeRobotCore/domain/models/contacts.py", line 16>:
+ 17           0 LOAD_CONST               1 (('account_id', 'contact_id', 'name'))
+              2 GET_ITER
+        >>    4 FOR_ITER                46 (to 52)
+              6 STORE_FAST               1 (field_name)
+
+ 18           8 LOAD_GLOBAL              0 (getattr)
+             10 LOAD_FAST                0 (self)
+             12 LOAD_FAST                1 (field_name)
+             14 CALL_FUNCTION            2
+             16 STORE_FAST               2 (value)
+
+ 19          18 LOAD_GLOBAL              1 (isinstance)
+             20 LOAD_FAST                2 (value)
+             22 LOAD_GLOBAL              2 (str)
+             24 CALL_FUNCTION            2
+             26 POP_JUMP_IF_FALSE       36
+             28 LOAD_FAST                2 (value)
+             30 LOAD_METHOD              3 (strip)
+             32 CALL_METHOD              0
+             34 POP_JUMP_IF_TRUE         4
+
+ 20     >>   36 LOAD_GLOBAL              4 (ValueError)
+             38 LOAD_CONST               2 ('{} must be a non-empty string')
+             40 LOAD_METHOD              5 (format)
+             42 LOAD_FAST                1 (field_name)
+             44 CALL_METHOD              1
+             46 CALL_FUNCTION            1
+             48 RAISE_VARARGS            1
+             50 JUMP_ABSOLUTE            4
+
+ 21     >>   52 LOAD_GLOBAL              6 (any)
+             54 LOAD_CONST               3 (<code object <genexpr> at 0x1073aa190, file "WeRobotCore/domain/models/contacts.py", line 21>)
+             56 LOAD_CONST               4 ('ContactRecord.__post_init__.<locals>.<genexpr>')
+             58 MAKE_FUNCTION            0
+             60 LOAD_FAST                0 (self)
+             62 LOAD_ATTR                7 (tags)
+             64 GET_ITER
+             66 CALL_FUNCTION            1
+             68 CALL_FUNCTION            1
+             70 POP_JUMP_IF_FALSE       80
+
+ 22          72 LOAD_GLOBAL              4 (ValueError)
+             74 LOAD_CONST               5 ('contact tags must be non-empty strings')
+             76 CALL_FUNCTION            1
+             78 RAISE_VARARGS            1
+        >>   80 LOAD_CONST               0 (None)
+             82 RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x1073aa190, file "WeRobotCore/domain/models/contacts.py", line 21>:
+ 21           0 LOAD_FAST                0 (.0)
+        >>    2 FOR_ITER                28 (to 32)
+              4 STORE_FAST               1 (item)
+              6 LOAD_GLOBAL              0 (isinstance)
+              8 LOAD_FAST                1 (item)
+             10 LOAD_GLOBAL              1 (str)
+             12 CALL_FUNCTION            2
+             14 UNARY_NOT
+             16 JUMP_IF_TRUE_OR_POP     26
+             18 LOAD_FAST                1 (item)
+             20 LOAD_METHOD              2 (strip)
+             22 CALL_METHOD              0
+             24 UNARY_NOT
+        >>   26 YIELD_VALUE
+             28 POP_TOP
+             30 JUMP_ABSOLUTE            2
+        >>   32 LOAD_CONST               0 (None)
+             34 RETURN_VALUE
+
+Disassembly of <code object GroupRecord at 0x1073aa0e0, file "WeRobotCore/domain/models/contacts.py", line 25>:
+ 25           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('GroupRecord')
+              6 STORE_NAME               2 (__qualname__)
+              8 SETUP_ANNOTATIONS
+
+ 27          10 LOAD_NAME                3 (str)
+             12 LOAD_NAME                4 (__annotations__)
+             14 LOAD_CONST               1 ('account_id')
+             16 STORE_SUBSCR
+
+ 28          18 LOAD_NAME                3 (str)
+             20 LOAD_NAME                4 (__annotations__)
+             22 LOAD_CONST               2 ('group_id')
+             24 STORE_SUBSCR
+
+ 29          26 LOAD_NAME                3 (str)
+             28 LOAD_NAME                4 (__annotations__)
+             30 LOAD_CONST               3 ('name')
+             32 STORE_SUBSCR
+
+ 30          34 LOAD_CONST               4 (None)
+             36 STORE_NAME               5 (member_count)
+             38 LOAD_NAME                6 (Optional)
+             40 LOAD_NAME                7 (int)
+             42 BINARY_SUBSCR
+             44 LOAD_NAME                4 (__annotations__)
+             46 LOAD_CONST               5 ('member_count')
+             48 STORE_SUBSCR
+
+ 31          50 LOAD_NAME                8 (field)
+             52 LOAD_NAME                9 (tuple)
+             54 LOAD_CONST               6 (('default_factory',))
+             56 CALL_FUNCTION_KW         1
+             58 STORE_NAME              10 (tags)
+             60 LOAD_NAME               11 (Tuple)
+             62 LOAD_NAME                3 (str)
+             64 LOAD_CONST               7 (Ellipsis)
+             66 BUILD_TUPLE              2
+             68 BINARY_SUBSCR
+             70 LOAD_NAME                4 (__annotations__)
+             72 LOAD_CONST               8 ('tags')
+             74 STORE_SUBSCR
+
+ 32          76 LOAD_NAME                8 (field)
+             78 LOAD_NAME               12 (dict)
+             80 LOAD_CONST               6 (('default_factory',))
+             82 CALL_FUNCTION_KW         1
+             84 STORE_NAME              13 (metadata)
+             86 LOAD_NAME               14 (Mapping)
+             88 LOAD_NAME                3 (str)
+             90 LOAD_NAME               15 (Any)
+             92 BUILD_TUPLE              2
+             94 BINARY_SUBSCR
+             96 LOAD_NAME                4 (__annotations__)
+             98 LOAD_CONST               9 ('metadata')
+            100 STORE_SUBSCR
+
+ 34         102 LOAD_CONST               4 (None)
+            104 LOAD_CONST              10 (('return',))
+            106 BUILD_CONST_KEY_MAP      1
+            108 LOAD_CONST              11 (<code object __post_init__ at 0x1073aa870, file "WeRobotCore/domain/models/contacts.py", line 34>)
+            110 LOAD_CONST              12 ('GroupRecord.__post_init__')
+            112 MAKE_FUNCTION            4 (annotations)
+            114 STORE_NAME              16 (__post_init__)
+            116 LOAD_CONST               4 (None)
+            118 RETURN_VALUE
+
+Disassembly of <code object __post_init__ at 0x1073aa870, file "WeRobotCore/domain/models/contacts.py", line 34>:
+ 35           0 LOAD_CONST               1 (('account_id', 'group_id', 'name'))
+              2 GET_ITER
+        >>    4 FOR_ITER                46 (to 52)
+              6 STORE_FAST               1 (field_name)
+
+ 36           8 LOAD_GLOBAL              0 (getattr)
+             10 LOAD_FAST                0 (self)
+             12 LOAD_FAST                1 (field_name)
+             14 CALL_FUNCTION            2
+             16 STORE_FAST               2 (value)
+
+ 37          18 LOAD_GLOBAL              1 (isinstance)
+             20 LOAD_FAST                2 (value)
+             22 LOAD_GLOBAL              2 (str)
+             24 CALL_FUNCTION            2
+             26 POP_JUMP_IF_FALSE       36
+             28 LOAD_FAST                2 (value)
+             30 LOAD_METHOD              3 (strip)
+             32 CALL_METHOD              0
+             34 POP_JUMP_IF_TRUE         4
+
+ 38     >>   36 LOAD_GLOBAL              4 (ValueError)
+             38 LOAD_CONST               2 ('{} must be a non-empty string')
+             40 LOAD_METHOD              5 (format)
+             42 LOAD_FAST                1 (field_name)
+             44 CALL_METHOD              1
+             46 CALL_FUNCTION            1
+             48 RAISE_VARARGS            1
+             50 JUMP_ABSOLUTE            4
+
+ 39     >>   52 LOAD_FAST                0 (self)
+             54 LOAD_ATTR                6 (member_count)
+             56 LOAD_CONST               0 (None)
+             58 IS_OP                    1
+             60 POP_JUMP_IF_FALSE       80
+             62 LOAD_FAST                0 (self)
+             64 LOAD_ATTR                6 (member_count)
+             66 LOAD_CONST               3 (0)
+             68 COMPARE_OP               0 (<)
+             70 POP_JUMP_IF_FALSE       80
+
+ 40          72 LOAD_GLOBAL              4 (ValueError)
+             74 LOAD_CONST               4 ('member_count cannot be negative')
+             76 CALL_FUNCTION            1
+             78 RAISE_VARARGS            1
+
+ 41     >>   80 LOAD_GLOBAL              7 (any)
+             82 LOAD_CONST               5 (<code object <genexpr> at 0x1073aa240, file "WeRobotCore/domain/models/contacts.py", line 41>)
+             84 LOAD_CONST               6 ('GroupRecord.__post_init__.<locals>.<genexpr>')
+             86 MAKE_FUNCTION            0
+             88 LOAD_FAST                0 (self)
+             90 LOAD_ATTR                8 (tags)
+             92 GET_ITER
+             94 CALL_FUNCTION            1
+             96 CALL_FUNCTION            1
+             98 POP_JUMP_IF_FALSE      108
+
+ 42         100 LOAD_GLOBAL              4 (ValueError)
+            102 LOAD_CONST               7 ('group tags must be non-empty strings')
+            104 CALL_FUNCTION            1
+            106 RAISE_VARARGS            1
+        >>  108 LOAD_CONST               0 (None)
+            110 RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x1073aa240, file "WeRobotCore/domain/models/contacts.py", line 41>:
+ 41           0 LOAD_FAST                0 (.0)
+        >>    2 FOR_ITER                28 (to 32)
+              4 STORE_FAST               1 (item)
+              6 LOAD_GLOBAL              0 (isinstance)
+              8 LOAD_FAST                1 (item)
+             10 LOAD_GLOBAL              1 (str)
+             12 CALL_FUNCTION            2
+             14 UNARY_NOT
+             16 JUMP_IF_TRUE_OR_POP     26
+             18 LOAD_FAST                1 (item)
+             20 LOAD_METHOD              2 (strip)
+             22 CALL_METHOD              0
+             24 UNARY_NOT
+        >>   26 YIELD_VALUE
+             28 POP_TOP
+             30 JUMP_ABSOLUTE            2
+        >>   32 LOAD_CONST               0 (None)
+             34 RETURN_VALUE

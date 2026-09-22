@@ -1,0 +1,424 @@
+  1           0 LOAD_CONST               0 ('Mac I/O adaptation of the existing Windows legacy license wire contract.')
+              2 STORE_NAME               0 (__doc__)
+
+  2           4 LOAD_CONST               1 (0)
+              6 LOAD_CONST               2 (None)
+              8 IMPORT_NAME              1 (asyncio)
+             10 STORE_NAME               1 (asyncio)
+
+  3          12 LOAD_CONST               1 (0)
+             14 LOAD_CONST               3 (('datetime',))
+             16 IMPORT_NAME              2 (datetime)
+             18 IMPORT_FROM              2 (datetime)
+             20 STORE_NAME               2 (datetime)
+             22 POP_TOP
+
+  6          24 LOAD_BUILD_CLASS
+             26 LOAD_CONST               4 (<code object LegacyLicenseTransport at 0x109244030, file "WeRobotCore/adapters/control/license.py", line 6>)
+             28 LOAD_CONST               5 ('LegacyLicenseTransport')
+             30 MAKE_FUNCTION            0
+             32 LOAD_CONST               5 ('LegacyLicenseTransport')
+             34 CALL_FUNCTION            2
+             36 STORE_NAME               3 (LegacyLicenseTransport)
+             38 LOAD_CONST               2 (None)
+             40 RETURN_VALUE
+
+Disassembly of <code object LegacyLicenseTransport at 0x109244030, file "WeRobotCore/adapters/control/license.py", line 6>:
+  6           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('LegacyLicenseTransport')
+              6 STORE_NAME               2 (__qualname__)
+
+  7           8 LOAD_CONST               1 (<code object __init__ at 0x109244be0, file "WeRobotCore/adapters/control/license.py", line 7>)
+             10 LOAD_CONST               2 ('LegacyLicenseTransport.__init__')
+             12 MAKE_FUNCTION            0
+             14 STORE_NAME               3 (__init__)
+
+ 10          16 LOAD_CONST               3 (<code object _post at 0x1092443a0, file "WeRobotCore/adapters/control/license.py", line 10>)
+             18 LOAD_CONST               4 ('LegacyLicenseTransport._post')
+             20 MAKE_FUNCTION            0
+             22 STORE_NAME               4 (_post)
+
+ 30          24 LOAD_CONST               5 (<code object activate at 0x109244c90, file "WeRobotCore/adapters/control/license.py", line 30>)
+             26 LOAD_CONST               6 ('LegacyLicenseTransport.activate')
+             28 MAKE_FUNCTION            0
+             30 STORE_NAME               5 (activate)
+
+ 33          32 LOAD_CONST               7 (<code object unbind at 0x109244b30, file "WeRobotCore/adapters/control/license.py", line 33>)
+             34 LOAD_CONST               8 ('LegacyLicenseTransport.unbind')
+             36 MAKE_FUNCTION            0
+             38 STORE_NAME               6 (unbind)
+
+ 36          40 LOAD_CONST               9 (<code object verify at 0x109244710, file "WeRobotCore/adapters/control/license.py", line 36>)
+             42 LOAD_CONST              10 ('LegacyLicenseTransport.verify')
+             44 MAKE_FUNCTION            0
+             46 STORE_NAME               7 (verify)
+             48 LOAD_CONST              11 (None)
+             50 RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x109244be0, file "WeRobotCore/adapters/control/license.py", line 7>:
+  8           0 LOAD_FAST                1 (api_base)
+              2 LOAD_METHOD              0 (rstrip)
+              4 LOAD_CONST               1 ('/')
+              6 CALL_METHOD              1
+              8 LOAD_FAST                0 (self)
+             10 STORE_ATTR               1 (api_base)
+             12 LOAD_CONST               0 (None)
+             14 RETURN_VALUE
+
+Disassembly of <code object _post at 0x1092443a0, file "WeRobotCore/adapters/control/license.py", line 10>:
+ 11           0 LOAD_CLOSURE             0 (action)
+              2 LOAD_CLOSURE             1 (payload)
+              4 LOAD_CLOSURE             2 (self)
+              6 BUILD_TUPLE              3
+              8 LOAD_CONST               1 (<code object send at 0x109244a80, file "WeRobotCore/adapters/control/license.py", line 11>)
+             10 LOAD_CONST               2 ('LegacyLicenseTransport._post.<locals>.send')
+             12 MAKE_FUNCTION            8 (closure)
+             14 STORE_FAST               3 (send)
+
+ 28          16 LOAD_GLOBAL              0 (asyncio)
+             18 LOAD_METHOD              1 (to_thread)
+             20 LOAD_FAST                3 (send)
+             22 CALL_METHOD              1
+             24 GET_AWAITABLE
+             26 LOAD_CONST               0 (None)
+             28 YIELD_FROM
+             30 RETURN_VALUE
+
+Disassembly of <code object send at 0x109244a80, file "WeRobotCore/adapters/control/license.py", line 11>:
+ 12           0 LOAD_CONST               1 (0)
+              2 LOAD_CONST               0 (None)
+              4 IMPORT_NAME              0 (requests)
+              6 STORE_FAST               0 (requests)
+
+ 13           8 SETUP_FINALLY          156 (to 166)
+
+ 14          10 LOAD_FAST                0 (requests)
+             12 LOAD_ATTR                1 (post)
+
+ 15          14 LOAD_DEREF               2 (self)
+             16 LOAD_ATTR                2 (api_base)
+             18 LOAD_CONST               2 ('/v1/rpa/legacy/')
+             20 BINARY_ADD
+             22 LOAD_DEREF               0 (action)
+             24 BINARY_ADD
+
+ 16          26 LOAD_DEREF               1 (payload)
+             28 LOAD_CONST               3 (10)
+             30 LOAD_CONST               4 (False)
+
+ 14          32 LOAD_CONST               5 (('json', 'timeout', 'allow_redirects'))
+             34 CALL_FUNCTION_KW         4
+             36 STORE_FAST               1 (response)
+
+ 17          38 LOAD_FAST                1 (response)
+             40 LOAD_METHOD              3 (json)
+             42 CALL_METHOD              0
+             44 STORE_FAST               2 (data)
+
+ 18          46 LOAD_GLOBAL              4 (isinstance)
+             48 LOAD_FAST                2 (data)
+             50 LOAD_GLOBAL              5 (dict)
+             52 CALL_FUNCTION            2
+             54 POP_JUMP_IF_TRUE        64
+
+ 19          56 LOAD_GLOBAL              6 (ValueError)
+             58 LOAD_CONST               6 ('invalid response')
+             60 CALL_FUNCTION            1
+             62 RAISE_VARARGS            1
+
+ 20     >>   64 LOAD_FAST                1 (response)
+             66 LOAD_ATTR                7 (status_code)
+             68 LOAD_CONST               7 (200)
+             70 COMPARE_OP               2 (==)
+             72 JUMP_IF_FALSE_OR_POP    86
+             74 LOAD_FAST                2 (data)
+             76 LOAD_METHOD              8 (get)
+             78 LOAD_CONST               8 ('success')
+             80 CALL_METHOD              1
+             82 LOAD_CONST               9 (True)
+             84 IS_OP                    0
+        >>   86 STORE_FAST               3 (success)
+
+ 21          88 LOAD_DEREF               0 (action)
+             90 LOAD_CONST              10 ('activate')
+             92 COMPARE_OP               2 (==)
+             94 POP_JUMP_IF_FALSE      100
+             96 LOAD_CONST              11 ('valid')
+             98 JUMP_FORWARD             2 (to 102)
+        >>  100 LOAD_CONST               8 ('success')
+        >>  102 STORE_FAST               4 (key)
+
+ 22         104 LOAD_DEREF               0 (action)
+            106 LOAD_CONST              10 ('activate')
+            108 COMPARE_OP               2 (==)
+            110 POP_JUMP_IF_FALSE      116
+            112 LOAD_CONST              12 ('激活')
+            114 JUMP_FORWARD             2 (to 118)
+        >>  116 LOAD_CONST              13 ('解绑')
+        >>  118 LOAD_FAST                3 (success)
+            120 POP_JUMP_IF_FALSE      126
+            122 LOAD_CONST              14 ('成功')
+            124 JUMP_FORWARD             2 (to 128)
+        >>  126 LOAD_CONST              15 ('失败')
+        >>  128 BINARY_ADD
+            130 STORE_FAST               5 (default_message)
+
+ 23         132 LOAD_FAST                4 (key)
+            134 LOAD_FAST                3 (success)
+            136 LOAD_CONST              16 ('message')
+            138 LOAD_FAST                2 (data)
+            140 LOAD_METHOD              8 (get)
+            142 LOAD_CONST              16 ('message')
+            144 LOAD_FAST                5 (default_message)
+            146 CALL_METHOD              2
+
+ 24         148 LOAD_CONST              17 ('data')
+            150 LOAD_FAST                2 (data)
+            152 LOAD_METHOD              8 (get)
+            154 LOAD_CONST              17 ('data')
+            156 BUILD_MAP                0
+            158 CALL_METHOD              2
+
+ 23         160 BUILD_MAP                3
+            162 POP_BLOCK
+            164 RETURN_VALUE
+
+ 25     >>  166 DUP_TOP
+            168 LOAD_FAST                0 (requests)
+            170 LOAD_ATTR                9 (RequestException)
+            172 LOAD_GLOBAL              6 (ValueError)
+            174 BUILD_TUPLE              2
+            176 JUMP_IF_NOT_EXC_MATCH   212
+            178 POP_TOP
+            180 POP_TOP
+            182 POP_TOP
+
+ 26         184 LOAD_DEREF               0 (action)
+            186 LOAD_CONST              10 ('activate')
+            188 COMPARE_OP               2 (==)
+            190 POP_JUMP_IF_FALSE      196
+            192 LOAD_CONST              11 ('valid')
+            194 JUMP_FORWARD             2 (to 198)
+        >>  196 LOAD_CONST               8 ('success')
+        >>  198 LOAD_CONST               4 (False)
+
+ 27         200 LOAD_CONST              16 ('message')
+            202 LOAD_CONST              18 ('授权服务请求失败，请检查网络后重试')
+
+ 26         204 BUILD_MAP                2
+            206 ROT_FOUR
+            208 POP_EXCEPT
+            210 RETURN_VALUE
+        >>  212 RERAISE
+            214 LOAD_CONST               0 (None)
+            216 RETURN_VALUE
+
+Disassembly of <code object activate at 0x109244c90, file "WeRobotCore/adapters/control/license.py", line 30>:
+ 31           0 LOAD_FAST                0 (self)
+              2 LOAD_METHOD              0 (_post)
+              4 LOAD_CONST               1 ('activate')
+              6 LOAD_FAST                1 (code)
+              8 LOAD_FAST                2 (machine)
+             10 LOAD_CONST               2 (('activation_code', 'machine_code'))
+             12 BUILD_CONST_KEY_MAP      2
+             14 CALL_METHOD              2
+             16 GET_AWAITABLE
+             18 LOAD_CONST               0 (None)
+             20 YIELD_FROM
+             22 RETURN_VALUE
+
+Disassembly of <code object unbind at 0x109244b30, file "WeRobotCore/adapters/control/license.py", line 33>:
+ 34           0 LOAD_FAST                0 (self)
+              2 LOAD_METHOD              0 (_post)
+              4 LOAD_CONST               1 ('unbind')
+              6 LOAD_FAST                1 (code)
+              8 LOAD_FAST                2 (machine)
+             10 LOAD_CONST               2 (('activation_code', 'machine_code'))
+             12 BUILD_CONST_KEY_MAP      2
+             14 CALL_METHOD              2
+             16 GET_AWAITABLE
+             18 LOAD_CONST               0 (None)
+             20 YIELD_FROM
+             22 RETURN_VALUE
+
+Disassembly of <code object verify at 0x109244710, file "WeRobotCore/adapters/control/license.py", line 36>:
+ 37           0 LOAD_CLOSURE             0 (machine)
+              2 BUILD_TUPLE              1
+              4 LOAD_CONST               1 (<code object read at 0x1092449d0, file "WeRobotCore/adapters/control/license.py", line 37>)
+              6 LOAD_CONST               2 ('LegacyLicenseTransport.verify.<locals>.read')
+              8 MAKE_FUNCTION            8 (closure)
+             10 STORE_FAST               2 (read)
+
+ 65          12 LOAD_GLOBAL              0 (asyncio)
+             14 LOAD_METHOD              1 (to_thread)
+             16 LOAD_FAST                2 (read)
+             18 CALL_METHOD              1
+             20 GET_AWAITABLE
+             22 LOAD_CONST               0 (None)
+             24 YIELD_FROM
+             26 RETURN_VALUE
+
+Disassembly of <code object read at 0x1092449d0, file "WeRobotCore/adapters/control/license.py", line 37>:
+ 38           0 LOAD_CONST               1 (0)
+              2 LOAD_CONST               0 (None)
+              4 IMPORT_NAME              0 (requests)
+              6 STORE_FAST               0 (requests)
+
+ 41           8 LOAD_CONST               1 (0)
+             10 LOAD_CONST               2 (('SupabaseManager',))
+             12 IMPORT_NAME              1 (WeRobotCore.utils.supabase_client)
+             14 IMPORT_FROM              2 (SupabaseManager)
+             16 STORE_FAST               1 (SupabaseManager)
+             18 POP_TOP
+
+ 42          20 LOAD_FAST                1 (SupabaseManager)
+             22 CALL_FUNCTION            0
+             24 STORE_FAST               2 (configuration)
+
+ 43          26 SETUP_FINALLY          200 (to 228)
+
+ 44          28 LOAD_FAST                0 (requests)
+             30 LOAD_ATTR                3 (get)
+
+ 45          32 LOAD_FAST                2 (configuration)
+             34 LOAD_ATTR                4 (url)
+             36 LOAD_METHOD              5 (rstrip)
+             38 LOAD_CONST               3 ('/')
+             40 CALL_METHOD              1
+             42 LOAD_CONST               4 ('/rest/v1/device_licenses')
+             44 BINARY_ADD
+
+ 46          46 LOAD_CONST               5 ('*')
+             48 LOAD_CONST               6 ('eq.')
+             50 LOAD_DEREF               0 (machine)
+             52 BINARY_ADD
+             54 LOAD_CONST               7 (('select', 'machine_code'))
+             56 BUILD_CONST_KEY_MAP      2
+
+ 47          58 LOAD_FAST                2 (configuration)
+             60 LOAD_ATTR                6 (key)
+
+ 48          62 LOAD_CONST               8 ('Bearer ')
+             64 LOAD_FAST                2 (configuration)
+             66 LOAD_ATTR                6 (key)
+             68 BINARY_ADD
+
+ 47          70 LOAD_CONST               9 (('apikey', 'Authorization'))
+             72 BUILD_CONST_KEY_MAP      2
+
+ 49          74 LOAD_CONST              10 (10)
+             76 LOAD_CONST              11 (False)
+
+ 44          78 LOAD_CONST              12 (('params', 'headers', 'timeout', 'allow_redirects'))
+             80 CALL_FUNCTION_KW         5
+             82 STORE_FAST               3 (response)
+
+ 50          84 LOAD_FAST                3 (response)
+             86 LOAD_METHOD              7 (raise_for_status)
+             88 CALL_METHOD              0
+             90 POP_TOP
+
+ 51          92 LOAD_FAST                3 (response)
+             94 LOAD_METHOD              8 (json)
+             96 CALL_METHOD              0
+             98 STORE_FAST               4 (rows)
+
+ 52         100 LOAD_GLOBAL              9 (isinstance)
+            102 LOAD_FAST                4 (rows)
+            104 LOAD_GLOBAL             10 (list)
+            106 CALL_FUNCTION            2
+            108 POP_JUMP_IF_TRUE       118
+
+ 53         110 LOAD_GLOBAL             11 (ValueError)
+            112 LOAD_CONST              13 ('invalid license response')
+            114 CALL_FUNCTION            1
+            116 RAISE_VARARGS            1
+
+ 54     >>  118 LOAD_FAST                4 (rows)
+            120 POP_JUMP_IF_TRUE       134
+
+ 55         122 LOAD_CONST              11 (False)
+            124 LOAD_CONST              14 ('设备未激活')
+            126 LOAD_CONST              15 (('valid', 'message'))
+            128 BUILD_CONST_KEY_MAP      2
+            130 POP_BLOCK
+            132 RETURN_VALUE
+
+ 56     >>  134 LOAD_FAST                4 (rows)
+            136 LOAD_CONST               1 (0)
+            138 BINARY_SUBSCR
+            140 STORE_FAST               5 (record)
+
+ 57         142 LOAD_FAST                5 (record)
+            144 LOAD_CONST              16 ('status')
+            146 BINARY_SUBSCR
+            148 LOAD_CONST              17 ('active')
+            150 COMPARE_OP               3 (!=)
+            152 POP_JUMP_IF_FALSE      166
+
+ 58         154 LOAD_CONST              11 (False)
+            156 LOAD_CONST              18 ('授权已失效')
+            158 LOAD_CONST              15 (('valid', 'message'))
+            160 BUILD_CONST_KEY_MAP      2
+            162 POP_BLOCK
+            164 RETURN_VALUE
+
+ 59     >>  166 LOAD_GLOBAL             12 (datetime)
+            168 LOAD_METHOD             13 (fromisoformat)
+            170 LOAD_FAST                5 (record)
+            172 LOAD_CONST              19 ('expired_at')
+            174 BINARY_SUBSCR
+            176 LOAD_METHOD             14 (replace)
+            178 LOAD_CONST              20 ('Z')
+            180 LOAD_CONST              21 ('+00:00')
+            182 CALL_METHOD              2
+            184 CALL_METHOD              1
+            186 STORE_FAST               6 (expiry)
+
+ 60         188 LOAD_FAST                6 (expiry)
+            190 LOAD_GLOBAL             12 (datetime)
+            192 LOAD_METHOD             15 (now)
+            194 LOAD_FAST                6 (expiry)
+            196 LOAD_ATTR               16 (tzinfo)
+            198 CALL_METHOD              1
+            200 COMPARE_OP               0 (<)
+            202 POP_JUMP_IF_FALSE      216
+
+ 61         204 LOAD_CONST              11 (False)
+            206 LOAD_CONST              22 ('授权已过期')
+            208 LOAD_CONST              15 (('valid', 'message'))
+            210 BUILD_CONST_KEY_MAP      2
+            212 POP_BLOCK
+            214 RETURN_VALUE
+
+ 62     >>  216 LOAD_CONST              23 (True)
+            218 LOAD_FAST                5 (record)
+            220 LOAD_CONST              24 (('valid', 'data'))
+            222 BUILD_CONST_KEY_MAP      2
+            224 POP_BLOCK
+            226 RETURN_VALUE
+
+ 63     >>  228 DUP_TOP
+            230 LOAD_FAST                0 (requests)
+            232 LOAD_ATTR               17 (RequestException)
+            234 LOAD_GLOBAL             11 (ValueError)
+            236 LOAD_GLOBAL             18 (KeyError)
+            238 LOAD_GLOBAL             19 (TypeError)
+            240 BUILD_TUPLE              4
+            242 EXTENDED_ARG             1
+            244 JUMP_IF_NOT_EXC_MATCH   266
+            246 POP_TOP
+            248 POP_TOP
+            250 POP_TOP
+
+ 64         252 LOAD_CONST              11 (False)
+            254 LOAD_CONST              25 ('在线授权验证失败')
+            256 LOAD_CONST              15 (('valid', 'message'))
+            258 BUILD_CONST_KEY_MAP      2
+            260 ROT_FOUR
+            262 POP_EXCEPT
+            264 RETURN_VALUE
+        >>  266 RERAISE
+            268 LOAD_CONST               0 (None)
+            270 RETURN_VALUE

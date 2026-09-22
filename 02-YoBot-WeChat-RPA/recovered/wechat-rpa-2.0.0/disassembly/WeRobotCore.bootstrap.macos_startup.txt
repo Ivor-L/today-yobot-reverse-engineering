@@ -1,0 +1,172 @@
+  1           0 LOAD_CONST               0 ('Explicit, default-off macOS composition for the shared Startup service.')
+              2 STORE_NAME               0 (__doc__)
+
+  3           4 LOAD_CONST               1 (0)
+              6 LOAD_CONST               2 (('Optional',))
+              8 IMPORT_NAME              1 (typing)
+             10 IMPORT_FROM              2 (Optional)
+             12 STORE_NAME               2 (Optional)
+             14 POP_TOP
+
+  5          16 LOAD_CONST               1 (0)
+             18 LOAD_CONST               3 (('MacOSStartupBackend',))
+             20 IMPORT_NAME              3 (WeRobotCore.adapters.wechat.macos_ax)
+             22 IMPORT_FROM              4 (MacOSStartupBackend)
+             24 STORE_NAME               4 (MacOSStartupBackend)
+             26 POP_TOP
+
+  6          28 LOAD_CONST               1 (0)
+             30 LOAD_CONST               4 (('StartupWorkflowRegistration', 'StartupWorkflowService'))
+             32 IMPORT_NAME              5 (WeRobotCore.application.startup)
+             34 IMPORT_FROM              6 (StartupWorkflowRegistration)
+             36 STORE_NAME               6 (StartupWorkflowRegistration)
+             38 IMPORT_FROM              7 (StartupWorkflowService)
+             40 STORE_NAME               7 (StartupWorkflowService)
+             42 POP_TOP
+
+ 11          44 LOAD_CONST               5 (1)
+             46 LOAD_CONST               6 (('MacOSRuntimeBundle',))
+             48 IMPORT_NAME              8 (macos)
+             50 IMPORT_FROM              9 (MacOSRuntimeBundle)
+             52 STORE_NAME               9 (MacOSRuntimeBundle)
+             54 POP_TOP
+
+ 15          56 LOAD_NAME                9 (MacOSRuntimeBundle)
+
+ 16          58 LOAD_NAME                7 (StartupWorkflowService)
+
+ 14          60 LOAD_CONST               7 (('bundle', 'return'))
+             62 BUILD_CONST_KEY_MAP      2
+             64 LOAD_CONST               8 (<code object create_macos_startup_workflow at 0x1072e0710, file "WeRobotCore/bootstrap/macos_startup.py", line 14>)
+             66 LOAD_CONST               9 ('create_macos_startup_workflow')
+             68 MAKE_FUNCTION            4 (annotations)
+             70 STORE_NAME              10 (create_macos_startup_workflow)
+
+ 36          72 LOAD_CONST              10 (None)
+
+ 32          74 LOAD_CONST              11 (('bundle',))
+             76 BUILD_CONST_KEY_MAP      1
+
+ 34          78 LOAD_NAME               11 (bool)
+
+ 35          80 LOAD_NAME                6 (StartupWorkflowRegistration)
+
+ 36          82 LOAD_NAME                2 (Optional)
+             84 LOAD_NAME                9 (MacOSRuntimeBundle)
+             86 BINARY_SUBSCR
+
+ 37          88 LOAD_NAME                2 (Optional)
+             90 LOAD_NAME                7 (StartupWorkflowService)
+             92 BINARY_SUBSCR
+
+ 32          94 LOAD_CONST              12 (('enabled', 'registration', 'bundle', 'return'))
+             96 BUILD_CONST_KEY_MAP      4
+             98 LOAD_CONST              13 (<code object register_macos_startup_workflow at 0x1072e0870, file "WeRobotCore/bootstrap/macos_startup.py", line 32>)
+            100 LOAD_CONST              14 ('register_macos_startup_workflow')
+            102 MAKE_FUNCTION            6 (kwdefaults, annotations)
+            104 STORE_NAME              12 (register_macos_startup_workflow)
+            106 LOAD_CONST              10 (None)
+            108 RETURN_VALUE
+
+Disassembly of <code object create_macos_startup_workflow at 0x1072e0710, file "WeRobotCore/bootstrap/macos_startup.py", line 14>:
+ 19           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                0 (bundle)
+              4 LOAD_GLOBAL              1 (MacOSRuntimeBundle)
+              6 CALL_FUNCTION            2
+              8 POP_JUMP_IF_TRUE        18
+
+ 20          10 LOAD_GLOBAL              2 (TypeError)
+             12 LOAD_CONST               1 ('bundle must be MacOSRuntimeBundle')
+             14 CALL_FUNCTION            1
+             16 RAISE_VARARGS            1
+
+ 21     >>   18 LOAD_FAST                0 (bundle)
+             20 LOAD_ATTR                3 (runtime)
+             22 LOAD_ATTR                4 (platform_services)
+             24 STORE_FAST               1 (platform_services)
+
+ 22          26 LOAD_GLOBAL              5 (StartupWorkflowService)
+
+ 23          28 LOAD_GLOBAL              6 (MacOSStartupBackend)
+
+ 24          30 LOAD_FAST                0 (bundle)
+             32 LOAD_ATTR                7 (inventory)
+
+ 25          34 LOAD_FAST                0 (bundle)
+             36 LOAD_ATTR                8 (initialization)
+
+ 26          38 LOAD_FAST                1 (platform_services)
+             40 LOAD_ATTR                9 (permissions)
+
+ 27          42 LOAD_FAST                1 (platform_services)
+             44 LOAD_ATTR               10 (launcher)
+
+ 23          46 LOAD_CONST               2 (('inventory', 'initialization', 'permissions', 'launcher'))
+             48 CALL_FUNCTION_KW         4
+
+ 22          50 CALL_FUNCTION            1
+             52 RETURN_VALUE
+
+Disassembly of <code object register_macos_startup_workflow at 0x1072e0870, file "WeRobotCore/bootstrap/macos_startup.py", line 32>:
+ 40           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                1 (registration)
+              4 LOAD_GLOBAL              1 (StartupWorkflowRegistration)
+              6 CALL_FUNCTION            2
+              8 POP_JUMP_IF_TRUE        18
+
+ 41          10 LOAD_GLOBAL              2 (TypeError)
+             12 LOAD_CONST               1 ('registration must be StartupWorkflowRegistration')
+             14 CALL_FUNCTION            1
+             16 RAISE_VARARGS            1
+
+ 42     >>   18 LOAD_GLOBAL              0 (isinstance)
+             20 LOAD_FAST                0 (enabled)
+             22 LOAD_GLOBAL              3 (bool)
+             24 CALL_FUNCTION            2
+             26 POP_JUMP_IF_TRUE        36
+
+ 43          28 LOAD_GLOBAL              2 (TypeError)
+             30 LOAD_CONST               2 ('enabled must be a boolean')
+             32 CALL_FUNCTION            1
+             34 RAISE_VARARGS            1
+
+ 44     >>   36 LOAD_FAST                0 (enabled)
+             38 POP_JUMP_IF_TRUE        50
+
+ 45          40 LOAD_FAST                1 (registration)
+             42 LOAD_METHOD              4 (register_if_enabled)
+             44 LOAD_CONST               3 (False)
+             46 CALL_METHOD              1
+             48 RETURN_VALUE
+
+ 46     >>   50 LOAD_GLOBAL              0 (isinstance)
+             52 LOAD_DEREF               0 (bundle)
+             54 LOAD_GLOBAL              5 (MacOSRuntimeBundle)
+             56 CALL_FUNCTION            2
+             58 POP_JUMP_IF_TRUE        68
+
+ 47          60 LOAD_GLOBAL              2 (TypeError)
+             62 LOAD_CONST               4 ('bundle must be MacOSRuntimeBundle')
+             64 CALL_FUNCTION            1
+             66 RAISE_VARARGS            1
+
+ 48     >>   68 LOAD_FAST                1 (registration)
+             70 LOAD_ATTR                4 (register_if_enabled)
+
+ 49          72 LOAD_CONST               5 (True)
+
+ 50          74 LOAD_CLOSURE             0 (bundle)
+             76 BUILD_TUPLE              1
+             78 LOAD_CONST               6 (<code object <lambda> at 0x1072e0b30, file "WeRobotCore/bootstrap/macos_startup.py", line 50>)
+             80 LOAD_CONST               7 ('register_macos_startup_workflow.<locals>.<lambda>')
+             82 MAKE_FUNCTION            8 (closure)
+
+ 48          84 LOAD_CONST               8 (('service_factory',))
+             86 CALL_FUNCTION_KW         2
+             88 RETURN_VALUE
+
+Disassembly of <code object <lambda> at 0x1072e0b30, file "WeRobotCore/bootstrap/macos_startup.py", line 50>:
+ 50           0 LOAD_GLOBAL              0 (create_macos_startup_workflow)
+              2 LOAD_DEREF               0 (bundle)
+              4 CALL_FUNCTION            1
+              6 RETURN_VALUE

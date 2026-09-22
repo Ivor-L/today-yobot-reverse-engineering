@@ -1,0 +1,2525 @@
+  1           0 LOAD_CONST               0 ('Local, append-only customer event storage.\n\nThis store is deliberately independent from the existing contact database,\nchat history and task logs.  It records facts observed from the deployment\ndate forward and does not claim that a display name is a durable customer ID.\n\nThe public write methods are fail-open: storage failures are returned to the\ncaller and logged, but are never raised into the RPA business operation.\n')
+              2 STORE_NAME               0 (__doc__)
+
+ 11           4 LOAD_CONST               1 (0)
+              6 LOAD_CONST               2 (None)
+              8 IMPORT_NAME              1 (hashlib)
+             10 STORE_NAME               1 (hashlib)
+
+ 12          12 LOAD_CONST               1 (0)
+             14 LOAD_CONST               2 (None)
+             16 IMPORT_NAME              2 (json)
+             18 STORE_NAME               2 (json)
+
+ 13          20 LOAD_CONST               1 (0)
+             22 LOAD_CONST               2 (None)
+             24 IMPORT_NAME              3 (logging)
+             26 STORE_NAME               3 (logging)
+
+ 14          28 LOAD_CONST               1 (0)
+             30 LOAD_CONST               2 (None)
+             32 IMPORT_NAME              4 (os)
+             34 STORE_NAME               4 (os)
+
+ 15          36 LOAD_CONST               1 (0)
+             38 LOAD_CONST               2 (None)
+             40 IMPORT_NAME              5 (re)
+             42 STORE_NAME               5 (re)
+
+ 16          44 LOAD_CONST               1 (0)
+             46 LOAD_CONST               2 (None)
+             48 IMPORT_NAME              6 (threading)
+             50 STORE_NAME               6 (threading)
+
+ 17          52 LOAD_CONST               1 (0)
+             54 LOAD_CONST               2 (None)
+             56 IMPORT_NAME              7 (uuid)
+             58 STORE_NAME               7 (uuid)
+
+ 18          60 LOAD_CONST               1 (0)
+             62 LOAD_CONST               3 (('datetime', 'timedelta', 'timezone'))
+             64 IMPORT_NAME              8 (datetime)
+             66 IMPORT_FROM              8 (datetime)
+             68 STORE_NAME               8 (datetime)
+             70 IMPORT_FROM              9 (timedelta)
+             72 STORE_NAME               9 (timedelta)
+             74 IMPORT_FROM             10 (timezone)
+             76 STORE_NAME              10 (timezone)
+             78 POP_TOP
+
+ 19          80 LOAD_CONST               1 (0)
+             82 LOAD_CONST               4 (('Path',))
+             84 IMPORT_NAME             11 (pathlib)
+             86 IMPORT_FROM             12 (Path)
+             88 STORE_NAME              12 (Path)
+             90 POP_TOP
+
+ 22          92 LOAD_NAME                3 (logging)
+             94 LOAD_METHOD             13 (getLogger)
+             96 LOAD_NAME               14 (__name__)
+             98 CALL_METHOD              1
+            100 STORE_NAME              15 (logger)
+
+ 24         102 LOAD_CONST               5 ('1.0')
+            104 STORE_NAME              16 (STORE_VERSION)
+
+ 25         106 LOAD_CONST               6 (1)
+            108 STORE_NAME              17 (EVENT_SCHEMA_VERSION)
+
+ 26         110 LOAD_CONST               7 (10000)
+            112 STORE_NAME              18 (DEFAULT_MAX_RECORDS)
+
+ 27         114 LOAD_CONST               8 (16777216)
+            116 STORE_NAME              19 (DEFAULT_MAX_BYTES)
+
+ 28         118 LOAD_CONST               9 (5000)
+            120 STORE_NAME              20 (DEFAULT_MAX_SNAPSHOT_RECORDS)
+
+ 29         122 LOAD_NAME               10 (timezone)
+            124 LOAD_NAME                9 (timedelta)
+            126 LOAD_CONST              10 (8)
+            128 LOAD_CONST              11 (('hours',))
+            130 CALL_FUNCTION_KW         1
+            132 CALL_FUNCTION            1
+            134 STORE_NAME              21 (CHINA_TZ)
+
+ 30         136 LOAD_CONST              12 ('__customer_events_unassigned__')
+            138 STORE_NAME              22 (UNASSIGNED_ACCOUNT_ID)
+
+ 31         140 LOAD_CONST              13 ('_unassigned')
+            142 STORE_NAME              23 (UNASSIGNED_ACCOUNT_KEY)
+
+ 35         144 LOAD_CONST              14 ('http://json-schema.org/draft-07/schema#')
+
+ 36         146 LOAD_CONST              15 ('Yoko customer event v1')
+
+ 37         148 LOAD_CONST              16 ('object')
+
+ 38         150 BUILD_LIST               0
+            152 LOAD_CONST              17 (('schema_version', 'event_id', 'event_type', 'occurred_at', 'recorded_at', 'account', 'subject', 'source', 'result', 'data', 'extensions'))
+            154 LIST_EXTEND              1
+
+ 52         156 LOAD_CONST              18 ('type')
+            158 LOAD_CONST              19 ('integer')
+            160 BUILD_MAP                1
+
+ 53         162 LOAD_CONST              18 ('type')
+            164 LOAD_CONST              20 ('string')
+            166 BUILD_MAP                1
+
+ 54         168 LOAD_CONST              18 ('type')
+            170 LOAD_CONST              20 ('string')
+            172 BUILD_MAP                1
+
+ 55         174 LOAD_CONST              18 ('type')
+            176 LOAD_CONST              20 ('string')
+            178 BUILD_MAP                1
+
+ 56         180 LOAD_CONST              18 ('type')
+            182 LOAD_CONST              20 ('string')
+            184 BUILD_MAP                1
+
+ 57         186 LOAD_CONST              18 ('type')
+            188 LOAD_CONST              16 ('object')
+            190 BUILD_MAP                1
+
+ 58         192 LOAD_CONST              18 ('type')
+            194 LOAD_CONST              16 ('object')
+            196 BUILD_MAP                1
+
+ 59         198 LOAD_CONST              18 ('type')
+            200 LOAD_CONST              16 ('object')
+            202 BUILD_MAP                1
+
+ 60         204 LOAD_CONST              18 ('type')
+            206 LOAD_CONST              16 ('object')
+            208 BUILD_MAP                1
+
+ 61         210 LOAD_CONST              18 ('type')
+            212 LOAD_CONST              16 ('object')
+            214 BUILD_MAP                1
+
+ 62         216 LOAD_CONST              18 ('type')
+            218 LOAD_CONST              16 ('object')
+            220 BUILD_MAP                1
+
+ 51         222 LOAD_CONST              17 (('schema_version', 'event_id', 'event_type', 'occurred_at', 'recorded_at', 'account', 'subject', 'source', 'result', 'data', 'extensions'))
+            224 BUILD_CONST_KEY_MAP     11
+
+ 64         226 LOAD_CONST              21 (True)
+
+ 34         228 LOAD_CONST              22 (('$schema', 'title', 'type', 'required', 'properties', 'additionalProperties'))
+            230 BUILD_CONST_KEY_MAP      6
+            232 STORE_NAME              24 (EVENT_SCHEMA)
+
+ 69         234 LOAD_CONST              14 ('http://json-schema.org/draft-07/schema#')
+
+ 70         236 LOAD_CONST              23 ('Yoko customer snapshot v1')
+
+ 71         238 LOAD_CONST              16 ('object')
+
+ 72         240 BUILD_LIST               0
+            242 LOAD_CONST              24 (('schema_version', 'snapshot_id', 'snapshot_type', 'observed_at', 'recorded_at', 'account', 'count', 'source', 'extensions'))
+            244 LIST_EXTEND              1
+
+ 84         246 LOAD_CONST              18 ('type')
+            248 LOAD_CONST              19 ('integer')
+            250 BUILD_MAP                1
+
+ 85         252 LOAD_CONST              18 ('type')
+            254 LOAD_CONST              20 ('string')
+            256 BUILD_MAP                1
+
+ 86         258 LOAD_CONST              18 ('type')
+            260 LOAD_CONST              20 ('string')
+            262 BUILD_MAP                1
+
+ 87         264 LOAD_CONST              18 ('type')
+            266 LOAD_CONST              20 ('string')
+            268 BUILD_MAP                1
+
+ 88         270 LOAD_CONST              18 ('type')
+            272 LOAD_CONST              20 ('string')
+            274 BUILD_MAP                1
+
+ 89         276 LOAD_CONST              18 ('type')
+            278 LOAD_CONST              16 ('object')
+            280 BUILD_MAP                1
+
+ 90         282 LOAD_CONST              18 ('type')
+            284 LOAD_CONST              19 ('integer')
+            286 BUILD_MAP                1
+
+ 91         288 LOAD_CONST              18 ('type')
+            290 LOAD_CONST              25 ('array')
+            292 BUILD_MAP                1
+
+ 92         294 LOAD_CONST              18 ('type')
+            296 LOAD_CONST              25 ('array')
+            298 BUILD_MAP                1
+
+ 93         300 LOAD_CONST              18 ('type')
+            302 LOAD_CONST              16 ('object')
+            304 BUILD_MAP                1
+
+ 94         306 LOAD_CONST              18 ('type')
+            308 LOAD_CONST              16 ('object')
+            310 BUILD_MAP                1
+
+ 83         312 LOAD_CONST              26 (('schema_version', 'snapshot_id', 'snapshot_type', 'observed_at', 'recorded_at', 'account', 'count', 'items', 'parts', 'source', 'extensions'))
+            314 BUILD_CONST_KEY_MAP     11
+
+ 96         316 LOAD_CONST              21 (True)
+
+ 68         318 LOAD_CONST              22 (('$schema', 'title', 'type', 'required', 'properties', 'additionalProperties'))
+            320 BUILD_CONST_KEY_MAP      6
+            322 STORE_NAME              25 (SNAPSHOT_SCHEMA)
+
+100         324 LOAD_CONST              27 (<code object _now at 0x1072cfbe0, file "WeRobotCore/utils/customer_event_store.py", line 100>)
+            326 LOAD_CONST              28 ('_now')
+            328 MAKE_FUNCTION            0
+            330 STORE_NAME              26 (_now)
+
+104         332 LOAD_CONST              29 (<code object _as_datetime at 0x1072e0f50, file "WeRobotCore/utils/customer_event_store.py", line 104>)
+            334 LOAD_CONST              30 ('_as_datetime')
+            336 MAKE_FUNCTION            0
+            338 STORE_NAME              27 (_as_datetime)
+
+125         340 LOAD_CONST              43 ((None,))
+            342 LOAD_CONST              31 (<code object _iso at 0x1073b9a80, file "WeRobotCore/utils/customer_event_store.py", line 125>)
+            344 LOAD_CONST              32 ('_iso')
+            346 MAKE_FUNCTION            1 (defaults)
+            348 STORE_NAME              28 (_iso)
+
+129         350 LOAD_CONST              33 (<code object _json_default at 0x1073b9b30, file "WeRobotCore/utils/customer_event_store.py", line 129>)
+            352 LOAD_CONST              34 ('_json_default')
+            354 MAKE_FUNCTION            0
+            356 STORE_NAME              29 (_json_default)
+
+139         358 LOAD_CONST              35 (<code object _mapping at 0x1073b9d40, file "WeRobotCore/utils/customer_event_store.py", line 139>)
+            360 LOAD_CONST              36 ('_mapping')
+            362 MAKE_FUNCTION            0
+            364 STORE_NAME              30 (_mapping)
+
+147         366 LOAD_CONST              37 (<code object _safe_slug at 0x1073b9f50, file "WeRobotCore/utils/customer_event_store.py", line 147>)
+            368 LOAD_CONST              38 ('_safe_slug')
+            370 MAKE_FUNCTION            0
+            372 STORE_NAME              31 (_safe_slug)
+
+152         374 LOAD_BUILD_CLASS
+            376 LOAD_CONST              39 (<code object CustomerEventStore at 0x1073ca2f0, file "WeRobotCore/utils/customer_event_store.py", line 152>)
+            378 LOAD_CONST              40 ('CustomerEventStore')
+            380 MAKE_FUNCTION            0
+            382 LOAD_CONST              40 ('CustomerEventStore')
+            384 LOAD_NAME               32 (object)
+            386 CALL_FUNCTION            3
+            388 STORE_NAME              33 (CustomerEventStore)
+
+576         390 LOAD_CONST               2 (None)
+            392 STORE_GLOBAL            34 (_default_store)
+
+577         394 LOAD_NAME                6 (threading)
+            396 LOAD_METHOD             35 (Lock)
+            398 CALL_METHOD              0
+            400 STORE_NAME              36 (_default_store_lock)
+
+580         402 LOAD_CONST              41 (<code object get_customer_event_store at 0x1073ca710, file "WeRobotCore/utils/customer_event_store.py", line 580>)
+            404 LOAD_CONST              42 ('get_customer_event_store')
+            406 MAKE_FUNCTION            0
+            408 STORE_NAME              37 (get_customer_event_store)
+            410 LOAD_CONST               2 (None)
+            412 RETURN_VALUE
+
+Disassembly of <code object _now at 0x1072cfbe0, file "WeRobotCore/utils/customer_event_store.py", line 100>:
+101           0 LOAD_GLOBAL              0 (datetime)
+              2 LOAD_METHOD              1 (now)
+              4 LOAD_GLOBAL              2 (CHINA_TZ)
+              6 CALL_METHOD              1
+              8 RETURN_VALUE
+
+Disassembly of <code object _as_datetime at 0x1072e0f50, file "WeRobotCore/utils/customer_event_store.py", line 104>:
+105           0 LOAD_FAST                0 (value)
+              2 LOAD_CONST               0 (None)
+              4 IS_OP                    0
+              6 POP_JUMP_IF_FALSE       14
+
+106           8 LOAD_GLOBAL              0 (_now)
+             10 CALL_FUNCTION            0
+             12 RETURN_VALUE
+
+107     >>   14 LOAD_GLOBAL              1 (isinstance)
+             16 LOAD_FAST                0 (value)
+             18 LOAD_GLOBAL              2 (datetime)
+             20 CALL_FUNCTION            2
+             22 POP_JUMP_IF_FALSE       56
+
+108          24 LOAD_FAST                0 (value)
+             26 LOAD_ATTR                3 (tzinfo)
+             28 LOAD_CONST               0 (None)
+             30 IS_OP                    0
+             32 POP_JUMP_IF_FALSE       46
+
+109          34 LOAD_FAST                0 (value)
+             36 LOAD_ATTR                4 (replace)
+             38 LOAD_GLOBAL              5 (CHINA_TZ)
+             40 LOAD_CONST               1 (('tzinfo',))
+             42 CALL_FUNCTION_KW         1
+             44 RETURN_VALUE
+
+110     >>   46 LOAD_FAST                0 (value)
+             48 LOAD_METHOD              6 (astimezone)
+             50 LOAD_GLOBAL              5 (CHINA_TZ)
+             52 CALL_METHOD              1
+             54 RETURN_VALUE
+
+111     >>   56 LOAD_GLOBAL              1 (isinstance)
+             58 LOAD_FAST                0 (value)
+             60 LOAD_GLOBAL              7 (str)
+             62 CALL_FUNCTION            2
+             64 POP_JUMP_IF_FALSE      168
+
+112          66 LOAD_FAST                0 (value)
+             68 LOAD_METHOD              8 (strip)
+             70 CALL_METHOD              0
+             72 STORE_FAST               1 (normalized)
+
+113          74 LOAD_FAST                1 (normalized)
+             76 POP_JUMP_IF_TRUE        84
+
+114          78 LOAD_GLOBAL              0 (_now)
+             80 CALL_FUNCTION            0
+             82 RETURN_VALUE
+
+115     >>   84 SETUP_FINALLY           52 (to 138)
+
+116          86 LOAD_GLOBAL              2 (datetime)
+             88 LOAD_METHOD              9 (fromisoformat)
+             90 LOAD_FAST                1 (normalized)
+             92 LOAD_METHOD              4 (replace)
+             94 LOAD_CONST               2 ('Z')
+             96 LOAD_CONST               3 ('+00:00')
+             98 CALL_METHOD              2
+            100 CALL_METHOD              1
+            102 STORE_FAST               2 (parsed)
+
+117         104 LOAD_FAST                2 (parsed)
+            106 LOAD_ATTR                3 (tzinfo)
+            108 LOAD_CONST               0 (None)
+            110 IS_OP                    0
+            112 POP_JUMP_IF_FALSE      126
+
+118         114 LOAD_FAST                2 (parsed)
+            116 LOAD_ATTR                4 (replace)
+            118 LOAD_GLOBAL              5 (CHINA_TZ)
+            120 LOAD_CONST               1 (('tzinfo',))
+            122 CALL_FUNCTION_KW         1
+            124 STORE_FAST               2 (parsed)
+
+119     >>  126 LOAD_FAST                2 (parsed)
+            128 LOAD_METHOD              6 (astimezone)
+            130 LOAD_GLOBAL              5 (CHINA_TZ)
+            132 CALL_METHOD              1
+            134 POP_BLOCK
+            136 RETURN_VALUE
+
+120     >>  138 DUP_TOP
+            140 LOAD_GLOBAL             10 (TypeError)
+            142 LOAD_GLOBAL             11 (ValueError)
+            144 BUILD_TUPLE              2
+            146 JUMP_IF_NOT_EXC_MATCH   166
+            148 POP_TOP
+            150 POP_TOP
+            152 POP_TOP
+
+121         154 LOAD_GLOBAL             11 (ValueError)
+            156 LOAD_CONST               4 ('time value must be an ISO-8601 string')
+            158 CALL_FUNCTION            1
+            160 RAISE_VARARGS            1
+            162 POP_EXCEPT
+            164 JUMP_FORWARD             2 (to 168)
+        >>  166 RERAISE
+
+122     >>  168 LOAD_GLOBAL             10 (TypeError)
+            170 LOAD_CONST               5 ('time value must be datetime, ISO-8601 string or None')
+            172 CALL_FUNCTION            1
+            174 RAISE_VARARGS            1
+            176 LOAD_CONST               0 (None)
+            178 RETURN_VALUE
+
+Disassembly of <code object _iso at 0x1073b9a80, file "WeRobotCore/utils/customer_event_store.py", line 125>:
+126           0 LOAD_GLOBAL              0 (_as_datetime)
+              2 LOAD_FAST                0 (value)
+              4 CALL_FUNCTION            1
+              6 LOAD_ATTR                1 (isoformat)
+              8 LOAD_CONST               1 ('milliseconds')
+             10 LOAD_CONST               2 (('timespec',))
+             12 CALL_FUNCTION_KW         1
+             14 RETURN_VALUE
+
+Disassembly of <code object _json_default at 0x1073b9b30, file "WeRobotCore/utils/customer_event_store.py", line 129>:
+130           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                0 (value)
+              4 LOAD_GLOBAL              1 (datetime)
+              6 CALL_FUNCTION            2
+              8 POP_JUMP_IF_FALSE       18
+
+131          10 LOAD_GLOBAL              2 (_iso)
+             12 LOAD_FAST                0 (value)
+             14 CALL_FUNCTION            1
+             16 RETURN_VALUE
+
+132     >>   18 LOAD_GLOBAL              0 (isinstance)
+             20 LOAD_FAST                0 (value)
+             22 LOAD_GLOBAL              3 (Path)
+             24 CALL_FUNCTION            2
+             26 POP_JUMP_IF_FALSE       36
+
+133          28 LOAD_GLOBAL              4 (str)
+             30 LOAD_FAST                0 (value)
+             32 CALL_FUNCTION            1
+             34 RETURN_VALUE
+
+134     >>   36 LOAD_GLOBAL              0 (isinstance)
+             38 LOAD_FAST                0 (value)
+             40 LOAD_GLOBAL              5 (set)
+             42 CALL_FUNCTION            2
+             44 POP_JUMP_IF_FALSE       54
+
+135          46 LOAD_GLOBAL              6 (list)
+             48 LOAD_FAST                0 (value)
+             50 CALL_FUNCTION            1
+             52 RETURN_VALUE
+
+136     >>   54 LOAD_GLOBAL              7 (TypeError)
+             56 LOAD_CONST               1 ('value of type {} is not JSON serializable')
+             58 LOAD_METHOD              8 (format)
+             60 LOAD_GLOBAL              9 (type)
+             62 LOAD_FAST                0 (value)
+             64 CALL_FUNCTION            1
+             66 LOAD_ATTR               10 (__name__)
+             68 CALL_METHOD              1
+             70 CALL_FUNCTION            1
+             72 RAISE_VARARGS            1
+             74 LOAD_CONST               0 (None)
+             76 RETURN_VALUE
+
+Disassembly of <code object _mapping at 0x1073b9d40, file "WeRobotCore/utils/customer_event_store.py", line 139>:
+140           0 LOAD_FAST                0 (value)
+              2 LOAD_CONST               0 (None)
+              4 IS_OP                    0
+              6 POP_JUMP_IF_FALSE       12
+
+141           8 BUILD_MAP                0
+             10 RETURN_VALUE
+
+142     >>   12 LOAD_GLOBAL              0 (isinstance)
+             14 LOAD_FAST                0 (value)
+             16 LOAD_GLOBAL              1 (dict)
+             18 CALL_FUNCTION            2
+             20 POP_JUMP_IF_TRUE        36
+
+143          22 LOAD_GLOBAL              2 (TypeError)
+             24 LOAD_CONST               1 ('{} must be a mapping')
+             26 LOAD_METHOD              3 (format)
+             28 LOAD_FAST                1 (field_name)
+             30 CALL_METHOD              1
+             32 CALL_FUNCTION            1
+             34 RAISE_VARARGS            1
+
+144     >>   36 LOAD_GLOBAL              1 (dict)
+             38 LOAD_FAST                0 (value)
+             40 CALL_FUNCTION            1
+             42 RETURN_VALUE
+
+Disassembly of <code object _safe_slug at 0x1073b9f50, file "WeRobotCore/utils/customer_event_store.py", line 147>:
+148           0 LOAD_GLOBAL              0 (re)
+              2 LOAD_METHOD              1 (sub)
+              4 LOAD_CONST               1 ('[^A-Za-z0-9_.-]+')
+              6 LOAD_CONST               2 ('_')
+              8 LOAD_GLOBAL              2 (str)
+             10 LOAD_FAST                0 (value)
+             12 JUMP_IF_TRUE_OR_POP     16
+             14 LOAD_CONST               3 ('')
+        >>   16 CALL_FUNCTION            1
+             18 LOAD_METHOD              3 (strip)
+             20 CALL_METHOD              0
+             22 CALL_METHOD              3
+             24 STORE_FAST               1 (slug)
+
+149          26 LOAD_FAST                1 (slug)
+             28 LOAD_METHOD              3 (strip)
+             30 LOAD_CONST               4 ('._')
+             32 CALL_METHOD              1
+             34 JUMP_IF_TRUE_OR_POP     38
+             36 LOAD_CONST               5 ('snapshot')
+        >>   38 RETURN_VALUE
+
+Disassembly of <code object CustomerEventStore at 0x1073ca2f0, file "WeRobotCore/utils/customer_event_store.py", line 152>:
+152           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('CustomerEventStore')
+              6 STORE_NAME               2 (__qualname__)
+
+153           8 LOAD_CONST               1 ('Append customer events and immutable observation snapshots to local files.')
+             10 STORE_NAME               3 (__doc__)
+
+157          12 LOAD_CONST               2 (None)
+
+158          14 LOAD_NAME                4 (DEFAULT_MAX_RECORDS)
+
+159          16 LOAD_NAME                5 (DEFAULT_MAX_BYTES)
+
+160          18 LOAD_NAME                6 (DEFAULT_MAX_SNAPSHOT_RECORDS)
+
+161          20 LOAD_CONST               2 (None)
+
+155          22 BUILD_TUPLE              5
+             24 LOAD_CONST               3 (<code object __init__ at 0x1073b9660, file "WeRobotCore/utils/customer_event_store.py", line 155>)
+             26 LOAD_CONST               4 ('CustomerEventStore.__init__')
+             28 MAKE_FUNCTION            1 (defaults)
+             30 STORE_NAME               7 (__init__)
+
+181          32 LOAD_NAME                8 (staticmethod)
+
+182          34 LOAD_CONST               5 (<code object account_key at 0x1073b9ea0, file "WeRobotCore/utils/customer_event_store.py", line 181>)
+             36 LOAD_CONST               6 ('CustomerEventStore.account_key')
+             38 MAKE_FUNCTION            0
+             40 CALL_FUNCTION            1
+             42 STORE_NAME               9 (account_key)
+
+191          44 LOAD_CONST              32 (('', None, None, None, None, None, None, None))
+             46 LOAD_CONST               8 (<code object emit_event at 0x1073b9500, file "WeRobotCore/utils/customer_event_store.py", line 191>)
+             48 LOAD_CONST               9 ('CustomerEventStore.emit_event')
+             50 MAKE_FUNCTION            1 (defaults)
+             52 STORE_NAME              10 (emit_event)
+
+269          54 LOAD_CONST              33 (('', None, None, None, None))
+             56 LOAD_CONST              10 (<code object save_snapshot at 0x1073b9c90, file "WeRobotCore/utils/customer_event_store.py", line 269>)
+             58 LOAD_CONST              11 ('CustomerEventStore.save_snapshot')
+             60 MAKE_FUNCTION            1 (defaults)
+             62 STORE_NAME              11 (save_snapshot)
+
+383          64 LOAD_CONST              12 (<code object _current_time at 0x1073b9240, file "WeRobotCore/utils/customer_event_store.py", line 383>)
+             66 LOAD_CONST              13 ('CustomerEventStore._current_time')
+             68 MAKE_FUNCTION            0
+             70 STORE_NAME              12 (_current_time)
+
+387          72 LOAD_CONST              14 (<code object _account_payload at 0x1073b9710, file "WeRobotCore/utils/customer_event_store.py", line 387>)
+             74 LOAD_CONST              15 ('CustomerEventStore._account_payload')
+             76 MAKE_FUNCTION            0
+             78 STORE_NAME              13 (_account_payload)
+
+403          80 LOAD_CONST              16 (<code object _ensure_store_contract at 0x1073b9870, file "WeRobotCore/utils/customer_event_store.py", line 403>)
+             82 LOAD_CONST              17 ('CustomerEventStore._ensure_store_contract')
+             84 MAKE_FUNCTION            0
+             86 STORE_NAME              14 (_ensure_store_contract)
+
+432          88 LOAD_CONST              18 (<code object _ensure_account_metadata at 0x1073b9920, file "WeRobotCore/utils/customer_event_store.py", line 432>)
+             90 LOAD_CONST              19 ('CustomerEventStore._ensure_account_metadata')
+             92 MAKE_FUNCTION            0
+             94 STORE_NAME              15 (_ensure_account_metadata)
+
+455          96 LOAD_CONST              20 (<code object _select_segment at 0x1073b99d0, file "WeRobotCore/utils/customer_event_store.py", line 455>)
+             98 LOAD_CONST              21 ('CustomerEventStore._select_segment')
+            100 MAKE_FUNCTION            0
+            102 STORE_NAME              16 (_select_segment)
+
+491         104 LOAD_CONST              22 (<code object _load_latest_segment at 0x1073b97c0, file "WeRobotCore/utils/customer_event_store.py", line 491>)
+            106 LOAD_CONST              23 ('CustomerEventStore._load_latest_segment')
+            108 MAKE_FUNCTION            0
+            110 STORE_NAME              17 (_load_latest_segment)
+
+515         112 LOAD_NAME                8 (staticmethod)
+
+516         114 LOAD_CONST              24 (<code object _count_records at 0x1073b9be0, file "WeRobotCore/utils/customer_event_store.py", line 515>)
+            116 LOAD_CONST              25 ('CustomerEventStore._count_records')
+            118 MAKE_FUNCTION            0
+            120 CALL_FUNCTION            1
+            122 STORE_NAME              18 (_count_records)
+
+524         124 LOAD_NAME                8 (staticmethod)
+
+525         126 LOAD_CONST              26 (<code object _append_complete_line at 0x1073ca660, file "WeRobotCore/utils/customer_event_store.py", line 524>)
+            128 LOAD_CONST              27 ('CustomerEventStore._append_complete_line')
+            130 MAKE_FUNCTION            0
+            132 CALL_FUNCTION            1
+            134 STORE_NAME              19 (_append_complete_line)
+
+538         136 LOAD_CONST              28 (<code object _snapshot_location at 0x1073ca920, file "WeRobotCore/utils/customer_event_store.py", line 538>)
+            138 LOAD_CONST              29 ('CustomerEventStore._snapshot_location')
+            140 MAKE_FUNCTION            0
+            142 STORE_NAME              20 (_snapshot_location)
+
+552         144 LOAD_NAME                8 (staticmethod)
+
+553         146 LOAD_CONST              30 (<code object _atomic_json_write at 0x1073ca030, file "WeRobotCore/utils/customer_event_store.py", line 552>)
+            148 LOAD_CONST              31 ('CustomerEventStore._atomic_json_write')
+            150 MAKE_FUNCTION            0
+            152 CALL_FUNCTION            1
+            154 STORE_NAME              21 (_atomic_json_write)
+            156 LOAD_CONST               2 (None)
+            158 RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x1073b9660, file "WeRobotCore/utils/customer_event_store.py", line 155>:
+163           0 LOAD_FAST                1 (root_dir)
+              2 LOAD_CONST               0 (None)
+              4 IS_OP                    0
+              6 POP_JUMP_IF_FALSE       36
+
+164           8 LOAD_CONST               1 (0)
+             10 LOAD_CONST               2 (('DataManager',))
+             12 IMPORT_NAME              0 (WeRobotCore.utils.data_manager)
+             14 IMPORT_FROM              1 (DataManager)
+             16 STORE_FAST               6 (DataManager)
+             18 POP_TOP
+
+166          20 LOAD_GLOBAL              2 (Path)
+             22 LOAD_FAST                6 (DataManager)
+             24 LOAD_METHOD              3 (get_data_dir_str)
+             26 CALL_METHOD              0
+             28 CALL_FUNCTION            1
+             30 LOAD_CONST               3 ('customer_events_v1')
+             32 BINARY_TRUE_DIVIDE
+             34 STORE_FAST               1 (root_dir)
+
+167     >>   36 LOAD_GLOBAL              2 (Path)
+             38 LOAD_FAST                1 (root_dir)
+             40 CALL_FUNCTION            1
+             42 LOAD_FAST                0 (self)
+             44 STORE_ATTR               4 (root_dir)
+
+168          46 LOAD_GLOBAL              5 (max)
+             48 LOAD_CONST               4 (1)
+             50 LOAD_GLOBAL              6 (int)
+             52 LOAD_FAST                2 (max_records)
+             54 CALL_FUNCTION            1
+             56 CALL_FUNCTION            2
+             58 LOAD_FAST                0 (self)
+             60 STORE_ATTR               7 (max_records)
+
+169          62 LOAD_GLOBAL              5 (max)
+             64 LOAD_CONST               5 (256)
+             66 LOAD_GLOBAL              6 (int)
+             68 LOAD_FAST                3 (max_bytes)
+             70 CALL_FUNCTION            1
+             72 CALL_FUNCTION            2
+             74 LOAD_FAST                0 (self)
+             76 STORE_ATTR               8 (max_bytes)
+
+170          78 LOAD_GLOBAL              5 (max)
+             80 LOAD_CONST               4 (1)
+             82 LOAD_GLOBAL              6 (int)
+             84 LOAD_FAST                4 (max_snapshot_records)
+             86 CALL_FUNCTION            1
+             88 CALL_FUNCTION            2
+             90 LOAD_FAST                0 (self)
+             92 STORE_ATTR               9 (max_snapshot_records)
+
+171          94 LOAD_FAST                5 (now)
+             96 JUMP_IF_TRUE_OR_POP    100
+             98 LOAD_GLOBAL             10 (_now)
+        >>  100 LOAD_FAST                0 (self)
+            102 STORE_ATTR              10 (_now)
+
+172         104 LOAD_GLOBAL             11 (threading)
+            106 LOAD_METHOD             12 (RLock)
+            108 CALL_METHOD              0
+            110 LOAD_FAST                0 (self)
+            112 STORE_ATTR              13 (_lock)
+
+173         114 BUILD_MAP                0
+            116 LOAD_FAST                0 (self)
+            118 STORE_ATTR              14 (_segment_state)
+
+174         120 SETUP_FINALLY           12 (to 134)
+
+175         122 LOAD_FAST                0 (self)
+            124 LOAD_METHOD             15 (_ensure_store_contract)
+            126 CALL_METHOD              0
+            128 POP_TOP
+            130 POP_BLOCK
+            132 JUMP_FORWARD            48 (to 182)
+
+176     >>  134 DUP_TOP
+            136 LOAD_GLOBAL             16 (Exception)
+            138 JUMP_IF_NOT_EXC_MATCH   180
+            140 POP_TOP
+            142 STORE_FAST               7 (exc)
+            144 POP_TOP
+            146 SETUP_FINALLY           24 (to 172)
+
+179         148 LOAD_GLOBAL             17 (logger)
+            150 LOAD_METHOD             18 (warning)
+            152 LOAD_CONST               6 ('初始化客户事件目录失败: %s')
+            154 LOAD_FAST                7 (exc)
+            156 CALL_METHOD              2
+            158 POP_TOP
+            160 POP_BLOCK
+            162 POP_EXCEPT
+            164 LOAD_CONST               0 (None)
+            166 STORE_FAST               7 (exc)
+            168 DELETE_FAST              7 (exc)
+            170 JUMP_FORWARD            10 (to 182)
+        >>  172 LOAD_CONST               0 (None)
+            174 STORE_FAST               7 (exc)
+            176 DELETE_FAST              7 (exc)
+            178 RERAISE
+        >>  180 RERAISE
+        >>  182 LOAD_CONST               0 (None)
+            184 RETURN_VALUE
+
+Disassembly of <code object account_key at 0x1073b9ea0, file "WeRobotCore/utils/customer_event_store.py", line 181>:
+183           0 LOAD_GLOBAL              0 (str)
+              2 LOAD_FAST                0 (account_id)
+              4 JUMP_IF_TRUE_OR_POP      8
+              6 LOAD_CONST               1 ('')
+        >>    8 CALL_FUNCTION            1
+             10 LOAD_METHOD              1 (strip)
+             12 CALL_METHOD              0
+             14 STORE_FAST               1 (normalized)
+
+184          16 LOAD_FAST                1 (normalized)
+             18 LOAD_GLOBAL              2 (UNASSIGNED_ACCOUNT_ID)
+             20 COMPARE_OP               2 (==)
+             22 POP_JUMP_IF_FALSE       28
+
+185          24 LOAD_GLOBAL              3 (UNASSIGNED_ACCOUNT_KEY)
+             26 RETURN_VALUE
+
+186     >>   28 LOAD_FAST                1 (normalized)
+             30 POP_JUMP_IF_TRUE        40
+
+187          32 LOAD_GLOBAL              4 (ValueError)
+             34 LOAD_CONST               2 ('account_id is required')
+             36 CALL_FUNCTION            1
+             38 RAISE_VARARGS            1
+
+188     >>   40 LOAD_GLOBAL              5 (hashlib)
+             42 LOAD_METHOD              6 (sha256)
+             44 LOAD_FAST                1 (normalized)
+             46 LOAD_METHOD              7 (encode)
+             48 LOAD_CONST               3 ('utf-8')
+             50 CALL_METHOD              1
+             52 CALL_METHOD              1
+             54 LOAD_METHOD              8 (hexdigest)
+             56 CALL_METHOD              0
+             58 LOAD_CONST               0 (None)
+             60 LOAD_CONST               4 (16)
+             62 BUILD_SLICE              2
+             64 BINARY_SUBSCR
+             66 STORE_FAST               2 (digest)
+
+189          68 LOAD_CONST               5 ('acct_{}')
+             70 LOAD_METHOD              9 (format)
+             72 LOAD_FAST                2 (digest)
+             74 CALL_METHOD              1
+             76 RETURN_VALUE
+
+Disassembly of <code object emit_event at 0x1073b9500, file "WeRobotCore/utils/customer_event_store.py", line 191>:
+206           0 LOAD_FAST               10 (event_id)
+              2 JUMP_IF_TRUE_OR_POP     18
+              4 LOAD_CONST               1 ('evt_{}')
+              6 LOAD_METHOD              0 (format)
+              8 LOAD_GLOBAL              1 (uuid)
+             10 LOAD_METHOD              2 (uuid4)
+             12 CALL_METHOD              0
+             14 LOAD_ATTR                3 (hex)
+             16 CALL_METHOD              1
+        >>   18 STORE_FAST              11 (generated_event_id)
+
+207          20 EXTENDED_ARG             1
+             22 SETUP_FINALLY          334 (to 358)
+
+208          24 LOAD_GLOBAL              4 (str)
+             26 LOAD_FAST                2 (event_type)
+             28 JUMP_IF_TRUE_OR_POP     32
+             30 LOAD_CONST               2 ('')
+        >>   32 CALL_FUNCTION            1
+             34 LOAD_METHOD              5 (strip)
+             36 CALL_METHOD              0
+             38 STORE_FAST              12 (event_name)
+
+209          40 LOAD_FAST               12 (event_name)
+             42 POP_JUMP_IF_TRUE        52
+
+210          44 LOAD_GLOBAL              6 (ValueError)
+             46 LOAD_CONST               3 ('event_type is required')
+             48 CALL_FUNCTION            1
+             50 RAISE_VARARGS            1
+
+211     >>   52 LOAD_FAST                0 (self)
+             54 LOAD_METHOD              7 (_account_payload)
+             56 LOAD_FAST                1 (account_id)
+             58 LOAD_FAST                3 (account_nickname)
+             60 CALL_METHOD              2
+             62 STORE_FAST              13 (account)
+
+214          64 LOAD_FAST                9 (occurred_at)
+             66 LOAD_CONST               4 (None)
+             68 IS_OP                    1
+
+213          70 POP_JUMP_IF_FALSE       80
+             72 LOAD_GLOBAL              8 (_as_datetime)
+             74 LOAD_FAST                9 (occurred_at)
+             76 CALL_FUNCTION            1
+             78 JUMP_FORWARD             6 (to 86)
+
+215     >>   80 LOAD_FAST                0 (self)
+             82 LOAD_METHOD              9 (_current_time)
+             84 CALL_METHOD              0
+
+212     >>   86 STORE_FAST              14 (event_time)
+
+217          88 LOAD_FAST                0 (self)
+             90 LOAD_METHOD              9 (_current_time)
+             92 CALL_METHOD              0
+             94 STORE_FAST              15 (record_time)
+
+219          96 LOAD_GLOBAL             10 (EVENT_SCHEMA_VERSION)
+
+220          98 LOAD_GLOBAL              4 (str)
+            100 LOAD_FAST               11 (generated_event_id)
+            102 CALL_FUNCTION            1
+
+221         104 LOAD_FAST               12 (event_name)
+
+222         106 LOAD_GLOBAL             11 (_iso)
+            108 LOAD_FAST               14 (event_time)
+            110 CALL_FUNCTION            1
+
+223         112 LOAD_GLOBAL             11 (_iso)
+            114 LOAD_FAST               15 (record_time)
+            116 CALL_FUNCTION            1
+
+224         118 LOAD_FAST               13 (account)
+
+225         120 LOAD_GLOBAL             12 (_mapping)
+            122 LOAD_FAST                4 (subject)
+            124 LOAD_CONST               5 ('subject')
+            126 CALL_FUNCTION            2
+
+226         128 LOAD_GLOBAL             12 (_mapping)
+            130 LOAD_FAST                5 (source)
+            132 LOAD_CONST               6 ('source')
+            134 CALL_FUNCTION            2
+
+227         136 LOAD_GLOBAL             12 (_mapping)
+            138 LOAD_FAST                6 (result)
+            140 LOAD_CONST               7 ('result')
+            142 CALL_FUNCTION            2
+            144 JUMP_IF_TRUE_OR_POP    152
+            146 LOAD_CONST               8 ('status')
+            148 LOAD_CONST               9 ('observed')
+            150 BUILD_MAP                1
+
+228     >>  152 LOAD_GLOBAL             12 (_mapping)
+            154 LOAD_FAST                7 (data)
+            156 LOAD_CONST              10 ('data')
+            158 CALL_FUNCTION            2
+
+229         160 LOAD_GLOBAL             12 (_mapping)
+            162 LOAD_FAST                8 (extensions)
+            164 LOAD_CONST              11 ('extensions')
+            166 CALL_FUNCTION            2
+
+218         168 LOAD_CONST              12 (('schema_version', 'event_id', 'event_type', 'occurred_at', 'recorded_at', 'account', 'subject', 'source', 'result', 'data', 'extensions'))
+            170 BUILD_CONST_KEY_MAP     11
+            172 STORE_FAST              16 (payload)
+
+231         174 LOAD_GLOBAL             13 (json)
+            176 LOAD_ATTR               14 (dumps)
+
+232         178 LOAD_FAST               16 (payload)
+
+233         180 LOAD_CONST              13 (False)
+
+234         182 LOAD_CONST              14 ((',', ':'))
+
+235         184 LOAD_GLOBAL             15 (_json_default)
+
+231         186 LOAD_CONST              15 (('ensure_ascii', 'separators', 'default'))
+            188 CALL_FUNCTION_KW         4
+
+236         190 LOAD_CONST              16 ('\n')
+
+231         192 BINARY_ADD
+            194 STORE_FAST              17 (line)
+
+237         196 LOAD_GLOBAL             16 (len)
+            198 LOAD_FAST               17 (line)
+            200 LOAD_METHOD             17 (encode)
+            202 LOAD_CONST              17 ('utf-8')
+            204 CALL_METHOD              1
+            206 CALL_FUNCTION            1
+            208 STORE_FAST              18 (encoded_size)
+
+239         210 LOAD_FAST                0 (self)
+            212 LOAD_ATTR               18 (_lock)
+            214 SETUP_WITH             100 (to 316)
+            216 POP_TOP
+
+240         218 LOAD_FAST                0 (self)
+            220 LOAD_METHOD             19 (_ensure_store_contract)
+            222 CALL_METHOD              0
+            224 POP_TOP
+
+241         226 LOAD_FAST                0 (self)
+            228 LOAD_METHOD             20 (_ensure_account_metadata)
+            230 LOAD_FAST               13 (account)
+            232 LOAD_FAST               15 (record_time)
+            234 CALL_METHOD              2
+            236 POP_TOP
+
+242         238 LOAD_FAST                0 (self)
+            240 LOAD_METHOD             21 (_select_segment)
+
+243         242 LOAD_FAST               13 (account)
+            244 LOAD_CONST              18 ('account_key')
+            246 BINARY_SUBSCR
+            248 LOAD_FAST               14 (event_time)
+            250 LOAD_FAST               18 (encoded_size)
+
+242         252 CALL_METHOD              3
+            254 UNPACK_SEQUENCE          2
+            256 STORE_FAST              19 (event_path)
+            258 STORE_FAST              20 (state)
+
+245         260 LOAD_FAST                0 (self)
+            262 LOAD_METHOD             22 (_append_complete_line)
+            264 LOAD_FAST               19 (event_path)
+            266 LOAD_FAST               17 (line)
+            268 CALL_METHOD              2
+            270 POP_TOP
+
+246         272 LOAD_FAST               20 (state)
+            274 LOAD_CONST              19 ('records')
+            276 DUP_TOP_TWO
+            278 BINARY_SUBSCR
+            280 LOAD_CONST              20 (1)
+            282 INPLACE_ADD
+            284 ROT_THREE
+            286 STORE_SUBSCR
+
+247         288 LOAD_FAST               19 (event_path)
+            290 LOAD_METHOD             23 (stat)
+            292 CALL_METHOD              0
+            294 LOAD_ATTR               24 (st_size)
+            296 LOAD_FAST               20 (state)
+            298 LOAD_CONST              21 ('bytes')
+            300 STORE_SUBSCR
+            302 POP_BLOCK
+            304 LOAD_CONST               4 (None)
+            306 DUP_TOP
+            308 DUP_TOP
+            310 CALL_FUNCTION            3
+            312 POP_TOP
+            314 JUMP_FORWARD            18 (to 334)
+        >>  316 WITH_EXCEPT_START
+            318 EXTENDED_ARG             1
+            320 POP_JUMP_IF_TRUE       324
+            322 RERAISE
+        >>  324 POP_TOP
+            326 POP_TOP
+            328 POP_TOP
+            330 POP_EXCEPT
+            332 POP_TOP
+
+250     >>  334 LOAD_CONST              22 (True)
+
+251         336 LOAD_GLOBAL              4 (str)
+            338 LOAD_FAST               11 (generated_event_id)
+            340 CALL_FUNCTION            1
+
+252         342 LOAD_GLOBAL              4 (str)
+            344 LOAD_FAST               19 (event_path)
+            346 CALL_FUNCTION            1
+
+253         348 LOAD_CONST               2 ('')
+
+249         350 LOAD_CONST              23 (('success', 'event_id', 'path', 'error'))
+            352 BUILD_CONST_KEY_MAP      4
+            354 POP_BLOCK
+            356 RETURN_VALUE
+
+255     >>  358 DUP_TOP
+            360 LOAD_GLOBAL             25 (Exception)
+            362 EXTENDED_ARG             1
+            364 JUMP_IF_NOT_EXC_MATCH   432
+            366 POP_TOP
+            368 STORE_FAST              21 (exc)
+            370 POP_TOP
+            372 SETUP_FINALLY           50 (to 424)
+
+256         374 LOAD_GLOBAL             26 (logger)
+            376 LOAD_METHOD             27 (error)
+
+257         378 LOAD_CONST              24 ('客户事件写入失败: event_type=%s account_id=%s error=%s')
+
+258         380 LOAD_FAST                2 (event_type)
+
+259         382 LOAD_FAST                1 (account_id)
+
+260         384 LOAD_FAST               21 (exc)
+
+256         386 CALL_METHOD              4
+            388 POP_TOP
+
+263         390 LOAD_CONST              13 (False)
+
+264         392 LOAD_GLOBAL              4 (str)
+            394 LOAD_FAST               11 (generated_event_id)
+            396 CALL_FUNCTION            1
+
+265         398 LOAD_CONST               2 ('')
+
+266         400 LOAD_GLOBAL              4 (str)
+            402 LOAD_FAST               21 (exc)
+            404 CALL_FUNCTION            1
+
+262         406 LOAD_CONST              23 (('success', 'event_id', 'path', 'error'))
+            408 BUILD_CONST_KEY_MAP      4
+            410 POP_BLOCK
+            412 ROT_FOUR
+            414 POP_EXCEPT
+            416 LOAD_CONST               4 (None)
+            418 STORE_FAST              21 (exc)
+            420 DELETE_FAST             21 (exc)
+            422 RETURN_VALUE
+        >>  424 LOAD_CONST               4 (None)
+            426 STORE_FAST              21 (exc)
+            428 DELETE_FAST             21 (exc)
+            430 RERAISE
+        >>  432 RERAISE
+            434 LOAD_CONST               4 (None)
+            436 RETURN_VALUE
+
+Disassembly of <code object save_snapshot at 0x1073b9c90, file "WeRobotCore/utils/customer_event_store.py", line 269>:
+282           0 LOAD_FAST                8 (snapshot_id)
+              2 JUMP_IF_TRUE_OR_POP     18
+              4 LOAD_CONST               1 ('snap_{}')
+              6 LOAD_METHOD              0 (format)
+              8 LOAD_GLOBAL              1 (uuid)
+             10 LOAD_METHOD              2 (uuid4)
+             12 CALL_METHOD              0
+             14 LOAD_ATTR                3 (hex)
+             16 CALL_METHOD              1
+        >>   18 STORE_FAST               9 (generated_snapshot_id)
+
+283          20 EXTENDED_ARG             2
+             22 SETUP_FINALLY          590 (to 614)
+
+284          24 LOAD_GLOBAL              4 (str)
+             26 LOAD_FAST                2 (snapshot_type)
+             28 JUMP_IF_TRUE_OR_POP     32
+             30 LOAD_CONST               2 ('')
+        >>   32 CALL_FUNCTION            1
+             34 LOAD_METHOD              5 (strip)
+             36 CALL_METHOD              0
+             38 STORE_FAST              10 (snapshot_name)
+
+285          40 LOAD_FAST               10 (snapshot_name)
+             42 POP_JUMP_IF_TRUE        52
+
+286          44 LOAD_GLOBAL              6 (ValueError)
+             46 LOAD_CONST               3 ('snapshot_type is required')
+             48 CALL_FUNCTION            1
+             50 RAISE_VARARGS            1
+
+287     >>   52 LOAD_GLOBAL              7 (list)
+             54 LOAD_FAST                3 (items)
+             56 JUMP_IF_TRUE_OR_POP     60
+             58 BUILD_LIST               0
+        >>   60 CALL_FUNCTION            1
+             62 STORE_DEREF              1 (snapshot_items)
+
+288          64 LOAD_DEREF               0 (self)
+             66 LOAD_METHOD              8 (_account_payload)
+             68 LOAD_FAST                1 (account_id)
+             70 LOAD_FAST                4 (account_nickname)
+             72 CALL_METHOD              2
+             74 STORE_FAST              11 (account)
+
+291          76 LOAD_FAST                7 (observed_at)
+             78 LOAD_CONST               4 (None)
+             80 IS_OP                    1
+
+290          82 POP_JUMP_IF_FALSE       92
+             84 LOAD_GLOBAL              9 (_as_datetime)
+             86 LOAD_FAST                7 (observed_at)
+             88 CALL_FUNCTION            1
+             90 JUMP_FORWARD             6 (to 98)
+
+292     >>   92 LOAD_DEREF               0 (self)
+             94 LOAD_METHOD             10 (_current_time)
+             96 CALL_METHOD              0
+
+289     >>   98 STORE_FAST              12 (observed_time)
+
+294         100 LOAD_DEREF               0 (self)
+            102 LOAD_METHOD             10 (_current_time)
+            104 CALL_METHOD              0
+            106 STORE_FAST              13 (record_time)
+
+295         108 LOAD_GLOBAL             11 (_mapping)
+            110 LOAD_FAST                5 (source)
+            112 LOAD_CONST               5 ('source')
+            114 CALL_FUNCTION            2
+            116 STORE_FAST              14 (source_payload)
+
+296         118 LOAD_GLOBAL             11 (_mapping)
+            120 LOAD_FAST                6 (extensions)
+            122 LOAD_CONST               6 ('extensions')
+            124 CALL_FUNCTION            2
+            126 STORE_FAST              15 (extension_payload)
+
+298         128 LOAD_DEREF               0 (self)
+            130 LOAD_ATTR               12 (_lock)
+            132 EXTENDED_ARG             1
+            134 SETUP_WITH             424 (to 560)
+            136 POP_TOP
+
+299         138 LOAD_DEREF               0 (self)
+            140 LOAD_METHOD             13 (_ensure_store_contract)
+            142 CALL_METHOD              0
+            144 POP_TOP
+
+300         146 LOAD_DEREF               0 (self)
+            148 LOAD_METHOD             14 (_ensure_account_metadata)
+            150 LOAD_FAST               11 (account)
+            152 LOAD_FAST               13 (record_time)
+            154 CALL_METHOD              2
+            156 POP_TOP
+
+301         158 LOAD_DEREF               0 (self)
+            160 LOAD_METHOD             15 (_snapshot_location)
+
+302         162 LOAD_FAST               11 (account)
+            164 LOAD_CONST               7 ('account_key')
+            166 BINARY_SUBSCR
+            168 LOAD_FAST               10 (snapshot_name)
+            170 LOAD_FAST               12 (observed_time)
+
+301         172 CALL_METHOD              3
+            174 UNPACK_SEQUENCE          2
+            176 STORE_FAST              16 (target_dir)
+            178 STORE_FAST              17 (prefix)
+
+304         180 LOAD_FAST               16 (target_dir)
+            182 LOAD_ATTR               16 (mkdir)
+            184 LOAD_CONST               8 (True)
+            186 LOAD_CONST               8 (True)
+            188 LOAD_CONST               9 (('parents', 'exist_ok'))
+            190 CALL_FUNCTION_KW         2
+            192 POP_TOP
+
+305         194 LOAD_FAST               12 (observed_time)
+            196 LOAD_METHOD             17 (strftime)
+            198 LOAD_CONST              10 ('%Y%m%d_%H%M%S_%f')
+            200 CALL_METHOD              1
+            202 STORE_FAST              18 (timestamp)
+
+306         204 LOAD_CONST              11 ('{}_{}_{}')
+            206 LOAD_METHOD              0 (format)
+
+307         208 LOAD_FAST               17 (prefix)
+            210 LOAD_FAST               18 (timestamp)
+            212 LOAD_GLOBAL              4 (str)
+            214 LOAD_FAST                9 (generated_snapshot_id)
+            216 CALL_FUNCTION            1
+
+306         218 CALL_METHOD              3
+            220 STORE_FAST              19 (basename)
+
+310         222 LOAD_GLOBAL             18 (EVENT_SCHEMA_VERSION)
+
+311         224 LOAD_GLOBAL              4 (str)
+            226 LOAD_FAST                9 (generated_snapshot_id)
+            228 CALL_FUNCTION            1
+
+312         230 LOAD_FAST               10 (snapshot_name)
+
+313         232 LOAD_GLOBAL             19 (_iso)
+            234 LOAD_FAST               12 (observed_time)
+            236 CALL_FUNCTION            1
+
+314         238 LOAD_GLOBAL             19 (_iso)
+            240 LOAD_FAST               13 (record_time)
+            242 CALL_FUNCTION            1
+
+315         244 LOAD_FAST               11 (account)
+
+316         246 LOAD_FAST               14 (source_payload)
+
+317         248 LOAD_FAST               15 (extension_payload)
+
+309         250 LOAD_CONST              12 (('schema_version', 'snapshot_id', 'snapshot_type', 'observed_at', 'recorded_at', 'account', 'source', 'extensions'))
+            252 BUILD_CONST_KEY_MAP      8
+            254 STORE_FAST              20 (common)
+
+320         256 LOAD_GLOBAL             20 (len)
+            258 LOAD_DEREF               1 (snapshot_items)
+            260 CALL_FUNCTION            1
+            262 LOAD_DEREF               0 (self)
+            264 LOAD_ATTR               21 (max_snapshot_records)
+            266 COMPARE_OP               1 (<=)
+            268 EXTENDED_ARG             1
+            270 POP_JUMP_IF_FALSE      336
+
+321         272 LOAD_FAST               16 (target_dir)
+            274 LOAD_CONST              13 ('{}.json')
+            276 LOAD_METHOD              0 (format)
+            278 LOAD_FAST               19 (basename)
+            280 CALL_METHOD              1
+            282 BINARY_TRUE_DIVIDE
+            284 STORE_FAST              21 (snapshot_path)
+
+322         286 LOAD_GLOBAL             22 (dict)
+            288 LOAD_FAST               20 (common)
+            290 CALL_FUNCTION            1
+            292 STORE_FAST              22 (payload)
+
+323         294 LOAD_FAST               22 (payload)
+            296 LOAD_METHOD             23 (update)
+            298 LOAD_GLOBAL             20 (len)
+            300 LOAD_DEREF               1 (snapshot_items)
+            302 CALL_FUNCTION            1
+            304 LOAD_DEREF               1 (snapshot_items)
+            306 LOAD_CONST              14 (('count', 'items'))
+            308 BUILD_CONST_KEY_MAP      2
+            310 CALL_METHOD              1
+            312 POP_TOP
+
+324         314 LOAD_DEREF               0 (self)
+            316 LOAD_METHOD             24 (_atomic_json_write)
+            318 LOAD_FAST               21 (snapshot_path)
+            320 LOAD_FAST               22 (payload)
+            322 CALL_METHOD              2
+            324 POP_TOP
+
+325         326 LOAD_FAST               21 (snapshot_path)
+            328 STORE_FAST              23 (output_path)
+
+326         330 BUILD_LIST               0
+            332 STORE_FAST              24 (part_paths)
+            334 JUMP_FORWARD           210 (to 546)
+
+328     >>  336 LOAD_CLOSURE             0 (self)
+            338 LOAD_CLOSURE             1 (snapshot_items)
+            340 BUILD_TUPLE              2
+            342 LOAD_CONST              15 (<code object <listcomp> at 0x1073b90e0, file "WeRobotCore/utils/customer_event_store.py", line 328>)
+            344 LOAD_CONST              16 ('CustomerEventStore.save_snapshot.<locals>.<listcomp>')
+            346 MAKE_FUNCTION            8 (closure)
+
+330         348 LOAD_GLOBAL             25 (range)
+            350 LOAD_CONST              17 (0)
+            352 LOAD_GLOBAL             20 (len)
+            354 LOAD_DEREF               1 (snapshot_items)
+            356 CALL_FUNCTION            1
+            358 LOAD_DEREF               0 (self)
+            360 LOAD_ATTR               21 (max_snapshot_records)
+            362 CALL_FUNCTION            3
+
+328         364 GET_ITER
+            366 CALL_FUNCTION            1
+            368 STORE_FAST              25 (chunks)
+
+332         370 BUILD_LIST               0
+            372 STORE_FAST              24 (part_paths)
+
+333         374 LOAD_GLOBAL             26 (enumerate)
+            376 LOAD_FAST               25 (chunks)
+            378 LOAD_CONST              18 (1)
+            380 LOAD_CONST              19 (('start',))
+            382 CALL_FUNCTION_KW         2
+            384 GET_ITER
+        >>  386 FOR_ITER                84 (to 472)
+            388 UNPACK_SEQUENCE          2
+            390 STORE_FAST              26 (part_index)
+            392 STORE_FAST              27 (chunk)
+
+334         394 LOAD_FAST               16 (target_dir)
+            396 LOAD_CONST              20 ('{}_part_{:04d}.json')
+            398 LOAD_METHOD              0 (format)
+
+335         400 LOAD_FAST               19 (basename)
+            402 LOAD_FAST               26 (part_index)
+
+334         404 CALL_METHOD              2
+            406 BINARY_TRUE_DIVIDE
+            408 STORE_FAST              28 (part_path)
+
+337         410 LOAD_GLOBAL             22 (dict)
+            412 LOAD_FAST               20 (common)
+            414 CALL_FUNCTION            1
+            416 STORE_FAST              29 (part_payload)
+
+338         418 LOAD_FAST               29 (part_payload)
+            420 LOAD_METHOD             23 (update)
+
+340         422 LOAD_GLOBAL             20 (len)
+            424 LOAD_FAST               27 (chunk)
+            426 CALL_FUNCTION            1
+
+341         428 LOAD_FAST               26 (part_index)
+
+342         430 LOAD_GLOBAL             20 (len)
+            432 LOAD_FAST               25 (chunks)
+            434 CALL_FUNCTION            1
+
+343         436 LOAD_FAST               27 (chunk)
+
+339         438 LOAD_CONST              21 (('count', 'part_index', 'part_count', 'items'))
+            440 BUILD_CONST_KEY_MAP      4
+
+338         442 CALL_METHOD              1
+            444 POP_TOP
+
+346         446 LOAD_DEREF               0 (self)
+            448 LOAD_METHOD             24 (_atomic_json_write)
+            450 LOAD_FAST               28 (part_path)
+            452 LOAD_FAST               29 (part_payload)
+            454 CALL_METHOD              2
+            456 POP_TOP
+
+347         458 LOAD_FAST               24 (part_paths)
+            460 LOAD_METHOD             27 (append)
+            462 LOAD_FAST               28 (part_path)
+            464 CALL_METHOD              1
+            466 POP_TOP
+            468 EXTENDED_ARG             1
+            470 JUMP_ABSOLUTE          386
+
+349     >>  472 LOAD_FAST               16 (target_dir)
+            474 LOAD_CONST              22 ('{}_manifest.json')
+            476 LOAD_METHOD              0 (format)
+            478 LOAD_FAST               19 (basename)
+            480 CALL_METHOD              1
+            482 BINARY_TRUE_DIVIDE
+            484 STORE_FAST              30 (manifest_path)
+
+350         486 LOAD_GLOBAL             22 (dict)
+            488 LOAD_FAST               20 (common)
+            490 CALL_FUNCTION            1
+            492 STORE_FAST              31 (manifest)
+
+351         494 LOAD_FAST               31 (manifest)
+            496 LOAD_METHOD             23 (update)
+
+353         498 LOAD_GLOBAL             20 (len)
+            500 LOAD_DEREF               1 (snapshot_items)
+            502 CALL_FUNCTION            1
+
+354         504 LOAD_GLOBAL             20 (len)
+            506 LOAD_FAST               24 (part_paths)
+            508 CALL_FUNCTION            1
+
+355         510 LOAD_CONST              23 (<code object <listcomp> at 0x1073b95b0, file "WeRobotCore/utils/customer_event_store.py", line 355>)
+            512 LOAD_CONST              16 ('CustomerEventStore.save_snapshot.<locals>.<listcomp>')
+            514 MAKE_FUNCTION            0
+            516 LOAD_FAST               24 (part_paths)
+            518 GET_ITER
+            520 CALL_FUNCTION            1
+
+352         522 LOAD_CONST              24 (('count', 'part_count', 'parts'))
+            524 BUILD_CONST_KEY_MAP      3
+
+351         526 CALL_METHOD              1
+            528 POP_TOP
+
+358         530 LOAD_DEREF               0 (self)
+            532 LOAD_METHOD             24 (_atomic_json_write)
+            534 LOAD_FAST               30 (manifest_path)
+            536 LOAD_FAST               31 (manifest)
+            538 CALL_METHOD              2
+            540 POP_TOP
+
+359         542 LOAD_FAST               30 (manifest_path)
+            544 STORE_FAST              23 (output_path)
+        >>  546 POP_BLOCK
+            548 LOAD_CONST               4 (None)
+            550 DUP_TOP
+            552 DUP_TOP
+            554 CALL_FUNCTION            3
+            556 POP_TOP
+            558 JUMP_FORWARD            18 (to 578)
+        >>  560 WITH_EXCEPT_START
+            562 EXTENDED_ARG             2
+            564 POP_JUMP_IF_TRUE       568
+            566 RERAISE
+        >>  568 POP_TOP
+            570 POP_TOP
+            572 POP_TOP
+            574 POP_EXCEPT
+            576 POP_TOP
+
+362     >>  578 LOAD_CONST               8 (True)
+
+363         580 LOAD_GLOBAL              4 (str)
+            582 LOAD_FAST                9 (generated_snapshot_id)
+            584 CALL_FUNCTION            1
+
+364         586 LOAD_GLOBAL              4 (str)
+            588 LOAD_FAST               23 (output_path)
+            590 CALL_FUNCTION            1
+
+365         592 LOAD_CONST              25 (<code object <listcomp> at 0x1073b9450, file "WeRobotCore/utils/customer_event_store.py", line 365>)
+            594 LOAD_CONST              16 ('CustomerEventStore.save_snapshot.<locals>.<listcomp>')
+            596 MAKE_FUNCTION            0
+            598 LOAD_FAST               24 (part_paths)
+            600 GET_ITER
+            602 CALL_FUNCTION            1
+
+366         604 LOAD_CONST               2 ('')
+
+361         606 LOAD_CONST              26 (('success', 'snapshot_id', 'path', 'parts', 'error'))
+            608 BUILD_CONST_KEY_MAP      5
+            610 POP_BLOCK
+            612 RETURN_VALUE
+
+368     >>  614 DUP_TOP
+            616 LOAD_GLOBAL             28 (Exception)
+            618 EXTENDED_ARG             2
+            620 JUMP_IF_NOT_EXC_MATCH   690
+            622 POP_TOP
+            624 STORE_FAST              32 (exc)
+            626 POP_TOP
+            628 SETUP_FINALLY           52 (to 682)
+
+369         630 LOAD_GLOBAL             29 (logger)
+            632 LOAD_METHOD             30 (error)
+
+370         634 LOAD_CONST              27 ('客户快照写入失败: snapshot_type=%s account_id=%s error=%s')
+
+371         636 LOAD_FAST                2 (snapshot_type)
+
+372         638 LOAD_FAST                1 (account_id)
+
+373         640 LOAD_FAST               32 (exc)
+
+369         642 CALL_METHOD              4
+            644 POP_TOP
+
+376         646 LOAD_CONST              28 (False)
+
+377         648 LOAD_GLOBAL              4 (str)
+            650 LOAD_FAST                9 (generated_snapshot_id)
+            652 CALL_FUNCTION            1
+
+378         654 LOAD_CONST               2 ('')
+
+379         656 BUILD_LIST               0
+
+380         658 LOAD_GLOBAL              4 (str)
+            660 LOAD_FAST               32 (exc)
+            662 CALL_FUNCTION            1
+
+375         664 LOAD_CONST              26 (('success', 'snapshot_id', 'path', 'parts', 'error'))
+            666 BUILD_CONST_KEY_MAP      5
+            668 POP_BLOCK
+            670 ROT_FOUR
+            672 POP_EXCEPT
+            674 LOAD_CONST               4 (None)
+            676 STORE_FAST              32 (exc)
+            678 DELETE_FAST             32 (exc)
+            680 RETURN_VALUE
+        >>  682 LOAD_CONST               4 (None)
+            684 STORE_FAST              32 (exc)
+            686 DELETE_FAST             32 (exc)
+            688 RERAISE
+        >>  690 RERAISE
+            692 LOAD_CONST               4 (None)
+            694 RETURN_VALUE
+
+Disassembly of <code object <listcomp> at 0x1073b90e0, file "WeRobotCore/utils/customer_event_store.py", line 328>:
+328           0 BUILD_LIST               0
+              2 LOAD_FAST                0 (.0)
+        >>    4 FOR_ITER                22 (to 28)
+
+330           6 STORE_FAST               1 (index)
+
+329           8 LOAD_DEREF               1 (snapshot_items)
+             10 LOAD_FAST                1 (index)
+             12 LOAD_FAST                1 (index)
+             14 LOAD_DEREF               0 (self)
+             16 LOAD_ATTR                0 (max_snapshot_records)
+             18 BINARY_ADD
+             20 BUILD_SLICE              2
+             22 BINARY_SUBSCR
+             24 LIST_APPEND              2
+             26 JUMP_ABSOLUTE            4
+        >>   28 RETURN_VALUE
+
+Disassembly of <code object <listcomp> at 0x1073b95b0, file "WeRobotCore/utils/customer_event_store.py", line 355>:
+355           0 BUILD_LIST               0
+              2 LOAD_FAST                0 (.0)
+        >>    4 FOR_ITER                10 (to 16)
+              6 STORE_FAST               1 (path)
+              8 LOAD_FAST                1 (path)
+             10 LOAD_ATTR                0 (name)
+             12 LIST_APPEND              2
+             14 JUMP_ABSOLUTE            4
+        >>   16 RETURN_VALUE
+
+Disassembly of <code object <listcomp> at 0x1073b9450, file "WeRobotCore/utils/customer_event_store.py", line 365>:
+365           0 BUILD_LIST               0
+              2 LOAD_FAST                0 (.0)
+        >>    4 FOR_ITER                12 (to 18)
+              6 STORE_FAST               1 (path)
+              8 LOAD_GLOBAL              0 (str)
+             10 LOAD_FAST                1 (path)
+             12 CALL_FUNCTION            1
+             14 LIST_APPEND              2
+             16 JUMP_ABSOLUTE            4
+        >>   18 RETURN_VALUE
+
+Disassembly of <code object _current_time at 0x1073b9240, file "WeRobotCore/utils/customer_event_store.py", line 383>:
+384           0 LOAD_FAST                0 (self)
+              2 LOAD_METHOD              0 (_now)
+              4 CALL_METHOD              0
+              6 STORE_FAST               1 (value)
+
+385           8 LOAD_GLOBAL              1 (_as_datetime)
+             10 LOAD_FAST                1 (value)
+             12 CALL_FUNCTION            1
+             14 RETURN_VALUE
+
+Disassembly of <code object _account_payload at 0x1073b9710, file "WeRobotCore/utils/customer_event_store.py", line 387>:
+388           0 LOAD_GLOBAL              0 (str)
+              2 LOAD_FAST                1 (account_id)
+              4 JUMP_IF_TRUE_OR_POP      8
+              6 LOAD_CONST               1 ('')
+        >>    8 CALL_FUNCTION            1
+             10 LOAD_METHOD              1 (strip)
+             12 CALL_METHOD              0
+             14 STORE_FAST               3 (normalized_id)
+
+389          16 LOAD_FAST                3 (normalized_id)
+             18 LOAD_GLOBAL              2 (UNASSIGNED_ACCOUNT_ID)
+             20 COMPARE_OP               2 (==)
+             22 POP_JUMP_IF_FALSE       38
+
+391          24 LOAD_GLOBAL              3 (UNASSIGNED_ACCOUNT_KEY)
+
+392          26 LOAD_CONST               1 ('')
+
+393          28 LOAD_CONST               1 ('')
+
+394          30 LOAD_CONST               2 ('unassigned')
+
+390          32 LOAD_CONST               3 (('account_key', 'account_id', 'nickname', 'assignment_status'))
+             34 BUILD_CONST_KEY_MAP      4
+             36 RETURN_VALUE
+
+397     >>   38 LOAD_FAST                0 (self)
+             40 LOAD_METHOD              4 (account_key)
+             42 LOAD_FAST                3 (normalized_id)
+             44 CALL_METHOD              1
+
+398          46 LOAD_FAST                3 (normalized_id)
+
+399          48 LOAD_GLOBAL              0 (str)
+             50 LOAD_FAST                2 (nickname)
+             52 JUMP_IF_TRUE_OR_POP     56
+             54 LOAD_CONST               1 ('')
+        >>   56 CALL_FUNCTION            1
+
+400          58 LOAD_CONST               4 ('assigned')
+
+396          60 LOAD_CONST               3 (('account_key', 'account_id', 'nickname', 'assignment_status'))
+             62 BUILD_CONST_KEY_MAP      4
+             64 RETURN_VALUE
+
+Disassembly of <code object _ensure_store_contract at 0x1073b9870, file "WeRobotCore/utils/customer_event_store.py", line 403>:
+404           0 LOAD_FAST                0 (self)
+              2 LOAD_ATTR                0 (root_dir)
+              4 LOAD_ATTR                1 (mkdir)
+              6 LOAD_CONST               1 (True)
+              8 LOAD_CONST               1 (True)
+             10 LOAD_CONST               2 (('parents', 'exist_ok'))
+             12 CALL_FUNCTION_KW         2
+             14 POP_TOP
+
+405          16 LOAD_FAST                0 (self)
+             18 LOAD_ATTR                0 (root_dir)
+             20 LOAD_CONST               3 ('meta.json')
+             22 BINARY_TRUE_DIVIDE
+             24 STORE_FAST               1 (meta_path)
+
+406          26 LOAD_FAST                1 (meta_path)
+             28 LOAD_METHOD              2 (exists)
+             30 CALL_METHOD              0
+             32 POP_JUMP_IF_TRUE        90
+
+407          34 LOAD_FAST                0 (self)
+             36 LOAD_METHOD              3 (_atomic_json_write)
+
+408          38 LOAD_FAST                1 (meta_path)
+
+410          40 LOAD_GLOBAL              4 (STORE_VERSION)
+
+411          42 LOAD_GLOBAL              5 (_iso)
+             44 LOAD_FAST                0 (self)
+             46 LOAD_METHOD              6 (_current_time)
+             48 CALL_METHOD              0
+             50 CALL_FUNCTION            1
+
+412          52 LOAD_CONST               4 ('Asia/Shanghai')
+
+413          54 LOAD_CONST               5 ('jsonl')
+
+414          56 LOAD_CONST               6 (False)
+
+415          58 LOAD_GLOBAL              5 (_iso)
+             60 LOAD_FAST                0 (self)
+             62 LOAD_METHOD              6 (_current_time)
+             64 CALL_METHOD              0
+             66 CALL_FUNCTION            1
+
+417          68 LOAD_CONST               1 (True)
+
+418          70 LOAD_FAST                0 (self)
+             72 LOAD_ATTR                7 (max_records)
+
+419          74 LOAD_FAST                0 (self)
+             76 LOAD_ATTR                8 (max_bytes)
+
+416          78 LOAD_CONST               7 (('rotate_daily', 'max_records', 'max_bytes'))
+             80 BUILD_CONST_KEY_MAP      3
+
+409          82 LOAD_CONST               8 (('storage_version', 'created_at', 'timezone', 'format', 'legacy_data_included', 'data_start_at', 'rotation'))
+             84 BUILD_CONST_KEY_MAP      7
+
+407          86 CALL_METHOD              2
+             88 POP_TOP
+
+423     >>   90 LOAD_FAST                0 (self)
+             92 LOAD_ATTR                0 (root_dir)
+             94 LOAD_CONST               9 ('schema')
+             96 BINARY_TRUE_DIVIDE
+             98 STORE_FAST               2 (schema_dir)
+
+424         100 LOAD_FAST                2 (schema_dir)
+            102 LOAD_ATTR                1 (mkdir)
+            104 LOAD_CONST               1 (True)
+            106 LOAD_CONST               1 (True)
+            108 LOAD_CONST               2 (('parents', 'exist_ok'))
+            110 CALL_FUNCTION_KW         2
+            112 POP_TOP
+
+425         114 LOAD_FAST                2 (schema_dir)
+            116 LOAD_CONST              10 ('event-v1.json')
+            118 BINARY_TRUE_DIVIDE
+            120 STORE_FAST               3 (event_schema_path)
+
+426         122 LOAD_FAST                2 (schema_dir)
+            124 LOAD_CONST              11 ('snapshot-v1.json')
+            126 BINARY_TRUE_DIVIDE
+            128 STORE_FAST               4 (snapshot_schema_path)
+
+427         130 LOAD_FAST                3 (event_schema_path)
+            132 LOAD_METHOD              2 (exists)
+            134 CALL_METHOD              0
+            136 POP_JUMP_IF_TRUE       150
+
+428         138 LOAD_FAST                0 (self)
+            140 LOAD_METHOD              3 (_atomic_json_write)
+            142 LOAD_FAST                3 (event_schema_path)
+            144 LOAD_GLOBAL              9 (EVENT_SCHEMA)
+            146 CALL_METHOD              2
+            148 POP_TOP
+
+429     >>  150 LOAD_FAST                4 (snapshot_schema_path)
+            152 LOAD_METHOD              2 (exists)
+            154 CALL_METHOD              0
+            156 POP_JUMP_IF_TRUE       170
+
+430         158 LOAD_FAST                0 (self)
+            160 LOAD_METHOD              3 (_atomic_json_write)
+            162 LOAD_FAST                4 (snapshot_schema_path)
+            164 LOAD_GLOBAL             10 (SNAPSHOT_SCHEMA)
+            166 CALL_METHOD              2
+            168 POP_TOP
+        >>  170 LOAD_CONST               0 (None)
+            172 RETURN_VALUE
+
+Disassembly of <code object _ensure_account_metadata at 0x1073b9920, file "WeRobotCore/utils/customer_event_store.py", line 432>:
+433           0 LOAD_FAST                0 (self)
+              2 LOAD_ATTR                0 (root_dir)
+              4 LOAD_CONST               1 ('accounts')
+              6 BINARY_TRUE_DIVIDE
+              8 LOAD_FAST                1 (account)
+             10 LOAD_CONST               2 ('account_key')
+             12 BINARY_SUBSCR
+             14 BINARY_TRUE_DIVIDE
+             16 STORE_FAST               3 (account_dir)
+
+434          18 LOAD_FAST                3 (account_dir)
+             20 LOAD_ATTR                1 (mkdir)
+             22 LOAD_CONST               3 (True)
+             24 LOAD_CONST               3 (True)
+             26 LOAD_CONST               4 (('parents', 'exist_ok'))
+             28 CALL_FUNCTION_KW         2
+             30 POP_TOP
+
+435          32 LOAD_FAST                3 (account_dir)
+             34 LOAD_CONST               5 ('account.json')
+             36 BINARY_TRUE_DIVIDE
+             38 STORE_FAST               4 (metadata_path)
+
+436          40 BUILD_MAP                0
+             42 STORE_FAST               5 (existing)
+
+437          44 LOAD_FAST                4 (metadata_path)
+             46 LOAD_METHOD              2 (exists)
+             48 CALL_METHOD              0
+             50 POP_JUMP_IF_FALSE      140
+
+438          52 SETUP_FINALLY           60 (to 114)
+
+439          54 LOAD_FAST                4 (metadata_path)
+             56 LOAD_ATTR                3 (open)
+             58 LOAD_CONST               6 ('r')
+             60 LOAD_CONST               7 ('utf-8')
+             62 LOAD_CONST               8 (('encoding',))
+             64 CALL_FUNCTION_KW         2
+             66 SETUP_WITH              26 (to 94)
+             68 STORE_FAST               6 (handle)
+
+440          70 LOAD_GLOBAL              4 (json)
+             72 LOAD_METHOD              5 (load)
+             74 LOAD_FAST                6 (handle)
+             76 CALL_METHOD              1
+             78 STORE_FAST               5 (existing)
+             80 POP_BLOCK
+             82 LOAD_CONST               0 (None)
+             84 DUP_TOP
+             86 DUP_TOP
+             88 CALL_FUNCTION            3
+             90 POP_TOP
+             92 JUMP_FORWARD            16 (to 110)
+        >>   94 WITH_EXCEPT_START
+             96 POP_JUMP_IF_TRUE       100
+             98 RERAISE
+        >>  100 POP_TOP
+            102 POP_TOP
+            104 POP_TOP
+            106 POP_EXCEPT
+            108 POP_TOP
+        >>  110 POP_BLOCK
+            112 JUMP_FORWARD            26 (to 140)
+
+441     >>  114 DUP_TOP
+            116 LOAD_GLOBAL              6 (OSError)
+            118 LOAD_GLOBAL              7 (ValueError)
+            120 BUILD_TUPLE              2
+            122 JUMP_IF_NOT_EXC_MATCH   138
+            124 POP_TOP
+            126 POP_TOP
+            128 POP_TOP
+
+442         130 BUILD_MAP                0
+            132 STORE_FAST               5 (existing)
+            134 POP_EXCEPT
+            136 JUMP_FORWARD             2 (to 140)
+        >>  138 RERAISE
+
+443     >>  140 LOAD_FAST                1 (account)
+            142 LOAD_METHOD              8 (get)
+            144 LOAD_CONST               9 ('nickname')
+            146 CALL_METHOD              1
+            148 JUMP_IF_TRUE_OR_POP    162
+            150 LOAD_FAST                5 (existing)
+            152 LOAD_METHOD              8 (get)
+            154 LOAD_CONST               9 ('nickname')
+            156 CALL_METHOD              1
+            158 JUMP_IF_TRUE_OR_POP    162
+            160 LOAD_CONST              10 ('')
+        >>  162 STORE_FAST               7 (nickname)
+
+445         164 LOAD_GLOBAL              9 (EVENT_SCHEMA_VERSION)
+
+446         166 LOAD_FAST                1 (account)
+            168 LOAD_CONST               2 ('account_key')
+            170 BINARY_SUBSCR
+
+447         172 LOAD_FAST                1 (account)
+            174 LOAD_CONST              11 ('account_id')
+            176 BINARY_SUBSCR
+
+448         178 LOAD_FAST                7 (nickname)
+
+449         180 LOAD_FAST                1 (account)
+            182 LOAD_METHOD              8 (get)
+            184 LOAD_CONST              12 ('assignment_status')
+            186 CALL_METHOD              1
+            188 JUMP_IF_TRUE_OR_POP    192
+            190 LOAD_CONST              13 ('assigned')
+
+450     >>  192 LOAD_FAST                5 (existing)
+            194 LOAD_METHOD              8 (get)
+            196 LOAD_CONST              14 ('first_seen_at')
+            198 CALL_METHOD              1
+            200 JUMP_IF_TRUE_OR_POP    208
+            202 LOAD_GLOBAL             10 (_iso)
+            204 LOAD_FAST                2 (seen_at)
+            206 CALL_FUNCTION            1
+
+451     >>  208 LOAD_GLOBAL             10 (_iso)
+            210 LOAD_FAST                2 (seen_at)
+            212 CALL_FUNCTION            1
+
+444         214 LOAD_CONST              15 (('schema_version', 'account_key', 'account_id', 'nickname', 'assignment_status', 'first_seen_at', 'last_seen_at'))
+            216 BUILD_CONST_KEY_MAP      7
+            218 STORE_FAST               8 (payload)
+
+453         220 LOAD_FAST                0 (self)
+            222 LOAD_METHOD             11 (_atomic_json_write)
+            224 LOAD_FAST                4 (metadata_path)
+            226 LOAD_FAST                8 (payload)
+            228 CALL_METHOD              2
+            230 POP_TOP
+            232 LOAD_CONST               0 (None)
+            234 RETURN_VALUE
+
+Disassembly of <code object _select_segment at 0x1073b99d0, file "WeRobotCore/utils/customer_event_store.py", line 455>:
+456           0 LOAD_FAST                2 (event_time)
+              2 LOAD_METHOD              0 (strftime)
+              4 LOAD_CONST               1 ('%Y-%m-%d')
+              6 CALL_METHOD              1
+              8 STORE_FAST               4 (date_key)
+
+457          10 LOAD_FAST                1 (account_key)
+             12 LOAD_FAST                4 (date_key)
+             14 BUILD_TUPLE              2
+             16 STORE_FAST               5 (state_key)
+
+458          18 LOAD_FAST                0 (self)
+             20 LOAD_ATTR                1 (_segment_state)
+             22 LOAD_METHOD              2 (get)
+             24 LOAD_FAST                5 (state_key)
+             26 CALL_METHOD              1
+             28 STORE_FAST               6 (state)
+
+460          30 LOAD_FAST                0 (self)
+             32 LOAD_ATTR                3 (root_dir)
+
+461          34 LOAD_CONST               2 ('accounts')
+
+460          36 BINARY_TRUE_DIVIDE
+
+462          38 LOAD_FAST                1 (account_key)
+
+460          40 BINARY_TRUE_DIVIDE
+
+463          42 LOAD_CONST               3 ('events')
+
+460          44 BINARY_TRUE_DIVIDE
+
+464          46 LOAD_FAST                2 (event_time)
+             48 LOAD_METHOD              0 (strftime)
+             50 LOAD_CONST               4 ('%Y-%m')
+             52 CALL_METHOD              1
+
+460          54 BINARY_TRUE_DIVIDE
+
+459          56 STORE_FAST               7 (month_dir)
+
+466          58 LOAD_FAST                7 (month_dir)
+             60 LOAD_ATTR                4 (mkdir)
+             62 LOAD_CONST               5 (True)
+             64 LOAD_CONST               5 (True)
+             66 LOAD_CONST               6 (('parents', 'exist_ok'))
+             68 CALL_FUNCTION_KW         2
+             70 POP_TOP
+
+468          72 LOAD_FAST                6 (state)
+             74 LOAD_CONST               0 (None)
+             76 IS_OP                    0
+             78 POP_JUMP_IF_FALSE      102
+
+469          80 LOAD_FAST                0 (self)
+             82 LOAD_METHOD              5 (_load_latest_segment)
+             84 LOAD_FAST                7 (month_dir)
+             86 LOAD_FAST                4 (date_key)
+             88 CALL_METHOD              2
+             90 STORE_FAST               6 (state)
+
+470          92 LOAD_FAST                6 (state)
+             94 LOAD_FAST                0 (self)
+             96 LOAD_ATTR                1 (_segment_state)
+             98 LOAD_FAST                5 (state_key)
+            100 STORE_SUBSCR
+
+473     >>  102 LOAD_FAST                6 (state)
+            104 LOAD_CONST               7 ('records')
+            106 BINARY_SUBSCR
+            108 LOAD_FAST                0 (self)
+            110 LOAD_ATTR                6 (max_records)
+            112 COMPARE_OP               5 (>=)
+            114 JUMP_IF_TRUE_OR_POP    144
+
+475         116 LOAD_FAST                6 (state)
+            118 LOAD_CONST               7 ('records')
+            120 BINARY_SUBSCR
+            122 LOAD_CONST               8 (0)
+            124 COMPARE_OP               4 (>)
+            126 JUMP_IF_FALSE_OR_POP   144
+
+476         128 LOAD_FAST                6 (state)
+            130 LOAD_CONST               9 ('bytes')
+            132 BINARY_SUBSCR
+            134 LOAD_FAST                3 (incoming_size)
+            136 BINARY_ADD
+            138 LOAD_FAST                0 (self)
+            140 LOAD_ATTR                7 (max_bytes)
+            142 COMPARE_OP               4 (>)
+
+472     >>  144 STORE_FAST               8 (should_rotate)
+
+479         146 LOAD_FAST                8 (should_rotate)
+            148 POP_JUMP_IF_FALSE      202
+
+481         150 LOAD_FAST                6 (state)
+            152 LOAD_CONST              10 ('index')
+            154 BINARY_SUBSCR
+            156 LOAD_CONST              11 (1)
+            158 BINARY_ADD
+
+482         160 LOAD_FAST                7 (month_dir)
+            162 LOAD_CONST              12 ('{}_{:04d}.jsonl')
+            164 LOAD_METHOD              8 (format)
+
+483         166 LOAD_FAST                4 (date_key)
+            168 LOAD_FAST                6 (state)
+            170 LOAD_CONST              10 ('index')
+            172 BINARY_SUBSCR
+            174 LOAD_CONST              11 (1)
+            176 BINARY_ADD
+
+482         178 CALL_METHOD              2
+            180 BINARY_TRUE_DIVIDE
+
+485         182 LOAD_CONST               8 (0)
+
+486         184 LOAD_CONST               8 (0)
+
+480         186 LOAD_CONST              13 (('index', 'path', 'records', 'bytes'))
+            188 BUILD_CONST_KEY_MAP      4
+            190 STORE_FAST               6 (state)
+
+488         192 LOAD_FAST                6 (state)
+            194 LOAD_FAST                0 (self)
+            196 LOAD_ATTR                1 (_segment_state)
+            198 LOAD_FAST                5 (state_key)
+            200 STORE_SUBSCR
+
+489     >>  202 LOAD_FAST                6 (state)
+            204 LOAD_CONST              14 ('path')
+            206 BINARY_SUBSCR
+            208 LOAD_FAST                6 (state)
+            210 BUILD_TUPLE              2
+            212 RETURN_VALUE
+
+Disassembly of <code object _load_latest_segment at 0x1073b97c0, file "WeRobotCore/utils/customer_event_store.py", line 491>:
+492           0 BUILD_LIST               0
+              2 STORE_FAST               3 (candidates)
+
+493           4 LOAD_FAST                1 (month_dir)
+              6 LOAD_METHOD              0 (glob)
+              8 LOAD_CONST               1 ('{}_*.jsonl')
+             10 LOAD_METHOD              1 (format)
+             12 LOAD_FAST                2 (date_key)
+             14 CALL_METHOD              1
+             16 CALL_METHOD              1
+             18 GET_ITER
+        >>   20 FOR_ITER                72 (to 94)
+             22 STORE_FAST               4 (path)
+
+494          24 SETUP_FINALLY           40 (to 66)
+
+495          26 LOAD_GLOBAL              2 (int)
+             28 LOAD_FAST                4 (path)
+             30 LOAD_ATTR                3 (stem)
+             32 LOAD_METHOD              4 (rsplit)
+             34 LOAD_CONST               2 ('_')
+             36 LOAD_CONST               3 (1)
+             38 CALL_METHOD              2
+             40 LOAD_CONST               3 (1)
+             42 BINARY_SUBSCR
+             44 CALL_FUNCTION            1
+             46 STORE_FAST               5 (index)
+
+496          48 LOAD_FAST                3 (candidates)
+             50 LOAD_METHOD              5 (append)
+             52 LOAD_FAST                5 (index)
+             54 LOAD_FAST                4 (path)
+             56 BUILD_TUPLE              2
+             58 CALL_METHOD              1
+             60 POP_TOP
+             62 POP_BLOCK
+             64 JUMP_ABSOLUTE           20
+
+497     >>   66 DUP_TOP
+             68 LOAD_GLOBAL              6 (IndexError)
+             70 LOAD_GLOBAL              7 (ValueError)
+             72 BUILD_TUPLE              2
+             74 JUMP_IF_NOT_EXC_MATCH    90
+             76 POP_TOP
+             78 POP_TOP
+             80 POP_TOP
+
+498          82 POP_EXCEPT
+             84 JUMP_ABSOLUTE           20
+             86 POP_EXCEPT
+             88 JUMP_ABSOLUTE           20
+        >>   90 RERAISE
+             92 JUMP_ABSOLUTE           20
+
+499     >>   94 LOAD_FAST                3 (candidates)
+             96 POP_JUMP_IF_FALSE      200
+
+500          98 LOAD_GLOBAL              8 (max)
+            100 LOAD_FAST                3 (candidates)
+            102 LOAD_CONST               4 (<code object <lambda> at 0x1073b93a0, file "WeRobotCore/utils/customer_event_store.py", line 500>)
+            104 LOAD_CONST               5 ('CustomerEventStore._load_latest_segment.<locals>.<lambda>')
+            106 MAKE_FUNCTION            0
+            108 LOAD_CONST               6 (('key',))
+            110 CALL_FUNCTION_KW         2
+            112 UNPACK_SEQUENCE          2
+            114 STORE_FAST               5 (index)
+            116 STORE_FAST               4 (path)
+
+501         118 LOAD_FAST                0 (self)
+            120 LOAD_METHOD              9 (_count_records)
+            122 LOAD_FAST                4 (path)
+            124 CALL_METHOD              1
+            126 STORE_FAST               6 (records)
+
+502         128 LOAD_FAST                4 (path)
+            130 LOAD_METHOD             10 (stat)
+            132 CALL_METHOD              0
+            134 LOAD_ATTR               11 (st_size)
+            136 STORE_FAST               7 (size)
+
+503         138 LOAD_FAST                6 (records)
+            140 LOAD_FAST                0 (self)
+            142 LOAD_ATTR               12 (max_records)
+            144 COMPARE_OP               5 (>=)
+            146 POP_JUMP_IF_TRUE       166
+            148 LOAD_FAST                6 (records)
+            150 LOAD_CONST               7 (0)
+            152 COMPARE_OP               4 (>)
+            154 POP_JUMP_IF_FALSE      228
+            156 LOAD_FAST                7 (size)
+            158 LOAD_FAST                0 (self)
+            160 LOAD_ATTR               13 (max_bytes)
+            162 COMPARE_OP               5 (>=)
+            164 POP_JUMP_IF_FALSE      228
+
+504     >>  166 LOAD_FAST                5 (index)
+            168 LOAD_CONST               3 (1)
+            170 INPLACE_ADD
+            172 STORE_FAST               5 (index)
+
+505         174 LOAD_FAST                1 (month_dir)
+            176 LOAD_CONST               8 ('{}_{:04d}.jsonl')
+            178 LOAD_METHOD              1 (format)
+            180 LOAD_FAST                2 (date_key)
+            182 LOAD_FAST                5 (index)
+            184 CALL_METHOD              2
+            186 BINARY_TRUE_DIVIDE
+            188 STORE_FAST               4 (path)
+
+506         190 LOAD_CONST               7 (0)
+            192 STORE_FAST               6 (records)
+
+507         194 LOAD_CONST               7 (0)
+            196 STORE_FAST               7 (size)
+            198 JUMP_FORWARD            28 (to 228)
+
+509     >>  200 LOAD_CONST               3 (1)
+            202 STORE_FAST               5 (index)
+
+510         204 LOAD_FAST                1 (month_dir)
+            206 LOAD_CONST               8 ('{}_{:04d}.jsonl')
+            208 LOAD_METHOD              1 (format)
+            210 LOAD_FAST                2 (date_key)
+            212 LOAD_FAST                5 (index)
+            214 CALL_METHOD              2
+            216 BINARY_TRUE_DIVIDE
+            218 STORE_FAST               4 (path)
+
+511         220 LOAD_CONST               7 (0)
+            222 STORE_FAST               6 (records)
+
+512         224 LOAD_CONST               7 (0)
+            226 STORE_FAST               7 (size)
+
+513     >>  228 LOAD_FAST                5 (index)
+            230 LOAD_FAST                4 (path)
+            232 LOAD_FAST                6 (records)
+            234 LOAD_FAST                7 (size)
+            236 LOAD_CONST               9 (('index', 'path', 'records', 'bytes'))
+            238 BUILD_CONST_KEY_MAP      4
+            240 RETURN_VALUE
+
+Disassembly of <code object <lambda> at 0x1073b93a0, file "WeRobotCore/utils/customer_event_store.py", line 500>:
+500           0 LOAD_FAST                0 (item)
+              2 LOAD_CONST               1 (0)
+              4 BINARY_SUBSCR
+              6 RETURN_VALUE
+
+Disassembly of <code object _count_records at 0x1073b9be0, file "WeRobotCore/utils/customer_event_store.py", line 515>:
+517           0 LOAD_CONST               1 (0)
+              2 STORE_FAST               1 (count)
+
+518           4 LOAD_FAST                0 (path)
+              6 LOAD_METHOD              0 (open)
+              8 LOAD_CONST               2 ('rb')
+             10 CALL_METHOD              1
+             12 SETUP_WITH              42 (to 56)
+             14 STORE_FAST               2 (handle)
+
+519          16 LOAD_FAST                2 (handle)
+             18 GET_ITER
+        >>   20 FOR_ITER                20 (to 42)
+             22 STORE_FAST               3 (line)
+
+520          24 LOAD_FAST                3 (line)
+             26 LOAD_METHOD              1 (strip)
+             28 CALL_METHOD              0
+             30 POP_JUMP_IF_FALSE       20
+
+521          32 LOAD_FAST                1 (count)
+             34 LOAD_CONST               3 (1)
+             36 INPLACE_ADD
+             38 STORE_FAST               1 (count)
+             40 JUMP_ABSOLUTE           20
+        >>   42 POP_BLOCK
+             44 LOAD_CONST               0 (None)
+             46 DUP_TOP
+             48 DUP_TOP
+             50 CALL_FUNCTION            3
+             52 POP_TOP
+             54 JUMP_FORWARD            16 (to 72)
+        >>   56 WITH_EXCEPT_START
+             58 POP_JUMP_IF_TRUE        62
+             60 RERAISE
+        >>   62 POP_TOP
+             64 POP_TOP
+             66 POP_TOP
+             68 POP_EXCEPT
+             70 POP_TOP
+
+522     >>   72 LOAD_FAST                1 (count)
+             74 RETURN_VALUE
+
+Disassembly of <code object _append_complete_line at 0x1073ca660, file "WeRobotCore/utils/customer_event_store.py", line 524>:
+526           0 LOAD_FAST                0 (path)
+              2 LOAD_ATTR                0 (parent)
+              4 LOAD_ATTR                1 (mkdir)
+              6 LOAD_CONST               1 (True)
+              8 LOAD_CONST               1 (True)
+             10 LOAD_CONST               2 (('parents', 'exist_ok'))
+             12 CALL_FUNCTION_KW         2
+             14 POP_TOP
+
+527          16 LOAD_FAST                0 (path)
+             18 LOAD_METHOD              2 (exists)
+             20 CALL_METHOD              0
+             22 POP_JUMP_IF_FALSE      160
+             24 LOAD_FAST                0 (path)
+             26 LOAD_METHOD              3 (stat)
+             28 CALL_METHOD              0
+             30 LOAD_ATTR                4 (st_size)
+             32 POP_JUMP_IF_FALSE      160
+
+528          34 LOAD_FAST                0 (path)
+             36 LOAD_METHOD              5 (open)
+             38 LOAD_CONST               3 ('rb')
+             40 CALL_METHOD              1
+             42 SETUP_WITH              40 (to 84)
+             44 STORE_FAST               2 (handle)
+
+529          46 LOAD_FAST                2 (handle)
+             48 LOAD_METHOD              6 (seek)
+             50 LOAD_CONST               4 (-1)
+             52 LOAD_GLOBAL              7 (os)
+             54 LOAD_ATTR                8 (SEEK_END)
+             56 CALL_METHOD              2
+             58 POP_TOP
+
+530          60 LOAD_FAST                2 (handle)
+             62 LOAD_METHOD              9 (read)
+             64 LOAD_CONST               5 (1)
+             66 CALL_METHOD              1
+             68 STORE_FAST               3 (last_byte)
+             70 POP_BLOCK
+             72 LOAD_CONST               0 (None)
+             74 DUP_TOP
+             76 DUP_TOP
+             78 CALL_FUNCTION            3
+             80 POP_TOP
+             82 JUMP_FORWARD            16 (to 100)
+        >>   84 WITH_EXCEPT_START
+             86 POP_JUMP_IF_TRUE        90
+             88 RERAISE
+        >>   90 POP_TOP
+             92 POP_TOP
+             94 POP_TOP
+             96 POP_EXCEPT
+             98 POP_TOP
+
+531     >>  100 LOAD_FAST                3 (last_byte)
+            102 LOAD_CONST               6 ((b'\n', b'\r'))
+            104 CONTAINS_OP              1
+            106 POP_JUMP_IF_FALSE      160
+
+532         108 LOAD_FAST                0 (path)
+            110 LOAD_METHOD              5 (open)
+            112 LOAD_CONST               7 ('ab')
+            114 CALL_METHOD              1
+            116 SETUP_WITH              26 (to 144)
+            118 STORE_FAST               2 (handle)
+
+533         120 LOAD_FAST                2 (handle)
+            122 LOAD_METHOD             10 (write)
+            124 LOAD_CONST               8 (b'\n')
+            126 CALL_METHOD              1
+            128 POP_TOP
+            130 POP_BLOCK
+            132 LOAD_CONST               0 (None)
+            134 DUP_TOP
+            136 DUP_TOP
+            138 CALL_FUNCTION            3
+            140 POP_TOP
+            142 JUMP_FORWARD            16 (to 160)
+        >>  144 WITH_EXCEPT_START
+            146 POP_JUMP_IF_TRUE       150
+            148 RERAISE
+        >>  150 POP_TOP
+            152 POP_TOP
+            154 POP_TOP
+            156 POP_EXCEPT
+            158 POP_TOP
+
+534     >>  160 LOAD_FAST                0 (path)
+            162 LOAD_ATTR                5 (open)
+            164 LOAD_CONST               9 ('a')
+            166 LOAD_CONST              10 ('utf-8')
+            168 LOAD_CONST              11 ('')
+            170 LOAD_CONST              12 (('encoding', 'newline'))
+            172 CALL_FUNCTION_KW         3
+            174 SETUP_WITH              34 (to 210)
+            176 STORE_FAST               2 (handle)
+
+535         178 LOAD_FAST                2 (handle)
+            180 LOAD_METHOD             10 (write)
+            182 LOAD_FAST                1 (line)
+            184 CALL_METHOD              1
+            186 POP_TOP
+
+536         188 LOAD_FAST                2 (handle)
+            190 LOAD_METHOD             11 (flush)
+            192 CALL_METHOD              0
+            194 POP_TOP
+            196 POP_BLOCK
+            198 LOAD_CONST               0 (None)
+            200 DUP_TOP
+            202 DUP_TOP
+            204 CALL_FUNCTION            3
+            206 POP_TOP
+            208 JUMP_FORWARD            16 (to 226)
+        >>  210 WITH_EXCEPT_START
+            212 POP_JUMP_IF_TRUE       216
+            214 RERAISE
+        >>  216 POP_TOP
+            218 POP_TOP
+            220 POP_TOP
+            222 POP_EXCEPT
+            224 POP_TOP
+        >>  226 LOAD_CONST               0 (None)
+            228 RETURN_VALUE
+
+Disassembly of <code object _snapshot_location at 0x1073ca920, file "WeRobotCore/utils/customer_event_store.py", line 538>:
+539           0 LOAD_FAST                0 (self)
+              2 LOAD_ATTR                0 (root_dir)
+              4 LOAD_CONST               1 ('accounts')
+              6 BINARY_TRUE_DIVIDE
+              8 LOAD_FAST                1 (account_key)
+             10 BINARY_TRUE_DIVIDE
+             12 STORE_FAST               4 (account_dir)
+
+540          14 LOAD_FAST                2 (snapshot_type)
+             16 LOAD_CONST               2 ('contacts')
+             18 COMPARE_OP               2 (==)
+             20 POP_JUMP_IF_FALSE       36
+
+541          22 LOAD_GLOBAL              1 (Path)
+             24 LOAD_CONST               3 ('contact_snapshots')
+             26 CALL_FUNCTION            1
+             28 STORE_FAST               5 (relative_dir)
+
+542          30 LOAD_CONST               2 ('contacts')
+             32 STORE_FAST               6 (prefix)
+             34 JUMP_FORWARD            46 (to 82)
+
+543     >>   36 LOAD_FAST                2 (snapshot_type)
+             38 LOAD_CONST               4 (('friend_import', 'import'))
+             40 CONTAINS_OP              0
+             42 POP_JUMP_IF_FALSE       58
+
+544          44 LOAD_GLOBAL              1 (Path)
+             46 LOAD_CONST               5 ('import_snapshots')
+             48 CALL_FUNCTION            1
+             50 STORE_FAST               5 (relative_dir)
+
+545          52 LOAD_CONST               6 ('import')
+             54 STORE_FAST               6 (prefix)
+             56 JUMP_FORWARD            24 (to 82)
+
+547     >>   58 LOAD_GLOBAL              2 (_safe_slug)
+             60 LOAD_FAST                2 (snapshot_type)
+             62 CALL_FUNCTION            1
+             64 STORE_FAST               7 (slug)
+
+548          66 LOAD_GLOBAL              1 (Path)
+             68 LOAD_CONST               7 ('snapshots')
+             70 CALL_FUNCTION            1
+             72 LOAD_FAST                7 (slug)
+             74 BINARY_TRUE_DIVIDE
+             76 STORE_FAST               5 (relative_dir)
+
+549          78 LOAD_FAST                7 (slug)
+             80 STORE_FAST               6 (prefix)
+
+550     >>   82 LOAD_FAST                4 (account_dir)
+             84 LOAD_FAST                5 (relative_dir)
+             86 BINARY_TRUE_DIVIDE
+             88 LOAD_FAST                3 (observed_time)
+             90 LOAD_METHOD              3 (strftime)
+             92 LOAD_CONST               8 ('%Y-%m')
+             94 CALL_METHOD              1
+             96 BINARY_TRUE_DIVIDE
+             98 LOAD_FAST                6 (prefix)
+            100 BUILD_TUPLE              2
+            102 RETURN_VALUE
+
+Disassembly of <code object _atomic_json_write at 0x1073ca030, file "WeRobotCore/utils/customer_event_store.py", line 552>:
+554           0 LOAD_FAST                0 (path)
+              2 LOAD_ATTR                0 (parent)
+              4 LOAD_ATTR                1 (mkdir)
+              6 LOAD_CONST               1 (True)
+              8 LOAD_CONST               1 (True)
+             10 LOAD_CONST               2 (('parents', 'exist_ok'))
+             12 CALL_FUNCTION_KW         2
+             14 POP_TOP
+
+555          16 LOAD_FAST                0 (path)
+             18 LOAD_METHOD              2 (with_name)
+             20 LOAD_CONST               3 ('{}.tmp-{}')
+             22 LOAD_METHOD              3 (format)
+             24 LOAD_FAST                0 (path)
+             26 LOAD_ATTR                4 (name)
+             28 LOAD_GLOBAL              5 (uuid)
+             30 LOAD_METHOD              6 (uuid4)
+             32 CALL_METHOD              0
+             34 LOAD_ATTR                7 (hex)
+             36 CALL_METHOD              2
+             38 CALL_METHOD              1
+             40 STORE_FAST               2 (temp_path)
+
+556          42 SETUP_FINALLY          150 (to 194)
+
+557          44 LOAD_FAST                2 (temp_path)
+             46 LOAD_ATTR                8 (open)
+             48 LOAD_CONST               4 ('w')
+             50 LOAD_CONST               5 ('utf-8')
+             52 LOAD_CONST               6 ('')
+             54 LOAD_CONST               7 (('encoding', 'newline'))
+             56 CALL_FUNCTION_KW         3
+             58 SETUP_WITH              54 (to 114)
+             60 STORE_FAST               3 (handle)
+
+558          62 LOAD_GLOBAL              9 (json)
+             64 LOAD_ATTR               10 (dump)
+
+559          66 LOAD_FAST                1 (payload)
+
+560          68 LOAD_FAST                3 (handle)
+
+561          70 LOAD_CONST               8 (False)
+
+562          72 LOAD_CONST               9 (2)
+
+563          74 LOAD_GLOBAL             11 (_json_default)
+
+558          76 LOAD_CONST              10 (('ensure_ascii', 'indent', 'default'))
+             78 CALL_FUNCTION_KW         5
+             80 POP_TOP
+
+565          82 LOAD_FAST                3 (handle)
+             84 LOAD_METHOD             12 (write)
+             86 LOAD_CONST              11 ('\n')
+             88 CALL_METHOD              1
+             90 POP_TOP
+
+566          92 LOAD_FAST                3 (handle)
+             94 LOAD_METHOD             13 (flush)
+             96 CALL_METHOD              0
+             98 POP_TOP
+            100 POP_BLOCK
+            102 LOAD_CONST               0 (None)
+            104 DUP_TOP
+            106 DUP_TOP
+            108 CALL_FUNCTION            3
+            110 POP_TOP
+            112 JUMP_FORWARD            16 (to 130)
+        >>  114 WITH_EXCEPT_START
+            116 POP_JUMP_IF_TRUE       120
+            118 RERAISE
+        >>  120 POP_TOP
+            122 POP_TOP
+            124 POP_TOP
+            126 POP_EXCEPT
+            128 POP_TOP
+
+567     >>  130 LOAD_GLOBAL             14 (os)
+            132 LOAD_METHOD             15 (replace)
+            134 LOAD_GLOBAL             16 (str)
+            136 LOAD_FAST                2 (temp_path)
+            138 CALL_FUNCTION            1
+            140 LOAD_GLOBAL             16 (str)
+            142 LOAD_FAST                0 (path)
+            144 CALL_FUNCTION            1
+            146 CALL_METHOD              2
+            148 POP_TOP
+            150 POP_BLOCK
+
+569         152 LOAD_FAST                2 (temp_path)
+            154 LOAD_METHOD             17 (exists)
+            156 CALL_METHOD              0
+            158 POP_JUMP_IF_FALSE      236
+
+570         160 SETUP_FINALLY           12 (to 174)
+
+571         162 LOAD_FAST                2 (temp_path)
+            164 LOAD_METHOD             18 (unlink)
+            166 CALL_METHOD              0
+            168 POP_TOP
+            170 POP_BLOCK
+            172 JUMP_ABSOLUTE          236
+
+572     >>  174 DUP_TOP
+            176 LOAD_GLOBAL             19 (OSError)
+            178 JUMP_IF_NOT_EXC_MATCH   190
+            180 POP_TOP
+            182 POP_TOP
+            184 POP_TOP
+
+573         186 POP_EXCEPT
+            188 JUMP_ABSOLUTE          236
+        >>  190 RERAISE
+            192 JUMP_FORWARD            42 (to 236)
+
+569     >>  194 LOAD_FAST                2 (temp_path)
+            196 LOAD_METHOD             17 (exists)
+            198 CALL_METHOD              0
+            200 POP_JUMP_IF_FALSE      234
+
+570         202 SETUP_FINALLY           12 (to 216)
+
+571         204 LOAD_FAST                2 (temp_path)
+            206 LOAD_METHOD             18 (unlink)
+            208 CALL_METHOD              0
+            210 POP_TOP
+            212 POP_BLOCK
+            214 JUMP_FORWARD            18 (to 234)
+
+572     >>  216 DUP_TOP
+            218 LOAD_GLOBAL             19 (OSError)
+            220 JUMP_IF_NOT_EXC_MATCH   232
+            222 POP_TOP
+            224 POP_TOP
+            226 POP_TOP
+
+573         228 POP_EXCEPT
+            230 JUMP_FORWARD             2 (to 234)
+        >>  232 RERAISE
+        >>  234 RERAISE
+        >>  236 LOAD_CONST               0 (None)
+            238 RETURN_VALUE
+
+Disassembly of <code object get_customer_event_store at 0x1073ca710, file "WeRobotCore/utils/customer_event_store.py", line 580>:
+584           0 LOAD_GLOBAL              0 (_default_store_lock)
+              2 SETUP_WITH              34 (to 38)
+              4 POP_TOP
+
+585           6 LOAD_GLOBAL              1 (_default_store)
+              8 LOAD_CONST               1 (None)
+             10 IS_OP                    0
+             12 POP_JUMP_IF_FALSE       20
+
+586          14 LOAD_GLOBAL              2 (CustomerEventStore)
+             16 CALL_FUNCTION            0
+             18 STORE_GLOBAL             1 (_default_store)
+
+587     >>   20 LOAD_GLOBAL              1 (_default_store)
+             22 POP_BLOCK
+             24 ROT_TWO
+             26 LOAD_CONST               1 (None)
+             28 DUP_TOP
+             30 DUP_TOP
+             32 CALL_FUNCTION            3
+             34 POP_TOP
+             36 RETURN_VALUE
+        >>   38 WITH_EXCEPT_START
+             40 POP_JUMP_IF_TRUE        44
+             42 RERAISE
+        >>   44 POP_TOP
+             46 POP_TOP
+             48 POP_TOP
+             50 POP_EXCEPT
+             52 POP_TOP
+             54 LOAD_CONST               1 (None)
+             56 RETURN_VALUE

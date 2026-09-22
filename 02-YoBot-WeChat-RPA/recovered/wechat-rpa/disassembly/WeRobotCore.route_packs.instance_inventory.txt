@@ -1,0 +1,615 @@
+  1           0 LOAD_CONST               0 ('Legacy-compatible instance inventory routes over shared inventory facts.\n\nThe Route Pack owns HTTP semantics only.  Native discovery, compatibility\nshape cleanup and client-version enrichment are all explicit injected\ndependencies, allowing Windows UIA and macOS AX to publish the same external\npaths without sharing native implementation details.\n')
+              2 STORE_NAME               0 (__doc__)
+
+  9           4 LOAD_CONST               1 (0)
+              6 LOAD_CONST               2 (('annotations',))
+              8 IMPORT_NAME              1 (__future__)
+             10 IMPORT_FROM              2 (annotations)
+             12 STORE_NAME               2 (annotations)
+             14 POP_TOP
+
+ 11          16 LOAD_CONST               1 (0)
+             18 LOAD_CONST               3 (('dataclass',))
+             20 IMPORT_NAME              3 (dataclasses)
+             22 IMPORT_FROM              4 (dataclass)
+             24 STORE_NAME               4 (dataclass)
+             26 POP_TOP
+
+ 12          28 LOAD_CONST               1 (0)
+             30 LOAD_CONST               4 (None)
+             32 IMPORT_NAME              5 (logging)
+             34 STORE_NAME               5 (logging)
+
+ 13          36 LOAD_CONST               1 (0)
+             38 LOAD_CONST               5 (('Any', 'Callable', 'Mapping', 'Optional'))
+             40 IMPORT_NAME              6 (typing)
+             42 IMPORT_FROM              7 (Any)
+             44 STORE_NAME               7 (Any)
+             46 IMPORT_FROM              8 (Callable)
+             48 STORE_NAME               8 (Callable)
+             50 IMPORT_FROM              9 (Mapping)
+             52 STORE_NAME               9 (Mapping)
+             54 IMPORT_FROM             10 (Optional)
+             56 STORE_NAME              10 (Optional)
+             58 POP_TOP
+
+ 15          60 LOAD_CONST               1 (0)
+             62 LOAD_CONST               6 (('APIRouter', 'HTTPException', 'Security', 'status'))
+             64 IMPORT_NAME             11 (fastapi)
+             66 IMPORT_FROM             12 (APIRouter)
+             68 STORE_NAME              12 (APIRouter)
+             70 IMPORT_FROM             13 (HTTPException)
+             72 STORE_NAME              13 (HTTPException)
+             74 IMPORT_FROM             14 (Security)
+             76 STORE_NAME              14 (Security)
+             78 IMPORT_FROM             15 (status)
+             80 STORE_NAME              15 (status)
+             82 POP_TOP
+
+ 16          84 LOAD_CONST               1 (0)
+             86 LOAD_CONST               7 (('JSONResponse',))
+             88 IMPORT_NAME             16 (fastapi.responses)
+             90 IMPORT_FROM             17 (JSONResponse)
+             92 STORE_NAME              17 (JSONResponse)
+             94 POP_TOP
+
+ 18          96 LOAD_CONST               1 (0)
+             98 LOAD_CONST               8 (('InstanceInventorySnapshot', 'InstanceInventorySource'))
+            100 IMPORT_NAME             18 (WeRobotCore.application.instances)
+            102 IMPORT_FROM             19 (InstanceInventorySnapshot)
+            104 STORE_NAME              19 (InstanceInventorySnapshot)
+            106 IMPORT_FROM             20 (InstanceInventorySource)
+            108 STORE_NAME              20 (InstanceInventorySource)
+            110 POP_TOP
+
+ 24         112 LOAD_NAME                8 (Callable)
+            114 BUILD_LIST               0
+            116 LOAD_NAME               20 (InstanceInventorySource)
+            118 BUILD_TUPLE              2
+            120 BINARY_SUBSCR
+            122 STORE_NAME              21 (InventorySourceProvider)
+
+ 25         124 LOAD_NAME                8 (Callable)
+
+ 26         126 LOAD_NAME               19 (InstanceInventorySnapshot)
+            128 BUILD_LIST               1
+
+ 27         130 LOAD_NAME                9 (Mapping)
+            132 LOAD_NAME               22 (str)
+            134 LOAD_NAME                9 (Mapping)
+            136 LOAD_NAME               22 (str)
+            138 LOAD_NAME                7 (Any)
+            140 BUILD_TUPLE              2
+            142 BINARY_SUBSCR
+            144 BUILD_TUPLE              2
+            146 BINARY_SUBSCR
+
+ 26         148 BUILD_TUPLE              2
+
+ 25         150 BINARY_SUBSCR
+            152 STORE_NAME              23 (VersionFactsProvider)
+
+ 29         154 LOAD_NAME                8 (Callable)
+            156 LOAD_NAME               19 (InstanceInventorySnapshot)
+            158 BUILD_LIST               1
+            160 LOAD_NAME                7 (Any)
+            162 BUILD_TUPLE              2
+            164 BINARY_SUBSCR
+            166 STORE_NAME              24 (AgentStatusProjector)
+
+ 30         168 LOAD_NAME                8 (Callable)
+            170 LOAD_CONST               9 (Ellipsis)
+            172 LOAD_NAME                7 (Any)
+            174 BUILD_TUPLE              2
+            176 BINARY_SUBSCR
+            178 STORE_NAME              25 (AllInstancesProjector)
+
+ 31         180 LOAD_NAME                8 (Callable)
+            182 LOAD_NAME               19 (InstanceInventorySnapshot)
+            184 BUILD_LIST               1
+            186 LOAD_NAME                7 (Any)
+            188 BUILD_TUPLE              2
+            190 BINARY_SUBSCR
+            192 STORE_NAME              26 (ActiveInstancesProjector)
+
+ 33         194 LOAD_NAME                5 (logging)
+            196 LOAD_METHOD             27 (getLogger)
+            198 LOAD_NAME               28 (__name__)
+            200 CALL_METHOD              1
+            202 STORE_NAME              29 (_logger)
+
+ 36         204 LOAD_NAME                4 (dataclass)
+            206 LOAD_CONST              10 (True)
+            208 LOAD_CONST              11 (('frozen',))
+            210 CALL_FUNCTION_KW         1
+
+ 37         212 LOAD_BUILD_CLASS
+            214 LOAD_CONST              12 (<code object InstanceInventoryRouteBindings at 0x10924bdf0, file "WeRobotCore/route_packs/instance_inventory.py", line 36>)
+            216 LOAD_CONST              13 ('InstanceInventoryRouteBindings')
+            218 MAKE_FUNCTION            0
+            220 LOAD_CONST              13 ('InstanceInventoryRouteBindings')
+            222 CALL_FUNCTION            2
+            224 CALL_FUNCTION            1
+            226 STORE_NAME              30 (InstanceInventoryRouteBindings)
+
+ 58         228 LOAD_CONST              13 ('InstanceInventoryRouteBindings')
+            230 LOAD_CONST              14 ('InstanceInventorySnapshot')
+            232 LOAD_CONST              15 (('bindings', 'return'))
+            234 BUILD_CONST_KEY_MAP      2
+            236 LOAD_CONST              16 (<code object _snapshot at 0x10924b450, file "WeRobotCore/route_packs/instance_inventory.py", line 58>)
+            238 LOAD_CONST              17 ('_snapshot')
+            240 MAKE_FUNCTION            4 (annotations)
+            242 STORE_NAME              31 (_snapshot)
+
+ 72         244 LOAD_CONST              18 (False)
+
+ 68         246 LOAD_CONST              19 (('protect_agent_status',))
+            248 BUILD_CONST_KEY_MAP      1
+            250 LOAD_CONST              13 ('InstanceInventoryRouteBindings')
+            252 LOAD_CONST              20 ('Callable[..., Any]')
+            254 LOAD_CONST              21 ('bool')
+            256 LOAD_CONST              22 ('APIRouter')
+            258 LOAD_CONST              23 (('bindings', 'auth_dependency', 'protect_agent_status', 'return'))
+            260 BUILD_CONST_KEY_MAP      4
+            262 LOAD_CONST              24 (<code object create_instance_inventory_router at 0x10924b500, file "WeRobotCore/route_packs/instance_inventory.py", line 68>)
+            264 LOAD_CONST              25 ('create_instance_inventory_router')
+            266 MAKE_FUNCTION            6 (kwdefaults, annotations)
+            268 STORE_NAME              32 (create_instance_inventory_router)
+
+140         270 LOAD_CONST              13 ('InstanceInventoryRouteBindings')
+
+141         272 LOAD_CONST              25 ('create_instance_inventory_router')
+
+139         274 BUILD_LIST               2
+            276 STORE_NAME              33 (__all__)
+            278 LOAD_CONST               4 (None)
+            280 RETURN_VALUE
+
+Disassembly of <code object InstanceInventoryRouteBindings at 0x10924bdf0, file "WeRobotCore/route_packs/instance_inventory.py", line 36>:
+ 36           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('InstanceInventoryRouteBindings')
+              6 STORE_NAME               2 (__qualname__)
+              8 SETUP_ANNOTATIONS
+
+ 38          10 LOAD_CONST               1 ('Driver/composition-owned facts and Legacy compatibility projectors.')
+             12 STORE_NAME               3 (__doc__)
+
+ 40          14 LOAD_CONST               2 ('InventorySourceProvider')
+             16 LOAD_NAME                4 (__annotations__)
+             18 LOAD_CONST               3 ('source_provider')
+             20 STORE_SUBSCR
+
+ 41          22 LOAD_CONST               4 ('VersionFactsProvider')
+             24 LOAD_NAME                4 (__annotations__)
+             26 LOAD_CONST               5 ('version_facts_provider')
+             28 STORE_SUBSCR
+
+ 42          30 LOAD_CONST               6 ('AgentStatusProjector')
+             32 LOAD_NAME                4 (__annotations__)
+             34 LOAD_CONST               7 ('agent_status_projector')
+             36 STORE_SUBSCR
+
+ 43          38 LOAD_CONST               8 ('AllInstancesProjector')
+             40 LOAD_NAME                4 (__annotations__)
+             42 LOAD_CONST               9 ('all_instances_projector')
+             44 STORE_SUBSCR
+
+ 44          46 LOAD_CONST              10 ('ActiveInstancesProjector')
+             48 LOAD_NAME                4 (__annotations__)
+             50 LOAD_CONST              11 ('active_instances_projector')
+             52 STORE_SUBSCR
+
+ 46          54 LOAD_CONST              12 ('None')
+             56 LOAD_CONST              13 (('return',))
+             58 BUILD_CONST_KEY_MAP      1
+             60 LOAD_CONST              14 (<code object __post_init__ at 0x10924b2f0, file "WeRobotCore/route_packs/instance_inventory.py", line 46>)
+             62 LOAD_CONST              15 ('InstanceInventoryRouteBindings.__post_init__')
+             64 MAKE_FUNCTION            4 (annotations)
+             66 STORE_NAME               5 (__post_init__)
+             68 LOAD_CONST              16 (None)
+             70 RETURN_VALUE
+
+Disassembly of <code object __post_init__ at 0x10924b2f0, file "WeRobotCore/route_packs/instance_inventory.py", line 46>:
+ 48           0 LOAD_CONST               1 ('source_provider')
+              2 LOAD_FAST                0 (self)
+              4 LOAD_ATTR                0 (source_provider)
+              6 BUILD_TUPLE              2
+
+ 49           8 LOAD_CONST               2 ('version_facts_provider')
+             10 LOAD_FAST                0 (self)
+             12 LOAD_ATTR                1 (version_facts_provider)
+             14 BUILD_TUPLE              2
+
+ 50          16 LOAD_CONST               3 ('agent_status_projector')
+             18 LOAD_FAST                0 (self)
+             20 LOAD_ATTR                2 (agent_status_projector)
+             22 BUILD_TUPLE              2
+
+ 51          24 LOAD_CONST               4 ('all_instances_projector')
+             26 LOAD_FAST                0 (self)
+             28 LOAD_ATTR                3 (all_instances_projector)
+             30 BUILD_TUPLE              2
+
+ 52          32 LOAD_CONST               5 ('active_instances_projector')
+             34 LOAD_FAST                0 (self)
+             36 LOAD_ATTR                4 (active_instances_projector)
+             38 BUILD_TUPLE              2
+
+ 47          40 BUILD_TUPLE              5
+             42 GET_ITER
+        >>   44 FOR_ITER                30 (to 76)
+             46 UNPACK_SEQUENCE          2
+             48 STORE_FAST               1 (name)
+             50 STORE_FAST               2 (dependency)
+
+ 54          52 LOAD_GLOBAL              5 (callable)
+             54 LOAD_FAST                2 (dependency)
+             56 CALL_FUNCTION            1
+             58 POP_JUMP_IF_TRUE        44
+
+ 55          60 LOAD_GLOBAL              6 (TypeError)
+             62 LOAD_CONST               6 ('{} must be callable')
+             64 LOAD_METHOD              7 (format)
+             66 LOAD_FAST                1 (name)
+             68 CALL_METHOD              1
+             70 CALL_FUNCTION            1
+             72 RAISE_VARARGS            1
+             74 JUMP_ABSOLUTE           44
+        >>   76 LOAD_CONST               0 (None)
+             78 RETURN_VALUE
+
+Disassembly of <code object _snapshot at 0x10924b450, file "WeRobotCore/route_packs/instance_inventory.py", line 58>:
+ 59           0 LOAD_FAST                0 (bindings)
+              2 LOAD_METHOD              0 (source_provider)
+              4 CALL_METHOD              0
+              6 STORE_FAST               1 (source)
+
+ 60           8 LOAD_GLOBAL              1 (isinstance)
+             10 LOAD_FAST                1 (source)
+             12 LOAD_GLOBAL              2 (InstanceInventorySource)
+             14 CALL_FUNCTION            2
+             16 POP_JUMP_IF_TRUE        26
+
+ 61          18 LOAD_GLOBAL              3 (TypeError)
+             20 LOAD_CONST               1 ('source_provider must return InstanceInventorySource')
+             22 CALL_FUNCTION            1
+             24 RAISE_VARARGS            1
+
+ 62     >>   26 LOAD_FAST                1 (source)
+             28 LOAD_METHOD              4 (snapshot)
+             30 CALL_METHOD              0
+             32 GET_AWAITABLE
+             34 LOAD_CONST               0 (None)
+             36 YIELD_FROM
+             38 STORE_FAST               2 (snapshot)
+
+ 63          40 LOAD_GLOBAL              1 (isinstance)
+             42 LOAD_FAST                2 (snapshot)
+             44 LOAD_GLOBAL              5 (InstanceInventorySnapshot)
+             46 CALL_FUNCTION            2
+             48 POP_JUMP_IF_TRUE        58
+
+ 64          50 LOAD_GLOBAL              3 (TypeError)
+             52 LOAD_CONST               2 ('inventory source returned an invalid snapshot')
+             54 CALL_FUNCTION            1
+             56 RAISE_VARARGS            1
+
+ 65     >>   58 LOAD_FAST                2 (snapshot)
+             60 RETURN_VALUE
+
+Disassembly of <code object create_instance_inventory_router at 0x10924b500, file "WeRobotCore/route_packs/instance_inventory.py", line 68>:
+ 76           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_DEREF               0 (bindings)
+              4 LOAD_GLOBAL              1 (InstanceInventoryRouteBindings)
+              6 CALL_FUNCTION            2
+              8 POP_JUMP_IF_TRUE        18
+
+ 77          10 LOAD_GLOBAL              2 (TypeError)
+             12 LOAD_CONST               1 ('bindings must be InstanceInventoryRouteBindings')
+             14 CALL_FUNCTION            1
+             16 RAISE_VARARGS            1
+
+ 78     >>   18 LOAD_GLOBAL              3 (callable)
+             20 LOAD_FAST                1 (auth_dependency)
+             22 CALL_FUNCTION            1
+             24 POP_JUMP_IF_TRUE        34
+
+ 79          26 LOAD_GLOBAL              2 (TypeError)
+             28 LOAD_CONST               2 ('auth_dependency must be callable')
+             30 CALL_FUNCTION            1
+             32 RAISE_VARARGS            1
+
+ 80     >>   34 LOAD_GLOBAL              0 (isinstance)
+             36 LOAD_FAST                2 (protect_agent_status)
+             38 LOAD_GLOBAL              4 (bool)
+             40 CALL_FUNCTION            2
+             42 POP_JUMP_IF_TRUE        52
+
+ 81          44 LOAD_GLOBAL              2 (TypeError)
+             46 LOAD_CONST               3 ('protect_agent_status must be a boolean')
+             48 CALL_FUNCTION            1
+             50 RAISE_VARARGS            1
+
+ 83     >>   52 LOAD_GLOBAL              5 (APIRouter)
+             54 CALL_FUNCTION            0
+             56 STORE_FAST               3 (router)
+
+ 85          58 LOAD_FAST                2 (protect_agent_status)
+             60 POP_JUMP_IF_FALSE       72
+             62 LOAD_GLOBAL              6 (Security)
+             64 LOAD_FAST                1 (auth_dependency)
+             66 CALL_FUNCTION            1
+             68 BUILD_LIST               1
+             70 JUMP_FORWARD             2 (to 74)
+        >>   72 LOAD_CONST               4 (None)
+
+ 84     >>   74 STORE_FAST               4 (agent_dependencies)
+
+ 88          76 LOAD_FAST                3 (router)
+             78 LOAD_ATTR                7 (get)
+
+ 89          80 LOAD_CONST               5 ('/api/agent/instances_status')
+
+ 90          82 LOAD_CONST               6 ('get_agent_instances_status')
+
+ 91          84 LOAD_FAST                4 (agent_dependencies)
+
+ 88          86 LOAD_CONST               7 (('name', 'dependencies'))
+             88 CALL_FUNCTION_KW         3
+
+ 93          90 LOAD_CLOSURE             0 (bindings)
+             92 BUILD_TUPLE              1
+             94 LOAD_CONST               8 (<code object get_agent_instances_status at 0x10924bf50, file "WeRobotCore/route_packs/instance_inventory.py", line 88>)
+             96 LOAD_CONST               9 ('create_instance_inventory_router.<locals>.get_agent_instances_status')
+             98 MAKE_FUNCTION            8 (closure)
+            100 CALL_FUNCTION            1
+            102 STORE_FAST               5 (get_agent_instances_status)
+
+104         104 LOAD_FAST                3 (router)
+            106 LOAD_ATTR                7 (get)
+            108 LOAD_CONST              10 ('/api/instances')
+            110 LOAD_CONST              11 ('get_all_instances')
+            112 LOAD_CONST              12 (('name',))
+            114 CALL_FUNCTION_KW         2
+
+106         116 LOAD_GLOBAL              6 (Security)
+            118 LOAD_FAST                1 (auth_dependency)
+            120 CALL_FUNCTION            1
+
+105         122 BUILD_TUPLE              1
+            124 LOAD_CONST              13 ('Any')
+            126 LOAD_CONST              14 (('_api_key',))
+            128 BUILD_CONST_KEY_MAP      1
+            130 LOAD_CLOSURE             0 (bindings)
+            132 BUILD_TUPLE              1
+            134 LOAD_CONST              15 (<code object get_all_instances at 0x10924b870, file "WeRobotCore/route_packs/instance_inventory.py", line 104>)
+            136 LOAD_CONST              16 ('create_instance_inventory_router.<locals>.get_all_instances')
+            138 MAKE_FUNCTION           13 (defaults, annotations, closure)
+            140 CALL_FUNCTION            1
+            142 STORE_FAST               6 (get_all_instances)
+
+123         144 LOAD_FAST                3 (router)
+            146 LOAD_ATTR                7 (get)
+            148 LOAD_CONST              17 ('/api/instances/active')
+            150 LOAD_CONST              18 ('get_active_instances')
+            152 LOAD_CONST              12 (('name',))
+            154 CALL_FUNCTION_KW         2
+
+125         156 LOAD_GLOBAL              6 (Security)
+            158 LOAD_FAST                1 (auth_dependency)
+            160 CALL_FUNCTION            1
+
+124         162 BUILD_TUPLE              1
+            164 LOAD_CONST              13 ('Any')
+            166 LOAD_CONST              14 (('_api_key',))
+            168 BUILD_CONST_KEY_MAP      1
+            170 LOAD_CLOSURE             0 (bindings)
+            172 BUILD_TUPLE              1
+            174 LOAD_CONST              19 (<code object get_active_instances at 0x10924b710, file "WeRobotCore/route_packs/instance_inventory.py", line 123>)
+            176 LOAD_CONST              20 ('create_instance_inventory_router.<locals>.get_active_instances')
+            178 MAKE_FUNCTION           13 (defaults, annotations, closure)
+            180 CALL_FUNCTION            1
+            182 STORE_FAST               7 (get_active_instances)
+
+136         184 LOAD_FAST                3 (router)
+            186 RETURN_VALUE
+
+Disassembly of <code object get_agent_instances_status at 0x10924bf50, file "WeRobotCore/route_packs/instance_inventory.py", line 88>:
+ 94           0 SETUP_FINALLY           26 (to 28)
+
+ 95           2 LOAD_GLOBAL              0 (_snapshot)
+              4 LOAD_DEREF               0 (bindings)
+              6 CALL_FUNCTION            1
+              8 GET_AWAITABLE
+             10 LOAD_CONST               0 (None)
+             12 YIELD_FROM
+             14 STORE_FAST               0 (snapshot)
+
+ 96          16 LOAD_DEREF               0 (bindings)
+             18 LOAD_METHOD              1 (agent_status_projector)
+             20 LOAD_FAST                0 (snapshot)
+             22 CALL_METHOD              1
+             24 POP_BLOCK
+             26 RETURN_VALUE
+
+ 97     >>   28 DUP_TOP
+             30 LOAD_GLOBAL              2 (Exception)
+             32 JUMP_IF_NOT_EXC_MATCH   100
+             34 POP_TOP
+             36 STORE_FAST               1 (exc)
+             38 POP_TOP
+             40 SETUP_FINALLY           50 (to 92)
+
+ 98          42 LOAD_GLOBAL              3 (_logger)
+             44 LOAD_METHOD              4 (error)
+             46 LOAD_CONST               1 ('获取实例状态失败: %s')
+             48 LOAD_GLOBAL              5 (str)
+             50 LOAD_FAST                1 (exc)
+             52 CALL_FUNCTION            1
+             54 CALL_METHOD              2
+             56 POP_TOP
+
+ 99          58 LOAD_GLOBAL              6 (JSONResponse)
+
+100          60 LOAD_GLOBAL              7 (status)
+             62 LOAD_ATTR                8 (HTTP_500_INTERNAL_SERVER_ERROR)
+
+101          64 LOAD_CONST               2 ('error')
+             66 LOAD_GLOBAL              5 (str)
+             68 LOAD_FAST                1 (exc)
+             70 CALL_FUNCTION            1
+             72 BUILD_MAP                1
+
+ 99          74 LOAD_CONST               3 (('status_code', 'content'))
+             76 CALL_FUNCTION_KW         2
+             78 POP_BLOCK
+             80 ROT_FOUR
+             82 POP_EXCEPT
+             84 LOAD_CONST               0 (None)
+             86 STORE_FAST               1 (exc)
+             88 DELETE_FAST              1 (exc)
+             90 RETURN_VALUE
+        >>   92 LOAD_CONST               0 (None)
+             94 STORE_FAST               1 (exc)
+             96 DELETE_FAST              1 (exc)
+             98 RERAISE
+        >>  100 RERAISE
+            102 LOAD_CONST               0 (None)
+            104 RETURN_VALUE
+
+Disassembly of <code object get_all_instances at 0x10924b870, file "WeRobotCore/route_packs/instance_inventory.py", line 104>:
+108           0 SETUP_FINALLY           58 (to 60)
+
+109           2 LOAD_GLOBAL              0 (_snapshot)
+              4 LOAD_DEREF               0 (bindings)
+              6 CALL_FUNCTION            1
+              8 GET_AWAITABLE
+             10 LOAD_CONST               0 (None)
+             12 YIELD_FROM
+             14 STORE_FAST               1 (snapshot)
+
+110          16 LOAD_DEREF               0 (bindings)
+             18 LOAD_METHOD              1 (version_facts_provider)
+             20 LOAD_FAST                1 (snapshot)
+             22 CALL_METHOD              1
+             24 STORE_FAST               2 (version_facts)
+
+111          26 LOAD_GLOBAL              2 (isinstance)
+             28 LOAD_FAST                2 (version_facts)
+             30 LOAD_GLOBAL              3 (Mapping)
+             32 CALL_FUNCTION            2
+             34 POP_JUMP_IF_TRUE        44
+
+112          36 LOAD_GLOBAL              4 (TypeError)
+             38 LOAD_CONST               1 ('version facts must be a mapping')
+             40 CALL_FUNCTION            1
+             42 RAISE_VARARGS            1
+
+113     >>   44 LOAD_DEREF               0 (bindings)
+             46 LOAD_ATTR                5 (all_instances_projector)
+
+114          48 LOAD_FAST                1 (snapshot)
+
+115          50 LOAD_FAST                2 (version_facts)
+
+113          52 LOAD_CONST               2 (('version_facts',))
+             54 CALL_FUNCTION_KW         2
+             56 POP_BLOCK
+             58 RETURN_VALUE
+
+117     >>   60 DUP_TOP
+             62 LOAD_GLOBAL              6 (Exception)
+             64 JUMP_IF_NOT_EXC_MATCH   118
+             66 POP_TOP
+             68 STORE_FAST               3 (exc)
+             70 POP_TOP
+             72 SETUP_FINALLY           36 (to 110)
+
+118          74 LOAD_GLOBAL              7 (HTTPException)
+
+119          76 LOAD_CONST               3 (500)
+
+120          78 LOAD_CONST               4 ('获取实例信息失败: {}')
+             80 LOAD_METHOD              8 (format)
+             82 LOAD_GLOBAL              9 (str)
+             84 LOAD_FAST                3 (exc)
+             86 CALL_FUNCTION            1
+             88 CALL_METHOD              1
+
+118          90 LOAD_CONST               5 (('status_code', 'detail'))
+             92 CALL_FUNCTION_KW         2
+
+121          94 LOAD_FAST                3 (exc)
+
+118          96 RAISE_VARARGS            2
+             98 POP_BLOCK
+            100 POP_EXCEPT
+            102 LOAD_CONST               0 (None)
+            104 STORE_FAST               3 (exc)
+            106 DELETE_FAST              3 (exc)
+            108 JUMP_FORWARD            10 (to 120)
+        >>  110 LOAD_CONST               0 (None)
+            112 STORE_FAST               3 (exc)
+            114 DELETE_FAST              3 (exc)
+            116 RERAISE
+        >>  118 RERAISE
+        >>  120 LOAD_CONST               0 (None)
+            122 RETURN_VALUE
+
+Disassembly of <code object get_active_instances at 0x10924b710, file "WeRobotCore/route_packs/instance_inventory.py", line 123>:
+127           0 SETUP_FINALLY           26 (to 28)
+
+128           2 LOAD_GLOBAL              0 (_snapshot)
+              4 LOAD_DEREF               0 (bindings)
+              6 CALL_FUNCTION            1
+              8 GET_AWAITABLE
+             10 LOAD_CONST               0 (None)
+             12 YIELD_FROM
+             14 STORE_FAST               1 (snapshot)
+
+129          16 LOAD_DEREF               0 (bindings)
+             18 LOAD_METHOD              1 (active_instances_projector)
+             20 LOAD_FAST                1 (snapshot)
+             22 CALL_METHOD              1
+             24 POP_BLOCK
+             26 RETURN_VALUE
+
+130     >>   28 DUP_TOP
+             30 LOAD_GLOBAL              2 (Exception)
+             32 JUMP_IF_NOT_EXC_MATCH    86
+             34 POP_TOP
+             36 STORE_FAST               2 (exc)
+             38 POP_TOP
+             40 SETUP_FINALLY           36 (to 78)
+
+131          42 LOAD_GLOBAL              3 (HTTPException)
+
+132          44 LOAD_CONST               1 (500)
+
+133          46 LOAD_CONST               2 ('获取活跃实例信息失败: {}')
+             48 LOAD_METHOD              4 (format)
+             50 LOAD_GLOBAL              5 (str)
+             52 LOAD_FAST                2 (exc)
+             54 CALL_FUNCTION            1
+             56 CALL_METHOD              1
+
+131          58 LOAD_CONST               3 (('status_code', 'detail'))
+             60 CALL_FUNCTION_KW         2
+
+134          62 LOAD_FAST                2 (exc)
+
+131          64 RAISE_VARARGS            2
+             66 POP_BLOCK
+             68 POP_EXCEPT
+             70 LOAD_CONST               0 (None)
+             72 STORE_FAST               2 (exc)
+             74 DELETE_FAST              2 (exc)
+             76 JUMP_FORWARD            10 (to 88)
+        >>   78 LOAD_CONST               0 (None)
+             80 STORE_FAST               2 (exc)
+             82 DELETE_FAST              2 (exc)
+             84 RERAISE
+        >>   86 RERAISE
+        >>   88 LOAD_CONST               0 (None)
+             90 RETURN_VALUE

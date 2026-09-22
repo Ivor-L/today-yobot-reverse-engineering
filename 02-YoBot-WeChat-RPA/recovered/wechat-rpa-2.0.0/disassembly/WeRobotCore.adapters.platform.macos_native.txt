@@ -1,0 +1,2790 @@
+  1           0 LOAD_CONST               0 ("Native macOS implementations of the shared platform-service ports.\n\nConstruction and import are side-effect free. AppKit is imported only by an\nexplicit process-focus or application-launch operation. TCC state is read from\nthe signed RPA Helper's ``status`` response so the Python Control never claims\nownership of Accessibility or Screen Recording permission.\n")
+              2 STORE_NAME               0 (__doc__)
+
+  9           4 LOAD_CONST               1 (0)
+              6 LOAD_CONST               2 (None)
+              8 IMPORT_NAME              1 (asyncio)
+             10 STORE_NAME               1 (asyncio)
+
+ 10          12 LOAD_CONST               1 (0)
+             14 LOAD_CONST               2 (None)
+             16 IMPORT_NAME              2 (ctypes)
+             18 STORE_NAME               2 (ctypes)
+
+ 11          20 LOAD_CONST               1 (0)
+             22 LOAD_CONST               3 (('dataclass',))
+             24 IMPORT_NAME              3 (dataclasses)
+             26 IMPORT_FROM              4 (dataclass)
+             28 STORE_NAME               4 (dataclass)
+             30 POP_TOP
+
+ 12          32 LOAD_CONST               1 (0)
+             34 LOAD_CONST               2 (None)
+             36 IMPORT_NAME              5 (functools)
+             38 STORE_NAME               5 (functools)
+
+ 13          40 LOAD_CONST               1 (0)
+             42 LOAD_CONST               4 (('Path',))
+             44 IMPORT_NAME              6 (pathlib)
+             46 IMPORT_FROM              7 (Path)
+             48 STORE_NAME               7 (Path)
+             50 POP_TOP
+
+ 14          52 LOAD_CONST               1 (0)
+             54 LOAD_CONST               2 (None)
+             56 IMPORT_NAME              8 (os)
+             58 STORE_NAME               8 (os)
+
+ 15          60 LOAD_CONST               1 (0)
+             62 LOAD_CONST               2 (None)
+             64 IMPORT_NAME              9 (re)
+             66 STORE_NAME               9 (re)
+
+ 16          68 LOAD_CONST               1 (0)
+             70 LOAD_CONST               2 (None)
+             72 IMPORT_NAME             10 (sys)
+             74 STORE_NAME              10 (sys)
+
+ 17          76 LOAD_CONST               1 (0)
+             78 LOAD_CONST               2 (None)
+             80 IMPORT_NAME             11 (time)
+             82 STORE_NAME              11 (time)
+
+ 18          84 LOAD_CONST               1 (0)
+             86 LOAD_CONST               5 (('Any', 'Awaitable', 'Callable', 'Mapping', 'Optional', 'Protocol', 'Sequence', 'Tuple'))
+             88 IMPORT_NAME             12 (typing)
+             90 IMPORT_FROM             13 (Any)
+             92 STORE_NAME              13 (Any)
+             94 IMPORT_FROM             14 (Awaitable)
+             96 STORE_NAME              14 (Awaitable)
+             98 IMPORT_FROM             15 (Callable)
+            100 STORE_NAME              15 (Callable)
+            102 IMPORT_FROM             16 (Mapping)
+            104 STORE_NAME              16 (Mapping)
+            106 IMPORT_FROM             17 (Optional)
+            108 STORE_NAME              17 (Optional)
+            110 IMPORT_FROM             18 (Protocol)
+            112 STORE_NAME              18 (Protocol)
+            114 IMPORT_FROM             19 (Sequence)
+            116 STORE_NAME              19 (Sequence)
+            118 IMPORT_FROM             20 (Tuple)
+            120 STORE_NAME              20 (Tuple)
+            122 POP_TOP
+
+ 20         124 LOAD_CONST               1 (0)
+            126 LOAD_CONST               6 (('ErrorCode', 'OperationResult'))
+            128 IMPORT_NAME             21 (WeRobotCore.domain)
+            130 IMPORT_FROM             22 (ErrorCode)
+            132 STORE_NAME              22 (ErrorCode)
+            134 IMPORT_FROM             23 (OperationResult)
+            136 STORE_NAME              23 (OperationResult)
+            138 POP_TOP
+
+ 21         140 LOAD_CONST               1 (0)
+            142 LOAD_CONST               7 (('PermissionState', 'PermissionStatus'))
+            144 IMPORT_NAME             24 (WeRobotCore.ports.platform)
+            146 IMPORT_FROM             25 (PermissionState)
+            148 STORE_NAME              25 (PermissionState)
+            150 IMPORT_FROM             26 (PermissionStatus)
+            152 STORE_NAME              26 (PermissionStatus)
+            154 POP_TOP
+
+ 24         156 LOAD_CONST               8 ('accessibility')
+            158 STORE_NAME              27 (MACOS_ACCESSIBILITY_PERMISSION)
+
+ 25         160 LOAD_CONST               9 ('screen_recording')
+            162 STORE_NAME              28 (MACOS_SCREEN_RECORDING_PERMISSION)
+
+ 26         164 LOAD_CONST              10 ('wechat_app_data')
+            166 STORE_NAME              29 (MACOS_WECHAT_APP_DATA_PERMISSION)
+
+ 27         168 LOAD_CONST              11 ('com.yokowebot.rpa-control')
+            170 STORE_NAME              30 (MACOS_CONTROL_BUNDLE_IDENTIFIER)
+
+ 29         172 LOAD_CONST              12 ('/System/Library/Frameworks/CoreGraphics.framework/CoreGraphics')
+
+ 28         174 STORE_NAME              31 (_CORE_GRAPHICS_PATH)
+
+ 32         176 LOAD_NAME                9 (re)
+            178 LOAD_METHOD             32 (compile)
+            180 LOAD_CONST              13 ('^[A-Za-z0-9][A-Za-z0-9.-]{0,254}$')
+            182 CALL_METHOD              1
+            184 STORE_NAME              33 (_BUNDLE_IDENTIFIER)
+
+ 35         186 LOAD_NAME               15 (Callable)
+            188 LOAD_CONST              14 (Ellipsis)
+            190 LOAD_NAME               13 (Any)
+            192 BUILD_TUPLE              2
+            194 BINARY_SUBSCR
+            196 LOAD_NAME               13 (Any)
+            198 LOAD_NAME               13 (Any)
+            200 LOAD_CONST              15 (('call', 'args', 'return'))
+            202 BUILD_CONST_KEY_MAP      3
+            204 LOAD_CONST              16 (<code object _run_native at 0x1072cfbe0, file "WeRobotCore/adapters/platform/macos_native.py", line 35>)
+            206 LOAD_CONST              17 ('_run_native')
+            208 MAKE_FUNCTION            4 (annotations)
+            210 STORE_NAME              34 (_run_native)
+
+ 40         212 LOAD_NAME                4 (dataclass)
+            214 LOAD_CONST              18 (True)
+            216 LOAD_CONST              19 (('frozen',))
+            218 CALL_FUNCTION_KW         1
+
+ 41         220 LOAD_BUILD_CLASS
+            222 LOAD_CONST              20 (<code object MacOSAppPaths at 0x1072e0d40, file "WeRobotCore/adapters/platform/macos_native.py", line 40>)
+            224 LOAD_CONST              21 ('MacOSAppPaths')
+            226 MAKE_FUNCTION            0
+            228 LOAD_CONST              21 ('MacOSAppPaths')
+            230 CALL_FUNCTION            2
+            232 CALL_FUNCTION            1
+            234 STORE_NAME              35 (MacOSAppPaths)
+
+ 72         236 LOAD_BUILD_CLASS
+            238 LOAD_CONST              22 (<code object MacOSHelperStatusProvider at 0x1072e0710, file "WeRobotCore/adapters/platform/macos_native.py", line 72>)
+            240 LOAD_CONST              23 ('MacOSHelperStatusProvider')
+            242 MAKE_FUNCTION            0
+            244 LOAD_CONST              23 ('MacOSHelperStatusProvider')
+            246 LOAD_NAME               18 (Protocol)
+            248 CALL_FUNCTION            3
+            250 STORE_NAME              36 (MacOSHelperStatusProvider)
+
+ 77         252 LOAD_BUILD_CLASS
+            254 LOAD_CONST              24 (<code object MacOSHelperPermissionRequestProvider at 0x1072e0f50, file "WeRobotCore/adapters/platform/macos_native.py", line 77>)
+            256 LOAD_CONST              25 ('MacOSHelperPermissionRequestProvider')
+            258 MAKE_FUNCTION            0
+            260 LOAD_CONST              25 ('MacOSHelperPermissionRequestProvider')
+            262 LOAD_NAME               18 (Protocol)
+            264 CALL_FUNCTION            3
+            266 STORE_NAME              37 (MacOSHelperPermissionRequestProvider)
+
+ 82         268 LOAD_BUILD_CLASS
+            270 LOAD_CONST              26 (<code object MacOSDisplaySleepProbe at 0x1073b9df0, file "WeRobotCore/adapters/platform/macos_native.py", line 82>)
+            272 LOAD_CONST              27 ('MacOSDisplaySleepProbe')
+            274 MAKE_FUNCTION            0
+            276 LOAD_CONST              27 ('MacOSDisplaySleepProbe')
+            278 LOAD_NAME               18 (Protocol)
+            280 CALL_FUNCTION            3
+            282 STORE_NAME              38 (MacOSDisplaySleepProbe)
+
+ 91         284 LOAD_BUILD_CLASS
+            286 LOAD_CONST              28 (<code object MacOSNativeDisplaySleepProbe at 0x1073b9240, file "WeRobotCore/adapters/platform/macos_native.py", line 91>)
+            288 LOAD_CONST              29 ('MacOSNativeDisplaySleepProbe')
+            290 MAKE_FUNCTION            0
+            292 LOAD_CONST              29 ('MacOSNativeDisplaySleepProbe')
+            294 CALL_FUNCTION            2
+            296 STORE_NAME              39 (MacOSNativeDisplaySleepProbe)
+
+173         298 LOAD_BUILD_CLASS
+            300 LOAD_CONST              30 (<code object MacOSHelperPermissionService at 0x1073aa710, file "WeRobotCore/adapters/platform/macos_native.py", line 173>)
+            302 LOAD_CONST              31 ('MacOSHelperPermissionService')
+            304 MAKE_FUNCTION            0
+            306 LOAD_CONST              31 ('MacOSHelperPermissionService')
+            308 CALL_FUNCTION            2
+            310 STORE_NAME              40 (MacOSHelperPermissionService)
+
+280         312 LOAD_BUILD_CLASS
+            314 LOAD_CONST              32 (<code object MacOSProcessFacade at 0x1073ba0e0, file "WeRobotCore/adapters/platform/macos_native.py", line 280>)
+            316 LOAD_CONST              33 ('MacOSProcessFacade')
+            318 MAKE_FUNCTION            0
+            320 LOAD_CONST              33 ('MacOSProcessFacade')
+            322 LOAD_NAME               18 (Protocol)
+            324 CALL_FUNCTION            3
+            326 STORE_NAME              41 (MacOSProcessFacade)
+
+288         328 LOAD_BUILD_CLASS
+            330 LOAD_CONST              34 (<code object MacOSNativeProcessFacade at 0x1073ba500, file "WeRobotCore/adapters/platform/macos_native.py", line 288>)
+            332 LOAD_CONST              35 ('MacOSNativeProcessFacade')
+            334 MAKE_FUNCTION            0
+            336 LOAD_CONST              35 ('MacOSNativeProcessFacade')
+            338 CALL_FUNCTION            2
+            340 STORE_NAME              42 (MacOSNativeProcessFacade)
+
+351         342 LOAD_BUILD_CLASS
+            344 LOAD_CONST              36 (<code object MacOSProcessManagerAdapter at 0x1073ba870, file "WeRobotCore/adapters/platform/macos_native.py", line 351>)
+            346 LOAD_CONST              37 ('MacOSProcessManagerAdapter')
+            348 MAKE_FUNCTION            0
+            350 LOAD_CONST              37 ('MacOSProcessManagerAdapter')
+            352 CALL_FUNCTION            2
+            354 STORE_NAME              43 (MacOSProcessManagerAdapter)
+
+406         356 LOAD_BUILD_CLASS
+            358 LOAD_CONST              38 (<code object MacOSApplicationFacade at 0x1073ba9d0, file "WeRobotCore/adapters/platform/macos_native.py", line 406>)
+            360 LOAD_CONST              39 ('MacOSApplicationFacade')
+            362 MAKE_FUNCTION            0
+            364 LOAD_CONST              39 ('MacOSApplicationFacade')
+            366 LOAD_NAME               18 (Protocol)
+            368 CALL_FUNCTION            3
+            370 STORE_NAME              44 (MacOSApplicationFacade)
+
+411         372 LOAD_BUILD_CLASS
+            374 LOAD_CONST              40 (<code object MacOSApplicationLocationFacade at 0x1073bab30, file "WeRobotCore/adapters/platform/macos_native.py", line 411>)
+            376 LOAD_CONST              41 ('MacOSApplicationLocationFacade')
+            378 MAKE_FUNCTION            0
+            380 LOAD_CONST              41 ('MacOSApplicationLocationFacade')
+            382 LOAD_NAME               18 (Protocol)
+            384 CALL_FUNCTION            3
+            386 STORE_NAME              45 (MacOSApplicationLocationFacade)
+
+416         388 LOAD_BUILD_CLASS
+            390 LOAD_CONST              42 (<code object MacOSNativeApplicationLocationFacade at 0x1073bad40, file "WeRobotCore/adapters/platform/macos_native.py", line 416>)
+            392 LOAD_CONST              43 ('MacOSNativeApplicationLocationFacade')
+            394 MAKE_FUNCTION            0
+            396 LOAD_CONST              43 ('MacOSNativeApplicationLocationFacade')
+            398 CALL_FUNCTION            2
+            400 STORE_NAME              46 (MacOSNativeApplicationLocationFacade)
+
+442         402 LOAD_BUILD_CLASS
+            404 LOAD_CONST              44 (<code object MacOSInstalledApplicationResolver at 0x1073baf50, file "WeRobotCore/adapters/platform/macos_native.py", line 442>)
+            406 LOAD_CONST              45 ('MacOSInstalledApplicationResolver')
+            408 MAKE_FUNCTION            0
+            410 LOAD_CONST              45 ('MacOSInstalledApplicationResolver')
+            412 CALL_FUNCTION            2
+            414 STORE_NAME              47 (MacOSInstalledApplicationResolver)
+
+489         416 LOAD_BUILD_CLASS
+            418 LOAD_CONST              46 (<code object MacOSNativeApplicationFacade at 0x1073ab190, file "WeRobotCore/adapters/platform/macos_native.py", line 489>)
+            420 LOAD_CONST              47 ('MacOSNativeApplicationFacade')
+            422 MAKE_FUNCTION            0
+            424 LOAD_CONST              47 ('MacOSNativeApplicationFacade')
+            426 CALL_FUNCTION            2
+            428 STORE_NAME              48 (MacOSNativeApplicationFacade)
+
+525         430 LOAD_BUILD_CLASS
+            432 LOAD_CONST              48 (<code object MacOSBundleApplicationLauncher at 0x1073ab3a0, file "WeRobotCore/adapters/platform/macos_native.py", line 525>)
+            434 LOAD_CONST              49 ('MacOSBundleApplicationLauncher')
+            436 MAKE_FUNCTION            0
+            438 LOAD_CONST              49 ('MacOSBundleApplicationLauncher')
+            440 CALL_FUNCTION            2
+            442 STORE_NAME              49 (MacOSBundleApplicationLauncher)
+            444 LOAD_CONST               2 (None)
+            446 RETURN_VALUE
+
+Disassembly of <code object _run_native at 0x1072cfbe0, file "WeRobotCore/adapters/platform/macos_native.py", line 35>:
+ 36           0 LOAD_GLOBAL              0 (asyncio)
+              2 LOAD_METHOD              1 (get_running_loop)
+              4 CALL_METHOD              0
+              6 STORE_FAST               2 (loop)
+
+ 37           8 LOAD_FAST                2 (loop)
+             10 LOAD_METHOD              2 (run_in_executor)
+             12 LOAD_CONST               0 (None)
+             14 LOAD_GLOBAL              3 (functools)
+             16 LOAD_ATTR                4 (partial)
+             18 LOAD_FAST                0 (call)
+             20 BUILD_LIST               1
+             22 LOAD_FAST                1 (args)
+             24 LIST_EXTEND              1
+             26 LIST_TO_TUPLE
+             28 CALL_FUNCTION_EX         0
+             30 CALL_METHOD              2
+             32 GET_AWAITABLE
+             34 LOAD_CONST               0 (None)
+             36 YIELD_FROM
+             38 RETURN_VALUE
+
+Disassembly of <code object MacOSAppPaths at 0x1072e0d40, file "WeRobotCore/adapters/platform/macos_native.py", line 40>:
+ 40           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('MacOSAppPaths')
+              6 STORE_NAME               2 (__qualname__)
+              8 SETUP_ANNOTATIONS
+
+ 42          10 LOAD_CONST               1 ('Stable product roots without creating or migrating any directory.')
+             12 STORE_NAME               3 (__doc__)
+
+ 44          14 LOAD_NAME                4 (Path)
+             16 LOAD_NAME                5 (__annotations__)
+             18 LOAD_CONST               2 ('data_root')
+             20 STORE_SUBSCR
+
+ 45          22 LOAD_NAME                4 (Path)
+             24 LOAD_NAME                5 (__annotations__)
+             26 LOAD_CONST               3 ('config_root')
+             28 STORE_SUBSCR
+
+ 46          30 LOAD_NAME                4 (Path)
+             32 LOAD_NAME                5 (__annotations__)
+             34 LOAD_CONST               4 ('cache_root')
+             36 STORE_SUBSCR
+
+ 47          38 LOAD_NAME                4 (Path)
+             40 LOAD_NAME                5 (__annotations__)
+             42 LOAD_CONST               5 ('log_root')
+             44 STORE_SUBSCR
+
+ 49          46 LOAD_CONST               6 (None)
+             48 LOAD_CONST               7 (('return',))
+             50 BUILD_CONST_KEY_MAP      1
+             52 LOAD_CONST               8 (<code object __post_init__ at 0x1072e0a80, file "WeRobotCore/adapters/platform/macos_native.py", line 49>)
+             54 LOAD_CONST               9 ('MacOSAppPaths.__post_init__')
+             56 MAKE_FUNCTION            4 (annotations)
+             58 STORE_NAME               6 (__post_init__)
+
+ 54          60 LOAD_NAME                7 (classmethod)
+
+ 55          62 LOAD_NAME                4 (Path)
+             64 LOAD_CONST               0 ('MacOSAppPaths')
+             66 LOAD_CONST              10 (('home_dir', 'return'))
+             68 BUILD_CONST_KEY_MAP      2
+             70 LOAD_CONST              11 (<code object from_home at 0x1072e0870, file "WeRobotCore/adapters/platform/macos_native.py", line 54>)
+             72 LOAD_CONST              12 ('MacOSAppPaths.from_home')
+             74 MAKE_FUNCTION            4 (annotations)
+             76 CALL_FUNCTION            1
+             78 STORE_NAME               8 (from_home)
+             80 LOAD_CONST               6 (None)
+             82 RETURN_VALUE
+
+Disassembly of <code object __post_init__ at 0x1072e0a80, file "WeRobotCore/adapters/platform/macos_native.py", line 49>:
+ 50           0 LOAD_CONST               1 (('data_root', 'config_root', 'cache_root', 'log_root'))
+              2 GET_ITER
+        >>    4 FOR_ITER                34 (to 40)
+              6 STORE_FAST               1 (field_name)
+
+ 51           8 LOAD_GLOBAL              0 (isinstance)
+             10 LOAD_GLOBAL              1 (getattr)
+             12 LOAD_FAST                0 (self)
+             14 LOAD_FAST                1 (field_name)
+             16 CALL_FUNCTION            2
+             18 LOAD_GLOBAL              2 (Path)
+             20 CALL_FUNCTION            2
+             22 POP_JUMP_IF_TRUE         4
+
+ 52          24 LOAD_GLOBAL              3 (TypeError)
+             26 LOAD_CONST               2 ('{} must be a pathlib.Path')
+             28 LOAD_METHOD              4 (format)
+             30 LOAD_FAST                1 (field_name)
+             32 CALL_METHOD              1
+             34 CALL_FUNCTION            1
+             36 RAISE_VARARGS            1
+             38 JUMP_ABSOLUTE            4
+        >>   40 LOAD_CONST               0 (None)
+             42 RETURN_VALUE
+
+Disassembly of <code object from_home at 0x1072e0870, file "WeRobotCore/adapters/platform/macos_native.py", line 54>:
+ 56           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                1 (home_dir)
+              4 LOAD_GLOBAL              1 (Path)
+              6 CALL_FUNCTION            2
+              8 POP_JUMP_IF_TRUE        18
+
+ 57          10 LOAD_GLOBAL              2 (TypeError)
+             12 LOAD_CONST               1 ('home_dir must be a pathlib.Path')
+             14 CALL_FUNCTION            1
+             16 RAISE_VARARGS            1
+
+ 58     >>   18 LOAD_FAST                1 (home_dir)
+             20 LOAD_CONST               2 ('Library')
+             22 BINARY_TRUE_DIVIDE
+             24 LOAD_CONST               3 ('Application Support')
+             26 BINARY_TRUE_DIVIDE
+             28 LOAD_CONST               4 ('YokoWebot')
+             30 BINARY_TRUE_DIVIDE
+             32 STORE_FAST               2 (product_root)
+
+ 59          34 LOAD_FAST                0 (cls)
+
+ 60          36 LOAD_FAST                2 (product_root)
+             38 LOAD_CONST               5 ('data')
+             40 BINARY_TRUE_DIVIDE
+
+ 61          42 LOAD_FAST                2 (product_root)
+             44 LOAD_CONST               6 ('config')
+             46 BINARY_TRUE_DIVIDE
+
+ 63          48 LOAD_FAST                1 (home_dir)
+
+ 64          50 LOAD_CONST               2 ('Library')
+
+ 63          52 BINARY_TRUE_DIVIDE
+
+ 65          54 LOAD_CONST               7 ('Caches')
+
+ 63          56 BINARY_TRUE_DIVIDE
+
+ 66          58 LOAD_GLOBAL              3 (MACOS_CONTROL_BUNDLE_IDENTIFIER)
+
+ 63          60 BINARY_TRUE_DIVIDE
+
+ 68          62 LOAD_FAST                1 (home_dir)
+             64 LOAD_CONST               2 ('Library')
+             66 BINARY_TRUE_DIVIDE
+             68 LOAD_CONST               8 ('Logs')
+             70 BINARY_TRUE_DIVIDE
+             72 LOAD_CONST               4 ('YokoWebot')
+             74 BINARY_TRUE_DIVIDE
+
+ 59          76 LOAD_CONST               9 (('data_root', 'config_root', 'cache_root', 'log_root'))
+             78 CALL_FUNCTION_KW         4
+             80 RETURN_VALUE
+
+Disassembly of <code object MacOSHelperStatusProvider at 0x1072e0710, file "WeRobotCore/adapters/platform/macos_native.py", line 72>:
+ 72           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('MacOSHelperStatusProvider')
+              6 STORE_NAME               2 (__qualname__)
+
+ 73           8 LOAD_NAME                3 (Awaitable)
+             10 LOAD_NAME                4 (Mapping)
+             12 LOAD_NAME                5 (str)
+             14 LOAD_NAME                6 (Any)
+             16 BUILD_TUPLE              2
+             18 BINARY_SUBSCR
+             20 BINARY_SUBSCR
+             22 LOAD_CONST               1 (('return',))
+             24 BUILD_CONST_KEY_MAP      1
+             26 LOAD_CONST               2 (<code object __call__ at 0x1072e0b30, file "WeRobotCore/adapters/platform/macos_native.py", line 73>)
+             28 LOAD_CONST               3 ('MacOSHelperStatusProvider.__call__')
+             30 MAKE_FUNCTION            4 (annotations)
+             32 STORE_NAME               7 (__call__)
+             34 LOAD_CONST               4 (None)
+             36 RETURN_VALUE
+
+Disassembly of <code object __call__ at 0x1072e0b30, file "WeRobotCore/adapters/platform/macos_native.py", line 73>:
+ 74           0 LOAD_CONST               0 (None)
+              2 RETURN_VALUE
+
+Disassembly of <code object MacOSHelperPermissionRequestProvider at 0x1072e0f50, file "WeRobotCore/adapters/platform/macos_native.py", line 77>:
+ 77           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('MacOSHelperPermissionRequestProvider')
+              6 STORE_NAME               2 (__qualname__)
+
+ 78           8 LOAD_NAME                3 (str)
+             10 LOAD_NAME                4 (Awaitable)
+             12 LOAD_NAME                5 (Mapping)
+             14 LOAD_NAME                3 (str)
+             16 LOAD_NAME                6 (Any)
+             18 BUILD_TUPLE              2
+             20 BINARY_SUBSCR
+             22 BINARY_SUBSCR
+             24 LOAD_CONST               1 (('name', 'return'))
+             26 BUILD_CONST_KEY_MAP      2
+             28 LOAD_CONST               2 (<code object __call__ at 0x1072e0be0, file "WeRobotCore/adapters/platform/macos_native.py", line 78>)
+             30 LOAD_CONST               3 ('MacOSHelperPermissionRequestProvider.__call__')
+             32 MAKE_FUNCTION            4 (annotations)
+             34 STORE_NAME               7 (__call__)
+             36 LOAD_CONST               4 (None)
+             38 RETURN_VALUE
+
+Disassembly of <code object __call__ at 0x1072e0be0, file "WeRobotCore/adapters/platform/macos_native.py", line 78>:
+ 79           0 LOAD_CONST               0 (None)
+              2 RETURN_VALUE
+
+Disassembly of <code object MacOSDisplaySleepProbe at 0x1073b9df0, file "WeRobotCore/adapters/platform/macos_native.py", line 82>:
+ 82           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('MacOSDisplaySleepProbe')
+              6 STORE_NAME               2 (__qualname__)
+
+ 83           8 LOAD_CONST               1 ('Return a passive display-power fact without waking any display.')
+             10 STORE_NAME               3 (__doc__)
+
+ 85          12 LOAD_NAME                4 (Optional)
+             14 LOAD_NAME                5 (bool)
+             16 BINARY_SUBSCR
+             18 LOAD_CONST               2 (('return',))
+             20 BUILD_CONST_KEY_MAP      1
+             22 LOAD_CONST               3 (<code object all_displays_asleep at 0x1073b9920, file "WeRobotCore/adapters/platform/macos_native.py", line 85>)
+             24 LOAD_CONST               4 ('MacOSDisplaySleepProbe.all_displays_asleep')
+             26 MAKE_FUNCTION            4 (annotations)
+             28 STORE_NAME               6 (all_displays_asleep)
+             30 LOAD_CONST               5 (None)
+             32 RETURN_VALUE
+
+Disassembly of <code object all_displays_asleep at 0x1073b9920, file "WeRobotCore/adapters/platform/macos_native.py", line 85>:
+ 88           0 LOAD_CONST               1 (None)
+              2 RETURN_VALUE
+
+Disassembly of <code object MacOSNativeDisplaySleepProbe at 0x1073b9240, file "WeRobotCore/adapters/platform/macos_native.py", line 91>:
+ 91           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('MacOSNativeDisplaySleepProbe')
+              6 STORE_NAME               2 (__qualname__)
+
+ 92           8 LOAD_CONST               1 ('Read the public CoreGraphics display-sleep state lazily.\n\n    ``CGDisplayIsAsleep`` is intentionally used instead of a private session\n    dictionary or an IOKit power heuristic.  Import and construction remain\n    side-effect free; the native framework is loaded only for an explicit\n    runtime probe, and an unavailable/ambiguous result fails open to the\n    existing Driver behavior.\n    ')
+             10 STORE_NAME               3 (__doc__)
+
+104          12 LOAD_CONST               2 (None)
+
+105          14 LOAD_CONST               2 (None)
+
+101          16 LOAD_CONST               3 (('platform_name', 'framework_loader'))
+             18 BUILD_CONST_KEY_MAP      2
+
+104          20 LOAD_NAME                4 (Optional)
+             22 LOAD_NAME                5 (str)
+             24 BINARY_SUBSCR
+
+105          26 LOAD_NAME                4 (Optional)
+             28 LOAD_NAME                6 (Callable)
+             30 LOAD_NAME                5 (str)
+             32 BUILD_LIST               1
+             34 LOAD_NAME                7 (Any)
+             36 BUILD_TUPLE              2
+             38 BINARY_SUBSCR
+             40 BINARY_SUBSCR
+
+106          42 LOAD_CONST               2 (None)
+
+101          44 LOAD_CONST               4 (('platform_name', 'framework_loader', 'return'))
+             46 BUILD_CONST_KEY_MAP      3
+             48 LOAD_CONST               5 (<code object __init__ at 0x1073b9660, file "WeRobotCore/adapters/platform/macos_native.py", line 101>)
+             50 LOAD_CONST               6 ('MacOSNativeDisplaySleepProbe.__init__')
+             52 MAKE_FUNCTION            6 (kwdefaults, annotations)
+             54 STORE_NAME               8 (__init__)
+
+112          56 LOAD_NAME                4 (Optional)
+             58 LOAD_NAME                6 (Callable)
+             60 BUILD_LIST               0
+             62 LOAD_NAME                4 (Optional)
+             64 LOAD_NAME                9 (bool)
+             66 BINARY_SUBSCR
+             68 BUILD_TUPLE              2
+             70 BINARY_SUBSCR
+             72 BINARY_SUBSCR
+             74 LOAD_CONST               7 (('return',))
+             76 BUILD_CONST_KEY_MAP      1
+             78 LOAD_CONST               8 (<code object _load_reader at 0x1073b9b30, file "WeRobotCore/adapters/platform/macos_native.py", line 112>)
+             80 LOAD_CONST               9 ('MacOSNativeDisplaySleepProbe._load_reader')
+             82 MAKE_FUNCTION            4 (annotations)
+             84 STORE_NAME              10 (_load_reader)
+
+162          86 LOAD_NAME                4 (Optional)
+             88 LOAD_NAME                9 (bool)
+             90 BINARY_SUBSCR
+             92 LOAD_CONST               7 (('return',))
+             94 BUILD_CONST_KEY_MAP      1
+             96 LOAD_CONST              10 (<code object all_displays_asleep at 0x1073b90e0, file "WeRobotCore/adapters/platform/macos_native.py", line 162>)
+             98 LOAD_CONST              11 ('MacOSNativeDisplaySleepProbe.all_displays_asleep')
+            100 MAKE_FUNCTION            4 (annotations)
+            102 STORE_NAME              11 (all_displays_asleep)
+            104 LOAD_CONST               2 (None)
+            106 RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x1073b9660, file "WeRobotCore/adapters/platform/macos_native.py", line 101>:
+107           0 LOAD_FAST                1 (platform_name)
+              2 JUMP_IF_TRUE_OR_POP      8
+              4 LOAD_GLOBAL              0 (sys)
+              6 LOAD_ATTR                1 (platform)
+        >>    8 LOAD_FAST                0 (self)
+             10 STORE_ATTR               2 (_platform_name)
+
+108          12 LOAD_FAST                2 (framework_loader)
+             14 JUMP_IF_TRUE_OR_POP     20
+             16 LOAD_GLOBAL              3 (ctypes)
+             18 LOAD_ATTR                4 (CDLL)
+        >>   20 LOAD_FAST                0 (self)
+             22 STORE_ATTR               5 (_framework_loader)
+
+109          24 LOAD_CONST               0 (None)
+             26 LOAD_FAST                0 (self)
+             28 STORE_ATTR               6 (_reader)
+
+110          30 LOAD_CONST               1 (False)
+             32 LOAD_FAST                0 (self)
+             34 STORE_ATTR               7 (_load_attempted)
+             36 LOAD_CONST               0 (None)
+             38 RETURN_VALUE
+
+Disassembly of <code object _load_reader at 0x1073b9b30, file "WeRobotCore/adapters/platform/macos_native.py", line 112>:
+113           0 LOAD_FAST                0 (self)
+              2 LOAD_ATTR                0 (_load_attempted)
+              4 POP_JUMP_IF_FALSE       12
+
+114           6 LOAD_FAST                0 (self)
+              8 LOAD_ATTR                1 (_reader)
+             10 RETURN_VALUE
+
+115     >>   12 LOAD_CONST               1 (True)
+             14 LOAD_FAST                0 (self)
+             16 STORE_ATTR               0 (_load_attempted)
+
+116          18 LOAD_FAST                0 (self)
+             20 LOAD_ATTR                2 (_platform_name)
+             22 LOAD_CONST               2 ('darwin')
+             24 COMPARE_OP               3 (!=)
+             26 POP_JUMP_IF_FALSE       32
+
+117          28 LOAD_CONST               0 (None)
+             30 RETURN_VALUE
+
+118     >>   32 SETUP_FINALLY           82 (to 116)
+
+119          34 LOAD_FAST                0 (self)
+             36 LOAD_METHOD              3 (_framework_loader)
+             38 LOAD_GLOBAL              4 (_CORE_GRAPHICS_PATH)
+             40 CALL_METHOD              1
+             42 STORE_FAST               1 (framework)
+
+120          44 LOAD_FAST                1 (framework)
+             46 LOAD_ATTR                5 (CGGetOnlineDisplayList)
+             48 STORE_DEREF              1 (get_online_displays)
+
+122          50 LOAD_GLOBAL              6 (ctypes)
+             52 LOAD_ATTR                7 (c_uint32)
+
+123          54 LOAD_GLOBAL              6 (ctypes)
+             56 LOAD_METHOD              8 (POINTER)
+             58 LOAD_GLOBAL              6 (ctypes)
+             60 LOAD_ATTR                7 (c_uint32)
+             62 CALL_METHOD              1
+
+124          64 LOAD_GLOBAL              6 (ctypes)
+             66 LOAD_METHOD              8 (POINTER)
+             68 LOAD_GLOBAL              6 (ctypes)
+             70 LOAD_ATTR                7 (c_uint32)
+             72 CALL_METHOD              1
+
+121          74 BUILD_TUPLE              3
+             76 LOAD_DEREF               1 (get_online_displays)
+             78 STORE_ATTR               9 (argtypes)
+
+126          80 LOAD_GLOBAL              6 (ctypes)
+             82 LOAD_ATTR               10 (c_int32)
+             84 LOAD_DEREF               1 (get_online_displays)
+             86 STORE_ATTR              11 (restype)
+
+127          88 LOAD_FAST                1 (framework)
+             90 LOAD_ATTR               12 (CGDisplayIsAsleep)
+             92 STORE_DEREF              0 (display_is_asleep)
+
+128          94 LOAD_GLOBAL              6 (ctypes)
+             96 LOAD_ATTR                7 (c_uint32)
+             98 BUILD_TUPLE              1
+            100 LOAD_DEREF               0 (display_is_asleep)
+            102 STORE_ATTR               9 (argtypes)
+
+129         104 LOAD_GLOBAL              6 (ctypes)
+            106 LOAD_ATTR                7 (c_uint32)
+            108 LOAD_DEREF               0 (display_is_asleep)
+            110 STORE_ATTR              11 (restype)
+            112 POP_BLOCK
+            114 JUMP_FORWARD            26 (to 142)
+
+130     >>  116 DUP_TOP
+            118 LOAD_GLOBAL             13 (AttributeError)
+            120 LOAD_GLOBAL             14 (OSError)
+            122 LOAD_GLOBAL             15 (TypeError)
+            124 BUILD_TUPLE              3
+            126 JUMP_IF_NOT_EXC_MATCH   140
+            128 POP_TOP
+            130 POP_TOP
+            132 POP_TOP
+
+131         134 POP_EXCEPT
+            136 LOAD_CONST               0 (None)
+            138 RETURN_VALUE
+        >>  140 RERAISE
+
+133     >>  142 LOAD_GLOBAL             16 (Optional)
+            144 LOAD_GLOBAL             17 (bool)
+            146 BINARY_SUBSCR
+            148 LOAD_CONST               3 (('return',))
+            150 BUILD_CONST_KEY_MAP      1
+            152 LOAD_CLOSURE             0 (display_is_asleep)
+            154 LOAD_CLOSURE             1 (get_online_displays)
+            156 BUILD_TUPLE              2
+            158 LOAD_CONST               4 (<code object read at 0x1073b9a80, file "WeRobotCore/adapters/platform/macos_native.py", line 133>)
+            160 LOAD_CONST               5 ('MacOSNativeDisplaySleepProbe._load_reader.<locals>.read')
+            162 MAKE_FUNCTION           12 (annotations, closure)
+            164 STORE_FAST               2 (read)
+
+158         166 LOAD_FAST                1 (framework)
+            168 LOAD_FAST                2 (read)
+            170 STORE_ATTR              18 (_core_graphics)
+
+159         172 LOAD_FAST                2 (read)
+            174 LOAD_FAST                0 (self)
+            176 STORE_ATTR               1 (_reader)
+
+160         178 LOAD_FAST                0 (self)
+            180 LOAD_ATTR                1 (_reader)
+            182 RETURN_VALUE
+
+Disassembly of <code object read at 0x1073b9a80, file "WeRobotCore/adapters/platform/macos_native.py", line 133>:
+134           0 LOAD_GLOBAL              0 (ctypes)
+              2 LOAD_METHOD              1 (c_uint32)
+              4 CALL_METHOD              0
+              6 STORE_FAST               0 (display_count)
+
+135           8 LOAD_DEREF               2 (get_online_displays)
+             10 LOAD_CONST               1 (0)
+             12 LOAD_CONST               0 (None)
+             14 LOAD_GLOBAL              0 (ctypes)
+             16 LOAD_METHOD              2 (byref)
+             18 LOAD_FAST                0 (display_count)
+             20 CALL_METHOD              1
+             22 CALL_FUNCTION            3
+             24 LOAD_CONST               1 (0)
+             26 COMPARE_OP               3 (!=)
+             28 POP_JUMP_IF_FALSE       34
+
+136          30 LOAD_CONST               0 (None)
+             32 RETURN_VALUE
+
+137     >>   34 LOAD_FAST                0 (display_count)
+             36 LOAD_ATTR                3 (value)
+             38 LOAD_CONST               1 (0)
+             40 COMPARE_OP               2 (==)
+             42 POP_JUMP_IF_FALSE       48
+
+138          44 LOAD_CONST               0 (None)
+             46 RETURN_VALUE
+
+139     >>   48 LOAD_GLOBAL              0 (ctypes)
+             50 LOAD_ATTR                1 (c_uint32)
+             52 LOAD_FAST                0 (display_count)
+             54 LOAD_ATTR                3 (value)
+             56 BINARY_MULTIPLY
+             58 CALL_FUNCTION            0
+             60 STORE_DEREF              0 (display_ids)
+
+140          62 LOAD_GLOBAL              0 (ctypes)
+             64 LOAD_METHOD              1 (c_uint32)
+             66 CALL_METHOD              0
+             68 STORE_FAST               1 (actual_count)
+
+142          70 LOAD_DEREF               2 (get_online_displays)
+
+143          72 LOAD_FAST                0 (display_count)
+             74 LOAD_ATTR                3 (value)
+
+144          76 LOAD_DEREF               0 (display_ids)
+
+145          78 LOAD_GLOBAL              0 (ctypes)
+             80 LOAD_METHOD              2 (byref)
+             82 LOAD_FAST                1 (actual_count)
+             84 CALL_METHOD              1
+
+142          86 CALL_FUNCTION            3
+
+147          88 LOAD_CONST               1 (0)
+
+142          90 COMPARE_OP               3 (!=)
+
+141          92 POP_JUMP_IF_TRUE       116
+
+148          94 LOAD_FAST                1 (actual_count)
+             96 LOAD_ATTR                3 (value)
+             98 LOAD_CONST               1 (0)
+            100 COMPARE_OP               2 (==)
+
+141         102 POP_JUMP_IF_TRUE       116
+
+149         104 LOAD_FAST                1 (actual_count)
+            106 LOAD_ATTR                3 (value)
+            108 LOAD_FAST                0 (display_count)
+            110 LOAD_ATTR                3 (value)
+            112 COMPARE_OP               4 (>)
+
+141         114 POP_JUMP_IF_FALSE      120
+
+151     >>  116 LOAD_CONST               0 (None)
+            118 RETURN_VALUE
+
+152     >>  120 LOAD_GLOBAL              4 (all)
+            122 LOAD_CLOSURE             0 (display_ids)
+            124 LOAD_CLOSURE             1 (display_is_asleep)
+            126 BUILD_TUPLE              2
+            128 LOAD_CONST               2 (<code object <genexpr> at 0x1073b9500, file "WeRobotCore/adapters/platform/macos_native.py", line 152>)
+            130 LOAD_CONST               3 ('MacOSNativeDisplaySleepProbe._load_reader.<locals>.read.<locals>.<genexpr>')
+            132 MAKE_FUNCTION            8 (closure)
+
+154         134 LOAD_GLOBAL              5 (range)
+            136 LOAD_FAST                1 (actual_count)
+            138 LOAD_ATTR                3 (value)
+            140 CALL_FUNCTION            1
+
+152         142 GET_ITER
+            144 CALL_FUNCTION            1
+            146 CALL_FUNCTION            1
+            148 RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x1073b9500, file "WeRobotCore/adapters/platform/macos_native.py", line 152>:
+152           0 LOAD_FAST                0 (.0)
+        >>    2 FOR_ITER                22 (to 26)
+
+154           4 STORE_FAST               1 (index)
+
+153           6 LOAD_GLOBAL              0 (bool)
+              8 LOAD_DEREF               1 (display_is_asleep)
+             10 LOAD_DEREF               0 (display_ids)
+             12 LOAD_FAST                1 (index)
+             14 BINARY_SUBSCR
+             16 CALL_FUNCTION            1
+             18 CALL_FUNCTION            1
+             20 YIELD_VALUE
+             22 POP_TOP
+             24 JUMP_ABSOLUTE            2
+        >>   26 LOAD_CONST               0 (None)
+             28 RETURN_VALUE
+
+Disassembly of <code object all_displays_asleep at 0x1073b90e0, file "WeRobotCore/adapters/platform/macos_native.py", line 162>:
+163           0 LOAD_FAST                0 (self)
+              2 LOAD_METHOD              0 (_load_reader)
+              4 CALL_METHOD              0
+              6 STORE_FAST               1 (reader)
+
+164           8 LOAD_FAST                1 (reader)
+             10 LOAD_CONST               0 (None)
+             12 IS_OP                    0
+             14 POP_JUMP_IF_FALSE       20
+
+165          16 LOAD_CONST               0 (None)
+             18 RETURN_VALUE
+
+166     >>   20 SETUP_FINALLY           10 (to 32)
+
+167          22 LOAD_FAST                1 (reader)
+             24 CALL_FUNCTION            0
+             26 STORE_FAST               2 (result)
+             28 POP_BLOCK
+             30 JUMP_FORWARD            26 (to 58)
+
+168     >>   32 DUP_TOP
+             34 LOAD_GLOBAL              1 (OSError)
+             36 LOAD_GLOBAL              2 (TypeError)
+             38 LOAD_GLOBAL              3 (ValueError)
+             40 BUILD_TUPLE              3
+             42 JUMP_IF_NOT_EXC_MATCH    56
+             44 POP_TOP
+             46 POP_TOP
+             48 POP_TOP
+
+169          50 POP_EXCEPT
+             52 LOAD_CONST               0 (None)
+             54 RETURN_VALUE
+        >>   56 RERAISE
+
+170     >>   58 LOAD_GLOBAL              4 (isinstance)
+             60 LOAD_FAST                2 (result)
+             62 LOAD_GLOBAL              5 (bool)
+             64 CALL_FUNCTION            2
+             66 POP_JUMP_IF_FALSE       72
+             68 LOAD_FAST                2 (result)
+             70 RETURN_VALUE
+        >>   72 LOAD_CONST               0 (None)
+             74 RETURN_VALUE
+
+Disassembly of <code object MacOSHelperPermissionService at 0x1073aa710, file "WeRobotCore/adapters/platform/macos_native.py", line 173>:
+173           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('MacOSHelperPermissionService')
+              6 STORE_NAME               2 (__qualname__)
+
+174           8 LOAD_CONST               1 ('Read Helper TCC facts and request consent only on explicit actions.')
+             10 STORE_NAME               3 (__doc__)
+
+177          12 LOAD_NAME                4 (MACOS_ACCESSIBILITY_PERMISSION)
+             14 LOAD_CONST               2 ('accessibilityTrusted')
+
+178          16 LOAD_NAME                5 (MACOS_SCREEN_RECORDING_PERMISSION)
+             18 LOAD_CONST               3 ('screenCaptureTrusted')
+
+179          20 LOAD_NAME                6 (MACOS_WECHAT_APP_DATA_PERMISSION)
+             22 LOAD_CONST               4 ('wechatAppDataAccessGranted')
+
+176          24 BUILD_MAP                3
+             26 STORE_NAME               7 (_RESULT_KEYS)
+
+182          28 LOAD_CONST              21 ((None,))
+
+184          30 LOAD_NAME                8 (MacOSHelperStatusProvider)
+
+185          32 LOAD_NAME                9 (Optional)
+             34 LOAD_NAME               10 (MacOSHelperPermissionRequestProvider)
+             36 BINARY_SUBSCR
+
+186          38 LOAD_CONST               5 (None)
+
+182          40 LOAD_CONST               6 (('status_provider', 'request_provider', 'return'))
+             42 BUILD_CONST_KEY_MAP      3
+             44 LOAD_CONST               7 (<code object __init__ at 0x1073b9450, file "WeRobotCore/adapters/platform/macos_native.py", line 182>)
+             46 LOAD_CONST               8 ('MacOSHelperPermissionService.__init__')
+             48 MAKE_FUNCTION            5 (defaults, annotations)
+             50 STORE_NAME              11 (__init__)
+
+194          52 LOAD_NAME               12 (staticmethod)
+
+195          54 LOAD_NAME               13 (str)
+             56 LOAD_NAME               14 (PermissionState)
+             58 LOAD_CONST               9 (('name', 'return'))
+             60 BUILD_CONST_KEY_MAP      2
+             62 LOAD_CONST              10 (<code object _unavailable at 0x1073b9030, file "WeRobotCore/adapters/platform/macos_native.py", line 194>)
+             64 LOAD_CONST              11 ('MacOSHelperPermissionService._unavailable')
+             66 MAKE_FUNCTION            4 (annotations)
+             68 CALL_FUNCTION            1
+             70 STORE_NAME              15 (_unavailable)
+
+202          72 LOAD_NAME               12 (staticmethod)
+
+203          74 LOAD_NAME               13 (str)
+             76 LOAD_NAME               14 (PermissionState)
+             78 LOAD_CONST               9 (('name', 'return'))
+             80 BUILD_CONST_KEY_MAP      2
+             82 LOAD_CONST              12 (<code object _helper_status_unavailable at 0x1073b92f0, file "WeRobotCore/adapters/platform/macos_native.py", line 202>)
+             84 LOAD_CONST              13 ('MacOSHelperPermissionService._helper_status_unavailable')
+             86 MAKE_FUNCTION            4 (annotations)
+             88 CALL_FUNCTION            1
+             90 STORE_NAME              16 (_helper_status_unavailable)
+
+213          92 LOAD_NAME               12 (staticmethod)
+
+214          94 LOAD_NAME               13 (str)
+             96 LOAD_NAME               13 (str)
+             98 LOAD_CONST               9 (('name', 'return'))
+            100 BUILD_CONST_KEY_MAP      2
+            102 LOAD_CONST              14 (<code object _guidance at 0x1073b93a0, file "WeRobotCore/adapters/platform/macos_native.py", line 213>)
+            104 LOAD_CONST              15 ('MacOSHelperPermissionService._guidance')
+            106 MAKE_FUNCTION            4 (annotations)
+            108 CALL_FUNCTION            1
+            110 STORE_NAME              17 (_guidance)
+
+226         112 LOAD_NAME               18 (Sequence)
+            114 LOAD_NAME               13 (str)
+            116 BINARY_SUBSCR
+            118 LOAD_NAME               18 (Sequence)
+            120 LOAD_NAME               14 (PermissionState)
+            122 BINARY_SUBSCR
+            124 LOAD_CONST              16 (('names', 'return'))
+            126 BUILD_CONST_KEY_MAP      2
+            128 LOAD_CONST              17 (<code object check at 0x1073aa870, file "WeRobotCore/adapters/platform/macos_native.py", line 226>)
+            130 LOAD_CONST              18 ('MacOSHelperPermissionService.check')
+            132 MAKE_FUNCTION            4 (annotations)
+            134 STORE_NAME              19 (check)
+
+267         136 LOAD_NAME               13 (str)
+            138 LOAD_NAME               14 (PermissionState)
+            140 LOAD_CONST               9 (('name', 'return'))
+            142 BUILD_CONST_KEY_MAP      2
+            144 LOAD_CONST              19 (<code object request at 0x1073aa660, file "WeRobotCore/adapters/platform/macos_native.py", line 267>)
+            146 LOAD_CONST              20 ('MacOSHelperPermissionService.request')
+            148 MAKE_FUNCTION            4 (annotations)
+            150 STORE_NAME              20 (request)
+            152 LOAD_CONST               5 (None)
+            154 RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x1073b9450, file "WeRobotCore/adapters/platform/macos_native.py", line 182>:
+187           0 LOAD_GLOBAL              0 (callable)
+              2 LOAD_FAST                1 (status_provider)
+              4 CALL_FUNCTION            1
+              6 POP_JUMP_IF_TRUE        16
+
+188           8 LOAD_GLOBAL              1 (TypeError)
+             10 LOAD_CONST               1 ('status_provider must be callable')
+             12 CALL_FUNCTION            1
+             14 RAISE_VARARGS            1
+
+189     >>   16 LOAD_FAST                1 (status_provider)
+             18 LOAD_FAST                0 (self)
+             20 STORE_ATTR               2 (_status_provider)
+
+190          22 LOAD_FAST                2 (request_provider)
+             24 LOAD_CONST               0 (None)
+             26 IS_OP                    1
+             28 POP_JUMP_IF_FALSE       46
+             30 LOAD_GLOBAL              0 (callable)
+             32 LOAD_FAST                2 (request_provider)
+             34 CALL_FUNCTION            1
+             36 POP_JUMP_IF_TRUE        46
+
+191          38 LOAD_GLOBAL              1 (TypeError)
+             40 LOAD_CONST               2 ('request_provider must be callable')
+             42 CALL_FUNCTION            1
+             44 RAISE_VARARGS            1
+
+192     >>   46 LOAD_FAST                2 (request_provider)
+             48 LOAD_FAST                0 (self)
+             50 STORE_ATTR               3 (_request_provider)
+             52 LOAD_CONST               0 (None)
+             54 RETURN_VALUE
+
+Disassembly of <code object _unavailable at 0x1073b9030, file "WeRobotCore/adapters/platform/macos_native.py", line 194>:
+196           0 LOAD_GLOBAL              0 (PermissionState)
+
+197           2 LOAD_FAST                0 (name)
+
+198           4 LOAD_GLOBAL              1 (PermissionStatus)
+              6 LOAD_ATTR                2 (UNAVAILABLE)
+
+199           8 LOAD_CONST               1 ('This permission is not managed by the macOS RPA Helper.')
+
+196          10 LOAD_CONST               2 (('name', 'status', 'guidance'))
+             12 CALL_FUNCTION_KW         3
+             14 RETURN_VALUE
+
+Disassembly of <code object _helper_status_unavailable at 0x1073b92f0, file "WeRobotCore/adapters/platform/macos_native.py", line 202>:
+204           0 LOAD_GLOBAL              0 (PermissionState)
+
+205           2 LOAD_FAST                0 (name)
+
+206           4 LOAD_GLOBAL              1 (PermissionStatus)
+              6 LOAD_ATTR                2 (UNAVAILABLE)
+
+208           8 LOAD_CONST               1 ('The signed macOS RPA Helper status could not be read. This does not mean the system permission was denied.')
+
+204          10 LOAD_CONST               2 (('name', 'status', 'guidance'))
+             12 CALL_FUNCTION_KW         3
+             14 RETURN_VALUE
+
+Disassembly of <code object _guidance at 0x1073b93a0, file "WeRobotCore/adapters/platform/macos_native.py", line 213>:
+216           0 LOAD_GLOBAL              0 (MACOS_ACCESSIBILITY_PERMISSION)
+              2 LOAD_CONST               1 ('Accessibility')
+
+217           4 LOAD_GLOBAL              1 (MACOS_SCREEN_RECORDING_PERMISSION)
+              6 LOAD_CONST               2 ('Screen Recording')
+
+218           8 LOAD_GLOBAL              2 (MACOS_WECHAT_APP_DATA_PERMISSION)
+             10 LOAD_CONST               3 ('WeChat App Data')
+
+215          12 BUILD_MAP                3
+             14 LOAD_METHOD              3 (get)
+
+219          16 LOAD_FAST                0 (name)
+             18 LOAD_FAST                0 (name)
+
+215          20 CALL_METHOD              2
+             22 STORE_FAST               1 (label)
+
+221          24 LOAD_CONST               4 ('Grant {} to YokoWebot RPA Helper in macOS System Settings, then re-check. An explicit permission or Auto Reply action may ask macOS to present its consent UI.')
+
+220          26 LOAD_METHOD              4 (format)
+
+224          28 LOAD_FAST                1 (label)
+
+220          30 CALL_METHOD              1
+             32 RETURN_VALUE
+
+Disassembly of <code object check at 0x1073aa870, file "WeRobotCore/adapters/platform/macos_native.py", line 226>:
+227           0 LOAD_GLOBAL              0 (tuple)
+              2 LOAD_FAST                1 (names)
+              4 CALL_FUNCTION            1
+              6 STORE_FAST               2 (requested)
+
+228           8 LOAD_GLOBAL              0 (tuple)
+             10 LOAD_CLOSURE             0 (self)
+             12 BUILD_TUPLE              1
+             14 LOAD_CONST               1 (<code object <genexpr> at 0x1073b95b0, file "WeRobotCore/adapters/platform/macos_native.py", line 228>)
+             16 LOAD_CONST               2 ('MacOSHelperPermissionService.check.<locals>.<genexpr>')
+             18 MAKE_FUNCTION            8 (closure)
+             20 LOAD_FAST                2 (requested)
+             22 GET_ITER
+             24 CALL_FUNCTION            1
+             26 CALL_FUNCTION            1
+             28 STORE_FAST               3 (recognized)
+
+229          30 LOAD_FAST                3 (recognized)
+             32 POP_JUMP_IF_TRUE        56
+
+230          34 LOAD_GLOBAL              0 (tuple)
+             36 LOAD_CLOSURE             0 (self)
+             38 BUILD_TUPLE              1
+             40 LOAD_CONST               3 (<code object <genexpr> at 0x1073b99d0, file "WeRobotCore/adapters/platform/macos_native.py", line 230>)
+             42 LOAD_CONST               2 ('MacOSHelperPermissionService.check.<locals>.<genexpr>')
+             44 MAKE_FUNCTION            8 (closure)
+             46 LOAD_FAST                2 (requested)
+             48 GET_ITER
+             50 CALL_FUNCTION            1
+             52 CALL_FUNCTION            1
+             54 RETURN_VALUE
+
+231     >>   56 SETUP_FINALLY           18 (to 76)
+
+232          58 LOAD_DEREF               0 (self)
+             60 LOAD_METHOD              1 (_status_provider)
+             62 CALL_METHOD              0
+             64 GET_AWAITABLE
+             66 LOAD_CONST               0 (None)
+             68 YIELD_FROM
+             70 STORE_FAST               4 (status)
+             72 POP_BLOCK
+             74 JUMP_FORWARD            22 (to 98)
+
+233     >>   76 DUP_TOP
+             78 LOAD_GLOBAL              2 (Exception)
+             80 JUMP_IF_NOT_EXC_MATCH    96
+             82 POP_TOP
+             84 POP_TOP
+             86 POP_TOP
+
+234          88 LOAD_CONST               0 (None)
+             90 STORE_FAST               4 (status)
+             92 POP_EXCEPT
+             94 JUMP_FORWARD             2 (to 98)
+        >>   96 RERAISE
+
+235     >>   98 LOAD_GLOBAL              3 (isinstance)
+            100 LOAD_FAST                4 (status)
+            102 LOAD_GLOBAL              4 (Mapping)
+            104 CALL_FUNCTION            2
+            106 POP_JUMP_IF_TRUE       130
+
+236         108 LOAD_GLOBAL              0 (tuple)
+            110 LOAD_CLOSURE             0 (self)
+            112 BUILD_TUPLE              1
+            114 LOAD_CONST               4 (<code object <genexpr> at 0x1073aa240, file "WeRobotCore/adapters/platform/macos_native.py", line 236>)
+            116 LOAD_CONST               2 ('MacOSHelperPermissionService.check.<locals>.<genexpr>')
+            118 MAKE_FUNCTION            8 (closure)
+
+242         120 LOAD_FAST                2 (requested)
+
+236         122 GET_ITER
+            124 CALL_FUNCTION            1
+            126 CALL_FUNCTION            1
+            128 RETURN_VALUE
+
+244     >>  130 BUILD_LIST               0
+            132 STORE_FAST               5 (states)
+
+245         134 LOAD_FAST                2 (requested)
+            136 GET_ITER
+        >>  138 FOR_ITER               138 (to 278)
+            140 STORE_FAST               6 (name)
+
+246         142 LOAD_DEREF               0 (self)
+            144 LOAD_ATTR                5 (_RESULT_KEYS)
+            146 LOAD_METHOD              6 (get)
+            148 LOAD_FAST                6 (name)
+            150 CALL_METHOD              1
+            152 STORE_FAST               7 (result_key)
+
+247         154 LOAD_FAST                7 (result_key)
+            156 LOAD_CONST               0 (None)
+            158 IS_OP                    0
+            160 POP_JUMP_IF_FALSE      180
+
+248         162 LOAD_FAST                5 (states)
+            164 LOAD_METHOD              7 (append)
+            166 LOAD_DEREF               0 (self)
+            168 LOAD_METHOD              8 (_unavailable)
+            170 LOAD_FAST                6 (name)
+            172 CALL_METHOD              1
+            174 CALL_METHOD              1
+            176 POP_TOP
+
+249         178 JUMP_ABSOLUTE          138
+
+250     >>  180 LOAD_FAST                4 (status)
+            182 LOAD_METHOD              6 (get)
+            184 LOAD_FAST                7 (result_key)
+            186 CALL_METHOD              1
+            188 STORE_FAST               8 (granted)
+
+251         190 LOAD_FAST                8 (granted)
+            192 LOAD_CONST               5 (True)
+            194 IS_OP                    0
+            196 POP_JUMP_IF_FALSE      220
+
+252         198 LOAD_FAST                5 (states)
+            200 LOAD_METHOD              7 (append)
+
+253         202 LOAD_GLOBAL              9 (PermissionState)
+            204 LOAD_FAST                6 (name)
+            206 LOAD_GLOBAL             10 (PermissionStatus)
+            208 LOAD_ATTR               11 (GRANTED)
+            210 LOAD_CONST               6 (('name', 'status'))
+            212 CALL_FUNCTION_KW         2
+
+252         214 CALL_METHOD              1
+            216 POP_TOP
+            218 JUMP_ABSOLUTE          138
+
+255     >>  220 LOAD_FAST                8 (granted)
+            222 LOAD_CONST               7 (False)
+            224 IS_OP                    0
+            226 EXTENDED_ARG             1
+            228 POP_JUMP_IF_FALSE      260
+
+256         230 LOAD_FAST                5 (states)
+            232 LOAD_METHOD              7 (append)
+
+257         234 LOAD_GLOBAL              9 (PermissionState)
+
+258         236 LOAD_FAST                6 (name)
+
+259         238 LOAD_GLOBAL             10 (PermissionStatus)
+            240 LOAD_ATTR               12 (NOT_DETERMINED)
+
+260         242 LOAD_DEREF               0 (self)
+            244 LOAD_METHOD             13 (_guidance)
+            246 LOAD_FAST                6 (name)
+            248 CALL_METHOD              1
+
+257         250 LOAD_CONST               8 (('name', 'status', 'guidance'))
+            252 CALL_FUNCTION_KW         3
+
+256         254 CALL_METHOD              1
+            256 POP_TOP
+            258 JUMP_ABSOLUTE          138
+
+264     >>  260 LOAD_FAST                5 (states)
+            262 LOAD_METHOD              7 (append)
+            264 LOAD_DEREF               0 (self)
+            266 LOAD_METHOD             14 (_helper_status_unavailable)
+            268 LOAD_FAST                6 (name)
+            270 CALL_METHOD              1
+            272 CALL_METHOD              1
+            274 POP_TOP
+            276 JUMP_ABSOLUTE          138
+
+265     >>  278 LOAD_GLOBAL              0 (tuple)
+            280 LOAD_FAST                5 (states)
+            282 CALL_FUNCTION            1
+            284 RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x1073b95b0, file "WeRobotCore/adapters/platform/macos_native.py", line 228>:
+228           0 LOAD_FAST                0 (.0)
+        >>    2 FOR_ITER                20 (to 24)
+              4 STORE_FAST               1 (name)
+              6 LOAD_FAST                1 (name)
+              8 LOAD_DEREF               0 (self)
+             10 LOAD_ATTR                0 (_RESULT_KEYS)
+             12 CONTAINS_OP              0
+             14 POP_JUMP_IF_FALSE        2
+             16 LOAD_FAST                1 (name)
+             18 YIELD_VALUE
+             20 POP_TOP
+             22 JUMP_ABSOLUTE            2
+        >>   24 LOAD_CONST               0 (None)
+             26 RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x1073b99d0, file "WeRobotCore/adapters/platform/macos_native.py", line 230>:
+230           0 LOAD_FAST                0 (.0)
+        >>    2 FOR_ITER                16 (to 20)
+              4 STORE_FAST               1 (name)
+              6 LOAD_DEREF               0 (self)
+              8 LOAD_METHOD              0 (_unavailable)
+             10 LOAD_FAST                1 (name)
+             12 CALL_METHOD              1
+             14 YIELD_VALUE
+             16 POP_TOP
+             18 JUMP_ABSOLUTE            2
+        >>   20 LOAD_CONST               0 (None)
+             22 RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x1073aa240, file "WeRobotCore/adapters/platform/macos_native.py", line 236>:
+236           0 LOAD_FAST                0 (.0)
+        >>    2 FOR_ITER                36 (to 40)
+
+242           4 STORE_FAST               1 (name)
+
+239           6 LOAD_FAST                1 (name)
+              8 LOAD_DEREF               0 (self)
+             10 LOAD_ATTR                0 (_RESULT_KEYS)
+             12 CONTAINS_OP              0
+
+238          14 POP_JUMP_IF_FALSE       26
+             16 LOAD_DEREF               0 (self)
+             18 LOAD_METHOD              1 (_helper_status_unavailable)
+             20 LOAD_FAST                1 (name)
+             22 CALL_METHOD              1
+             24 JUMP_FORWARD             8 (to 34)
+
+240     >>   26 LOAD_DEREF               0 (self)
+             28 LOAD_METHOD              2 (_unavailable)
+             30 LOAD_FAST                1 (name)
+             32 CALL_METHOD              1
+        >>   34 YIELD_VALUE
+             36 POP_TOP
+             38 JUMP_ABSOLUTE            2
+        >>   40 LOAD_CONST               0 (None)
+             42 RETURN_VALUE
+
+Disassembly of <code object request at 0x1073aa660, file "WeRobotCore/adapters/platform/macos_native.py", line 267>:
+268           0 LOAD_FAST                1 (name)
+              2 LOAD_FAST                0 (self)
+              4 LOAD_ATTR                0 (_RESULT_KEYS)
+              6 CONTAINS_OP              1
+              8 POP_JUMP_IF_FALSE       20
+
+269          10 LOAD_FAST                0 (self)
+             12 LOAD_METHOD              1 (_unavailable)
+             14 LOAD_FAST                1 (name)
+             16 CALL_METHOD              1
+             18 RETURN_VALUE
+
+270     >>   20 LOAD_FAST                0 (self)
+             22 LOAD_ATTR                2 (_request_provider)
+             24 LOAD_CONST               0 (None)
+             26 IS_OP                    1
+             28 POP_JUMP_IF_FALSE       80
+
+271          30 SETUP_FINALLY           20 (to 52)
+
+272          32 LOAD_FAST                0 (self)
+             34 LOAD_METHOD              2 (_request_provider)
+             36 LOAD_FAST                1 (name)
+             38 CALL_METHOD              1
+             40 GET_AWAITABLE
+             42 LOAD_CONST               0 (None)
+             44 YIELD_FROM
+             46 POP_TOP
+             48 POP_BLOCK
+             50 JUMP_FORWARD            28 (to 80)
+
+273     >>   52 DUP_TOP
+             54 LOAD_GLOBAL              3 (Exception)
+             56 JUMP_IF_NOT_EXC_MATCH    78
+             58 POP_TOP
+             60 POP_TOP
+             62 POP_TOP
+
+274          64 LOAD_FAST                0 (self)
+             66 LOAD_METHOD              4 (_helper_status_unavailable)
+             68 LOAD_FAST                1 (name)
+             70 CALL_METHOD              1
+             72 ROT_FOUR
+             74 POP_EXCEPT
+             76 RETURN_VALUE
+        >>   78 RERAISE
+
+277     >>   80 LOAD_FAST                0 (self)
+             82 LOAD_METHOD              5 (check)
+             84 LOAD_FAST                1 (name)
+             86 BUILD_TUPLE              1
+             88 CALL_METHOD              1
+             90 GET_AWAITABLE
+             92 LOAD_CONST               0 (None)
+             94 YIELD_FROM
+             96 LOAD_CONST               1 (0)
+             98 BINARY_SUBSCR
+            100 RETURN_VALUE
+
+Disassembly of <code object MacOSProcessFacade at 0x1073ba0e0, file "WeRobotCore/adapters/platform/macos_native.py", line 280>:
+280           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('MacOSProcessFacade')
+              6 STORE_NAME               2 (__qualname__)
+
+281           8 LOAD_NAME                3 (int)
+             10 LOAD_NAME                4 (bool)
+             12 LOAD_CONST               1 (('process_id', 'return'))
+             14 BUILD_CONST_KEY_MAP      2
+             16 LOAD_CONST               2 (<code object is_process_running at 0x1073aa2f0, file "WeRobotCore/adapters/platform/macos_native.py", line 281>)
+             18 LOAD_CONST               3 ('MacOSProcessFacade.is_process_running')
+             20 MAKE_FUNCTION            4 (annotations)
+             22 STORE_NAME               5 (is_process_running)
+
+284          24 LOAD_NAME                3 (int)
+             26 LOAD_NAME                4 (bool)
+             28 LOAD_CONST               1 (('process_id', 'return'))
+             30 BUILD_CONST_KEY_MAP      2
+             32 LOAD_CONST               4 (<code object bring_process_to_front at 0x1073ba030, file "WeRobotCore/adapters/platform/macos_native.py", line 284>)
+             34 LOAD_CONST               5 ('MacOSProcessFacade.bring_process_to_front')
+             36 MAKE_FUNCTION            4 (annotations)
+             38 STORE_NAME               6 (bring_process_to_front)
+             40 LOAD_CONST               6 (None)
+             42 RETURN_VALUE
+
+Disassembly of <code object is_process_running at 0x1073aa2f0, file "WeRobotCore/adapters/platform/macos_native.py", line 281>:
+282           0 LOAD_CONST               0 (None)
+              2 RETURN_VALUE
+
+Disassembly of <code object bring_process_to_front at 0x1073ba030, file "WeRobotCore/adapters/platform/macos_native.py", line 284>:
+285           0 LOAD_CONST               0 (None)
+              2 RETURN_VALUE
+
+Disassembly of <code object MacOSNativeProcessFacade at 0x1073ba500, file "WeRobotCore/adapters/platform/macos_native.py", line 288>:
+288           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('MacOSNativeProcessFacade')
+              6 STORE_NAME               2 (__qualname__)
+
+289           8 LOAD_CONST               1 ('Lazy AppKit process probe with one explicit activation attempt.')
+             10 STORE_NAME               3 (__doc__)
+
+291          12 LOAD_CONST              17 ((None, 2.0))
+
+293          14 LOAD_NAME                4 (Optional)
+             16 LOAD_NAME                5 (Callable)
+             18 BUILD_LIST               0
+             20 LOAD_NAME                6 (Any)
+             22 BUILD_TUPLE              2
+             24 BINARY_SUBSCR
+             26 BINARY_SUBSCR
+
+294          28 LOAD_NAME                7 (float)
+
+295          30 LOAD_CONST               2 (None)
+
+291          32 LOAD_CONST               4 (('appkit_loader', 'focus_timeout_seconds', 'return'))
+             34 BUILD_CONST_KEY_MAP      3
+             36 LOAD_CONST               5 (<code object __init__ at 0x1073ba190, file "WeRobotCore/adapters/platform/macos_native.py", line 291>)
+             38 LOAD_CONST               6 ('MacOSNativeProcessFacade.__init__')
+             40 MAKE_FUNCTION            5 (defaults, annotations)
+             42 STORE_NAME               8 (__init__)
+
+301          44 LOAD_NAME                9 (staticmethod)
+
+302          46 LOAD_CONST               7 (<code object _load_appkit at 0x1073ba240, file "WeRobotCore/adapters/platform/macos_native.py", line 301>)
+             48 LOAD_CONST               8 ('MacOSNativeProcessFacade._load_appkit')
+             50 MAKE_FUNCTION            0
+             52 CALL_FUNCTION            1
+             54 STORE_NAME              10 (_load_appkit)
+
+309          56 LOAD_NAME               11 (int)
+             58 LOAD_CONST               9 (('process_id',))
+             60 BUILD_CONST_KEY_MAP      1
+             62 LOAD_CONST              10 (<code object _application at 0x1073ba2f0, file "WeRobotCore/adapters/platform/macos_native.py", line 309>)
+             64 LOAD_CONST              11 ('MacOSNativeProcessFacade._application')
+             66 MAKE_FUNCTION            4 (annotations)
+             68 STORE_NAME              12 (_application)
+
+316          70 LOAD_NAME               11 (int)
+             72 LOAD_NAME               13 (bool)
+             74 LOAD_CONST              12 (('process_id', 'return'))
+             76 BUILD_CONST_KEY_MAP      2
+             78 LOAD_CONST              13 (<code object is_process_running at 0x1073ba3a0, file "WeRobotCore/adapters/platform/macos_native.py", line 316>)
+             80 LOAD_CONST              14 ('MacOSNativeProcessFacade.is_process_running')
+             82 MAKE_FUNCTION            4 (annotations)
+             84 STORE_NAME              14 (is_process_running)
+
+323          86 LOAD_NAME               11 (int)
+             88 LOAD_NAME               13 (bool)
+             90 LOAD_CONST              12 (('process_id', 'return'))
+             92 BUILD_CONST_KEY_MAP      2
+             94 LOAD_CONST              15 (<code object bring_process_to_front at 0x1073ba450, file "WeRobotCore/adapters/platform/macos_native.py", line 323>)
+             96 LOAD_CONST              16 ('MacOSNativeProcessFacade.bring_process_to_front')
+             98 MAKE_FUNCTION            4 (annotations)
+            100 STORE_NAME              15 (bring_process_to_front)
+            102 LOAD_CONST               2 (None)
+            104 RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x1073ba190, file "WeRobotCore/adapters/platform/macos_native.py", line 291>:
+296           0 LOAD_FAST                2 (focus_timeout_seconds)
+              2 LOAD_CONST               1 (0)
+              4 COMPARE_OP               1 (<=)
+              6 POP_JUMP_IF_FALSE       16
+
+297           8 LOAD_GLOBAL              0 (ValueError)
+             10 LOAD_CONST               2 ('focus_timeout_seconds must be positive')
+             12 CALL_FUNCTION            1
+             14 RAISE_VARARGS            1
+
+298     >>   16 LOAD_FAST                1 (appkit_loader)
+             18 JUMP_IF_TRUE_OR_POP     24
+             20 LOAD_FAST                0 (self)
+             22 LOAD_ATTR                1 (_load_appkit)
+        >>   24 LOAD_FAST                0 (self)
+             26 STORE_ATTR               2 (_appkit_loader)
+
+299          28 LOAD_GLOBAL              3 (float)
+             30 LOAD_FAST                2 (focus_timeout_seconds)
+             32 CALL_FUNCTION            1
+             34 LOAD_FAST                0 (self)
+             36 STORE_ATTR               4 (_focus_timeout_seconds)
+             38 LOAD_CONST               0 (None)
+             40 RETURN_VALUE
+
+Disassembly of <code object _load_appkit at 0x1073ba240, file "WeRobotCore/adapters/platform/macos_native.py", line 301>:
+303           0 LOAD_GLOBAL              0 (sys)
+              2 LOAD_ATTR                1 (platform)
+              4 LOAD_CONST               1 ('darwin')
+              6 COMPARE_OP               3 (!=)
+              8 POP_JUMP_IF_FALSE       18
+
+304          10 LOAD_GLOBAL              2 (RuntimeError)
+             12 LOAD_CONST               2 ('AppKit process control is unavailable')
+             14 CALL_FUNCTION            1
+             16 RAISE_VARARGS            1
+
+305     >>   18 LOAD_CONST               3 (0)
+             20 LOAD_CONST               0 (None)
+             22 IMPORT_NAME              3 (AppKit)
+             24 STORE_FAST               0 (AppKit)
+
+307          26 LOAD_FAST                0 (AppKit)
+             28 RETURN_VALUE
+
+Disassembly of <code object _application at 0x1073ba2f0, file "WeRobotCore/adapters/platform/macos_native.py", line 309>:
+310           0 LOAD_FAST                0 (self)
+              2 LOAD_METHOD              0 (_appkit_loader)
+              4 CALL_METHOD              0
+              6 STORE_FAST               2 (appkit)
+
+311           8 LOAD_FAST                2 (appkit)
+             10 LOAD_ATTR                1 (NSRunningApplication)
+             12 LOAD_METHOD              2 (runningApplicationWithProcessIdentifier_)
+
+312          14 LOAD_FAST                1 (process_id)
+
+311          16 CALL_METHOD              1
+             18 STORE_FAST               3 (application)
+
+314          20 LOAD_FAST                2 (appkit)
+             22 LOAD_FAST                3 (application)
+             24 BUILD_TUPLE              2
+             26 RETURN_VALUE
+
+Disassembly of <code object is_process_running at 0x1073ba3a0, file "WeRobotCore/adapters/platform/macos_native.py", line 316>:
+317           0 SETUP_FINALLY           38 (to 40)
+
+318           2 LOAD_FAST                0 (self)
+              4 LOAD_METHOD              0 (_application)
+              6 LOAD_FAST                1 (process_id)
+              8 CALL_METHOD              1
+             10 UNPACK_SEQUENCE          2
+             12 STORE_FAST               2 (_)
+             14 STORE_FAST               3 (application)
+
+319          16 LOAD_GLOBAL              1 (bool)
+             18 LOAD_FAST                3 (application)
+             20 LOAD_CONST               0 (None)
+             22 IS_OP                    1
+             24 JUMP_IF_FALSE_OR_POP    34
+             26 LOAD_FAST                3 (application)
+             28 LOAD_METHOD              2 (isTerminated)
+             30 CALL_METHOD              0
+             32 UNARY_NOT
+        >>   34 CALL_FUNCTION            1
+             36 POP_BLOCK
+             38 RETURN_VALUE
+
+320     >>   40 DUP_TOP
+             42 LOAD_GLOBAL              3 (Exception)
+             44 JUMP_IF_NOT_EXC_MATCH    58
+             46 POP_TOP
+             48 POP_TOP
+             50 POP_TOP
+
+321          52 POP_EXCEPT
+             54 LOAD_CONST               1 (False)
+             56 RETURN_VALUE
+        >>   58 RERAISE
+             60 LOAD_CONST               0 (None)
+             62 RETURN_VALUE
+
+Disassembly of <code object bring_process_to_front at 0x1073ba450, file "WeRobotCore/adapters/platform/macos_native.py", line 323>:
+324           0 LOAD_FAST                0 (self)
+              2 LOAD_METHOD              0 (_application)
+              4 LOAD_FAST                1 (process_id)
+              6 CALL_METHOD              1
+              8 UNPACK_SEQUENCE          2
+             10 STORE_FAST               2 (appkit)
+             12 STORE_FAST               3 (application)
+
+325          14 LOAD_FAST                3 (application)
+             16 LOAD_CONST               0 (None)
+             18 IS_OP                    0
+             20 POP_JUMP_IF_TRUE        30
+             22 LOAD_FAST                3 (application)
+             24 LOAD_METHOD              1 (isTerminated)
+             26 CALL_METHOD              0
+             28 POP_JUMP_IF_FALSE       34
+
+326     >>   30 LOAD_CONST               1 (False)
+             32 RETURN_VALUE
+
+327     >>   34 LOAD_FAST                2 (appkit)
+             36 LOAD_ATTR                2 (NSWorkspace)
+             38 LOAD_METHOD              3 (sharedWorkspace)
+             40 CALL_METHOD              0
+             42 STORE_FAST               4 (workspace)
+
+328          44 LOAD_FAST                4 (workspace)
+             46 LOAD_METHOD              4 (frontmostApplication)
+             48 CALL_METHOD              0
+             50 STORE_FAST               5 (frontmost)
+
+330          52 LOAD_FAST                5 (frontmost)
+             54 LOAD_CONST               0 (None)
+             56 IS_OP                    1
+
+329          58 POP_JUMP_IF_FALSE       80
+
+331          60 LOAD_GLOBAL              5 (int)
+             62 LOAD_FAST                5 (frontmost)
+             64 LOAD_METHOD              6 (processIdentifier)
+             66 CALL_METHOD              0
+             68 CALL_FUNCTION            1
+             70 LOAD_FAST                1 (process_id)
+             72 COMPARE_OP               2 (==)
+
+329          74 POP_JUMP_IF_FALSE       80
+
+333          76 LOAD_CONST               2 (True)
+             78 RETURN_VALUE
+
+334     >>   80 LOAD_FAST                3 (application)
+             82 LOAD_METHOD              7 (activateWithOptions_)
+
+335          84 LOAD_FAST                2 (appkit)
+             86 LOAD_ATTR                8 (NSApplicationActivateAllWindows)
+
+334          88 CALL_METHOD              1
+             90 STORE_FAST               6 (activated)
+
+337          92 LOAD_FAST                6 (activated)
+             94 LOAD_CONST               1 (False)
+             96 IS_OP                    0
+             98 POP_JUMP_IF_FALSE      104
+
+338         100 LOAD_CONST               1 (False)
+            102 RETURN_VALUE
+
+339     >>  104 LOAD_GLOBAL              9 (time)
+            106 LOAD_METHOD             10 (monotonic)
+            108 CALL_METHOD              0
+            110 LOAD_FAST                0 (self)
+            112 LOAD_ATTR               11 (_focus_timeout_seconds)
+            114 BINARY_ADD
+            116 STORE_FAST               7 (deadline)
+
+340     >>  118 LOAD_GLOBAL              9 (time)
+            120 LOAD_METHOD             10 (monotonic)
+            122 CALL_METHOD              0
+            124 LOAD_FAST                7 (deadline)
+            126 COMPARE_OP               0 (<)
+            128 POP_JUMP_IF_FALSE      178
+
+341         130 LOAD_FAST                4 (workspace)
+            132 LOAD_METHOD              4 (frontmostApplication)
+            134 CALL_METHOD              0
+            136 STORE_FAST               5 (frontmost)
+
+343         138 LOAD_FAST                5 (frontmost)
+            140 LOAD_CONST               0 (None)
+            142 IS_OP                    1
+
+342         144 POP_JUMP_IF_FALSE      166
+
+344         146 LOAD_GLOBAL              5 (int)
+            148 LOAD_FAST                5 (frontmost)
+            150 LOAD_METHOD              6 (processIdentifier)
+            152 CALL_METHOD              0
+            154 CALL_FUNCTION            1
+            156 LOAD_FAST                1 (process_id)
+            158 COMPARE_OP               2 (==)
+
+342         160 POP_JUMP_IF_FALSE      166
+
+346         162 LOAD_CONST               2 (True)
+            164 RETURN_VALUE
+
+347     >>  166 LOAD_GLOBAL              9 (time)
+            168 LOAD_METHOD             12 (sleep)
+            170 LOAD_CONST               3 (0.05)
+            172 CALL_METHOD              1
+            174 POP_TOP
+            176 JUMP_ABSOLUTE          118
+
+348     >>  178 LOAD_CONST               1 (False)
+            180 RETURN_VALUE
+
+Disassembly of <code object MacOSProcessManagerAdapter at 0x1073ba870, file "WeRobotCore/adapters/platform/macos_native.py", line 351>:
+351           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('MacOSProcessManagerAdapter')
+              6 STORE_NAME               2 (__qualname__)
+
+352           8 LOAD_CONST              12 ((None,))
+             10 LOAD_NAME                3 (Optional)
+             12 LOAD_NAME                4 (MacOSProcessFacade)
+             14 BINARY_SUBSCR
+             16 LOAD_CONST               1 (None)
+             18 LOAD_CONST               2 (('facade', 'return'))
+             20 BUILD_CONST_KEY_MAP      2
+             22 LOAD_CONST               3 (<code object __init__ at 0x1073ba5b0, file "WeRobotCore/adapters/platform/macos_native.py", line 352>)
+             24 LOAD_CONST               4 ('MacOSProcessManagerAdapter.__init__')
+             26 MAKE_FUNCTION            5 (defaults, annotations)
+             28 STORE_NAME               5 (__init__)
+
+355          30 LOAD_NAME                6 (staticmethod)
+
+356          32 LOAD_NAME                7 (int)
+             34 LOAD_NAME                8 (bool)
+             36 LOAD_CONST               5 (('process_id', 'return'))
+             38 BUILD_CONST_KEY_MAP      2
+             40 LOAD_CONST               6 (<code object _valid_process_id at 0x1073ba660, file "WeRobotCore/adapters/platform/macos_native.py", line 355>)
+             42 LOAD_CONST               7 ('MacOSProcessManagerAdapter._valid_process_id')
+             44 MAKE_FUNCTION            4 (annotations)
+             46 CALL_FUNCTION            1
+             48 STORE_NAME               9 (_valid_process_id)
+
+363          50 LOAD_NAME                7 (int)
+             52 LOAD_NAME                8 (bool)
+             54 LOAD_CONST               5 (('process_id', 'return'))
+             56 BUILD_CONST_KEY_MAP      2
+             58 LOAD_CONST               8 (<code object is_running at 0x1073ba710, file "WeRobotCore/adapters/platform/macos_native.py", line 363>)
+             60 LOAD_CONST               9 ('MacOSProcessManagerAdapter.is_running')
+             62 MAKE_FUNCTION            4 (annotations)
+             64 STORE_NAME              10 (is_running)
+
+373          66 LOAD_NAME                7 (int)
+             68 LOAD_NAME               11 (OperationResult)
+             70 LOAD_CONST               5 (('process_id', 'return'))
+             72 BUILD_CONST_KEY_MAP      2
+             74 LOAD_CONST              10 (<code object bring_to_front at 0x1073ba7c0, file "WeRobotCore/adapters/platform/macos_native.py", line 373>)
+             76 LOAD_CONST              11 ('MacOSProcessManagerAdapter.bring_to_front')
+             78 MAKE_FUNCTION            4 (annotations)
+             80 STORE_NAME              12 (bring_to_front)
+             82 LOAD_CONST               1 (None)
+             84 RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x1073ba5b0, file "WeRobotCore/adapters/platform/macos_native.py", line 352>:
+353           0 LOAD_FAST                1 (facade)
+              2 JUMP_IF_TRUE_OR_POP      8
+              4 LOAD_GLOBAL              0 (MacOSNativeProcessFacade)
+              6 CALL_FUNCTION            0
+        >>    8 LOAD_FAST                0 (self)
+             10 STORE_ATTR               1 (_facade)
+             12 LOAD_CONST               0 (None)
+             14 RETURN_VALUE
+
+Disassembly of <code object _valid_process_id at 0x1073ba660, file "WeRobotCore/adapters/platform/macos_native.py", line 355>:
+358           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                0 (process_id)
+              4 LOAD_GLOBAL              1 (int)
+              6 CALL_FUNCTION            2
+              8 JUMP_IF_FALSE_OR_POP    28
+
+359          10 LOAD_GLOBAL              0 (isinstance)
+             12 LOAD_FAST                0 (process_id)
+             14 LOAD_GLOBAL              2 (bool)
+             16 CALL_FUNCTION            2
+             18 UNARY_NOT
+
+358          20 JUMP_IF_FALSE_OR_POP    28
+
+360          22 LOAD_FAST                0 (process_id)
+             24 LOAD_CONST               1 (0)
+             26 COMPARE_OP               4 (>)
+
+357     >>   28 RETURN_VALUE
+
+Disassembly of <code object is_running at 0x1073ba710, file "WeRobotCore/adapters/platform/macos_native.py", line 363>:
+364           0 LOAD_FAST                0 (self)
+              2 LOAD_METHOD              0 (_valid_process_id)
+              4 LOAD_FAST                1 (process_id)
+              6 CALL_METHOD              1
+              8 POP_JUMP_IF_TRUE        14
+
+365          10 LOAD_CONST               1 (False)
+             12 RETURN_VALUE
+
+366     >>   14 SETUP_FINALLY           26 (to 42)
+
+367          16 LOAD_GLOBAL              1 (bool)
+
+368          18 LOAD_GLOBAL              2 (_run_native)
+             20 LOAD_FAST                0 (self)
+             22 LOAD_ATTR                3 (_facade)
+             24 LOAD_ATTR                4 (is_process_running)
+             26 LOAD_FAST                1 (process_id)
+             28 CALL_FUNCTION            2
+             30 GET_AWAITABLE
+             32 LOAD_CONST               0 (None)
+             34 YIELD_FROM
+
+367          36 CALL_FUNCTION            1
+             38 POP_BLOCK
+             40 RETURN_VALUE
+
+370     >>   42 DUP_TOP
+             44 LOAD_GLOBAL              5 (Exception)
+             46 JUMP_IF_NOT_EXC_MATCH    60
+             48 POP_TOP
+             50 POP_TOP
+             52 POP_TOP
+
+371          54 POP_EXCEPT
+             56 LOAD_CONST               1 (False)
+             58 RETURN_VALUE
+        >>   60 RERAISE
+             62 LOAD_CONST               0 (None)
+             64 RETURN_VALUE
+
+Disassembly of <code object bring_to_front at 0x1073ba7c0, file "WeRobotCore/adapters/platform/macos_native.py", line 373>:
+374           0 LOAD_FAST                0 (self)
+              2 LOAD_METHOD              0 (_valid_process_id)
+              4 LOAD_FAST                1 (process_id)
+              6 CALL_METHOD              1
+              8 POP_JUMP_IF_TRUE        24
+
+375          10 LOAD_GLOBAL              1 (OperationResult)
+             12 LOAD_METHOD              2 (failed)
+
+376          14 LOAD_GLOBAL              3 (ErrorCode)
+             16 LOAD_ATTR                4 (INVALID_ARGUMENT)
+
+377          18 LOAD_CONST               1 ('process_id must be a positive integer')
+
+375          20 CALL_METHOD              2
+             22 RETURN_VALUE
+
+379     >>   24 LOAD_FAST                0 (self)
+             26 LOAD_METHOD              5 (is_running)
+             28 LOAD_FAST                1 (process_id)
+             30 CALL_METHOD              1
+             32 GET_AWAITABLE
+             34 LOAD_CONST               0 (None)
+             36 YIELD_FROM
+             38 POP_JUMP_IF_TRUE        54
+
+380          40 LOAD_GLOBAL              1 (OperationResult)
+             42 LOAD_METHOD              2 (failed)
+
+381          44 LOAD_GLOBAL              3 (ErrorCode)
+             46 LOAD_ATTR                6 (INSTANCE_NOT_FOUND)
+
+382          48 LOAD_CONST               2 ('process is not running')
+
+380          50 CALL_METHOD              2
+             52 RETURN_VALUE
+
+384     >>   54 SETUP_FINALLY           28 (to 84)
+
+385          56 LOAD_GLOBAL              7 (bool)
+
+386          58 LOAD_GLOBAL              8 (_run_native)
+
+387          60 LOAD_FAST                0 (self)
+             62 LOAD_ATTR                9 (_facade)
+             64 LOAD_ATTR               10 (bring_process_to_front)
+
+388          66 LOAD_FAST                1 (process_id)
+
+386          68 CALL_FUNCTION            2
+             70 GET_AWAITABLE
+             72 LOAD_CONST               0 (None)
+             74 YIELD_FROM
+
+385          76 CALL_FUNCTION            1
+             78 STORE_FAST               2 (focused)
+             80 POP_BLOCK
+             82 JUMP_FORWARD            36 (to 120)
+
+391     >>   84 DUP_TOP
+             86 LOAD_GLOBAL             11 (Exception)
+             88 JUMP_IF_NOT_EXC_MATCH   118
+             90 POP_TOP
+             92 POP_TOP
+             94 POP_TOP
+
+392          96 LOAD_GLOBAL              1 (OperationResult)
+             98 LOAD_ATTR                2 (failed)
+
+393         100 LOAD_GLOBAL              3 (ErrorCode)
+            102 LOAD_ATTR               12 (OPERATION_FAILED)
+
+394         104 LOAD_CONST               3 ('macOS process could not be brought to front')
+
+395         106 LOAD_CONST               4 (True)
+
+392         108 LOAD_CONST               5 (('retryable',))
+            110 CALL_FUNCTION_KW         3
+            112 ROT_FOUR
+            114 POP_EXCEPT
+            116 RETURN_VALUE
+        >>  118 RERAISE
+
+397     >>  120 LOAD_FAST                2 (focused)
+            122 POP_JUMP_IF_TRUE       142
+
+398         124 LOAD_GLOBAL              1 (OperationResult)
+            126 LOAD_ATTR                2 (failed)
+
+399         128 LOAD_GLOBAL              3 (ErrorCode)
+            130 LOAD_ATTR               13 (ACTION_NOT_VERIFIED)
+
+400         132 LOAD_CONST               6 ('macOS did not verify the process as frontmost')
+
+401         134 LOAD_CONST               4 (True)
+
+398         136 LOAD_CONST               5 (('retryable',))
+            138 CALL_FUNCTION_KW         3
+            140 RETURN_VALUE
+
+403     >>  142 LOAD_GLOBAL              1 (OperationResult)
+            144 LOAD_ATTR               14 (succeeded)
+            146 LOAD_CONST               7 ('process is frontmost')
+            148 LOAD_CONST               4 (True)
+            150 LOAD_CONST               8 (('verified',))
+            152 CALL_FUNCTION_KW         2
+            154 RETURN_VALUE
+
+Disassembly of <code object MacOSApplicationFacade at 0x1073ba9d0, file "WeRobotCore/adapters/platform/macos_native.py", line 406>:
+406           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('MacOSApplicationFacade')
+              6 STORE_NAME               2 (__qualname__)
+
+407           8 LOAD_NAME                3 (Path)
+             10 LOAD_NAME                4 (str)
+             12 LOAD_NAME                5 (int)
+             14 LOAD_CONST               1 (('bundle_path', 'bundle_identifier', 'return'))
+             16 BUILD_CONST_KEY_MAP      3
+             18 LOAD_CONST               2 (<code object launch_application at 0x1073ba920, file "WeRobotCore/adapters/platform/macos_native.py", line 407>)
+             20 LOAD_CONST               3 ('MacOSApplicationFacade.launch_application')
+             22 MAKE_FUNCTION            4 (annotations)
+             24 STORE_NAME               6 (launch_application)
+             26 LOAD_CONST               4 (None)
+             28 RETURN_VALUE
+
+Disassembly of <code object launch_application at 0x1073ba920, file "WeRobotCore/adapters/platform/macos_native.py", line 407>:
+408           0 LOAD_CONST               0 (None)
+              2 RETURN_VALUE
+
+Disassembly of <code object MacOSApplicationLocationFacade at 0x1073bab30, file "WeRobotCore/adapters/platform/macos_native.py", line 411>:
+411           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('MacOSApplicationLocationFacade')
+              6 STORE_NAME               2 (__qualname__)
+
+412           8 LOAD_NAME                3 (str)
+             10 LOAD_NAME                4 (Optional)
+             12 LOAD_NAME                5 (Path)
+             14 BINARY_SUBSCR
+             16 LOAD_CONST               1 (('bundle_identifier', 'return'))
+             18 BUILD_CONST_KEY_MAP      2
+             20 LOAD_CONST               2 (<code object locate_application at 0x1073baa80, file "WeRobotCore/adapters/platform/macos_native.py", line 412>)
+             22 LOAD_CONST               3 ('MacOSApplicationLocationFacade.locate_application')
+             24 MAKE_FUNCTION            4 (annotations)
+             26 STORE_NAME               6 (locate_application)
+             28 LOAD_CONST               4 (None)
+             30 RETURN_VALUE
+
+Disassembly of <code object locate_application at 0x1073baa80, file "WeRobotCore/adapters/platform/macos_native.py", line 412>:
+413           0 LOAD_CONST               0 (None)
+              2 RETURN_VALUE
+
+Disassembly of <code object MacOSNativeApplicationLocationFacade at 0x1073bad40, file "WeRobotCore/adapters/platform/macos_native.py", line 416>:
+416           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('MacOSNativeApplicationLocationFacade')
+              6 STORE_NAME               2 (__qualname__)
+
+417           8 LOAD_CONST               1 ('Resolve an installed application through LaunchServices without launch.')
+             10 STORE_NAME               3 (__doc__)
+
+419          12 LOAD_CONST               9 ((None,))
+             14 LOAD_NAME                4 (Optional)
+             16 LOAD_NAME                5 (Callable)
+             18 BUILD_LIST               0
+             20 LOAD_NAME                6 (Any)
+             22 BUILD_TUPLE              2
+             24 BINARY_SUBSCR
+             26 BINARY_SUBSCR
+             28 LOAD_CONST               2 (None)
+             30 LOAD_CONST               3 (('appkit_loader', 'return'))
+             32 BUILD_CONST_KEY_MAP      2
+             34 LOAD_CONST               4 (<code object __init__ at 0x1073babe0, file "WeRobotCore/adapters/platform/macos_native.py", line 419>)
+             36 LOAD_CONST               5 ('MacOSNativeApplicationLocationFacade.__init__')
+             38 MAKE_FUNCTION            5 (defaults, annotations)
+             40 STORE_NAME               7 (__init__)
+
+422          42 LOAD_NAME                8 (str)
+             44 LOAD_NAME                4 (Optional)
+             46 LOAD_NAME                9 (Path)
+             48 BINARY_SUBSCR
+             50 LOAD_CONST               6 (('bundle_identifier', 'return'))
+             52 BUILD_CONST_KEY_MAP      2
+             54 LOAD_CONST               7 (<code object locate_application at 0x1073bac90, file "WeRobotCore/adapters/platform/macos_native.py", line 422>)
+             56 LOAD_CONST               8 ('MacOSNativeApplicationLocationFacade.locate_application')
+             58 MAKE_FUNCTION            4 (annotations)
+             60 STORE_NAME              10 (locate_application)
+             62 LOAD_CONST               2 (None)
+             64 RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x1073babe0, file "WeRobotCore/adapters/platform/macos_native.py", line 419>:
+420           0 LOAD_FAST                1 (appkit_loader)
+              2 JUMP_IF_TRUE_OR_POP      8
+              4 LOAD_GLOBAL              0 (MacOSNativeProcessFacade)
+              6 LOAD_ATTR                1 (_load_appkit)
+        >>    8 LOAD_FAST                0 (self)
+             10 STORE_ATTR               2 (_appkit_loader)
+             12 LOAD_CONST               0 (None)
+             14 RETURN_VALUE
+
+Disassembly of <code object locate_application at 0x1073bac90, file "WeRobotCore/adapters/platform/macos_native.py", line 422>:
+423           0 LOAD_FAST                0 (self)
+              2 LOAD_METHOD              0 (_appkit_loader)
+              4 CALL_METHOD              0
+              6 STORE_FAST               2 (appkit)
+
+424           8 LOAD_FAST                2 (appkit)
+             10 LOAD_ATTR                1 (NSWorkspace)
+             12 LOAD_METHOD              2 (sharedWorkspace)
+             14 CALL_METHOD              0
+             16 STORE_FAST               3 (workspace)
+
+425          18 LOAD_FAST                3 (workspace)
+             20 LOAD_METHOD              3 (URLForApplicationWithBundleIdentifier_)
+
+426          22 LOAD_FAST                1 (bundle_identifier)
+
+425          24 CALL_METHOD              1
+             26 STORE_FAST               4 (bundle_url)
+
+428          28 LOAD_FAST                4 (bundle_url)
+             30 LOAD_CONST               0 (None)
+             32 IS_OP                    0
+             34 POP_JUMP_IF_TRUE        48
+             36 LOAD_FAST                4 (bundle_url)
+             38 LOAD_METHOD              4 (path)
+             40 CALL_METHOD              0
+             42 LOAD_CONST               0 (None)
+             44 IS_OP                    0
+             46 POP_JUMP_IF_FALSE       52
+
+429     >>   48 LOAD_CONST               0 (None)
+             50 RETURN_VALUE
+
+430     >>   52 SETUP_FINALLY           28 (to 82)
+
+431          54 LOAD_GLOBAL              5 (Path)
+             56 LOAD_GLOBAL              6 (str)
+             58 LOAD_FAST                4 (bundle_url)
+             60 LOAD_METHOD              4 (path)
+             62 CALL_METHOD              0
+             64 CALL_FUNCTION            1
+             66 CALL_FUNCTION            1
+             68 LOAD_ATTR                7 (resolve)
+             70 LOAD_CONST               1 (True)
+             72 LOAD_CONST               2 (('strict',))
+             74 CALL_FUNCTION_KW         1
+             76 STORE_FAST               5 (candidate)
+             78 POP_BLOCK
+             80 JUMP_FORWARD            24 (to 106)
+
+432     >>   82 DUP_TOP
+             84 LOAD_GLOBAL              8 (OSError)
+             86 LOAD_GLOBAL              9 (ValueError)
+             88 BUILD_TUPLE              2
+             90 JUMP_IF_NOT_EXC_MATCH   104
+             92 POP_TOP
+             94 POP_TOP
+             96 POP_TOP
+
+433          98 POP_EXCEPT
+            100 LOAD_CONST               0 (None)
+            102 RETURN_VALUE
+        >>  104 RERAISE
+
+434     >>  106 LOAD_FAST                5 (candidate)
+            108 LOAD_METHOD             10 (is_dir)
+            110 CALL_METHOD              0
+            112 POP_JUMP_IF_FALSE      124
+            114 LOAD_FAST                5 (candidate)
+            116 LOAD_ATTR               11 (suffix)
+            118 LOAD_CONST               3 ('.app')
+            120 COMPARE_OP               3 (!=)
+            122 POP_JUMP_IF_FALSE      128
+
+435     >>  124 LOAD_CONST               0 (None)
+            126 RETURN_VALUE
+
+436     >>  128 LOAD_FAST                2 (appkit)
+            130 LOAD_ATTR               12 (NSBundle)
+            132 LOAD_METHOD             13 (bundleWithPath_)
+            134 LOAD_GLOBAL              6 (str)
+            136 LOAD_FAST                5 (candidate)
+            138 CALL_FUNCTION            1
+            140 CALL_METHOD              1
+            142 STORE_FAST               6 (bundle)
+
+437         144 LOAD_FAST                6 (bundle)
+            146 LOAD_CONST               0 (None)
+            148 IS_OP                    0
+            150 POP_JUMP_IF_TRUE       168
+            152 LOAD_GLOBAL              6 (str)
+            154 LOAD_FAST                6 (bundle)
+            156 LOAD_METHOD             14 (bundleIdentifier)
+            158 CALL_METHOD              0
+            160 CALL_FUNCTION            1
+            162 LOAD_FAST                1 (bundle_identifier)
+            164 COMPARE_OP               3 (!=)
+            166 POP_JUMP_IF_FALSE      172
+
+438     >>  168 LOAD_CONST               0 (None)
+            170 RETURN_VALUE
+
+439     >>  172 LOAD_FAST                5 (candidate)
+            174 RETURN_VALUE
+
+Disassembly of <code object MacOSInstalledApplicationResolver at 0x1073baf50, file "WeRobotCore/adapters/platform/macos_native.py", line 442>:
+442           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('MacOSInstalledApplicationResolver')
+              6 STORE_NAME               2 (__qualname__)
+
+443           8 LOAD_CONST               1 ('Validate explicit bundle ids and return fixed installed app paths.')
+             10 STORE_NAME               3 (__doc__)
+
+445          12 LOAD_CONST               9 ((None,))
+
+447          14 LOAD_NAME                4 (Optional)
+             16 LOAD_NAME                5 (MacOSApplicationLocationFacade)
+             18 BINARY_SUBSCR
+
+448          20 LOAD_CONST               2 (None)
+
+445          22 LOAD_CONST               3 (('facade', 'return'))
+             24 BUILD_CONST_KEY_MAP      2
+             26 LOAD_CONST               4 (<code object __init__ at 0x1073badf0, file "WeRobotCore/adapters/platform/macos_native.py", line 445>)
+             28 LOAD_CONST               5 ('MacOSInstalledApplicationResolver.__init__')
+             30 MAKE_FUNCTION            5 (defaults, annotations)
+             32 STORE_NAME               6 (__init__)
+
+453          34 LOAD_NAME                7 (Sequence)
+             36 LOAD_NAME                8 (str)
+             38 BINARY_SUBSCR
+
+454          40 LOAD_NAME                9 (Mapping)
+             42 LOAD_NAME                8 (str)
+             44 LOAD_NAME               10 (Path)
+             46 BUILD_TUPLE              2
+             48 BINARY_SUBSCR
+
+451          50 LOAD_CONST               6 (('application_ids', 'return'))
+             52 BUILD_CONST_KEY_MAP      2
+             54 LOAD_CONST               7 (<code object resolve_required at 0x1073baea0, file "WeRobotCore/adapters/platform/macos_native.py", line 451>)
+             56 LOAD_CONST               8 ('MacOSInstalledApplicationResolver.resolve_required')
+             58 MAKE_FUNCTION            4 (annotations)
+             60 STORE_NAME              11 (resolve_required)
+             62 LOAD_CONST               2 (None)
+             64 RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x1073badf0, file "WeRobotCore/adapters/platform/macos_native.py", line 445>:
+449           0 LOAD_FAST                1 (facade)
+              2 JUMP_IF_TRUE_OR_POP      8
+              4 LOAD_GLOBAL              0 (MacOSNativeApplicationLocationFacade)
+              6 CALL_FUNCTION            0
+        >>    8 LOAD_FAST                0 (self)
+             10 STORE_ATTR               1 (_facade)
+             12 LOAD_CONST               0 (None)
+             14 RETURN_VALUE
+
+Disassembly of <code object resolve_required at 0x1073baea0, file "WeRobotCore/adapters/platform/macos_native.py", line 451>:
+455           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                1 (application_ids)
+              4 LOAD_GLOBAL              1 (str)
+              6 LOAD_GLOBAL              2 (bytes)
+              8 BUILD_TUPLE              2
+             10 CALL_FUNCTION            2
+             12 POP_JUMP_IF_FALSE       22
+
+456          14 LOAD_GLOBAL              3 (TypeError)
+             16 LOAD_CONST               1 ('application_ids must be a sequence')
+             18 CALL_FUNCTION            1
+             20 RAISE_VARARGS            1
+
+457     >>   22 LOAD_GLOBAL              4 (tuple)
+             24 LOAD_FAST                1 (application_ids)
+             26 CALL_FUNCTION            1
+             28 STORE_FAST               2 (normalized)
+
+458          30 LOAD_FAST                2 (normalized)
+             32 POP_JUMP_IF_TRUE        42
+
+459          34 LOAD_GLOBAL              5 (ValueError)
+             36 LOAD_CONST               2 ('at least one application id is required')
+             38 CALL_FUNCTION            1
+             40 RAISE_VARARGS            1
+
+460     >>   42 LOAD_GLOBAL              6 (len)
+             44 LOAD_FAST                2 (normalized)
+             46 CALL_FUNCTION            1
+             48 LOAD_GLOBAL              6 (len)
+             50 LOAD_GLOBAL              7 (set)
+             52 LOAD_FAST                2 (normalized)
+             54 CALL_FUNCTION            1
+             56 CALL_FUNCTION            1
+             58 COMPARE_OP               3 (!=)
+             60 POP_JUMP_IF_FALSE       70
+
+461          62 LOAD_GLOBAL              5 (ValueError)
+             64 LOAD_CONST               3 ('application ids must be unique')
+             66 CALL_FUNCTION            1
+             68 RAISE_VARARGS            1
+
+462     >>   70 BUILD_MAP                0
+             72 STORE_FAST               3 (paths)
+
+463          74 LOAD_FAST                2 (normalized)
+             76 GET_ITER
+        >>   78 FOR_ITER               158 (to 238)
+             80 STORE_FAST               4 (application_id)
+
+465          82 LOAD_GLOBAL              0 (isinstance)
+             84 LOAD_FAST                4 (application_id)
+             86 LOAD_GLOBAL              1 (str)
+             88 CALL_FUNCTION            2
+
+464          90 POP_JUMP_IF_FALSE      106
+
+466          92 LOAD_GLOBAL              8 (_BUNDLE_IDENTIFIER)
+             94 LOAD_METHOD              9 (fullmatch)
+             96 LOAD_FAST                4 (application_id)
+             98 CALL_METHOD              1
+            100 LOAD_CONST               0 (None)
+            102 IS_OP                    0
+
+464         104 POP_JUMP_IF_FALSE      114
+
+468     >>  106 LOAD_GLOBAL              5 (ValueError)
+            108 LOAD_CONST               4 ('application ids must be bundle identifiers')
+            110 CALL_FUNCTION            1
+            112 RAISE_VARARGS            1
+
+469     >>  114 SETUP_FINALLY           16 (to 132)
+
+470         116 LOAD_FAST                0 (self)
+            118 LOAD_ATTR               10 (_facade)
+            120 LOAD_METHOD             11 (locate_application)
+            122 LOAD_FAST                4 (application_id)
+            124 CALL_METHOD              1
+            126 STORE_FAST               5 (path)
+            128 POP_BLOCK
+            130 JUMP_FORWARD            46 (to 178)
+
+471     >>  132 DUP_TOP
+            134 LOAD_GLOBAL             12 (Exception)
+            136 JUMP_IF_NOT_EXC_MATCH   176
+            138 POP_TOP
+            140 STORE_FAST               6 (exc)
+            142 POP_TOP
+            144 SETUP_FINALLY           22 (to 168)
+
+472         146 LOAD_GLOBAL             13 (RuntimeError)
+
+473         148 LOAD_CONST               5 ('LaunchServices application resolution failed')
+
+472         150 CALL_FUNCTION            1
+
+474         152 LOAD_FAST                6 (exc)
+
+472         154 RAISE_VARARGS            2
+            156 POP_BLOCK
+            158 POP_EXCEPT
+            160 LOAD_CONST               0 (None)
+            162 STORE_FAST               6 (exc)
+            164 DELETE_FAST              6 (exc)
+            166 JUMP_FORWARD            10 (to 178)
+        >>  168 LOAD_CONST               0 (None)
+            170 STORE_FAST               6 (exc)
+            172 DELETE_FAST              6 (exc)
+            174 RERAISE
+        >>  176 RERAISE
+
+475     >>  178 LOAD_GLOBAL              0 (isinstance)
+            180 LOAD_FAST                5 (path)
+            182 LOAD_GLOBAL             14 (Path)
+            184 CALL_FUNCTION            2
+            186 POP_JUMP_IF_TRUE       202
+
+476         188 LOAD_GLOBAL             15 (FileNotFoundError)
+
+477         190 LOAD_CONST               6 ('required macOS application is not installed: {}')
+            192 LOAD_METHOD             16 (format)
+
+478         194 LOAD_FAST                4 (application_id)
+
+477         196 CALL_METHOD              1
+
+476         198 CALL_FUNCTION            1
+            200 RAISE_VARARGS            1
+
+481     >>  202 LOAD_FAST                5 (path)
+            204 LOAD_METHOD             17 (is_absolute)
+            206 CALL_METHOD              0
+            208 POP_JUMP_IF_FALSE      220
+            210 LOAD_FAST                5 (path)
+            212 LOAD_ATTR               18 (suffix)
+            214 LOAD_CONST               7 ('.app')
+            216 COMPARE_OP               3 (!=)
+            218 POP_JUMP_IF_FALSE      228
+
+482     >>  220 LOAD_GLOBAL             13 (RuntimeError)
+
+483         222 LOAD_CONST               8 ('LaunchServices returned an invalid application path')
+
+482         224 CALL_FUNCTION            1
+            226 RAISE_VARARGS            1
+
+485     >>  228 LOAD_FAST                5 (path)
+            230 LOAD_FAST                3 (paths)
+            232 LOAD_FAST                4 (application_id)
+            234 STORE_SUBSCR
+            236 JUMP_ABSOLUTE           78
+
+486     >>  238 LOAD_FAST                3 (paths)
+            240 RETURN_VALUE
+
+Disassembly of <code object MacOSNativeApplicationFacade at 0x1073ab190, file "WeRobotCore/adapters/platform/macos_native.py", line 489>:
+489           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('MacOSNativeApplicationFacade')
+              6 STORE_NAME               2 (__qualname__)
+
+490           8 LOAD_CONST               1 ('Launch one explicitly registered .app through LaunchServices.')
+             10 STORE_NAME               3 (__doc__)
+
+492          12 LOAD_CONST               9 ((None,))
+             14 LOAD_NAME                4 (Optional)
+             16 LOAD_NAME                5 (Callable)
+             18 BUILD_LIST               0
+             20 LOAD_NAME                6 (Any)
+             22 BUILD_TUPLE              2
+             24 BINARY_SUBSCR
+             26 BINARY_SUBSCR
+             28 LOAD_CONST               2 (None)
+             30 LOAD_CONST               3 (('appkit_loader', 'return'))
+             32 BUILD_CONST_KEY_MAP      2
+             34 LOAD_CONST               4 (<code object __init__ at 0x1073ab030, file "WeRobotCore/adapters/platform/macos_native.py", line 492>)
+             36 LOAD_CONST               5 ('MacOSNativeApplicationFacade.__init__')
+             38 MAKE_FUNCTION            5 (defaults, annotations)
+             40 STORE_NAME               7 (__init__)
+
+495          42 LOAD_NAME                8 (Path)
+             44 LOAD_NAME                9 (str)
+             46 LOAD_NAME               10 (int)
+             48 LOAD_CONST               6 (('bundle_path', 'bundle_identifier', 'return'))
+             50 BUILD_CONST_KEY_MAP      3
+             52 LOAD_CONST               7 (<code object launch_application at 0x1073ab0e0, file "WeRobotCore/adapters/platform/macos_native.py", line 495>)
+             54 LOAD_CONST               8 ('MacOSNativeApplicationFacade.launch_application')
+             56 MAKE_FUNCTION            4 (annotations)
+             58 STORE_NAME              11 (launch_application)
+             60 LOAD_CONST               2 (None)
+             62 RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x1073ab030, file "WeRobotCore/adapters/platform/macos_native.py", line 492>:
+493           0 LOAD_FAST                1 (appkit_loader)
+              2 JUMP_IF_TRUE_OR_POP      8
+              4 LOAD_GLOBAL              0 (MacOSNativeProcessFacade)
+              6 LOAD_ATTR                1 (_load_appkit)
+        >>    8 LOAD_FAST                0 (self)
+             10 STORE_ATTR               2 (_appkit_loader)
+             12 LOAD_CONST               0 (None)
+             14 RETURN_VALUE
+
+Disassembly of <code object launch_application at 0x1073ab0e0, file "WeRobotCore/adapters/platform/macos_native.py", line 495>:
+496           0 LOAD_FAST                0 (self)
+              2 LOAD_METHOD              0 (_appkit_loader)
+              4 CALL_METHOD              0
+              6 STORE_FAST               3 (appkit)
+
+497           8 LOAD_FAST                3 (appkit)
+             10 LOAD_ATTR                1 (NSURL)
+             12 LOAD_METHOD              2 (fileURLWithPath_)
+             14 LOAD_GLOBAL              3 (str)
+             16 LOAD_FAST                1 (bundle_path)
+             18 CALL_FUNCTION            1
+             20 CALL_METHOD              1
+             22 STORE_FAST               4 (bundle_url)
+
+498          24 LOAD_FAST                3 (appkit)
+             26 LOAD_ATTR                4 (NSBundle)
+             28 LOAD_METHOD              5 (bundleWithURL_)
+             30 LOAD_FAST                4 (bundle_url)
+             32 CALL_METHOD              1
+             34 STORE_FAST               5 (bundle)
+
+499          36 LOAD_FAST                5 (bundle)
+             38 LOAD_CONST               0 (None)
+             40 IS_OP                    0
+             42 POP_JUMP_IF_TRUE        60
+             44 LOAD_GLOBAL              3 (str)
+             46 LOAD_FAST                5 (bundle)
+             48 LOAD_METHOD              6 (bundleIdentifier)
+             50 CALL_METHOD              0
+             52 CALL_FUNCTION            1
+             54 LOAD_FAST                2 (bundle_identifier)
+             56 COMPARE_OP               3 (!=)
+             58 POP_JUMP_IF_FALSE       68
+
+500     >>   60 LOAD_GLOBAL              7 (RuntimeError)
+             62 LOAD_CONST               1 ('registered application bundle identity does not match')
+             64 CALL_FUNCTION            1
+             66 RAISE_VARARGS            1
+
+501     >>   68 LOAD_FAST                3 (appkit)
+             70 LOAD_ATTR                8 (NSWorkspace)
+             72 LOAD_METHOD              9 (sharedWorkspace)
+             74 CALL_METHOD              0
+             76 LOAD_METHOD             10 (launchApplicationAtURL_options_configuration_error_)
+
+502          78 LOAD_FAST                4 (bundle_url)
+
+503          80 LOAD_FAST                3 (appkit)
+             82 LOAD_ATTR               11 (NSWorkspaceLaunchDefault)
+
+504          84 BUILD_MAP                0
+
+505          86 LOAD_CONST               0 (None)
+
+501          88 CALL_METHOD              4
+             90 STORE_FAST               6 (launched)
+
+507          92 LOAD_GLOBAL             12 (isinstance)
+             94 LOAD_FAST                6 (launched)
+             96 LOAD_GLOBAL             13 (tuple)
+             98 CALL_FUNCTION            2
+            100 POP_JUMP_IF_FALSE      112
+
+508         102 LOAD_FAST                6 (launched)
+            104 UNPACK_SEQUENCE          2
+            106 STORE_FAST               7 (application)
+            108 STORE_FAST               8 (error)
+            110 JUMP_FORWARD            10 (to 122)
+
+510     >>  112 LOAD_FAST                6 (launched)
+            114 LOAD_CONST               0 (None)
+            116 ROT_TWO
+            118 STORE_FAST               7 (application)
+            120 STORE_FAST               8 (error)
+
+511     >>  122 LOAD_FAST                7 (application)
+            124 LOAD_CONST               0 (None)
+            126 IS_OP                    0
+            128 POP_JUMP_IF_FALSE      140
+
+512         130 LOAD_GLOBAL              7 (RuntimeError)
+            132 LOAD_CONST               2 ('LaunchServices did not return an application')
+            134 CALL_FUNCTION            1
+            136 LOAD_FAST                8 (error)
+            138 RAISE_VARARGS            2
+
+513     >>  140 LOAD_FAST                7 (application)
+            142 LOAD_METHOD             14 (bundleURL)
+            144 CALL_METHOD              0
+            146 STORE_FAST               9 (running_url)
+
+515         148 LOAD_GLOBAL              3 (str)
+            150 LOAD_FAST                7 (application)
+            152 LOAD_METHOD              6 (bundleIdentifier)
+            154 CALL_METHOD              0
+            156 CALL_FUNCTION            1
+            158 LOAD_FAST                2 (bundle_identifier)
+            160 COMPARE_OP               3 (!=)
+
+514         162 POP_JUMP_IF_TRUE       208
+
+516         164 LOAD_FAST                9 (running_url)
+            166 LOAD_CONST               0 (None)
+            168 IS_OP                    0
+
+514         170 POP_JUMP_IF_TRUE       208
+
+517         172 LOAD_GLOBAL             15 (os)
+            174 LOAD_ATTR               16 (path)
+            176 LOAD_METHOD             17 (realpath)
+            178 LOAD_GLOBAL              3 (str)
+            180 LOAD_FAST                9 (running_url)
+            182 LOAD_METHOD             16 (path)
+            184 CALL_METHOD              0
+            186 CALL_FUNCTION            1
+            188 CALL_METHOD              1
+
+518         190 LOAD_GLOBAL             15 (os)
+            192 LOAD_ATTR               16 (path)
+            194 LOAD_METHOD             17 (realpath)
+            196 LOAD_GLOBAL              3 (str)
+            198 LOAD_FAST                1 (bundle_path)
+            200 CALL_FUNCTION            1
+            202 CALL_METHOD              1
+
+517         204 COMPARE_OP               3 (!=)
+
+514         206 POP_JUMP_IF_FALSE      224
+
+520     >>  208 LOAD_FAST                7 (application)
+            210 LOAD_METHOD             18 (terminate)
+            212 CALL_METHOD              0
+            214 POP_TOP
+
+521         216 LOAD_GLOBAL              7 (RuntimeError)
+            218 LOAD_CONST               3 ('LaunchServices started an unexpected application')
+            220 CALL_FUNCTION            1
+            222 RAISE_VARARGS            1
+
+522     >>  224 LOAD_GLOBAL             19 (int)
+            226 LOAD_FAST                7 (application)
+            228 LOAD_METHOD             20 (processIdentifier)
+            230 CALL_METHOD              0
+            232 CALL_FUNCTION            1
+            234 RETURN_VALUE
+
+Disassembly of <code object MacOSBundleApplicationLauncher at 0x1073ab3a0, file "WeRobotCore/adapters/platform/macos_native.py", line 525>:
+525           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('MacOSBundleApplicationLauncher')
+              6 STORE_NAME               2 (__qualname__)
+
+526           8 LOAD_CONST               1 ('Launch only fixed, explicitly registered macOS bundle paths.')
+             10 STORE_NAME               3 (__doc__)
+
+528          12 LOAD_CONST               9 ((None,))
+
+530          14 LOAD_NAME                4 (Mapping)
+             16 LOAD_NAME                5 (str)
+             18 LOAD_NAME                6 (Path)
+             20 BUILD_TUPLE              2
+             22 BINARY_SUBSCR
+
+531          24 LOAD_NAME                7 (Optional)
+             26 LOAD_NAME                8 (MacOSApplicationFacade)
+             28 BINARY_SUBSCR
+
+532          30 LOAD_CONST               2 (None)
+
+528          32 LOAD_CONST               3 (('application_paths', 'facade', 'return'))
+             34 BUILD_CONST_KEY_MAP      3
+             36 LOAD_CONST               4 (<code object __init__ at 0x1073ab240, file "WeRobotCore/adapters/platform/macos_native.py", line 528>)
+             38 LOAD_CONST               5 ('MacOSBundleApplicationLauncher.__init__')
+             40 MAKE_FUNCTION            5 (defaults, annotations)
+             42 STORE_NAME               9 (__init__)
+
+552          44 LOAD_NAME                5 (str)
+             46 LOAD_NAME               10 (OperationResult)
+             48 LOAD_CONST               6 (('application_id', 'return'))
+             50 BUILD_CONST_KEY_MAP      2
+             52 LOAD_CONST               7 (<code object launch at 0x1073ab2f0, file "WeRobotCore/adapters/platform/macos_native.py", line 552>)
+             54 LOAD_CONST               8 ('MacOSBundleApplicationLauncher.launch')
+             56 MAKE_FUNCTION            4 (annotations)
+             58 STORE_NAME              11 (launch)
+             60 LOAD_CONST               2 (None)
+             62 RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x1073ab240, file "WeRobotCore/adapters/platform/macos_native.py", line 528>:
+533           0 LOAD_FAST                1 (application_paths)
+              2 LOAD_CONST               0 (None)
+              4 IS_OP                    0
+              6 POP_JUMP_IF_FALSE       16
+
+534           8 LOAD_GLOBAL              0 (ValueError)
+             10 LOAD_CONST               1 ('application_paths must be provided')
+             12 CALL_FUNCTION            1
+             14 RAISE_VARARGS            1
+
+535     >>   16 BUILD_MAP                0
+             18 STORE_FAST               3 (normalized)
+
+536          20 LOAD_FAST                1 (application_paths)
+             22 LOAD_METHOD              1 (items)
+             24 CALL_METHOD              0
+             26 GET_ITER
+        >>   28 FOR_ITER               100 (to 130)
+             30 UNPACK_SEQUENCE          2
+             32 STORE_FAST               4 (application_id)
+             34 STORE_FAST               5 (path)
+
+538          36 LOAD_GLOBAL              2 (isinstance)
+             38 LOAD_FAST                4 (application_id)
+             40 LOAD_GLOBAL              3 (str)
+             42 CALL_FUNCTION            2
+
+537          44 POP_JUMP_IF_FALSE       60
+
+539          46 LOAD_GLOBAL              4 (_BUNDLE_IDENTIFIER)
+             48 LOAD_METHOD              5 (fullmatch)
+             50 LOAD_FAST                4 (application_id)
+             52 CALL_METHOD              1
+             54 LOAD_CONST               0 (None)
+             56 IS_OP                    0
+
+537          58 POP_JUMP_IF_FALSE       68
+
+541     >>   60 LOAD_GLOBAL              0 (ValueError)
+             62 LOAD_CONST               2 ('application ids must be bundle identifiers')
+             64 CALL_FUNCTION            1
+             66 RAISE_VARARGS            1
+
+542     >>   68 LOAD_GLOBAL              2 (isinstance)
+             70 LOAD_FAST                5 (path)
+             72 LOAD_GLOBAL              6 (Path)
+             74 CALL_FUNCTION            2
+             76 POP_JUMP_IF_TRUE        86
+
+543          78 LOAD_GLOBAL              7 (TypeError)
+             80 LOAD_CONST               3 ('application paths must be pathlib.Path values')
+             82 CALL_FUNCTION            1
+             84 RAISE_VARARGS            1
+
+544     >>   86 LOAD_FAST                5 (path)
+             88 LOAD_METHOD              8 (is_absolute)
+             90 CALL_METHOD              0
+             92 POP_JUMP_IF_TRUE       102
+
+545          94 LOAD_GLOBAL              0 (ValueError)
+             96 LOAD_CONST               4 ('application paths must be absolute')
+             98 CALL_FUNCTION            1
+            100 RAISE_VARARGS            1
+
+546     >>  102 LOAD_FAST                5 (path)
+            104 LOAD_ATTR                9 (suffix)
+            106 LOAD_CONST               5 ('.app')
+            108 COMPARE_OP               3 (!=)
+            110 POP_JUMP_IF_FALSE      120
+
+547         112 LOAD_GLOBAL              0 (ValueError)
+            114 LOAD_CONST               6 ('application paths must identify .app bundles')
+            116 CALL_FUNCTION            1
+            118 RAISE_VARARGS            1
+
+548     >>  120 LOAD_FAST                5 (path)
+            122 LOAD_FAST                3 (normalized)
+            124 LOAD_FAST                4 (application_id)
+            126 STORE_SUBSCR
+            128 JUMP_ABSOLUTE           28
+
+549     >>  130 LOAD_FAST                3 (normalized)
+            132 LOAD_FAST                0 (self)
+            134 STORE_ATTR              10 (_application_paths)
+
+550         136 LOAD_FAST                2 (facade)
+            138 JUMP_IF_TRUE_OR_POP    144
+            140 LOAD_GLOBAL             11 (MacOSNativeApplicationFacade)
+            142 CALL_FUNCTION            0
+        >>  144 LOAD_FAST                0 (self)
+            146 STORE_ATTR              12 (_facade)
+            148 LOAD_CONST               0 (None)
+            150 RETURN_VALUE
+
+Disassembly of <code object launch at 0x1073ab2f0, file "WeRobotCore/adapters/platform/macos_native.py", line 552>:
+553           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                1 (application_id)
+              4 LOAD_GLOBAL              1 (str)
+              6 CALL_FUNCTION            2
+              8 POP_JUMP_IF_FALSE       18
+             10 LOAD_FAST                1 (application_id)
+             12 LOAD_METHOD              2 (strip)
+             14 CALL_METHOD              0
+             16 POP_JUMP_IF_TRUE        32
+
+554     >>   18 LOAD_GLOBAL              3 (OperationResult)
+             20 LOAD_METHOD              4 (failed)
+
+555          22 LOAD_GLOBAL              5 (ErrorCode)
+             24 LOAD_ATTR                6 (INVALID_ARGUMENT)
+
+556          26 LOAD_CONST               1 ('application_id must be a non-empty bundle identifier')
+
+554          28 CALL_METHOD              2
+             30 RETURN_VALUE
+
+558     >>   32 LOAD_FAST                1 (application_id)
+             34 LOAD_METHOD              2 (strip)
+             36 CALL_METHOD              0
+             38 STORE_FAST               2 (normalized_id)
+
+559          40 LOAD_FAST                0 (self)
+             42 LOAD_ATTR                7 (_application_paths)
+             44 LOAD_METHOD              8 (get)
+             46 LOAD_FAST                2 (normalized_id)
+             48 CALL_METHOD              1
+             50 STORE_FAST               3 (bundle_path)
+
+560          52 LOAD_FAST                3 (bundle_path)
+             54 LOAD_CONST               0 (None)
+             56 IS_OP                    0
+             58 POP_JUMP_IF_FALSE       80
+
+561          60 LOAD_GLOBAL              3 (OperationResult)
+             62 LOAD_METHOD              4 (failed)
+
+562          64 LOAD_GLOBAL              5 (ErrorCode)
+             66 LOAD_ATTR                9 (CAPABILITY_UNAVAILABLE)
+
+563          68 LOAD_CONST               2 ('application is not registered: {}')
+             70 LOAD_METHOD             10 (format)
+             72 LOAD_FAST                2 (normalized_id)
+             74 CALL_METHOD              1
+
+561          76 CALL_METHOD              2
+             78 RETURN_VALUE
+
+565     >>   80 LOAD_FAST                3 (bundle_path)
+             82 LOAD_METHOD             11 (is_dir)
+             84 CALL_METHOD              0
+             86 POP_JUMP_IF_TRUE       102
+
+566          88 LOAD_GLOBAL              3 (OperationResult)
+             90 LOAD_METHOD              4 (failed)
+
+567          92 LOAD_GLOBAL              5 (ErrorCode)
+             94 LOAD_ATTR               12 (INSTANCE_NOT_FOUND)
+
+568          96 LOAD_CONST               3 ('registered application bundle was not found')
+
+566          98 CALL_METHOD              2
+            100 RETURN_VALUE
+
+570     >>  102 SETUP_FINALLY           30 (to 134)
+
+571         104 LOAD_GLOBAL             13 (int)
+
+572         106 LOAD_GLOBAL             14 (_run_native)
+
+573         108 LOAD_FAST                0 (self)
+            110 LOAD_ATTR               15 (_facade)
+            112 LOAD_ATTR               16 (launch_application)
+
+574         114 LOAD_FAST                3 (bundle_path)
+
+575         116 LOAD_FAST                2 (normalized_id)
+
+572         118 CALL_FUNCTION            3
+            120 GET_AWAITABLE
+            122 LOAD_CONST               0 (None)
+            124 YIELD_FROM
+
+571         126 CALL_FUNCTION            1
+            128 STORE_FAST               4 (process_id)
+            130 POP_BLOCK
+            132 JUMP_FORWARD            36 (to 170)
+
+578     >>  134 DUP_TOP
+            136 LOAD_GLOBAL             17 (Exception)
+            138 JUMP_IF_NOT_EXC_MATCH   168
+            140 POP_TOP
+            142 POP_TOP
+            144 POP_TOP
+
+579         146 LOAD_GLOBAL              3 (OperationResult)
+            148 LOAD_ATTR                4 (failed)
+
+580         150 LOAD_GLOBAL              5 (ErrorCode)
+            152 LOAD_ATTR               18 (OPERATION_FAILED)
+
+581         154 LOAD_CONST               4 ('macOS application launch failed')
+
+582         156 LOAD_CONST               5 (True)
+
+579         158 LOAD_CONST               6 (('retryable',))
+            160 CALL_FUNCTION_KW         3
+            162 ROT_FOUR
+            164 POP_EXCEPT
+            166 RETURN_VALUE
+        >>  168 RERAISE
+
+584     >>  170 LOAD_FAST                4 (process_id)
+            172 LOAD_CONST               7 (0)
+            174 COMPARE_OP               1 (<=)
+            176 POP_JUMP_IF_FALSE      192
+
+585         178 LOAD_GLOBAL              3 (OperationResult)
+            180 LOAD_METHOD              4 (failed)
+
+586         182 LOAD_GLOBAL              5 (ErrorCode)
+            184 LOAD_ATTR               19 (ACTION_NOT_VERIFIED)
+
+587         186 LOAD_CONST               8 ('LaunchServices returned no process id')
+
+585         188 CALL_METHOD              2
+            190 RETURN_VALUE
+
+589     >>  192 LOAD_GLOBAL              3 (OperationResult)
+            194 LOAD_ATTR               20 (succeeded)
+
+590         196 LOAD_CONST               9 ('application process launched')
+
+591         198 LOAD_CONST              10 (False)
+
+592         200 LOAD_CONST              11 ('process_id')
+            202 LOAD_FAST                4 (process_id)
+            204 BUILD_MAP                1
+
+589         206 LOAD_CONST              12 (('verified', 'data'))
+            208 CALL_FUNCTION_KW         3
+            210 RETURN_VALUE

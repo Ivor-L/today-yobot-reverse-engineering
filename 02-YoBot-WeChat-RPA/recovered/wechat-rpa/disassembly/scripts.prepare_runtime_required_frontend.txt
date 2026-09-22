@@ -1,0 +1,726 @@
+  2           0 LOAD_CONST               0 ('Create an isolated strict frontend composition for S1.6-2C testing.\n\nThe production frontend remains ``legacy_passthrough``.  This tool copies an\nalready-built frontend into a new directory and changes only the copied\n``config.json`` to ``runtime_required``.  The resulting directory can be\nserved through the existing ``WEBOT_FRONTEND_PATH`` override while the backend\nis explicitly started with ``WEBOT_PRODUCT_RUNTIME_MODE=windows_legacy_candidate``.\n\nThe destination must not exist.  The tool never overwrites a build, deletes an\nexisting directory, or reads user/account data.\n')
+              2 STORE_NAME               0 (__doc__)
+
+ 14           4 LOAD_CONST               1 (0)
+              6 LOAD_CONST               2 (('annotations',))
+              8 IMPORT_NAME              1 (__future__)
+             10 IMPORT_FROM              2 (annotations)
+             12 STORE_NAME               2 (annotations)
+             14 POP_TOP
+
+ 16          16 LOAD_CONST               1 (0)
+             18 LOAD_CONST               3 (None)
+             20 IMPORT_NAME              3 (argparse)
+             22 STORE_NAME               3 (argparse)
+
+ 17          24 LOAD_CONST               1 (0)
+             26 LOAD_CONST               3 (None)
+             28 IMPORT_NAME              4 (hashlib)
+             30 STORE_NAME               4 (hashlib)
+
+ 18          32 LOAD_CONST               1 (0)
+             34 LOAD_CONST               3 (None)
+             36 IMPORT_NAME              5 (json)
+             38 STORE_NAME               5 (json)
+
+ 19          40 LOAD_CONST               1 (0)
+             42 LOAD_CONST               3 (None)
+             44 IMPORT_NAME              6 (shutil)
+             46 STORE_NAME               6 (shutil)
+
+ 20          48 LOAD_CONST               1 (0)
+             50 LOAD_CONST               4 (('Path',))
+             52 IMPORT_NAME              7 (pathlib)
+             54 IMPORT_FROM              8 (Path)
+             56 STORE_NAME               8 (Path)
+             58 POP_TOP
+
+ 21          60 LOAD_CONST               1 (0)
+             62 LOAD_CONST               5 (('Any', 'Dict', 'Iterable', 'Optional'))
+             64 IMPORT_NAME              9 (typing)
+             66 IMPORT_FROM             10 (Any)
+             68 STORE_NAME              10 (Any)
+             70 IMPORT_FROM             11 (Dict)
+             72 STORE_NAME              11 (Dict)
+             74 IMPORT_FROM             12 (Iterable)
+             76 STORE_NAME              12 (Iterable)
+             78 IMPORT_FROM             13 (Optional)
+             80 STORE_NAME              13 (Optional)
+             82 POP_TOP
+
+ 24          84 LOAD_CONST               6 ('legacy_passthrough')
+             86 STORE_NAME              14 (LEGACY_MODE)
+
+ 25          88 LOAD_CONST               7 ('runtime_required')
+             90 STORE_NAME              15 (STRICT_MODE)
+
+ 26          92 LOAD_CONST               8 ('windows_legacy_candidate')
+             94 STORE_NAME              16 (REQUIRED_PRODUCT_RUNTIME_MODE)
+
+ 27          96 LOAD_CONST               9 ('runtime-capability-test-manifest.json')
+             98 STORE_NAME              17 (MANIFEST_NAME)
+
+ 28         100 LOAD_CONST              10 (('index.html', 'config.json'))
+            102 STORE_NAME              18 (REQUIRED_FILES)
+
+ 29         104 LOAD_CONST              11 (('js', 'css', 'img', 'icon'))
+            106 STORE_NAME              19 (REQUIRED_DIRECTORIES)
+
+ 30         108 LOAD_NAME                8 (Path)
+            110 LOAD_NAME               20 (__file__)
+            112 CALL_FUNCTION            1
+            114 LOAD_METHOD             21 (resolve)
+            116 CALL_METHOD              0
+            118 LOAD_ATTR               22 (parents)
+            120 LOAD_CONST              12 (1)
+            122 BINARY_SUBSCR
+            124 STORE_NAME              23 (PROJECT_ROOT)
+
+ 33         126 LOAD_CONST              13 ('Path')
+            128 LOAD_CONST              14 ('str')
+            130 LOAD_CONST              15 (('path', 'return'))
+            132 BUILD_CONST_KEY_MAP      2
+            134 LOAD_CONST              16 (<code object _sha256 at 0x10924bdf0, file "scripts/prepare_runtime_required_frontend.py", line 33>)
+            136 LOAD_CONST              17 ('_sha256')
+            138 MAKE_FUNCTION            4 (annotations)
+            140 STORE_NAME              24 (_sha256)
+
+ 41         142 LOAD_CONST              13 ('Path')
+            144 LOAD_CONST              13 ('Path')
+            146 LOAD_CONST              18 ('bool')
+            148 LOAD_CONST              19 (('path', 'parent', 'return'))
+            150 BUILD_CONST_KEY_MAP      3
+            152 LOAD_CONST              20 (<code object _is_relative_to at 0x10924bbe0, file "scripts/prepare_runtime_required_frontend.py", line 41>)
+            154 LOAD_CONST              21 ('_is_relative_to')
+            156 MAKE_FUNCTION            4 (annotations)
+            158 STORE_NAME              25 (_is_relative_to)
+
+ 49         160 LOAD_CONST              13 ('Path')
+            162 LOAD_CONST              22 ('Dict[str, Any]')
+            164 LOAD_CONST              23 (('source_root', 'return'))
+            166 BUILD_CONST_KEY_MAP      2
+            168 LOAD_CONST              24 (<code object _validate_source at 0x10924b9d0, file "scripts/prepare_runtime_required_frontend.py", line 49>)
+            170 LOAD_CONST              25 ('_validate_source')
+            172 MAKE_FUNCTION            4 (annotations)
+            174 STORE_NAME              26 (_validate_source)
+
+ 84         176 LOAD_CONST              13 ('Path')
+            178 LOAD_CONST              13 ('Path')
+            180 LOAD_CONST              26 ('None')
+            182 LOAD_CONST              27 (('source_root', 'output_root', 'return'))
+            184 BUILD_CONST_KEY_MAP      3
+            186 LOAD_CONST              28 (<code object _validate_output at 0x10924b500, file "scripts/prepare_runtime_required_frontend.py", line 84>)
+            188 LOAD_CONST              29 ('_validate_output')
+            190 MAKE_FUNCTION            4 (annotations)
+            192 STORE_NAME              27 (_validate_output)
+
+ 97         194 LOAD_CONST              13 ('Path')
+            196 LOAD_CONST              13 ('Path')
+            198 LOAD_CONST              22 ('Dict[str, Any]')
+            200 LOAD_CONST              27 (('source_root', 'output_root', 'return'))
+            202 BUILD_CONST_KEY_MAP      3
+            204 LOAD_CONST              30 (<code object prepare_runtime_required_frontend at 0x10924b240, file "scripts/prepare_runtime_required_frontend.py", line 97>)
+            206 LOAD_CONST              31 ('prepare_runtime_required_frontend')
+            208 MAKE_FUNCTION            4 (annotations)
+            210 STORE_NAME              28 (prepare_runtime_required_frontend)
+
+141         212 LOAD_CONST              41 ((None,))
+            214 LOAD_CONST              32 ('Optional[Iterable[str]]')
+            216 LOAD_CONST              33 ('argparse.Namespace')
+            218 LOAD_CONST              34 (('argv', 'return'))
+            220 BUILD_CONST_KEY_MAP      2
+            222 LOAD_CONST              35 (<code object parse_args at 0x10924b920, file "scripts/prepare_runtime_required_frontend.py", line 141>)
+            224 LOAD_CONST              36 ('parse_args')
+            226 MAKE_FUNCTION            5 (defaults, annotations)
+            228 STORE_NAME              29 (parse_args)
+
+156         230 LOAD_CONST              42 ((None,))
+            232 LOAD_CONST              32 ('Optional[Iterable[str]]')
+            234 LOAD_CONST              37 ('int')
+            236 LOAD_CONST              34 (('argv', 'return'))
+            238 BUILD_CONST_KEY_MAP      2
+            240 LOAD_CONST              38 (<code object main at 0x10924b3a0, file "scripts/prepare_runtime_required_frontend.py", line 156>)
+            242 LOAD_CONST              39 ('main')
+            244 MAKE_FUNCTION            5 (defaults, annotations)
+            246 STORE_NAME              30 (main)
+
+171         248 LOAD_NAME               31 (__name__)
+            250 LOAD_CONST              40 ('__main__')
+            252 COMPARE_OP               2 (==)
+            254 EXTENDED_ARG             1
+            256 POP_JUMP_IF_FALSE      268
+
+172         258 LOAD_NAME               32 (SystemExit)
+            260 LOAD_NAME               30 (main)
+            262 CALL_FUNCTION            0
+            264 CALL_FUNCTION            1
+            266 RAISE_VARARGS            1
+        >>  268 LOAD_CONST               3 (None)
+            270 RETURN_VALUE
+
+Disassembly of <code object _sha256 at 0x10924bdf0, file "scripts/prepare_runtime_required_frontend.py", line 33>:
+ 34           0 LOAD_GLOBAL              0 (hashlib)
+              2 LOAD_METHOD              1 (sha256)
+              4 CALL_METHOD              0
+              6 STORE_FAST               1 (digest)
+
+ 35           8 LOAD_FAST                0 (path)
+             10 LOAD_METHOD              2 (open)
+             12 LOAD_CONST               1 ('rb')
+             14 CALL_METHOD              1
+             16 SETUP_WITH              50 (to 68)
+             18 STORE_DEREF              0 (stream)
+
+ 36          20 LOAD_GLOBAL              3 (iter)
+             22 LOAD_CLOSURE             0 (stream)
+             24 BUILD_TUPLE              1
+             26 LOAD_CONST               2 (<code object <lambda> at 0x10924bc90, file "scripts/prepare_runtime_required_frontend.py", line 36>)
+             28 LOAD_CONST               3 ('_sha256.<locals>.<lambda>')
+             30 MAKE_FUNCTION            8 (closure)
+             32 LOAD_CONST               4 (b'')
+             34 CALL_FUNCTION            2
+             36 GET_ITER
+        >>   38 FOR_ITER                14 (to 54)
+             40 STORE_FAST               2 (chunk)
+
+ 37          42 LOAD_FAST                1 (digest)
+             44 LOAD_METHOD              4 (update)
+             46 LOAD_FAST                2 (chunk)
+             48 CALL_METHOD              1
+             50 POP_TOP
+             52 JUMP_ABSOLUTE           38
+        >>   54 POP_BLOCK
+             56 LOAD_CONST               0 (None)
+             58 DUP_TOP
+             60 DUP_TOP
+             62 CALL_FUNCTION            3
+             64 POP_TOP
+             66 JUMP_FORWARD            16 (to 84)
+        >>   68 WITH_EXCEPT_START
+             70 POP_JUMP_IF_TRUE        74
+             72 RERAISE
+        >>   74 POP_TOP
+             76 POP_TOP
+             78 POP_TOP
+             80 POP_EXCEPT
+             82 POP_TOP
+
+ 38     >>   84 LOAD_FAST                1 (digest)
+             86 LOAD_METHOD              5 (hexdigest)
+             88 CALL_METHOD              0
+             90 RETURN_VALUE
+
+Disassembly of <code object <lambda> at 0x10924bc90, file "scripts/prepare_runtime_required_frontend.py", line 36>:
+ 36           0 LOAD_DEREF               0 (stream)
+              2 LOAD_METHOD              0 (read)
+              4 LOAD_CONST               1 (1048576)
+              6 CALL_METHOD              1
+              8 RETURN_VALUE
+
+Disassembly of <code object _is_relative_to at 0x10924bbe0, file "scripts/prepare_runtime_required_frontend.py", line 41>:
+ 42           0 SETUP_FINALLY           14 (to 16)
+
+ 43           2 LOAD_FAST                0 (path)
+              4 LOAD_METHOD              0 (relative_to)
+              6 LOAD_FAST                1 (parent)
+              8 CALL_METHOD              1
+             10 POP_TOP
+             12 POP_BLOCK
+             14 JUMP_FORWARD            20 (to 36)
+
+ 44     >>   16 DUP_TOP
+             18 LOAD_GLOBAL              1 (ValueError)
+             20 JUMP_IF_NOT_EXC_MATCH    34
+             22 POP_TOP
+             24 POP_TOP
+             26 POP_TOP
+
+ 45          28 POP_EXCEPT
+             30 LOAD_CONST               1 (False)
+             32 RETURN_VALUE
+        >>   34 RERAISE
+
+ 46     >>   36 LOAD_CONST               2 (True)
+             38 RETURN_VALUE
+
+Disassembly of <code object _validate_source at 0x10924b9d0, file "scripts/prepare_runtime_required_frontend.py", line 49>:
+ 50           0 LOAD_FAST                0 (source_root)
+              2 LOAD_METHOD              0 (is_dir)
+              4 CALL_METHOD              0
+              6 POP_JUMP_IF_TRUE        22
+
+ 51           8 LOAD_GLOBAL              1 (FileNotFoundError)
+             10 LOAD_CONST               1 ('frontend build directory does not exist: {}')
+             12 LOAD_METHOD              2 (format)
+             14 LOAD_FAST                0 (source_root)
+             16 CALL_METHOD              1
+             18 CALL_FUNCTION            1
+             20 RAISE_VARARGS            1
+
+ 53     >>   22 LOAD_GLOBAL              3 (REQUIRED_FILES)
+             24 GET_ITER
+        >>   26 FOR_ITER                34 (to 62)
+             28 STORE_FAST               1 (relative_path)
+
+ 54          30 LOAD_FAST                0 (source_root)
+             32 LOAD_FAST                1 (relative_path)
+             34 BINARY_TRUE_DIVIDE
+             36 STORE_FAST               2 (path)
+
+ 55          38 LOAD_FAST                2 (path)
+             40 LOAD_METHOD              4 (is_file)
+             42 CALL_METHOD              0
+             44 POP_JUMP_IF_TRUE        26
+
+ 56          46 LOAD_GLOBAL              1 (FileNotFoundError)
+             48 LOAD_CONST               2 ('frontend build is missing file: {}')
+             50 LOAD_METHOD              2 (format)
+             52 LOAD_FAST                2 (path)
+             54 CALL_METHOD              1
+             56 CALL_FUNCTION            1
+             58 RAISE_VARARGS            1
+             60 JUMP_ABSOLUTE           26
+
+ 57     >>   62 LOAD_GLOBAL              5 (REQUIRED_DIRECTORIES)
+             64 GET_ITER
+        >>   66 FOR_ITER                34 (to 102)
+             68 STORE_FAST               1 (relative_path)
+
+ 58          70 LOAD_FAST                0 (source_root)
+             72 LOAD_FAST                1 (relative_path)
+             74 BINARY_TRUE_DIVIDE
+             76 STORE_FAST               2 (path)
+
+ 59          78 LOAD_FAST                2 (path)
+             80 LOAD_METHOD              0 (is_dir)
+             82 CALL_METHOD              0
+             84 POP_JUMP_IF_TRUE        66
+
+ 60          86 LOAD_GLOBAL              1 (FileNotFoundError)
+             88 LOAD_CONST               3 ('frontend build is missing directory: {}')
+             90 LOAD_METHOD              2 (format)
+             92 LOAD_FAST                2 (path)
+             94 CALL_METHOD              1
+             96 CALL_FUNCTION            1
+             98 RAISE_VARARGS            1
+            100 JUMP_ABSOLUTE           66
+
+ 62     >>  102 LOAD_GLOBAL              6 (next)
+            104 LOAD_CONST               4 (<code object <genexpr> at 0x10924bd40, file "scripts/prepare_runtime_required_frontend.py", line 62>)
+            106 LOAD_CONST               5 ('_validate_source.<locals>.<genexpr>')
+            108 MAKE_FUNCTION            0
+            110 LOAD_FAST                0 (source_root)
+            112 LOAD_METHOD              7 (rglob)
+            114 LOAD_CONST               6 ('*')
+            116 CALL_METHOD              1
+            118 GET_ITER
+            120 CALL_FUNCTION            1
+            122 LOAD_CONST               0 (None)
+            124 CALL_FUNCTION            2
+            126 STORE_FAST               3 (symlink)
+
+ 63         128 LOAD_FAST                3 (symlink)
+            130 LOAD_CONST               0 (None)
+            132 IS_OP                    1
+            134 POP_JUMP_IF_FALSE      150
+
+ 64         136 LOAD_GLOBAL              8 (ValueError)
+            138 LOAD_CONST               7 ('frontend build contains a symlink: {}')
+            140 LOAD_METHOD              2 (format)
+            142 LOAD_FAST                3 (symlink)
+            144 CALL_METHOD              1
+            146 CALL_FUNCTION            1
+            148 RAISE_VARARGS            1
+
+ 66     >>  150 LOAD_FAST                0 (source_root)
+            152 LOAD_CONST               8 ('config.json')
+            154 BINARY_TRUE_DIVIDE
+            156 STORE_FAST               4 (config_path)
+
+ 67         158 LOAD_GLOBAL              9 (json)
+            160 LOAD_METHOD             10 (loads)
+            162 LOAD_FAST                4 (config_path)
+            164 LOAD_ATTR               11 (read_text)
+            166 LOAD_CONST               9 ('utf-8')
+            168 LOAD_CONST              10 (('encoding',))
+            170 CALL_FUNCTION_KW         1
+            172 CALL_METHOD              1
+            174 STORE_FAST               5 (config)
+
+ 68         176 LOAD_GLOBAL             12 (isinstance)
+            178 LOAD_FAST                5 (config)
+            180 LOAD_GLOBAL             13 (dict)
+            182 CALL_FUNCTION            2
+            184 POP_JUMP_IF_TRUE       194
+
+ 69         186 LOAD_GLOBAL              8 (ValueError)
+            188 LOAD_CONST              11 ('frontend config root must be an object')
+            190 CALL_FUNCTION            1
+            192 RAISE_VARARGS            1
+
+ 70     >>  194 LOAD_FAST                5 (config)
+            196 LOAD_METHOD             14 (get)
+            198 LOAD_CONST              12 ('runtimeCapabilities')
+            200 CALL_METHOD              1
+            202 STORE_FAST               6 (runtime_config)
+
+ 71         204 LOAD_GLOBAL             12 (isinstance)
+            206 LOAD_FAST                6 (runtime_config)
+            208 LOAD_GLOBAL             13 (dict)
+            210 CALL_FUNCTION            2
+            212 POP_JUMP_IF_TRUE       222
+
+ 72         214 LOAD_GLOBAL              8 (ValueError)
+            216 LOAD_CONST              13 ('frontend config must explicitly declare runtimeCapabilities')
+            218 CALL_FUNCTION            1
+            220 RAISE_VARARGS            1
+
+ 73     >>  222 LOAD_FAST                6 (runtime_config)
+            224 LOAD_METHOD             14 (get)
+            226 LOAD_CONST              14 ('mode')
+            228 CALL_METHOD              1
+            230 STORE_FAST               7 (source_mode)
+
+ 74         232 LOAD_FAST                7 (source_mode)
+            234 LOAD_GLOBAL             15 (LEGACY_MODE)
+            236 COMPARE_OP               3 (!=)
+            238 EXTENDED_ARG             1
+            240 POP_JUMP_IF_FALSE      258
+
+ 75         242 LOAD_GLOBAL              8 (ValueError)
+
+ 76         244 LOAD_CONST              15 ('source frontend must explicitly use {} (got {!r})')
+            246 LOAD_METHOD              2 (format)
+
+ 77         248 LOAD_GLOBAL             15 (LEGACY_MODE)
+
+ 78         250 LOAD_FAST                7 (source_mode)
+
+ 76         252 CALL_METHOD              2
+
+ 75         254 CALL_FUNCTION            1
+            256 RAISE_VARARGS            1
+
+ 81     >>  258 LOAD_FAST                5 (config)
+            260 RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x10924bd40, file "scripts/prepare_runtime_required_frontend.py", line 62>:
+ 62           0 LOAD_FAST                0 (.0)
+        >>    2 FOR_ITER                18 (to 22)
+              4 STORE_FAST               1 (path)
+              6 LOAD_FAST                1 (path)
+              8 LOAD_METHOD              0 (is_symlink)
+             10 CALL_METHOD              0
+             12 POP_JUMP_IF_FALSE        2
+             14 LOAD_FAST                1 (path)
+             16 YIELD_VALUE
+             18 POP_TOP
+             20 JUMP_ABSOLUTE            2
+        >>   22 LOAD_CONST               0 (None)
+             24 RETURN_VALUE
+
+Disassembly of <code object _validate_output at 0x10924b500, file "scripts/prepare_runtime_required_frontend.py", line 84>:
+ 85           0 LOAD_FAST                1 (output_root)
+              2 LOAD_GLOBAL              0 (Path)
+              4 LOAD_FAST                1 (output_root)
+              6 LOAD_ATTR                1 (anchor)
+              8 CALL_FUNCTION            1
+             10 COMPARE_OP               2 (==)
+             12 POP_JUMP_IF_FALSE       22
+
+ 86          14 LOAD_GLOBAL              2 (ValueError)
+             16 LOAD_CONST               1 ('refusing to materialize into a filesystem root')
+             18 CALL_FUNCTION            1
+             20 RAISE_VARARGS            1
+
+ 87     >>   22 LOAD_FAST                1 (output_root)
+             24 LOAD_GLOBAL              0 (Path)
+             26 LOAD_METHOD              3 (home)
+             28 CALL_METHOD              0
+             30 LOAD_METHOD              4 (resolve)
+             32 CALL_METHOD              0
+             34 COMPARE_OP               2 (==)
+             36 POP_JUMP_IF_FALSE       46
+
+ 88          38 LOAD_GLOBAL              2 (ValueError)
+             40 LOAD_CONST               2 ('refusing to materialize into the user home')
+             42 CALL_FUNCTION            1
+             44 RAISE_VARARGS            1
+
+ 89     >>   46 LOAD_FAST                1 (output_root)
+             48 LOAD_FAST                0 (source_root)
+             50 COMPARE_OP               2 (==)
+             52 POP_JUMP_IF_TRUE        64
+             54 LOAD_GLOBAL              5 (_is_relative_to)
+             56 LOAD_FAST                1 (output_root)
+             58 LOAD_FAST                0 (source_root)
+             60 CALL_FUNCTION            2
+             62 POP_JUMP_IF_FALSE       72
+
+ 90     >>   64 LOAD_GLOBAL              2 (ValueError)
+             66 LOAD_CONST               3 ('output must be outside the source frontend build')
+             68 CALL_FUNCTION            1
+             70 RAISE_VARARGS            1
+
+ 91     >>   72 LOAD_GLOBAL              5 (_is_relative_to)
+             74 LOAD_FAST                1 (output_root)
+             76 LOAD_GLOBAL              6 (PROJECT_ROOT)
+             78 CALL_FUNCTION            2
+             80 POP_JUMP_IF_FALSE       90
+
+ 92          82 LOAD_GLOBAL              2 (ValueError)
+             84 LOAD_CONST               4 ('output must be outside the project checkout')
+             86 CALL_FUNCTION            1
+             88 RAISE_VARARGS            1
+
+ 93     >>   90 LOAD_FAST                1 (output_root)
+             92 LOAD_METHOD              7 (exists)
+             94 CALL_METHOD              0
+             96 POP_JUMP_IF_FALSE      112
+
+ 94          98 LOAD_GLOBAL              8 (FileExistsError)
+            100 LOAD_CONST               5 ('output path must not exist: {}')
+            102 LOAD_METHOD              9 (format)
+            104 LOAD_FAST                1 (output_root)
+            106 CALL_METHOD              1
+            108 CALL_FUNCTION            1
+            110 RAISE_VARARGS            1
+        >>  112 LOAD_CONST               0 (None)
+            114 RETURN_VALUE
+
+Disassembly of <code object prepare_runtime_required_frontend at 0x10924b240, file "scripts/prepare_runtime_required_frontend.py", line 97>:
+103           0 LOAD_GLOBAL              0 (Path)
+              2 LOAD_FAST                0 (source_root)
+              4 CALL_FUNCTION            1
+              6 LOAD_METHOD              1 (resolve)
+              8 CALL_METHOD              0
+             10 STORE_FAST               0 (source_root)
+
+104          12 LOAD_GLOBAL              0 (Path)
+             14 LOAD_FAST                1 (output_root)
+             16 CALL_FUNCTION            1
+             18 LOAD_METHOD              1 (resolve)
+             20 CALL_METHOD              0
+             22 STORE_FAST               1 (output_root)
+
+105          24 LOAD_GLOBAL              2 (_validate_source)
+             26 LOAD_FAST                0 (source_root)
+             28 CALL_FUNCTION            1
+             30 STORE_FAST               2 (source_config)
+
+106          32 LOAD_GLOBAL              3 (_validate_output)
+             34 LOAD_FAST                0 (source_root)
+             36 LOAD_FAST                1 (output_root)
+             38 CALL_FUNCTION            2
+             40 POP_TOP
+
+108          42 LOAD_FAST                0 (source_root)
+             44 LOAD_CONST               1 ('config.json')
+             46 BINARY_TRUE_DIVIDE
+             48 STORE_FAST               3 (source_config_path)
+
+109          50 LOAD_GLOBAL              4 (_sha256)
+             52 LOAD_FAST                3 (source_config_path)
+             54 CALL_FUNCTION            1
+             56 STORE_FAST               4 (source_config_hash)
+
+110          58 LOAD_GLOBAL              4 (_sha256)
+             60 LOAD_FAST                0 (source_root)
+             62 LOAD_CONST               2 ('index.html')
+             64 BINARY_TRUE_DIVIDE
+             66 CALL_FUNCTION            1
+             68 STORE_FAST               5 (source_index_hash)
+
+112          70 LOAD_GLOBAL              5 (shutil)
+             72 LOAD_METHOD              6 (copytree)
+             74 LOAD_FAST                0 (source_root)
+             76 LOAD_FAST                1 (output_root)
+             78 CALL_METHOD              2
+             80 POP_TOP
+
+113          82 LOAD_GLOBAL              7 (json)
+             84 LOAD_METHOD              8 (loads)
+             86 LOAD_GLOBAL              7 (json)
+             88 LOAD_METHOD              9 (dumps)
+             90 LOAD_FAST                2 (source_config)
+             92 CALL_METHOD              1
+             94 CALL_METHOD              1
+             96 STORE_FAST               6 (copied_config)
+
+114          98 LOAD_GLOBAL             10 (STRICT_MODE)
+            100 LOAD_FAST                6 (copied_config)
+            102 LOAD_CONST               3 ('runtimeCapabilities')
+            104 BINARY_SUBSCR
+            106 LOAD_CONST               4 ('mode')
+            108 STORE_SUBSCR
+
+115         110 LOAD_FAST                1 (output_root)
+            112 LOAD_CONST               1 ('config.json')
+            114 BINARY_TRUE_DIVIDE
+            116 STORE_FAST               7 (copied_config_path)
+
+116         118 LOAD_FAST                7 (copied_config_path)
+            120 LOAD_ATTR               11 (write_text)
+
+117         122 LOAD_GLOBAL              7 (json)
+            124 LOAD_ATTR                9 (dumps)
+            126 LOAD_FAST                6 (copied_config)
+            128 LOAD_CONST               5 (False)
+            130 LOAD_CONST               6 (2)
+            132 LOAD_CONST               7 (('ensure_ascii', 'indent'))
+            134 CALL_FUNCTION_KW         3
+            136 LOAD_CONST               8 ('\n')
+            138 BINARY_ADD
+
+118         140 LOAD_CONST               9 ('utf-8')
+
+116         142 LOAD_CONST              10 (('encoding',))
+            144 CALL_FUNCTION_KW         2
+            146 POP_TOP
+
+122         148 LOAD_CONST              11 (1)
+
+123         150 LOAD_CONST              12 ('runtime_required_frontend_test_composition')
+
+124         152 LOAD_CONST              13 (True)
+
+125         154 LOAD_CONST               5 (False)
+
+126         156 LOAD_GLOBAL             12 (LEGACY_MODE)
+
+127         158 LOAD_GLOBAL             10 (STRICT_MODE)
+
+128         160 LOAD_GLOBAL             13 (REQUIRED_PRODUCT_RUNTIME_MODE)
+
+129         162 LOAD_FAST                4 (source_config_hash)
+
+130         164 LOAD_GLOBAL              4 (_sha256)
+            166 LOAD_FAST                7 (copied_config_path)
+            168 CALL_FUNCTION            1
+
+131         170 LOAD_FAST                5 (source_index_hash)
+
+132         172 LOAD_GLOBAL              4 (_sha256)
+            174 LOAD_FAST                1 (output_root)
+            176 LOAD_CONST               2 ('index.html')
+            178 BINARY_TRUE_DIVIDE
+            180 CALL_FUNCTION            1
+
+121         182 LOAD_CONST              14 (('schemaVersion', 'kind', 'testOnly', 'productionDefaultChanged', 'sourceRuntimeCapabilityMode', 'runtimeCapabilityMode', 'requiredProductRuntimeMode', 'sourceConfigSha256', 'materializedConfigSha256', 'sourceIndexSha256', 'materializedIndexSha256'))
+            184 BUILD_CONST_KEY_MAP     11
+            186 STORE_FAST               8 (manifest)
+
+134         188 LOAD_FAST                1 (output_root)
+            190 LOAD_GLOBAL             14 (MANIFEST_NAME)
+            192 BINARY_TRUE_DIVIDE
+            194 LOAD_ATTR               11 (write_text)
+
+135         196 LOAD_GLOBAL              7 (json)
+            198 LOAD_ATTR                9 (dumps)
+            200 LOAD_FAST                8 (manifest)
+            202 LOAD_CONST               5 (False)
+            204 LOAD_CONST               6 (2)
+            206 LOAD_CONST              13 (True)
+            208 LOAD_CONST              15 (('ensure_ascii', 'indent', 'sort_keys'))
+            210 CALL_FUNCTION_KW         4
+            212 LOAD_CONST               8 ('\n')
+            214 BINARY_ADD
+
+136         216 LOAD_CONST               9 ('utf-8')
+
+134         218 LOAD_CONST              10 (('encoding',))
+            220 CALL_FUNCTION_KW         2
+            222 POP_TOP
+
+138         224 LOAD_FAST                8 (manifest)
+            226 RETURN_VALUE
+
+Disassembly of <code object parse_args at 0x10924b920, file "scripts/prepare_runtime_required_frontend.py", line 141>:
+142           0 LOAD_GLOBAL              0 (argparse)
+              2 LOAD_ATTR                1 (ArgumentParser)
+              4 LOAD_GLOBAL              2 (__doc__)
+              6 LOAD_CONST               1 (('description',))
+              8 CALL_FUNCTION_KW         1
+             10 STORE_FAST               1 (parser)
+
+143          12 LOAD_FAST                1 (parser)
+             14 LOAD_ATTR                3 (add_argument)
+
+144          16 LOAD_CONST               2 ('--source')
+
+145          18 LOAD_CONST               3 (True)
+
+146          20 LOAD_CONST               4 ('Existing built frontend directory, normally webot/dist.')
+
+143          22 LOAD_CONST               5 (('required', 'help'))
+             24 CALL_FUNCTION_KW         3
+             26 POP_TOP
+
+148          28 LOAD_FAST                1 (parser)
+             30 LOAD_ATTR                3 (add_argument)
+
+149          32 LOAD_CONST               6 ('--output')
+
+150          34 LOAD_CONST               3 (True)
+
+151          36 LOAD_CONST               7 ('New test-only frontend directory; it must not already exist.')
+
+148          38 LOAD_CONST               5 (('required', 'help'))
+             40 CALL_FUNCTION_KW         3
+             42 POP_TOP
+
+153          44 LOAD_FAST                1 (parser)
+             46 LOAD_METHOD              4 (parse_args)
+             48 LOAD_FAST                0 (argv)
+             50 LOAD_CONST               0 (None)
+             52 IS_OP                    1
+             54 POP_JUMP_IF_FALSE       64
+             56 LOAD_GLOBAL              5 (list)
+             58 LOAD_FAST                0 (argv)
+             60 CALL_FUNCTION            1
+             62 JUMP_FORWARD             2 (to 66)
+        >>   64 LOAD_CONST               0 (None)
+        >>   66 CALL_METHOD              1
+             68 RETURN_VALUE
+
+Disassembly of <code object main at 0x10924b3a0, file "scripts/prepare_runtime_required_frontend.py", line 156>:
+157           0 LOAD_GLOBAL              0 (parse_args)
+              2 LOAD_FAST                0 (argv)
+              4 CALL_FUNCTION            1
+              6 STORE_FAST               1 (args)
+
+158           8 LOAD_GLOBAL              1 (prepare_runtime_required_frontend)
+
+159          10 LOAD_GLOBAL              2 (Path)
+             12 LOAD_FAST                1 (args)
+             14 LOAD_ATTR                3 (source)
+             16 CALL_FUNCTION            1
+
+160          18 LOAD_GLOBAL              2 (Path)
+             20 LOAD_FAST                1 (args)
+             22 LOAD_ATTR                4 (output)
+             24 CALL_FUNCTION            1
+
+158          26 CALL_FUNCTION            2
+             28 STORE_FAST               2 (result)
+
+162          30 LOAD_GLOBAL              5 (print)
+
+163          32 LOAD_CONST               1 ('prepared {} frontend; required product runtime mode={}')
+             34 LOAD_METHOD              6 (format)
+
+164          36 LOAD_FAST                2 (result)
+             38 LOAD_CONST               2 ('runtimeCapabilityMode')
+             40 BINARY_SUBSCR
+
+165          42 LOAD_FAST                2 (result)
+             44 LOAD_CONST               3 ('requiredProductRuntimeMode')
+             46 BINARY_SUBSCR
+
+163          48 CALL_METHOD              2
+
+162          50 CALL_FUNCTION            1
+             52 POP_TOP
+
+168          54 LOAD_CONST               4 (0)
+             56 RETURN_VALUE

@@ -1,0 +1,542 @@
+  1           0 LOAD_CONST               0 ('Map normalized driver facts to the established auto-reply input contract.\n\nDrivers return :class:`ConversationReadResult`; they must not know about the\nlegacy dictionaries consumed by the current scheduler/task implementation.\nThis module is the platform-neutral boundary that preserves that mature\nbusiness contract while Windows and macOS provide different RPA readers.\n')
+              2 STORE_NAME               0 (__doc__)
+
+  9           4 LOAD_CONST               1 (0)
+              6 LOAD_CONST               2 (('Any', 'Callable', 'Dict', 'Mapping', 'Optional'))
+              8 IMPORT_NAME              1 (typing)
+             10 IMPORT_FROM              2 (Any)
+             12 STORE_NAME               2 (Any)
+             14 IMPORT_FROM              3 (Callable)
+             16 STORE_NAME               3 (Callable)
+             18 IMPORT_FROM              4 (Dict)
+             20 STORE_NAME               4 (Dict)
+             22 IMPORT_FROM              5 (Mapping)
+             24 STORE_NAME               5 (Mapping)
+             26 IMPORT_FROM              6 (Optional)
+             28 STORE_NAME               6 (Optional)
+             30 POP_TOP
+
+ 11          32 LOAD_CONST               1 (0)
+             34 LOAD_CONST               3 (('ChatType', 'ConversationReadResult', 'MessageContentType', 'MessageDirection', 'MessageRecord'))
+             36 IMPORT_NAME              7 (WeRobotCore.domain)
+             38 IMPORT_FROM              8 (ChatType)
+             40 STORE_NAME               8 (ChatType)
+             42 IMPORT_FROM              9 (ConversationReadResult)
+             44 STORE_NAME               9 (ConversationReadResult)
+             46 IMPORT_FROM             10 (MessageContentType)
+             48 STORE_NAME              10 (MessageContentType)
+             50 IMPORT_FROM             11 (MessageDirection)
+             52 STORE_NAME              11 (MessageDirection)
+             54 IMPORT_FROM             12 (MessageRecord)
+             56 STORE_NAME              12 (MessageRecord)
+             58 POP_TOP
+
+ 20          60 LOAD_NAME                3 (Callable)
+             62 LOAD_NAME               12 (MessageRecord)
+             64 BUILD_LIST               1
+             66 LOAD_NAME                6 (Optional)
+             68 LOAD_NAME                5 (Mapping)
+             70 LOAD_NAME               13 (str)
+             72 LOAD_NAME                2 (Any)
+             74 BUILD_TUPLE              2
+             76 BINARY_SUBSCR
+             78 BINARY_SUBSCR
+             80 BUILD_TUPLE              2
+             82 BINARY_SUBSCR
+             84 STORE_NAME              14 (MessageEvidenceResolver)
+
+ 23          86 LOAD_BUILD_CLASS
+             88 LOAD_CONST               4 (<code object AutoReplyInputMappingError at 0x1072cfbe0, file "WeRobotCore/application/auto_reply/conversation_input.py", line 23>)
+             90 LOAD_CONST               5 ('AutoReplyInputMappingError')
+             92 MAKE_FUNCTION            0
+             94 LOAD_CONST               5 ('AutoReplyInputMappingError')
+             96 LOAD_NAME               15 (ValueError)
+             98 CALL_FUNCTION            3
+            100 STORE_NAME              16 (AutoReplyInputMappingError)
+
+ 27         102 LOAD_NAME                8 (ChatType)
+            104 LOAD_NAME               13 (str)
+            106 LOAD_CONST               6 (('chat_type', 'return'))
+            108 BUILD_CONST_KEY_MAP      2
+            110 LOAD_CONST               7 (<code object _legacy_chat_type at 0x1073aa0e0, file "WeRobotCore/application/auto_reply/conversation_input.py", line 27>)
+            112 LOAD_CONST               8 ('_legacy_chat_type')
+            114 MAKE_FUNCTION            4 (annotations)
+            116 STORE_NAME              17 (_legacy_chat_type)
+
+ 35         118 LOAD_NAME               12 (MessageRecord)
+            120 LOAD_NAME               18 (bool)
+            122 LOAD_CONST               9 (('message', 'return'))
+            124 BUILD_CONST_KEY_MAP      2
+            126 LOAD_CONST              10 (<code object _is_self at 0x1073aa240, file "WeRobotCore/application/auto_reply/conversation_input.py", line 35>)
+            128 LOAD_CONST              11 ('_is_self')
+            130 MAKE_FUNCTION            4 (annotations)
+            132 STORE_NAME              19 (_is_self)
+
+ 49         134 LOAD_NAME               12 (MessageRecord)
+            136 LOAD_NAME                6 (Optional)
+            138 LOAD_NAME               20 (int)
+            140 BINARY_SUBSCR
+            142 LOAD_CONST               9 (('message', 'return'))
+            144 BUILD_CONST_KEY_MAP      2
+            146 LOAD_CONST              12 (<code object _timestamp at 0x1073aa710, file "WeRobotCore/application/auto_reply/conversation_input.py", line 49>)
+            148 LOAD_CONST              13 ('_timestamp')
+            150 MAKE_FUNCTION            4 (annotations)
+            152 STORE_NAME              21 (_timestamp)
+
+ 55         154 LOAD_NAME               12 (MessageRecord)
+            156 LOAD_NAME                4 (Dict)
+            158 LOAD_NAME               13 (str)
+            160 LOAD_NAME                2 (Any)
+            162 BUILD_TUPLE              2
+            164 BINARY_SUBSCR
+            166 LOAD_CONST               9 (('message', 'return'))
+            168 BUILD_CONST_KEY_MAP      2
+            170 LOAD_CONST              14 (<code object _attachment_fields at 0x1073aa2f0, file "WeRobotCore/application/auto_reply/conversation_input.py", line 55>)
+            172 LOAD_CONST              15 ('_attachment_fields')
+            174 MAKE_FUNCTION            4 (annotations)
+            176 STORE_NAME              22 (_attachment_fields)
+
+ 93         178 LOAD_NAME               12 (MessageRecord)
+
+ 94         180 LOAD_NAME                6 (Optional)
+            182 LOAD_NAME               14 (MessageEvidenceResolver)
+            184 BINARY_SUBSCR
+
+ 95         186 LOAD_NAME                4 (Dict)
+            188 LOAD_NAME               13 (str)
+            190 LOAD_NAME                2 (Any)
+            192 BUILD_TUPLE              2
+            194 BINARY_SUBSCR
+
+ 92         196 LOAD_CONST              16 (('message', 'evidence_resolver', 'return'))
+            198 BUILD_CONST_KEY_MAP      3
+            200 LOAD_CONST              17 (<code object _map_message at 0x1073aaea0, file "WeRobotCore/application/auto_reply/conversation_input.py", line 92>)
+            202 LOAD_CONST              18 ('_map_message')
+            204 MAKE_FUNCTION            4 (annotations)
+            206 STORE_NAME              23 (_map_message)
+
+121         208 LOAD_CONST              23 ((None,))
+
+122         210 LOAD_NAME                9 (ConversationReadResult)
+
+123         212 LOAD_NAME                6 (Optional)
+            214 LOAD_NAME               14 (MessageEvidenceResolver)
+            216 BINARY_SUBSCR
+
+124         218 LOAD_NAME                4 (Dict)
+            220 LOAD_NAME               13 (str)
+            222 LOAD_NAME                2 (Any)
+            224 BUILD_TUPLE              2
+            226 BINARY_SUBSCR
+
+121         228 LOAD_CONST              20 (('conversation', 'evidence_resolver', 'return'))
+            230 BUILD_CONST_KEY_MAP      3
+            232 LOAD_CONST              21 (<code object map_conversation_to_auto_reply_input at 0x1073aa500, file "WeRobotCore/application/auto_reply/conversation_input.py", line 121>)
+            234 LOAD_CONST              22 ('map_conversation_to_auto_reply_input')
+            236 MAKE_FUNCTION            5 (defaults, annotations)
+            238 STORE_NAME              24 (map_conversation_to_auto_reply_input)
+            240 LOAD_CONST              19 (None)
+            242 RETURN_VALUE
+
+Disassembly of <code object AutoReplyInputMappingError at 0x1072cfbe0, file "WeRobotCore/application/auto_reply/conversation_input.py", line 23>:
+ 23           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('AutoReplyInputMappingError')
+              6 STORE_NAME               2 (__qualname__)
+
+ 24           8 LOAD_CONST               1 ('The normalized read cannot safely enter the auto-reply workflow.')
+             10 STORE_NAME               3 (__doc__)
+             12 LOAD_CONST               2 (None)
+             14 RETURN_VALUE
+
+Disassembly of <code object _legacy_chat_type at 0x1073aa0e0, file "WeRobotCore/application/auto_reply/conversation_input.py", line 27>:
+ 30           0 LOAD_FAST                0 (chat_type)
+              2 LOAD_GLOBAL              0 (ChatType)
+              4 LOAD_ATTR                1 (OFFICIAL)
+              6 IS_OP                    0
+              8 POP_JUMP_IF_FALSE       14
+
+ 31          10 LOAD_CONST               1 ('official_account')
+             12 RETURN_VALUE
+
+ 32     >>   14 LOAD_FAST                0 (chat_type)
+             16 LOAD_ATTR                2 (value)
+             18 RETURN_VALUE
+
+Disassembly of <code object _is_self at 0x1073aa240, file "WeRobotCore/application/auto_reply/conversation_input.py", line 35>:
+ 36           0 LOAD_FAST                0 (message)
+              2 LOAD_ATTR                0 (direction)
+              4 LOAD_GLOBAL              1 (MessageDirection)
+              6 LOAD_ATTR                2 (OUTGOING)
+              8 IS_OP                    0
+             10 POP_JUMP_IF_FALSE       16
+
+ 37          12 LOAD_CONST               1 (True)
+             14 RETURN_VALUE
+
+ 38     >>   16 LOAD_FAST                0 (message)
+             18 LOAD_ATTR                0 (direction)
+             20 LOAD_GLOBAL              1 (MessageDirection)
+             22 LOAD_ATTR                3 (INCOMING)
+             24 IS_OP                    0
+             26 POP_JUMP_IF_FALSE       32
+
+ 39          28 LOAD_CONST               2 (False)
+             30 RETURN_VALUE
+
+ 40     >>   32 LOAD_FAST                0 (message)
+             34 LOAD_ATTR                4 (content_type)
+             36 LOAD_GLOBAL              5 (MessageContentType)
+             38 LOAD_ATTR                6 (SYSTEM)
+             40 IS_OP                    0
+             42 POP_JUMP_IF_FALSE       48
+
+ 43          44 LOAD_CONST               2 (False)
+             46 RETURN_VALUE
+
+ 44     >>   48 LOAD_GLOBAL              7 (AutoReplyInputMappingError)
+
+ 45          50 LOAD_CONST               3 ('message direction is unknown: {}')
+             52 LOAD_METHOD              8 (format)
+             54 LOAD_FAST                0 (message)
+             56 LOAD_ATTR                9 (fingerprint)
+             58 CALL_METHOD              1
+
+ 44          60 CALL_FUNCTION            1
+             62 RAISE_VARARGS            1
+             64 LOAD_CONST               0 (None)
+             66 RETURN_VALUE
+
+Disassembly of <code object _timestamp at 0x1073aa710, file "WeRobotCore/application/auto_reply/conversation_input.py", line 49>:
+ 50           0 LOAD_FAST                0 (message)
+              2 LOAD_ATTR                0 (timestamp)
+              4 LOAD_CONST               0 (None)
+              6 IS_OP                    0
+              8 POP_JUMP_IF_FALSE       14
+
+ 51          10 LOAD_CONST               0 (None)
+             12 RETURN_VALUE
+
+ 52     >>   14 LOAD_GLOBAL              1 (int)
+             16 LOAD_FAST                0 (message)
+             18 LOAD_ATTR                0 (timestamp)
+             20 LOAD_METHOD              0 (timestamp)
+             22 CALL_METHOD              0
+             24 CALL_FUNCTION            1
+             26 RETURN_VALUE
+
+Disassembly of <code object _attachment_fields at 0x1073aa2f0, file "WeRobotCore/application/auto_reply/conversation_input.py", line 55>:
+ 56           0 BUILD_MAP                0
+              2 STORE_FAST               1 (result)
+
+ 57           4 BUILD_LIST               0
+              6 STORE_FAST               2 (image_paths)
+
+ 59           8 LOAD_FAST                0 (message)
+             10 LOAD_ATTR                0 (attachments)
+             12 GET_ITER
+        >>   14 FOR_ITER               234 (to 250)
+             16 STORE_FAST               3 (attachment)
+
+ 60          18 LOAD_GLOBAL              1 (dict)
+             20 LOAD_FAST                3 (attachment)
+             22 LOAD_ATTR                2 (metadata)
+             24 CALL_FUNCTION            1
+             26 STORE_FAST               4 (metadata)
+
+ 61          28 LOAD_FAST                3 (attachment)
+             30 LOAD_ATTR                3 (content_type)
+             32 LOAD_GLOBAL              4 (MessageContentType)
+             34 LOAD_ATTR                5 (IMAGE)
+             36 IS_OP                    0
+             38 POP_JUMP_IF_FALSE       94
+
+ 62          40 LOAD_FAST                4 (metadata)
+             42 LOAD_METHOD              6 (get)
+             44 LOAD_CONST               1 ('path')
+             46 CALL_METHOD              1
+             48 JUMP_IF_TRUE_OR_POP     54
+             50 LOAD_FAST                3 (attachment)
+             52 LOAD_ATTR                7 (asset_id)
+        >>   54 STORE_FAST               5 (path)
+
+ 63          56 LOAD_GLOBAL              8 (isinstance)
+             58 LOAD_FAST                5 (path)
+             60 LOAD_GLOBAL              9 (str)
+             62 CALL_FUNCTION            2
+             64 POP_JUMP_IF_FALSE       14
+             66 LOAD_FAST                5 (path)
+             68 LOAD_METHOD             10 (strip)
+             70 CALL_METHOD              0
+             72 POP_JUMP_IF_FALSE       14
+             74 LOAD_FAST                5 (path)
+             76 LOAD_FAST                2 (image_paths)
+             78 CONTAINS_OP              1
+             80 POP_JUMP_IF_FALSE       14
+
+ 64          82 LOAD_FAST                2 (image_paths)
+             84 LOAD_METHOD             11 (append)
+             86 LOAD_FAST                5 (path)
+             88 CALL_METHOD              1
+             90 POP_TOP
+
+ 65          92 JUMP_ABSOLUTE           14
+
+ 67     >>   94 LOAD_FAST                3 (attachment)
+             96 LOAD_ATTR                3 (content_type)
+             98 LOAD_GLOBAL              4 (MessageContentType)
+            100 LOAD_ATTR               12 (FILE)
+            102 IS_OP                    0
+            104 POP_JUMP_IF_FALSE      200
+
+ 68         106 LOAD_GLOBAL              1 (dict)
+            108 LOAD_FAST                4 (metadata)
+            110 CALL_FUNCTION            1
+            112 STORE_FAST               6 (file_info)
+
+ 69         114 LOAD_FAST                3 (attachment)
+            116 LOAD_ATTR               13 (name)
+            118 POP_JUMP_IF_FALSE      140
+            120 LOAD_FAST                6 (file_info)
+            122 LOAD_METHOD              6 (get)
+            124 LOAD_CONST               2 ('name')
+            126 CALL_METHOD              1
+            128 POP_JUMP_IF_TRUE       140
+
+ 70         130 LOAD_FAST                3 (attachment)
+            132 LOAD_ATTR               13 (name)
+            134 LOAD_FAST                6 (file_info)
+            136 LOAD_CONST               2 ('name')
+            138 STORE_SUBSCR
+
+ 71     >>  140 LOAD_FAST                3 (attachment)
+            142 LOAD_ATTR                7 (asset_id)
+            144 POP_JUMP_IF_FALSE      186
+
+ 72         146 LOAD_FAST                6 (file_info)
+            148 LOAD_METHOD              6 (get)
+            150 LOAD_CONST               1 ('path')
+            152 CALL_METHOD              1
+
+ 71         154 POP_JUMP_IF_TRUE       186
+
+ 73         156 LOAD_FAST                6 (file_info)
+            158 LOAD_METHOD              6 (get)
+            160 LOAD_CONST               3 ('asset_id')
+            162 CALL_METHOD              1
+
+ 71         164 POP_JUMP_IF_TRUE       186
+
+ 74         166 LOAD_FAST                6 (file_info)
+            168 LOAD_METHOD              6 (get)
+            170 LOAD_CONST               4 ('id')
+            172 CALL_METHOD              1
+
+ 71         174 POP_JUMP_IF_TRUE       186
+
+ 76         176 LOAD_FAST                3 (attachment)
+            178 LOAD_ATTR                7 (asset_id)
+            180 LOAD_FAST                6 (file_info)
+            182 LOAD_CONST               1 ('path')
+            184 STORE_SUBSCR
+
+ 77     >>  186 LOAD_FAST                6 (file_info)
+            188 POP_JUMP_IF_FALSE       14
+
+ 78         190 LOAD_FAST                6 (file_info)
+            192 LOAD_FAST                1 (result)
+            194 LOAD_CONST               5 ('file_info')
+            196 STORE_SUBSCR
+
+ 79         198 JUMP_ABSOLUTE           14
+
+ 81     >>  200 LOAD_FAST                3 (attachment)
+            202 LOAD_ATTR                3 (content_type)
+            204 LOAD_GLOBAL              4 (MessageContentType)
+            206 LOAD_ATTR               14 (VOICE)
+            208 IS_OP                    0
+            210 POP_JUMP_IF_FALSE       14
+
+ 82         212 LOAD_FAST                4 (metadata)
+            214 LOAD_METHOD              6 (get)
+            216 LOAD_CONST               6 ('transcript')
+            218 CALL_METHOD              1
+            220 STORE_FAST               7 (transcript)
+
+ 83         222 LOAD_GLOBAL              8 (isinstance)
+            224 LOAD_FAST                7 (transcript)
+            226 LOAD_GLOBAL              9 (str)
+            228 CALL_FUNCTION            2
+            230 POP_JUMP_IF_FALSE       14
+            232 LOAD_FAST                7 (transcript)
+            234 LOAD_METHOD             10 (strip)
+            236 CALL_METHOD              0
+            238 POP_JUMP_IF_FALSE       14
+
+ 84         240 LOAD_FAST                7 (transcript)
+            242 LOAD_FAST                1 (result)
+            244 LOAD_CONST               7 ('voice_text')
+            246 STORE_SUBSCR
+            248 JUMP_ABSOLUTE           14
+
+ 86     >>  250 LOAD_FAST                2 (image_paths)
+            252 EXTENDED_ARG             1
+            254 POP_JUMP_IF_FALSE      276
+
+ 87         256 LOAD_FAST                2 (image_paths)
+            258 LOAD_FAST                1 (result)
+            260 LOAD_CONST               8 ('image_paths')
+            262 STORE_SUBSCR
+
+ 88         264 LOAD_FAST                2 (image_paths)
+            266 LOAD_CONST               9 (0)
+            268 BINARY_SUBSCR
+            270 LOAD_FAST                1 (result)
+            272 LOAD_CONST              10 ('image_path')
+            274 STORE_SUBSCR
+
+ 89     >>  276 LOAD_FAST                1 (result)
+            278 RETURN_VALUE
+
+Disassembly of <code object _map_message at 0x1073aaea0, file "WeRobotCore/application/auto_reply/conversation_input.py", line 92>:
+ 97           0 LOAD_FAST                0 (message)
+              2 LOAD_ATTR                0 (message_id)
+
+ 98           4 LOAD_FAST                0 (message)
+              6 LOAD_ATTR                1 (fingerprint)
+
+ 99           8 LOAD_FAST                0 (message)
+             10 LOAD_ATTR                2 (content)
+
+100          12 LOAD_GLOBAL              3 (_timestamp)
+             14 LOAD_FAST                0 (message)
+             16 CALL_FUNCTION            1
+
+101          18 LOAD_FAST                0 (message)
+             20 LOAD_ATTR                4 (is_time_message)
+
+102          22 LOAD_FAST                0 (message)
+             24 LOAD_ATTR                5 (chat_type)
+             26 LOAD_GLOBAL              6 (ChatType)
+             28 LOAD_ATTR                7 (GROUP)
+             30 IS_OP                    0
+
+103          32 LOAD_GLOBAL              8 (_is_self)
+             34 LOAD_FAST                0 (message)
+             36 CALL_FUNCTION            1
+
+104          38 LOAD_FAST                0 (message)
+             40 LOAD_ATTR                9 (sender_name)
+             42 JUMP_IF_TRUE_OR_POP     46
+             44 LOAD_CONST               1 ('')
+        >>   46 BUILD_LIST               0
+             48 LOAD_CONST               2 (('name', 'tags'))
+             50 BUILD_CONST_KEY_MAP      2
+
+ 96          52 LOAD_CONST               3 (('id', 'fingerprint', 'content', 'timestamp', 'isTimeMessage', 'isGroup', 'isSelf', 'sender'))
+             54 BUILD_CONST_KEY_MAP      8
+             56 STORE_FAST               2 (mapped)
+
+106          58 LOAD_FAST                2 (mapped)
+             60 LOAD_METHOD             10 (update)
+             62 LOAD_GLOBAL             11 (_attachment_fields)
+             64 LOAD_FAST                0 (message)
+             66 CALL_FUNCTION            1
+             68 CALL_METHOD              1
+             70 POP_TOP
+
+111          72 LOAD_FAST                1 (evidence_resolver)
+             74 LOAD_CONST               0 (None)
+             76 IS_OP                    1
+             78 POP_JUMP_IF_FALSE      136
+
+112          80 LOAD_FAST                1 (evidence_resolver)
+             82 LOAD_FAST                0 (message)
+             84 CALL_FUNCTION            1
+             86 STORE_FAST               3 (evidence)
+
+113          88 LOAD_FAST                3 (evidence)
+             90 LOAD_CONST               0 (None)
+             92 IS_OP                    1
+             94 POP_JUMP_IF_FALSE      136
+
+114          96 LOAD_GLOBAL             12 (isinstance)
+             98 LOAD_FAST                3 (evidence)
+            100 LOAD_GLOBAL             13 (Mapping)
+            102 CALL_FUNCTION            2
+            104 POP_JUMP_IF_TRUE       114
+
+115         106 LOAD_GLOBAL             14 (TypeError)
+            108 LOAD_CONST               4 ('message evidence must be a mapping or None')
+            110 CALL_FUNCTION            1
+            112 RAISE_VARARGS            1
+
+116     >>  114 LOAD_CONST               5 ('rect_info')
+            116 LOAD_FAST                3 (evidence)
+            118 CONTAINS_OP              0
+            120 POP_JUMP_IF_FALSE      136
+
+117         122 LOAD_FAST                3 (evidence)
+            124 LOAD_METHOD             15 (get)
+            126 LOAD_CONST               5 ('rect_info')
+            128 CALL_METHOD              1
+            130 LOAD_FAST                2 (mapped)
+            132 LOAD_CONST               5 ('rect_info')
+            134 STORE_SUBSCR
+
+118     >>  136 LOAD_FAST                2 (mapped)
+            138 RETURN_VALUE
+
+Disassembly of <code object map_conversation_to_auto_reply_input at 0x1073aa500, file "WeRobotCore/application/auto_reply/conversation_input.py", line 121>:
+132           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                0 (conversation)
+              4 LOAD_GLOBAL              1 (ConversationReadResult)
+              6 CALL_FUNCTION            2
+              8 POP_JUMP_IF_TRUE        18
+
+133          10 LOAD_GLOBAL              2 (TypeError)
+             12 LOAD_CONST               1 ('conversation must be a ConversationReadResult')
+             14 CALL_FUNCTION            1
+             16 RAISE_VARARGS            1
+
+135     >>   18 LOAD_CLOSURE             0 (evidence_resolver)
+             20 BUILD_TUPLE              1
+             22 LOAD_CONST               2 (<code object <listcomp> at 0x1073aabe0, file "WeRobotCore/application/auto_reply/conversation_input.py", line 135>)
+             24 LOAD_CONST               3 ('map_conversation_to_auto_reply_input.<locals>.<listcomp>')
+             26 MAKE_FUNCTION            8 (closure)
+
+137          28 LOAD_FAST                0 (conversation)
+             30 LOAD_ATTR                3 (messages)
+
+135          32 GET_ITER
+             34 CALL_FUNCTION            1
+
+139          36 LOAD_GLOBAL              4 (_legacy_chat_type)
+             38 LOAD_FAST                0 (conversation)
+             40 LOAD_ATTR                5 (chat_type)
+             42 CALL_FUNCTION            1
+
+140          44 LOAD_FAST                0 (conversation)
+             46 LOAD_ATTR                6 (is_first_join)
+
+141          48 LOAD_FAST                0 (conversation)
+             50 LOAD_ATTR                7 (is_friend_pass)
+
+134          52 LOAD_CONST               4 (('messages', 'chatType', 'is_first_join', 'is_friend_pass'))
+             54 BUILD_CONST_KEY_MAP      4
+             56 RETURN_VALUE
+
+Disassembly of <code object <listcomp> at 0x1073aabe0, file "WeRobotCore/application/auto_reply/conversation_input.py", line 135>:
+135           0 BUILD_LIST               0
+              2 LOAD_FAST                0 (.0)
+        >>    4 FOR_ITER                14 (to 20)
+
+137           6 STORE_FAST               1 (message)
+
+136           8 LOAD_GLOBAL              0 (_map_message)
+             10 LOAD_FAST                1 (message)
+             12 LOAD_DEREF               0 (evidence_resolver)
+             14 CALL_FUNCTION            2
+             16 LIST_APPEND              2
+             18 JUMP_ABSOLUTE            4
+        >>   20 RETURN_VALUE

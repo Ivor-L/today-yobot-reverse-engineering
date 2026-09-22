@@ -1,0 +1,1169 @@
+  1           0 LOAD_CONST               0 (0)
+              2 LOAD_CONST               1 (None)
+              4 IMPORT_NAME              0 (json)
+              6 STORE_NAME               0 (json)
+
+  2           8 LOAD_CONST               0 (0)
+             10 LOAD_CONST               1 (None)
+             12 IMPORT_NAME              1 (uuid)
+             14 STORE_NAME               1 (uuid)
+
+  3          16 LOAD_CONST               0 (0)
+             18 LOAD_CONST               1 (None)
+             20 IMPORT_NAME              2 (time)
+             22 STORE_NAME               2 (time)
+
+  4          24 LOAD_CONST               0 (0)
+             26 LOAD_CONST               2 (('datetime', 'timezone', 'timedelta'))
+             28 IMPORT_NAME              3 (datetime)
+             30 IMPORT_FROM              3 (datetime)
+             32 STORE_NAME               3 (datetime)
+             34 IMPORT_FROM              4 (timezone)
+             36 STORE_NAME               4 (timezone)
+             38 IMPORT_FROM              5 (timedelta)
+             40 STORE_NAME               5 (timedelta)
+             42 POP_TOP
+
+  5          44 LOAD_CONST               0 (0)
+             46 LOAD_CONST               3 (('Path',))
+             48 IMPORT_NAME              6 (pathlib)
+             50 IMPORT_FROM              7 (Path)
+             52 STORE_NAME               7 (Path)
+             54 POP_TOP
+
+  6          56 LOAD_CONST               0 (0)
+             58 LOAD_CONST               4 (('Dict', 'Any', 'List', 'Optional'))
+             60 IMPORT_NAME              8 (typing)
+             62 IMPORT_FROM              9 (Dict)
+             64 STORE_NAME               9 (Dict)
+             66 IMPORT_FROM             10 (Any)
+             68 STORE_NAME              10 (Any)
+             70 IMPORT_FROM             11 (List)
+             72 STORE_NAME              11 (List)
+             74 IMPORT_FROM             12 (Optional)
+             76 STORE_NAME              12 (Optional)
+             78 POP_TOP
+
+  7          80 LOAD_CONST               0 (0)
+             82 LOAD_CONST               1 (None)
+             84 IMPORT_NAME             13 (collections)
+             86 STORE_NAME              13 (collections)
+
+  8          88 LOAD_CONST               0 (0)
+             90 LOAD_CONST               1 (None)
+             92 IMPORT_NAME             14 (threading)
+             94 STORE_NAME              14 (threading)
+
+ 11          96 LOAD_NAME                7 (Path)
+             98 LOAD_METHOD             15 (home)
+            100 CALL_METHOD              0
+            102 LOAD_CONST               5 ('.yokowebot')
+            104 BINARY_TRUE_DIVIDE
+            106 LOAD_CONST               6 ('task_logs')
+            108 BINARY_TRUE_DIVIDE
+            110 STORE_NAME              16 (_default_task_logs_root)
+
+ 13         112 LOAD_BUILD_CLASS
+            114 LOAD_CONST               7 (<code object TaskLoggerV2 at 0x10925dea0, file "WeRobotCore/utils/task_logger_v2.py", line 13>)
+            116 LOAD_CONST               8 ('TaskLoggerV2')
+            118 MAKE_FUNCTION            0
+            120 LOAD_CONST               8 ('TaskLoggerV2')
+            122 CALL_FUNCTION            2
+            124 STORE_NAME              17 (TaskLoggerV2)
+
+209         126 LOAD_NAME               17 (TaskLoggerV2)
+            128 CALL_FUNCTION            0
+            130 STORE_NAME              18 (task_logger_v2)
+
+212         132 LOAD_NAME                7 (Path)
+            134 LOAD_CONST               1 (None)
+            136 LOAD_CONST               9 (('logs_root', 'return'))
+            138 BUILD_CONST_KEY_MAP      2
+            140 LOAD_CONST              10 (<code object configure_task_log_root at 0x10925db30, file "WeRobotCore/utils/task_logger_v2.py", line 212>)
+            142 LOAD_CONST              11 ('configure_task_log_root')
+            144 MAKE_FUNCTION            4 (annotations)
+            146 STORE_NAME              19 (configure_task_log_root)
+            148 LOAD_CONST               1 (None)
+            150 RETURN_VALUE
+
+Disassembly of <code object TaskLoggerV2 at 0x10925dea0, file "WeRobotCore/utils/task_logger_v2.py", line 13>:
+ 13           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('TaskLoggerV2')
+              6 STORE_NAME               2 (__qualname__)
+
+ 14           8 LOAD_CONST               1 (None)
+             10 STORE_NAME               3 (_instance)
+
+ 15          12 LOAD_NAME                4 (threading)
+             14 LOAD_METHOD              5 (Lock)
+             16 CALL_METHOD              0
+             18 STORE_NAME               6 (_lock)
+
+ 17          20 LOAD_CLOSURE             0 (__class__)
+             22 BUILD_TUPLE              1
+             24 LOAD_CONST               2 (<code object __new__ at 0x10924b870, file "WeRobotCore/utils/task_logger_v2.py", line 17>)
+             26 LOAD_CONST               3 ('TaskLoggerV2.__new__')
+             28 MAKE_FUNCTION            8 (closure)
+             30 STORE_NAME               7 (__new__)
+
+ 24          32 LOAD_CONST               4 (<code object __init__ at 0x10924b5b0, file "WeRobotCore/utils/task_logger_v2.py", line 24>)
+             34 LOAD_CONST               5 ('TaskLoggerV2.__init__')
+             36 MAKE_FUNCTION            0
+             38 STORE_NAME               8 (__init__)
+
+ 43          40 LOAD_NAME                9 (Path)
+             42 LOAD_CONST               1 (None)
+             44 LOAD_CONST               6 (('logs_dir', 'return'))
+             46 BUILD_CONST_KEY_MAP      2
+             48 LOAD_CONST               7 (<code object configure_logs_dir at 0x10924ba80, file "WeRobotCore/utils/task_logger_v2.py", line 43>)
+             50 LOAD_CONST               8 ('TaskLoggerV2.configure_logs_dir')
+             52 MAKE_FUNCTION            4 (annotations)
+             54 STORE_NAME              10 (configure_logs_dir)
+
+ 56          56 LOAD_NAME               11 (str)
+             58 LOAD_NAME                9 (Path)
+             60 LOAD_CONST               9 (('task_type', 'return'))
+             62 BUILD_CONST_KEY_MAP      2
+             64 LOAD_CONST              10 (<code object _get_log_file_path at 0x10924b710, file "WeRobotCore/utils/task_logger_v2.py", line 56>)
+             66 LOAD_CONST              11 ('TaskLoggerV2._get_log_file_path')
+             68 MAKE_FUNCTION            4 (annotations)
+             70 STORE_NAME              12 (_get_log_file_path)
+
+ 59          72 LOAD_CONST              12 (<code object _load_recent_logs at 0x10924bf50, file "WeRobotCore/utils/task_logger_v2.py", line 59>)
+             74 LOAD_CONST              13 ('TaskLoggerV2._load_recent_logs')
+             76 MAKE_FUNCTION            0
+             78 STORE_NAME              13 (_load_recent_logs)
+
+ 80          80 LOAD_CONST              25 ((None,))
+             82 LOAD_NAME               11 (str)
+             84 LOAD_NAME               11 (str)
+             86 LOAD_NAME               11 (str)
+             88 LOAD_NAME               11 (str)
+             90 LOAD_NAME               14 (Dict)
+             92 LOAD_NAME               11 (str)
+             94 LOAD_NAME               15 (Any)
+             96 BUILD_TUPLE              2
+             98 BINARY_SUBSCR
+            100 LOAD_NAME               16 (Optional)
+            102 LOAD_NAME               11 (str)
+            104 BINARY_SUBSCR
+            106 LOAD_CONST              14 (('account_id', 'task_type', 'task_id', 'status', 'details', 'error_msg'))
+            108 BUILD_CONST_KEY_MAP      6
+            110 LOAD_CONST              15 (<code object add_log at 0x10924b660, file "WeRobotCore/utils/task_logger_v2.py", line 80>)
+            112 LOAD_CONST              16 ('TaskLoggerV2.add_log')
+            114 MAKE_FUNCTION            5 (defaults, annotations)
+            116 STORE_NAME              17 (add_log)
+
+117         118 LOAD_CONST              26 ((None,))
+            120 LOAD_NAME               11 (str)
+            122 LOAD_NAME               16 (Optional)
+            124 LOAD_NAME               11 (str)
+            126 BINARY_SUBSCR
+            128 LOAD_NAME               18 (List)
+            130 LOAD_NAME               14 (Dict)
+            132 LOAD_NAME               11 (str)
+            134 LOAD_NAME               15 (Any)
+            136 BUILD_TUPLE              2
+            138 BINARY_SUBSCR
+            140 BINARY_SUBSCR
+            142 LOAD_CONST              17 (('task_type', 'account_id', 'return'))
+            144 BUILD_CONST_KEY_MAP      3
+            146 LOAD_CONST              18 (<code object get_logs at 0x10925d710, file "WeRobotCore/utils/task_logger_v2.py", line 117>)
+            148 LOAD_CONST              19 ('TaskLoggerV2.get_logs')
+            150 MAKE_FUNCTION            5 (defaults, annotations)
+            152 STORE_NAME              19 (get_logs)
+
+128         154 LOAD_CONST              27 ((None,))
+            156 LOAD_NAME               16 (Optional)
+            158 LOAD_NAME               11 (str)
+            160 BINARY_SUBSCR
+            162 LOAD_NAME               14 (Dict)
+            164 LOAD_NAME               11 (str)
+            166 LOAD_NAME               20 (int)
+            168 BUILD_TUPLE              2
+            170 BINARY_SUBSCR
+            172 LOAD_CONST              20 (('account_id', 'return'))
+            174 BUILD_CONST_KEY_MAP      2
+            176 LOAD_CONST              21 (<code object get_today_stats_async at 0x10925d190, file "WeRobotCore/utils/task_logger_v2.py", line 128>)
+            178 LOAD_CONST              22 ('TaskLoggerV2.get_today_stats_async')
+            180 MAKE_FUNCTION            5 (defaults, annotations)
+            182 STORE_NAME              21 (get_today_stats_async)
+
+133         184 LOAD_CONST              28 ((None,))
+            186 LOAD_NAME               16 (Optional)
+            188 LOAD_NAME               11 (str)
+            190 BINARY_SUBSCR
+            192 LOAD_NAME               14 (Dict)
+            194 LOAD_NAME               11 (str)
+            196 LOAD_NAME               20 (int)
+            198 BUILD_TUPLE              2
+            200 BINARY_SUBSCR
+            202 LOAD_CONST              20 (('account_id', 'return'))
+            204 BUILD_CONST_KEY_MAP      2
+            206 LOAD_CONST              23 (<code object get_today_stats at 0x10925dbe0, file "WeRobotCore/utils/task_logger_v2.py", line 133>)
+            208 LOAD_CONST              24 ('TaskLoggerV2.get_today_stats')
+            210 MAKE_FUNCTION            5 (defaults, annotations)
+            212 STORE_NAME              22 (get_today_stats)
+            214 LOAD_CLOSURE             0 (__class__)
+            216 DUP_TOP
+            218 STORE_NAME              23 (__classcell__)
+            220 RETURN_VALUE
+
+Disassembly of <code object __new__ at 0x10924b870, file "WeRobotCore/utils/task_logger_v2.py", line 17>:
+ 18           0 LOAD_FAST                0 (cls)
+              2 LOAD_ATTR                0 (_lock)
+              4 SETUP_WITH              48 (to 54)
+              6 POP_TOP
+
+ 19           8 LOAD_FAST                0 (cls)
+             10 LOAD_ATTR                1 (_instance)
+             12 LOAD_CONST               0 (None)
+             14 IS_OP                    0
+             16 POP_JUMP_IF_FALSE       40
+
+ 20          18 LOAD_GLOBAL              2 (super)
+             20 CALL_FUNCTION            0
+             22 LOAD_METHOD              3 (__new__)
+             24 LOAD_FAST                0 (cls)
+             26 CALL_METHOD              1
+             28 LOAD_FAST                0 (cls)
+             30 STORE_ATTR               1 (_instance)
+
+ 21          32 LOAD_CONST               1 (False)
+             34 LOAD_FAST                0 (cls)
+             36 LOAD_ATTR                1 (_instance)
+             38 STORE_ATTR               4 (_initialized)
+        >>   40 POP_BLOCK
+             42 LOAD_CONST               0 (None)
+             44 DUP_TOP
+             46 DUP_TOP
+             48 CALL_FUNCTION            3
+             50 POP_TOP
+             52 JUMP_FORWARD            16 (to 70)
+        >>   54 WITH_EXCEPT_START
+             56 POP_JUMP_IF_TRUE        60
+             58 RERAISE
+        >>   60 POP_TOP
+             62 POP_TOP
+             64 POP_TOP
+             66 POP_EXCEPT
+             68 POP_TOP
+
+ 22     >>   70 LOAD_FAST                0 (cls)
+             72 LOAD_ATTR                1 (_instance)
+             74 RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x10924b5b0, file "WeRobotCore/utils/task_logger_v2.py", line 24>:
+ 25           0 LOAD_FAST                0 (self)
+              2 LOAD_ATTR                0 (_initialized)
+              4 POP_JUMP_IF_TRUE        80
+
+ 27           6 LOAD_GLOBAL              1 (_default_task_logs_root)
+              8 LOAD_FAST                0 (self)
+             10 STORE_ATTR               2 (logs_dir)
+
+ 28          12 LOAD_FAST                0 (self)
+             14 LOAD_ATTR                2 (logs_dir)
+             16 LOAD_ATTR                3 (mkdir)
+             18 LOAD_CONST               1 (True)
+             20 LOAD_CONST               1 (True)
+             22 LOAD_CONST               2 (('parents', 'exist_ok'))
+             24 CALL_FUNCTION_KW         2
+             26 POP_TOP
+
+ 31          28 LOAD_GLOBAL              4 (collections)
+             30 LOAD_METHOD              5 (defaultdict)
+             32 LOAD_CONST               3 (<code object <lambda> at 0x10924b2f0, file "WeRobotCore/utils/task_logger_v2.py", line 31>)
+             34 LOAD_CONST               4 ('TaskLoggerV2.__init__.<locals>.<lambda>')
+             36 MAKE_FUNCTION            0
+             38 CALL_METHOD              1
+             40 LOAD_FAST                0 (self)
+             42 STORE_ATTR               6 (cache)
+
+ 34          44 BUILD_MAP                0
+             46 LOAD_FAST                0 (self)
+             48 STORE_ATTR               7 (_stats_cache)
+
+ 35          50 LOAD_CONST               5 (0)
+             52 LOAD_FAST                0 (self)
+             54 STORE_ATTR               8 (_stats_cache_time)
+
+ 36          56 LOAD_GLOBAL              9 (threading)
+             58 LOAD_METHOD             10 (Lock)
+             60 CALL_METHOD              0
+             62 LOAD_FAST                0 (self)
+             64 STORE_ATTR              11 (_stats_lock)
+
+ 39          66 LOAD_FAST                0 (self)
+             68 LOAD_METHOD             12 (_load_recent_logs)
+             70 CALL_METHOD              0
+             72 POP_TOP
+
+ 41          74 LOAD_CONST               1 (True)
+             76 LOAD_FAST                0 (self)
+             78 STORE_ATTR               0 (_initialized)
+        >>   80 LOAD_CONST               0 (None)
+             82 RETURN_VALUE
+
+Disassembly of <code object <lambda> at 0x10924b2f0, file "WeRobotCore/utils/task_logger_v2.py", line 31>:
+ 31           0 LOAD_GLOBAL              0 (collections)
+              2 LOAD_ATTR                1 (deque)
+              4 LOAD_CONST               1 (2000)
+              6 LOAD_CONST               2 (('maxlen',))
+              8 CALL_FUNCTION_KW         1
+             10 RETURN_VALUE
+
+Disassembly of <code object configure_logs_dir at 0x10924ba80, file "WeRobotCore/utils/task_logger_v2.py", line 43>:
+ 46           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                1 (logs_dir)
+              4 LOAD_GLOBAL              1 (Path)
+              6 CALL_FUNCTION            2
+              8 POP_JUMP_IF_FALSE       18
+             10 LOAD_FAST                1 (logs_dir)
+             12 LOAD_METHOD              2 (is_absolute)
+             14 CALL_METHOD              0
+             16 POP_JUMP_IF_TRUE        26
+
+ 47     >>   18 LOAD_GLOBAL              3 (ValueError)
+             20 LOAD_CONST               1 ('logs_dir must be an absolute pathlib.Path')
+             22 CALL_FUNCTION            1
+             24 RAISE_VARARGS            1
+
+ 48     >>   26 LOAD_FAST                0 (self)
+             28 LOAD_ATTR                4 (_stats_lock)
+             30 SETUP_WITH              72 (to 104)
+             32 POP_TOP
+
+ 49          34 LOAD_FAST                1 (logs_dir)
+             36 LOAD_FAST                0 (self)
+             38 STORE_ATTR               5 (logs_dir)
+
+ 50          40 LOAD_FAST                0 (self)
+             42 LOAD_ATTR                5 (logs_dir)
+             44 LOAD_ATTR                6 (mkdir)
+             46 LOAD_CONST               2 (True)
+             48 LOAD_CONST               2 (True)
+             50 LOAD_CONST               3 (('parents', 'exist_ok'))
+             52 CALL_FUNCTION_KW         2
+             54 POP_TOP
+
+ 51          56 LOAD_FAST                0 (self)
+             58 LOAD_ATTR                7 (cache)
+             60 LOAD_METHOD              8 (clear)
+             62 CALL_METHOD              0
+             64 POP_TOP
+
+ 52          66 LOAD_FAST                0 (self)
+             68 LOAD_ATTR                9 (_stats_cache)
+             70 LOAD_METHOD              8 (clear)
+             72 CALL_METHOD              0
+             74 POP_TOP
+
+ 53          76 LOAD_CONST               4 (0)
+             78 LOAD_FAST                0 (self)
+             80 STORE_ATTR              10 (_stats_cache_time)
+
+ 54          82 LOAD_FAST                0 (self)
+             84 LOAD_METHOD             11 (_load_recent_logs)
+             86 CALL_METHOD              0
+             88 POP_TOP
+             90 POP_BLOCK
+             92 LOAD_CONST               5 (None)
+             94 DUP_TOP
+             96 DUP_TOP
+             98 CALL_FUNCTION            3
+            100 POP_TOP
+            102 JUMP_FORWARD            16 (to 120)
+        >>  104 WITH_EXCEPT_START
+            106 POP_JUMP_IF_TRUE       110
+            108 RERAISE
+        >>  110 POP_TOP
+            112 POP_TOP
+            114 POP_TOP
+            116 POP_EXCEPT
+            118 POP_TOP
+        >>  120 LOAD_CONST               5 (None)
+            122 RETURN_VALUE
+
+Disassembly of <code object _get_log_file_path at 0x10924b710, file "WeRobotCore/utils/task_logger_v2.py", line 56>:
+ 57           0 LOAD_FAST                0 (self)
+              2 LOAD_ATTR                0 (logs_dir)
+              4 LOAD_FAST                1 (task_type)
+              6 FORMAT_VALUE             0
+              8 LOAD_CONST               1 ('.jsonl')
+             10 BUILD_STRING             2
+             12 BINARY_TRUE_DIVIDE
+             14 RETURN_VALUE
+
+Disassembly of <code object _load_recent_logs at 0x10924bf50, file "WeRobotCore/utils/task_logger_v2.py", line 59>:
+ 61           0 LOAD_FAST                0 (self)
+              2 LOAD_ATTR                0 (logs_dir)
+              4 LOAD_METHOD              1 (exists)
+              6 CALL_METHOD              0
+              8 POP_JUMP_IF_TRUE        14
+
+ 62          10 LOAD_CONST               1 (None)
+             12 RETURN_VALUE
+
+ 64     >>   14 LOAD_FAST                0 (self)
+             16 LOAD_ATTR                0 (logs_dir)
+             18 LOAD_METHOD              2 (glob)
+             20 LOAD_CONST               2 ('*.jsonl')
+             22 CALL_METHOD              1
+             24 GET_ITER
+        >>   26 FOR_ITER               208 (to 236)
+             28 STORE_FAST               1 (file_path)
+
+ 65          30 LOAD_FAST                1 (file_path)
+             32 LOAD_ATTR                3 (stem)
+             34 STORE_FAST               2 (task_type)
+
+ 66          36 SETUP_FINALLY          140 (to 178)
+
+ 67          38 LOAD_GLOBAL              4 (open)
+             40 LOAD_FAST                1 (file_path)
+             42 LOAD_CONST               3 ('r')
+             44 LOAD_CONST               4 ('utf-8')
+             46 LOAD_CONST               5 (('encoding',))
+             48 CALL_FUNCTION_KW         3
+             50 SETUP_WITH             106 (to 158)
+             52 STORE_FAST               3 (f)
+
+ 68          54 LOAD_FAST                3 (f)
+             56 LOAD_METHOD              5 (readlines)
+             58 CALL_METHOD              0
+             60 STORE_FAST               4 (lines)
+
+ 70          62 LOAD_FAST                4 (lines)
+             64 LOAD_CONST               6 (-2000)
+             66 LOAD_CONST               1 (None)
+             68 BUILD_SLICE              2
+             70 BINARY_SUBSCR
+             72 GET_ITER
+        >>   74 FOR_ITER                68 (to 144)
+             76 STORE_FAST               5 (line)
+
+ 71          78 LOAD_FAST                5 (line)
+             80 LOAD_METHOD              6 (strip)
+             82 CALL_METHOD              0
+             84 POP_JUMP_IF_FALSE       74
+
+ 72          86 SETUP_FINALLY           30 (to 118)
+
+ 73          88 LOAD_GLOBAL              7 (json)
+             90 LOAD_METHOD              8 (loads)
+             92 LOAD_FAST                5 (line)
+             94 CALL_METHOD              1
+             96 STORE_FAST               6 (log_entry)
+
+ 74          98 LOAD_FAST                0 (self)
+            100 LOAD_ATTR                9 (cache)
+            102 LOAD_FAST                2 (task_type)
+            104 BINARY_SUBSCR
+            106 LOAD_METHOD             10 (append)
+            108 LOAD_FAST                6 (log_entry)
+            110 CALL_METHOD              1
+            112 POP_TOP
+            114 POP_BLOCK
+            116 JUMP_ABSOLUTE           74
+
+ 75     >>  118 DUP_TOP
+            120 LOAD_GLOBAL              7 (json)
+            122 LOAD_ATTR               11 (JSONDecodeError)
+            124 JUMP_IF_NOT_EXC_MATCH   140
+            126 POP_TOP
+            128 POP_TOP
+            130 POP_TOP
+
+ 76         132 POP_EXCEPT
+            134 JUMP_ABSOLUTE           74
+            136 POP_EXCEPT
+            138 JUMP_ABSOLUTE           74
+        >>  140 RERAISE
+            142 JUMP_ABSOLUTE           74
+        >>  144 POP_BLOCK
+            146 LOAD_CONST               1 (None)
+            148 DUP_TOP
+            150 DUP_TOP
+            152 CALL_FUNCTION            3
+            154 POP_TOP
+            156 JUMP_FORWARD            16 (to 174)
+        >>  158 WITH_EXCEPT_START
+            160 POP_JUMP_IF_TRUE       164
+            162 RERAISE
+        >>  164 POP_TOP
+            166 POP_TOP
+            168 POP_TOP
+            170 POP_EXCEPT
+            172 POP_TOP
+        >>  174 POP_BLOCK
+            176 JUMP_ABSOLUTE           26
+
+ 77     >>  178 DUP_TOP
+            180 LOAD_GLOBAL             12 (Exception)
+            182 JUMP_IF_NOT_EXC_MATCH   232
+            184 POP_TOP
+            186 STORE_FAST               7 (e)
+            188 POP_TOP
+            190 SETUP_FINALLY           32 (to 224)
+
+ 78         192 LOAD_GLOBAL             13 (print)
+            194 LOAD_CONST               7 ('加载日志缓存失败 ')
+            196 LOAD_FAST                1 (file_path)
+            198 FORMAT_VALUE             0
+            200 LOAD_CONST               8 (': ')
+            202 LOAD_FAST                7 (e)
+            204 FORMAT_VALUE             0
+            206 BUILD_STRING             4
+            208 CALL_FUNCTION            1
+            210 POP_TOP
+            212 POP_BLOCK
+            214 POP_EXCEPT
+            216 LOAD_CONST               1 (None)
+            218 STORE_FAST               7 (e)
+            220 DELETE_FAST              7 (e)
+            222 JUMP_ABSOLUTE           26
+        >>  224 LOAD_CONST               1 (None)
+            226 STORE_FAST               7 (e)
+            228 DELETE_FAST              7 (e)
+            230 RERAISE
+        >>  232 RERAISE
+            234 JUMP_ABSOLUTE           26
+        >>  236 LOAD_CONST               1 (None)
+            238 RETURN_VALUE
+
+Disassembly of <code object add_log at 0x10924b660, file "WeRobotCore/utils/task_logger_v2.py", line 80>:
+ 82           0 LOAD_GLOBAL              0 (str)
+              2 LOAD_GLOBAL              1 (uuid)
+              4 LOAD_METHOD              2 (uuid4)
+              6 CALL_METHOD              0
+              8 CALL_FUNCTION            1
+             10 STORE_FAST               7 (log_id)
+
+ 83          12 LOAD_GLOBAL              3 (datetime)
+             14 LOAD_METHOD              4 (now)
+             16 CALL_METHOD              0
+             18 STORE_FAST               8 (now)
+
+ 86          20 LOAD_GLOBAL              5 (int)
+             22 LOAD_GLOBAL              6 (time)
+             24 LOAD_METHOD              6 (time)
+             26 CALL_METHOD              0
+             28 LOAD_CONST               1 (1000)
+             30 BINARY_MULTIPLY
+             32 CALL_FUNCTION            1
+             34 STORE_FAST               9 (timestamp)
+
+ 89          36 LOAD_GLOBAL              7 (timezone)
+             38 LOAD_GLOBAL              8 (timedelta)
+             40 LOAD_CONST               2 (8)
+             42 LOAD_CONST               3 (('hours',))
+             44 CALL_FUNCTION_KW         1
+             46 CALL_FUNCTION            1
+             48 STORE_FAST              10 (utc_plus_8)
+
+ 90          50 LOAD_FAST                8 (now)
+             52 LOAD_METHOD              9 (astimezone)
+             54 LOAD_FAST               10 (utc_plus_8)
+             56 CALL_METHOD              1
+             58 LOAD_ATTR               10 (isoformat)
+             60 LOAD_CONST               4 ('milliseconds')
+             62 LOAD_CONST               5 (('timespec',))
+             64 CALL_FUNCTION_KW         1
+             66 STORE_FAST              11 (created_at)
+
+ 93          68 LOAD_FAST                7 (log_id)
+
+ 94          70 LOAD_FAST                3 (task_id)
+
+ 95          72 LOAD_FAST                1 (account_id)
+
+ 96          74 LOAD_FAST                2 (task_type)
+
+ 97          76 LOAD_FAST                9 (timestamp)
+
+ 98          78 LOAD_FAST               11 (created_at)
+
+ 99          80 LOAD_FAST                4 (status)
+
+100          82 LOAD_FAST                6 (error_msg)
+
+101          84 LOAD_FAST                5 (details)
+
+ 92          86 LOAD_CONST               6 (('id', 'task_id', 'account_id', 'task_type', 'timestamp', 'created_at', 'status', 'error_msg', 'details'))
+             88 BUILD_CONST_KEY_MAP      9
+             90 STORE_FAST              12 (log_entry)
+
+105          92 LOAD_FAST                0 (self)
+             94 LOAD_ATTR               11 (cache)
+             96 LOAD_FAST                2 (task_type)
+             98 BINARY_SUBSCR
+            100 LOAD_METHOD             12 (append)
+            102 LOAD_FAST               12 (log_entry)
+            104 CALL_METHOD              1
+            106 POP_TOP
+
+108         108 LOAD_FAST                0 (self)
+            110 LOAD_METHOD             13 (_get_log_file_path)
+            112 LOAD_FAST                2 (task_type)
+            114 CALL_METHOD              1
+            116 STORE_FAST              13 (file_path)
+
+109         118 SETUP_FINALLY           74 (to 194)
+
+110         120 LOAD_GLOBAL             14 (open)
+            122 LOAD_FAST               13 (file_path)
+            124 LOAD_CONST               7 ('a')
+            126 LOAD_CONST               8 ('utf-8')
+            128 LOAD_CONST               9 (('encoding',))
+            130 CALL_FUNCTION_KW         3
+            132 SETUP_WITH              40 (to 174)
+            134 STORE_FAST              14 (f)
+
+111         136 LOAD_FAST               14 (f)
+            138 LOAD_METHOD             15 (write)
+            140 LOAD_GLOBAL             16 (json)
+            142 LOAD_ATTR               17 (dumps)
+            144 LOAD_FAST               12 (log_entry)
+            146 LOAD_CONST              10 (False)
+            148 LOAD_CONST              11 (('ensure_ascii',))
+            150 CALL_FUNCTION_KW         2
+            152 LOAD_CONST              12 ('\n')
+            154 BINARY_ADD
+            156 CALL_METHOD              1
+            158 POP_TOP
+            160 POP_BLOCK
+            162 LOAD_CONST              13 (None)
+            164 DUP_TOP
+            166 DUP_TOP
+            168 CALL_FUNCTION            3
+            170 POP_TOP
+            172 JUMP_FORWARD            16 (to 190)
+        >>  174 WITH_EXCEPT_START
+            176 POP_JUMP_IF_TRUE       180
+            178 RERAISE
+        >>  180 POP_TOP
+            182 POP_TOP
+            184 POP_TOP
+            186 POP_EXCEPT
+            188 POP_TOP
+        >>  190 POP_BLOCK
+            192 JUMP_FORWARD            50 (to 244)
+
+112     >>  194 DUP_TOP
+            196 LOAD_GLOBAL             18 (Exception)
+            198 JUMP_IF_NOT_EXC_MATCH   242
+            200 POP_TOP
+            202 STORE_FAST              15 (e)
+            204 POP_TOP
+            206 SETUP_FINALLY           26 (to 234)
+
+113         208 LOAD_GLOBAL             19 (print)
+            210 LOAD_CONST              14 ('写入日志文件失败: ')
+            212 LOAD_FAST               15 (e)
+            214 FORMAT_VALUE             0
+            216 BUILD_STRING             2
+            218 CALL_FUNCTION            1
+            220 POP_TOP
+            222 POP_BLOCK
+            224 POP_EXCEPT
+            226 LOAD_CONST              13 (None)
+            228 STORE_FAST              15 (e)
+            230 DELETE_FAST             15 (e)
+            232 JUMP_FORWARD            10 (to 244)
+        >>  234 LOAD_CONST              13 (None)
+            236 STORE_FAST              15 (e)
+            238 DELETE_FAST             15 (e)
+            240 RERAISE
+        >>  242 RERAISE
+
+115     >>  244 LOAD_FAST               12 (log_entry)
+            246 RETURN_VALUE
+
+Disassembly of <code object get_logs at 0x10925d710, file "WeRobotCore/utils/task_logger_v2.py", line 117>:
+119           0 LOAD_GLOBAL              0 (list)
+              2 LOAD_FAST                0 (self)
+              4 LOAD_ATTR                1 (cache)
+              6 LOAD_FAST                1 (task_type)
+              8 BINARY_SUBSCR
+             10 CALL_FUNCTION            1
+             12 STORE_FAST               3 (logs)
+
+121          14 LOAD_DEREF               0 (account_id)
+             16 POP_JUMP_IF_FALSE       36
+
+122          18 LOAD_CLOSURE             0 (account_id)
+             20 BUILD_TUPLE              1
+             22 LOAD_CONST               1 (<code object <listcomp> at 0x10925d450, file "WeRobotCore/utils/task_logger_v2.py", line 122>)
+             24 LOAD_CONST               2 ('TaskLoggerV2.get_logs.<locals>.<listcomp>')
+             26 MAKE_FUNCTION            8 (closure)
+             28 LOAD_FAST                3 (logs)
+             30 GET_ITER
+             32 CALL_FUNCTION            1
+             34 STORE_FAST               3 (logs)
+
+125     >>   36 LOAD_FAST                3 (logs)
+             38 LOAD_ATTR                2 (sort)
+             40 LOAD_CONST               3 (<code object <lambda> at 0x10925d660, file "WeRobotCore/utils/task_logger_v2.py", line 125>)
+             42 LOAD_CONST               4 ('TaskLoggerV2.get_logs.<locals>.<lambda>')
+             44 MAKE_FUNCTION            0
+             46 LOAD_CONST               5 (True)
+             48 LOAD_CONST               6 (('key', 'reverse'))
+             50 CALL_FUNCTION_KW         2
+             52 POP_TOP
+
+126          54 LOAD_FAST                3 (logs)
+             56 RETURN_VALUE
+
+Disassembly of <code object <listcomp> at 0x10925d450, file "WeRobotCore/utils/task_logger_v2.py", line 122>:
+122           0 BUILD_LIST               0
+              2 LOAD_FAST                0 (.0)
+        >>    4 FOR_ITER                22 (to 28)
+              6 STORE_FAST               1 (log)
+              8 LOAD_FAST                1 (log)
+             10 LOAD_METHOD              0 (get)
+             12 LOAD_CONST               0 ('account_id')
+             14 CALL_METHOD              1
+             16 LOAD_DEREF               0 (account_id)
+             18 COMPARE_OP               2 (==)
+             20 POP_JUMP_IF_FALSE        4
+             22 LOAD_FAST                1 (log)
+             24 LIST_APPEND              2
+             26 JUMP_ABSOLUTE            4
+        >>   28 RETURN_VALUE
+
+Disassembly of <code object <lambda> at 0x10925d660, file "WeRobotCore/utils/task_logger_v2.py", line 125>:
+125           0 LOAD_FAST                0 (x)
+              2 LOAD_METHOD              0 (get)
+              4 LOAD_CONST               1 ('timestamp')
+              6 LOAD_CONST               2 (0)
+              8 CALL_METHOD              2
+             10 RETURN_VALUE
+
+Disassembly of <code object get_today_stats_async at 0x10925d190, file "WeRobotCore/utils/task_logger_v2.py", line 128>:
+130           0 LOAD_CONST               1 (0)
+              2 LOAD_CONST               2 (None)
+              4 IMPORT_NAME              0 (asyncio)
+              6 STORE_FAST               2 (asyncio)
+
+131           8 LOAD_FAST                2 (asyncio)
+             10 LOAD_METHOD              1 (to_thread)
+             12 LOAD_FAST                0 (self)
+             14 LOAD_ATTR                2 (get_today_stats)
+             16 LOAD_FAST                1 (account_id)
+             18 CALL_METHOD              2
+             20 GET_AWAITABLE
+             22 LOAD_CONST               2 (None)
+             24 YIELD_FROM
+             26 RETURN_VALUE
+
+Disassembly of <code object get_today_stats at 0x10925dbe0, file "WeRobotCore/utils/task_logger_v2.py", line 133>:
+135           0 LOAD_GLOBAL              0 (datetime)
+              2 LOAD_METHOD              1 (now)
+              4 CALL_METHOD              0
+              6 STORE_FAST               2 (now)
+
+136           8 LOAD_GLOBAL              2 (time)
+             10 LOAD_METHOD              2 (time)
+             12 CALL_METHOD              0
+             14 STORE_FAST               3 (current_time)
+
+137          16 LOAD_FAST                1 (account_id)
+             18 POP_JUMP_IF_FALSE       30
+             20 LOAD_CONST               1 ('stats_')
+             22 LOAD_FAST                1 (account_id)
+             24 FORMAT_VALUE             0
+             26 BUILD_STRING             2
+             28 JUMP_FORWARD             2 (to 32)
+        >>   30 LOAD_CONST               2 ('stats_all')
+        >>   32 STORE_FAST               4 (cache_key)
+
+140          34 LOAD_FAST                0 (self)
+             36 LOAD_ATTR                3 (_stats_lock)
+             38 SETUP_WITH              64 (to 104)
+             40 POP_TOP
+
+141          42 LOAD_FAST                3 (current_time)
+             44 LOAD_FAST                0 (self)
+             46 LOAD_ATTR                4 (_stats_cache_time)
+             48 BINARY_SUBTRACT
+             50 LOAD_CONST               3 (30)
+             52 COMPARE_OP               0 (<)
+             54 POP_JUMP_IF_FALSE       90
+             56 LOAD_FAST                4 (cache_key)
+             58 LOAD_FAST                0 (self)
+             60 LOAD_ATTR                5 (_stats_cache)
+             62 CONTAINS_OP              0
+             64 POP_JUMP_IF_FALSE       90
+
+142          66 LOAD_FAST                0 (self)
+             68 LOAD_ATTR                5 (_stats_cache)
+             70 LOAD_FAST                4 (cache_key)
+             72 BINARY_SUBSCR
+             74 POP_BLOCK
+             76 ROT_TWO
+             78 LOAD_CONST               4 (None)
+             80 DUP_TOP
+             82 DUP_TOP
+             84 CALL_FUNCTION            3
+             86 POP_TOP
+             88 RETURN_VALUE
+        >>   90 POP_BLOCK
+             92 LOAD_CONST               4 (None)
+             94 DUP_TOP
+             96 DUP_TOP
+             98 CALL_FUNCTION            3
+            100 POP_TOP
+            102 JUMP_FORWARD            16 (to 120)
+        >>  104 WITH_EXCEPT_START
+            106 POP_JUMP_IF_TRUE       110
+            108 RERAISE
+        >>  110 POP_TOP
+            112 POP_TOP
+            114 POP_TOP
+            116 POP_EXCEPT
+            118 POP_TOP
+
+145     >>  120 LOAD_GLOBAL              0 (datetime)
+            122 LOAD_FAST                2 (now)
+            124 LOAD_ATTR                6 (year)
+            126 LOAD_FAST                2 (now)
+            128 LOAD_ATTR                7 (month)
+            130 LOAD_FAST                2 (now)
+            132 LOAD_ATTR                8 (day)
+            134 CALL_FUNCTION            3
+            136 LOAD_METHOD              9 (astimezone)
+            138 LOAD_GLOBAL             10 (timezone)
+            140 LOAD_GLOBAL             11 (timedelta)
+            142 LOAD_CONST               5 (8)
+            144 LOAD_CONST               6 (('hours',))
+            146 CALL_FUNCTION_KW         1
+            148 CALL_FUNCTION            1
+            150 CALL_METHOD              1
+            152 STORE_FAST               5 (today_start)
+
+146         154 LOAD_GLOBAL             12 (int)
+            156 LOAD_FAST                5 (today_start)
+            158 LOAD_METHOD             13 (timestamp)
+            160 CALL_METHOD              0
+            162 LOAD_CONST               7 (1000)
+            164 BINARY_MULTIPLY
+            166 CALL_FUNCTION            1
+            168 STORE_FAST               6 (today_start_ts)
+
+149         170 LOAD_CONST               8 (0)
+
+150         172 LOAD_CONST               8 (0)
+
+151         174 LOAD_CONST               8 (0)
+
+152         176 LOAD_CONST               8 (0)
+
+153         178 LOAD_CONST               8 (0)
+
+154         180 LOAD_CONST               8 (0)
+
+148         182 LOAD_CONST               9 (('auto_reply', 'add_friend', 'friend_request', 'mass_sending', 'moment_interaction', 'auto_follow'))
+            184 BUILD_CONST_KEY_MAP      6
+            186 STORE_FAST               7 (stats)
+
+157         188 LOAD_FAST                0 (self)
+            190 LOAD_ATTR               14 (logs_dir)
+            192 LOAD_METHOD             15 (exists)
+            194 CALL_METHOD              0
+            196 POP_JUMP_IF_TRUE       202
+
+158         198 LOAD_FAST                7 (stats)
+            200 RETURN_VALUE
+
+161     >>  202 LOAD_FAST                7 (stats)
+            204 LOAD_METHOD             16 (keys)
+            206 CALL_METHOD              0
+            208 GET_ITER
+        >>  210 EXTENDED_ARG             1
+            212 FOR_ITER               388 (to 602)
+            214 STORE_FAST               8 (task_type)
+
+162         216 LOAD_FAST                0 (self)
+            218 LOAD_METHOD             17 (_get_log_file_path)
+            220 LOAD_FAST                8 (task_type)
+            222 CALL_METHOD              1
+            224 STORE_FAST               9 (file_path)
+
+163         226 LOAD_FAST                9 (file_path)
+            228 LOAD_METHOD             15 (exists)
+            230 CALL_METHOD              0
+            232 POP_JUMP_IF_TRUE       236
+
+164         234 JUMP_ABSOLUTE          210
+
+166     >>  236 LOAD_CONST               8 (0)
+            238 STORE_FAST              10 (count)
+
+167         240 EXTENDED_ARG             1
+            242 SETUP_FINALLY          298 (to 542)
+
+170         244 LOAD_GLOBAL             18 (open)
+            246 LOAD_FAST                9 (file_path)
+            248 LOAD_CONST              10 ('r')
+            250 LOAD_CONST              11 ('utf-8')
+            252 LOAD_CONST              12 (('encoding',))
+            254 CALL_FUNCTION_KW         3
+            256 SETUP_WITH             254 (to 512)
+            258 STORE_FAST              11 (f)
+
+171         260 LOAD_FAST               11 (f)
+            262 GET_ITER
+        >>  264 FOR_ITER               232 (to 498)
+            266 STORE_FAST              12 (line)
+
+172         268 LOAD_FAST               12 (line)
+            270 LOAD_METHOD             19 (strip)
+            272 CALL_METHOD              0
+            274 EXTENDED_ARG             1
+            276 POP_JUMP_IF_TRUE       282
+
+173         278 EXTENDED_ARG             1
+            280 JUMP_ABSOLUTE          264
+
+174     >>  282 SETUP_FINALLY          182 (to 466)
+
+175         284 LOAD_GLOBAL             20 (json)
+            286 LOAD_METHOD             21 (loads)
+            288 LOAD_FAST               12 (line)
+            290 CALL_METHOD              1
+            292 STORE_FAST              13 (log)
+
+177         294 LOAD_FAST                1 (account_id)
+            296 EXTENDED_ARG             1
+            298 POP_JUMP_IF_FALSE      322
+            300 LOAD_FAST               13 (log)
+            302 LOAD_METHOD             22 (get)
+            304 LOAD_CONST              13 ('account_id')
+            306 CALL_METHOD              1
+            308 LOAD_FAST                1 (account_id)
+            310 COMPARE_OP               3 (!=)
+            312 EXTENDED_ARG             1
+            314 POP_JUMP_IF_FALSE      322
+
+178         316 POP_BLOCK
+            318 EXTENDED_ARG             1
+            320 JUMP_ABSOLUTE          264
+
+180     >>  322 LOAD_FAST               13 (log)
+            324 LOAD_METHOD             22 (get)
+            326 LOAD_CONST              14 ('status')
+            328 CALL_METHOD              1
+            330 STORE_FAST              14 (status)
+
+181         332 LOAD_FAST               14 (status)
+            334 LOAD_CONST              15 (('success', 'completed'))
+            336 CONTAINS_OP              1
+            338 EXTENDED_ARG             1
+            340 POP_JUMP_IF_FALSE      348
+
+182         342 POP_BLOCK
+            344 EXTENDED_ARG             1
+            346 JUMP_ABSOLUTE          264
+
+184     >>  348 LOAD_FAST               13 (log)
+            350 LOAD_METHOD             22 (get)
+            352 LOAD_CONST              16 ('timestamp')
+            354 LOAD_CONST               8 (0)
+            356 CALL_METHOD              2
+            358 STORE_FAST              15 (log_ts)
+
+185         360 LOAD_FAST               15 (log_ts)
+            362 LOAD_FAST                6 (today_start_ts)
+            364 COMPARE_OP               5 (>=)
+            366 EXTENDED_ARG             1
+            368 POP_JUMP_IF_FALSE      462
+
+187         370 LOAD_FAST               13 (log)
+            372 LOAD_METHOD             22 (get)
+            374 LOAD_CONST              17 ('details')
+            376 BUILD_MAP                0
+            378 CALL_METHOD              2
+            380 STORE_FAST              16 (details)
+
+188         382 LOAD_FAST                8 (task_type)
+            384 LOAD_CONST              18 ('friend_request')
+            386 COMPARE_OP               2 (==)
+            388 EXTENDED_ARG             1
+            390 POP_JUMP_IF_FALSE      454
+
+189         392 LOAD_FAST               16 (details)
+            394 LOAD_METHOD             22 (get)
+            396 LOAD_CONST              19 ('processed_users')
+            398 BUILD_LIST               0
+            400 CALL_METHOD              2
+            402 STORE_FAST              17 (processed_users)
+
+190         404 LOAD_GLOBAL             23 (isinstance)
+            406 LOAD_FAST               17 (processed_users)
+            408 LOAD_GLOBAL             24 (list)
+            410 CALL_FUNCTION            2
+            412 EXTENDED_ARG             1
+            414 POP_JUMP_IF_FALSE      444
+            416 LOAD_GLOBAL             25 (len)
+            418 LOAD_FAST               17 (processed_users)
+            420 CALL_FUNCTION            1
+            422 LOAD_CONST               8 (0)
+            424 COMPARE_OP               4 (>)
+            426 EXTENDED_ARG             1
+            428 POP_JUMP_IF_FALSE      444
+
+191         430 LOAD_FAST               10 (count)
+            432 LOAD_GLOBAL             25 (len)
+            434 LOAD_FAST               17 (processed_users)
+            436 CALL_FUNCTION            1
+            438 INPLACE_ADD
+            440 STORE_FAST              10 (count)
+            442 JUMP_FORWARD             8 (to 452)
+
+193     >>  444 LOAD_FAST               10 (count)
+            446 LOAD_CONST              20 (1)
+            448 INPLACE_ADD
+            450 STORE_FAST              10 (count)
+        >>  452 JUMP_FORWARD             8 (to 462)
+
+195     >>  454 LOAD_FAST               10 (count)
+            456 LOAD_CONST              20 (1)
+            458 INPLACE_ADD
+            460 STORE_FAST              10 (count)
+        >>  462 POP_BLOCK
+            464 JUMP_FORWARD            28 (to 494)
+
+196     >>  466 DUP_TOP
+            468 LOAD_GLOBAL             20 (json)
+            470 LOAD_ATTR               26 (JSONDecodeError)
+            472 EXTENDED_ARG             1
+            474 JUMP_IF_NOT_EXC_MATCH   492
+            476 POP_TOP
+            478 POP_TOP
+            480 POP_TOP
+
+197         482 POP_EXCEPT
+            484 EXTENDED_ARG             1
+            486 JUMP_ABSOLUTE          264
+            488 POP_EXCEPT
+            490 JUMP_FORWARD             2 (to 494)
+        >>  492 RERAISE
+        >>  494 EXTENDED_ARG             1
+            496 JUMP_ABSOLUTE          264
+        >>  498 POP_BLOCK
+            500 LOAD_CONST               4 (None)
+            502 DUP_TOP
+            504 DUP_TOP
+            506 CALL_FUNCTION            3
+            508 POP_TOP
+            510 JUMP_FORWARD            18 (to 530)
+        >>  512 WITH_EXCEPT_START
+            514 EXTENDED_ARG             2
+            516 POP_JUMP_IF_TRUE       520
+            518 RERAISE
+        >>  520 POP_TOP
+            522 POP_TOP
+            524 POP_TOP
+            526 POP_EXCEPT
+            528 POP_TOP
+
+198     >>  530 LOAD_FAST               10 (count)
+            532 LOAD_FAST                7 (stats)
+            534 LOAD_FAST                8 (task_type)
+            536 STORE_SUBSCR
+            538 POP_BLOCK
+            540 JUMP_ABSOLUTE          210
+
+199     >>  542 DUP_TOP
+            544 LOAD_GLOBAL             27 (Exception)
+            546 EXTENDED_ARG             2
+            548 JUMP_IF_NOT_EXC_MATCH   598
+            550 POP_TOP
+            552 STORE_FAST              18 (e)
+            554 POP_TOP
+            556 SETUP_FINALLY           32 (to 590)
+
+200         558 LOAD_GLOBAL             28 (print)
+            560 LOAD_CONST              21 ('统计今日日志失败 ')
+            562 LOAD_FAST                9 (file_path)
+            564 FORMAT_VALUE             0
+            566 LOAD_CONST              22 (': ')
+            568 LOAD_FAST               18 (e)
+            570 FORMAT_VALUE             0
+            572 BUILD_STRING             4
+            574 CALL_FUNCTION            1
+            576 POP_TOP
+            578 POP_BLOCK
+            580 POP_EXCEPT
+            582 LOAD_CONST               4 (None)
+            584 STORE_FAST              18 (e)
+            586 DELETE_FAST             18 (e)
+            588 JUMP_ABSOLUTE          210
+        >>  590 LOAD_CONST               4 (None)
+            592 STORE_FAST              18 (e)
+            594 DELETE_FAST             18 (e)
+            596 RERAISE
+        >>  598 RERAISE
+            600 JUMP_ABSOLUTE          210
+
+203     >>  602 LOAD_FAST                0 (self)
+            604 LOAD_ATTR                3 (_stats_lock)
+            606 SETUP_WITH              32 (to 640)
+            608 POP_TOP
+
+204         610 LOAD_FAST                7 (stats)
+            612 LOAD_FAST                0 (self)
+            614 LOAD_ATTR                5 (_stats_cache)
+            616 LOAD_FAST                4 (cache_key)
+            618 STORE_SUBSCR
+
+205         620 LOAD_FAST                3 (current_time)
+            622 LOAD_FAST                0 (self)
+            624 STORE_ATTR               4 (_stats_cache_time)
+            626 POP_BLOCK
+            628 LOAD_CONST               4 (None)
+            630 DUP_TOP
+            632 DUP_TOP
+            634 CALL_FUNCTION            3
+            636 POP_TOP
+            638 JUMP_FORWARD            18 (to 658)
+        >>  640 WITH_EXCEPT_START
+            642 EXTENDED_ARG             2
+            644 POP_JUMP_IF_TRUE       648
+            646 RERAISE
+        >>  648 POP_TOP
+            650 POP_TOP
+            652 POP_TOP
+            654 POP_EXCEPT
+            656 POP_TOP
+
+207     >>  658 LOAD_FAST                7 (stats)
+            660 RETURN_VALUE
+
+Disassembly of <code object configure_task_log_root at 0x10925db30, file "WeRobotCore/utils/task_logger_v2.py", line 212>:
+215           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                0 (logs_root)
+              4 LOAD_GLOBAL              1 (Path)
+              6 CALL_FUNCTION            2
+              8 POP_JUMP_IF_FALSE       18
+             10 LOAD_FAST                0 (logs_root)
+             12 LOAD_METHOD              2 (is_absolute)
+             14 CALL_METHOD              0
+             16 POP_JUMP_IF_TRUE        26
+
+216     >>   18 LOAD_GLOBAL              3 (ValueError)
+             20 LOAD_CONST               1 ('logs_root must be an absolute pathlib.Path')
+             22 CALL_FUNCTION            1
+             24 RAISE_VARARGS            1
+
+217     >>   26 LOAD_GLOBAL              4 (task_logger_v2)
+             28 LOAD_METHOD              5 (configure_logs_dir)
+             30 LOAD_FAST                0 (logs_root)
+             32 LOAD_CONST               2 ('task_logs')
+             34 BINARY_TRUE_DIVIDE
+             36 CALL_METHOD              1
+             38 POP_TOP
+             40 LOAD_CONST               3 (None)
+             42 RETURN_VALUE

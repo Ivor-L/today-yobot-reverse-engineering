@@ -1,0 +1,1346 @@
+  1           0 LOAD_CONST               0 ('Platform-neutral orchestration for instance exit and switch commands.\n\nPlatform backends own native validation, active-instance mutation, account\ninitialization/binding and process-global automation facades.  This module\nowns only the shared ordering around monitor cleanup and contact statistics.\nIt has no FastAPI, storage, scheduler or native automation dependencies.\n')
+              2 STORE_NAME               0 (__doc__)
+
+  9           4 LOAD_CONST               1 (0)
+              6 LOAD_CONST               2 (('dataclass',))
+              8 IMPORT_NAME              1 (dataclasses)
+             10 IMPORT_FROM              2 (dataclass)
+             12 STORE_NAME               2 (dataclass)
+             14 POP_TOP
+
+ 10          16 LOAD_CONST               1 (0)
+             18 LOAD_CONST               3 (('Enum',))
+             20 IMPORT_NAME              3 (enum)
+             22 IMPORT_FROM              4 (Enum)
+             24 STORE_NAME               4 (Enum)
+             26 POP_TOP
+
+ 11          28 LOAD_CONST               1 (0)
+             30 LOAD_CONST               4 (('Optional', 'Protocol', 'runtime_checkable'))
+             32 IMPORT_NAME              5 (typing)
+             34 IMPORT_FROM              6 (Optional)
+             36 STORE_NAME               6 (Optional)
+             38 IMPORT_FROM              7 (Protocol)
+             40 STORE_NAME               7 (Protocol)
+             42 IMPORT_FROM              8 (runtime_checkable)
+             44 STORE_NAME               8 (runtime_checkable)
+             46 POP_TOP
+
+ 13          48 LOAD_CONST               1 (0)
+             50 LOAD_CONST               5 (('ErrorCode', 'InstanceId'))
+             52 IMPORT_NAME              9 (WeRobotCore.domain)
+             54 IMPORT_FROM             10 (ErrorCode)
+             56 STORE_NAME              10 (ErrorCode)
+             58 IMPORT_FROM             11 (InstanceId)
+             60 STORE_NAME              11 (InstanceId)
+             62 POP_TOP
+
+ 16          64 LOAD_NAME                6 (Optional)
+             66 LOAD_NAME               12 (str)
+             68 BINARY_SUBSCR
+             70 LOAD_NAME               12 (str)
+             72 LOAD_NAME                6 (Optional)
+             74 LOAD_NAME               12 (str)
+             76 BINARY_SUBSCR
+             78 LOAD_CONST               6 (('value', 'field_name', 'return'))
+             80 BUILD_CONST_KEY_MAP      3
+             82 LOAD_CONST               7 (<code object _optional_text at 0x1072e0df0, file "WeRobotCore/application/instances/commands.py", line 16>)
+             84 LOAD_CONST               8 ('_optional_text')
+             86 MAKE_FUNCTION            4 (annotations)
+             88 STORE_NAME              13 (_optional_text)
+
+ 25          90 LOAD_NAME               14 (bool)
+             92 LOAD_NAME               10 (ErrorCode)
+             94 LOAD_CONST               9 (None)
+             96 LOAD_CONST              10 (('success', 'code', 'return'))
+             98 BUILD_CONST_KEY_MAP      3
+            100 LOAD_CONST              11 (<code object _validate_result_code at 0x1072e0d40, file "WeRobotCore/application/instances/commands.py", line 25>)
+            102 LOAD_CONST              12 ('_validate_result_code')
+            104 MAKE_FUNCTION            4 (annotations)
+            106 STORE_NAME              15 (_validate_result_code)
+
+ 36         108 LOAD_NAME                2 (dataclass)
+            110 LOAD_CONST              13 (True)
+            112 LOAD_CONST              14 (('frozen',))
+            114 CALL_FUNCTION_KW         1
+
+ 37         116 LOAD_BUILD_CLASS
+            118 LOAD_CONST              15 (<code object InstanceExitResult at 0x1072e0870, file "WeRobotCore/application/instances/commands.py", line 36>)
+            120 LOAD_CONST              16 ('InstanceExitResult')
+            122 MAKE_FUNCTION            0
+            124 LOAD_CONST              16 ('InstanceExitResult')
+            126 CALL_FUNCTION            2
+            128 CALL_FUNCTION            1
+            130 STORE_NAME              16 (InstanceExitResult)
+
+ 62         132 LOAD_NAME                2 (dataclass)
+            134 LOAD_CONST              13 (True)
+            136 LOAD_CONST              14 (('frozen',))
+            138 CALL_FUNCTION_KW         1
+
+ 63         140 LOAD_BUILD_CLASS
+            142 LOAD_CONST              17 (<code object InstanceSwitchResult at 0x1072e0ea0, file "WeRobotCore/application/instances/commands.py", line 62>)
+            144 LOAD_CONST              18 ('InstanceSwitchResult')
+            146 MAKE_FUNCTION            0
+            148 LOAD_CONST              18 ('InstanceSwitchResult')
+            150 CALL_FUNCTION            2
+            152 CALL_FUNCTION            1
+            154 STORE_NAME              17 (InstanceSwitchResult)
+
+ 92         156 LOAD_NAME                2 (dataclass)
+            158 LOAD_CONST              13 (True)
+            160 LOAD_CONST              14 (('frozen',))
+            162 CALL_FUNCTION_KW         1
+
+ 93         164 LOAD_BUILD_CLASS
+            166 LOAD_CONST              19 (<code object InstanceContactCounts at 0x1073b92f0, file "WeRobotCore/application/instances/commands.py", line 92>)
+            168 LOAD_CONST              20 ('InstanceContactCounts')
+            170 MAKE_FUNCTION            0
+            172 LOAD_CONST              20 ('InstanceContactCounts')
+            174 CALL_FUNCTION            2
+            176 CALL_FUNCTION            1
+            178 STORE_NAME              18 (InstanceContactCounts)
+
+108         180 LOAD_BUILD_CLASS
+            182 LOAD_CONST              21 (<code object InstanceMonitorStopStatus at 0x1073b9b30, file "WeRobotCore/application/instances/commands.py", line 108>)
+            184 LOAD_CONST              22 ('InstanceMonitorStopStatus')
+            186 MAKE_FUNCTION            0
+            188 LOAD_CONST              22 ('InstanceMonitorStopStatus')
+            190 LOAD_NAME               12 (str)
+            192 LOAD_NAME                4 (Enum)
+            194 CALL_FUNCTION            4
+            196 STORE_NAME              19 (InstanceMonitorStopStatus)
+
+114         198 LOAD_NAME                2 (dataclass)
+            200 LOAD_CONST              13 (True)
+            202 LOAD_CONST              14 (('frozen',))
+            204 CALL_FUNCTION_KW         1
+
+115         206 LOAD_BUILD_CLASS
+            208 LOAD_CONST              23 (<code object InstanceMonitorStopResult at 0x1073b9710, file "WeRobotCore/application/instances/commands.py", line 114>)
+            210 LOAD_CONST              24 ('InstanceMonitorStopResult')
+            212 MAKE_FUNCTION            0
+            214 LOAD_CONST              24 ('InstanceMonitorStopResult')
+            216 CALL_FUNCTION            2
+            218 CALL_FUNCTION            1
+            220 STORE_NAME              20 (InstanceMonitorStopResult)
+
+126         222 LOAD_NAME                2 (dataclass)
+            224 LOAD_CONST              13 (True)
+            226 LOAD_CONST              14 (('frozen',))
+            228 CALL_FUNCTION_KW         1
+
+127         230 LOAD_BUILD_CLASS
+            232 LOAD_CONST              25 (<code object InstanceExitOutcome at 0x1073b9a80, file "WeRobotCore/application/instances/commands.py", line 126>)
+            234 LOAD_CONST              26 ('InstanceExitOutcome')
+            236 MAKE_FUNCTION            0
+            238 LOAD_CONST              26 ('InstanceExitOutcome')
+            240 CALL_FUNCTION            2
+            242 CALL_FUNCTION            1
+            244 STORE_NAME              21 (InstanceExitOutcome)
+
+146         246 LOAD_NAME                2 (dataclass)
+            248 LOAD_CONST              13 (True)
+            250 LOAD_CONST              14 (('frozen',))
+            252 CALL_FUNCTION_KW         1
+
+147         254 LOAD_BUILD_CLASS
+            256 LOAD_CONST              27 (<code object InstanceSwitchOutcome at 0x1073b9870, file "WeRobotCore/application/instances/commands.py", line 146>)
+            258 LOAD_CONST              28 ('InstanceSwitchOutcome')
+            260 MAKE_FUNCTION            0
+            262 LOAD_CONST              28 ('InstanceSwitchOutcome')
+            264 CALL_FUNCTION            2
+            266 CALL_FUNCTION            1
+            268 STORE_NAME              22 (InstanceSwitchOutcome)
+
+165         270 LOAD_NAME                8 (runtime_checkable)
+
+166         272 LOAD_BUILD_CLASS
+            274 LOAD_CONST              29 (<code object InstanceExitBackend at 0x1073b99d0, file "WeRobotCore/application/instances/commands.py", line 165>)
+            276 LOAD_CONST              30 ('InstanceExitBackend')
+            278 MAKE_FUNCTION            0
+            280 LOAD_CONST              30 ('InstanceExitBackend')
+            282 LOAD_NAME                7 (Protocol)
+            284 CALL_FUNCTION            3
+            286 CALL_FUNCTION            1
+            288 STORE_NAME              23 (InstanceExitBackend)
+
+171         290 LOAD_NAME                8 (runtime_checkable)
+
+172         292 LOAD_BUILD_CLASS
+            294 LOAD_CONST              31 (<code object InstanceSwitchBackend at 0x1073b97c0, file "WeRobotCore/application/instances/commands.py", line 171>)
+            296 LOAD_CONST              32 ('InstanceSwitchBackend')
+            298 MAKE_FUNCTION            0
+            300 LOAD_CONST              32 ('InstanceSwitchBackend')
+            302 LOAD_NAME                7 (Protocol)
+            304 CALL_FUNCTION            3
+            306 CALL_FUNCTION            1
+            308 STORE_NAME              24 (InstanceSwitchBackend)
+
+177         310 LOAD_NAME                8 (runtime_checkable)
+
+178         312 LOAD_BUILD_CLASS
+            314 LOAD_CONST              33 (<code object InstanceMonitorStopper at 0x1073b9be0, file "WeRobotCore/application/instances/commands.py", line 177>)
+            316 LOAD_CONST              34 ('InstanceMonitorStopper')
+            318 MAKE_FUNCTION            0
+            320 LOAD_CONST              34 ('InstanceMonitorStopper')
+            322 LOAD_NAME                7 (Protocol)
+            324 CALL_FUNCTION            3
+            326 CALL_FUNCTION            1
+            328 STORE_NAME              25 (InstanceMonitorStopper)
+
+186         330 LOAD_NAME                8 (runtime_checkable)
+
+187         332 LOAD_BUILD_CLASS
+            334 LOAD_CONST              35 (<code object InstanceContactStatsProvider at 0x1073b90e0, file "WeRobotCore/application/instances/commands.py", line 186>)
+            336 LOAD_CONST              36 ('InstanceContactStatsProvider')
+            338 MAKE_FUNCTION            0
+            340 LOAD_CONST              36 ('InstanceContactStatsProvider')
+            342 LOAD_NAME                7 (Protocol)
+            344 CALL_FUNCTION            3
+            346 CALL_FUNCTION            1
+            348 STORE_NAME              26 (InstanceContactStatsProvider)
+
+192         350 LOAD_BUILD_CLASS
+            352 LOAD_CONST              37 (<code object InstanceCommandService at 0x1073b9450, file "WeRobotCore/application/instances/commands.py", line 192>)
+            354 LOAD_CONST              38 ('InstanceCommandService')
+            356 MAKE_FUNCTION            0
+            358 LOAD_CONST              38 ('InstanceCommandService')
+            360 CALL_FUNCTION            2
+            362 STORE_NAME              27 (InstanceCommandService)
+            364 LOAD_CONST               9 (None)
+            366 RETURN_VALUE
+
+Disassembly of <code object _optional_text at 0x1072e0df0, file "WeRobotCore/application/instances/commands.py", line 16>:
+ 17           0 LOAD_FAST                0 (value)
+              2 LOAD_CONST               0 (None)
+              4 IS_OP                    0
+              6 POP_JUMP_IF_FALSE       12
+
+ 18           8 LOAD_CONST               0 (None)
+             10 RETURN_VALUE
+
+ 19     >>   12 LOAD_GLOBAL              0 (isinstance)
+             14 LOAD_FAST                0 (value)
+             16 LOAD_GLOBAL              1 (str)
+             18 CALL_FUNCTION            2
+             20 POP_JUMP_IF_TRUE        36
+
+ 20          22 LOAD_GLOBAL              2 (TypeError)
+             24 LOAD_CONST               1 ('{} must be a string when provided')
+             26 LOAD_METHOD              3 (format)
+             28 LOAD_FAST                1 (field_name)
+             30 CALL_METHOD              1
+             32 CALL_FUNCTION            1
+             34 RAISE_VARARGS            1
+
+ 21     >>   36 LOAD_FAST                0 (value)
+             38 LOAD_METHOD              4 (strip)
+             40 CALL_METHOD              0
+             42 STORE_FAST               2 (normalized)
+
+ 22          44 LOAD_FAST                2 (normalized)
+             46 JUMP_IF_TRUE_OR_POP     50
+             48 LOAD_CONST               0 (None)
+        >>   50 RETURN_VALUE
+
+Disassembly of <code object _validate_result_code at 0x1072e0d40, file "WeRobotCore/application/instances/commands.py", line 25>:
+ 26           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                0 (success)
+              4 LOAD_GLOBAL              1 (bool)
+              6 CALL_FUNCTION            2
+              8 POP_JUMP_IF_TRUE        18
+
+ 27          10 LOAD_GLOBAL              2 (TypeError)
+             12 LOAD_CONST               1 ('success must be a bool')
+             14 CALL_FUNCTION            1
+             16 RAISE_VARARGS            1
+
+ 28     >>   18 LOAD_GLOBAL              0 (isinstance)
+             20 LOAD_FAST                1 (code)
+             22 LOAD_GLOBAL              3 (ErrorCode)
+             24 CALL_FUNCTION            2
+             26 POP_JUMP_IF_TRUE        36
+
+ 29          28 LOAD_GLOBAL              2 (TypeError)
+             30 LOAD_CONST               2 ('code must be an ErrorCode')
+             32 CALL_FUNCTION            1
+             34 RAISE_VARARGS            1
+
+ 30     >>   36 LOAD_FAST                0 (success)
+             38 POP_JUMP_IF_FALSE       58
+             40 LOAD_FAST                1 (code)
+             42 LOAD_GLOBAL              3 (ErrorCode)
+             44 LOAD_ATTR                4 (OK)
+             46 IS_OP                    1
+             48 POP_JUMP_IF_FALSE       58
+
+ 31          50 LOAD_GLOBAL              5 (ValueError)
+             52 LOAD_CONST               3 ('successful command results must use ErrorCode.OK')
+             54 CALL_FUNCTION            1
+             56 RAISE_VARARGS            1
+
+ 32     >>   58 LOAD_FAST                0 (success)
+             60 POP_JUMP_IF_TRUE        80
+             62 LOAD_FAST                1 (code)
+             64 LOAD_GLOBAL              3 (ErrorCode)
+             66 LOAD_ATTR                4 (OK)
+             68 IS_OP                    0
+             70 POP_JUMP_IF_FALSE       80
+
+ 33          72 LOAD_GLOBAL              5 (ValueError)
+             74 LOAD_CONST               4 ('failed command results cannot use ErrorCode.OK')
+             76 CALL_FUNCTION            1
+             78 RAISE_VARARGS            1
+        >>   80 LOAD_CONST               0 (None)
+             82 RETURN_VALUE
+
+Disassembly of <code object InstanceExitResult at 0x1072e0870, file "WeRobotCore/application/instances/commands.py", line 36>:
+ 36           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('InstanceExitResult')
+              6 STORE_NAME               2 (__qualname__)
+              8 SETUP_ANNOTATIONS
+
+ 38          10 LOAD_CONST               1 ("Driver result after changing one instance's managed-state flag.")
+             12 STORE_NAME               3 (__doc__)
+
+ 40          14 LOAD_NAME                4 (InstanceId)
+             16 LOAD_NAME                5 (__annotations__)
+             18 LOAD_CONST               2 ('instance_id')
+             20 STORE_SUBSCR
+
+ 41          22 LOAD_NAME                6 (bool)
+             24 LOAD_NAME                5 (__annotations__)
+             26 LOAD_CONST               3 ('success')
+             28 STORE_SUBSCR
+
+ 42          30 LOAD_NAME                7 (ErrorCode)
+             32 LOAD_NAME                5 (__annotations__)
+             34 LOAD_CONST               4 ('code')
+             36 STORE_SUBSCR
+
+ 43          38 LOAD_CONST               5 (None)
+             40 STORE_NAME               8 (account_id)
+             42 LOAD_NAME                9 (Optional)
+             44 LOAD_NAME               10 (str)
+             46 BINARY_SUBSCR
+             48 LOAD_NAME                5 (__annotations__)
+             50 LOAD_CONST               6 ('account_id')
+             52 STORE_SUBSCR
+
+ 44          54 LOAD_CONST               7 ('')
+             56 STORE_NAME              11 (message)
+             58 LOAD_NAME               10 (str)
+             60 LOAD_NAME                5 (__annotations__)
+             62 LOAD_CONST               8 ('message')
+             64 STORE_SUBSCR
+
+ 45          66 LOAD_CONST               9 (False)
+             68 STORE_NAME              12 (retryable)
+             70 LOAD_NAME                6 (bool)
+             72 LOAD_NAME                5 (__annotations__)
+             74 LOAD_CONST              10 ('retryable')
+             76 STORE_SUBSCR
+
+ 47          78 LOAD_CONST               5 (None)
+             80 LOAD_CONST              11 (('return',))
+             82 BUILD_CONST_KEY_MAP      1
+             84 LOAD_CONST              12 (<code object __post_init__ at 0x1072e0b30, file "WeRobotCore/application/instances/commands.py", line 47>)
+             86 LOAD_CONST              13 ('InstanceExitResult.__post_init__')
+             88 MAKE_FUNCTION            4 (annotations)
+             90 STORE_NAME              13 (__post_init__)
+             92 LOAD_CONST               5 (None)
+             94 RETURN_VALUE
+
+Disassembly of <code object __post_init__ at 0x1072e0b30, file "WeRobotCore/application/instances/commands.py", line 47>:
+ 48           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                0 (self)
+              4 LOAD_ATTR                1 (instance_id)
+              6 LOAD_GLOBAL              2 (InstanceId)
+              8 CALL_FUNCTION            2
+             10 POP_JUMP_IF_TRUE        20
+
+ 49          12 LOAD_GLOBAL              3 (TypeError)
+             14 LOAD_CONST               1 ('instance_id must be an InstanceId')
+             16 CALL_FUNCTION            1
+             18 RAISE_VARARGS            1
+
+ 50     >>   20 LOAD_GLOBAL              4 (_validate_result_code)
+             22 LOAD_FAST                0 (self)
+             24 LOAD_ATTR                5 (success)
+             26 LOAD_FAST                0 (self)
+             28 LOAD_ATTR                6 (code)
+             30 CALL_FUNCTION            2
+             32 POP_TOP
+
+ 51          34 LOAD_GLOBAL              0 (isinstance)
+             36 LOAD_FAST                0 (self)
+             38 LOAD_ATTR                7 (message)
+             40 LOAD_GLOBAL              8 (str)
+             42 CALL_FUNCTION            2
+             44 POP_JUMP_IF_TRUE        54
+
+ 52          46 LOAD_GLOBAL              3 (TypeError)
+             48 LOAD_CONST               2 ('message must be a string')
+             50 CALL_FUNCTION            1
+             52 RAISE_VARARGS            1
+
+ 53     >>   54 LOAD_GLOBAL              0 (isinstance)
+             56 LOAD_FAST                0 (self)
+             58 LOAD_ATTR                9 (retryable)
+             60 LOAD_GLOBAL             10 (bool)
+             62 CALL_FUNCTION            2
+             64 POP_JUMP_IF_TRUE        74
+
+ 54          66 LOAD_GLOBAL              3 (TypeError)
+             68 LOAD_CONST               3 ('retryable must be a bool')
+             70 CALL_FUNCTION            1
+             72 RAISE_VARARGS            1
+
+ 55     >>   74 LOAD_GLOBAL             11 (object)
+             76 LOAD_METHOD             12 (__setattr__)
+
+ 56          78 LOAD_FAST                0 (self)
+
+ 57          80 LOAD_CONST               4 ('account_id')
+
+ 58          82 LOAD_GLOBAL             13 (_optional_text)
+             84 LOAD_FAST                0 (self)
+             86 LOAD_ATTR               14 (account_id)
+             88 LOAD_CONST               4 ('account_id')
+             90 CALL_FUNCTION            2
+
+ 55          92 CALL_METHOD              3
+             94 POP_TOP
+             96 LOAD_CONST               0 (None)
+             98 RETURN_VALUE
+
+Disassembly of <code object InstanceSwitchResult at 0x1072e0ea0, file "WeRobotCore/application/instances/commands.py", line 62>:
+ 62           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('InstanceSwitchResult')
+              6 STORE_NAME               2 (__qualname__)
+              8 SETUP_ANNOTATIONS
+
+ 64          10 LOAD_CONST               1 ('Driver result after native switching, initialization and facade binding.')
+             12 STORE_NAME               3 (__doc__)
+
+ 66          14 LOAD_NAME                4 (InstanceId)
+             16 LOAD_NAME                5 (__annotations__)
+             18 LOAD_CONST               2 ('instance_id')
+             20 STORE_SUBSCR
+
+ 67          22 LOAD_NAME                6 (bool)
+             24 LOAD_NAME                5 (__annotations__)
+             26 LOAD_CONST               3 ('success')
+             28 STORE_SUBSCR
+
+ 68          30 LOAD_NAME                7 (ErrorCode)
+             32 LOAD_NAME                5 (__annotations__)
+             34 LOAD_CONST               4 ('code')
+             36 STORE_SUBSCR
+
+ 69          38 LOAD_CONST               5 (None)
+             40 STORE_NAME               8 (account_id)
+             42 LOAD_NAME                9 (Optional)
+             44 LOAD_NAME               10 (str)
+             46 BINARY_SUBSCR
+             48 LOAD_NAME                5 (__annotations__)
+             50 LOAD_CONST               6 ('account_id')
+             52 STORE_SUBSCR
+
+ 70          54 LOAD_CONST               5 (None)
+             56 STORE_NAME              11 (nickname)
+             58 LOAD_NAME                9 (Optional)
+             60 LOAD_NAME               10 (str)
+             62 BINARY_SUBSCR
+             64 LOAD_NAME                5 (__annotations__)
+             66 LOAD_CONST               7 ('nickname')
+             68 STORE_SUBSCR
+
+ 71          70 LOAD_CONST               8 ('')
+             72 STORE_NAME              12 (message)
+             74 LOAD_NAME               10 (str)
+             76 LOAD_NAME                5 (__annotations__)
+             78 LOAD_CONST               9 ('message')
+             80 STORE_SUBSCR
+
+ 72          82 LOAD_CONST              10 (False)
+             84 STORE_NAME              13 (retryable)
+             86 LOAD_NAME                6 (bool)
+             88 LOAD_NAME                5 (__annotations__)
+             90 LOAD_CONST              11 ('retryable')
+             92 STORE_SUBSCR
+
+ 74          94 LOAD_CONST               5 (None)
+             96 LOAD_CONST              12 (('return',))
+             98 BUILD_CONST_KEY_MAP      1
+            100 LOAD_CONST              13 (<code object __post_init__ at 0x1072e0a80, file "WeRobotCore/application/instances/commands.py", line 74>)
+            102 LOAD_CONST              14 ('InstanceSwitchResult.__post_init__')
+            104 MAKE_FUNCTION            4 (annotations)
+            106 STORE_NAME              14 (__post_init__)
+            108 LOAD_CONST               5 (None)
+            110 RETURN_VALUE
+
+Disassembly of <code object __post_init__ at 0x1072e0a80, file "WeRobotCore/application/instances/commands.py", line 74>:
+ 75           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                0 (self)
+              4 LOAD_ATTR                1 (instance_id)
+              6 LOAD_GLOBAL              2 (InstanceId)
+              8 CALL_FUNCTION            2
+             10 POP_JUMP_IF_TRUE        20
+
+ 76          12 LOAD_GLOBAL              3 (TypeError)
+             14 LOAD_CONST               1 ('instance_id must be an InstanceId')
+             16 CALL_FUNCTION            1
+             18 RAISE_VARARGS            1
+
+ 77     >>   20 LOAD_GLOBAL              4 (_validate_result_code)
+             22 LOAD_FAST                0 (self)
+             24 LOAD_ATTR                5 (success)
+             26 LOAD_FAST                0 (self)
+             28 LOAD_ATTR                6 (code)
+             30 CALL_FUNCTION            2
+             32 POP_TOP
+
+ 78          34 LOAD_GLOBAL              0 (isinstance)
+             36 LOAD_FAST                0 (self)
+             38 LOAD_ATTR                7 (message)
+             40 LOAD_GLOBAL              8 (str)
+             42 CALL_FUNCTION            2
+             44 POP_JUMP_IF_TRUE        54
+
+ 79          46 LOAD_GLOBAL              3 (TypeError)
+             48 LOAD_CONST               2 ('message must be a string')
+             50 CALL_FUNCTION            1
+             52 RAISE_VARARGS            1
+
+ 80     >>   54 LOAD_GLOBAL              0 (isinstance)
+             56 LOAD_FAST                0 (self)
+             58 LOAD_ATTR                9 (retryable)
+             60 LOAD_GLOBAL             10 (bool)
+             62 CALL_FUNCTION            2
+             64 POP_JUMP_IF_TRUE        74
+
+ 81          66 LOAD_GLOBAL              3 (TypeError)
+             68 LOAD_CONST               3 ('retryable must be a bool')
+             70 CALL_FUNCTION            1
+             72 RAISE_VARARGS            1
+
+ 82     >>   74 LOAD_GLOBAL             11 (_optional_text)
+             76 LOAD_FAST                0 (self)
+             78 LOAD_ATTR               12 (account_id)
+             80 LOAD_CONST               4 ('account_id')
+             82 CALL_FUNCTION            2
+             84 STORE_FAST               1 (account_id)
+
+ 83          86 LOAD_GLOBAL             11 (_optional_text)
+             88 LOAD_FAST                0 (self)
+             90 LOAD_ATTR               13 (nickname)
+             92 LOAD_CONST               5 ('nickname')
+             94 CALL_FUNCTION            2
+             96 STORE_FAST               2 (nickname)
+
+ 84          98 LOAD_FAST                0 (self)
+            100 LOAD_ATTR                5 (success)
+            102 POP_JUMP_IF_FALSE      120
+            104 LOAD_FAST                1 (account_id)
+            106 POP_JUMP_IF_FALSE      112
+            108 LOAD_FAST                2 (nickname)
+            110 POP_JUMP_IF_TRUE       120
+
+ 85     >>  112 LOAD_GLOBAL             14 (ValueError)
+
+ 86         114 LOAD_CONST               6 ('successful switch requires account_id and nickname')
+
+ 85         116 CALL_FUNCTION            1
+            118 RAISE_VARARGS            1
+
+ 88     >>  120 LOAD_GLOBAL             15 (object)
+            122 LOAD_METHOD             16 (__setattr__)
+            124 LOAD_FAST                0 (self)
+            126 LOAD_CONST               4 ('account_id')
+            128 LOAD_FAST                1 (account_id)
+            130 CALL_METHOD              3
+            132 POP_TOP
+
+ 89         134 LOAD_GLOBAL             15 (object)
+            136 LOAD_METHOD             16 (__setattr__)
+            138 LOAD_FAST                0 (self)
+            140 LOAD_CONST               5 ('nickname')
+            142 LOAD_FAST                2 (nickname)
+            144 CALL_METHOD              3
+            146 POP_TOP
+            148 LOAD_CONST               0 (None)
+            150 RETURN_VALUE
+
+Disassembly of <code object InstanceContactCounts at 0x1073b92f0, file "WeRobotCore/application/instances/commands.py", line 92>:
+ 92           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('InstanceContactCounts')
+              6 STORE_NAME               2 (__qualname__)
+              8 SETUP_ANNOTATIONS
+
+ 94          10 LOAD_CONST               1 (0)
+             12 STORE_NAME               3 (friend_count)
+             14 LOAD_NAME                4 (int)
+             16 LOAD_NAME                5 (__annotations__)
+             18 LOAD_CONST               2 ('friend_count')
+             20 STORE_SUBSCR
+
+ 95          22 LOAD_CONST               1 (0)
+             24 STORE_NAME               6 (group_count)
+             26 LOAD_NAME                4 (int)
+             28 LOAD_NAME                5 (__annotations__)
+             30 LOAD_CONST               3 ('group_count')
+             32 STORE_SUBSCR
+
+ 97          34 LOAD_CONST               4 (None)
+             36 LOAD_CONST               5 (('return',))
+             38 BUILD_CONST_KEY_MAP      1
+             40 LOAD_CONST               6 (<code object __post_init__ at 0x1072e0f50, file "WeRobotCore/application/instances/commands.py", line 97>)
+             42 LOAD_CONST               7 ('InstanceContactCounts.__post_init__')
+             44 MAKE_FUNCTION            4 (annotations)
+             46 STORE_NAME               7 (__post_init__)
+             48 LOAD_CONST               4 (None)
+             50 RETURN_VALUE
+
+Disassembly of <code object __post_init__ at 0x1072e0f50, file "WeRobotCore/application/instances/commands.py", line 97>:
+ 99           0 LOAD_CONST               1 ('friend_count')
+              2 LOAD_FAST                0 (self)
+              4 LOAD_ATTR                0 (friend_count)
+              6 BUILD_TUPLE              2
+
+100           8 LOAD_CONST               2 ('group_count')
+             10 LOAD_FAST                0 (self)
+             12 LOAD_ATTR                1 (group_count)
+             14 BUILD_TUPLE              2
+
+ 98          16 BUILD_TUPLE              2
+             18 GET_ITER
+        >>   20 FOR_ITER                64 (to 86)
+             22 UNPACK_SEQUENCE          2
+             24 STORE_FAST               1 (field_name)
+             26 STORE_FAST               2 (value)
+
+102          28 LOAD_GLOBAL              2 (isinstance)
+             30 LOAD_FAST                2 (value)
+             32 LOAD_GLOBAL              3 (int)
+             34 CALL_FUNCTION            2
+             36 POP_JUMP_IF_FALSE       48
+             38 LOAD_GLOBAL              2 (isinstance)
+             40 LOAD_FAST                2 (value)
+             42 LOAD_GLOBAL              4 (bool)
+             44 CALL_FUNCTION            2
+             46 POP_JUMP_IF_FALSE       62
+
+103     >>   48 LOAD_GLOBAL              5 (TypeError)
+             50 LOAD_CONST               3 ('{} must be an integer')
+             52 LOAD_METHOD              6 (format)
+             54 LOAD_FAST                1 (field_name)
+             56 CALL_METHOD              1
+             58 CALL_FUNCTION            1
+             60 RAISE_VARARGS            1
+
+104     >>   62 LOAD_FAST                2 (value)
+             64 LOAD_CONST               4 (0)
+             66 COMPARE_OP               0 (<)
+             68 POP_JUMP_IF_FALSE       20
+
+105          70 LOAD_GLOBAL              7 (ValueError)
+             72 LOAD_CONST               5 ('{} cannot be negative')
+             74 LOAD_METHOD              6 (format)
+             76 LOAD_FAST                1 (field_name)
+             78 CALL_METHOD              1
+             80 CALL_FUNCTION            1
+             82 RAISE_VARARGS            1
+             84 JUMP_ABSOLUTE           20
+        >>   86 LOAD_CONST               0 (None)
+             88 RETURN_VALUE
+
+Disassembly of <code object InstanceMonitorStopStatus at 0x1073b9b30, file "WeRobotCore/application/instances/commands.py", line 108>:
+108           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('InstanceMonitorStopStatus')
+              6 STORE_NAME               2 (__qualname__)
+
+109           8 LOAD_CONST               1 ('not_running')
+             10 STORE_NAME               3 (NOT_RUNNING)
+
+110          12 LOAD_CONST               2 ('stopped')
+             14 STORE_NAME               4 (STOPPED)
+
+111          16 LOAD_CONST               3 ('failed')
+             18 STORE_NAME               5 (FAILED)
+             20 LOAD_CONST               4 (None)
+             22 RETURN_VALUE
+
+Disassembly of <code object InstanceMonitorStopResult at 0x1073b9710, file "WeRobotCore/application/instances/commands.py", line 114>:
+114           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('InstanceMonitorStopResult')
+              6 STORE_NAME               2 (__qualname__)
+              8 SETUP_ANNOTATIONS
+
+116          10 LOAD_NAME                3 (InstanceMonitorStopStatus)
+             12 LOAD_NAME                4 (__annotations__)
+             14 LOAD_CONST               1 ('status')
+             16 STORE_SUBSCR
+
+117          18 LOAD_CONST               2 ('')
+             20 STORE_NAME               5 (message)
+             22 LOAD_NAME                6 (str)
+             24 LOAD_NAME                4 (__annotations__)
+             26 LOAD_CONST               3 ('message')
+             28 STORE_SUBSCR
+
+119          30 LOAD_CONST               4 (None)
+             32 LOAD_CONST               5 (('return',))
+             34 BUILD_CONST_KEY_MAP      1
+             36 LOAD_CONST               6 (<code object __post_init__ at 0x1073b9030, file "WeRobotCore/application/instances/commands.py", line 119>)
+             38 LOAD_CONST               7 ('InstanceMonitorStopResult.__post_init__')
+             40 MAKE_FUNCTION            4 (annotations)
+             42 STORE_NAME               7 (__post_init__)
+             44 LOAD_CONST               4 (None)
+             46 RETURN_VALUE
+
+Disassembly of <code object __post_init__ at 0x1073b9030, file "WeRobotCore/application/instances/commands.py", line 119>:
+120           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                0 (self)
+              4 LOAD_ATTR                1 (status)
+              6 LOAD_GLOBAL              2 (InstanceMonitorStopStatus)
+              8 CALL_FUNCTION            2
+             10 POP_JUMP_IF_TRUE        20
+
+121          12 LOAD_GLOBAL              3 (TypeError)
+             14 LOAD_CONST               1 ('status must be an InstanceMonitorStopStatus')
+             16 CALL_FUNCTION            1
+             18 RAISE_VARARGS            1
+
+122     >>   20 LOAD_GLOBAL              0 (isinstance)
+             22 LOAD_FAST                0 (self)
+             24 LOAD_ATTR                4 (message)
+             26 LOAD_GLOBAL              5 (str)
+             28 CALL_FUNCTION            2
+             30 POP_JUMP_IF_TRUE        40
+
+123          32 LOAD_GLOBAL              3 (TypeError)
+             34 LOAD_CONST               2 ('message must be a string')
+             36 CALL_FUNCTION            1
+             38 RAISE_VARARGS            1
+        >>   40 LOAD_CONST               0 (None)
+             42 RETURN_VALUE
+
+Disassembly of <code object InstanceExitOutcome at 0x1073b9a80, file "WeRobotCore/application/instances/commands.py", line 126>:
+126           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('InstanceExitOutcome')
+              6 STORE_NAME               2 (__qualname__)
+              8 SETUP_ANNOTATIONS
+
+128          10 LOAD_NAME                3 (InstanceExitResult)
+             12 LOAD_NAME                4 (__annotations__)
+             14 LOAD_CONST               1 ('result')
+             16 STORE_SUBSCR
+
+129          18 LOAD_CONST               2 (None)
+             20 STORE_NAME               5 (monitor)
+             22 LOAD_NAME                6 (Optional)
+             24 LOAD_NAME                7 (InstanceMonitorStopResult)
+             26 BINARY_SUBSCR
+             28 LOAD_NAME                4 (__annotations__)
+             30 LOAD_CONST               3 ('monitor')
+             32 STORE_SUBSCR
+
+131          34 LOAD_CONST               2 (None)
+             36 LOAD_CONST               4 (('return',))
+             38 BUILD_CONST_KEY_MAP      1
+             40 LOAD_CONST               5 (<code object __post_init__ at 0x1073b9500, file "WeRobotCore/application/instances/commands.py", line 131>)
+             42 LOAD_CONST               6 ('InstanceExitOutcome.__post_init__')
+             44 MAKE_FUNCTION            4 (annotations)
+             46 STORE_NAME               8 (__post_init__)
+             48 LOAD_CONST               2 (None)
+             50 RETURN_VALUE
+
+Disassembly of <code object __post_init__ at 0x1073b9500, file "WeRobotCore/application/instances/commands.py", line 131>:
+132           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                0 (self)
+              4 LOAD_ATTR                1 (result)
+              6 LOAD_GLOBAL              2 (InstanceExitResult)
+              8 CALL_FUNCTION            2
+             10 POP_JUMP_IF_TRUE        20
+
+133          12 LOAD_GLOBAL              3 (TypeError)
+             14 LOAD_CONST               1 ('result must be an InstanceExitResult')
+             16 CALL_FUNCTION            1
+             18 RAISE_VARARGS            1
+
+134     >>   20 LOAD_FAST                0 (self)
+             22 LOAD_ATTR                4 (monitor)
+             24 LOAD_CONST               0 (None)
+             26 IS_OP                    1
+             28 POP_JUMP_IF_FALSE       50
+             30 LOAD_GLOBAL              0 (isinstance)
+
+135          32 LOAD_FAST                0 (self)
+             34 LOAD_ATTR                4 (monitor)
+
+136          36 LOAD_GLOBAL              5 (InstanceMonitorStopResult)
+
+134          38 CALL_FUNCTION            2
+             40 POP_JUMP_IF_TRUE        50
+
+138          42 LOAD_GLOBAL              3 (TypeError)
+             44 LOAD_CONST               2 ('monitor must be an InstanceMonitorStopResult')
+             46 CALL_FUNCTION            1
+             48 RAISE_VARARGS            1
+
+139     >>   50 LOAD_FAST                0 (self)
+             52 LOAD_ATTR                1 (result)
+             54 LOAD_ATTR                6 (success)
+             56 JUMP_IF_FALSE_OR_POP    68
+             58 LOAD_GLOBAL              7 (bool)
+             60 LOAD_FAST                0 (self)
+             62 LOAD_ATTR                1 (result)
+             64 LOAD_ATTR                8 (account_id)
+             66 CALL_FUNCTION            1
+        >>   68 STORE_FAST               1 (should_check_monitor)
+
+140          70 LOAD_FAST                1 (should_check_monitor)
+             72 LOAD_FAST                0 (self)
+             74 LOAD_ATTR                4 (monitor)
+             76 LOAD_CONST               0 (None)
+             78 IS_OP                    1
+             80 COMPARE_OP               3 (!=)
+             82 POP_JUMP_IF_FALSE       92
+
+141          84 LOAD_GLOBAL              9 (ValueError)
+
+142          86 LOAD_CONST               3 ('monitor result must exist exactly when a successful exit has an account')
+
+141          88 CALL_FUNCTION            1
+             90 RAISE_VARARGS            1
+        >>   92 LOAD_CONST               0 (None)
+             94 RETURN_VALUE
+
+Disassembly of <code object InstanceSwitchOutcome at 0x1073b9870, file "WeRobotCore/application/instances/commands.py", line 146>:
+146           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('InstanceSwitchOutcome')
+              6 STORE_NAME               2 (__qualname__)
+              8 SETUP_ANNOTATIONS
+
+148          10 LOAD_NAME                3 (InstanceSwitchResult)
+             12 LOAD_NAME                4 (__annotations__)
+             14 LOAD_CONST               1 ('result')
+             16 STORE_SUBSCR
+
+149          18 LOAD_CONST               2 (None)
+             20 STORE_NAME               5 (counts)
+             22 LOAD_NAME                6 (Optional)
+             24 LOAD_NAME                7 (InstanceContactCounts)
+             26 BINARY_SUBSCR
+             28 LOAD_NAME                4 (__annotations__)
+             30 LOAD_CONST               3 ('counts')
+             32 STORE_SUBSCR
+
+151          34 LOAD_CONST               2 (None)
+             36 LOAD_CONST               4 (('return',))
+             38 BUILD_CONST_KEY_MAP      1
+             40 LOAD_CONST               5 (<code object __post_init__ at 0x1073b9f50, file "WeRobotCore/application/instances/commands.py", line 151>)
+             42 LOAD_CONST               6 ('InstanceSwitchOutcome.__post_init__')
+             44 MAKE_FUNCTION            4 (annotations)
+             46 STORE_NAME               8 (__post_init__)
+             48 LOAD_CONST               2 (None)
+             50 RETURN_VALUE
+
+Disassembly of <code object __post_init__ at 0x1073b9f50, file "WeRobotCore/application/instances/commands.py", line 151>:
+152           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                0 (self)
+              4 LOAD_ATTR                1 (result)
+              6 LOAD_GLOBAL              2 (InstanceSwitchResult)
+              8 CALL_FUNCTION            2
+             10 POP_JUMP_IF_TRUE        20
+
+153          12 LOAD_GLOBAL              3 (TypeError)
+             14 LOAD_CONST               1 ('result must be an InstanceSwitchResult')
+             16 CALL_FUNCTION            1
+             18 RAISE_VARARGS            1
+
+154     >>   20 LOAD_FAST                0 (self)
+             22 LOAD_ATTR                4 (counts)
+             24 LOAD_CONST               0 (None)
+             26 IS_OP                    1
+             28 POP_JUMP_IF_FALSE       50
+             30 LOAD_GLOBAL              0 (isinstance)
+
+155          32 LOAD_FAST                0 (self)
+             34 LOAD_ATTR                4 (counts)
+
+156          36 LOAD_GLOBAL              5 (InstanceContactCounts)
+
+154          38 CALL_FUNCTION            2
+             40 POP_JUMP_IF_TRUE        50
+
+158          42 LOAD_GLOBAL              3 (TypeError)
+             44 LOAD_CONST               2 ('counts must be InstanceContactCounts')
+             46 CALL_FUNCTION            1
+             48 RAISE_VARARGS            1
+
+159     >>   50 LOAD_FAST                0 (self)
+             52 LOAD_ATTR                1 (result)
+             54 LOAD_ATTR                6 (success)
+             56 LOAD_FAST                0 (self)
+             58 LOAD_ATTR                4 (counts)
+             60 LOAD_CONST               0 (None)
+             62 IS_OP                    1
+             64 COMPARE_OP               3 (!=)
+             66 POP_JUMP_IF_FALSE       76
+
+160          68 LOAD_GLOBAL              7 (ValueError)
+
+161          70 LOAD_CONST               3 ('contact counts must exist exactly for successful switches')
+
+160          72 CALL_FUNCTION            1
+             74 RAISE_VARARGS            1
+        >>   76 LOAD_CONST               0 (None)
+             78 RETURN_VALUE
+
+Disassembly of <code object InstanceExitBackend at 0x1073b99d0, file "WeRobotCore/application/instances/commands.py", line 165>:
+165           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('InstanceExitBackend')
+              6 STORE_NAME               2 (__qualname__)
+
+167           8 LOAD_NAME                3 (InstanceId)
+             10 LOAD_NAME                4 (InstanceExitResult)
+             12 LOAD_CONST               1 (('instance_id', 'return'))
+             14 BUILD_CONST_KEY_MAP      2
+             16 LOAD_CONST               2 (<code object exit at 0x1073b93a0, file "WeRobotCore/application/instances/commands.py", line 167>)
+             18 LOAD_CONST               3 ('InstanceExitBackend.exit')
+             20 MAKE_FUNCTION            4 (annotations)
+             22 STORE_NAME               5 (exit)
+             24 LOAD_CONST               4 (None)
+             26 RETURN_VALUE
+
+Disassembly of <code object exit at 0x1073b93a0, file "WeRobotCore/application/instances/commands.py", line 167>:
+168           0 LOAD_CONST               0 (None)
+              2 RETURN_VALUE
+
+Disassembly of <code object InstanceSwitchBackend at 0x1073b97c0, file "WeRobotCore/application/instances/commands.py", line 171>:
+171           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('InstanceSwitchBackend')
+              6 STORE_NAME               2 (__qualname__)
+
+173           8 LOAD_NAME                3 (InstanceId)
+             10 LOAD_NAME                4 (InstanceSwitchResult)
+             12 LOAD_CONST               1 (('instance_id', 'return'))
+             14 BUILD_CONST_KEY_MAP      2
+             16 LOAD_CONST               2 (<code object switch at 0x1073b9920, file "WeRobotCore/application/instances/commands.py", line 173>)
+             18 LOAD_CONST               3 ('InstanceSwitchBackend.switch')
+             20 MAKE_FUNCTION            4 (annotations)
+             22 STORE_NAME               5 (switch)
+             24 LOAD_CONST               4 (None)
+             26 RETURN_VALUE
+
+Disassembly of <code object switch at 0x1073b9920, file "WeRobotCore/application/instances/commands.py", line 173>:
+174           0 LOAD_CONST               0 (None)
+              2 RETURN_VALUE
+
+Disassembly of <code object InstanceMonitorStopper at 0x1073b9be0, file "WeRobotCore/application/instances/commands.py", line 177>:
+177           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('InstanceMonitorStopper')
+              6 STORE_NAME               2 (__qualname__)
+
+181           8 LOAD_NAME                3 (str)
+
+182          10 LOAD_NAME                4 (InstanceMonitorStopResult)
+
+179          12 LOAD_CONST               1 (('account_id', 'return'))
+             14 BUILD_CONST_KEY_MAP      2
+             16 LOAD_CONST               2 (<code object stop_if_running at 0x1073b9ea0, file "WeRobotCore/application/instances/commands.py", line 179>)
+             18 LOAD_CONST               3 ('InstanceMonitorStopper.stop_if_running')
+             20 MAKE_FUNCTION            4 (annotations)
+             22 STORE_NAME               5 (stop_if_running)
+             24 LOAD_CONST               4 (None)
+             26 RETURN_VALUE
+
+Disassembly of <code object stop_if_running at 0x1073b9ea0, file "WeRobotCore/application/instances/commands.py", line 179>:
+183           0 LOAD_CONST               0 (None)
+              2 RETURN_VALUE
+
+Disassembly of <code object InstanceContactStatsProvider at 0x1073b90e0, file "WeRobotCore/application/instances/commands.py", line 186>:
+186           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('InstanceContactStatsProvider')
+              6 STORE_NAME               2 (__qualname__)
+
+188           8 LOAD_NAME                3 (str)
+             10 LOAD_NAME                4 (InstanceContactCounts)
+             12 LOAD_CONST               1 (('account_id', 'return'))
+             14 BUILD_CONST_KEY_MAP      2
+             16 LOAD_CONST               2 (<code object counts at 0x1073b9c90, file "WeRobotCore/application/instances/commands.py", line 188>)
+             18 LOAD_CONST               3 ('InstanceContactStatsProvider.counts')
+             20 MAKE_FUNCTION            4 (annotations)
+             22 STORE_NAME               5 (counts)
+             24 LOAD_CONST               4 (None)
+             26 RETURN_VALUE
+
+Disassembly of <code object counts at 0x1073b9c90, file "WeRobotCore/application/instances/commands.py", line 188>:
+189           0 LOAD_CONST               0 (None)
+              2 RETURN_VALUE
+
+Disassembly of <code object InstanceCommandService at 0x1073b9450, file "WeRobotCore/application/instances/commands.py", line 192>:
+192           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('InstanceCommandService')
+              6 STORE_NAME               2 (__qualname__)
+
+193           8 LOAD_CONST               1 ('Apply shared command ordering without knowing a native Driver.')
+             10 STORE_NAME               3 (__doc__)
+
+198          12 LOAD_NAME                4 (InstanceExitBackend)
+
+199          14 LOAD_NAME                5 (InstanceSwitchBackend)
+
+200          16 LOAD_NAME                6 (InstanceMonitorStopper)
+
+201          18 LOAD_NAME                7 (InstanceContactStatsProvider)
+
+202          20 LOAD_CONST               2 (None)
+
+195          22 LOAD_CONST               3 (('exit_backend', 'switch_backend', 'monitor', 'contact_stats', 'return'))
+             24 BUILD_CONST_KEY_MAP      5
+             26 LOAD_CONST               4 (<code object __init__ at 0x1073b9660, file "WeRobotCore/application/instances/commands.py", line 195>)
+             28 LOAD_CONST               5 ('InstanceCommandService.__init__')
+             30 MAKE_FUNCTION            4 (annotations)
+             32 STORE_NAME               8 (__init__)
+
+217          34 LOAD_NAME                9 (InstanceId)
+             36 LOAD_NAME               10 (InstanceExitOutcome)
+             38 LOAD_CONST               6 (('instance_id', 'return'))
+             40 BUILD_CONST_KEY_MAP      2
+             42 LOAD_CONST               7 (<code object exit at 0x1073b9df0, file "WeRobotCore/application/instances/commands.py", line 217>)
+             44 LOAD_CONST               8 ('InstanceCommandService.exit')
+             46 MAKE_FUNCTION            4 (annotations)
+             48 STORE_NAME              11 (exit)
+
+240          50 LOAD_NAME                9 (InstanceId)
+             52 LOAD_NAME               12 (InstanceSwitchOutcome)
+             54 LOAD_CONST               6 (('instance_id', 'return'))
+             56 BUILD_CONST_KEY_MAP      2
+             58 LOAD_CONST               9 (<code object switch at 0x1073b9d40, file "WeRobotCore/application/instances/commands.py", line 240>)
+             60 LOAD_CONST              10 ('InstanceCommandService.switch')
+             62 MAKE_FUNCTION            4 (annotations)
+             64 STORE_NAME              13 (switch)
+
+254          66 LOAD_NAME               14 (staticmethod)
+
+255          68 LOAD_NAME                9 (InstanceId)
+             70 LOAD_CONST               2 (None)
+             72 LOAD_CONST               6 (('instance_id', 'return'))
+             74 BUILD_CONST_KEY_MAP      2
+             76 LOAD_CONST              11 (<code object _require_instance_id at 0x1073b9240, file "WeRobotCore/application/instances/commands.py", line 254>)
+             78 LOAD_CONST              12 ('InstanceCommandService._require_instance_id')
+             80 MAKE_FUNCTION            4 (annotations)
+             82 CALL_FUNCTION            1
+             84 STORE_NAME              15 (_require_instance_id)
+
+259          86 LOAD_NAME               14 (staticmethod)
+
+260          88 LOAD_CONST               2 (None)
+             90 LOAD_CONST              13 (('return',))
+             92 BUILD_CONST_KEY_MAP      1
+             94 LOAD_CONST              14 (<code object _validate_result_identity at 0x1073b95b0, file "WeRobotCore/application/instances/commands.py", line 259>)
+             96 LOAD_CONST              15 ('InstanceCommandService._validate_result_identity')
+             98 MAKE_FUNCTION            4 (annotations)
+            100 CALL_FUNCTION            1
+            102 STORE_NAME              16 (_validate_result_identity)
+            104 LOAD_CONST               2 (None)
+            106 RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x1073b9660, file "WeRobotCore/application/instances/commands.py", line 195>:
+204           0 LOAD_CONST               1 ('exit_backend')
+              2 LOAD_FAST                1 (exit_backend)
+              4 LOAD_GLOBAL              0 (InstanceExitBackend)
+              6 BUILD_TUPLE              3
+
+205           8 LOAD_CONST               2 ('switch_backend')
+             10 LOAD_FAST                2 (switch_backend)
+             12 LOAD_GLOBAL              1 (InstanceSwitchBackend)
+             14 BUILD_TUPLE              3
+
+206          16 LOAD_CONST               3 ('monitor')
+             18 LOAD_FAST                3 (monitor)
+             20 LOAD_GLOBAL              2 (InstanceMonitorStopper)
+             22 BUILD_TUPLE              3
+
+207          24 LOAD_CONST               4 ('contact_stats')
+             26 LOAD_FAST                4 (contact_stats)
+             28 LOAD_GLOBAL              3 (InstanceContactStatsProvider)
+             30 BUILD_TUPLE              3
+
+203          32 BUILD_TUPLE              4
+             34 STORE_FAST               5 (dependencies)
+
+209          36 LOAD_FAST                5 (dependencies)
+             38 GET_ITER
+        >>   40 FOR_ITER                38 (to 80)
+             42 UNPACK_SEQUENCE          3
+             44 STORE_FAST               6 (name)
+             46 STORE_FAST               7 (dependency)
+             48 STORE_FAST               8 (protocol)
+
+210          50 LOAD_GLOBAL              4 (isinstance)
+             52 LOAD_FAST                7 (dependency)
+             54 LOAD_FAST                8 (protocol)
+             56 CALL_FUNCTION            2
+             58 POP_JUMP_IF_TRUE        40
+
+211          60 LOAD_GLOBAL              5 (TypeError)
+             62 LOAD_CONST               5 ('{} must implement {}')
+             64 LOAD_METHOD              6 (format)
+             66 LOAD_FAST                6 (name)
+             68 LOAD_FAST                8 (protocol)
+             70 LOAD_ATTR                7 (__name__)
+             72 CALL_METHOD              2
+             74 CALL_FUNCTION            1
+             76 RAISE_VARARGS            1
+             78 JUMP_ABSOLUTE           40
+
+212     >>   80 LOAD_FAST                1 (exit_backend)
+             82 LOAD_FAST                0 (self)
+             84 STORE_ATTR               8 (_exit_backend)
+
+213          86 LOAD_FAST                2 (switch_backend)
+             88 LOAD_FAST                0 (self)
+             90 STORE_ATTR               9 (_switch_backend)
+
+214          92 LOAD_FAST                3 (monitor)
+             94 LOAD_FAST                0 (self)
+             96 STORE_ATTR              10 (_monitor)
+
+215          98 LOAD_FAST                4 (contact_stats)
+            100 LOAD_FAST                0 (self)
+            102 STORE_ATTR              11 (_contact_stats)
+            104 LOAD_CONST               0 (None)
+            106 RETURN_VALUE
+
+Disassembly of <code object exit at 0x1073b9df0, file "WeRobotCore/application/instances/commands.py", line 217>:
+218           0 LOAD_FAST                0 (self)
+              2 LOAD_METHOD              0 (_require_instance_id)
+              4 LOAD_FAST                1 (instance_id)
+              6 CALL_METHOD              1
+              8 POP_TOP
+
+219          10 LOAD_FAST                0 (self)
+             12 LOAD_ATTR                1 (_exit_backend)
+             14 LOAD_METHOD              2 (exit)
+             16 LOAD_FAST                1 (instance_id)
+             18 CALL_METHOD              1
+             20 GET_AWAITABLE
+             22 LOAD_CONST               0 (None)
+             24 YIELD_FROM
+             26 STORE_FAST               2 (result)
+
+220          28 LOAD_FAST                0 (self)
+             30 LOAD_METHOD              3 (_validate_result_identity)
+             32 LOAD_FAST                1 (instance_id)
+             34 LOAD_FAST                2 (result)
+             36 LOAD_GLOBAL              4 (InstanceExitResult)
+             38 CALL_METHOD              3
+             40 POP_TOP
+
+222          42 LOAD_CONST               0 (None)
+             44 STORE_FAST               3 (monitor_result)
+
+223          46 LOAD_FAST                2 (result)
+             48 LOAD_ATTR                5 (success)
+             50 POP_JUMP_IF_FALSE      156
+             52 LOAD_FAST                2 (result)
+             54 LOAD_ATTR                6 (account_id)
+             56 POP_JUMP_IF_FALSE      156
+
+224          58 SETUP_FINALLY           42 (to 102)
+
+225          60 LOAD_FAST                0 (self)
+             62 LOAD_ATTR                7 (_monitor)
+             64 LOAD_METHOD              8 (stop_if_running)
+
+226          66 LOAD_FAST                2 (result)
+             68 LOAD_ATTR                6 (account_id)
+
+225          70 CALL_METHOD              1
+             72 GET_AWAITABLE
+             74 LOAD_CONST               0 (None)
+             76 YIELD_FROM
+             78 STORE_FAST               3 (monitor_result)
+
+228          80 LOAD_GLOBAL              9 (isinstance)
+             82 LOAD_FAST                3 (monitor_result)
+             84 LOAD_GLOBAL             10 (InstanceMonitorStopResult)
+             86 CALL_FUNCTION            2
+             88 POP_JUMP_IF_TRUE        98
+
+229          90 LOAD_GLOBAL             11 (TypeError)
+
+230          92 LOAD_CONST               1 ('monitor returned an invalid InstanceMonitorStopResult')
+
+229          94 CALL_FUNCTION            1
+             96 RAISE_VARARGS            1
+        >>   98 POP_BLOCK
+            100 JUMP_FORWARD            54 (to 156)
+
+232     >>  102 DUP_TOP
+            104 LOAD_GLOBAL             12 (Exception)
+            106 JUMP_IF_NOT_EXC_MATCH   154
+            108 POP_TOP
+            110 STORE_FAST               4 (exc)
+            112 POP_TOP
+            114 SETUP_FINALLY           30 (to 146)
+
+233         116 LOAD_GLOBAL             10 (InstanceMonitorStopResult)
+
+234         118 LOAD_GLOBAL             13 (InstanceMonitorStopStatus)
+            120 LOAD_ATTR               14 (FAILED)
+
+235         122 LOAD_GLOBAL             15 (str)
+            124 LOAD_FAST                4 (exc)
+            126 CALL_FUNCTION            1
+
+233         128 LOAD_CONST               2 (('status', 'message'))
+            130 CALL_FUNCTION_KW         2
+            132 STORE_FAST               3 (monitor_result)
+            134 POP_BLOCK
+            136 POP_EXCEPT
+            138 LOAD_CONST               0 (None)
+            140 STORE_FAST               4 (exc)
+            142 DELETE_FAST              4 (exc)
+            144 JUMP_FORWARD            10 (to 156)
+        >>  146 LOAD_CONST               0 (None)
+            148 STORE_FAST               4 (exc)
+            150 DELETE_FAST              4 (exc)
+            152 RERAISE
+        >>  154 RERAISE
+
+238     >>  156 LOAD_GLOBAL             16 (InstanceExitOutcome)
+            158 LOAD_FAST                2 (result)
+            160 LOAD_FAST                3 (monitor_result)
+            162 LOAD_CONST               3 (('result', 'monitor'))
+            164 CALL_FUNCTION_KW         2
+            166 RETURN_VALUE
+
+Disassembly of <code object switch at 0x1073b9d40, file "WeRobotCore/application/instances/commands.py", line 240>:
+241           0 LOAD_FAST                0 (self)
+              2 LOAD_METHOD              0 (_require_instance_id)
+              4 LOAD_FAST                1 (instance_id)
+              6 CALL_METHOD              1
+              8 POP_TOP
+
+242          10 LOAD_FAST                0 (self)
+             12 LOAD_ATTR                1 (_switch_backend)
+             14 LOAD_METHOD              2 (switch)
+             16 LOAD_FAST                1 (instance_id)
+             18 CALL_METHOD              1
+             20 GET_AWAITABLE
+             22 LOAD_CONST               0 (None)
+             24 YIELD_FROM
+             26 STORE_FAST               2 (result)
+
+243          28 LOAD_FAST                0 (self)
+             30 LOAD_METHOD              3 (_validate_result_identity)
+             32 LOAD_FAST                1 (instance_id)
+             34 LOAD_FAST                2 (result)
+             36 LOAD_GLOBAL              4 (InstanceSwitchResult)
+             38 CALL_METHOD              3
+             40 POP_TOP
+
+245          42 LOAD_CONST               0 (None)
+             44 STORE_FAST               3 (counts)
+
+246          46 LOAD_FAST                2 (result)
+             48 LOAD_ATTR                5 (success)
+             50 POP_JUMP_IF_FALSE       94
+
+247          52 LOAD_FAST                0 (self)
+             54 LOAD_ATTR                6 (_contact_stats)
+             56 LOAD_METHOD              7 (counts)
+             58 LOAD_FAST                2 (result)
+             60 LOAD_ATTR                8 (account_id)
+             62 JUMP_IF_TRUE_OR_POP     66
+             64 LOAD_CONST               1 ('')
+        >>   66 CALL_METHOD              1
+             68 GET_AWAITABLE
+             70 LOAD_CONST               0 (None)
+             72 YIELD_FROM
+             74 STORE_FAST               3 (counts)
+
+248          76 LOAD_GLOBAL              9 (isinstance)
+             78 LOAD_FAST                3 (counts)
+             80 LOAD_GLOBAL             10 (InstanceContactCounts)
+             82 CALL_FUNCTION            2
+             84 POP_JUMP_IF_TRUE        94
+
+249          86 LOAD_GLOBAL             11 (TypeError)
+
+250          88 LOAD_CONST               2 ('contact stats returned an invalid InstanceContactCounts')
+
+249          90 CALL_FUNCTION            1
+             92 RAISE_VARARGS            1
+
+252     >>   94 LOAD_GLOBAL             12 (InstanceSwitchOutcome)
+             96 LOAD_FAST                2 (result)
+             98 LOAD_FAST                3 (counts)
+            100 LOAD_CONST               3 (('result', 'counts'))
+            102 CALL_FUNCTION_KW         2
+            104 RETURN_VALUE
+
+Disassembly of <code object _require_instance_id at 0x1073b9240, file "WeRobotCore/application/instances/commands.py", line 254>:
+256           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                0 (instance_id)
+              4 LOAD_GLOBAL              1 (InstanceId)
+              6 CALL_FUNCTION            2
+              8 POP_JUMP_IF_TRUE        18
+
+257          10 LOAD_GLOBAL              2 (TypeError)
+             12 LOAD_CONST               1 ('instance_id must be an InstanceId')
+             14 CALL_FUNCTION            1
+             16 RAISE_VARARGS            1
+        >>   18 LOAD_CONST               0 (None)
+             20 RETURN_VALUE
+
+Disassembly of <code object _validate_result_identity at 0x1073b95b0, file "WeRobotCore/application/instances/commands.py", line 259>:
+261           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                1 (result)
+              4 LOAD_FAST                2 (result_type)
+              6 CALL_FUNCTION            2
+              8 POP_JUMP_IF_TRUE        26
+
+262          10 LOAD_GLOBAL              1 (TypeError)
+
+263          12 LOAD_CONST               1 ('command backend returned an invalid {}')
+             14 LOAD_METHOD              2 (format)
+
+264          16 LOAD_FAST                2 (result_type)
+             18 LOAD_ATTR                3 (__name__)
+
+263          20 CALL_METHOD              1
+
+262          22 CALL_FUNCTION            1
+             24 RAISE_VARARGS            1
+
+267     >>   26 LOAD_FAST                1 (result)
+             28 LOAD_ATTR                4 (instance_id)
+             30 LOAD_FAST                0 (instance_id)
+             32 COMPARE_OP               3 (!=)
+             34 POP_JUMP_IF_FALSE       44
+
+268          36 LOAD_GLOBAL              5 (ValueError)
+             38 LOAD_CONST               2 ('command result instance_id does not match request')
+             40 CALL_FUNCTION            1
+             42 RAISE_VARARGS            1
+        >>   44 LOAD_CONST               0 (None)
+             46 RETURN_VALUE

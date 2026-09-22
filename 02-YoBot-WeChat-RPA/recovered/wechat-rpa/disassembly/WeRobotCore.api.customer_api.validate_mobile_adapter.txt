@@ -1,0 +1,335 @@
+  1           0 LOAD_CONST               0 (0)
+              2 LOAD_CONST               1 (('Dict', 'Any', 'List', 'Optional'))
+              4 IMPORT_NAME              0 (typing)
+              6 IMPORT_FROM              1 (Dict)
+              8 STORE_NAME               1 (Dict)
+             10 IMPORT_FROM              2 (Any)
+             12 STORE_NAME               2 (Any)
+             14 IMPORT_FROM              3 (List)
+             16 STORE_NAME               3 (List)
+             18 IMPORT_FROM              4 (Optional)
+             20 STORE_NAME               4 (Optional)
+             22 POP_TOP
+
+  2          24 LOAD_CONST               2 (1)
+             26 LOAD_CONST               3 (('BaseAPIAdapter', 'APIError'))
+             28 IMPORT_NAME              5 (base_adapter)
+             30 IMPORT_FROM              6 (BaseAPIAdapter)
+             32 STORE_NAME               6 (BaseAPIAdapter)
+             34 IMPORT_FROM              7 (APIError)
+             36 STORE_NAME               7 (APIError)
+             38 POP_TOP
+
+  3          40 LOAD_CONST               0 (0)
+             42 LOAD_CONST               4 (('get_logger',))
+             44 IMPORT_NAME              8 (WeRobotCore.utils.logger)
+             46 IMPORT_FROM              9 (get_logger)
+             48 STORE_NAME               9 (get_logger)
+             50 POP_TOP
+
+  4          52 LOAD_CONST               0 (0)
+             54 LOAD_CONST               5 (None)
+             56 IMPORT_NAME             10 (time)
+             58 STORE_NAME              10 (time)
+
+  6          60 LOAD_NAME                9 (get_logger)
+             62 LOAD_CONST               6 ('validate_mobile')
+             64 CALL_FUNCTION            1
+             66 STORE_NAME              11 (logger)
+
+  8          68 LOAD_BUILD_CLASS
+             70 LOAD_CONST               7 (<code object ValidateMobileAdapter at 0x1092440e0, file "WeRobotCore/api/customer_api/validate_mobile_adapter.py", line 8>)
+             72 LOAD_CONST               8 ('ValidateMobileAdapter')
+             74 MAKE_FUNCTION            0
+             76 LOAD_CONST               8 ('ValidateMobileAdapter')
+             78 LOAD_NAME                6 (BaseAPIAdapter)
+             80 CALL_FUNCTION            3
+             82 STORE_NAME              12 (ValidateMobileAdapter)
+             84 LOAD_CONST               5 (None)
+             86 RETURN_VALUE
+
+Disassembly of <code object ValidateMobileAdapter at 0x1092440e0, file "WeRobotCore/api/customer_api/validate_mobile_adapter.py", line 8>:
+  8           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('ValidateMobileAdapter')
+              6 STORE_NAME               2 (__qualname__)
+
+  9           8 LOAD_CONST               1 ('待验真号码API适配器实现')
+             10 STORE_NAME               3 (__doc__)
+
+ 11          12 LOAD_CONST               9 ((None,))
+             14 LOAD_NAME                4 (Optional)
+             16 LOAD_NAME                5 (int)
+             18 BINARY_SUBSCR
+             20 LOAD_NAME                6 (List)
+             22 LOAD_NAME                7 (Dict)
+             24 LOAD_NAME                8 (str)
+             26 LOAD_NAME                9 (Any)
+             28 BUILD_TUPLE              2
+             30 BINARY_SUBSCR
+             32 BINARY_SUBSCR
+             34 LOAD_CONST               3 (('start_time', 'return'))
+             36 BUILD_CONST_KEY_MAP      2
+             38 LOAD_CONST               4 (<code object get_friends_data at 0x109244b30, file "WeRobotCore/api/customer_api/validate_mobile_adapter.py", line 11>)
+             40 LOAD_CONST               5 ('ValidateMobileAdapter.get_friends_data')
+             42 MAKE_FUNCTION            5 (defaults, annotations)
+             44 STORE_NAME              10 (get_friends_data)
+
+ 83          46 LOAD_NAME                7 (Dict)
+             48 LOAD_NAME                8 (str)
+             50 LOAD_NAME                9 (Any)
+             52 BUILD_TUPLE              2
+             54 BINARY_SUBSCR
+             56 LOAD_NAME                7 (Dict)
+             58 LOAD_NAME                8 (str)
+             60 LOAD_NAME                9 (Any)
+             62 BUILD_TUPLE              2
+             64 BINARY_SUBSCR
+             66 LOAD_CONST               6 (('friend_data', 'return'))
+             68 BUILD_CONST_KEY_MAP      2
+             70 LOAD_CONST               7 (<code object add_friend at 0x109244450, file "WeRobotCore/api/customer_api/validate_mobile_adapter.py", line 83>)
+             72 LOAD_CONST               8 ('ValidateMobileAdapter.add_friend')
+             74 MAKE_FUNCTION            4 (annotations)
+             76 STORE_NAME              11 (add_friend)
+             78 LOAD_CONST               2 (None)
+             80 RETURN_VALUE
+
+Disassembly of <code object get_friends_data at 0x109244b30, file "WeRobotCore/api/customer_api/validate_mobile_adapter.py", line 11>:
+ 17           0 LOAD_FAST                0 (self)
+              2 LOAD_ATTR                0 (config)
+              4 LOAD_METHOD              1 (get)
+              6 LOAD_CONST               1 ('endpoints')
+              8 BUILD_MAP                0
+             10 CALL_METHOD              2
+             12 LOAD_METHOD              1 (get)
+             14 LOAD_CONST               2 ('get_friends')
+             16 CALL_METHOD              1
+             18 STORE_FAST               2 (endpoint)
+
+ 18          20 LOAD_FAST                2 (endpoint)
+             22 POP_JUMP_IF_TRUE        32
+
+ 19          24 LOAD_GLOBAL              2 (APIError)
+             26 LOAD_CONST               3 ('当前客户未配置获取名单列表的端口')
+             28 CALL_FUNCTION            1
+             30 RAISE_VARARGS            1
+
+ 22     >>   32 LOAD_FAST                0 (self)
+             34 LOAD_METHOD              3 (_get_auth_headers)
+             36 CALL_METHOD              0
+             38 STORE_FAST               3 (headers)
+
+ 25          40 BUILD_MAP                0
+             42 STORE_FAST               4 (request_data)
+
+ 26          44 LOAD_FAST                1 (start_time)
+             46 LOAD_CONST               4 (None)
+             48 IS_OP                    1
+             50 POP_JUMP_IF_FALSE       78
+
+ 27          52 LOAD_FAST                1 (start_time)
+             54 LOAD_FAST                4 (request_data)
+             56 LOAD_CONST               5 ('startTime')
+             58 STORE_SUBSCR
+
+ 28          60 LOAD_GLOBAL              4 (logger)
+             62 LOAD_METHOD              5 (info)
+             64 LOAD_CONST               6 ('使用增量查询，startTime: ')
+             66 LOAD_FAST                1 (start_time)
+             68 FORMAT_VALUE             0
+             70 BUILD_STRING             2
+             72 CALL_METHOD              1
+             74 POP_TOP
+             76 JUMP_FORWARD            10 (to 88)
+
+ 30     >>   78 LOAD_GLOBAL              4 (logger)
+             80 LOAD_METHOD              5 (info)
+             82 LOAD_CONST               7 ('首次查询，未提供startTime参数')
+             84 CALL_METHOD              1
+             86 POP_TOP
+
+ 33     >>   88 LOAD_FAST                0 (self)
+             90 LOAD_ATTR                6 (_make_request)
+             92 LOAD_CONST               8 ('POST')
+             94 LOAD_FAST                2 (endpoint)
+             96 LOAD_FAST                3 (headers)
+             98 LOAD_FAST                4 (request_data)
+            100 LOAD_CONST               9 (('headers', 'json'))
+            102 CALL_FUNCTION_KW         4
+            104 GET_AWAITABLE
+            106 LOAD_CONST               4 (None)
+            108 YIELD_FROM
+            110 STORE_FAST               5 (result)
+
+ 35         112 LOAD_GLOBAL              7 (print)
+            114 LOAD_FAST                5 (result)
+            116 CALL_FUNCTION            1
+            118 POP_TOP
+
+ 38         120 LOAD_CONST               4 (None)
+            122 STORE_FAST               6 (data_list)
+
+ 41         124 LOAD_GLOBAL              8 (isinstance)
+            126 LOAD_FAST                5 (result)
+            128 LOAD_GLOBAL              9 (dict)
+            130 CALL_FUNCTION            2
+            132 POP_JUMP_IF_FALSE      168
+
+ 43         134 LOAD_CONST              10 ('data')
+            136 LOAD_FAST                5 (result)
+            138 CONTAINS_OP              0
+            140 POP_JUMP_IF_FALSE      152
+
+ 44         142 LOAD_FAST                5 (result)
+            144 LOAD_CONST              10 ('data')
+            146 BINARY_SUBSCR
+            148 STORE_FAST               6 (data_list)
+            150 JUMP_ABSOLUTE          198
+
+ 47     >>  152 LOAD_GLOBAL              2 (APIError)
+            154 LOAD_CONST              11 ('无法在返回结果中找到数据字段: ')
+            156 LOAD_FAST                5 (result)
+            158 FORMAT_VALUE             0
+            160 BUILD_STRING             2
+            162 CALL_FUNCTION            1
+            164 RAISE_VARARGS            1
+            166 JUMP_FORWARD            30 (to 198)
+
+ 50     >>  168 LOAD_GLOBAL              8 (isinstance)
+            170 LOAD_FAST                5 (result)
+            172 LOAD_GLOBAL             10 (list)
+            174 CALL_FUNCTION            2
+            176 POP_JUMP_IF_FALSE      184
+
+ 51         178 LOAD_FAST                5 (result)
+            180 STORE_FAST               6 (data_list)
+            182 JUMP_FORWARD            14 (to 198)
+
+ 54     >>  184 LOAD_GLOBAL              2 (APIError)
+            186 LOAD_CONST              12 ('无法解析API返回的号码数据格式: ')
+            188 LOAD_FAST                5 (result)
+            190 FORMAT_VALUE             0
+            192 BUILD_STRING             2
+            194 CALL_FUNCTION            1
+            196 RAISE_VARARGS            1
+
+ 57     >>  198 LOAD_GLOBAL              8 (isinstance)
+            200 LOAD_FAST                6 (data_list)
+            202 LOAD_GLOBAL             10 (list)
+            204 CALL_FUNCTION            2
+            206 POP_JUMP_IF_TRUE       222
+
+ 58         208 LOAD_GLOBAL              2 (APIError)
+            210 LOAD_CONST              13 ('数据字段不是列表格式: ')
+            212 LOAD_FAST                6 (data_list)
+            214 FORMAT_VALUE             0
+            216 BUILD_STRING             2
+            218 CALL_FUNCTION            1
+            220 RAISE_VARARGS            1
+
+ 61     >>  222 LOAD_FAST                0 (self)
+            224 LOAD_ATTR                0 (config)
+            226 LOAD_METHOD              1 (get)
+            228 LOAD_CONST              14 ('response_mapping')
+            230 BUILD_MAP                0
+            232 CALL_METHOD              2
+            234 STORE_FAST               7 (mapping)
+
+ 62         236 LOAD_FAST                7 (mapping)
+            238 LOAD_METHOD              1 (get)
+            240 LOAD_CONST              15 ('wxid_field')
+            242 LOAD_CONST              16 ('mobile')
+            244 CALL_METHOD              2
+            246 STORE_FAST               8 (wxid_field)
+
+ 63         248 LOAD_FAST                7 (mapping)
+            250 LOAD_METHOD              1 (get)
+            252 LOAD_CONST              17 ('remark_field')
+            254 LOAD_CONST              18 ('noteName')
+            256 CALL_METHOD              2
+            258 STORE_FAST               9 (remark_field)
+
+ 64         260 LOAD_FAST                7 (mapping)
+            262 LOAD_METHOD              1 (get)
+            264 LOAD_CONST              19 ('tags_field')
+            266 LOAD_CONST              20 ('tag')
+            268 CALL_METHOD              2
+            270 STORE_FAST              10 (tags_field)
+
+ 67         272 BUILD_LIST               0
+            274 STORE_FAST              11 (friend_list)
+
+ 68         276 LOAD_FAST                6 (data_list)
+            278 GET_ITER
+        >>  280 FOR_ITER                80 (to 362)
+            282 STORE_FAST              12 (item)
+
+ 69         284 LOAD_FAST               12 (item)
+            286 LOAD_METHOD              1 (get)
+            288 LOAD_FAST                8 (wxid_field)
+            290 LOAD_CONST              21 ('')
+            292 CALL_METHOD              2
+            294 STORE_FAST              13 (wxid)
+
+ 70         296 LOAD_FAST               13 (wxid)
+            298 EXTENDED_ARG             1
+            300 POP_JUMP_IF_FALSE      342
+
+ 72         302 LOAD_FAST               13 (wxid)
+
+ 73         304 LOAD_FAST               12 (item)
+            306 LOAD_METHOD              1 (get)
+            308 LOAD_FAST                9 (remark_field)
+            310 LOAD_CONST              21 ('')
+            312 CALL_METHOD              2
+
+ 74         314 LOAD_FAST               12 (item)
+            316 LOAD_METHOD              1 (get)
+            318 LOAD_FAST               10 (tags_field)
+            320 LOAD_CONST              21 ('')
+            322 CALL_METHOD              2
+
+ 71         324 LOAD_CONST              22 (('wxid', 'remark', 'tags'))
+            326 BUILD_CONST_KEY_MAP      3
+            328 STORE_FAST              14 (friend)
+
+ 76         330 LOAD_FAST               11 (friend_list)
+            332 LOAD_METHOD             11 (append)
+            334 LOAD_FAST               14 (friend)
+            336 CALL_METHOD              1
+            338 POP_TOP
+            340 JUMP_FORWARD            16 (to 358)
+
+ 78     >>  342 LOAD_GLOBAL              4 (logger)
+            344 LOAD_METHOD             12 (warning)
+            346 LOAD_CONST              23 ('跳过wxid为空的数据: ')
+            348 LOAD_FAST               12 (item)
+            350 FORMAT_VALUE             0
+            352 BUILD_STRING             2
+            354 CALL_METHOD              1
+            356 POP_TOP
+        >>  358 EXTENDED_ARG             1
+            360 JUMP_ABSOLUTE          280
+
+ 80     >>  362 LOAD_GLOBAL              4 (logger)
+            364 LOAD_METHOD              5 (info)
+            366 LOAD_CONST              24 ('从API获取到 ')
+            368 LOAD_GLOBAL             13 (len)
+            370 LOAD_FAST               11 (friend_list)
+            372 CALL_FUNCTION            1
+            374 FORMAT_VALUE             0
+            376 LOAD_CONST              25 (' 条数据')
+            378 BUILD_STRING             3
+            380 CALL_METHOD              1
+            382 POP_TOP
+
+ 81         384 LOAD_FAST               11 (friend_list)
+            386 RETURN_VALUE
+
+Disassembly of <code object add_friend at 0x109244450, file "WeRobotCore/api/customer_api/validate_mobile_adapter.py", line 83>:
+ 85           0 LOAD_GLOBAL              0 (APIError)
+              2 LOAD_CONST               1 ('待验真号码API不支持添加好友操作')
+              4 CALL_FUNCTION            1
+              6 RAISE_VARARGS            1
+              8 LOAD_CONST               2 (None)
+             10 RETURN_VALUE

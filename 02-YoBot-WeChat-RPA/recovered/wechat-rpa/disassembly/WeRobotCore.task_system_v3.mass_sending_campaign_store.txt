@@ -1,0 +1,1028 @@
+  1           0 LOAD_CONST               0 ('\n群发活动（Campaign）持久化存储 - Task System V3\n\n一个"群发活动"= 用户一次创建的群发任务（如 1300 人），在自动分组下会被切分为\n若干批次（每批一个独立调度任务）。本模块负责把这些批次串成一个整体，提供：\n\n- 活动创建时落盘（含每个批次的 task_id 与参数，便于中断后整体恢复）\n- 活动状态管理（running / interrupted / completed / cancelled）\n- 重启后查询未完成活动，对其批次执行"campaign 闸门"：中断态下批次 fire 即自我挂起\n- 整体进度聚合（读取各批次的断点进度文件求和）\n\n设计为单进程 asyncio 下使用，JSON 文件存储，读写即时落盘。\n')
+              2 STORE_NAME               0 (__doc__)
+
+ 15           4 LOAD_CONST               1 (0)
+              6 LOAD_CONST               2 (None)
+              8 IMPORT_NAME              1 (json)
+             10 STORE_NAME               1 (json)
+
+ 16          12 LOAD_CONST               1 (0)
+             14 LOAD_CONST               2 (None)
+             16 IMPORT_NAME              2 (os)
+             18 STORE_NAME               2 (os)
+
+ 17          20 LOAD_CONST               1 (0)
+             22 LOAD_CONST               2 (None)
+             24 IMPORT_NAME              3 (threading)
+             26 STORE_NAME               3 (threading)
+
+ 18          28 LOAD_CONST               1 (0)
+             30 LOAD_CONST               3 (('datetime',))
+             32 IMPORT_NAME              4 (datetime)
+             34 IMPORT_FROM              4 (datetime)
+             36 STORE_NAME               4 (datetime)
+             38 POP_TOP
+
+ 19          40 LOAD_CONST               1 (0)
+             42 LOAD_CONST               4 (('Dict', 'Any', 'Optional', 'List'))
+             44 IMPORT_NAME              5 (typing)
+             46 IMPORT_FROM              6 (Dict)
+             48 STORE_NAME               6 (Dict)
+             50 IMPORT_FROM              7 (Any)
+             52 STORE_NAME               7 (Any)
+             54 IMPORT_FROM              8 (Optional)
+             56 STORE_NAME               8 (Optional)
+             58 IMPORT_FROM              9 (List)
+             60 STORE_NAME               9 (List)
+             62 POP_TOP
+
+ 21          64 SETUP_FINALLY           24 (to 90)
+
+ 22          66 LOAD_CONST               1 (0)
+             68 LOAD_CONST               5 (('get_logger',))
+             70 IMPORT_NAME             10 (WeRobotCore.utils.logger)
+             72 IMPORT_FROM             11 (get_logger)
+             74 STORE_NAME              11 (get_logger)
+             76 POP_TOP
+
+ 23          78 LOAD_NAME               11 (get_logger)
+             80 LOAD_CONST               6 ('mass_sending_campaign_store')
+             82 CALL_FUNCTION            1
+             84 STORE_NAME              12 (_logger)
+             86 POP_BLOCK
+             88 JUMP_FORWARD            36 (to 126)
+
+ 24     >>   90 DUP_TOP
+             92 LOAD_NAME               13 (Exception)
+             94 JUMP_IF_NOT_EXC_MATCH   124
+             96 POP_TOP
+             98 POP_TOP
+            100 POP_TOP
+
+ 25         102 LOAD_CONST               1 (0)
+            104 LOAD_CONST               2 (None)
+            106 IMPORT_NAME             14 (logging)
+            108 STORE_NAME              14 (logging)
+
+ 26         110 LOAD_NAME               14 (logging)
+            112 LOAD_METHOD             15 (getLogger)
+            114 LOAD_CONST               6 ('mass_sending_campaign_store')
+            116 CALL_METHOD              1
+            118 STORE_NAME              12 (_logger)
+            120 POP_EXCEPT
+            122 JUMP_FORWARD             2 (to 126)
+        >>  124 RERAISE
+
+ 30     >>  126 LOAD_CONST               7 ('completed')
+            128 LOAD_CONST               8 ('cancelled')
+            130 BUILD_SET                2
+            132 STORE_NAME              16 (TERMINAL_STATUSES)
+
+ 33         134 LOAD_NAME                3 (threading)
+            136 LOAD_METHOD             17 (RLock)
+            138 CALL_METHOD              0
+            140 STORE_NAME              18 (_lock)
+
+ 36         142 LOAD_NAME               19 (str)
+            144 LOAD_CONST               9 (('return',))
+            146 BUILD_CONST_KEY_MAP      1
+            148 LOAD_CONST              10 (<code object _campaigns_dir at 0x109244c90, file "WeRobotCore/task_system_v3/mass_sending_campaign_store.py", line 36>)
+            150 LOAD_CONST              11 ('_campaigns_dir')
+            152 MAKE_FUNCTION            4 (annotations)
+            154 STORE_NAME              20 (_campaigns_dir)
+
+ 43         156 LOAD_NAME               19 (str)
+            158 LOAD_NAME               19 (str)
+            160 LOAD_CONST              12 (('campaign_id', 'return'))
+            162 BUILD_CONST_KEY_MAP      2
+            164 LOAD_CONST              13 (<code object _campaign_path at 0x1092442f0, file "WeRobotCore/task_system_v3/mass_sending_campaign_store.py", line 43>)
+            166 LOAD_CONST              14 ('_campaign_path')
+            168 MAKE_FUNCTION            4 (annotations)
+            170 STORE_NAME              21 (_campaign_path)
+
+ 47         172 LOAD_NAME               19 (str)
+            174 LOAD_NAME               19 (str)
+            176 LOAD_CONST              15 (('task_id', 'return'))
+            178 BUILD_CONST_KEY_MAP      2
+            180 LOAD_CONST              16 (<code object _progress_path at 0x1092447c0, file "WeRobotCore/task_system_v3/mass_sending_campaign_store.py", line 47>)
+            182 LOAD_CONST              17 ('_progress_path')
+            184 MAKE_FUNCTION            4 (annotations)
+            186 STORE_NAME              22 (_progress_path)
+
+ 53         188 LOAD_NAME                6 (Dict)
+            190 LOAD_NAME               19 (str)
+            192 LOAD_NAME                7 (Any)
+            194 BUILD_TUPLE              2
+            196 BINARY_SUBSCR
+            198 LOAD_NAME               23 (bool)
+            200 LOAD_CONST              18 (('record', 'return'))
+            202 BUILD_CONST_KEY_MAP      2
+            204 LOAD_CONST              19 (<code object save_campaign at 0x109244920, file "WeRobotCore/task_system_v3/mass_sending_campaign_store.py", line 53>)
+            206 LOAD_CONST              20 ('save_campaign')
+            208 MAKE_FUNCTION            4 (annotations)
+            210 STORE_NAME              24 (save_campaign)
+
+ 70         212 LOAD_NAME               19 (str)
+            214 LOAD_NAME                8 (Optional)
+            216 LOAD_NAME                6 (Dict)
+            218 LOAD_NAME               19 (str)
+            220 LOAD_NAME                7 (Any)
+            222 BUILD_TUPLE              2
+            224 BINARY_SUBSCR
+            226 BINARY_SUBSCR
+            228 LOAD_CONST              12 (('campaign_id', 'return'))
+            230 BUILD_CONST_KEY_MAP      2
+            232 LOAD_CONST              21 (<code object load_campaign at 0x1092440e0, file "WeRobotCore/task_system_v3/mass_sending_campaign_store.py", line 70>)
+            234 LOAD_CONST              22 ('load_campaign')
+            236 MAKE_FUNCTION            4 (annotations)
+            238 STORE_NAME              25 (load_campaign)
+
+ 84         240 LOAD_NAME               19 (str)
+            242 LOAD_NAME               19 (str)
+            244 LOAD_NAME               23 (bool)
+            246 LOAD_CONST              23 (('campaign_id', 'status', 'return'))
+            248 BUILD_CONST_KEY_MAP      3
+            250 LOAD_CONST              24 (<code object update_status at 0x109244a80, file "WeRobotCore/task_system_v3/mass_sending_campaign_store.py", line 84>)
+            252 LOAD_CONST              25 ('update_status')
+            254 MAKE_FUNCTION            4 (annotations)
+            256 STORE_NAME              26 (update_status)
+
+ 94         258 LOAD_NAME               19 (str)
+            260 LOAD_NAME                8 (Optional)
+            262 LOAD_NAME               19 (str)
+            264 BINARY_SUBSCR
+            266 LOAD_CONST              12 (('campaign_id', 'return'))
+            268 BUILD_CONST_KEY_MAP      2
+            270 LOAD_CONST              26 (<code object get_status at 0x109244030, file "WeRobotCore/task_system_v3/mass_sending_campaign_store.py", line 94>)
+            272 LOAD_CONST              27 ('get_status')
+            274 MAKE_FUNCTION            4 (annotations)
+            276 STORE_NAME              27 (get_status)
+
+100         278 LOAD_NAME               19 (str)
+            280 LOAD_NAME               28 (int)
+            282 LOAD_NAME               23 (bool)
+            284 LOAD_CONST              28 (('campaign_id', 'idx', 'return'))
+            286 BUILD_CONST_KEY_MAP      3
+            288 LOAD_CONST              29 (<code object set_dispatched_index at 0x109244660, file "WeRobotCore/task_system_v3/mass_sending_campaign_store.py", line 100>)
+            290 LOAD_CONST              30 ('set_dispatched_index')
+            292 MAKE_FUNCTION            4 (annotations)
+            294 STORE_NAME              29 (set_dispatched_index)
+
+116         296 LOAD_NAME                8 (Optional)
+            298 LOAD_NAME               19 (str)
+            300 BINARY_SUBSCR
+            302 LOAD_NAME               23 (bool)
+            304 LOAD_CONST              12 (('campaign_id', 'return'))
+            306 BUILD_CONST_KEY_MAP      2
+            308 LOAD_CONST              31 (<code object is_interrupted at 0x109244450, file "WeRobotCore/task_system_v3/mass_sending_campaign_store.py", line 116>)
+            310 LOAD_CONST              32 ('is_interrupted')
+            312 MAKE_FUNCTION            4 (annotations)
+            314 STORE_NAME              30 (is_interrupted)
+
+123         316 LOAD_CONST              43 ((False,))
+            318 LOAD_NAME               23 (bool)
+            320 LOAD_NAME                9 (List)
+            322 LOAD_NAME                6 (Dict)
+            324 LOAD_NAME               19 (str)
+            326 LOAD_NAME                7 (Any)
+            328 BUILD_TUPLE              2
+            330 BINARY_SUBSCR
+            332 BINARY_SUBSCR
+            334 LOAD_CONST              34 (('include_terminal', 'return'))
+            336 BUILD_CONST_KEY_MAP      2
+            338 LOAD_CONST              35 (<code object list_campaigns at 0x1092445b0, file "WeRobotCore/task_system_v3/mass_sending_campaign_store.py", line 123>)
+            340 LOAD_CONST              36 ('list_campaigns')
+            342 MAKE_FUNCTION            5 (defaults, annotations)
+            344 STORE_NAME              31 (list_campaigns)
+
+142         346 LOAD_NAME               19 (str)
+            348 LOAD_NAME                6 (Dict)
+            350 LOAD_NAME               19 (str)
+            352 LOAD_NAME                7 (Any)
+            354 BUILD_TUPLE              2
+            356 BINARY_SUBSCR
+            358 LOAD_CONST              15 (('task_id', 'return'))
+            360 BUILD_CONST_KEY_MAP      2
+            362 LOAD_CONST              37 (<code object _read_batch_progress at 0x109244d40, file "WeRobotCore/task_system_v3/mass_sending_campaign_store.py", line 142>)
+            364 LOAD_CONST              38 ('_read_batch_progress')
+            366 MAKE_FUNCTION            4 (annotations)
+            368 STORE_NAME              32 (_read_batch_progress)
+
+154         370 LOAD_NAME                8 (Optional)
+            372 LOAD_NAME               19 (str)
+            374 BINARY_SUBSCR
+            376 LOAD_CONST               9 (('return',))
+            378 BUILD_CONST_KEY_MAP      1
+            380 LOAD_CONST              39 (<code object reconcile_completion at 0x109244870, file "WeRobotCore/task_system_v3/mass_sending_campaign_store.py", line 154>)
+            382 LOAD_CONST              40 ('reconcile_completion')
+            384 MAKE_FUNCTION            4 (annotations)
+            386 STORE_NAME              33 (reconcile_completion)
+
+178         388 LOAD_NAME                6 (Dict)
+            390 LOAD_NAME               19 (str)
+            392 LOAD_NAME                7 (Any)
+            394 BUILD_TUPLE              2
+            396 BINARY_SUBSCR
+            398 LOAD_NAME                6 (Dict)
+            400 LOAD_NAME               19 (str)
+            402 LOAD_NAME                7 (Any)
+            404 BUILD_TUPLE              2
+            406 BINARY_SUBSCR
+            408 LOAD_CONST              18 (('record', 'return'))
+            410 BUILD_CONST_KEY_MAP      2
+            412 LOAD_CONST              41 (<code object aggregate_progress at 0x109244df0, file "WeRobotCore/task_system_v3/mass_sending_campaign_store.py", line 178>)
+            414 LOAD_CONST              42 ('aggregate_progress')
+            416 MAKE_FUNCTION            4 (annotations)
+            418 STORE_NAME              34 (aggregate_progress)
+            420 LOAD_CONST               2 (None)
+            422 RETURN_VALUE
+
+Disassembly of <code object _campaigns_dir at 0x109244c90, file "WeRobotCore/task_system_v3/mass_sending_campaign_store.py", line 36>:
+ 37           0 LOAD_CONST               1 (0)
+              2 LOAD_CONST               2 (('DataManager',))
+              4 IMPORT_NAME              0 (WeRobotCore.utils.data_manager)
+              6 IMPORT_FROM              1 (DataManager)
+              8 STORE_FAST               0 (DataManager)
+             10 POP_TOP
+
+ 38          12 LOAD_GLOBAL              2 (os)
+             14 LOAD_ATTR                3 (path)
+             16 LOAD_METHOD              4 (join)
+             18 LOAD_FAST                0 (DataManager)
+             20 LOAD_METHOD              5 (get_data_dir_str)
+             22 CALL_METHOD              0
+             24 LOAD_CONST               3 ('mass_sending_campaigns')
+             26 CALL_METHOD              2
+             28 STORE_FAST               1 (base_dir)
+
+ 39          30 LOAD_GLOBAL              2 (os)
+             32 LOAD_ATTR                6 (makedirs)
+             34 LOAD_FAST                1 (base_dir)
+             36 LOAD_CONST               4 (True)
+             38 LOAD_CONST               5 (('exist_ok',))
+             40 CALL_FUNCTION_KW         2
+             42 POP_TOP
+
+ 40          44 LOAD_FAST                1 (base_dir)
+             46 RETURN_VALUE
+
+Disassembly of <code object _campaign_path at 0x1092442f0, file "WeRobotCore/task_system_v3/mass_sending_campaign_store.py", line 43>:
+ 44           0 LOAD_GLOBAL              0 (os)
+              2 LOAD_ATTR                1 (path)
+              4 LOAD_METHOD              2 (join)
+              6 LOAD_GLOBAL              3 (_campaigns_dir)
+              8 CALL_FUNCTION            0
+             10 LOAD_FAST                0 (campaign_id)
+             12 FORMAT_VALUE             0
+             14 LOAD_CONST               1 ('.json')
+             16 BUILD_STRING             2
+             18 CALL_METHOD              2
+             20 RETURN_VALUE
+
+Disassembly of <code object _progress_path at 0x1092447c0, file "WeRobotCore/task_system_v3/mass_sending_campaign_store.py", line 47>:
+ 48           0 LOAD_CONST               1 (0)
+              2 LOAD_CONST               2 (('DataManager',))
+              4 IMPORT_NAME              0 (WeRobotCore.utils.data_manager)
+              6 IMPORT_FROM              1 (DataManager)
+              8 STORE_FAST               1 (DataManager)
+             10 POP_TOP
+
+ 49          12 LOAD_GLOBAL              2 (os)
+             14 LOAD_ATTR                3 (path)
+             16 LOAD_METHOD              4 (join)
+             18 LOAD_FAST                1 (DataManager)
+             20 LOAD_METHOD              5 (get_data_dir_str)
+             22 CALL_METHOD              0
+             24 LOAD_CONST               3 ('mass_sending_progress')
+             26 CALL_METHOD              2
+             28 STORE_FAST               2 (base_dir)
+
+ 50          30 LOAD_GLOBAL              2 (os)
+             32 LOAD_ATTR                3 (path)
+             34 LOAD_METHOD              4 (join)
+             36 LOAD_FAST                2 (base_dir)
+             38 LOAD_FAST                0 (task_id)
+             40 FORMAT_VALUE             0
+             42 LOAD_CONST               4 ('.json')
+             44 BUILD_STRING             2
+             46 CALL_METHOD              2
+             48 RETURN_VALUE
+
+Disassembly of <code object save_campaign at 0x109244920, file "WeRobotCore/task_system_v3/mass_sending_campaign_store.py", line 53>:
+ 55           0 LOAD_FAST                0 (record)
+              2 LOAD_METHOD              0 (get)
+              4 LOAD_CONST               1 ('campaign_id')
+              6 CALL_METHOD              1
+              8 STORE_FAST               1 (campaign_id)
+
+ 56          10 LOAD_FAST                1 (campaign_id)
+             12 POP_JUMP_IF_TRUE        18
+
+ 57          14 LOAD_CONST               2 (False)
+             16 RETURN_VALUE
+
+ 58     >>   18 SETUP_FINALLY          146 (to 166)
+
+ 59          20 LOAD_GLOBAL              1 (_lock)
+             22 SETUP_WITH             120 (to 144)
+             24 POP_TOP
+
+ 60          26 LOAD_FAST                0 (record)
+             28 LOAD_METHOD              2 (setdefault)
+             30 LOAD_CONST               3 ('created_at')
+             32 LOAD_GLOBAL              3 (datetime)
+             34 LOAD_METHOD              4 (now)
+             36 CALL_METHOD              0
+             38 LOAD_METHOD              5 (isoformat)
+             40 CALL_METHOD              0
+             42 CALL_METHOD              2
+             44 POP_TOP
+
+ 61          46 LOAD_GLOBAL              3 (datetime)
+             48 LOAD_METHOD              4 (now)
+             50 CALL_METHOD              0
+             52 LOAD_METHOD              5 (isoformat)
+             54 CALL_METHOD              0
+             56 LOAD_FAST                0 (record)
+             58 LOAD_CONST               4 ('updated_at')
+             60 STORE_SUBSCR
+
+ 62          62 LOAD_GLOBAL              6 (open)
+             64 LOAD_GLOBAL              7 (_campaign_path)
+             66 LOAD_FAST                1 (campaign_id)
+             68 CALL_FUNCTION            1
+             70 LOAD_CONST               5 ('w')
+             72 LOAD_CONST               6 ('utf-8')
+             74 LOAD_CONST               7 (('encoding',))
+             76 CALL_FUNCTION_KW         3
+             78 SETUP_WITH              34 (to 114)
+             80 STORE_FAST               2 (f)
+
+ 63          82 LOAD_GLOBAL              8 (json)
+             84 LOAD_ATTR                9 (dump)
+             86 LOAD_FAST                0 (record)
+             88 LOAD_FAST                2 (f)
+             90 LOAD_CONST               2 (False)
+             92 LOAD_CONST               8 (2)
+             94 LOAD_CONST               9 (('ensure_ascii', 'indent'))
+             96 CALL_FUNCTION_KW         4
+             98 POP_TOP
+            100 POP_BLOCK
+            102 LOAD_CONST              10 (None)
+            104 DUP_TOP
+            106 DUP_TOP
+            108 CALL_FUNCTION            3
+            110 POP_TOP
+            112 JUMP_FORWARD            16 (to 130)
+        >>  114 WITH_EXCEPT_START
+            116 POP_JUMP_IF_TRUE       120
+            118 RERAISE
+        >>  120 POP_TOP
+            122 POP_TOP
+            124 POP_TOP
+            126 POP_EXCEPT
+            128 POP_TOP
+        >>  130 POP_BLOCK
+            132 LOAD_CONST              10 (None)
+            134 DUP_TOP
+            136 DUP_TOP
+            138 CALL_FUNCTION            3
+            140 POP_TOP
+            142 JUMP_FORWARD            16 (to 160)
+        >>  144 WITH_EXCEPT_START
+            146 POP_JUMP_IF_TRUE       150
+            148 RERAISE
+        >>  150 POP_TOP
+            152 POP_TOP
+            154 POP_TOP
+            156 POP_EXCEPT
+            158 POP_TOP
+
+ 64     >>  160 POP_BLOCK
+            162 LOAD_CONST              11 (True)
+            164 RETURN_VALUE
+
+ 65     >>  166 DUP_TOP
+            168 LOAD_GLOBAL             10 (Exception)
+            170 JUMP_IF_NOT_EXC_MATCH   224
+            172 POP_TOP
+            174 STORE_FAST               3 (e)
+            176 POP_TOP
+            178 SETUP_FINALLY           36 (to 216)
+
+ 66         180 LOAD_GLOBAL             11 (_logger)
+            182 LOAD_METHOD             12 (error)
+            184 LOAD_CONST              12 ('保存群发活动失败 ')
+            186 LOAD_FAST                1 (campaign_id)
+            188 FORMAT_VALUE             0
+            190 LOAD_CONST              13 (': ')
+            192 LOAD_FAST                3 (e)
+            194 FORMAT_VALUE             0
+            196 BUILD_STRING             4
+            198 CALL_METHOD              1
+            200 POP_TOP
+
+ 67         202 POP_BLOCK
+            204 POP_EXCEPT
+            206 LOAD_CONST              10 (None)
+            208 STORE_FAST               3 (e)
+            210 DELETE_FAST              3 (e)
+            212 LOAD_CONST               2 (False)
+            214 RETURN_VALUE
+        >>  216 LOAD_CONST              10 (None)
+            218 STORE_FAST               3 (e)
+            220 DELETE_FAST              3 (e)
+            222 RERAISE
+        >>  224 RERAISE
+            226 LOAD_CONST              10 (None)
+            228 RETURN_VALUE
+
+Disassembly of <code object load_campaign at 0x1092440e0, file "WeRobotCore/task_system_v3/mass_sending_campaign_store.py", line 70>:
+ 72           0 SETUP_FINALLY          138 (to 140)
+
+ 73           2 LOAD_GLOBAL              0 (_campaign_path)
+              4 LOAD_FAST                0 (campaign_id)
+              6 CALL_FUNCTION            1
+              8 STORE_FAST               1 (path)
+
+ 74          10 LOAD_GLOBAL              1 (os)
+             12 LOAD_ATTR                2 (path)
+             14 LOAD_METHOD              3 (exists)
+             16 LOAD_FAST                1 (path)
+             18 CALL_METHOD              1
+             20 POP_JUMP_IF_TRUE        28
+
+ 75          22 POP_BLOCK
+             24 LOAD_CONST               1 (None)
+             26 RETURN_VALUE
+
+ 76     >>   28 LOAD_GLOBAL              4 (_lock)
+             30 SETUP_WITH              88 (to 120)
+             32 POP_TOP
+
+ 77          34 LOAD_GLOBAL              5 (open)
+             36 LOAD_FAST                1 (path)
+             38 LOAD_CONST               2 ('r')
+             40 LOAD_CONST               3 ('utf-8')
+             42 LOAD_CONST               4 (('encoding',))
+             44 CALL_FUNCTION_KW         3
+             46 SETUP_WITH              42 (to 90)
+             48 STORE_FAST               2 (f)
+
+ 78          50 LOAD_GLOBAL              6 (json)
+             52 LOAD_METHOD              7 (load)
+             54 LOAD_FAST                2 (f)
+             56 CALL_METHOD              1
+             58 POP_BLOCK
+             60 ROT_TWO
+             62 LOAD_CONST               1 (None)
+             64 DUP_TOP
+             66 DUP_TOP
+             68 CALL_FUNCTION            3
+             70 POP_TOP
+             72 POP_BLOCK
+             74 ROT_TWO
+             76 LOAD_CONST               1 (None)
+             78 DUP_TOP
+             80 DUP_TOP
+             82 CALL_FUNCTION            3
+             84 POP_TOP
+             86 POP_BLOCK
+             88 RETURN_VALUE
+        >>   90 WITH_EXCEPT_START
+             92 POP_JUMP_IF_TRUE        96
+             94 RERAISE
+        >>   96 POP_TOP
+             98 POP_TOP
+            100 POP_TOP
+            102 POP_EXCEPT
+            104 POP_TOP
+            106 POP_BLOCK
+            108 LOAD_CONST               1 (None)
+            110 DUP_TOP
+            112 DUP_TOP
+            114 CALL_FUNCTION            3
+            116 POP_TOP
+            118 JUMP_FORWARD            16 (to 136)
+        >>  120 WITH_EXCEPT_START
+            122 POP_JUMP_IF_TRUE       126
+            124 RERAISE
+        >>  126 POP_TOP
+            128 POP_TOP
+            130 POP_TOP
+            132 POP_EXCEPT
+            134 POP_TOP
+        >>  136 POP_BLOCK
+            138 JUMP_FORWARD            60 (to 200)
+
+ 79     >>  140 DUP_TOP
+            142 LOAD_GLOBAL              8 (Exception)
+            144 JUMP_IF_NOT_EXC_MATCH   198
+            146 POP_TOP
+            148 STORE_FAST               3 (e)
+            150 POP_TOP
+            152 SETUP_FINALLY           36 (to 190)
+
+ 80         154 LOAD_GLOBAL              9 (_logger)
+            156 LOAD_METHOD             10 (error)
+            158 LOAD_CONST               5 ('读取群发活动失败 ')
+            160 LOAD_FAST                0 (campaign_id)
+            162 FORMAT_VALUE             0
+            164 LOAD_CONST               6 (': ')
+            166 LOAD_FAST                3 (e)
+            168 FORMAT_VALUE             0
+            170 BUILD_STRING             4
+            172 CALL_METHOD              1
+            174 POP_TOP
+
+ 81         176 POP_BLOCK
+            178 POP_EXCEPT
+            180 LOAD_CONST               1 (None)
+            182 STORE_FAST               3 (e)
+            184 DELETE_FAST              3 (e)
+            186 LOAD_CONST               1 (None)
+            188 RETURN_VALUE
+        >>  190 LOAD_CONST               1 (None)
+            192 STORE_FAST               3 (e)
+            194 DELETE_FAST              3 (e)
+            196 RERAISE
+        >>  198 RERAISE
+        >>  200 LOAD_CONST               1 (None)
+            202 RETURN_VALUE
+
+Disassembly of <code object update_status at 0x109244a80, file "WeRobotCore/task_system_v3/mass_sending_campaign_store.py", line 84>:
+ 86           0 LOAD_GLOBAL              0 (_lock)
+              2 SETUP_WITH              60 (to 64)
+              4 POP_TOP
+
+ 87           6 LOAD_GLOBAL              1 (load_campaign)
+              8 LOAD_FAST                0 (campaign_id)
+             10 CALL_FUNCTION            1
+             12 STORE_FAST               2 (record)
+
+ 88          14 LOAD_FAST                2 (record)
+             16 POP_JUMP_IF_TRUE        34
+
+ 89          18 POP_BLOCK
+             20 LOAD_CONST               1 (None)
+             22 DUP_TOP
+             24 DUP_TOP
+             26 CALL_FUNCTION            3
+             28 POP_TOP
+             30 LOAD_CONST               2 (False)
+             32 RETURN_VALUE
+
+ 90     >>   34 LOAD_FAST                1 (status)
+             36 LOAD_FAST                2 (record)
+             38 LOAD_CONST               3 ('status')
+             40 STORE_SUBSCR
+
+ 91          42 LOAD_GLOBAL              2 (save_campaign)
+             44 LOAD_FAST                2 (record)
+             46 CALL_FUNCTION            1
+             48 POP_BLOCK
+             50 ROT_TWO
+             52 LOAD_CONST               1 (None)
+             54 DUP_TOP
+             56 DUP_TOP
+             58 CALL_FUNCTION            3
+             60 POP_TOP
+             62 RETURN_VALUE
+        >>   64 WITH_EXCEPT_START
+             66 POP_JUMP_IF_TRUE        70
+             68 RERAISE
+        >>   70 POP_TOP
+             72 POP_TOP
+             74 POP_TOP
+             76 POP_EXCEPT
+             78 POP_TOP
+             80 LOAD_CONST               1 (None)
+             82 RETURN_VALUE
+
+Disassembly of <code object get_status at 0x109244030, file "WeRobotCore/task_system_v3/mass_sending_campaign_store.py", line 94>:
+ 96           0 LOAD_GLOBAL              0 (load_campaign)
+              2 LOAD_FAST                0 (campaign_id)
+              4 CALL_FUNCTION            1
+              6 STORE_FAST               1 (record)
+
+ 97           8 LOAD_FAST                1 (record)
+             10 POP_JUMP_IF_FALSE       22
+             12 LOAD_FAST                1 (record)
+             14 LOAD_METHOD              1 (get)
+             16 LOAD_CONST               1 ('status')
+             18 CALL_METHOD              1
+             20 RETURN_VALUE
+        >>   22 LOAD_CONST               2 (None)
+             24 RETURN_VALUE
+
+Disassembly of <code object set_dispatched_index at 0x109244660, file "WeRobotCore/task_system_v3/mass_sending_campaign_store.py", line 100>:
+108           0 LOAD_GLOBAL              0 (_lock)
+              2 SETUP_WITH              64 (to 68)
+              4 POP_TOP
+
+109           6 LOAD_GLOBAL              1 (load_campaign)
+              8 LOAD_FAST                0 (campaign_id)
+             10 CALL_FUNCTION            1
+             12 STORE_FAST               2 (record)
+
+110          14 LOAD_FAST                2 (record)
+             16 POP_JUMP_IF_TRUE        34
+
+111          18 POP_BLOCK
+             20 LOAD_CONST               1 (None)
+             22 DUP_TOP
+             24 DUP_TOP
+             26 CALL_FUNCTION            3
+             28 POP_TOP
+             30 LOAD_CONST               2 (False)
+             32 RETURN_VALUE
+
+112     >>   34 LOAD_GLOBAL              2 (int)
+             36 LOAD_FAST                1 (idx)
+             38 CALL_FUNCTION            1
+             40 LOAD_FAST                2 (record)
+             42 LOAD_CONST               3 ('dispatched_index')
+             44 STORE_SUBSCR
+
+113          46 LOAD_GLOBAL              3 (save_campaign)
+             48 LOAD_FAST                2 (record)
+             50 CALL_FUNCTION            1
+             52 POP_BLOCK
+             54 ROT_TWO
+             56 LOAD_CONST               1 (None)
+             58 DUP_TOP
+             60 DUP_TOP
+             62 CALL_FUNCTION            3
+             64 POP_TOP
+             66 RETURN_VALUE
+        >>   68 WITH_EXCEPT_START
+             70 POP_JUMP_IF_TRUE        74
+             72 RERAISE
+        >>   74 POP_TOP
+             76 POP_TOP
+             78 POP_TOP
+             80 POP_EXCEPT
+             82 POP_TOP
+             84 LOAD_CONST               1 (None)
+             86 RETURN_VALUE
+
+Disassembly of <code object is_interrupted at 0x109244450, file "WeRobotCore/task_system_v3/mass_sending_campaign_store.py", line 116>:
+118           0 LOAD_FAST                0 (campaign_id)
+              2 POP_JUMP_IF_TRUE         8
+
+119           4 LOAD_CONST               1 (False)
+              6 RETURN_VALUE
+
+120     >>    8 LOAD_GLOBAL              0 (get_status)
+             10 LOAD_FAST                0 (campaign_id)
+             12 CALL_FUNCTION            1
+             14 LOAD_CONST               2 ('interrupted')
+             16 COMPARE_OP               2 (==)
+             18 RETURN_VALUE
+
+Disassembly of <code object list_campaigns at 0x1092445b0, file "WeRobotCore/task_system_v3/mass_sending_campaign_store.py", line 123>:
+125           0 BUILD_LIST               0
+              2 STORE_FAST               1 (results)
+
+126           4 SETUP_FINALLY          122 (to 128)
+
+127           6 LOAD_GLOBAL              0 (_lock)
+              8 SETUP_WITH              98 (to 108)
+             10 POP_TOP
+
+128          12 LOAD_GLOBAL              1 (os)
+             14 LOAD_METHOD              2 (listdir)
+             16 LOAD_GLOBAL              3 (_campaigns_dir)
+             18 CALL_FUNCTION            0
+             20 CALL_METHOD              1
+             22 GET_ITER
+        >>   24 FOR_ITER                68 (to 94)
+             26 STORE_FAST               2 (name)
+
+129          28 LOAD_FAST                2 (name)
+             30 LOAD_METHOD              4 (endswith)
+             32 LOAD_CONST               1 ('.json')
+             34 CALL_METHOD              1
+             36 POP_JUMP_IF_TRUE        40
+
+130          38 JUMP_ABSOLUTE           24
+
+131     >>   40 LOAD_GLOBAL              5 (load_campaign)
+             42 LOAD_FAST                2 (name)
+             44 LOAD_CONST               2 (None)
+             46 LOAD_CONST               3 (-5)
+             48 BUILD_SLICE              2
+             50 BINARY_SUBSCR
+             52 CALL_FUNCTION            1
+             54 STORE_FAST               3 (record)
+
+132          56 LOAD_FAST                3 (record)
+             58 POP_JUMP_IF_TRUE        62
+
+133          60 JUMP_ABSOLUTE           24
+
+134     >>   62 LOAD_FAST                0 (include_terminal)
+             64 POP_JUMP_IF_TRUE        82
+             66 LOAD_FAST                3 (record)
+             68 LOAD_METHOD              6 (get)
+             70 LOAD_CONST               4 ('status')
+             72 CALL_METHOD              1
+             74 LOAD_GLOBAL              7 (TERMINAL_STATUSES)
+             76 CONTAINS_OP              0
+             78 POP_JUMP_IF_FALSE       82
+
+135          80 JUMP_ABSOLUTE           24
+
+136     >>   82 LOAD_FAST                1 (results)
+             84 LOAD_METHOD              8 (append)
+             86 LOAD_FAST                3 (record)
+             88 CALL_METHOD              1
+             90 POP_TOP
+             92 JUMP_ABSOLUTE           24
+        >>   94 POP_BLOCK
+             96 LOAD_CONST               2 (None)
+             98 DUP_TOP
+            100 DUP_TOP
+            102 CALL_FUNCTION            3
+            104 POP_TOP
+            106 JUMP_FORWARD            16 (to 124)
+        >>  108 WITH_EXCEPT_START
+            110 POP_JUMP_IF_TRUE       114
+            112 RERAISE
+        >>  114 POP_TOP
+            116 POP_TOP
+            118 POP_TOP
+            120 POP_EXCEPT
+            122 POP_TOP
+        >>  124 POP_BLOCK
+            126 JUMP_FORWARD            52 (to 180)
+
+137     >>  128 DUP_TOP
+            130 LOAD_GLOBAL              9 (Exception)
+            132 JUMP_IF_NOT_EXC_MATCH   178
+            134 POP_TOP
+            136 STORE_FAST               4 (e)
+            138 POP_TOP
+            140 SETUP_FINALLY           28 (to 170)
+
+138         142 LOAD_GLOBAL             10 (_logger)
+            144 LOAD_METHOD             11 (error)
+            146 LOAD_CONST               5 ('列出群发活动失败: ')
+            148 LOAD_FAST                4 (e)
+            150 FORMAT_VALUE             0
+            152 BUILD_STRING             2
+            154 CALL_METHOD              1
+            156 POP_TOP
+            158 POP_BLOCK
+            160 POP_EXCEPT
+            162 LOAD_CONST               2 (None)
+            164 STORE_FAST               4 (e)
+            166 DELETE_FAST              4 (e)
+            168 JUMP_FORWARD            10 (to 180)
+        >>  170 LOAD_CONST               2 (None)
+            172 STORE_FAST               4 (e)
+            174 DELETE_FAST              4 (e)
+            176 RERAISE
+        >>  178 RERAISE
+
+139     >>  180 LOAD_FAST                1 (results)
+            182 RETURN_VALUE
+
+Disassembly of <code object _read_batch_progress at 0x109244d40, file "WeRobotCore/task_system_v3/mass_sending_campaign_store.py", line 142>:
+144           0 SETUP_FINALLY           82 (to 84)
+
+145           2 LOAD_GLOBAL              0 (_progress_path)
+              4 LOAD_FAST                0 (task_id)
+              6 CALL_FUNCTION            1
+              8 STORE_FAST               1 (path)
+
+146          10 LOAD_GLOBAL              1 (os)
+             12 LOAD_ATTR                2 (path)
+             14 LOAD_METHOD              3 (exists)
+             16 LOAD_FAST                1 (path)
+             18 CALL_METHOD              1
+             20 POP_JUMP_IF_FALSE       80
+
+147          22 LOAD_GLOBAL              4 (open)
+             24 LOAD_FAST                1 (path)
+             26 LOAD_CONST               1 ('r')
+             28 LOAD_CONST               2 ('utf-8')
+             30 LOAD_CONST               3 (('encoding',))
+             32 CALL_FUNCTION_KW         3
+             34 SETUP_WITH              28 (to 64)
+             36 STORE_FAST               2 (f)
+
+148          38 LOAD_GLOBAL              5 (json)
+             40 LOAD_METHOD              6 (load)
+             42 LOAD_FAST                2 (f)
+             44 CALL_METHOD              1
+             46 POP_BLOCK
+             48 ROT_TWO
+             50 LOAD_CONST               4 (None)
+             52 DUP_TOP
+             54 DUP_TOP
+             56 CALL_FUNCTION            3
+             58 POP_TOP
+             60 POP_BLOCK
+             62 RETURN_VALUE
+        >>   64 WITH_EXCEPT_START
+             66 POP_JUMP_IF_TRUE        70
+             68 RERAISE
+        >>   70 POP_TOP
+             72 POP_TOP
+             74 POP_TOP
+             76 POP_EXCEPT
+             78 POP_TOP
+        >>   80 POP_BLOCK
+             82 JUMP_FORWARD            18 (to 102)
+
+149     >>   84 DUP_TOP
+             86 LOAD_GLOBAL              7 (Exception)
+             88 JUMP_IF_NOT_EXC_MATCH   100
+             90 POP_TOP
+             92 POP_TOP
+             94 POP_TOP
+
+150          96 POP_EXCEPT
+             98 JUMP_FORWARD             2 (to 102)
+        >>  100 RERAISE
+
+151     >>  102 BUILD_MAP                0
+            104 RETURN_VALUE
+
+Disassembly of <code object reconcile_completion at 0x109244870, file "WeRobotCore/task_system_v3/mass_sending_campaign_store.py", line 154>:
+161           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                0 (campaign_id_or_record)
+              4 LOAD_GLOBAL              1 (dict)
+              6 CALL_FUNCTION            2
+              8 POP_JUMP_IF_FALSE       16
+
+162          10 LOAD_FAST                0 (campaign_id_or_record)
+             12 STORE_FAST               1 (record)
+             14 JUMP_FORWARD             8 (to 24)
+
+164     >>   16 LOAD_GLOBAL              2 (load_campaign)
+             18 LOAD_FAST                0 (campaign_id_or_record)
+             20 CALL_FUNCTION            1
+             22 STORE_FAST               1 (record)
+
+165     >>   24 LOAD_FAST                1 (record)
+             26 POP_JUMP_IF_TRUE        32
+
+166          28 LOAD_CONST               1 (None)
+             30 RETURN_VALUE
+
+167     >>   32 LOAD_FAST                1 (record)
+             34 LOAD_METHOD              3 (get)
+             36 LOAD_CONST               2 ('campaign_id')
+             38 CALL_METHOD              1
+             40 STORE_FAST               2 (campaign_id)
+
+168          42 LOAD_FAST                1 (record)
+             44 LOAD_METHOD              3 (get)
+             46 LOAD_CONST               3 ('status')
+             48 CALL_METHOD              1
+             50 STORE_FAST               3 (status)
+
+169          52 LOAD_FAST                3 (status)
+             54 LOAD_GLOBAL              4 (TERMINAL_STATUSES)
+             56 CONTAINS_OP              0
+             58 POP_JUMP_IF_FALSE       64
+
+170          60 LOAD_FAST                3 (status)
+             62 RETURN_VALUE
+
+171     >>   64 LOAD_GLOBAL              5 (aggregate_progress)
+             66 LOAD_FAST                1 (record)
+             68 CALL_FUNCTION            1
+             70 STORE_FAST               4 (agg)
+
+172          72 LOAD_FAST                4 (agg)
+             74 LOAD_CONST               4 ('batch_count')
+             76 BINARY_SUBSCR
+             78 POP_JUMP_IF_FALSE      110
+             80 LOAD_FAST                4 (agg)
+             82 LOAD_CONST               5 ('completed_batches')
+             84 BINARY_SUBSCR
+             86 LOAD_FAST                4 (agg)
+             88 LOAD_CONST               4 ('batch_count')
+             90 BINARY_SUBSCR
+             92 COMPARE_OP               5 (>=)
+             94 POP_JUMP_IF_FALSE      110
+
+173          96 LOAD_GLOBAL              6 (update_status)
+             98 LOAD_FAST                2 (campaign_id)
+            100 LOAD_CONST               6 ('completed')
+            102 CALL_FUNCTION            2
+            104 POP_TOP
+
+174         106 LOAD_CONST               6 ('completed')
+            108 RETURN_VALUE
+
+175     >>  110 LOAD_FAST                3 (status)
+            112 RETURN_VALUE
+
+Disassembly of <code object aggregate_progress at 0x109244df0, file "WeRobotCore/task_system_v3/mass_sending_campaign_store.py", line 178>:
+185           0 LOAD_FAST                0 (record)
+              2 LOAD_METHOD              0 (get)
+              4 LOAD_CONST               1 ('batches')
+              6 BUILD_LIST               0
+              8 CALL_METHOD              2
+             10 JUMP_IF_TRUE_OR_POP     14
+             12 BUILD_LIST               0
+        >>   14 STORE_FAST               1 (batches)
+
+186          16 LOAD_CONST               2 (0)
+             18 STORE_FAST               2 (progress)
+
+187          20 LOAD_CONST               2 (0)
+             22 STORE_FAST               3 (completed_batches)
+
+188          24 LOAD_CONST               2 (0)
+             26 STORE_FAST               4 (file_total)
+
+189          28 LOAD_FAST                1 (batches)
+             30 GET_ITER
+        >>   32 FOR_ITER               100 (to 134)
+             34 STORE_FAST               5 (b)
+
+190          36 LOAD_FAST                5 (b)
+             38 LOAD_METHOD              0 (get)
+             40 LOAD_CONST               3 ('task_id')
+             42 CALL_METHOD              1
+             44 STORE_FAST               6 (task_id)
+
+191          46 LOAD_FAST                6 (task_id)
+             48 POP_JUMP_IF_TRUE        52
+
+192          50 JUMP_ABSOLUTE           32
+
+193     >>   52 LOAD_GLOBAL              1 (_read_batch_progress)
+             54 LOAD_FAST                6 (task_id)
+             56 CALL_FUNCTION            1
+             58 STORE_FAST               7 (p)
+
+194          60 LOAD_GLOBAL              2 (len)
+             62 LOAD_FAST                7 (p)
+             64 LOAD_METHOD              0 (get)
+             66 LOAD_CONST               4 ('sent_users')
+             68 BUILD_LIST               0
+             70 CALL_METHOD              2
+             72 JUMP_IF_TRUE_OR_POP     76
+             74 BUILD_LIST               0
+        >>   76 CALL_FUNCTION            1
+             78 STORE_FAST               8 (sent)
+
+195          80 LOAD_FAST                7 (p)
+             82 LOAD_METHOD              0 (get)
+             84 LOAD_CONST               5 ('total')
+             86 LOAD_CONST               2 (0)
+             88 CALL_METHOD              2
+             90 JUMP_IF_TRUE_OR_POP     94
+             92 LOAD_CONST               2 (0)
+        >>   94 STORE_FAST               9 (batch_total)
+
+196          96 LOAD_FAST                2 (progress)
+             98 LOAD_FAST                8 (sent)
+            100 INPLACE_ADD
+            102 STORE_FAST               2 (progress)
+
+197         104 LOAD_FAST                4 (file_total)
+            106 LOAD_FAST                9 (batch_total)
+            108 INPLACE_ADD
+            110 STORE_FAST               4 (file_total)
+
+198         112 LOAD_FAST                9 (batch_total)
+            114 POP_JUMP_IF_FALSE       32
+            116 LOAD_FAST                8 (sent)
+            118 LOAD_FAST                9 (batch_total)
+            120 COMPARE_OP               5 (>=)
+            122 POP_JUMP_IF_FALSE       32
+
+199         124 LOAD_FAST                3 (completed_batches)
+            126 LOAD_CONST               6 (1)
+            128 INPLACE_ADD
+            130 STORE_FAST               3 (completed_batches)
+            132 JUMP_ABSOLUTE           32
+
+200     >>  134 LOAD_FAST                0 (record)
+            136 LOAD_METHOD              0 (get)
+            138 LOAD_CONST               7 ('total_users')
+            140 CALL_METHOD              1
+            142 JUMP_IF_TRUE_OR_POP    146
+            144 LOAD_FAST                4 (file_total)
+        >>  146 STORE_FAST              10 (total)
+
+202         148 LOAD_FAST                2 (progress)
+
+203         150 LOAD_FAST               10 (total)
+
+204         152 LOAD_GLOBAL              2 (len)
+            154 LOAD_FAST                1 (batches)
+            156 CALL_FUNCTION            1
+
+205         158 LOAD_FAST                3 (completed_batches)
+
+201         160 LOAD_CONST               8 (('progress', 'total', 'batch_count', 'completed_batches'))
+            162 BUILD_CONST_KEY_MAP      4
+            164 RETURN_VALUE

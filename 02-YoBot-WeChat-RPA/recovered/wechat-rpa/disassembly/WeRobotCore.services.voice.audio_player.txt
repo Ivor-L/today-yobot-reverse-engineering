@@ -1,0 +1,394 @@
+  1           0 LOAD_CONST               0 ('\n将 mp3 文件以阻塞方式播放到指定 sounddevice 输出设备。\n\n主要使用场景：AI 语音回复 — 把豆包合成的 mp3 流向 VB-Cable Input，让微信\n从 CABLE Output 录到这段音频。\n\n实现注意：刻意避开 numpy 和 pydub。\n  - numpy: PyInstaller frozen 下 numpy._core._multiarray_umath 首次加载报\n    "cannot load module more than once per process"。\n  - pydub: 内部 subprocess.Popen 调 ffmpeg 时不传 CREATE_NO_WINDOW，\n    每次解码都会闪一个白色 ffmpeg 控制台窗口（实测）。\n\n链路：ffmpeg subprocess (CREATE_NO_WINDOW) → raw 16-bit PCM bytes\n     → sounddevice.RawOutputStream 喂播放。\n全程无 numpy / 无 pydub / 无窗口闪烁。\n')
+              2 STORE_NAME               0 (__doc__)
+
+ 17           4 LOAD_CONST               1 (0)
+              6 LOAD_CONST               2 (('annotations',))
+              8 IMPORT_NAME              1 (__future__)
+             10 IMPORT_FROM              2 (annotations)
+             12 STORE_NAME               2 (annotations)
+             14 POP_TOP
+
+ 19          16 LOAD_CONST               1 (0)
+             18 LOAD_CONST               3 (None)
+             20 IMPORT_NAME              3 (os)
+             22 STORE_NAME               3 (os)
+
+ 20          24 LOAD_CONST               1 (0)
+             26 LOAD_CONST               3 (None)
+             28 IMPORT_NAME              4 (subprocess)
+             30 STORE_NAME               4 (subprocess)
+
+ 21          32 LOAD_CONST               1 (0)
+             34 LOAD_CONST               4 (('Optional',))
+             36 IMPORT_NAME              5 (typing)
+             38 IMPORT_FROM              6 (Optional)
+             40 STORE_NAME               6 (Optional)
+             42 POP_TOP
+
+ 24          44 LOAD_CONST               1 (0)
+             46 LOAD_CONST               3 (None)
+             48 IMPORT_NAME              7 (sounddevice)
+             50 STORE_NAME               8 (sd)
+
+ 28          52 LOAD_CONST               5 (44100)
+             54 STORE_NAME               9 (_DEFAULT_SR)
+
+ 29          56 LOAD_CONST               6 (2)
+             58 STORE_NAME              10 (_DEFAULT_CHANNELS)
+
+ 30          60 LOAD_CONST               6 (2)
+             62 STORE_NAME              11 (_SAMPLE_WIDTH)
+
+ 33          64 LOAD_CONST               7 (134217728)
+             66 STORE_NAME              12 (_CREATE_NO_WINDOW)
+
+ 36          68 LOAD_CONST               8 ('dict')
+             70 LOAD_CONST               9 (('return',))
+             72 BUILD_CONST_KEY_MAP      1
+             74 LOAD_CONST              10 (<code object _hidden_subprocess_kwargs at 0x10924bdf0, file "WeRobotCore/services/voice/audio_player.py", line 36>)
+             76 LOAD_CONST              11 ('_hidden_subprocess_kwargs')
+             78 MAKE_FUNCTION            4 (annotations)
+             80 STORE_NAME              13 (_hidden_subprocess_kwargs)
+
+ 52          82 LOAD_NAME                9 (_DEFAULT_SR)
+
+ 53          84 LOAD_NAME               10 (_DEFAULT_CHANNELS)
+
+ 50          86 BUILD_TUPLE              2
+             88 LOAD_CONST              12 ('str')
+             90 LOAD_CONST              13 ('int')
+             92 LOAD_CONST              13 ('int')
+             94 LOAD_CONST              14 ('bytes')
+             96 LOAD_CONST              15 (('mp3_path', 'samplerate', 'channels', 'return'))
+             98 BUILD_CONST_KEY_MAP      4
+            100 LOAD_CONST              16 (<code object _decode_mp3_to_pcm_bytes at 0x10924b030, file "WeRobotCore/services/voice/audio_player.py", line 50>)
+            102 LOAD_CONST              17 ('_decode_mp3_to_pcm_bytes')
+            104 MAKE_FUNCTION            5 (defaults, annotations)
+            106 STORE_NAME              14 (_decode_mp3_to_pcm_bytes)
+
+ 91         108 LOAD_CONST              24 ((None, 0.0, 0.0))
+            110 LOAD_CONST              12 ('str')
+            112 LOAD_CONST              13 ('int')
+            114 LOAD_CONST              19 ('Optional[int]')
+            116 LOAD_CONST              20 ('float')
+            118 LOAD_CONST              20 ('float')
+            120 LOAD_CONST              20 ('float')
+            122 LOAD_CONST              21 (('mp3_path', 'device_index', 'target_samplerate', 'pre_silence_sec', 'post_silence_sec', 'return'))
+            124 BUILD_CONST_KEY_MAP      6
+            126 LOAD_CONST              22 (<code object play_mp3_to_device at 0x10924b9d0, file "WeRobotCore/services/voice/audio_player.py", line 91>)
+            128 LOAD_CONST              23 ('play_mp3_to_device')
+            130 MAKE_FUNCTION            5 (defaults, annotations)
+            132 STORE_NAME              15 (play_mp3_to_device)
+            134 LOAD_CONST               3 (None)
+            136 RETURN_VALUE
+
+Disassembly of <code object _hidden_subprocess_kwargs at 0x10924bdf0, file "WeRobotCore/services/voice/audio_player.py", line 36>:
+ 39           0 LOAD_GLOBAL              0 (os)
+              2 LOAD_ATTR                1 (name)
+              4 LOAD_CONST               1 ('nt')
+              6 COMPARE_OP               3 (!=)
+              8 POP_JUMP_IF_FALSE       14
+
+ 40          10 BUILD_MAP                0
+             12 RETURN_VALUE
+
+ 41     >>   14 LOAD_GLOBAL              2 (subprocess)
+             16 LOAD_METHOD              3 (STARTUPINFO)
+             18 CALL_METHOD              0
+             20 STORE_FAST               0 (startupinfo)
+
+ 42          22 LOAD_FAST                0 (startupinfo)
+             24 DUP_TOP
+             26 LOAD_ATTR                4 (dwFlags)
+             28 LOAD_GLOBAL              2 (subprocess)
+             30 LOAD_ATTR                5 (STARTF_USESHOWWINDOW)
+             32 INPLACE_OR
+             34 ROT_TWO
+             36 STORE_ATTR               4 (dwFlags)
+
+ 43          38 LOAD_CONST               2 (0)
+             40 LOAD_FAST                0 (startupinfo)
+             42 STORE_ATTR               6 (wShowWindow)
+
+ 45          44 LOAD_GLOBAL              7 (_CREATE_NO_WINDOW)
+
+ 46          46 LOAD_FAST                0 (startupinfo)
+
+ 44          48 LOAD_CONST               3 (('creationflags', 'startupinfo'))
+             50 BUILD_CONST_KEY_MAP      2
+             52 RETURN_VALUE
+
+Disassembly of <code object _decode_mp3_to_pcm_bytes at 0x10924b030, file "WeRobotCore/services/voice/audio_player.py", line 50>:
+ 59           0 LOAD_GLOBAL              0 (os)
+              2 LOAD_ATTR                1 (path)
+              4 LOAD_METHOD              2 (exists)
+              6 LOAD_FAST                0 (mp3_path)
+              8 CALL_METHOD              1
+             10 POP_JUMP_IF_TRUE        26
+
+ 60          12 LOAD_GLOBAL              3 (FileNotFoundError)
+             14 LOAD_CONST               1 ('mp3 文件不存在: ')
+             16 LOAD_FAST                0 (mp3_path)
+             18 FORMAT_VALUE             0
+             20 BUILD_STRING             2
+             22 CALL_FUNCTION            1
+             24 RAISE_VARARGS            1
+
+ 63     >>   26 LOAD_CONST               2 ('ffmpeg')
+
+ 64          28 LOAD_CONST               3 ('-loglevel')
+             30 LOAD_CONST               4 ('error')
+
+ 65          32 LOAD_CONST               5 ('-i')
+             34 LOAD_FAST                0 (mp3_path)
+
+ 66          36 LOAD_CONST               6 ('-f')
+             38 LOAD_CONST               7 ('s16le')
+
+ 67          40 LOAD_CONST               8 ('-acodec')
+             42 LOAD_CONST               9 ('pcm_s16le')
+
+ 68          44 LOAD_CONST              10 ('-ac')
+             46 LOAD_GLOBAL              4 (str)
+             48 LOAD_FAST                2 (channels)
+             50 CALL_FUNCTION            1
+
+ 69          52 LOAD_CONST              11 ('-ar')
+             54 LOAD_GLOBAL              4 (str)
+             56 LOAD_FAST                1 (samplerate)
+             58 CALL_FUNCTION            1
+
+ 70          60 LOAD_CONST              12 ('-')
+
+ 62          62 BUILD_LIST              14
+             64 STORE_FAST               3 (cmd)
+
+ 72          66 SETUP_FINALLY           28 (to 96)
+
+ 73          68 LOAD_GLOBAL              5 (subprocess)
+             70 LOAD_ATTR                6 (run)
+
+ 74          72 LOAD_FAST                3 (cmd)
+
+ 73          74 BUILD_TUPLE              1
+             76 LOAD_CONST              13 ('capture_output')
+
+ 75          78 LOAD_CONST              14 (True)
+
+ 73          80 BUILD_MAP                1
+
+ 76          82 LOAD_GLOBAL              7 (_hidden_subprocess_kwargs)
+             84 CALL_FUNCTION            0
+
+ 73          86 DICT_MERGE               1
+             88 CALL_FUNCTION_EX         1
+             90 STORE_FAST               4 (proc)
+             92 POP_BLOCK
+             94 JUMP_FORWARD            26 (to 122)
+
+ 78     >>   96 DUP_TOP
+             98 LOAD_GLOBAL              3 (FileNotFoundError)
+            100 JUMP_IF_NOT_EXC_MATCH   120
+            102 POP_TOP
+            104 POP_TOP
+            106 POP_TOP
+
+ 79         108 LOAD_GLOBAL              8 (RuntimeError)
+            110 LOAD_CONST              15 ('ffmpeg 未安装或不在 PATH 中')
+            112 CALL_FUNCTION            1
+            114 RAISE_VARARGS            1
+            116 POP_EXCEPT
+            118 JUMP_FORWARD             2 (to 122)
+        >>  120 RERAISE
+
+ 81     >>  122 LOAD_FAST                4 (proc)
+            124 LOAD_ATTR                9 (returncode)
+            126 LOAD_CONST              16 (0)
+            128 COMPARE_OP               3 (!=)
+            130 POP_JUMP_IF_FALSE      174
+
+ 82         132 LOAD_FAST                4 (proc)
+            134 LOAD_ATTR               10 (stderr)
+            136 JUMP_IF_TRUE_OR_POP    140
+            138 LOAD_CONST              17 (b'')
+        >>  140 LOAD_ATTR               11 (decode)
+            142 LOAD_CONST              18 ('utf-8')
+            144 LOAD_CONST              19 ('replace')
+            146 LOAD_CONST              20 (('errors',))
+            148 CALL_FUNCTION_KW         2
+            150 LOAD_CONST              21 (None)
+            152 LOAD_CONST              22 (300)
+            154 BUILD_SLICE              2
+            156 BINARY_SUBSCR
+            158 STORE_FAST               5 (err)
+
+ 83         160 LOAD_GLOBAL              8 (RuntimeError)
+            162 LOAD_CONST              23 ('ffmpeg decode 失败: ')
+            164 LOAD_FAST                5 (err)
+            166 FORMAT_VALUE             0
+            168 BUILD_STRING             2
+            170 CALL_FUNCTION            1
+            172 RAISE_VARARGS            1
+
+ 85     >>  174 LOAD_FAST                4 (proc)
+            176 LOAD_ATTR               12 (stdout)
+            178 POP_JUMP_IF_TRUE       188
+
+ 86         180 LOAD_GLOBAL              8 (RuntimeError)
+            182 LOAD_CONST              24 ('ffmpeg 输出为空')
+            184 CALL_FUNCTION            1
+            186 RAISE_VARARGS            1
+
+ 88     >>  188 LOAD_FAST                4 (proc)
+            190 LOAD_ATTR               12 (stdout)
+            192 RETURN_VALUE
+
+Disassembly of <code object play_mp3_to_device at 0x10924b9d0, file "WeRobotCore/services/voice/audio_player.py", line 91>:
+111           0 LOAD_GLOBAL              0 (_DEFAULT_SR)
+              2 STORE_FAST               5 (samplerate)
+
+112           4 LOAD_GLOBAL              1 (_DEFAULT_CHANNELS)
+              6 STORE_FAST               6 (channels)
+
+113           8 LOAD_GLOBAL              2 (_SAMPLE_WIDTH)
+             10 LOAD_FAST                6 (channels)
+             12 BINARY_MULTIPLY
+             14 STORE_FAST               7 (bytes_per_frame)
+
+115          16 LOAD_GLOBAL              3 (_decode_mp3_to_pcm_bytes)
+             18 LOAD_FAST                0 (mp3_path)
+             20 LOAD_FAST                5 (samplerate)
+             22 LOAD_FAST                6 (channels)
+             24 CALL_FUNCTION            3
+             26 STORE_FAST               8 (pcm_bytes)
+
+117          28 LOAD_CONST               1 (b'')
+             30 STORE_FAST               9 (pre_silence)
+
+118          32 LOAD_CONST               1 (b'')
+             34 STORE_FAST              10 (post_silence)
+
+119          36 LOAD_FAST                3 (pre_silence_sec)
+             38 LOAD_CONST               2 (0)
+             40 COMPARE_OP               4 (>)
+             42 POP_JUMP_IF_FALSE       64
+
+120          44 LOAD_CONST               3 (b'\x00')
+             46 LOAD_GLOBAL              4 (int)
+             48 LOAD_FAST                5 (samplerate)
+             50 LOAD_FAST                3 (pre_silence_sec)
+             52 BINARY_MULTIPLY
+             54 CALL_FUNCTION            1
+             56 BINARY_MULTIPLY
+             58 LOAD_FAST                7 (bytes_per_frame)
+             60 BINARY_MULTIPLY
+             62 STORE_FAST               9 (pre_silence)
+
+121     >>   64 LOAD_FAST                4 (post_silence_sec)
+             66 LOAD_CONST               2 (0)
+             68 COMPARE_OP               4 (>)
+             70 POP_JUMP_IF_FALSE       92
+
+122          72 LOAD_CONST               3 (b'\x00')
+             74 LOAD_GLOBAL              4 (int)
+             76 LOAD_FAST                5 (samplerate)
+             78 LOAD_FAST                4 (post_silence_sec)
+             80 BINARY_MULTIPLY
+             82 CALL_FUNCTION            1
+             84 BINARY_MULTIPLY
+             86 LOAD_FAST                7 (bytes_per_frame)
+             88 BINARY_MULTIPLY
+             90 STORE_FAST              10 (post_silence)
+
+124     >>   92 LOAD_FAST                9 (pre_silence)
+             94 LOAD_FAST                8 (pcm_bytes)
+             96 BINARY_ADD
+             98 LOAD_FAST               10 (post_silence)
+            100 BINARY_ADD
+            102 STORE_FAST              11 (full_bytes)
+
+125         104 LOAD_GLOBAL              5 (len)
+            106 LOAD_FAST               11 (full_bytes)
+            108 CALL_FUNCTION            1
+            110 LOAD_FAST                7 (bytes_per_frame)
+            112 BINARY_FLOOR_DIVIDE
+            114 STORE_FAST              12 (total_frames)
+
+127         116 SETUP_FINALLY           64 (to 182)
+
+128         118 LOAD_GLOBAL              6 (sd)
+            120 LOAD_ATTR                7 (RawOutputStream)
+
+129         122 LOAD_FAST                5 (samplerate)
+
+130         124 LOAD_FAST                6 (channels)
+
+131         126 LOAD_CONST               4 ('int16')
+
+132         128 LOAD_FAST                1 (device_index)
+
+128         130 LOAD_CONST               5 (('samplerate', 'channels', 'dtype', 'device'))
+            132 CALL_FUNCTION_KW         4
+            134 SETUP_WITH              26 (to 162)
+
+133         136 STORE_FAST              13 (stream)
+
+134         138 LOAD_FAST               13 (stream)
+            140 LOAD_METHOD              8 (write)
+            142 LOAD_FAST               11 (full_bytes)
+            144 CALL_METHOD              1
+            146 POP_TOP
+            148 POP_BLOCK
+            150 LOAD_CONST               6 (None)
+            152 DUP_TOP
+            154 DUP_TOP
+            156 CALL_FUNCTION            3
+            158 POP_TOP
+            160 JUMP_FORWARD            16 (to 178)
+        >>  162 WITH_EXCEPT_START
+            164 POP_JUMP_IF_TRUE       168
+            166 RERAISE
+        >>  168 POP_TOP
+            170 POP_TOP
+            172 POP_TOP
+            174 POP_EXCEPT
+            176 POP_TOP
+        >>  178 POP_BLOCK
+            180 JUMP_FORWARD            56 (to 238)
+
+135     >>  182 DUP_TOP
+            184 LOAD_GLOBAL              9 (Exception)
+            186 JUMP_IF_NOT_EXC_MATCH   236
+            188 POP_TOP
+            190 STORE_FAST              14 (e)
+            192 POP_TOP
+            194 SETUP_FINALLY           32 (to 228)
+
+136         196 LOAD_GLOBAL             10 (RuntimeError)
+            198 LOAD_CONST               7 ('播放到设备 ')
+            200 LOAD_FAST                1 (device_index)
+            202 FORMAT_VALUE             0
+            204 LOAD_CONST               8 (' 失败: ')
+            206 LOAD_FAST               14 (e)
+            208 FORMAT_VALUE             0
+            210 BUILD_STRING             4
+            212 CALL_FUNCTION            1
+            214 RAISE_VARARGS            1
+            216 POP_BLOCK
+            218 POP_EXCEPT
+            220 LOAD_CONST               6 (None)
+            222 STORE_FAST              14 (e)
+            224 DELETE_FAST             14 (e)
+            226 JUMP_FORWARD            10 (to 238)
+        >>  228 LOAD_CONST               6 (None)
+            230 STORE_FAST              14 (e)
+            232 DELETE_FAST             14 (e)
+            234 RERAISE
+        >>  236 RERAISE
+
+138     >>  238 LOAD_FAST               12 (total_frames)
+            240 LOAD_GLOBAL             11 (float)
+            242 LOAD_FAST                5 (samplerate)
+            244 CALL_FUNCTION            1
+            246 BINARY_TRUE_DIVIDE
+            248 RETURN_VALUE

@@ -1,0 +1,693 @@
+  1           0 LOAD_CONST               0 (0)
+              2 LOAD_CONST               1 (None)
+              4 IMPORT_NAME              0 (os)
+              6 STORE_NAME               0 (os)
+
+  2           8 LOAD_CONST               0 (0)
+             10 LOAD_CONST               1 (None)
+             12 IMPORT_NAME              1 (logging)
+             14 STORE_NAME               1 (logging)
+
+  3          16 LOAD_CONST               0 (0)
+             18 LOAD_CONST               2 (('Optional',))
+             20 IMPORT_NAME              2 (typing)
+             22 IMPORT_FROM              3 (Optional)
+             24 STORE_NAME               3 (Optional)
+             26 POP_TOP
+
+  5          28 LOAD_BUILD_CLASS
+             30 LOAD_CONST               3 (<code object DocumentExtractor at 0x1073b9c90, file "WeRobotCore/utils/document_extractor.py", line 5>)
+             32 LOAD_CONST               4 ('DocumentExtractor')
+             34 MAKE_FUNCTION            0
+             36 LOAD_CONST               4 ('DocumentExtractor')
+             38 CALL_FUNCTION            2
+             40 STORE_NAME               4 (DocumentExtractor)
+             42 LOAD_CONST               1 (None)
+             44 RETURN_VALUE
+
+Disassembly of <code object DocumentExtractor at 0x1073b9c90, file "WeRobotCore/utils/document_extractor.py", line 5>:
+  5           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('DocumentExtractor')
+              6 STORE_NAME               2 (__qualname__)
+
+  6           8 LOAD_CONST               1 ('\n    文档提取工具\n    支持: txt, md, csv, pdf, docx\n    ')
+             10 STORE_NAME               3 (__doc__)
+
+ 11          12 LOAD_NAME                4 (staticmethod)
+
+ 12          14 LOAD_CONST              16 ((15000,))
+             16 LOAD_NAME                5 (str)
+             18 LOAD_NAME                6 (int)
+             20 LOAD_NAME                7 (Optional)
+             22 LOAD_NAME                5 (str)
+             24 BINARY_SUBSCR
+             26 LOAD_CONST               3 (('file_path', 'max_length', 'return'))
+             28 BUILD_CONST_KEY_MAP      3
+             30 LOAD_CONST               4 (<code object extract_text at 0x1072cfbe0, file "WeRobotCore/utils/document_extractor.py", line 11>)
+             32 LOAD_CONST               5 ('DocumentExtractor.extract_text')
+             34 MAKE_FUNCTION            5 (defaults, annotations)
+             36 CALL_FUNCTION            1
+             38 STORE_NAME               8 (extract_text)
+
+ 46          40 LOAD_NAME                4 (staticmethod)
+
+ 47          42 LOAD_NAME                5 (str)
+             44 LOAD_NAME                5 (str)
+             46 LOAD_CONST               6 (('file_path', 'return'))
+             48 BUILD_CONST_KEY_MAP      2
+             50 LOAD_CONST               7 (<code object _extract_text_plain at 0x1072e0a80, file "WeRobotCore/utils/document_extractor.py", line 46>)
+             52 LOAD_CONST               8 ('DocumentExtractor._extract_text_plain')
+             54 MAKE_FUNCTION            4 (annotations)
+             56 CALL_FUNCTION            1
+             58 STORE_NAME               9 (_extract_text_plain)
+
+ 59          60 LOAD_NAME                4 (staticmethod)
+
+ 60          62 LOAD_NAME                5 (str)
+             64 LOAD_NAME                5 (str)
+             66 LOAD_CONST               6 (('file_path', 'return'))
+             68 BUILD_CONST_KEY_MAP      2
+             70 LOAD_CONST               9 (<code object _extract_text_pdf at 0x1072e0d40, file "WeRobotCore/utils/document_extractor.py", line 59>)
+             72 LOAD_CONST              10 ('DocumentExtractor._extract_text_pdf')
+             74 MAKE_FUNCTION            4 (annotations)
+             76 CALL_FUNCTION            1
+             78 STORE_NAME              10 (_extract_text_pdf)
+
+ 87          80 LOAD_NAME                4 (staticmethod)
+
+ 88          82 LOAD_NAME                5 (str)
+             84 LOAD_NAME                5 (str)
+             86 LOAD_CONST               6 (('file_path', 'return'))
+             88 BUILD_CONST_KEY_MAP      2
+             90 LOAD_CONST              11 (<code object _extract_text_docx at 0x1072e0b30, file "WeRobotCore/utils/document_extractor.py", line 87>)
+             92 LOAD_CONST              12 ('DocumentExtractor._extract_text_docx')
+             94 MAKE_FUNCTION            4 (annotations)
+             96 CALL_FUNCTION            1
+             98 STORE_NAME              11 (_extract_text_docx)
+
+ 96         100 LOAD_NAME                4 (staticmethod)
+
+ 97         102 LOAD_NAME                5 (str)
+            104 LOAD_NAME                5 (str)
+            106 LOAD_CONST               6 (('file_path', 'return'))
+            108 BUILD_CONST_KEY_MAP      2
+            110 LOAD_CONST              13 (<code object _extract_text_excel at 0x1072e0710, file "WeRobotCore/utils/document_extractor.py", line 96>)
+            112 LOAD_CONST              14 ('DocumentExtractor._extract_text_excel')
+            114 MAKE_FUNCTION            4 (annotations)
+            116 CALL_FUNCTION            1
+            118 STORE_NAME              12 (_extract_text_excel)
+            120 LOAD_CONST              15 (None)
+            122 RETURN_VALUE
+
+Disassembly of <code object extract_text at 0x1072cfbe0, file "WeRobotCore/utils/document_extractor.py", line 11>:
+ 13           0 LOAD_GLOBAL              0 (os)
+              2 LOAD_ATTR                1 (path)
+              4 LOAD_METHOD              2 (exists)
+              6 LOAD_FAST                0 (file_path)
+              8 CALL_METHOD              1
+             10 POP_JUMP_IF_TRUE        16
+
+ 14          12 LOAD_CONST               0 (None)
+             14 RETURN_VALUE
+
+ 16     >>   16 LOAD_GLOBAL              0 (os)
+             18 LOAD_ATTR                1 (path)
+             20 LOAD_METHOD              3 (splitext)
+             22 LOAD_FAST                0 (file_path)
+             24 CALL_METHOD              1
+             26 LOAD_CONST               1 (1)
+             28 BINARY_SUBSCR
+             30 LOAD_METHOD              4 (lower)
+             32 CALL_METHOD              0
+             34 STORE_FAST               2 (ext)
+
+ 17          36 LOAD_CONST               2 ('')
+             38 STORE_FAST               3 (text)
+
+ 19          40 SETUP_FINALLY          160 (to 202)
+
+ 20          42 LOAD_FAST                2 (ext)
+             44 LOAD_CONST               3 (('.txt', '.md', '.csv', '.json', '.xml'))
+             46 CONTAINS_OP              0
+             48 POP_JUMP_IF_FALSE       62
+
+ 21          50 LOAD_GLOBAL              5 (DocumentExtractor)
+             52 LOAD_METHOD              6 (_extract_text_plain)
+             54 LOAD_FAST                0 (file_path)
+             56 CALL_METHOD              1
+             58 STORE_FAST               3 (text)
+             60 JUMP_FORWARD            66 (to 128)
+
+ 22     >>   62 LOAD_FAST                2 (ext)
+             64 LOAD_CONST               4 ('.pdf')
+             66 COMPARE_OP               2 (==)
+             68 POP_JUMP_IF_FALSE       82
+
+ 23          70 LOAD_GLOBAL              5 (DocumentExtractor)
+             72 LOAD_METHOD              7 (_extract_text_pdf)
+             74 LOAD_FAST                0 (file_path)
+             76 CALL_METHOD              1
+             78 STORE_FAST               3 (text)
+             80 JUMP_FORWARD            46 (to 128)
+
+ 24     >>   82 LOAD_FAST                2 (ext)
+             84 LOAD_CONST               5 (('.docx',))
+             86 CONTAINS_OP              0
+             88 POP_JUMP_IF_FALSE      102
+
+ 25          90 LOAD_GLOBAL              5 (DocumentExtractor)
+             92 LOAD_METHOD              8 (_extract_text_docx)
+             94 LOAD_FAST                0 (file_path)
+             96 CALL_METHOD              1
+             98 STORE_FAST               3 (text)
+            100 JUMP_FORWARD            26 (to 128)
+
+ 26     >>  102 LOAD_FAST                2 (ext)
+            104 LOAD_CONST               6 (('.xlsx', '.xls'))
+            106 CONTAINS_OP              0
+            108 POP_JUMP_IF_FALSE      122
+
+ 27         110 LOAD_GLOBAL              5 (DocumentExtractor)
+            112 LOAD_METHOD              9 (_extract_text_excel)
+            114 LOAD_FAST                0 (file_path)
+            116 CALL_METHOD              1
+            118 STORE_FAST               3 (text)
+            120 JUMP_FORWARD             6 (to 128)
+
+ 29     >>  122 POP_BLOCK
+            124 LOAD_CONST               0 (None)
+            126 RETURN_VALUE
+
+ 31     >>  128 LOAD_FAST                3 (text)
+            130 POP_JUMP_IF_FALSE      196
+
+ 32         132 LOAD_FAST                3 (text)
+            134 LOAD_METHOD             10 (strip)
+            136 CALL_METHOD              0
+            138 STORE_FAST               3 (text)
+
+ 34         140 LOAD_CONST               7 (0)
+            142 LOAD_CONST               0 (None)
+            144 IMPORT_NAME             11 (re)
+            146 STORE_FAST               4 (re)
+
+ 35         148 LOAD_FAST                4 (re)
+            150 LOAD_METHOD             12 (sub)
+            152 LOAD_CONST               8 ('\\n{3,}')
+            154 LOAD_CONST               9 ('\n\n')
+            156 LOAD_FAST                3 (text)
+            158 CALL_METHOD              3
+            160 STORE_FAST               3 (text)
+
+ 37         162 LOAD_GLOBAL             13 (len)
+            164 LOAD_FAST                3 (text)
+            166 CALL_FUNCTION            1
+            168 LOAD_FAST                1 (max_length)
+            170 COMPARE_OP               4 (>)
+            172 POP_JUMP_IF_FALSE      190
+
+ 38         174 LOAD_FAST                3 (text)
+            176 LOAD_CONST               0 (None)
+            178 LOAD_FAST                1 (max_length)
+            180 BUILD_SLICE              2
+            182 BINARY_SUBSCR
+            184 LOAD_CONST              10 ('\n\n[...系统提示：由于大模型上下文限制，超长文档已被截断...]')
+            186 BINARY_ADD
+            188 STORE_FAST               3 (text)
+
+ 39     >>  190 LOAD_FAST                3 (text)
+            192 POP_BLOCK
+            194 RETURN_VALUE
+
+ 40     >>  196 POP_BLOCK
+            198 LOAD_CONST               0 (None)
+            200 RETURN_VALUE
+
+ 42     >>  202 DUP_TOP
+            204 LOAD_GLOBAL             14 (Exception)
+            206 EXTENDED_ARG             1
+            208 JUMP_IF_NOT_EXC_MATCH   272
+            210 POP_TOP
+            212 STORE_FAST               5 (e)
+            214 POP_TOP
+            216 SETUP_FINALLY           46 (to 264)
+
+ 43         218 LOAD_GLOBAL             15 (logging)
+            220 LOAD_METHOD             16 (getLogger)
+            222 LOAD_CONST              11 ('DocumentExtractor')
+            224 CALL_METHOD              1
+            226 LOAD_METHOD             17 (error)
+            228 LOAD_CONST              12 ('文档提取失败: ')
+            230 LOAD_FAST                0 (file_path)
+            232 FORMAT_VALUE             0
+            234 LOAD_CONST              13 (', Error: ')
+            236 LOAD_GLOBAL             18 (str)
+            238 LOAD_FAST                5 (e)
+            240 CALL_FUNCTION            1
+            242 FORMAT_VALUE             0
+            244 BUILD_STRING             4
+            246 CALL_METHOD              1
+            248 POP_TOP
+
+ 44         250 POP_BLOCK
+            252 POP_EXCEPT
+            254 LOAD_CONST               0 (None)
+            256 STORE_FAST               5 (e)
+            258 DELETE_FAST              5 (e)
+            260 LOAD_CONST               0 (None)
+            262 RETURN_VALUE
+        >>  264 LOAD_CONST               0 (None)
+            266 STORE_FAST               5 (e)
+            268 DELETE_FAST              5 (e)
+            270 RERAISE
+        >>  272 RERAISE
+            274 LOAD_CONST               0 (None)
+            276 RETURN_VALUE
+
+Disassembly of <code object _extract_text_plain at 0x1072e0a80, file "WeRobotCore/utils/document_extractor.py", line 46>:
+ 48           0 BUILD_LIST               0
+              2 LOAD_CONST               1 (('utf-8', 'gbk', 'gb18030', 'utf-16'))
+              4 LIST_EXTEND              1
+              6 STORE_FAST               1 (encodings)
+
+ 49           8 LOAD_FAST                1 (encodings)
+             10 GET_ITER
+        >>   12 FOR_ITER               108 (to 122)
+             14 STORE_FAST               2 (enc)
+
+ 50          16 SETUP_FINALLY           64 (to 82)
+
+ 51          18 LOAD_GLOBAL              0 (open)
+             20 LOAD_FAST                0 (file_path)
+             22 LOAD_CONST               2 ('r')
+             24 LOAD_FAST                2 (enc)
+             26 LOAD_CONST               3 (('encoding',))
+             28 CALL_FUNCTION_KW         3
+             30 SETUP_WITH              30 (to 62)
+             32 STORE_FAST               3 (f)
+
+ 52          34 LOAD_FAST                3 (f)
+             36 LOAD_METHOD              1 (read)
+             38 CALL_METHOD              0
+             40 POP_BLOCK
+             42 ROT_TWO
+             44 LOAD_CONST               0 (None)
+             46 DUP_TOP
+             48 DUP_TOP
+             50 CALL_FUNCTION            3
+             52 POP_TOP
+             54 POP_BLOCK
+             56 ROT_TWO
+             58 POP_TOP
+             60 RETURN_VALUE
+        >>   62 WITH_EXCEPT_START
+             64 POP_JUMP_IF_TRUE        68
+             66 RERAISE
+        >>   68 POP_TOP
+             70 POP_TOP
+             72 POP_TOP
+             74 POP_EXCEPT
+             76 POP_TOP
+             78 POP_BLOCK
+             80 JUMP_ABSOLUTE           12
+
+ 53     >>   82 DUP_TOP
+             84 LOAD_GLOBAL              2 (UnicodeDecodeError)
+             86 JUMP_IF_NOT_EXC_MATCH   102
+             88 POP_TOP
+             90 POP_TOP
+             92 POP_TOP
+
+ 54          94 POP_EXCEPT
+             96 JUMP_ABSOLUTE           12
+             98 POP_EXCEPT
+            100 JUMP_ABSOLUTE           12
+
+ 55     >>  102 DUP_TOP
+            104 LOAD_GLOBAL              3 (Exception)
+            106 JUMP_IF_NOT_EXC_MATCH   118
+            108 POP_TOP
+            110 POP_TOP
+            112 POP_TOP
+
+ 56         114 POP_EXCEPT
+            116 JUMP_ABSOLUTE           12
+        >>  118 RERAISE
+            120 JUMP_ABSOLUTE           12
+
+ 57     >>  122 LOAD_CONST               4 ('')
+            124 RETURN_VALUE
+
+Disassembly of <code object _extract_text_pdf at 0x1072e0d40, file "WeRobotCore/utils/document_extractor.py", line 59>:
+ 64           0 SETUP_FINALLY          138 (to 140)
+
+ 65           2 SETUP_FINALLY           12 (to 16)
+
+ 66           4 LOAD_CONST               1 (0)
+              6 LOAD_CONST               0 (None)
+              8 IMPORT_NAME              0 (pypdf)
+             10 STORE_FAST               1 (pdf_lib)
+             12 POP_BLOCK
+             14 JUMP_FORWARD            26 (to 42)
+
+ 67     >>   16 DUP_TOP
+             18 LOAD_GLOBAL              1 (ImportError)
+             20 JUMP_IF_NOT_EXC_MATCH    40
+             22 POP_TOP
+             24 POP_TOP
+             26 POP_TOP
+
+ 68          28 LOAD_CONST               1 (0)
+             30 LOAD_CONST               0 (None)
+             32 IMPORT_NAME              2 (PyPDF2)
+             34 STORE_FAST               1 (pdf_lib)
+             36 POP_EXCEPT
+             38 JUMP_FORWARD             2 (to 42)
+        >>   40 RERAISE
+
+ 70     >>   42 LOAD_CONST               2 ('')
+             44 STORE_FAST               2 (text)
+
+ 71          46 LOAD_GLOBAL              3 (open)
+             48 LOAD_FAST                0 (file_path)
+             50 LOAD_CONST               3 ('rb')
+             52 CALL_FUNCTION            2
+             54 SETUP_WITH              62 (to 118)
+             56 STORE_FAST               3 (f)
+
+ 72          58 LOAD_FAST                1 (pdf_lib)
+             60 LOAD_METHOD              4 (PdfReader)
+             62 LOAD_FAST                3 (f)
+             64 CALL_METHOD              1
+             66 STORE_FAST               4 (reader)
+
+ 73          68 LOAD_FAST                4 (reader)
+             70 LOAD_ATTR                5 (pages)
+             72 GET_ITER
+        >>   74 FOR_ITER                28 (to 104)
+             76 STORE_FAST               5 (page)
+
+ 74          78 LOAD_FAST                5 (page)
+             80 LOAD_METHOD              6 (extract_text)
+             82 CALL_METHOD              0
+             84 STORE_FAST               6 (extracted)
+
+ 75          86 LOAD_FAST                6 (extracted)
+             88 POP_JUMP_IF_FALSE       74
+
+ 76          90 LOAD_FAST                2 (text)
+             92 LOAD_FAST                6 (extracted)
+             94 LOAD_CONST               4 ('\n')
+             96 BINARY_ADD
+             98 INPLACE_ADD
+            100 STORE_FAST               2 (text)
+            102 JUMP_ABSOLUTE           74
+        >>  104 POP_BLOCK
+            106 LOAD_CONST               0 (None)
+            108 DUP_TOP
+            110 DUP_TOP
+            112 CALL_FUNCTION            3
+            114 POP_TOP
+            116 JUMP_FORWARD            16 (to 134)
+        >>  118 WITH_EXCEPT_START
+            120 POP_JUMP_IF_TRUE       124
+            122 RERAISE
+        >>  124 POP_TOP
+            126 POP_TOP
+            128 POP_TOP
+            130 POP_EXCEPT
+            132 POP_TOP
+
+ 77     >>  134 LOAD_FAST                2 (text)
+            136 POP_BLOCK
+            138 RETURN_VALUE
+
+ 78     >>  140 DUP_TOP
+            142 LOAD_GLOBAL              1 (ImportError)
+            144 JUMP_IF_NOT_EXC_MATCH   182
+            146 POP_TOP
+            148 POP_TOP
+            150 POP_TOP
+
+ 79         152 LOAD_CONST               1 (0)
+            154 LOAD_CONST               0 (None)
+            156 IMPORT_NAME              7 (logging)
+            158 STORE_FAST               7 (logging)
+
+ 80         160 LOAD_FAST                7 (logging)
+            162 LOAD_METHOD              8 (getLogger)
+            164 LOAD_CONST               5 ('DocumentExtractor')
+            166 CALL_METHOD              1
+            168 LOAD_METHOD              9 (warning)
+            170 LOAD_CONST               6 ('未安装 pypdf 或 PyPDF2，跳过 PDF 解析')
+            172 CALL_METHOD              1
+            174 POP_TOP
+
+ 81         176 POP_EXCEPT
+            178 LOAD_CONST               2 ('')
+            180 RETURN_VALUE
+
+ 82     >>  182 DUP_TOP
+            184 LOAD_GLOBAL             10 (Exception)
+            186 EXTENDED_ARG             0
+            188 JUMP_IF_NOT_EXC_MATCH   254
+            190 POP_TOP
+            192 STORE_FAST               8 (e)
+            194 POP_TOP
+            196 SETUP_FINALLY           48 (to 246)
+
+ 83         198 LOAD_CONST               1 (0)
+            200 LOAD_CONST               0 (None)
+            202 IMPORT_NAME              7 (logging)
+            204 STORE_FAST               7 (logging)
+
+ 84         206 LOAD_FAST                7 (logging)
+            208 LOAD_METHOD              8 (getLogger)
+            210 LOAD_CONST               5 ('DocumentExtractor')
+            212 CALL_METHOD              1
+            214 LOAD_METHOD              9 (warning)
+            216 LOAD_CONST               7 ('PDF解析失败: ')
+            218 LOAD_GLOBAL             11 (str)
+            220 LOAD_FAST                8 (e)
+            222 CALL_FUNCTION            1
+            224 FORMAT_VALUE             0
+            226 BUILD_STRING             2
+            228 CALL_METHOD              1
+            230 POP_TOP
+
+ 85         232 POP_BLOCK
+            234 POP_EXCEPT
+            236 LOAD_CONST               0 (None)
+            238 STORE_FAST               8 (e)
+            240 DELETE_FAST              8 (e)
+            242 LOAD_CONST               2 ('')
+            244 RETURN_VALUE
+        >>  246 LOAD_CONST               0 (None)
+            248 STORE_FAST               8 (e)
+            250 DELETE_FAST              8 (e)
+            252 RERAISE
+        >>  254 RERAISE
+            256 LOAD_CONST               0 (None)
+            258 RETURN_VALUE
+
+Disassembly of <code object _extract_text_docx at 0x1072e0b30, file "WeRobotCore/utils/document_extractor.py", line 87>:
+ 89           0 SETUP_FINALLY           44 (to 46)
+
+ 90           2 LOAD_CONST               1 (0)
+              4 LOAD_CONST               2 (('Document',))
+              6 IMPORT_NAME              0 (docx)
+              8 IMPORT_FROM              1 (Document)
+             10 STORE_FAST               1 (Document)
+             12 POP_TOP
+
+ 91          14 LOAD_FAST                1 (Document)
+             16 LOAD_FAST                0 (file_path)
+             18 CALL_FUNCTION            1
+             20 STORE_FAST               2 (doc)
+
+ 92          22 LOAD_CONST               3 ('\n')
+             24 LOAD_METHOD              2 (join)
+             26 LOAD_CONST               4 (<code object <listcomp> at 0x1072e0ea0, file "WeRobotCore/utils/document_extractor.py", line 92>)
+             28 LOAD_CONST               5 ('DocumentExtractor._extract_text_docx.<locals>.<listcomp>')
+             30 MAKE_FUNCTION            0
+             32 LOAD_FAST                2 (doc)
+             34 LOAD_ATTR                3 (paragraphs)
+             36 GET_ITER
+             38 CALL_FUNCTION            1
+             40 CALL_METHOD              1
+             42 POP_BLOCK
+             44 RETURN_VALUE
+
+ 93     >>   46 DUP_TOP
+             48 LOAD_GLOBAL              4 (ImportError)
+             50 JUMP_IF_NOT_EXC_MATCH    64
+             52 POP_TOP
+             54 POP_TOP
+             56 POP_TOP
+
+ 94          58 POP_EXCEPT
+             60 LOAD_CONST               6 ('')
+             62 RETURN_VALUE
+        >>   64 RERAISE
+             66 LOAD_CONST               0 (None)
+             68 RETURN_VALUE
+
+Disassembly of <code object <listcomp> at 0x1072e0ea0, file "WeRobotCore/utils/document_extractor.py", line 92>:
+ 92           0 BUILD_LIST               0
+              2 LOAD_FAST                0 (.0)
+        >>    4 FOR_ITER                10 (to 16)
+              6 STORE_FAST               1 (p)
+              8 LOAD_FAST                1 (p)
+             10 LOAD_ATTR                0 (text)
+             12 LIST_APPEND              2
+             14 JUMP_ABSOLUTE            4
+        >>   16 RETURN_VALUE
+
+Disassembly of <code object _extract_text_excel at 0x1072e0710, file "WeRobotCore/utils/document_extractor.py", line 96>:
+ 99           0 SETUP_FINALLY          126 (to 128)
+
+100           2 LOAD_CONST               1 (0)
+              4 LOAD_CONST               0 (None)
+              6 IMPORT_NAME              0 (openpyxl)
+              8 STORE_FAST               1 (openpyxl)
+
+101          10 LOAD_FAST                1 (openpyxl)
+             12 LOAD_ATTR                1 (load_workbook)
+             14 LOAD_FAST                0 (file_path)
+             16 LOAD_CONST               2 (True)
+             18 LOAD_CONST               3 (('data_only',))
+             20 CALL_FUNCTION_KW         2
+             22 STORE_FAST               2 (wb)
+
+102          24 LOAD_CONST               4 ('')
+             26 STORE_FAST               3 (text)
+
+103          28 LOAD_FAST                2 (wb)
+             30 LOAD_ATTR                2 (sheetnames)
+             32 GET_ITER
+        >>   34 FOR_ITER                86 (to 122)
+             36 STORE_FAST               4 (sheet)
+
+104          38 LOAD_FAST                3 (text)
+             40 LOAD_CONST               5 ('--- Sheet: ')
+             42 LOAD_FAST                4 (sheet)
+             44 FORMAT_VALUE             0
+             46 LOAD_CONST               6 (' ---\n')
+             48 BUILD_STRING             3
+             50 INPLACE_ADD
+             52 STORE_FAST               3 (text)
+
+105          54 LOAD_FAST                2 (wb)
+             56 LOAD_FAST                4 (sheet)
+             58 BINARY_SUBSCR
+             60 STORE_FAST               5 (ws)
+
+106          62 LOAD_FAST                5 (ws)
+             64 LOAD_ATTR                3 (iter_rows)
+             66 LOAD_CONST               2 (True)
+             68 LOAD_CONST               7 (('values_only',))
+             70 CALL_FUNCTION_KW         1
+             72 GET_ITER
+        >>   74 FOR_ITER                44 (to 120)
+             76 STORE_FAST               6 (row)
+
+107          78 LOAD_CONST               8 (<code object <listcomp> at 0x1072e0be0, file "WeRobotCore/utils/document_extractor.py", line 107>)
+             80 LOAD_CONST               9 ('DocumentExtractor._extract_text_excel.<locals>.<listcomp>')
+             82 MAKE_FUNCTION            0
+             84 LOAD_FAST                6 (row)
+             86 GET_ITER
+             88 CALL_FUNCTION            1
+             90 STORE_FAST               7 (row_texts)
+
+108          92 LOAD_GLOBAL              4 (any)
+             94 LOAD_FAST                7 (row_texts)
+             96 CALL_FUNCTION            1
+             98 POP_JUMP_IF_FALSE       74
+
+109         100 LOAD_FAST                3 (text)
+            102 LOAD_CONST              10 (',')
+            104 LOAD_METHOD              5 (join)
+            106 LOAD_FAST                7 (row_texts)
+            108 CALL_METHOD              1
+            110 LOAD_CONST              11 ('\n')
+            112 BINARY_ADD
+            114 INPLACE_ADD
+            116 STORE_FAST               3 (text)
+            118 JUMP_ABSOLUTE           74
+        >>  120 JUMP_ABSOLUTE           34
+
+110     >>  122 LOAD_FAST                3 (text)
+            124 POP_BLOCK
+            126 RETURN_VALUE
+
+111     >>  128 DUP_TOP
+            130 LOAD_GLOBAL              6 (ImportError)
+            132 JUMP_IF_NOT_EXC_MATCH   146
+            134 POP_TOP
+            136 POP_TOP
+            138 POP_TOP
+
+112         140 POP_EXCEPT
+            142 LOAD_CONST               4 ('')
+            144 RETURN_VALUE
+
+113     >>  146 DUP_TOP
+            148 LOAD_GLOBAL              7 (Exception)
+            150 JUMP_IF_NOT_EXC_MATCH   216
+            152 POP_TOP
+            154 STORE_FAST               8 (e)
+            156 POP_TOP
+            158 SETUP_FINALLY           48 (to 208)
+
+114         160 LOAD_CONST               1 (0)
+            162 LOAD_CONST               0 (None)
+            164 IMPORT_NAME              8 (logging)
+            166 STORE_FAST               9 (logging)
+
+115         168 LOAD_FAST                9 (logging)
+            170 LOAD_METHOD              9 (getLogger)
+            172 LOAD_CONST              12 ('DocumentExtractor')
+            174 CALL_METHOD              1
+            176 LOAD_METHOD             10 (warning)
+            178 LOAD_CONST              13 ('openpyxl解析Excel失败: ')
+            180 LOAD_GLOBAL             11 (str)
+            182 LOAD_FAST                8 (e)
+            184 CALL_FUNCTION            1
+            186 FORMAT_VALUE             0
+            188 BUILD_STRING             2
+            190 CALL_METHOD              1
+            192 POP_TOP
+
+116         194 POP_BLOCK
+            196 POP_EXCEPT
+            198 LOAD_CONST               0 (None)
+            200 STORE_FAST               8 (e)
+            202 DELETE_FAST              8 (e)
+            204 LOAD_CONST               4 ('')
+            206 RETURN_VALUE
+        >>  208 LOAD_CONST               0 (None)
+            210 STORE_FAST               8 (e)
+            212 DELETE_FAST              8 (e)
+            214 RERAISE
+        >>  216 RERAISE
+            218 LOAD_CONST               0 (None)
+            220 RETURN_VALUE
+
+Disassembly of <code object <listcomp> at 0x1072e0be0, file "WeRobotCore/utils/document_extractor.py", line 107>:
+107           0 BUILD_LIST               0
+              2 LOAD_FAST                0 (.0)
+        >>    4 FOR_ITER                24 (to 30)
+              6 STORE_FAST               1 (cell)
+              8 LOAD_FAST                1 (cell)
+             10 LOAD_CONST               0 (None)
+             12 IS_OP                    1
+             14 POP_JUMP_IF_FALSE       24
+             16 LOAD_GLOBAL              0 (str)
+             18 LOAD_FAST                1 (cell)
+             20 CALL_FUNCTION            1
+             22 JUMP_FORWARD             2 (to 26)
+        >>   24 LOAD_CONST               1 ('')
+        >>   26 LIST_APPEND              2
+             28 JUMP_ABSOLUTE            4
+        >>   30 RETURN_VALUE

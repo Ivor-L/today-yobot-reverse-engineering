@@ -1,0 +1,2514 @@
+  1           0 LOAD_CONST               0 (0)
+              2 LOAD_CONST               1 (('Optional', 'Dict', 'Any', 'List'))
+              4 IMPORT_NAME              0 (typing)
+              6 IMPORT_FROM              1 (Optional)
+              8 STORE_NAME               1 (Optional)
+             10 IMPORT_FROM              2 (Dict)
+             12 STORE_NAME               2 (Dict)
+             14 IMPORT_FROM              3 (Any)
+             16 STORE_NAME               3 (Any)
+             18 IMPORT_FROM              4 (List)
+             20 STORE_NAME               4 (List)
+             22 POP_TOP
+
+  2          24 LOAD_CONST               0 (0)
+             26 LOAD_CONST               2 (None)
+             28 IMPORT_NAME              5 (time)
+             30 STORE_NAME               5 (time)
+
+  3          32 LOAD_CONST               0 (0)
+             34 LOAD_CONST               2 (None)
+             36 IMPORT_NAME              6 (random)
+             38 STORE_NAME               6 (random)
+
+  5          40 SETUP_FINALLY           12 (to 54)
+
+  6          42 LOAD_CONST               0 (0)
+             44 LOAD_CONST               2 (None)
+             46 IMPORT_NAME              7 (uiautomation)
+             48 STORE_NAME               8 (ui_Coder)
+             50 POP_BLOCK
+             52 JUMP_FORWARD            22 (to 76)
+
+  7     >>   54 DUP_TOP
+             56 LOAD_NAME                9 (Exception)
+             58 JUMP_IF_NOT_EXC_MATCH    74
+             60 POP_TOP
+             62 POP_TOP
+             64 POP_TOP
+
+  8          66 LOAD_CONST               2 (None)
+             68 STORE_NAME               8 (ui_Coder)
+             70 POP_EXCEPT
+             72 JUMP_FORWARD             2 (to 76)
+        >>   74 RERAISE
+
+ 10     >>   76 LOAD_CONST               3 (2)
+             78 LOAD_CONST               4 (('WeChatUIAError',))
+             80 IMPORT_NAME             10 (uia_error)
+             82 IMPORT_FROM             11 (WeChatUIAError)
+             84 STORE_NAME              11 (WeChatUIAError)
+             86 POP_TOP
+
+ 11          88 LOAD_CONST               3 (2)
+             90 LOAD_CONST               5 (('UIRetry',))
+             92 IMPORT_NAME             12 (ui_retry)
+             94 IMPORT_FROM             13 (UIRetry)
+             96 STORE_NAME              13 (UIRetry)
+             98 POP_TOP
+
+ 12         100 LOAD_CONST               3 (2)
+            102 LOAD_CONST               6 (('WxUtils',))
+            104 IMPORT_NAME             14 (WxUtils)
+            106 IMPORT_FROM             14 (WxUtils)
+            108 STORE_NAME              14 (WxUtils)
+            110 POP_TOP
+
+ 13         112 LOAD_CONST               3 (2)
+            114 LOAD_CONST               7 (('UiaLogger',))
+            116 IMPORT_NAME             15 (uia_logger)
+            118 IMPORT_FROM             16 (UiaLogger)
+            120 STORE_NAME              16 (UiaLogger)
+            122 POP_TOP
+
+ 14         124 LOAD_CONST               8 (3)
+            126 LOAD_CONST               9 (('force_focus_window',))
+            128 IMPORT_NAME             17 (utils.window_utils)
+            130 IMPORT_FROM             18 (force_focus_window)
+            132 STORE_NAME              18 (force_focus_window)
+            134 POP_TOP
+
+ 16         136 LOAD_NAME               16 (UiaLogger)
+            138 LOAD_CONST              10 ('LegacyUiaDriver')
+            140 LOAD_CONST              11 (('logger_name',))
+            142 CALL_FUNCTION_KW         1
+            144 LOAD_METHOD             19 (get_logger)
+            146 CALL_METHOD              0
+            148 STORE_NAME              20 (logger)
+
+ 19         150 LOAD_BUILD_CLASS
+            152 LOAD_CONST              12 (<code object LegacyUiaDriver at 0x1073b9660, file "WeRobotCore/core/drivers/legacy_uia.py", line 19>)
+            154 LOAD_CONST              10 ('LegacyUiaDriver')
+            156 MAKE_FUNCTION            0
+            158 LOAD_CONST              10 ('LegacyUiaDriver')
+            160 CALL_FUNCTION            2
+            162 STORE_NAME              21 (LegacyUiaDriver)
+            164 LOAD_CONST               2 (None)
+            166 RETURN_VALUE
+
+Disassembly of <code object LegacyUiaDriver at 0x1073b9660, file "WeRobotCore/core/drivers/legacy_uia.py", line 19>:
+ 19           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('LegacyUiaDriver')
+              6 STORE_NAME               2 (__qualname__)
+
+ 20           8 LOAD_CONST               1 ('\n    3.9.x UIAutomation 驱动实现（迁移 WeChatType 的 UI 操作逻辑）。\n\n    目标：\n    - 将 UI 初始化与账号信息采集等业务操作迁移到驱动层；\n    - 保持 WeChatType 的单例与账号映射、DB 等模式设计不变；\n    - 作为过渡，暴露必要的 UI 控件引用，便于 WeChatType 继续工作。\n    ')
+             10 STORE_NAME               3 (__doc__)
+
+ 29          12 LOAD_CONST              38 ((None,))
+             14 LOAD_NAME                4 (Optional)
+             16 LOAD_NAME                5 (int)
+             18 BINARY_SUBSCR
+             20 LOAD_CONST               2 (None)
+             22 LOAD_CONST               3 (('window_handle', 'return'))
+             24 BUILD_CONST_KEY_MAP      2
+             26 LOAD_CONST               4 (<code object __init__ at 0x1072cfbe0, file "WeRobotCore/core/drivers/legacy_uia.py", line 29>)
+             28 LOAD_CONST               5 ('LegacyUiaDriver.__init__')
+             30 MAKE_FUNCTION            5 (defaults, annotations)
+             32 STORE_NAME               6 (__init__)
+
+ 39          34 LOAD_NAME                7 (Dict)
+             36 LOAD_NAME                8 (str)
+             38 LOAD_NAME                9 (Any)
+             40 BUILD_TUPLE              2
+             42 BINARY_SUBSCR
+             44 LOAD_CONST               6 (('return',))
+             46 BUILD_CONST_KEY_MAP      1
+             48 LOAD_CONST               7 (<code object initialize at 0x1073b9d40, file "WeRobotCore/core/drivers/legacy_uia.py", line 39>)
+             50 LOAD_CONST               8 ('LegacyUiaDriver.initialize')
+             52 MAKE_FUNCTION            4 (annotations)
+             54 STORE_NAME              10 (initialize)
+
+ 46          56 LOAD_CONST              39 ((None,))
+             58 LOAD_NAME                5 (int)
+             60 LOAD_NAME                4 (Optional)
+             62 LOAD_NAME                7 (Dict)
+             64 LOAD_NAME                8 (str)
+             66 LOAD_NAME                9 (Any)
+             68 BUILD_TUPLE              2
+             70 BINARY_SUBSCR
+             72 BINARY_SUBSCR
+             74 LOAD_NAME                7 (Dict)
+             76 LOAD_NAME                8 (str)
+             78 LOAD_NAME                9 (Any)
+             80 BUILD_TUPLE              2
+             82 BINARY_SUBSCR
+             84 LOAD_CONST               9 (('window_handle', 'account_info', 'return'))
+             86 BUILD_CONST_KEY_MAP      3
+             88 LOAD_CONST              10 (<code object initialize_multi at 0x1073b95b0, file "WeRobotCore/core/drivers/legacy_uia.py", line 46>)
+             90 LOAD_CONST              11 ('LegacyUiaDriver.initialize_multi')
+             92 MAKE_FUNCTION            5 (defaults, annotations)
+             94 STORE_NAME              11 (initialize_multi)
+
+ 92          96 LOAD_CONST               2 (None)
+             98 LOAD_CONST               6 (('return',))
+            100 BUILD_CONST_KEY_MAP      1
+            102 LOAD_CONST              12 (<code object SwitchToThisWindow at 0x1073b9c90, file "WeRobotCore/core/drivers/legacy_uia.py", line 92>)
+            104 LOAD_CONST              13 ('LegacyUiaDriver.SwitchToThisWindow')
+            106 MAKE_FUNCTION            4 (annotations)
+            108 STORE_NAME              12 (SwitchToThisWindow)
+
+101         110 LOAD_CONST              40 ((0.5,))
+            112 LOAD_NAME                8 (str)
+            114 LOAD_NAME               13 (float)
+            116 LOAD_CONST              15 (('who', 'wait_time'))
+            118 BUILD_CONST_KEY_MAP      2
+            120 LOAD_CONST              16 (<code object _get_edit_control at 0x1073b9450, file "WeRobotCore/core/drivers/legacy_uia.py", line 101>)
+            122 LOAD_CONST              17 ('LegacyUiaDriver._get_edit_control')
+            124 MAKE_FUNCTION            5 (defaults, annotations)
+            126 STORE_NAME              14 (_get_edit_control)
+
+111         128 LOAD_NAME                4 (Optional)
+            130 LOAD_NAME                5 (int)
+            132 BINARY_SUBSCR
+            134 LOAD_CONST               6 (('return',))
+            136 BUILD_CONST_KEY_MAP      1
+            138 LOAD_CONST              18 (<code object get_window_handle at 0x1073b9030, file "WeRobotCore/core/drivers/legacy_uia.py", line 111>)
+            140 LOAD_CONST              19 ('LegacyUiaDriver.get_window_handle')
+            142 MAKE_FUNCTION            4 (annotations)
+            144 STORE_NAME              15 (get_window_handle)
+
+114         146 LOAD_NAME                8 (str)
+            148 LOAD_CONST               6 (('return',))
+            150 BUILD_CONST_KEY_MAP      1
+            152 LOAD_CONST              20 (<code object get_driver_name at 0x1073b9240, file "WeRobotCore/core/drivers/legacy_uia.py", line 114>)
+            154 LOAD_CONST              21 ('LegacyUiaDriver.get_driver_name')
+            156 MAKE_FUNCTION            4 (annotations)
+            158 STORE_NAME              16 (get_driver_name)
+
+118         160 LOAD_NAME                8 (str)
+            162 LOAD_NAME                8 (str)
+            164 LOAD_NAME                7 (Dict)
+            166 LOAD_NAME                8 (str)
+            168 LOAD_NAME                9 (Any)
+            170 BUILD_TUPLE              2
+            172 BINARY_SUBSCR
+            174 LOAD_CONST              22 (('msg_id', 'target', 'return'))
+            176 BUILD_CONST_KEY_MAP      3
+            178 LOAD_CONST              23 (<code object forward_message at 0x1073b9710, file "WeRobotCore/core/drivers/legacy_uia.py", line 118>)
+            180 LOAD_CONST              24 ('LegacyUiaDriver.forward_message')
+            182 MAKE_FUNCTION            4 (annotations)
+            184 STORE_NAME              17 (forward_message)
+
+128         186 LOAD_NAME                4 (Optional)
+            188 LOAD_NAME                7 (Dict)
+            190 LOAD_NAME                8 (str)
+            192 LOAD_NAME                9 (Any)
+            194 BUILD_TUPLE              2
+            196 BINARY_SUBSCR
+            198 BINARY_SUBSCR
+            200 LOAD_CONST               6 (('return',))
+            202 BUILD_CONST_KEY_MAP      1
+            204 LOAD_CONST              25 (<code object get_account_info at 0x1073b9a80, file "WeRobotCore/core/drivers/legacy_uia.py", line 128>)
+            206 LOAD_CONST              26 ('LegacyUiaDriver.get_account_info')
+            208 MAKE_FUNCTION            4 (annotations)
+            210 STORE_NAME              18 (get_account_info)
+
+252         212 LOAD_CONST              27 (<code object _get_total_contacts_count at 0x1073b9920, file "WeRobotCore/core/drivers/legacy_uia.py", line 252>)
+            214 LOAD_CONST              28 ('LegacyUiaDriver._get_total_contacts_count')
+            216 MAKE_FUNCTION            0
+            218 STORE_NAME              19 (_get_total_contacts_count)
+
+300         220 LOAD_NAME                8 (str)
+            222 LOAD_NAME                8 (str)
+            224 LOAD_CONST              29 (('contact_name', 'return'))
+            226 BUILD_CONST_KEY_MAP      2
+            228 LOAD_CONST              30 (<code object _get_contact_wx_id at 0x1073b9f50, file "WeRobotCore/core/drivers/legacy_uia.py", line 300>)
+            230 LOAD_CONST              31 ('LegacyUiaDriver._get_contact_wx_id')
+            232 MAKE_FUNCTION            4 (annotations)
+            234 STORE_NAME              20 (_get_contact_wx_id)
+
+342         236 LOAD_CONST              41 ((False, None, None))
+            238 LOAD_CONST              33 (<code object _process_visible_contacts at 0x1073b9500, file "WeRobotCore/core/drivers/legacy_uia.py", line 342>)
+            240 LOAD_CONST              34 ('LegacyUiaDriver._process_visible_contacts')
+            242 MAKE_FUNCTION            1 (defaults)
+            244 STORE_NAME              21 (_process_visible_contacts)
+
+608         246 LOAD_NAME               22 (List)
+            248 LOAD_NAME                7 (Dict)
+            250 LOAD_NAME                8 (str)
+            252 LOAD_NAME                9 (Any)
+            254 BUILD_TUPLE              2
+            256 BINARY_SUBSCR
+            258 BINARY_SUBSCR
+            260 LOAD_CONST               2 (None)
+            262 LOAD_CONST              35 (('all_groups', 'return'))
+            264 BUILD_CONST_KEY_MAP      2
+            266 LOAD_CONST              36 (<code object _process_group_list at 0x1073b9870, file "WeRobotCore/core/drivers/legacy_uia.py", line 608>)
+            268 LOAD_CONST              37 ('LegacyUiaDriver._process_group_list')
+            270 MAKE_FUNCTION            4 (annotations)
+            272 STORE_NAME              23 (_process_group_list)
+            274 LOAD_CONST               2 (None)
+            276 RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x1072cfbe0, file "WeRobotCore/core/drivers/legacy_uia.py", line 29>:
+ 30           0 LOAD_FAST                1 (window_handle)
+              2 LOAD_FAST                0 (self)
+              4 STORE_ATTR               0 (window_handle)
+
+ 32           6 LOAD_CONST               0 (None)
+              8 LOAD_FAST                0 (self)
+             10 STORE_ATTR               1 (UiaAPI)
+
+ 33          12 LOAD_CONST               0 (None)
+             14 LOAD_FAST                0 (self)
+             16 STORE_ATTR               2 (SessionList)
+
+ 34          18 LOAD_CONST               0 (None)
+             20 LOAD_FAST                0 (self)
+             22 STORE_ATTR               3 (SearchBox)
+
+ 35          24 LOAD_CONST               0 (None)
+             26 LOAD_FAST                0 (self)
+             28 STORE_ATTR               4 (MsgList)
+
+ 36          30 LOAD_CONST               0 (None)
+             32 LOAD_FAST                0 (self)
+             34 STORE_ATTR               5 (ContactButton)
+             36 LOAD_CONST               0 (None)
+             38 RETURN_VALUE
+
+Disassembly of <code object initialize at 0x1073b9d40, file "WeRobotCore/core/drivers/legacy_uia.py", line 39>:
+ 41           0 LOAD_CONST               1 (True)
+
+ 42           2 LOAD_CONST               2 ('legacy_uia')
+
+ 43           4 LOAD_CONST               3 ('legacy initialize delegated; prefer initialize_multi')
+
+ 40           6 LOAD_CONST               4 (('success', 'driver', 'message'))
+              8 BUILD_CONST_KEY_MAP      3
+             10 RETURN_VALUE
+
+Disassembly of <code object initialize_multi at 0x1073b95b0, file "WeRobotCore/core/drivers/legacy_uia.py", line 46>:
+ 52           0 LOAD_GLOBAL              0 (ui_Coder)
+              2 LOAD_CONST               1 (None)
+              4 IS_OP                    0
+              6 POP_JUMP_IF_FALSE       20
+
+ 54           8 LOAD_CONST               2 (False)
+
+ 55          10 LOAD_CONST               3 ('legacy_uia')
+
+ 56          12 LOAD_CONST               4 ('uiautomation not available')
+
+ 53          14 LOAD_CONST               5 (('success', 'driver', 'error'))
+             16 BUILD_CONST_KEY_MAP      3
+             18 RETURN_VALUE
+
+ 59     >>   20 SETUP_FINALLY          204 (to 226)
+
+ 60          22 LOAD_FAST                1 (window_handle)
+             24 POP_JUMP_IF_TRUE        34
+
+ 61          26 LOAD_GLOBAL              1 (WeChatUIAError)
+             28 LOAD_CONST               6 ('未提供有效的微信窗口句柄')
+             30 CALL_FUNCTION            1
+             32 RAISE_VARARGS            1
+
+ 63     >>   34 LOAD_FAST                1 (window_handle)
+             36 LOAD_FAST                0 (self)
+             38 STORE_ATTR               2 (window_handle)
+
+ 64          40 LOAD_GLOBAL              0 (ui_Coder)
+             42 LOAD_METHOD              3 (ControlFromHandle)
+             44 LOAD_FAST                0 (self)
+             46 LOAD_ATTR                2 (window_handle)
+             48 CALL_METHOD              1
+             50 LOAD_FAST                0 (self)
+             52 STORE_ATTR               4 (UiaAPI)
+
+ 65          54 LOAD_FAST                0 (self)
+             56 LOAD_ATTR                4 (UiaAPI)
+             58 POP_JUMP_IF_FALSE       72
+             60 LOAD_FAST                0 (self)
+             62 LOAD_ATTR                4 (UiaAPI)
+             64 LOAD_METHOD              5 (Exists)
+             66 LOAD_CONST               7 (3)
+             68 CALL_METHOD              1
+             70 POP_JUMP_IF_TRUE        80
+
+ 66     >>   72 LOAD_GLOBAL              1 (WeChatUIAError)
+             74 LOAD_CONST               8 ('未检测到微信窗口，请确保微信已登录并保持窗口打开')
+             76 CALL_FUNCTION            1
+             78 RAISE_VARARGS            1
+
+ 69     >>   80 LOAD_FAST                0 (self)
+             82 LOAD_ATTR                4 (UiaAPI)
+             84 LOAD_ATTR                6 (ListControl)
+             86 LOAD_CONST               9 ('会话')
+             88 LOAD_CONST              10 (('Name',))
+             90 CALL_FUNCTION_KW         1
+             92 LOAD_FAST                0 (self)
+             94 STORE_ATTR               7 (SessionList)
+
+ 70          96 LOAD_FAST                0 (self)
+             98 LOAD_ATTR                4 (UiaAPI)
+            100 LOAD_ATTR                8 (EditControl)
+            102 LOAD_CONST              11 ('搜索')
+            104 LOAD_CONST              10 (('Name',))
+            106 CALL_FUNCTION_KW         1
+            108 LOAD_FAST                0 (self)
+            110 STORE_ATTR               9 (SearchBox)
+
+ 71         112 LOAD_FAST                0 (self)
+            114 LOAD_ATTR                4 (UiaAPI)
+            116 LOAD_ATTR                6 (ListControl)
+            118 LOAD_CONST              12 ('消息')
+            120 LOAD_CONST              10 (('Name',))
+            122 CALL_FUNCTION_KW         1
+            124 LOAD_FAST                0 (self)
+            126 STORE_ATTR              10 (MsgList)
+
+ 72         128 LOAD_FAST                0 (self)
+            130 LOAD_ATTR                4 (UiaAPI)
+            132 LOAD_ATTR               11 (ButtonControl)
+            134 LOAD_CONST              13 ('通讯录')
+            136 LOAD_CONST              10 (('Name',))
+            138 CALL_FUNCTION_KW         1
+            140 LOAD_FAST                0 (self)
+            142 STORE_ATTR              12 (ContactButton)
+
+ 75         144 LOAD_FAST                2 (account_info)
+            146 POP_JUMP_IF_FALSE      172
+            148 LOAD_FAST                2 (account_info)
+            150 LOAD_METHOD             13 (get)
+            152 LOAD_CONST              14 ('nickname')
+            154 CALL_METHOD              1
+            156 POP_JUMP_IF_FALSE      172
+            158 LOAD_FAST                2 (account_info)
+            160 LOAD_METHOD             13 (get)
+            162 LOAD_CONST              15 ('account_id')
+            164 CALL_METHOD              1
+            166 POP_JUMP_IF_FALSE      172
+            168 LOAD_FAST                2 (account_info)
+            170 JUMP_FORWARD             6 (to 178)
+        >>  172 LOAD_FAST                0 (self)
+            174 LOAD_METHOD             14 (get_account_info)
+            176 CALL_METHOD              0
+        >>  178 STORE_FAST               3 (acct)
+
+ 76         180 LOAD_FAST                3 (acct)
+            182 POP_JUMP_IF_TRUE       192
+
+ 77         184 LOAD_GLOBAL              1 (WeChatUIAError)
+            186 LOAD_CONST              16 ('获取微信账号信息失败')
+            188 CALL_FUNCTION            1
+            190 RAISE_VARARGS            1
+
+ 80     >>  192 LOAD_CONST              17 (True)
+
+ 81         194 LOAD_CONST               3 ('legacy_uia')
+
+ 82         196 LOAD_FAST                3 (acct)
+            198 LOAD_METHOD             13 (get)
+            200 LOAD_CONST              14 ('nickname')
+            202 LOAD_CONST              18 ('')
+            204 CALL_METHOD              2
+
+ 83         206 LOAD_FAST                3 (acct)
+            208 LOAD_METHOD             13 (get)
+            210 LOAD_CONST              15 ('account_id')
+            212 LOAD_CONST              18 ('')
+            214 CALL_METHOD              2
+
+ 84         216 LOAD_FAST                3 (acct)
+
+ 79         218 LOAD_CONST              19 (('success', 'driver', 'nickname', 'account_id', 'account_info'))
+            220 BUILD_CONST_KEY_MAP      5
+            222 POP_BLOCK
+            224 RETURN_VALUE
+
+ 86     >>  226 DUP_TOP
+            228 LOAD_GLOBAL              1 (WeChatUIAError)
+            230 EXTENDED_ARG             1
+            232 JUMP_IF_NOT_EXC_MATCH   278
+            234 POP_TOP
+            236 STORE_FAST               4 (e)
+            238 POP_TOP
+            240 SETUP_FINALLY           28 (to 270)
+
+ 87         242 LOAD_CONST               2 (False)
+            244 LOAD_CONST               3 ('legacy_uia')
+            246 LOAD_GLOBAL             15 (str)
+            248 LOAD_FAST                4 (e)
+            250 CALL_FUNCTION            1
+            252 LOAD_CONST               5 (('success', 'driver', 'error'))
+            254 BUILD_CONST_KEY_MAP      3
+            256 POP_BLOCK
+            258 ROT_FOUR
+            260 POP_EXCEPT
+            262 LOAD_CONST               1 (None)
+            264 STORE_FAST               4 (e)
+            266 DELETE_FAST              4 (e)
+            268 RETURN_VALUE
+        >>  270 LOAD_CONST               1 (None)
+            272 STORE_FAST               4 (e)
+            274 DELETE_FAST              4 (e)
+            276 RERAISE
+
+ 88     >>  278 DUP_TOP
+            280 LOAD_GLOBAL             16 (Exception)
+            282 EXTENDED_ARG             1
+            284 JUMP_IF_NOT_EXC_MATCH   350
+            286 POP_TOP
+            288 STORE_FAST               4 (e)
+            290 POP_TOP
+            292 SETUP_FINALLY           48 (to 342)
+
+ 89         294 LOAD_GLOBAL             17 (logger)
+            296 LOAD_METHOD             18 (error)
+            298 LOAD_CONST              20 ('LegacyUiaDriver.initialize_multi 失败: ')
+            300 LOAD_GLOBAL             15 (str)
+            302 LOAD_FAST                4 (e)
+            304 CALL_FUNCTION            1
+            306 FORMAT_VALUE             0
+            308 BUILD_STRING             2
+            310 CALL_METHOD              1
+            312 POP_TOP
+
+ 90         314 LOAD_CONST               2 (False)
+            316 LOAD_CONST               3 ('legacy_uia')
+            318 LOAD_GLOBAL             15 (str)
+            320 LOAD_FAST                4 (e)
+            322 CALL_FUNCTION            1
+            324 LOAD_CONST               5 (('success', 'driver', 'error'))
+            326 BUILD_CONST_KEY_MAP      3
+            328 POP_BLOCK
+            330 ROT_FOUR
+            332 POP_EXCEPT
+            334 LOAD_CONST               1 (None)
+            336 STORE_FAST               4 (e)
+            338 DELETE_FAST              4 (e)
+            340 RETURN_VALUE
+        >>  342 LOAD_CONST               1 (None)
+            344 STORE_FAST               4 (e)
+            346 DELETE_FAST              4 (e)
+            348 RERAISE
+        >>  350 RERAISE
+            352 LOAD_CONST               1 (None)
+            354 RETURN_VALUE
+
+Disassembly of <code object SwitchToThisWindow at 0x1073b9c90, file "WeRobotCore/core/drivers/legacy_uia.py", line 92>:
+ 93           0 SETUP_FINALLY           38 (to 40)
+
+ 94           2 LOAD_FAST                0 (self)
+              4 LOAD_ATTR                0 (window_handle)
+              6 POP_JUMP_IF_FALSE       20
+
+ 95           8 LOAD_GLOBAL              1 (force_focus_window)
+             10 LOAD_FAST                0 (self)
+             12 LOAD_ATTR                0 (window_handle)
+             14 CALL_FUNCTION            1
+             16 POP_TOP
+             18 JUMP_FORWARD            16 (to 36)
+
+ 96     >>   20 LOAD_FAST                0 (self)
+             22 LOAD_ATTR                2 (UiaAPI)
+             24 POP_JUMP_IF_FALSE       36
+
+ 97          26 LOAD_FAST                0 (self)
+             28 LOAD_ATTR                2 (UiaAPI)
+             30 LOAD_METHOD              3 (SwitchToThisWindow)
+             32 CALL_METHOD              0
+             34 POP_TOP
+        >>   36 POP_BLOCK
+             38 JUMP_FORWARD            52 (to 92)
+
+ 98     >>   40 DUP_TOP
+             42 LOAD_GLOBAL              4 (Exception)
+             44 JUMP_IF_NOT_EXC_MATCH    90
+             46 POP_TOP
+             48 STORE_FAST               1 (e)
+             50 POP_TOP
+             52 SETUP_FINALLY           28 (to 82)
+
+ 99          54 LOAD_GLOBAL              5 (logger)
+             56 LOAD_METHOD              6 (debug)
+             58 LOAD_CONST               1 ('SwitchToThisWindow 调用失败: ')
+             60 LOAD_FAST                1 (e)
+             62 FORMAT_VALUE             0
+             64 BUILD_STRING             2
+             66 CALL_METHOD              1
+             68 POP_TOP
+             70 POP_BLOCK
+             72 POP_EXCEPT
+             74 LOAD_CONST               0 (None)
+             76 STORE_FAST               1 (e)
+             78 DELETE_FAST              1 (e)
+             80 JUMP_FORWARD            10 (to 92)
+        >>   82 LOAD_CONST               0 (None)
+             84 STORE_FAST               1 (e)
+             86 DELETE_FAST              1 (e)
+             88 RERAISE
+        >>   90 RERAISE
+        >>   92 LOAD_CONST               0 (None)
+             94 RETURN_VALUE
+
+Disassembly of <code object _get_edit_control at 0x1073b9450, file "WeRobotCore/core/drivers/legacy_uia.py", line 101>:
+103           0 LOAD_FAST                0 (self)
+              2 LOAD_ATTR                0 (UiaAPI)
+              4 POP_JUMP_IF_TRUE        10
+
+104           6 LOAD_CONST               1 (None)
+              8 RETURN_VALUE
+
+105     >>   10 LOAD_FAST                0 (self)
+             12 LOAD_ATTR                0 (UiaAPI)
+             14 LOAD_ATTR                1 (EditControl)
+             16 LOAD_FAST                1 (who)
+             18 LOAD_CONST               2 (('Name',))
+             20 CALL_FUNCTION_KW         1
+             22 STORE_FAST               3 (edit_msg)
+
+106          24 LOAD_FAST                2 (wait_time)
+             26 LOAD_CONST               3 (0)
+             28 COMPARE_OP               4 (>)
+             30 POP_JUMP_IF_FALSE       52
+             32 LOAD_FAST                3 (edit_msg)
+             34 LOAD_METHOD              2 (Exists)
+             36 LOAD_CONST               3 (0)
+             38 CALL_METHOD              1
+             40 POP_JUMP_IF_TRUE        52
+
+107          42 LOAD_FAST                3 (edit_msg)
+             44 LOAD_METHOD              2 (Exists)
+             46 LOAD_FAST                2 (wait_time)
+             48 CALL_METHOD              1
+             50 POP_TOP
+
+108     >>   52 LOAD_FAST                3 (edit_msg)
+             54 RETURN_VALUE
+
+Disassembly of <code object get_window_handle at 0x1073b9030, file "WeRobotCore/core/drivers/legacy_uia.py", line 111>:
+112           0 LOAD_FAST                0 (self)
+              2 LOAD_ATTR                0 (window_handle)
+              4 RETURN_VALUE
+
+Disassembly of <code object get_driver_name at 0x1073b9240, file "WeRobotCore/core/drivers/legacy_uia.py", line 114>:
+116           0 LOAD_CONST               1 ('legacy_uia')
+              2 RETURN_VALUE
+
+Disassembly of <code object forward_message at 0x1073b9710, file "WeRobotCore/core/drivers/legacy_uia.py", line 118>:
+121           0 LOAD_CONST               1 (False)
+
+122           2 LOAD_CONST               2 ('unsupported_version')
+
+123           4 LOAD_CONST               3 ('当前微信版本暂不支持转发消息（仅4.1.x）')
+
+124           6 LOAD_FAST                1 (msg_id)
+
+125           8 LOAD_FAST                2 (target)
+
+120          10 LOAD_CONST               4 (('success', 'status', 'message', 'msg_id', 'target'))
+             12 BUILD_CONST_KEY_MAP      5
+             14 RETURN_VALUE
+
+Disassembly of <code object get_account_info at 0x1073b9a80, file "WeRobotCore/core/drivers/legacy_uia.py", line 128>:
+132           0 EXTENDED_ARG             3
+              2 SETUP_FINALLY          942 (to 946)
+
+133           4 LOAD_FAST                0 (self)
+              6 LOAD_METHOD              0 (SwitchToThisWindow)
+              8 CALL_METHOD              0
+             10 POP_TOP
+
+134          12 LOAD_GLOBAL              1 (time)
+             14 LOAD_METHOD              2 (sleep)
+             16 LOAD_GLOBAL              3 (random)
+             18 LOAD_METHOD              4 (uniform)
+             20 LOAD_CONST               1 (0.7)
+             22 LOAD_CONST               2 (1.2)
+             24 CALL_METHOD              2
+             26 CALL_METHOD              1
+             28 POP_TOP
+
+136          30 LOAD_CONST               3 (None)
+             32 STORE_FAST               1 (account_id)
+
+137          34 LOAD_CONST               3 (None)
+             36 STORE_FAST               2 (nickname)
+
+140          38 SETUP_FINALLY          168 (to 208)
+
+141          40 LOAD_FAST                0 (self)
+             42 LOAD_ATTR                5 (UiaAPI)
+             44 LOAD_ATTR                6 (ToolBarControl)
+             46 LOAD_CONST               4 ('导航')
+             48 LOAD_CONST               5 (('Name',))
+             50 CALL_FUNCTION_KW         1
+             52 STORE_FAST               3 (nav_toolbar)
+
+142          54 LOAD_FAST                3 (nav_toolbar)
+             56 LOAD_METHOD              7 (Exists)
+             58 LOAD_CONST               6 (1)
+             60 CALL_METHOD              1
+             62 POP_JUMP_IF_TRUE        72
+
+143          64 LOAD_GLOBAL              8 (Exception)
+             66 LOAD_CONST               7 ('未找到导航工具栏')
+             68 CALL_FUNCTION            1
+             70 RAISE_VARARGS            1
+
+145     >>   72 LOAD_FAST                3 (nav_toolbar)
+             74 LOAD_METHOD              9 (GetChildren)
+             76 CALL_METHOD              0
+             78 STORE_FAST               4 (children)
+
+146          80 LOAD_FAST                4 (children)
+             82 POP_JUMP_IF_TRUE        92
+
+147          84 LOAD_GLOBAL              8 (Exception)
+             86 LOAD_CONST               8 ('导航工具栏中未找到任何控件')
+             88 CALL_FUNCTION            1
+             90 RAISE_VARARGS            1
+
+149     >>   92 LOAD_FAST                4 (children)
+             94 LOAD_CONST               9 (0)
+             96 BINARY_SUBSCR
+             98 STORE_FAST               5 (avatar_button)
+
+150         100 LOAD_GLOBAL             10 (isinstance)
+            102 LOAD_FAST                5 (avatar_button)
+            104 LOAD_GLOBAL             11 (ui_Coder)
+            106 LOAD_ATTR               12 (ButtonControl)
+            108 CALL_FUNCTION            2
+            110 POP_JUMP_IF_TRUE       120
+
+151         112 LOAD_GLOBAL              8 (Exception)
+            114 LOAD_CONST              10 ('第一个控件不是按钮类型')
+            116 CALL_FUNCTION            1
+            118 RAISE_VARARGS            1
+
+153     >>  120 LOAD_GLOBAL             13 (logger)
+            122 LOAD_METHOD             14 (info)
+            124 LOAD_CONST              11 ('找到头像昵称: ')
+            126 LOAD_FAST                5 (avatar_button)
+            128 LOAD_ATTR               15 (Name)
+            130 FORMAT_VALUE             0
+            132 BUILD_STRING             2
+            134 CALL_METHOD              1
+            136 POP_TOP
+
+154         138 LOAD_FAST                5 (avatar_button)
+            140 LOAD_ATTR               15 (Name)
+            142 STORE_FAST               2 (nickname)
+
+155         144 LOAD_GLOBAL              1 (time)
+            146 LOAD_METHOD              2 (sleep)
+            148 LOAD_GLOBAL              3 (random)
+            150 LOAD_METHOD              4 (uniform)
+            152 LOAD_CONST              12 (1.0)
+            154 LOAD_CONST              13 (2.0)
+            156 CALL_METHOD              2
+            158 CALL_METHOD              1
+            160 POP_TOP
+
+157         162 LOAD_GLOBAL             16 (UIRetry)
+            164 LOAD_ATTR               17 (try_click_element)
+
+158         166 LOAD_FAST                5 (avatar_button)
+
+159         168 LOAD_CONST              14 (3)
+
+160         170 LOAD_GLOBAL              3 (random)
+            172 LOAD_METHOD              4 (uniform)
+            174 LOAD_CONST              15 (0.3)
+            176 LOAD_CONST              16 (0.8)
+            178 CALL_METHOD              2
+
+157         180 LOAD_CONST              17 (('max_attempts', 'wait_time'))
+            182 CALL_FUNCTION_KW         3
+            184 POP_JUMP_IF_TRUE       194
+
+162         186 LOAD_GLOBAL              8 (Exception)
+            188 LOAD_CONST              18 ('点击登录用户头像按钮失败')
+            190 CALL_FUNCTION            1
+            192 RAISE_VARARGS            1
+
+163     >>  194 LOAD_GLOBAL              1 (time)
+            196 LOAD_METHOD              2 (sleep)
+            198 LOAD_CONST               6 (1)
+            200 CALL_METHOD              1
+            202 POP_TOP
+            204 POP_BLOCK
+            206 JUMP_FORWARD            62 (to 270)
+
+164     >>  208 DUP_TOP
+            210 LOAD_GLOBAL              8 (Exception)
+            212 EXTENDED_ARG             1
+            214 JUMP_IF_NOT_EXC_MATCH   268
+            216 POP_TOP
+            218 STORE_FAST               6 (e)
+            220 POP_TOP
+            222 SETUP_FINALLY           36 (to 260)
+
+165         224 LOAD_GLOBAL             13 (logger)
+            226 LOAD_METHOD             14 (info)
+            228 LOAD_CONST              19 ('点击头像失败: ')
+            230 LOAD_GLOBAL             18 (str)
+            232 LOAD_FAST                6 (e)
+            234 CALL_FUNCTION            1
+            236 FORMAT_VALUE             0
+            238 BUILD_STRING             2
+            240 CALL_METHOD              1
+            242 POP_TOP
+
+166         244 POP_BLOCK
+            246 POP_EXCEPT
+            248 LOAD_CONST               3 (None)
+            250 STORE_FAST               6 (e)
+            252 DELETE_FAST              6 (e)
+            254 POP_BLOCK
+            256 LOAD_CONST               3 (None)
+            258 RETURN_VALUE
+        >>  260 LOAD_CONST               3 (None)
+            262 STORE_FAST               6 (e)
+            264 DELETE_FAST              6 (e)
+            266 RERAISE
+        >>  268 RERAISE
+
+169     >>  270 EXTENDED_ARG             2
+            272 SETUP_FINALLY          570 (to 844)
+
+170         274 LOAD_CONST              14 (3)
+            276 STORE_FAST               7 (max_retry)
+
+171         278 LOAD_GLOBAL             11 (ui_Coder)
+            280 LOAD_ATTR               19 (PaneControl)
+            282 LOAD_CONST              20 ('ContactProfileWnd')
+            284 LOAD_CONST              21 (('ClassName',))
+            286 CALL_FUNCTION_KW         1
+            288 STORE_FAST               8 (info_window)
+
+172         290 LOAD_FAST                8 (info_window)
+            292 LOAD_METHOD              7 (Exists)
+            294 LOAD_CONST              22 (2)
+            296 CALL_METHOD              1
+            298 EXTENDED_ARG             1
+            300 POP_JUMP_IF_TRUE       310
+
+173         302 LOAD_GLOBAL              8 (Exception)
+            304 LOAD_CONST              23 ('未找到个人信息窗口')
+            306 CALL_FUNCTION            1
+            308 RAISE_VARARGS            1
+
+174     >>  310 LOAD_GLOBAL             20 (range)
+            312 LOAD_FAST                7 (max_retry)
+            314 CALL_FUNCTION            1
+            316 GET_ITER
+        >>  318 FOR_ITER               202 (to 522)
+            320 STORE_FAST               9 (retry_count)
+
+175         322 SETUP_FINALLY           86 (to 410)
+
+176         324 LOAD_FAST                8 (info_window)
+            326 LOAD_METHOD              7 (Exists)
+            328 LOAD_CONST              14 (3)
+            330 CALL_METHOD              1
+            332 EXTENDED_ARG             1
+            334 POP_JUMP_IF_FALSE      346
+
+177         336 POP_BLOCK
+            338 POP_TOP
+            340 EXTENDED_ARG             2
+            342 JUMP_ABSOLUTE          522
+            344 JUMP_FORWARD            60 (to 406)
+
+180     >>  346 LOAD_FAST                0 (self)
+            348 LOAD_ATTR                5 (UiaAPI)
+            350 LOAD_ATTR                6 (ToolBarControl)
+            352 LOAD_CONST               4 ('导航')
+            354 LOAD_CONST               5 (('Name',))
+            356 CALL_FUNCTION_KW         1
+            358 STORE_FAST               3 (nav_toolbar)
+
+181         360 LOAD_FAST                3 (nav_toolbar)
+            362 LOAD_METHOD              9 (GetChildren)
+            364 CALL_METHOD              0
+            366 LOAD_CONST               9 (0)
+            368 BINARY_SUBSCR
+            370 STORE_FAST               5 (avatar_button)
+
+182         372 LOAD_GLOBAL             16 (UIRetry)
+            374 LOAD_ATTR               17 (try_click_element)
+
+183         376 LOAD_FAST                5 (avatar_button)
+
+184         378 LOAD_CONST              14 (3)
+
+185         380 LOAD_GLOBAL              3 (random)
+            382 LOAD_METHOD              4 (uniform)
+            384 LOAD_CONST              15 (0.3)
+            386 LOAD_CONST              16 (0.8)
+            388 CALL_METHOD              2
+
+182         390 LOAD_CONST              17 (('max_attempts', 'wait_time'))
+            392 CALL_FUNCTION_KW         3
+            394 EXTENDED_ARG             1
+            396 POP_JUMP_IF_TRUE       406
+
+187         398 LOAD_GLOBAL              8 (Exception)
+            400 LOAD_CONST              18 ('点击登录用户头像按钮失败')
+            402 CALL_FUNCTION            1
+            404 RAISE_VARARGS            1
+        >>  406 POP_BLOCK
+            408 JUMP_FORWARD           108 (to 518)
+
+188     >>  410 DUP_TOP
+            412 LOAD_GLOBAL              8 (Exception)
+            414 EXTENDED_ARG             2
+            416 JUMP_IF_NOT_EXC_MATCH   516
+            418 POP_TOP
+            420 STORE_FAST               6 (e)
+            422 POP_TOP
+            424 SETUP_FINALLY           82 (to 508)
+
+189         426 LOAD_FAST                9 (retry_count)
+            428 LOAD_FAST                7 (max_retry)
+            430 LOAD_CONST               6 (1)
+            432 BINARY_SUBTRACT
+            434 COMPARE_OP               0 (<)
+            436 EXTENDED_ARG             1
+            438 POP_JUMP_IF_FALSE      474
+
+190         440 LOAD_GLOBAL             13 (logger)
+            442 LOAD_METHOD             21 (warning)
+            444 LOAD_CONST              24 ('尝试获取个人信息窗口时出错: ')
+            446 LOAD_GLOBAL             18 (str)
+            448 LOAD_FAST                6 (e)
+            450 CALL_FUNCTION            1
+            452 FORMAT_VALUE             0
+            454 LOAD_CONST              25 ('，正在重试...')
+            456 BUILD_STRING             3
+            458 CALL_METHOD              1
+            460 POP_TOP
+
+191         462 LOAD_GLOBAL              1 (time)
+            464 LOAD_METHOD              2 (sleep)
+            466 LOAD_CONST              26 (1.5)
+            468 CALL_METHOD              1
+            470 POP_TOP
+            472 JUMP_FORWARD            22 (to 496)
+
+193     >>  474 LOAD_GLOBAL             13 (logger)
+            476 LOAD_METHOD             22 (error)
+            478 LOAD_CONST              27 ('获取个人信息窗口失败: ')
+            480 LOAD_GLOBAL             18 (str)
+            482 LOAD_FAST                6 (e)
+            484 CALL_FUNCTION            1
+            486 FORMAT_VALUE             0
+            488 BUILD_STRING             2
+            490 CALL_METHOD              1
+            492 POP_TOP
+
+194         494 RAISE_VARARGS            0
+        >>  496 POP_BLOCK
+            498 POP_EXCEPT
+            500 LOAD_CONST               3 (None)
+            502 STORE_FAST               6 (e)
+            504 DELETE_FAST              6 (e)
+            506 JUMP_FORWARD            10 (to 518)
+        >>  508 LOAD_CONST               3 (None)
+            510 STORE_FAST               6 (e)
+            512 DELETE_FAST              6 (e)
+            514 RERAISE
+        >>  516 RERAISE
+        >>  518 EXTENDED_ARG             1
+            520 JUMP_ABSOLUTE          318
+
+196     >>  522 LOAD_CONST               3 (None)
+            524 STORE_FAST              10 (real_nick_name)
+
+197         526 LOAD_GLOBAL             11 (ui_Coder)
+            528 LOAD_METHOD             23 (WalkControl)
+            530 LOAD_FAST                8 (info_window)
+            532 CALL_METHOD              1
+            534 GET_ITER
+        >>  536 FOR_ITER               138 (to 676)
+            538 UNPACK_SEQUENCE          2
+            540 STORE_FAST              11 (control)
+            542 STORE_FAST              12 (depth)
+
+198         544 LOAD_FAST               11 (control)
+            546 LOAD_ATTR               24 (ControlTypeName)
+            548 LOAD_CONST              28 ('TextControl')
+            550 COMPARE_OP               2 (==)
+            552 EXTENDED_ARG             2
+            554 POP_JUMP_IF_FALSE      536
+
+199         556 LOAD_FAST               11 (control)
+            558 LOAD_ATTR               15 (Name)
+            560 STORE_FAST              13 (text)
+
+200         562 LOAD_FAST               10 (real_nick_name)
+            564 LOAD_CONST               3 (None)
+            566 IS_OP                    0
+            568 EXTENDED_ARG             2
+            570 POP_JUMP_IF_FALSE      612
+
+201         572 LOAD_FAST               11 (control)
+            574 LOAD_ATTR               15 (Name)
+            576 STORE_FAST              10 (real_nick_name)
+
+202         578 LOAD_FAST               10 (real_nick_name)
+            580 LOAD_FAST                2 (nickname)
+            582 COMPARE_OP               3 (!=)
+            584 EXTENDED_ARG             2
+            586 POP_JUMP_IF_FALSE      536
+
+203         588 LOAD_GLOBAL             13 (logger)
+            590 LOAD_METHOD             14 (info)
+            592 LOAD_CONST              29 ('用户昵称已修改，更新为: ')
+            594 LOAD_FAST               10 (real_nick_name)
+            596 FORMAT_VALUE             0
+            598 BUILD_STRING             2
+            600 CALL_METHOD              1
+            602 POP_TOP
+
+204         604 LOAD_FAST               10 (real_nick_name)
+            606 STORE_FAST               2 (nickname)
+
+205         608 EXTENDED_ARG             2
+            610 JUMP_ABSOLUTE          536
+
+206     >>  612 LOAD_CONST              30 ('微信号：')
+            614 LOAD_FAST               13 (text)
+            616 CONTAINS_OP              0
+            618 EXTENDED_ARG             2
+            620 POP_JUMP_IF_FALSE      536
+
+207         622 LOAD_FAST               11 (control)
+            624 LOAD_METHOD             25 (GetNextSiblingControl)
+            626 CALL_METHOD              0
+            628 STORE_FAST              14 (next_control)
+
+208         630 LOAD_FAST               14 (next_control)
+            632 EXTENDED_ARG             2
+            634 POP_JUMP_IF_FALSE      536
+            636 LOAD_FAST               14 (next_control)
+            638 LOAD_ATTR               15 (Name)
+            640 EXTENDED_ARG             2
+            642 POP_JUMP_IF_FALSE      536
+
+209         644 LOAD_FAST               14 (next_control)
+            646 LOAD_ATTR               15 (Name)
+            648 STORE_FAST               1 (account_id)
+
+210         650 LOAD_GLOBAL             13 (logger)
+            652 LOAD_METHOD             14 (info)
+            654 LOAD_CONST              31 ('找到微信号: ')
+            656 LOAD_FAST                1 (account_id)
+            658 FORMAT_VALUE             0
+            660 BUILD_STRING             2
+            662 CALL_METHOD              1
+            664 POP_TOP
+
+211         666 POP_TOP
+            668 EXTENDED_ARG             2
+            670 JUMP_ABSOLUTE          676
+            672 EXTENDED_ARG             2
+            674 JUMP_ABSOLUTE          536
+
+214     >>  676 LOAD_GLOBAL             11 (ui_Coder)
+            678 LOAD_METHOD             26 (SendKeys)
+            680 LOAD_CONST              32 ('{ESC}')
+            682 CALL_METHOD              1
+            684 POP_TOP
+
+215         686 LOAD_GLOBAL              1 (time)
+            688 LOAD_METHOD              2 (sleep)
+            690 LOAD_CONST              33 (0.5)
+            692 CALL_METHOD              1
+            694 POP_TOP
+
+218         696 LOAD_FAST                1 (account_id)
+            698 EXTENDED_ARG             3
+            700 POP_JUMP_IF_TRUE       788
+            702 LOAD_FAST                2 (nickname)
+            704 EXTENDED_ARG             3
+            706 POP_JUMP_IF_FALSE      788
+
+219         708 LOAD_CONST               9 (0)
+            710 LOAD_CONST               3 (None)
+            712 IMPORT_NAME             27 (hashlib)
+            714 STORE_FAST              15 (hashlib)
+
+220         716 LOAD_CONST              34 ('YokoWebot_2025')
+            718 STORE_FAST              16 (salt)
+
+221         720 LOAD_FAST                2 (nickname)
+            722 FORMAT_VALUE             0
+            724 LOAD_CONST              35 ('_')
+            726 LOAD_FAST               16 (salt)
+            728 FORMAT_VALUE             0
+            730 BUILD_STRING             3
+            732 LOAD_METHOD             28 (encode)
+            734 LOAD_CONST              36 ('utf-8')
+            736 CALL_METHOD              1
+            738 STORE_FAST              17 (hash_input)
+
+222         740 LOAD_FAST               15 (hashlib)
+            742 LOAD_METHOD             29 (sha256)
+            744 LOAD_FAST               17 (hash_input)
+            746 CALL_METHOD              1
+            748 STORE_FAST              18 (hash_obj)
+
+223         750 LOAD_CONST              37 ('generated_')
+            752 LOAD_FAST               18 (hash_obj)
+            754 LOAD_METHOD             30 (hexdigest)
+            756 CALL_METHOD              0
+            758 LOAD_CONST               3 (None)
+            760 LOAD_CONST              38 (16)
+            762 BUILD_SLICE              2
+            764 BINARY_SUBSCR
+            766 FORMAT_VALUE             0
+            768 BUILD_STRING             2
+            770 STORE_FAST               1 (account_id)
+
+224         772 LOAD_GLOBAL             13 (logger)
+            774 LOAD_METHOD             14 (info)
+            776 LOAD_CONST              39 ('未找到微信号，已生成唯一ID: ')
+            778 LOAD_FAST                1 (account_id)
+            780 FORMAT_VALUE             0
+            782 BUILD_STRING             2
+            784 CALL_METHOD              1
+            786 POP_TOP
+
+226     >>  788 LOAD_FAST                2 (nickname)
+            790 EXTENDED_ARG             3
+            792 POP_JUMP_IF_TRUE       802
+
+227         794 LOAD_GLOBAL              8 (Exception)
+            796 LOAD_CONST              40 ('获取昵称失败')
+            798 CALL_FUNCTION            1
+            800 RAISE_VARARGS            1
+
+229     >>  802 LOAD_GLOBAL             13 (logger)
+            804 LOAD_METHOD             14 (info)
+            806 LOAD_CONST              41 ('获取个人信息成功: ')
+            808 LOAD_FAST                2 (nickname)
+            810 FORMAT_VALUE             0
+            812 LOAD_CONST              42 (':')
+            814 LOAD_FAST                1 (account_id)
+            816 FORMAT_VALUE             0
+            818 BUILD_STRING             4
+            820 CALL_METHOD              1
+            822 POP_TOP
+
+231         824 LOAD_FAST                2 (nickname)
+            826 EXTENDED_ARG             3
+            828 JUMP_IF_TRUE_OR_POP    832
+            830 LOAD_FAST                1 (account_id)
+
+232     >>  832 LOAD_FAST                1 (account_id)
+
+230         834 LOAD_CONST              43 (('nickname', 'account_id'))
+            836 BUILD_CONST_KEY_MAP      2
+            838 POP_BLOCK
+            840 POP_BLOCK
+            842 RETURN_VALUE
+
+234     >>  844 DUP_TOP
+            846 LOAD_GLOBAL              8 (Exception)
+            848 EXTENDED_ARG             3
+            850 JUMP_IF_NOT_EXC_MATCH   940
+            852 POP_TOP
+            854 STORE_FAST               6 (e)
+            856 POP_TOP
+            858 SETUP_FINALLY           72 (to 932)
+
+235         860 LOAD_GLOBAL             13 (logger)
+            862 LOAD_METHOD             14 (info)
+            864 LOAD_CONST              44 ('获取个人信息失败: ')
+            866 LOAD_GLOBAL             18 (str)
+            868 LOAD_FAST                6 (e)
+            870 CALL_FUNCTION            1
+            872 FORMAT_VALUE             0
+            874 BUILD_STRING             2
+            876 CALL_METHOD              1
+            878 POP_TOP
+
+236         880 SETUP_FINALLY           14 (to 896)
+
+237         882 LOAD_GLOBAL             11 (ui_Coder)
+            884 LOAD_METHOD             26 (SendKeys)
+            886 LOAD_CONST              32 ('{ESC}')
+            888 CALL_METHOD              1
+            890 POP_TOP
+            892 POP_BLOCK
+            894 JUMP_FORWARD            20 (to 916)
+
+238     >>  896 DUP_TOP
+            898 LOAD_GLOBAL              8 (Exception)
+            900 EXTENDED_ARG             3
+            902 JUMP_IF_NOT_EXC_MATCH   914
+            904 POP_TOP
+            906 POP_TOP
+            908 POP_TOP
+
+239         910 POP_EXCEPT
+            912 JUMP_FORWARD             2 (to 916)
+        >>  914 RERAISE
+
+240     >>  916 POP_BLOCK
+            918 POP_EXCEPT
+            920 LOAD_CONST               3 (None)
+            922 STORE_FAST               6 (e)
+            924 DELETE_FAST              6 (e)
+            926 POP_BLOCK
+            928 LOAD_CONST               3 (None)
+            930 RETURN_VALUE
+        >>  932 LOAD_CONST               3 (None)
+            934 STORE_FAST               6 (e)
+            936 DELETE_FAST              6 (e)
+            938 RERAISE
+        >>  940 RERAISE
+            942 POP_BLOCK
+            944 JUMP_FORWARD           126 (to 1072)
+
+241     >>  946 DUP_TOP
+            948 LOAD_GLOBAL              8 (Exception)
+            950 EXTENDED_ARG             4
+            952 JUMP_IF_NOT_EXC_MATCH  1070
+            954 POP_TOP
+            956 STORE_FAST               6 (e)
+            958 POP_TOP
+            960 SETUP_FINALLY          100 (to 1062)
+
+242         962 LOAD_GLOBAL             13 (logger)
+            964 LOAD_METHOD             22 (error)
+            966 LOAD_CONST              45 ('获取微信账号信息失败: ')
+            968 LOAD_GLOBAL             18 (str)
+            970 LOAD_FAST                6 (e)
+            972 CALL_FUNCTION            1
+            974 FORMAT_VALUE             0
+            976 BUILD_STRING             2
+            978 CALL_METHOD              1
+            980 POP_TOP
+
+243         982 LOAD_GLOBAL             10 (isinstance)
+            984 LOAD_FAST                6 (e)
+            986 LOAD_GLOBAL             31 (tuple)
+            988 CALL_FUNCTION            2
+            990 EXTENDED_ARG             4
+            992 POP_JUMP_IF_FALSE     1032
+            994 LOAD_GLOBAL             32 (len)
+            996 LOAD_FAST                6 (e)
+            998 CALL_FUNCTION            1
+           1000 LOAD_CONST               6 (1)
+           1002 COMPARE_OP               5 (>=)
+           1004 EXTENDED_ARG             4
+           1006 POP_JUMP_IF_FALSE     1032
+           1008 LOAD_FAST                6 (e)
+           1010 LOAD_CONST               9 (0)
+           1012 BINARY_SUBSCR
+           1014 LOAD_CONST              46 (-2147220991)
+           1016 COMPARE_OP               2 (==)
+           1018 EXTENDED_ARG             4
+           1020 POP_JUMP_IF_FALSE     1032
+
+244        1022 LOAD_GLOBAL             33 (WeChatUIAError)
+           1024 LOAD_CONST              47 ('微信 UIA 连接已断开')
+           1026 LOAD_FAST                6 (e)
+           1028 CALL_FUNCTION            2
+           1030 RAISE_VARARGS            1
+
+245     >> 1032 LOAD_GLOBAL             10 (isinstance)
+           1034 LOAD_FAST                6 (e)
+           1036 LOAD_GLOBAL             33 (WeChatUIAError)
+           1038 CALL_FUNCTION            2
+           1040 EXTENDED_ARG             4
+           1042 POP_JUMP_IF_FALSE     1048
+
+246        1044 LOAD_FAST                6 (e)
+           1046 RAISE_VARARGS            1
+
+247     >> 1048 POP_BLOCK
+           1050 POP_EXCEPT
+           1052 LOAD_CONST               3 (None)
+           1054 STORE_FAST               6 (e)
+           1056 DELETE_FAST              6 (e)
+           1058 LOAD_CONST               3 (None)
+           1060 RETURN_VALUE
+        >> 1062 LOAD_CONST               3 (None)
+           1064 STORE_FAST               6 (e)
+           1066 DELETE_FAST              6 (e)
+           1068 RERAISE
+        >> 1070 RERAISE
+        >> 1072 LOAD_CONST               3 (None)
+           1074 RETURN_VALUE
+
+Disassembly of <code object _get_total_contacts_count at 0x1073b9920, file "WeRobotCore/core/drivers/legacy_uia.py", line 252>:
+257           0 EXTENDED_ARG             1
+              2 SETUP_FINALLY          376 (to 380)
+
+259           4 LOAD_CONST               1 (None)
+              6 STORE_FAST               2 (tab_control)
+
+260           8 LOAD_GLOBAL              0 (ui_Coder)
+             10 LOAD_ATTR                1 (WalkControl)
+             12 LOAD_FAST                1 (contacts_window)
+             14 LOAD_CONST               2 (6)
+             16 LOAD_CONST               3 (('maxDepth',))
+             18 CALL_FUNCTION_KW         2
+             20 GET_ITER
+        >>   22 FOR_ITER               102 (to 126)
+             24 UNPACK_SEQUENCE          2
+             26 STORE_FAST               3 (control)
+             28 STORE_FAST               4 (depth)
+
+261          30 SETUP_FINALLY           24 (to 56)
+
+262          32 LOAD_FAST                3 (control)
+             34 LOAD_ATTR                2 (ControlTypeName)
+             36 LOAD_CONST               4 ('TabControl')
+             38 COMPARE_OP               2 (==)
+             40 POP_JUMP_IF_FALSE       52
+
+263          42 LOAD_FAST                3 (control)
+             44 STORE_FAST               2 (tab_control)
+
+264          46 POP_BLOCK
+             48 POP_TOP
+             50 JUMP_ABSOLUTE          126
+        >>   52 POP_BLOCK
+             54 JUMP_ABSOLUTE           22
+
+265     >>   56 DUP_TOP
+             58 LOAD_GLOBAL              3 (Exception)
+             60 JUMP_IF_NOT_EXC_MATCH   122
+             62 POP_TOP
+             64 STORE_FAST               5 (e)
+             66 POP_TOP
+             68 SETUP_FINALLY           44 (to 114)
+
+266          70 LOAD_GLOBAL              4 (logger)
+             72 LOAD_METHOD              5 (debug)
+             74 LOAD_CONST               5 ('检查控件类型时出错: ')
+             76 LOAD_GLOBAL              6 (str)
+             78 LOAD_FAST                5 (e)
+             80 CALL_FUNCTION            1
+             82 FORMAT_VALUE             0
+             84 BUILD_STRING             2
+             86 CALL_METHOD              1
+             88 POP_TOP
+
+267          90 POP_BLOCK
+             92 POP_EXCEPT
+             94 LOAD_CONST               1 (None)
+             96 STORE_FAST               5 (e)
+             98 DELETE_FAST              5 (e)
+            100 JUMP_ABSOLUTE           22
+            102 POP_BLOCK
+            104 POP_EXCEPT
+            106 LOAD_CONST               1 (None)
+            108 STORE_FAST               5 (e)
+            110 DELETE_FAST              5 (e)
+            112 JUMP_ABSOLUTE           22
+        >>  114 LOAD_CONST               1 (None)
+            116 STORE_FAST               5 (e)
+            118 DELETE_FAST              5 (e)
+            120 RERAISE
+        >>  122 RERAISE
+            124 JUMP_ABSOLUTE           22
+
+269     >>  126 LOAD_FAST                2 (tab_control)
+            128 POP_JUMP_IF_TRUE       146
+
+270         130 LOAD_GLOBAL              4 (logger)
+            132 LOAD_METHOD              7 (warning)
+            134 LOAD_CONST               6 ('未找到选项卡控件，无法获取通讯录总人数')
+            136 CALL_METHOD              1
+            138 POP_TOP
+
+271         140 POP_BLOCK
+            142 LOAD_CONST               1 (None)
+            144 RETURN_VALUE
+
+274     >>  146 LOAD_CONST               1 (None)
+            148 STORE_FAST               6 (total_count)
+
+277         150 LOAD_GLOBAL              0 (ui_Coder)
+            152 LOAD_METHOD              1 (WalkControl)
+            154 LOAD_FAST                2 (tab_control)
+            156 CALL_METHOD              1
+            158 GET_ITER
+        >>  160 FOR_ITER               212 (to 374)
+            162 UNPACK_SEQUENCE          2
+            164 STORE_FAST               3 (control)
+            166 STORE_FAST               4 (depth)
+
+278         168 SETUP_FINALLY          144 (to 314)
+
+279         170 LOAD_FAST                3 (control)
+            172 LOAD_ATTR                2 (ControlTypeName)
+            174 LOAD_CONST               7 ('TextControl')
+            176 COMPARE_OP               2 (==)
+            178 EXTENDED_ARG             1
+            180 POP_JUMP_IF_FALSE      310
+
+280         182 LOAD_FAST                3 (control)
+            184 LOAD_ATTR                8 (Name)
+            186 STORE_FAST               7 (text)
+
+282         188 LOAD_FAST                7 (text)
+            190 EXTENDED_ARG             1
+            192 POP_JUMP_IF_FALSE      310
+            194 LOAD_FAST                7 (text)
+            196 LOAD_METHOD              9 (startswith)
+            198 LOAD_CONST               8 ('(')
+            200 CALL_METHOD              1
+            202 EXTENDED_ARG             1
+            204 POP_JUMP_IF_FALSE      310
+            206 LOAD_FAST                7 (text)
+            208 LOAD_METHOD             10 (endswith)
+            210 LOAD_CONST               9 (')')
+            212 CALL_METHOD              1
+            214 EXTENDED_ARG             1
+            216 POP_JUMP_IF_FALSE      310
+
+283         218 SETUP_FINALLY           54 (to 274)
+
+285         220 LOAD_FAST                7 (text)
+            222 LOAD_CONST              10 (1)
+            224 LOAD_CONST              11 (-1)
+            226 BUILD_SLICE              2
+            228 BINARY_SUBSCR
+            230 STORE_FAST               8 (count_str)
+
+286         232 LOAD_GLOBAL             11 (int)
+            234 LOAD_FAST                8 (count_str)
+            236 CALL_FUNCTION            1
+            238 STORE_FAST               9 (count)
+
+287         240 LOAD_FAST                9 (count)
+            242 STORE_FAST               6 (total_count)
+
+288         244 LOAD_GLOBAL              4 (logger)
+            246 LOAD_METHOD             12 (info)
+            248 LOAD_CONST              12 ('好友通讯录总人数: ')
+            250 LOAD_FAST                9 (count)
+            252 FORMAT_VALUE             0
+            254 BUILD_STRING             2
+            256 CALL_METHOD              1
+            258 POP_TOP
+
+289         260 POP_BLOCK
+            262 POP_BLOCK
+            264 POP_TOP
+            266 EXTENDED_ARG             1
+            268 JUMP_ABSOLUTE          374
+            270 POP_BLOCK
+            272 JUMP_FORWARD            36 (to 310)
+
+290     >>  274 DUP_TOP
+            276 LOAD_GLOBAL             13 (ValueError)
+            278 EXTENDED_ARG             1
+            280 JUMP_IF_NOT_EXC_MATCH   308
+            282 POP_TOP
+            284 POP_TOP
+            286 POP_TOP
+
+291         288 LOAD_GLOBAL              4 (logger)
+            290 LOAD_METHOD              5 (debug)
+            292 LOAD_CONST              13 ('无法将文本转换为数字: ')
+            294 LOAD_FAST                7 (text)
+            296 FORMAT_VALUE             0
+            298 BUILD_STRING             2
+            300 CALL_METHOD              1
+            302 POP_TOP
+            304 POP_EXCEPT
+            306 JUMP_FORWARD             2 (to 310)
+        >>  308 RERAISE
+        >>  310 POP_BLOCK
+            312 JUMP_ABSOLUTE          160
+
+292     >>  314 DUP_TOP
+            316 LOAD_GLOBAL              3 (Exception)
+            318 EXTENDED_ARG             1
+            320 JUMP_IF_NOT_EXC_MATCH   370
+            322 POP_TOP
+            324 STORE_FAST               5 (e)
+            326 POP_TOP
+            328 SETUP_FINALLY           32 (to 362)
+
+293         330 LOAD_GLOBAL              4 (logger)
+            332 LOAD_METHOD              5 (debug)
+            334 LOAD_CONST              14 ('处理文本控件时出错: ')
+            336 LOAD_GLOBAL              6 (str)
+            338 LOAD_FAST                5 (e)
+            340 CALL_FUNCTION            1
+            342 FORMAT_VALUE             0
+            344 BUILD_STRING             2
+            346 CALL_METHOD              1
+            348 POP_TOP
+            350 POP_BLOCK
+            352 POP_EXCEPT
+            354 LOAD_CONST               1 (None)
+            356 STORE_FAST               5 (e)
+            358 DELETE_FAST              5 (e)
+            360 JUMP_ABSOLUTE          160
+        >>  362 LOAD_CONST               1 (None)
+            364 STORE_FAST               5 (e)
+            366 DELETE_FAST              5 (e)
+            368 RERAISE
+        >>  370 RERAISE
+            372 JUMP_ABSOLUTE          160
+
+295     >>  374 LOAD_FAST                6 (total_count)
+            376 POP_BLOCK
+            378 RETURN_VALUE
+
+296     >>  380 DUP_TOP
+            382 LOAD_GLOBAL              3 (Exception)
+            384 EXTENDED_ARG             1
+            386 JUMP_IF_NOT_EXC_MATCH   438
+            388 POP_TOP
+            390 STORE_FAST               5 (e)
+            392 POP_TOP
+            394 SETUP_FINALLY           34 (to 430)
+
+297         396 LOAD_GLOBAL              4 (logger)
+            398 LOAD_METHOD             14 (error)
+            400 LOAD_CONST              15 ('获取通讯录总人数失败: ')
+            402 LOAD_GLOBAL              6 (str)
+            404 LOAD_FAST                5 (e)
+            406 CALL_FUNCTION            1
+            408 FORMAT_VALUE             0
+            410 BUILD_STRING             2
+            412 CALL_METHOD              1
+            414 POP_TOP
+
+298         416 POP_BLOCK
+            418 POP_EXCEPT
+            420 LOAD_CONST               1 (None)
+            422 STORE_FAST               5 (e)
+            424 DELETE_FAST              5 (e)
+            426 LOAD_CONST               1 (None)
+            428 RETURN_VALUE
+        >>  430 LOAD_CONST               1 (None)
+            432 STORE_FAST               5 (e)
+            434 DELETE_FAST              5 (e)
+            436 RERAISE
+        >>  438 RERAISE
+            440 LOAD_CONST               1 (None)
+            442 RETURN_VALUE
+
+Disassembly of <code object _get_contact_wx_id at 0x1073b9f50, file "WeRobotCore/core/drivers/legacy_uia.py", line 300>:
+302           0 EXTENDED_ARG             1
+              2 SETUP_FINALLY          292 (to 296)
+
+303           4 LOAD_FAST                2 (contact_item)
+              6 LOAD_ATTR                0 (ButtonControl)
+              8 LOAD_CONST               1 (1)
+             10 LOAD_CONST               2 (('foundIndex',))
+             12 CALL_FUNCTION_KW         1
+             14 STORE_FAST               4 (avatar_button)
+
+304          16 LOAD_FAST                4 (avatar_button)
+             18 LOAD_METHOD              1 (Exists)
+             20 LOAD_CONST               1 (1)
+             22 CALL_METHOD              1
+             24 POP_JUMP_IF_TRUE        32
+
+305          26 POP_BLOCK
+             28 LOAD_CONST               3 ('')
+             30 RETURN_VALUE
+
+306     >>   32 LOAD_GLOBAL              2 (UIRetry)
+             34 LOAD_ATTR                3 (try_click_element)
+             36 LOAD_FAST                4 (avatar_button)
+             38 LOAD_CONST               4 (3)
+             40 LOAD_GLOBAL              4 (random)
+             42 LOAD_METHOD              5 (uniform)
+             44 LOAD_CONST               5 (0.2)
+             46 LOAD_CONST               6 (0.5)
+             48 CALL_METHOD              2
+             50 LOAD_CONST               7 (('max_attempts', 'wait_time'))
+             52 CALL_FUNCTION_KW         3
+             54 POP_JUMP_IF_TRUE        62
+
+307          56 POP_BLOCK
+             58 LOAD_CONST               3 ('')
+             60 RETURN_VALUE
+
+308     >>   62 LOAD_GLOBAL              6 (time)
+             64 LOAD_METHOD              7 (sleep)
+             66 LOAD_GLOBAL              4 (random)
+             68 LOAD_METHOD              5 (uniform)
+             70 LOAD_CONST               6 (0.5)
+             72 LOAD_CONST               8 (0.8)
+             74 CALL_METHOD              2
+             76 CALL_METHOD              1
+             78 POP_TOP
+
+310          80 LOAD_GLOBAL              8 (ui_Coder)
+             82 LOAD_ATTR                9 (PaneControl)
+             84 LOAD_CONST               9 ('ContactProfileWnd')
+             86 LOAD_CONST              10 (('ClassName',))
+             88 CALL_FUNCTION_KW         1
+             90 STORE_FAST               5 (info_window)
+
+311          92 LOAD_FAST                5 (info_window)
+             94 LOAD_METHOD              1 (Exists)
+             96 LOAD_CONST              11 (2)
+             98 CALL_METHOD              1
+            100 POP_JUMP_IF_TRUE       108
+
+312         102 POP_BLOCK
+            104 LOAD_CONST               3 ('')
+            106 RETURN_VALUE
+
+314     >>  108 LOAD_CONST               3 ('')
+            110 STORE_FAST               6 (wx_id)
+
+315         112 LOAD_GLOBAL              8 (ui_Coder)
+            114 LOAD_METHOD             10 (WalkControl)
+            116 LOAD_FAST                5 (info_window)
+            118 CALL_METHOD              1
+            120 GET_ITER
+        >>  122 FOR_ITER               130 (to 254)
+            124 UNPACK_SEQUENCE          2
+            126 STORE_FAST               7 (control)
+            128 STORE_FAST               8 (depth)
+
+316         130 SETUP_FINALLY          102 (to 234)
+
+317         132 LOAD_FAST                7 (control)
+            134 LOAD_ATTR               11 (ControlTypeName)
+            136 LOAD_CONST              12 ('TextControl')
+            138 COMPARE_OP               2 (==)
+            140 POP_JUMP_IF_FALSE      230
+
+318         142 LOAD_FAST                7 (control)
+            144 LOAD_ATTR               12 (Name)
+            146 STORE_FAST               9 (text)
+
+319         148 LOAD_FAST                9 (text)
+            150 POP_JUMP_IF_FALSE      230
+            152 LOAD_CONST              13 ('微信号：')
+            154 LOAD_FAST                9 (text)
+            156 CONTAINS_OP              0
+            158 POP_JUMP_IF_TRUE       168
+            160 LOAD_CONST              14 ('微信号:')
+            162 LOAD_FAST                9 (text)
+            164 CONTAINS_OP              0
+            166 POP_JUMP_IF_FALSE      230
+
+320     >>  168 LOAD_CONST              15 (None)
+            170 STORE_FAST              10 (next_control)
+
+321         172 SETUP_FINALLY           12 (to 186)
+
+322         174 LOAD_FAST                7 (control)
+            176 LOAD_METHOD             13 (GetNextSiblingControl)
+            178 CALL_METHOD              0
+            180 STORE_FAST              10 (next_control)
+            182 POP_BLOCK
+            184 JUMP_FORWARD            22 (to 208)
+
+323     >>  186 DUP_TOP
+            188 LOAD_GLOBAL             14 (Exception)
+            190 JUMP_IF_NOT_EXC_MATCH   206
+            192 POP_TOP
+            194 POP_TOP
+            196 POP_TOP
+
+324         198 LOAD_CONST              15 (None)
+            200 STORE_FAST              10 (next_control)
+            202 POP_EXCEPT
+            204 JUMP_FORWARD             2 (to 208)
+        >>  206 RERAISE
+
+325     >>  208 LOAD_FAST               10 (next_control)
+            210 POP_JUMP_IF_FALSE      230
+            212 LOAD_FAST               10 (next_control)
+            214 LOAD_ATTR               12 (Name)
+            216 POP_JUMP_IF_FALSE      230
+
+326         218 LOAD_FAST               10 (next_control)
+            220 LOAD_ATTR               12 (Name)
+            222 STORE_FAST               6 (wx_id)
+
+327         224 POP_BLOCK
+            226 POP_TOP
+            228 JUMP_ABSOLUTE          254
+        >>  230 POP_BLOCK
+            232 JUMP_ABSOLUTE          122
+
+328     >>  234 DUP_TOP
+            236 LOAD_GLOBAL             14 (Exception)
+            238 JUMP_IF_NOT_EXC_MATCH   250
+            240 POP_TOP
+            242 POP_TOP
+            244 POP_TOP
+
+329         246 POP_EXCEPT
+            248 JUMP_ABSOLUTE          122
+        >>  250 RERAISE
+            252 JUMP_ABSOLUTE          122
+
+330     >>  254 SETUP_FINALLY           14 (to 270)
+
+331         256 LOAD_GLOBAL              8 (ui_Coder)
+            258 LOAD_METHOD             15 (SendKeys)
+            260 LOAD_CONST              16 ('{ESC}')
+            262 CALL_METHOD              1
+            264 POP_TOP
+            266 POP_BLOCK
+            268 JUMP_FORWARD            20 (to 290)
+
+332     >>  270 DUP_TOP
+            272 LOAD_GLOBAL             14 (Exception)
+            274 EXTENDED_ARG             1
+            276 JUMP_IF_NOT_EXC_MATCH   288
+            278 POP_TOP
+            280 POP_TOP
+            282 POP_TOP
+
+333         284 POP_EXCEPT
+            286 JUMP_FORWARD             2 (to 290)
+        >>  288 RERAISE
+
+334     >>  290 LOAD_FAST                6 (wx_id)
+            292 POP_BLOCK
+            294 RETURN_VALUE
+
+335     >>  296 DUP_TOP
+            298 LOAD_GLOBAL             14 (Exception)
+            300 EXTENDED_ARG             1
+            302 JUMP_IF_NOT_EXC_MATCH   352
+            304 POP_TOP
+            306 POP_TOP
+            308 POP_TOP
+
+336         310 SETUP_FINALLY           14 (to 326)
+
+337         312 LOAD_GLOBAL              8 (ui_Coder)
+            314 LOAD_METHOD             15 (SendKeys)
+            316 LOAD_CONST              16 ('{ESC}')
+            318 CALL_METHOD              1
+            320 POP_TOP
+            322 POP_BLOCK
+            324 JUMP_FORWARD            20 (to 346)
+
+338     >>  326 DUP_TOP
+            328 LOAD_GLOBAL             14 (Exception)
+            330 EXTENDED_ARG             1
+            332 JUMP_IF_NOT_EXC_MATCH   344
+            334 POP_TOP
+            336 POP_TOP
+            338 POP_TOP
+
+339         340 POP_EXCEPT
+            342 JUMP_FORWARD             2 (to 346)
+        >>  344 RERAISE
+
+340     >>  346 POP_EXCEPT
+            348 LOAD_CONST               3 ('')
+            350 RETURN_VALUE
+        >>  352 RERAISE
+            354 LOAD_CONST              15 (None)
+            356 RETURN_VALUE
+
+Disassembly of <code object _process_visible_contacts at 0x1073b9500, file "WeRobotCore/core/drivers/legacy_uia.py", line 342>:
+355           0 LOAD_CONST               1 ('标签')
+              2 LOAD_CONST               2 ('未分组')
+              4 BUILD_LIST               2
+              6 STORE_FAST               7 (system_items)
+
+358           8 LOAD_CONST               3 (<code object <setcomp> at 0x1073b92f0, file "WeRobotCore/core/drivers/legacy_uia.py", line 358>)
+             10 LOAD_CONST               4 ('LegacyUiaDriver._process_visible_contacts.<locals>.<setcomp>')
+             12 MAKE_FUNCTION            0
+             14 LOAD_FAST                3 (all_contacts)
+             16 GET_ITER
+             18 CALL_FUNCTION            1
+             20 STORE_FAST               8 (existing_wxids)
+
+360          22 LOAD_CONST               5 (0)
+             24 STORE_FAST               9 (batch_processed)
+
+361          26 LOAD_CONST               6 (False)
+             28 STORE_FAST              10 (start_processing)
+
+362          30 LOAD_CONST               7 (None)
+             32 STORE_FAST              11 (current_marker)
+
+365          34 LOAD_FAST                2 (contact_list)
+             36 LOAD_METHOD              0 (GetChildren)
+             38 CALL_METHOD              0
+             40 STORE_FAST              12 (contact_items)
+
+368          42 LOAD_FAST                2 (contact_list)
+             44 LOAD_ATTR                1 (BoundingRectangle)
+             46 STORE_FAST              13 (list_rect)
+
+369          48 LOAD_FAST               13 (list_rect)
+             50 LOAD_ATTR                2 (bottom)
+             52 STORE_FAST              14 (list_bottom)
+
+372          54 LOAD_FAST                5 (last_processed_marker)
+             56 POP_JUMP_IF_TRUE        64
+
+373          58 LOAD_CONST               8 (True)
+             60 STORE_FAST              10 (start_processing)
+             62 JUMP_FORWARD            38 (to 102)
+
+376     >>   64 LOAD_GLOBAL              3 (logger)
+             66 LOAD_METHOD              4 (info)
+             68 LOAD_CONST               9 ('查找上次处理的最后位置: RuntimeID=')
+             70 LOAD_FAST                5 (last_processed_marker)
+             72 LOAD_METHOD              5 (get)
+             74 LOAD_CONST              10 ('runtime_id')
+             76 LOAD_CONST              11 ('')
+             78 CALL_METHOD              2
+             80 FORMAT_VALUE             0
+             82 LOAD_CONST              12 (', Name=')
+             84 LOAD_FAST                5 (last_processed_marker)
+             86 LOAD_METHOD              5 (get)
+             88 LOAD_CONST              13 ('name')
+             90 LOAD_CONST              11 ('')
+             92 CALL_METHOD              2
+             94 FORMAT_VALUE             0
+             96 BUILD_STRING             4
+             98 CALL_METHOD              1
+            100 POP_TOP
+
+379     >>  102 LOAD_CONST               5 (0)
+            104 STORE_FAST              15 (skipped_count)
+
+382         106 LOAD_GLOBAL              6 (enumerate)
+            108 LOAD_FAST               12 (contact_items)
+            110 CALL_FUNCTION            1
+            112 GET_ITER
+        >>  114 EXTENDED_ARG             3
+            116 FOR_ITER               920 (to 1038)
+            118 UNPACK_SEQUENCE          2
+            120 STORE_FAST              16 (i)
+            122 STORE_FAST              17 (contact_item)
+
+383         124 EXTENDED_ARG             3
+            126 SETUP_FINALLY          838 (to 966)
+
+385         128 SETUP_FINALLY           28 (to 158)
+
+386         130 LOAD_CONST              11 ('')
+            132 LOAD_METHOD              7 (join)
+            134 LOAD_CONST              14 (<code object <listcomp> at 0x1073b9be0, file "WeRobotCore/core/drivers/legacy_uia.py", line 386>)
+            136 LOAD_CONST              15 ('LegacyUiaDriver._process_visible_contacts.<locals>.<listcomp>')
+            138 MAKE_FUNCTION            0
+            140 LOAD_FAST               17 (contact_item)
+            142 LOAD_METHOD              8 (GetRuntimeId)
+            144 CALL_METHOD              0
+            146 GET_ITER
+            148 CALL_FUNCTION            1
+            150 CALL_METHOD              1
+            152 STORE_FAST              18 (current_runtime_id)
+            154 POP_BLOCK
+            156 JUMP_FORWARD            16 (to 174)
+
+387     >>  158 POP_TOP
+            160 POP_TOP
+            162 POP_TOP
+
+388         164 LOAD_CONST              11 ('')
+            166 STORE_FAST              18 (current_runtime_id)
+            168 POP_EXCEPT
+            170 JUMP_FORWARD             2 (to 174)
+            172 RERAISE
+
+391     >>  174 LOAD_FAST               17 (contact_item)
+            176 LOAD_METHOD              9 (TextControl)
+            178 CALL_METHOD              0
+            180 STORE_FAST              19 (text_control)
+
+392         182 LOAD_FAST               19 (text_control)
+            184 LOAD_METHOD             10 (Exists)
+            186 LOAD_CONST              16 (1)
+            188 CALL_METHOD              1
+            190 POP_JUMP_IF_TRUE       196
+
+393         192 POP_BLOCK
+            194 JUMP_ABSOLUTE          114
+
+395     >>  196 LOAD_FAST               19 (text_control)
+            198 LOAD_ATTR               11 (Name)
+            200 STORE_FAST              20 (nick_name)
+
+398         202 LOAD_FAST               20 (nick_name)
+            204 POP_JUMP_IF_FALSE      214
+            206 LOAD_FAST               20 (nick_name)
+            208 LOAD_FAST                7 (system_items)
+            210 CONTAINS_OP              0
+            212 POP_JUMP_IF_FALSE      218
+
+399     >>  214 POP_BLOCK
+            216 JUMP_ABSOLUTE          114
+
+402     >>  218 SETUP_FINALLY           50 (to 270)
+
+403         220 LOAD_FAST               17 (contact_item)
+            222 LOAD_ATTR               12 (ButtonControl)
+            224 LOAD_CONST              17 (2)
+            226 LOAD_CONST              18 (('foundIndex',))
+            228 CALL_FUNCTION_KW         1
+            230 STORE_FAST              21 (remark_control)
+
+404         232 LOAD_FAST               21 (remark_control)
+            234 LOAD_METHOD             10 (Exists)
+            236 LOAD_CONST              16 (1)
+            238 CALL_METHOD              1
+            240 POP_JUMP_IF_FALSE      248
+            242 LOAD_FAST               21 (remark_control)
+            244 LOAD_ATTR               11 (Name)
+            246 JUMP_FORWARD             2 (to 250)
+        >>  248 LOAD_CONST              11 ('')
+        >>  250 STORE_FAST              22 (remark_name)
+
+405         252 LOAD_FAST               22 (remark_name)
+            254 LOAD_CONST              19 ('添加备注')
+            256 COMPARE_OP               2 (==)
+            258 EXTENDED_ARG             1
+            260 POP_JUMP_IF_FALSE      266
+
+406         262 LOAD_CONST              11 ('')
+            264 STORE_FAST              22 (remark_name)
+        >>  266 POP_BLOCK
+            268 JUMP_FORWARD            16 (to 286)
+
+407     >>  270 POP_TOP
+            272 POP_TOP
+            274 POP_TOP
+
+408         276 LOAD_CONST              11 ('')
+            278 STORE_FAST              22 (remark_name)
+            280 POP_EXCEPT
+            282 JUMP_FORWARD             2 (to 286)
+            284 RERAISE
+
+411     >>  286 LOAD_FAST               22 (remark_name)
+            288 EXTENDED_ARG             1
+            290 POP_JUMP_IF_FALSE      296
+            292 LOAD_FAST               22 (remark_name)
+            294 JUMP_FORWARD             2 (to 298)
+        >>  296 LOAD_FAST               20 (nick_name)
+        >>  298 STORE_FAST              23 (name)
+
+412         300 LOAD_FAST               23 (name)
+            302 EXTENDED_ARG             1
+            304 POP_JUMP_IF_FALSE      388
+
+413         306 SETUP_FINALLY           22 (to 330)
+
+414         308 LOAD_FAST               23 (name)
+            310 LOAD_METHOD             13 (encode)
+            312 LOAD_CONST              20 ('utf-16')
+            314 LOAD_CONST              21 ('surrogatepass')
+            316 CALL_METHOD              2
+            318 LOAD_METHOD             14 (decode)
+            320 LOAD_CONST              20 ('utf-16')
+            322 CALL_METHOD              1
+            324 STORE_FAST              23 (name)
+            326 POP_BLOCK
+            328 JUMP_FORWARD            58 (to 388)
+
+415     >>  330 DUP_TOP
+            332 LOAD_GLOBAL             15 (Exception)
+            334 EXTENDED_ARG             1
+            336 JUMP_IF_NOT_EXC_MATCH   386
+            338 POP_TOP
+            340 STORE_FAST              24 (e)
+            342 POP_TOP
+            344 SETUP_FINALLY           32 (to 378)
+
+416         346 LOAD_GLOBAL              3 (logger)
+            348 LOAD_METHOD             16 (warning)
+            350 LOAD_CONST              22 ('处理联系人名称编码时出错: ')
+            352 LOAD_GLOBAL             17 (str)
+            354 LOAD_FAST               24 (e)
+            356 CALL_FUNCTION            1
+            358 FORMAT_VALUE             0
+            360 BUILD_STRING             2
+            362 CALL_METHOD              1
+            364 POP_TOP
+            366 POP_BLOCK
+            368 POP_EXCEPT
+            370 LOAD_CONST               7 (None)
+            372 STORE_FAST              24 (e)
+            374 DELETE_FAST             24 (e)
+            376 JUMP_FORWARD            10 (to 388)
+        >>  378 LOAD_CONST               7 (None)
+            380 STORE_FAST              24 (e)
+            382 DELETE_FAST             24 (e)
+            384 RERAISE
+        >>  386 RERAISE
+
+419     >>  388 LOAD_FAST               10 (start_processing)
+            390 EXTENDED_ARG             1
+            392 POP_JUMP_IF_TRUE       466
+            394 LOAD_FAST                5 (last_processed_marker)
+            396 EXTENDED_ARG             1
+            398 POP_JUMP_IF_FALSE      466
+
+421         400 LOAD_FAST               18 (current_runtime_id)
+            402 EXTENDED_ARG             1
+            404 POP_JUMP_IF_FALSE      434
+
+422         406 LOAD_FAST               18 (current_runtime_id)
+            408 LOAD_FAST                5 (last_processed_marker)
+            410 LOAD_METHOD              5 (get)
+            412 LOAD_CONST              10 ('runtime_id')
+            414 LOAD_CONST              11 ('')
+            416 CALL_METHOD              2
+            418 COMPARE_OP               2 (==)
+
+421         420 EXTENDED_ARG             1
+            422 POP_JUMP_IF_FALSE      434
+
+424         424 LOAD_CONST               8 (True)
+            426 STORE_FAST              10 (start_processing)
+
+425         428 POP_BLOCK
+            430 JUMP_ABSOLUTE          114
+            432 JUMP_FORWARD            32 (to 466)
+
+427     >>  434 LOAD_FAST               23 (name)
+            436 LOAD_FAST                5 (last_processed_marker)
+            438 LOAD_METHOD              5 (get)
+            440 LOAD_CONST              13 ('name')
+            442 LOAD_CONST              11 ('')
+            444 CALL_METHOD              2
+            446 COMPARE_OP               2 (==)
+            448 EXTENDED_ARG             1
+            450 POP_JUMP_IF_FALSE      462
+
+429         452 LOAD_CONST               8 (True)
+            454 STORE_FAST              10 (start_processing)
+
+430         456 POP_BLOCK
+            458 JUMP_ABSOLUTE          114
+            460 JUMP_FORWARD             4 (to 466)
+
+433     >>  462 POP_BLOCK
+            464 JUMP_ABSOLUTE          114
+
+436     >>  466 LOAD_FAST               10 (start_processing)
+            468 EXTENDED_ARG             1
+            470 POP_JUMP_IF_TRUE       476
+
+437         472 POP_BLOCK
+            474 JUMP_ABSOLUTE          114
+
+440     >>  476 LOAD_FAST                6 (existing_names)
+            478 LOAD_CONST               7 (None)
+            480 IS_OP                    1
+            482 EXTENDED_ARG             2
+            484 POP_JUMP_IF_FALSE      518
+            486 LOAD_FAST               23 (name)
+            488 LOAD_FAST                6 (existing_names)
+            490 CONTAINS_OP              0
+            492 EXTENDED_ARG             2
+            494 POP_JUMP_IF_FALSE      518
+
+441         496 LOAD_FAST               15 (skipped_count)
+            498 LOAD_CONST              16 (1)
+            500 INPLACE_ADD
+            502 STORE_FAST              15 (skipped_count)
+
+448         504 LOAD_FAST               18 (current_runtime_id)
+
+449         506 LOAD_FAST               23 (name)
+
+447         508 LOAD_CONST              23 (('runtime_id', 'name'))
+            510 BUILD_CONST_KEY_MAP      2
+            512 STORE_FAST              11 (current_marker)
+
+451         514 POP_BLOCK
+            516 JUMP_ABSOLUTE          114
+
+454     >>  518 LOAD_FAST                4 (collect_detailed_info)
+            520 EXTENDED_ARG             2
+            522 POP_JUMP_IF_FALSE      602
+            524 LOAD_FAST               16 (i)
+            526 LOAD_GLOBAL             18 (len)
+            528 LOAD_FAST               12 (contact_items)
+            530 CALL_FUNCTION            1
+            532 LOAD_CONST              16 (1)
+            534 BINARY_SUBTRACT
+            536 COMPARE_OP               2 (==)
+            538 EXTENDED_ARG             2
+            540 POP_JUMP_IF_FALSE      602
+
+455         542 LOAD_FAST               17 (contact_item)
+            544 LOAD_ATTR                1 (BoundingRectangle)
+            546 STORE_FAST              25 (item_rect)
+
+456         548 LOAD_FAST               25 (item_rect)
+            550 LOAD_ATTR                2 (bottom)
+            552 LOAD_FAST               25 (item_rect)
+            554 LOAD_ATTR               19 (top)
+            556 BINARY_SUBTRACT
+            558 STORE_FAST              26 (item_height)
+
+457         560 LOAD_FAST               14 (list_bottom)
+            562 LOAD_FAST               25 (item_rect)
+            564 LOAD_ATTR               19 (top)
+            566 BINARY_SUBTRACT
+            568 STORE_FAST              27 (visible_height)
+
+460         570 LOAD_FAST               27 (visible_height)
+            572 LOAD_FAST               26 (item_height)
+            574 LOAD_CONST              24 (0.6)
+            576 BINARY_MULTIPLY
+            578 COMPARE_OP               0 (<)
+            580 EXTENDED_ARG             2
+            582 POP_JUMP_IF_FALSE      602
+
+461         584 LOAD_GLOBAL              3 (logger)
+            586 LOAD_METHOD              4 (info)
+            588 LOAD_CONST              25 ('最后一个联系人项被遮挡超过40%，跳过处理，等待下次滚动')
+            590 CALL_METHOD              1
+            592 POP_TOP
+
+462         594 POP_BLOCK
+            596 POP_TOP
+            598 EXTENDED_ARG             4
+            600 JUMP_ABSOLUTE         1038
+
+465     >>  602 SETUP_FINALLY           60 (to 664)
+
+466         604 LOAD_FAST               17 (contact_item)
+            606 LOAD_ATTR               12 (ButtonControl)
+            608 LOAD_CONST              26 (3)
+            610 LOAD_CONST              18 (('foundIndex',))
+            612 CALL_FUNCTION_KW         1
+            614 STORE_FAST              28 (tag_control)
+
+467         616 LOAD_FAST               28 (tag_control)
+            618 LOAD_METHOD             10 (Exists)
+            620 LOAD_CONST              16 (1)
+            622 CALL_METHOD              1
+            624 EXTENDED_ARG             2
+            626 POP_JUMP_IF_FALSE      656
+
+468         628 LOAD_FAST               28 (tag_control)
+            630 LOAD_ATTR               11 (Name)
+            632 STORE_FAST              29 (tags_text)
+
+469         634 LOAD_CONST              27 (<code object <listcomp> at 0x1073b9b30, file "WeRobotCore/core/drivers/legacy_uia.py", line 469>)
+            636 LOAD_CONST              15 ('LegacyUiaDriver._process_visible_contacts.<locals>.<listcomp>')
+            638 MAKE_FUNCTION            0
+            640 LOAD_FAST               29 (tags_text)
+            642 LOAD_METHOD             20 (split)
+            644 LOAD_CONST              28 ('，')
+            646 CALL_METHOD              1
+            648 GET_ITER
+            650 CALL_FUNCTION            1
+            652 STORE_FAST              30 (tags)
+            654 JUMP_FORWARD             4 (to 660)
+
+472     >>  656 BUILD_LIST               0
+            658 STORE_FAST              30 (tags)
+        >>  660 POP_BLOCK
+            662 JUMP_FORWARD            16 (to 680)
+
+473     >>  664 POP_TOP
+            666 POP_TOP
+            668 POP_TOP
+
+474         670 BUILD_LIST               0
+            672 STORE_FAST              30 (tags)
+            674 POP_EXCEPT
+            676 JUMP_FORWARD             2 (to 680)
+            678 RERAISE
+
+478     >>  680 LOAD_FAST               23 (name)
+
+479         682 LOAD_FAST               20 (nick_name)
+
+480         684 LOAD_FAST               22 (remark_name)
+
+481         686 LOAD_FAST               30 (tags)
+
+482         688 LOAD_CONST              11 ('')
+
+477         690 LOAD_CONST              29 (('name', 'nickname', 'remark', 'tags', 'wxid'))
+            692 BUILD_CONST_KEY_MAP      5
+            694 STORE_FAST              31 (contact_info)
+
+486         696 LOAD_FAST                4 (collect_detailed_info)
+            698 EXTENDED_ARG             3
+            700 POP_JUMP_IF_FALSE      816
+
+487         702 SETUP_FINALLY           34 (to 738)
+
+488         704 LOAD_FAST                0 (self)
+            706 LOAD_METHOD             21 (_get_contact_wx_id)
+            708 LOAD_FAST                1 (contacts_window)
+            710 LOAD_FAST               17 (contact_item)
+            712 LOAD_FAST               23 (name)
+            714 CALL_METHOD              3
+            716 STORE_FAST              32 (wx_id)
+
+489         718 LOAD_FAST               32 (wx_id)
+            720 LOAD_FAST               31 (contact_info)
+            722 LOAD_CONST              30 ('wxid')
+            724 STORE_SUBSCR
+
+490         726 LOAD_FAST                9 (batch_processed)
+            728 LOAD_CONST              16 (1)
+            730 INPLACE_ADD
+            732 STORE_FAST               9 (batch_processed)
+            734 POP_BLOCK
+            736 JUMP_FORWARD            76 (to 814)
+
+492     >>  738 DUP_TOP
+            740 LOAD_GLOBAL             15 (Exception)
+            742 EXTENDED_ARG             3
+            744 JUMP_IF_NOT_EXC_MATCH   812
+            746 POP_TOP
+            748 STORE_FAST              24 (e)
+            750 POP_TOP
+            752 SETUP_FINALLY           50 (to 804)
+
+493         754 LOAD_GLOBAL             22 (print)
+            756 LOAD_CONST              31 ('获取联系人 ')
+            758 LOAD_FAST               23 (name)
+            760 FORMAT_VALUE             0
+            762 LOAD_CONST              32 (' 微信号失败: ')
+            764 LOAD_GLOBAL             17 (str)
+            766 LOAD_FAST               24 (e)
+            768 CALL_FUNCTION            1
+            770 FORMAT_VALUE             0
+            772 BUILD_STRING             4
+            774 CALL_FUNCTION            1
+            776 POP_TOP
+
+494         778 LOAD_FAST                0 (self)
+            780 LOAD_METHOD             23 (_generate_stable_wxid)
+            782 LOAD_FAST               23 (name)
+            784 CALL_METHOD              1
+            786 LOAD_FAST               31 (contact_info)
+            788 LOAD_CONST              30 ('wxid')
+            790 STORE_SUBSCR
+            792 POP_BLOCK
+            794 POP_EXCEPT
+            796 LOAD_CONST               7 (None)
+            798 STORE_FAST              24 (e)
+            800 DELETE_FAST             24 (e)
+            802 JUMP_FORWARD            10 (to 814)
+        >>  804 LOAD_CONST               7 (None)
+            806 STORE_FAST              24 (e)
+            808 DELETE_FAST             24 (e)
+            810 RERAISE
+        >>  812 RERAISE
+        >>  814 JUMP_FORWARD            14 (to 830)
+
+497     >>  816 LOAD_FAST                0 (self)
+            818 LOAD_METHOD             23 (_generate_stable_wxid)
+            820 LOAD_FAST               23 (name)
+            822 CALL_METHOD              1
+            824 LOAD_FAST               31 (contact_info)
+            826 LOAD_CONST              30 ('wxid')
+            828 STORE_SUBSCR
+
+500     >>  830 LOAD_FAST               31 (contact_info)
+            832 LOAD_CONST              30 ('wxid')
+            834 BINARY_SUBSCR
+            836 EXTENDED_ARG             3
+            838 POP_JUMP_IF_FALSE      848
+            840 LOAD_FAST               31 (contact_info)
+            842 LOAD_CONST              30 ('wxid')
+            844 BINARY_SUBSCR
+            846 JUMP_FORWARD             2 (to 850)
+        >>  848 LOAD_FAST               23 (name)
+        >>  850 STORE_FAST              33 (duplicate_key)
+
+501         852 LOAD_FAST               33 (duplicate_key)
+            854 EXTENDED_ARG             3
+            856 POP_JUMP_IF_FALSE      952
+            858 LOAD_FAST               33 (duplicate_key)
+            860 LOAD_FAST                8 (existing_wxids)
+            862 CONTAINS_OP              1
+            864 EXTENDED_ARG             3
+            866 POP_JUMP_IF_FALSE      952
+            868 LOAD_FAST               33 (duplicate_key)
+            870 LOAD_CONST              33 (<code object <listcomp> at 0x1073b97c0, file "WeRobotCore/core/drivers/legacy_uia.py", line 501>)
+            872 LOAD_CONST              15 ('LegacyUiaDriver._process_visible_contacts.<locals>.<listcomp>')
+            874 MAKE_FUNCTION            0
+            876 LOAD_FAST                3 (all_contacts)
+            878 GET_ITER
+            880 CALL_FUNCTION            1
+            882 CONTAINS_OP              1
+            884 EXTENDED_ARG             3
+            886 POP_JUMP_IF_FALSE      952
+
+502         888 LOAD_FAST                3 (all_contacts)
+            890 LOAD_METHOD             24 (append)
+            892 LOAD_FAST               31 (contact_info)
+            894 CALL_METHOD              1
+            896 POP_TOP
+
+503         898 LOAD_FAST               31 (contact_info)
+            900 LOAD_CONST              30 ('wxid')
+            902 BINARY_SUBSCR
+            904 EXTENDED_ARG             3
+            906 POP_JUMP_IF_FALSE      922
+
+504         908 LOAD_FAST                8 (existing_wxids)
+            910 LOAD_METHOD             25 (add)
+            912 LOAD_FAST               31 (contact_info)
+            914 LOAD_CONST              30 ('wxid')
+            916 BINARY_SUBSCR
+            918 CALL_METHOD              1
+            920 POP_TOP
+
+505     >>  922 LOAD_GLOBAL             22 (print)
+            924 LOAD_CONST              34 ('找到联系人: ')
+            926 LOAD_FAST               23 (name)
+            928 FORMAT_VALUE             0
+            930 LOAD_CONST              35 (', 标签: ')
+            932 LOAD_FAST               30 (tags)
+            934 FORMAT_VALUE             0
+            936 LOAD_CONST              36 (', 微信号: ')
+            938 LOAD_FAST               31 (contact_info)
+            940 LOAD_CONST              30 ('wxid')
+            942 BINARY_SUBSCR
+            944 FORMAT_VALUE             0
+            946 BUILD_STRING             6
+            948 CALL_FUNCTION            1
+            950 POP_TOP
+
+509     >>  952 LOAD_FAST               18 (current_runtime_id)
+
+510         954 LOAD_FAST               23 (name)
+
+508         956 LOAD_CONST              23 (('runtime_id', 'name'))
+            958 BUILD_CONST_KEY_MAP      2
+            960 STORE_FAST              11 (current_marker)
+            962 POP_BLOCK
+            964 JUMP_ABSOLUTE          114
+
+513     >>  966 DUP_TOP
+            968 LOAD_GLOBAL             15 (Exception)
+            970 EXTENDED_ARG             4
+            972 JUMP_IF_NOT_EXC_MATCH  1034
+            974 POP_TOP
+            976 STORE_FAST              24 (e)
+            978 POP_TOP
+            980 SETUP_FINALLY           44 (to 1026)
+
+514         982 LOAD_GLOBAL              3 (logger)
+            984 LOAD_METHOD             26 (error)
+            986 LOAD_CONST              37 ('处理联系人信息时出错: ')
+            988 LOAD_GLOBAL             17 (str)
+            990 LOAD_FAST               24 (e)
+            992 CALL_FUNCTION            1
+            994 FORMAT_VALUE             0
+            996 BUILD_STRING             2
+            998 CALL_METHOD              1
+           1000 POP_TOP
+
+515        1002 POP_BLOCK
+           1004 POP_EXCEPT
+           1006 LOAD_CONST               7 (None)
+           1008 STORE_FAST              24 (e)
+           1010 DELETE_FAST             24 (e)
+           1012 JUMP_ABSOLUTE          114
+           1014 POP_BLOCK
+           1016 POP_EXCEPT
+           1018 LOAD_CONST               7 (None)
+           1020 STORE_FAST              24 (e)
+           1022 DELETE_FAST             24 (e)
+           1024 JUMP_ABSOLUTE          114
+        >> 1026 LOAD_CONST               7 (None)
+           1028 STORE_FAST              24 (e)
+           1030 DELETE_FAST             24 (e)
+           1032 RERAISE
+        >> 1034 RERAISE
+           1036 JUMP_ABSOLUTE          114
+
+518     >> 1038 LOAD_FAST                6 (existing_names)
+           1040 LOAD_CONST               7 (None)
+           1042 IS_OP                    1
+           1044 EXTENDED_ARG             4
+           1046 POP_JUMP_IF_FALSE     1076
+           1048 LOAD_FAST               15 (skipped_count)
+           1050 LOAD_CONST               5 (0)
+           1052 COMPARE_OP               4 (>)
+           1054 EXTENDED_ARG             4
+           1056 POP_JUMP_IF_FALSE     1076
+
+519        1058 LOAD_GLOBAL              3 (logger)
+           1060 LOAD_METHOD              4 (info)
+           1062 LOAD_CONST              38 ('增量同步：已跳过 ')
+           1064 LOAD_FAST               15 (skipped_count)
+           1066 FORMAT_VALUE             0
+           1068 LOAD_CONST              39 (' 个已存在的联系人')
+           1070 BUILD_STRING             3
+           1072 CALL_METHOD              1
+           1074 POP_TOP
+
+522     >> 1076 LOAD_FAST               11 (current_marker)
+           1078 RETURN_VALUE
+
+Disassembly of <code object <setcomp> at 0x1073b92f0, file "WeRobotCore/core/drivers/legacy_uia.py", line 358>:
+358           0 BUILD_SET                0
+              2 LOAD_FAST                0 (.0)
+        >>    4 FOR_ITER                26 (to 32)
+              6 STORE_FAST               1 (contact)
+              8 LOAD_FAST                1 (contact)
+             10 LOAD_METHOD              0 (get)
+             12 LOAD_CONST               0 ('wxid')
+             14 CALL_METHOD              1
+             16 POP_JUMP_IF_FALSE        4
+             18 LOAD_FAST                1 (contact)
+             20 LOAD_METHOD              0 (get)
+             22 LOAD_CONST               0 ('wxid')
+             24 LOAD_CONST               1 ('')
+             26 CALL_METHOD              2
+             28 SET_ADD                  2
+             30 JUMP_ABSOLUTE            4
+        >>   32 RETURN_VALUE
+
+Disassembly of <code object <listcomp> at 0x1073b9be0, file "WeRobotCore/core/drivers/legacy_uia.py", line 386>:
+386           0 BUILD_LIST               0
+              2 LOAD_FAST                0 (.0)
+        >>    4 FOR_ITER                12 (to 18)
+              6 STORE_FAST               1 (i)
+              8 LOAD_GLOBAL              0 (str)
+             10 LOAD_FAST                1 (i)
+             12 CALL_FUNCTION            1
+             14 LIST_APPEND              2
+             16 JUMP_ABSOLUTE            4
+        >>   18 RETURN_VALUE
+
+Disassembly of <code object <listcomp> at 0x1073b9b30, file "WeRobotCore/core/drivers/legacy_uia.py", line 469>:
+469           0 BUILD_LIST               0
+              2 LOAD_FAST                0 (.0)
+        >>    4 FOR_ITER                32 (to 38)
+              6 STORE_FAST               1 (tag)
+
+470           8 LOAD_FAST                1 (tag)
+             10 LOAD_METHOD              0 (strip)
+             12 CALL_METHOD              0
+             14 POP_JUMP_IF_FALSE        4
+             16 LOAD_FAST                1 (tag)
+             18 LOAD_METHOD              0 (strip)
+             20 CALL_METHOD              0
+             22 LOAD_CONST               0 ('添加标签')
+             24 COMPARE_OP               3 (!=)
+             26 POP_JUMP_IF_FALSE        4
+
+469          28 LOAD_FAST                1 (tag)
+             30 LOAD_METHOD              0 (strip)
+             32 CALL_METHOD              0
+             34 LIST_APPEND              2
+             36 JUMP_ABSOLUTE            4
+        >>   38 RETURN_VALUE
+
+Disassembly of <code object <listcomp> at 0x1073b97c0, file "WeRobotCore/core/drivers/legacy_uia.py", line 501>:
+501           0 BUILD_LIST               0
+              2 LOAD_FAST                0 (.0)
+        >>    4 FOR_ITER                20 (to 26)
+              6 STORE_FAST               1 (c)
+              8 LOAD_FAST                1 (c)
+             10 LOAD_METHOD              0 (get)
+             12 LOAD_CONST               0 ('wxid')
+             14 LOAD_FAST                1 (c)
+             16 LOAD_CONST               1 ('name')
+             18 BINARY_SUBSCR
+             20 CALL_METHOD              2
+             22 LIST_APPEND              2
+             24 JUMP_ABSOLUTE            4
+        >>   26 RETURN_VALUE
+
+Disassembly of <code object _process_group_list at 0x1073b9870, file "WeRobotCore/core/drivers/legacy_uia.py", line 608>:
+609           0 LOAD_FAST                1 (list_control)
+              2 LOAD_METHOD              0 (GetChildren)
+              4 CALL_METHOD              0
+              6 GET_ITER
+        >>    8 FOR_ITER               102 (to 112)
+             10 STORE_FAST               3 (item)
+
+610          12 SETUP_FINALLY           74 (to 88)
+
+611          14 LOAD_FAST                3 (item)
+             16 LOAD_METHOD              1 (ButtonControl)
+             18 CALL_METHOD              0
+             20 STORE_FAST               4 (group_button)
+
+612          22 LOAD_FAST                4 (group_button)
+             24 LOAD_METHOD              2 (Exists)
+             26 LOAD_CONST               1 (1)
+             28 CALL_METHOD              1
+             30 POP_JUMP_IF_FALSE       84
+
+613          32 LOAD_FAST                4 (group_button)
+             34 LOAD_ATTR                3 (Name)
+             36 STORE_FAST               5 (name)
+
+614          38 LOAD_FAST                5 (name)
+             40 POP_JUMP_IF_FALSE       84
+             42 LOAD_FAST                5 (name)
+             44 LOAD_CONST               2 ('最近群聊')
+             46 COMPARE_OP               3 (!=)
+             48 POP_JUMP_IF_FALSE       84
+             50 LOAD_FAST                5 (name)
+             52 LOAD_CONST               3 (<code object <listcomp> at 0x1073b99d0, file "WeRobotCore/core/drivers/legacy_uia.py", line 614>)
+             54 LOAD_CONST               4 ('LegacyUiaDriver._process_group_list.<locals>.<listcomp>')
+             56 MAKE_FUNCTION            0
+             58 LOAD_FAST                2 (all_groups)
+             60 GET_ITER
+             62 CALL_FUNCTION            1
+             64 CONTAINS_OP              1
+             66 POP_JUMP_IF_FALSE       84
+
+615          68 LOAD_FAST                2 (all_groups)
+             70 LOAD_METHOD              4 (append)
+             72 LOAD_FAST                5 (name)
+             74 LOAD_CONST               5 ('group')
+             76 LOAD_CONST               6 (('name', 'type'))
+             78 BUILD_CONST_KEY_MAP      2
+             80 CALL_METHOD              1
+             82 POP_TOP
+        >>   84 POP_BLOCK
+             86 JUMP_ABSOLUTE            8
+
+616     >>   88 DUP_TOP
+             90 LOAD_GLOBAL              5 (Exception)
+             92 JUMP_IF_NOT_EXC_MATCH   108
+             94 POP_TOP
+             96 POP_TOP
+             98 POP_TOP
+
+617         100 POP_EXCEPT
+            102 JUMP_ABSOLUTE            8
+            104 POP_EXCEPT
+            106 JUMP_ABSOLUTE            8
+        >>  108 RERAISE
+            110 JUMP_ABSOLUTE            8
+        >>  112 LOAD_CONST               0 (None)
+            114 RETURN_VALUE
+
+Disassembly of <code object <listcomp> at 0x1073b99d0, file "WeRobotCore/core/drivers/legacy_uia.py", line 614>:
+614           0 BUILD_LIST               0
+              2 LOAD_FAST                0 (.0)
+        >>    4 FOR_ITER                12 (to 18)
+              6 STORE_FAST               1 (g)
+              8 LOAD_FAST                1 (g)
+             10 LOAD_CONST               0 ('name')
+             12 BINARY_SUBSCR
+             14 LIST_APPEND              2
+             16 JUMP_ABSOLUTE            4
+        >>   18 RETURN_VALUE

@@ -1,0 +1,71 @@
+  1           0 LOAD_CONST               0 (0)
+              2 LOAD_CONST               1 (None)
+              4 IMPORT_NAME              0 (os)
+              6 STORE_NAME               0 (os)
+
+  2           8 LOAD_CONST               0 (0)
+             10 LOAD_CONST               2 (('Optional',))
+             12 IMPORT_NAME              1 (typing)
+             14 IMPORT_FROM              2 (Optional)
+             16 STORE_NAME               2 (Optional)
+             18 POP_TOP
+
+  4          20 LOAD_CONST               3 (1)
+             22 LOAD_CONST               4 (('detect_version', 'WeChatVersion'))
+             24 IMPORT_NAME              3 (version_detector)
+             26 IMPORT_FROM              4 (detect_version)
+             28 STORE_NAME               4 (detect_version)
+             30 IMPORT_FROM              5 (WeChatVersion)
+             32 STORE_NAME               5 (WeChatVersion)
+             34 POP_TOP
+
+  7          36 LOAD_CONST               8 ((None,))
+             38 LOAD_NAME                2 (Optional)
+             40 LOAD_NAME                6 (int)
+             42 BINARY_SUBSCR
+             44 LOAD_CONST               5 (('window_handle',))
+             46 BUILD_CONST_KEY_MAP      1
+             48 LOAD_CONST               6 (<code object create_driver at 0x1073b9c90, file "WeRobotCore/core/wechat_factory.py", line 7>)
+             50 LOAD_CONST               7 ('create_driver')
+             52 MAKE_FUNCTION            5 (defaults, annotations)
+             54 STORE_NAME               7 (create_driver)
+             56 LOAD_CONST               1 (None)
+             58 RETURN_VALUE
+
+Disassembly of <code object create_driver at 0x1073b9c90, file "WeRobotCore/core/wechat_factory.py", line 7>:
+ 14           0 LOAD_CONST               1 (1)
+              2 LOAD_CONST               2 (('LegacyUiaDriver',))
+              4 IMPORT_NAME              0 (drivers.legacy_uia)
+              6 IMPORT_FROM              1 (LegacyUiaDriver)
+              8 STORE_FAST               1 (LegacyUiaDriver)
+             10 POP_TOP
+
+ 15          12 LOAD_CONST               1 (1)
+             14 LOAD_CONST               3 (('PyWeixinDriver',))
+             16 IMPORT_NAME              2 (drivers.pyweixin)
+             18 IMPORT_FROM              3 (PyWeixinDriver)
+             20 STORE_FAST               2 (PyWeixinDriver)
+             22 POP_TOP
+
+ 17          24 LOAD_GLOBAL              4 (detect_version)
+             26 LOAD_FAST                0 (window_handle)
+             28 CALL_FUNCTION            1
+             30 STORE_FAST               3 (version)
+
+ 19          32 LOAD_FAST                3 (version)
+             34 LOAD_GLOBAL              5 (WeChatVersion)
+             36 LOAD_ATTR                6 (MODERN_4_1)
+             38 COMPARE_OP               2 (==)
+             40 POP_JUMP_IF_FALSE       52
+
+ 20          42 LOAD_FAST                2 (PyWeixinDriver)
+             44 LOAD_FAST                0 (window_handle)
+             46 LOAD_CONST               4 (('window_handle',))
+             48 CALL_FUNCTION_KW         1
+             50 RETURN_VALUE
+
+ 21     >>   52 LOAD_FAST                1 (LegacyUiaDriver)
+             54 LOAD_FAST                0 (window_handle)
+             56 LOAD_CONST               4 (('window_handle',))
+             58 CALL_FUNCTION_KW         1
+             60 RETURN_VALUE

@@ -1,0 +1,304 @@
+  1           0 LOAD_CONST               0 ('\n基于 Windows DPAPI 的轻量字符串加解密。\n\n用途：把 voice_settings 等配置里的敏感字段（access_token、api_key）\n在落盘前加密，避免明文存储。同一台机器的同一用户解得开，换机器/换用户解不开。\n\n读到加密失败的字段（升级前的明文 / 损坏密文）时返回原值，\n保证配置不会因为加解密问题完全打不开。\n\n非 Windows 平台或 pywin32/win32crypt 不可用时退化为原文（透明 no-op）。\n')
+              2 STORE_NAME               0 (__doc__)
+
+ 12           4 LOAD_CONST               1 (0)
+              6 LOAD_CONST               2 (('Optional',))
+              8 IMPORT_NAME              1 (typing)
+             10 IMPORT_FROM              2 (Optional)
+             12 STORE_NAME               2 (Optional)
+             14 POP_TOP
+
+ 13          16 LOAD_CONST               1 (0)
+             18 LOAD_CONST               3 (None)
+             20 IMPORT_NAME              3 (base64)
+             22 STORE_NAME               3 (base64)
+
+ 15          24 SETUP_FINALLY           12 (to 38)
+
+ 16          26 LOAD_CONST               1 (0)
+             28 LOAD_CONST               3 (None)
+             30 IMPORT_NAME              4 (win32crypt)
+             32 STORE_NAME               4 (win32crypt)
+             34 POP_BLOCK
+             36 JUMP_FORWARD            22 (to 60)
+
+ 17     >>   38 DUP_TOP
+             40 LOAD_NAME                5 (Exception)
+             42 JUMP_IF_NOT_EXC_MATCH    58
+             44 POP_TOP
+             46 POP_TOP
+             48 POP_TOP
+
+ 18          50 LOAD_CONST               3 (None)
+             52 STORE_NAME               4 (win32crypt)
+             54 POP_EXCEPT
+             56 JUMP_FORWARD             2 (to 60)
+        >>   58 RERAISE
+
+ 22     >>   60 LOAD_CONST               4 ('dpapi:v1:')
+             62 STORE_NAME               6 (_ENC_PREFIX)
+
+ 25          64 LOAD_NAME                2 (Optional)
+             66 LOAD_NAME                7 (str)
+             68 BINARY_SUBSCR
+             70 LOAD_NAME                8 (bool)
+             72 LOAD_CONST               5 (('value', 'return'))
+             74 BUILD_CONST_KEY_MAP      2
+             76 LOAD_CONST               6 (<code object is_encrypted at 0x10924b500, file "WeRobotCore/utils/dpapi_crypto.py", line 25>)
+             78 LOAD_CONST               7 ('is_encrypted')
+             80 MAKE_FUNCTION            4 (annotations)
+             82 STORE_NAME               9 (is_encrypted)
+
+ 29          84 LOAD_NAME                2 (Optional)
+             86 LOAD_NAME                7 (str)
+             88 BINARY_SUBSCR
+             90 LOAD_NAME                2 (Optional)
+             92 LOAD_NAME                7 (str)
+             94 BINARY_SUBSCR
+             96 LOAD_CONST               8 (('plaintext', 'return'))
+             98 BUILD_CONST_KEY_MAP      2
+            100 LOAD_CONST               9 (<code object encrypt at 0x10924b9d0, file "WeRobotCore/utils/dpapi_crypto.py", line 29>)
+            102 LOAD_CONST              10 ('encrypt')
+            104 MAKE_FUNCTION            4 (annotations)
+            106 STORE_NAME              10 (encrypt)
+
+ 49         108 LOAD_NAME                2 (Optional)
+            110 LOAD_NAME                7 (str)
+            112 BINARY_SUBSCR
+            114 LOAD_NAME                2 (Optional)
+            116 LOAD_NAME                7 (str)
+            118 BINARY_SUBSCR
+            120 LOAD_CONST               5 (('value', 'return'))
+            122 BUILD_CONST_KEY_MAP      2
+            124 LOAD_CONST              11 (<code object decrypt at 0x10924b450, file "WeRobotCore/utils/dpapi_crypto.py", line 49>)
+            126 LOAD_CONST              12 ('decrypt')
+            128 MAKE_FUNCTION            4 (annotations)
+            130 STORE_NAME              11 (decrypt)
+
+ 65         132 LOAD_CONST              18 ((4, 2))
+            134 LOAD_NAME                2 (Optional)
+            136 LOAD_NAME                7 (str)
+            138 BINARY_SUBSCR
+            140 LOAD_NAME               12 (int)
+            142 LOAD_NAME               12 (int)
+            144 LOAD_NAME                7 (str)
+            146 LOAD_CONST              15 (('value', 'keep_head', 'keep_tail', 'return'))
+            148 BUILD_CONST_KEY_MAP      4
+            150 LOAD_CONST              16 (<code object mask at 0x10924b920, file "WeRobotCore/utils/dpapi_crypto.py", line 65>)
+            152 LOAD_CONST              17 ('mask')
+            154 MAKE_FUNCTION            5 (defaults, annotations)
+            156 STORE_NAME              13 (mask)
+            158 LOAD_CONST               3 (None)
+            160 RETURN_VALUE
+
+Disassembly of <code object is_encrypted at 0x10924b500, file "WeRobotCore/utils/dpapi_crypto.py", line 25>:
+ 26           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                0 (value)
+              4 LOAD_GLOBAL              1 (str)
+              6 CALL_FUNCTION            2
+              8 JUMP_IF_FALSE_OR_POP    18
+             10 LOAD_FAST                0 (value)
+             12 LOAD_METHOD              2 (startswith)
+             14 LOAD_GLOBAL              3 (_ENC_PREFIX)
+             16 CALL_METHOD              1
+        >>   18 RETURN_VALUE
+
+Disassembly of <code object encrypt at 0x10924b9d0, file "WeRobotCore/utils/dpapi_crypto.py", line 29>:
+ 31           0 LOAD_FAST                0 (plaintext)
+              2 POP_JUMP_IF_TRUE         8
+
+ 32           4 LOAD_FAST                0 (plaintext)
+              6 RETURN_VALUE
+
+ 33     >>    8 LOAD_GLOBAL              0 (win32crypt)
+             10 LOAD_CONST               1 (None)
+             12 IS_OP                    0
+             14 POP_JUMP_IF_FALSE       20
+
+ 34          16 LOAD_FAST                0 (plaintext)
+             18 RETURN_VALUE
+
+ 35     >>   20 LOAD_GLOBAL              1 (is_encrypted)
+             22 LOAD_FAST                0 (plaintext)
+             24 CALL_FUNCTION            1
+             26 POP_JUMP_IF_FALSE       32
+
+ 37          28 LOAD_FAST                0 (plaintext)
+             30 RETURN_VALUE
+
+ 38     >>   32 SETUP_FINALLY           48 (to 82)
+
+ 39          34 LOAD_GLOBAL              0 (win32crypt)
+             36 LOAD_METHOD              2 (CryptProtectData)
+
+ 40          38 LOAD_FAST                0 (plaintext)
+             40 LOAD_METHOD              3 (encode)
+             42 LOAD_CONST               2 ('utf-8')
+             44 CALL_METHOD              1
+
+ 41          46 LOAD_CONST               3 ('yokowebot_voice')
+
+ 42          48 LOAD_CONST               1 (None)
+             50 LOAD_CONST               1 (None)
+             52 LOAD_CONST               1 (None)
+             54 LOAD_CONST               4 (0)
+
+ 39          56 CALL_METHOD              6
+             58 STORE_FAST               1 (blob)
+
+ 44          60 LOAD_GLOBAL              4 (_ENC_PREFIX)
+             62 LOAD_GLOBAL              5 (base64)
+             64 LOAD_METHOD              6 (b64encode)
+             66 LOAD_FAST                1 (blob)
+             68 CALL_METHOD              1
+             70 LOAD_METHOD              7 (decode)
+             72 LOAD_CONST               5 ('ascii')
+             74 CALL_METHOD              1
+             76 BINARY_ADD
+             78 POP_BLOCK
+             80 RETURN_VALUE
+
+ 45     >>   82 DUP_TOP
+             84 LOAD_GLOBAL              8 (Exception)
+             86 JUMP_IF_NOT_EXC_MATCH   102
+             88 POP_TOP
+             90 POP_TOP
+             92 POP_TOP
+
+ 46          94 LOAD_FAST                0 (plaintext)
+             96 ROT_FOUR
+             98 POP_EXCEPT
+            100 RETURN_VALUE
+        >>  102 RERAISE
+            104 LOAD_CONST               1 (None)
+            106 RETURN_VALUE
+
+Disassembly of <code object decrypt at 0x10924b450, file "WeRobotCore/utils/dpapi_crypto.py", line 49>:
+ 51           0 LOAD_FAST                0 (value)
+              2 POP_JUMP_IF_TRUE         8
+
+ 52           4 LOAD_FAST                0 (value)
+              6 RETURN_VALUE
+
+ 53     >>    8 LOAD_GLOBAL              0 (is_encrypted)
+             10 LOAD_FAST                0 (value)
+             12 CALL_FUNCTION            1
+             14 POP_JUMP_IF_TRUE        20
+
+ 54          16 LOAD_FAST                0 (value)
+             18 RETURN_VALUE
+
+ 55     >>   20 LOAD_GLOBAL              1 (win32crypt)
+             22 LOAD_CONST               1 (None)
+             24 IS_OP                    0
+             26 POP_JUMP_IF_FALSE       32
+
+ 56          28 LOAD_FAST                0 (value)
+             30 RETURN_VALUE
+
+ 57     >>   32 SETUP_FINALLY           62 (to 96)
+
+ 58          34 LOAD_GLOBAL              2 (base64)
+             36 LOAD_METHOD              3 (b64decode)
+             38 LOAD_FAST                0 (value)
+             40 LOAD_GLOBAL              4 (len)
+             42 LOAD_GLOBAL              5 (_ENC_PREFIX)
+             44 CALL_FUNCTION            1
+             46 LOAD_CONST               1 (None)
+             48 BUILD_SLICE              2
+             50 BINARY_SUBSCR
+             52 LOAD_METHOD              6 (encode)
+             54 LOAD_CONST               2 ('ascii')
+             56 CALL_METHOD              1
+             58 CALL_METHOD              1
+             60 STORE_FAST               1 (blob)
+
+ 59          62 LOAD_GLOBAL              1 (win32crypt)
+             64 LOAD_METHOD              7 (CryptUnprotectData)
+             66 LOAD_FAST                1 (blob)
+             68 LOAD_CONST               1 (None)
+             70 LOAD_CONST               1 (None)
+             72 LOAD_CONST               1 (None)
+             74 LOAD_CONST               3 (0)
+             76 CALL_METHOD              5
+             78 UNPACK_SEQUENCE          2
+             80 STORE_FAST               2 (_)
+             82 STORE_FAST               3 (plaintext)
+
+ 60          84 LOAD_FAST                3 (plaintext)
+             86 LOAD_METHOD              8 (decode)
+             88 LOAD_CONST               4 ('utf-8')
+             90 CALL_METHOD              1
+             92 POP_BLOCK
+             94 RETURN_VALUE
+
+ 61     >>   96 DUP_TOP
+             98 LOAD_GLOBAL              9 (Exception)
+            100 JUMP_IF_NOT_EXC_MATCH   116
+            102 POP_TOP
+            104 POP_TOP
+            106 POP_TOP
+
+ 62         108 LOAD_FAST                0 (value)
+            110 ROT_FOUR
+            112 POP_EXCEPT
+            114 RETURN_VALUE
+        >>  116 RERAISE
+            118 LOAD_CONST               1 (None)
+            120 RETURN_VALUE
+
+Disassembly of <code object mask at 0x10924b920, file "WeRobotCore/utils/dpapi_crypto.py", line 65>:
+ 67           0 LOAD_FAST                0 (value)
+              2 POP_JUMP_IF_TRUE         8
+
+ 68           4 LOAD_CONST               1 ('')
+              6 RETURN_VALUE
+
+ 69     >>    8 LOAD_GLOBAL              0 (is_encrypted)
+             10 LOAD_FAST                0 (value)
+             12 CALL_FUNCTION            1
+             14 POP_JUMP_IF_FALSE       24
+             16 LOAD_GLOBAL              1 (decrypt)
+             18 LOAD_FAST                0 (value)
+             20 CALL_FUNCTION            1
+             22 JUMP_FORWARD             2 (to 26)
+        >>   24 LOAD_FAST                0 (value)
+        >>   26 STORE_FAST               3 (plain)
+
+ 70          28 LOAD_FAST                3 (plain)
+             30 POP_JUMP_IF_TRUE        36
+
+ 71          32 LOAD_CONST               1 ('')
+             34 RETURN_VALUE
+
+ 72     >>   36 LOAD_GLOBAL              2 (len)
+             38 LOAD_FAST                3 (plain)
+             40 CALL_FUNCTION            1
+             42 LOAD_FAST                1 (keep_head)
+             44 LOAD_FAST                2 (keep_tail)
+             46 BINARY_ADD
+             48 COMPARE_OP               1 (<=)
+             50 POP_JUMP_IF_FALSE       64
+
+ 73          52 LOAD_CONST               2 ('•')
+             54 LOAD_GLOBAL              2 (len)
+             56 LOAD_FAST                3 (plain)
+             58 CALL_FUNCTION            1
+             60 BINARY_MULTIPLY
+             62 RETURN_VALUE
+
+ 74     >>   64 LOAD_FAST                3 (plain)
+             66 LOAD_CONST               3 (None)
+             68 LOAD_FAST                1 (keep_head)
+             70 BUILD_SLICE              2
+             72 BINARY_SUBSCR
+             74 LOAD_CONST               4 ('••••••')
+             76 BINARY_ADD
+             78 LOAD_FAST                3 (plain)
+             80 LOAD_FAST                2 (keep_tail)
+             82 UNARY_NEGATIVE
+             84 LOAD_CONST               3 (None)
+             86 BUILD_SLICE              2
+             88 BINARY_SUBSCR
+             90 BINARY_ADD
+             92 RETURN_VALUE

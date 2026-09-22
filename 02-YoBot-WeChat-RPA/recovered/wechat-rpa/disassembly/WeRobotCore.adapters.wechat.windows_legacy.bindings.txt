@@ -1,0 +1,650 @@
+  1           0 LOAD_CONST               0 ('Process-local Windows Legacy bindings that never cross public contracts.')
+              2 STORE_NAME               0 (__doc__)
+
+  3           4 LOAD_CONST               1 (0)
+              6 LOAD_CONST               2 (('OrderedDict',))
+              8 IMPORT_NAME              1 (collections)
+             10 IMPORT_FROM              2 (OrderedDict)
+             12 STORE_NAME               2 (OrderedDict)
+             14 POP_TOP
+
+  4          16 LOAD_CONST               1 (0)
+             18 LOAD_CONST               3 (('Any', 'Dict', 'Mapping', 'Optional', 'Sequence', 'Tuple'))
+             20 IMPORT_NAME              3 (typing)
+             22 IMPORT_FROM              4 (Any)
+             24 STORE_NAME               4 (Any)
+             26 IMPORT_FROM              5 (Dict)
+             28 STORE_NAME               5 (Dict)
+             30 IMPORT_FROM              6 (Mapping)
+             32 STORE_NAME               6 (Mapping)
+             34 IMPORT_FROM              7 (Optional)
+             36 STORE_NAME               7 (Optional)
+             38 IMPORT_FROM              8 (Sequence)
+             40 STORE_NAME               8 (Sequence)
+             42 IMPORT_FROM              9 (Tuple)
+             44 STORE_NAME               9 (Tuple)
+             46 POP_TOP
+
+  6          48 LOAD_CONST               1 (0)
+             50 LOAD_CONST               4 (('AccountInstance', 'AutomationError', 'ErrorCode', 'InstanceId', 'InstanceState', 'MessageRecord', 'SessionSummary'))
+             52 IMPORT_NAME             10 (WeRobotCore.domain)
+             54 IMPORT_FROM             11 (AccountInstance)
+             56 STORE_NAME              11 (AccountInstance)
+             58 IMPORT_FROM             12 (AutomationError)
+             60 STORE_NAME              12 (AutomationError)
+             62 IMPORT_FROM             13 (ErrorCode)
+             64 STORE_NAME              13 (ErrorCode)
+             66 IMPORT_FROM             14 (InstanceId)
+             68 STORE_NAME              14 (InstanceId)
+             70 IMPORT_FROM             15 (InstanceState)
+             72 STORE_NAME              15 (InstanceState)
+             74 IMPORT_FROM             16 (MessageRecord)
+             76 STORE_NAME              16 (MessageRecord)
+             78 IMPORT_FROM             17 (SessionSummary)
+             80 STORE_NAME              17 (SessionSummary)
+             82 POP_TOP
+
+ 15          84 LOAD_CONST               1 (0)
+             86 LOAD_CONST               5 (('InstanceRegistry',))
+             88 IMPORT_NAME             18 (WeRobotCore.ports.wechat)
+             90 IMPORT_FROM             19 (InstanceRegistry)
+             92 STORE_NAME              19 (InstanceRegistry)
+             94 POP_TOP
+
+ 19          96 LOAD_NAME               19 (InstanceRegistry)
+
+ 20          98 LOAD_NAME               14 (InstanceId)
+
+ 21         100 LOAD_NAME               11 (AccountInstance)
+
+ 18         102 LOAD_CONST               6 (('instances', 'instance_id', 'return'))
+            104 BUILD_CONST_KEY_MAP      3
+            106 LOAD_CONST               7 (<code object require_ready_account at 0x10924bf50, file "WeRobotCore/adapters/wechat/windows_legacy/bindings.py", line 18>)
+            108 LOAD_CONST               8 ('require_ready_account')
+            110 MAKE_FUNCTION            4 (annotations)
+            112 STORE_NAME              20 (require_ready_account)
+
+ 64         114 LOAD_BUILD_CLASS
+            116 LOAD_CONST               9 (<code object LegacySessionIndex at 0x10924b710, file "WeRobotCore/adapters/wechat/windows_legacy/bindings.py", line 64>)
+            118 LOAD_CONST              10 ('LegacySessionIndex')
+            120 MAKE_FUNCTION            0
+            122 LOAD_CONST              10 ('LegacySessionIndex')
+            124 CALL_FUNCTION            2
+            126 STORE_NAME              21 (LegacySessionIndex)
+
+ 99         128 LOAD_BUILD_CLASS
+            130 LOAD_CONST              11 (<code object LegacyMessageEvidenceStore at 0x10924b450, file "WeRobotCore/adapters/wechat/windows_legacy/bindings.py", line 99>)
+            132 LOAD_CONST              12 ('LegacyMessageEvidenceStore')
+            134 MAKE_FUNCTION            0
+            136 LOAD_CONST              12 ('LegacyMessageEvidenceStore')
+            138 CALL_FUNCTION            2
+            140 STORE_NAME              22 (LegacyMessageEvidenceStore)
+            142 LOAD_CONST              13 (None)
+            144 RETURN_VALUE
+
+Disassembly of <code object require_ready_account at 0x10924bf50, file "WeRobotCore/adapters/wechat/windows_legacy/bindings.py", line 18>:
+ 24           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                1 (instance_id)
+              4 LOAD_GLOBAL              1 (InstanceId)
+              6 CALL_FUNCTION            2
+              8 POP_JUMP_IF_TRUE        22
+
+ 25          10 LOAD_GLOBAL              2 (AutomationError)
+
+ 26          12 LOAD_GLOBAL              3 (ErrorCode)
+             14 LOAD_ATTR                4 (INVALID_ARGUMENT)
+
+ 27          16 LOAD_CONST               1 ('instance_id must be an InstanceId')
+
+ 25          18 CALL_FUNCTION            2
+             20 RAISE_VARARGS            1
+
+ 29     >>   22 SETUP_FINALLY           18 (to 42)
+
+ 30          24 LOAD_FAST                0 (instances)
+             26 LOAD_METHOD              5 (list_attached)
+             28 CALL_METHOD              0
+             30 GET_AWAITABLE
+             32 LOAD_CONST               2 (None)
+             34 YIELD_FROM
+             36 STORE_FAST               2 (attached)
+             38 POP_BLOCK
+             40 JUMP_FORWARD            78 (to 120)
+
+ 31     >>   42 DUP_TOP
+             44 LOAD_GLOBAL              2 (AutomationError)
+             46 JUMP_IF_NOT_EXC_MATCH    60
+             48 POP_TOP
+             50 POP_TOP
+             52 POP_TOP
+
+ 32          54 RAISE_VARARGS            0
+             56 POP_EXCEPT
+             58 JUMP_FORWARD            60 (to 120)
+
+ 33     >>   60 DUP_TOP
+             62 LOAD_GLOBAL              6 (Exception)
+             64 JUMP_IF_NOT_EXC_MATCH   118
+             66 POP_TOP
+             68 STORE_FAST               3 (exc)
+             70 POP_TOP
+             72 SETUP_FINALLY           36 (to 110)
+
+ 34          74 LOAD_GLOBAL              2 (AutomationError)
+
+ 35          76 LOAD_GLOBAL              3 (ErrorCode)
+             78 LOAD_ATTR                7 (OPERATION_FAILED)
+
+ 36          80 LOAD_CONST               3 ('attached instances could not be read: {}')
+             82 LOAD_METHOD              8 (format)
+             84 LOAD_FAST                3 (exc)
+             86 CALL_METHOD              1
+
+ 37          88 LOAD_CONST               4 (True)
+
+ 34          90 LOAD_CONST               5 (('retryable',))
+             92 CALL_FUNCTION_KW         3
+
+ 38          94 LOAD_FAST                3 (exc)
+
+ 34          96 RAISE_VARARGS            2
+             98 POP_BLOCK
+            100 POP_EXCEPT
+            102 LOAD_CONST               2 (None)
+            104 STORE_FAST               3 (exc)
+            106 DELETE_FAST              3 (exc)
+            108 JUMP_FORWARD            10 (to 120)
+        >>  110 LOAD_CONST               2 (None)
+            112 STORE_FAST               3 (exc)
+            114 DELETE_FAST              3 (exc)
+            116 RERAISE
+        >>  118 RERAISE
+
+ 39     >>  120 LOAD_FAST                2 (attached)
+            122 GET_ITER
+        >>  124 FOR_ITER                98 (to 224)
+            126 STORE_FAST               4 (instance)
+
+ 40         128 LOAD_FAST                4 (instance)
+            130 LOAD_ATTR                9 (instance_id)
+            132 LOAD_FAST                1 (instance_id)
+            134 COMPARE_OP               3 (!=)
+            136 POP_JUMP_IF_FALSE      140
+
+ 41         138 JUMP_ABSOLUTE          124
+
+ 42     >>  140 LOAD_FAST                4 (instance)
+            142 LOAD_ATTR               10 (account_id)
+            144 POP_JUMP_IF_TRUE       168
+
+ 43         146 LOAD_GLOBAL              2 (AutomationError)
+
+ 44         148 LOAD_GLOBAL              3 (ErrorCode)
+            150 LOAD_ATTR               11 (ACCOUNT_NOT_INITIALIZED)
+
+ 45         152 LOAD_CONST               6 ('Legacy instance has no initialized account: {}')
+            154 LOAD_METHOD              8 (format)
+            156 LOAD_FAST                1 (instance_id)
+            158 CALL_METHOD              1
+
+ 46         160 LOAD_CONST               4 (True)
+
+ 43         162 LOAD_CONST               5 (('retryable',))
+            164 CALL_FUNCTION_KW         3
+            166 RAISE_VARARGS            1
+
+ 48     >>  168 LOAD_FAST                4 (instance)
+            170 LOAD_ATTR               12 (state)
+            172 LOAD_GLOBAL             13 (InstanceState)
+            174 LOAD_ATTR               14 (READY)
+            176 IS_OP                    1
+            178 POP_JUMP_IF_FALSE      216
+
+ 49         180 LOAD_GLOBAL              2 (AutomationError)
+
+ 50         182 LOAD_GLOBAL              3 (ErrorCode)
+            184 LOAD_ATTR               15 (INSTANCE_NOT_READY)
+
+ 51         186 LOAD_CONST               7 ('Legacy instance is not ready: {} ({})')
+            188 LOAD_METHOD              8 (format)
+
+ 52         190 LOAD_FAST                1 (instance_id)
+
+ 53         192 LOAD_FAST                4 (instance)
+            194 LOAD_ATTR               12 (state)
+            196 LOAD_ATTR               16 (value)
+
+ 51         198 CALL_METHOD              2
+
+ 55         200 LOAD_FAST                4 (instance)
+            202 LOAD_ATTR               12 (state)
+            204 LOAD_GLOBAL             13 (InstanceState)
+            206 LOAD_ATTR               17 (OFFLINE)
+            208 IS_OP                    0
+
+ 49         210 LOAD_CONST               5 (('retryable',))
+            212 CALL_FUNCTION_KW         3
+            214 RAISE_VARARGS            1
+
+ 57     >>  216 LOAD_FAST                4 (instance)
+            218 ROT_TWO
+            220 POP_TOP
+            222 RETURN_VALUE
+
+ 58     >>  224 LOAD_GLOBAL              2 (AutomationError)
+
+ 59         226 LOAD_GLOBAL              3 (ErrorCode)
+            228 LOAD_ATTR               18 (INSTANCE_NOT_FOUND)
+
+ 60         230 LOAD_CONST               8 ('Legacy instance is not attached: {}')
+            232 LOAD_METHOD              8 (format)
+            234 LOAD_FAST                1 (instance_id)
+            236 CALL_METHOD              1
+
+ 58         238 CALL_FUNCTION            2
+            240 RAISE_VARARGS            1
+            242 LOAD_CONST               2 (None)
+            244 RETURN_VALUE
+
+Disassembly of <code object LegacySessionIndex at 0x10924b710, file "WeRobotCore/adapters/wechat/windows_legacy/bindings.py", line 64>:
+ 64           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('LegacySessionIndex')
+              6 STORE_NAME               2 (__qualname__)
+
+ 65           8 LOAD_CONST               1 ('Map public session ids to Legacy UI names for one process lifetime.')
+             10 STORE_NAME               3 (__doc__)
+
+ 67          12 LOAD_CONST               2 (None)
+             14 LOAD_CONST               3 (('return',))
+             16 BUILD_CONST_KEY_MAP      1
+             18 LOAD_CONST               4 (<code object __init__ at 0x10924b190, file "WeRobotCore/adapters/wechat/windows_legacy/bindings.py", line 67>)
+             20 LOAD_CONST               5 ('LegacySessionIndex.__init__')
+             22 MAKE_FUNCTION            4 (annotations)
+             24 STORE_NAME               4 (__init__)
+
+ 72          26 LOAD_NAME                5 (InstanceId)
+
+ 73          28 LOAD_NAME                6 (Sequence)
+             30 LOAD_NAME                7 (SessionSummary)
+             32 BINARY_SUBSCR
+
+ 74          34 LOAD_CONST               2 (None)
+
+ 70          36 LOAD_CONST               6 (('instance_id', 'sessions', 'return'))
+             38 BUILD_CONST_KEY_MAP      3
+             40 LOAD_CONST               7 (<code object remember at 0x10924b3a0, file "WeRobotCore/adapters/wechat/windows_legacy/bindings.py", line 70>)
+             42 LOAD_CONST               8 ('LegacySessionIndex.remember')
+             44 MAKE_FUNCTION            4 (annotations)
+             46 STORE_NAME               8 (remember)
+
+ 89          48 LOAD_NAME                5 (InstanceId)
+             50 LOAD_NAME                9 (str)
+             52 LOAD_NAME               10 (Optional)
+             54 LOAD_NAME                9 (str)
+             56 BINARY_SUBSCR
+             58 LOAD_CONST               9 (('instance_id', 'session_id', 'return'))
+             60 BUILD_CONST_KEY_MAP      3
+             62 LOAD_CONST              10 (<code object resolve at 0x10924b030, file "WeRobotCore/adapters/wechat/windows_legacy/bindings.py", line 89>)
+             64 LOAD_CONST              11 ('LegacySessionIndex.resolve')
+             66 MAKE_FUNCTION            4 (annotations)
+             68 STORE_NAME              11 (resolve)
+
+ 92          70 LOAD_NAME                5 (InstanceId)
+             72 LOAD_CONST               2 (None)
+             74 LOAD_CONST              12 (('instance_id', 'return'))
+             76 BUILD_CONST_KEY_MAP      2
+             78 LOAD_CONST              13 (<code object forget_instance at 0x10924b7c0, file "WeRobotCore/adapters/wechat/windows_legacy/bindings.py", line 92>)
+             80 LOAD_CONST              14 ('LegacySessionIndex.forget_instance')
+             82 MAKE_FUNCTION            4 (annotations)
+             84 STORE_NAME              12 (forget_instance)
+             86 LOAD_CONST               2 (None)
+             88 RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x10924b190, file "WeRobotCore/adapters/wechat/windows_legacy/bindings.py", line 67>:
+ 68           0 BUILD_MAP                0
+              2 LOAD_FAST                0 (self)
+              4 STORE_ATTR               0 (_names)
+              6 LOAD_CONST               0 (None)
+              8 RETURN_VALUE
+
+Disassembly of <code object remember at 0x10924b3a0, file "WeRobotCore/adapters/wechat/windows_legacy/bindings.py", line 70>:
+ 75           0 BUILD_MAP                0
+              2 STORE_FAST               3 (pending)
+
+ 76           4 LOAD_FAST                2 (sessions)
+              6 GET_ITER
+        >>    8 FOR_ITER                74 (to 84)
+             10 STORE_FAST               4 (session)
+
+ 77          12 LOAD_FAST                1 (instance_id)
+             14 LOAD_ATTR                0 (value)
+             16 LOAD_FAST                4 (session)
+             18 LOAD_ATTR                1 (session_id)
+             20 BUILD_TUPLE              2
+             22 STORE_FAST               5 (key)
+
+ 78          24 LOAD_FAST                3 (pending)
+             26 LOAD_METHOD              2 (get)
+             28 LOAD_FAST                5 (key)
+             30 CALL_METHOD              1
+             32 STORE_FAST               6 (previous)
+
+ 79          34 LOAD_FAST                6 (previous)
+             36 LOAD_CONST               0 (None)
+             38 IS_OP                    1
+             40 POP_JUMP_IF_FALSE       72
+             42 LOAD_FAST                6 (previous)
+             44 LOAD_FAST                4 (session)
+             46 LOAD_ATTR                3 (name)
+             48 COMPARE_OP               3 (!=)
+             50 POP_JUMP_IF_FALSE       72
+
+ 80          52 LOAD_GLOBAL              4 (AutomationError)
+
+ 81          54 LOAD_GLOBAL              5 (ErrorCode)
+             56 LOAD_ATTR                6 (OPERATION_FAILED)
+
+ 82          58 LOAD_CONST               1 ('Legacy session id maps to multiple names: {}')
+             60 LOAD_METHOD              7 (format)
+
+ 83          62 LOAD_FAST                4 (session)
+             64 LOAD_ATTR                1 (session_id)
+
+ 82          66 CALL_METHOD              1
+
+ 80          68 CALL_FUNCTION            2
+             70 RAISE_VARARGS            1
+
+ 86     >>   72 LOAD_FAST                4 (session)
+             74 LOAD_ATTR                3 (name)
+             76 LOAD_FAST                3 (pending)
+             78 LOAD_FAST                5 (key)
+             80 STORE_SUBSCR
+             82 JUMP_ABSOLUTE            8
+
+ 87     >>   84 LOAD_FAST                0 (self)
+             86 LOAD_ATTR                8 (_names)
+             88 LOAD_METHOD              9 (update)
+             90 LOAD_FAST                3 (pending)
+             92 CALL_METHOD              1
+             94 POP_TOP
+             96 LOAD_CONST               0 (None)
+             98 RETURN_VALUE
+
+Disassembly of <code object resolve at 0x10924b030, file "WeRobotCore/adapters/wechat/windows_legacy/bindings.py", line 89>:
+ 90           0 LOAD_FAST                0 (self)
+              2 LOAD_ATTR                0 (_names)
+              4 LOAD_METHOD              1 (get)
+              6 LOAD_FAST                1 (instance_id)
+              8 LOAD_ATTR                2 (value)
+             10 LOAD_FAST                2 (session_id)
+             12 BUILD_TUPLE              2
+             14 CALL_METHOD              1
+             16 RETURN_VALUE
+
+Disassembly of <code object forget_instance at 0x10924b7c0, file "WeRobotCore/adapters/wechat/windows_legacy/bindings.py", line 92>:
+ 93           0 LOAD_FAST                1 (instance_id)
+              2 LOAD_ATTR                0 (value)
+              4 STORE_DEREF              0 (prefix)
+
+ 94           6 LOAD_CLOSURE             0 (prefix)
+              8 BUILD_TUPLE              1
+             10 LOAD_CONST               1 (<code object <dictcomp> at 0x10924b9d0, file "WeRobotCore/adapters/wechat/windows_legacy/bindings.py", line 94>)
+             12 LOAD_CONST               2 ('LegacySessionIndex.forget_instance.<locals>.<dictcomp>')
+             14 MAKE_FUNCTION            8 (closure)
+
+ 95          16 LOAD_FAST                0 (self)
+             18 LOAD_ATTR                1 (_names)
+             20 LOAD_METHOD              2 (items)
+             22 CALL_METHOD              0
+
+ 94          24 GET_ITER
+             26 CALL_FUNCTION            1
+             28 LOAD_FAST                0 (self)
+             30 STORE_ATTR               1 (_names)
+             32 LOAD_CONST               0 (None)
+             34 RETURN_VALUE
+
+Disassembly of <code object <dictcomp> at 0x10924b9d0, file "WeRobotCore/adapters/wechat/windows_legacy/bindings.py", line 94>:
+ 94           0 BUILD_MAP                0
+              2 LOAD_FAST                0 (.0)
+        >>    4 FOR_ITER                26 (to 32)
+
+ 95           6 UNPACK_SEQUENCE          2
+              8 STORE_FAST               1 (key)
+             10 STORE_FAST               2 (name)
+             12 LOAD_FAST                1 (key)
+             14 LOAD_CONST               0 (0)
+             16 BINARY_SUBSCR
+             18 LOAD_DEREF               0 (prefix)
+             20 COMPARE_OP               3 (!=)
+             22 POP_JUMP_IF_FALSE        4
+             24 LOAD_FAST                1 (key)
+             26 LOAD_FAST                2 (name)
+             28 MAP_ADD                  2
+             30 JUMP_ABSOLUTE            4
+        >>   32 RETURN_VALUE
+
+Disassembly of <code object LegacyMessageEvidenceStore at 0x10924b450, file "WeRobotCore/adapters/wechat/windows_legacy/bindings.py", line 99>:
+ 99           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('LegacyMessageEvidenceStore')
+              6 STORE_NAME               2 (__qualname__)
+
+100           8 LOAD_CONST               1 ('Bounded sidecar for native sender evidence such as ``rect_info``.')
+             10 STORE_NAME               3 (__doc__)
+
+102          12 LOAD_CONST              13 ((1000,))
+             14 LOAD_NAME                4 (int)
+             16 LOAD_CONST               3 (None)
+             18 LOAD_CONST               4 (('max_entries', 'return'))
+             20 BUILD_CONST_KEY_MAP      2
+             22 LOAD_CONST               5 (<code object __init__ at 0x10924b0e0, file "WeRobotCore/adapters/wechat/windows_legacy/bindings.py", line 102>)
+             24 LOAD_CONST               6 ('LegacyMessageEvidenceStore.__init__')
+             26 MAKE_FUNCTION            5 (defaults, annotations)
+             28 STORE_NAME               5 (__init__)
+
+112          30 LOAD_NAME                6 (InstanceId)
+
+113          32 LOAD_NAME                7 (str)
+
+114          34 LOAD_NAME                8 (Sequence)
+             36 LOAD_NAME                9 (Mapping)
+             38 LOAD_NAME                7 (str)
+             40 LOAD_NAME               10 (Any)
+             42 BUILD_TUPLE              2
+             44 BINARY_SUBSCR
+             46 BINARY_SUBSCR
+
+115          48 LOAD_NAME                8 (Sequence)
+             50 LOAD_NAME               11 (MessageRecord)
+             52 BINARY_SUBSCR
+
+116          54 LOAD_CONST               3 (None)
+
+110          56 LOAD_CONST               7 (('instance_id', 'session_id', 'raw_messages', 'messages', 'return'))
+             58 BUILD_CONST_KEY_MAP      5
+             60 LOAD_CONST               8 (<code object remember at 0x10924b240, file "WeRobotCore/adapters/wechat/windows_legacy/bindings.py", line 110>)
+             62 LOAD_CONST               9 ('LegacyMessageEvidenceStore.remember')
+             64 MAKE_FUNCTION            4 (annotations)
+             66 STORE_NAME              12 (remember)
+
+135          68 LOAD_NAME                6 (InstanceId)
+
+136          70 LOAD_NAME                7 (str)
+
+137          72 LOAD_NAME                7 (str)
+
+138          74 LOAD_NAME               13 (Optional)
+             76 LOAD_NAME                9 (Mapping)
+             78 LOAD_NAME                7 (str)
+             80 LOAD_NAME               10 (Any)
+             82 BUILD_TUPLE              2
+             84 BINARY_SUBSCR
+             86 BINARY_SUBSCR
+
+133          88 LOAD_CONST              10 (('instance_id', 'session_id', 'message_key', 'return'))
+             90 BUILD_CONST_KEY_MAP      4
+             92 LOAD_CONST              11 (<code object get at 0x10924b660, file "WeRobotCore/adapters/wechat/windows_legacy/bindings.py", line 133>)
+             94 LOAD_CONST              12 ('LegacyMessageEvidenceStore.get')
+             96 MAKE_FUNCTION            4 (annotations)
+             98 STORE_NAME              14 (get)
+            100 LOAD_CONST               3 (None)
+            102 RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x10924b0e0, file "WeRobotCore/adapters/wechat/windows_legacy/bindings.py", line 102>:
+103           0 LOAD_FAST                1 (max_entries)
+              2 LOAD_CONST               1 (0)
+              4 COMPARE_OP               1 (<=)
+              6 POP_JUMP_IF_FALSE       16
+
+104           8 LOAD_GLOBAL              0 (ValueError)
+             10 LOAD_CONST               2 ('max_entries must be positive')
+             12 CALL_FUNCTION            1
+             14 RAISE_VARARGS            1
+
+105     >>   16 LOAD_FAST                1 (max_entries)
+             18 LOAD_FAST                0 (self)
+             20 STORE_ATTR               1 (_max_entries)
+
+107          22 LOAD_GLOBAL              2 (OrderedDict)
+             24 CALL_FUNCTION            0
+
+106          26 LOAD_FAST                0 (self)
+             28 STORE_ATTR               3 (_items)
+             30 LOAD_CONST               0 (None)
+             32 RETURN_VALUE
+
+Disassembly of <code object remember at 0x10924b240, file "WeRobotCore/adapters/wechat/windows_legacy/bindings.py", line 110>:
+117           0 LOAD_GLOBAL              0 (zip)
+              2 LOAD_FAST                3 (raw_messages)
+              4 LOAD_FAST                4 (messages)
+              6 CALL_FUNCTION            2
+              8 GET_ITER
+        >>   10 FOR_ITER               134 (to 146)
+             12 UNPACK_SEQUENCE          2
+             14 STORE_FAST               5 (raw)
+             16 STORE_FAST               6 (message)
+
+118          18 LOAD_CONST               1 ('rect_info')
+             20 LOAD_FAST                5 (raw)
+             22 CONTAINS_OP              1
+             24 POP_JUMP_IF_FALSE       28
+
+119          26 JUMP_ABSOLUTE           10
+
+120     >>   28 LOAD_CONST               1 ('rect_info')
+             30 LOAD_FAST                5 (raw)
+             32 LOAD_METHOD              1 (get)
+             34 LOAD_CONST               1 ('rect_info')
+             36 CALL_METHOD              1
+             38 BUILD_MAP                1
+             40 STORE_FAST               7 (evidence)
+
+121          42 LOAD_GLOBAL              2 (tuple)
+             44 LOAD_CONST               2 (<code object <genexpr> at 0x10924bc90, file "WeRobotCore/adapters/wechat/windows_legacy/bindings.py", line 121>)
+             46 LOAD_CONST               3 ('LegacyMessageEvidenceStore.remember.<locals>.<genexpr>')
+             48 MAKE_FUNCTION            0
+
+123          50 LOAD_FAST                6 (message)
+             52 LOAD_ATTR                3 (message_id)
+             54 LOAD_FAST                6 (message)
+             56 LOAD_ATTR                4 (fingerprint)
+             58 BUILD_TUPLE              2
+
+121          60 GET_ITER
+             62 CALL_FUNCTION            1
+             64 CALL_FUNCTION            1
+             66 STORE_FAST               8 (keys)
+
+126          68 LOAD_FAST                8 (keys)
+             70 GET_ITER
+        >>   72 FOR_ITER                70 (to 144)
+             74 STORE_FAST               9 (message_key)
+
+127          76 LOAD_FAST                1 (instance_id)
+             78 LOAD_ATTR                5 (value)
+             80 LOAD_FAST                2 (session_id)
+             82 LOAD_FAST                9 (message_key)
+             84 BUILD_TUPLE              3
+             86 STORE_FAST              10 (storage_key)
+
+128          88 LOAD_FAST                7 (evidence)
+             90 LOAD_FAST                0 (self)
+             92 LOAD_ATTR                6 (_items)
+             94 LOAD_FAST               10 (storage_key)
+             96 STORE_SUBSCR
+
+129          98 LOAD_FAST                0 (self)
+            100 LOAD_ATTR                6 (_items)
+            102 LOAD_METHOD              7 (move_to_end)
+            104 LOAD_FAST               10 (storage_key)
+            106 CALL_METHOD              1
+            108 POP_TOP
+
+130     >>  110 LOAD_GLOBAL              8 (len)
+            112 LOAD_FAST                0 (self)
+            114 LOAD_ATTR                6 (_items)
+            116 CALL_FUNCTION            1
+            118 LOAD_FAST                0 (self)
+            120 LOAD_ATTR                9 (_max_entries)
+            122 COMPARE_OP               4 (>)
+            124 POP_JUMP_IF_FALSE       72
+
+131         126 LOAD_FAST                0 (self)
+            128 LOAD_ATTR                6 (_items)
+            130 LOAD_ATTR               10 (popitem)
+            132 LOAD_CONST               4 (False)
+            134 LOAD_CONST               5 (('last',))
+            136 CALL_FUNCTION_KW         1
+            138 POP_TOP
+            140 JUMP_ABSOLUTE          110
+            142 JUMP_ABSOLUTE           72
+        >>  144 JUMP_ABSOLUTE           10
+        >>  146 LOAD_CONST               0 (None)
+            148 RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x10924bc90, file "WeRobotCore/adapters/wechat/windows_legacy/bindings.py", line 121>:
+121           0 LOAD_FAST                0 (.0)
+        >>    2 FOR_ITER                24 (to 28)
+
+123           4 STORE_FAST               1 (key)
+
+124           6 LOAD_GLOBAL              0 (isinstance)
+              8 LOAD_FAST                1 (key)
+             10 LOAD_GLOBAL              1 (str)
+             12 CALL_FUNCTION            2
+             14 POP_JUMP_IF_FALSE        2
+             16 LOAD_FAST                1 (key)
+             18 POP_JUMP_IF_FALSE        2
+
+122          20 LOAD_FAST                1 (key)
+             22 YIELD_VALUE
+             24 POP_TOP
+             26 JUMP_ABSOLUTE            2
+        >>   28 LOAD_CONST               0 (None)
+             30 RETURN_VALUE
+
+Disassembly of <code object get at 0x10924b660, file "WeRobotCore/adapters/wechat/windows_legacy/bindings.py", line 133>:
+139           0 LOAD_FAST                0 (self)
+              2 LOAD_ATTR                0 (_items)
+              4 LOAD_METHOD              1 (get)
+              6 LOAD_FAST                1 (instance_id)
+              8 LOAD_ATTR                2 (value)
+             10 LOAD_FAST                2 (session_id)
+             12 LOAD_FAST                3 (message_key)
+             14 BUILD_TUPLE              3
+             16 CALL_METHOD              1
+             18 STORE_FAST               4 (evidence)
+
+140          20 LOAD_FAST                4 (evidence)
+             22 LOAD_CONST               0 (None)
+             24 IS_OP                    1
+             26 POP_JUMP_IF_FALSE       36
+             28 LOAD_GLOBAL              3 (dict)
+             30 LOAD_FAST                4 (evidence)
+             32 CALL_FUNCTION            1
+             34 RETURN_VALUE
+        >>   36 LOAD_CONST               0 (None)
+             38 RETURN_VALUE

@@ -1,0 +1,706 @@
+  1           0 LOAD_CONST               0 ('Windows-compatible license operations over explicit platform I/O ports.\n\nStored metadata is never an offline authorization credential. Only an online\nverification (or its existing 30 minute cache) can authorize execution.\n')
+              2 STORE_NAME               0 (__doc__)
+
+  6           4 LOAD_CONST               1 (0)
+              6 LOAD_CONST               2 (None)
+              8 IMPORT_NAME              1 (asyncio)
+             10 STORE_NAME               1 (asyncio)
+
+  7          12 LOAD_CONST               1 (0)
+             14 LOAD_CONST               3 (('datetime',))
+             16 IMPORT_NAME              2 (datetime)
+             18 IMPORT_FROM              2 (datetime)
+             20 STORE_NAME               2 (datetime)
+             22 POP_TOP
+
+  8          24 LOAD_CONST               1 (0)
+             26 LOAD_CONST               2 (None)
+             28 IMPORT_NAME              3 (json)
+             30 STORE_NAME               3 (json)
+
+  9          32 LOAD_CONST               1 (0)
+             34 LOAD_CONST               2 (None)
+             36 IMPORT_NAME              4 (time)
+             38 STORE_NAME               4 (time)
+
+ 11          40 LOAD_CONST               4 (1)
+             42 LOAD_CONST               5 (('ControlAccessDecision',))
+             44 IMPORT_NAME              5 (control_access)
+             46 IMPORT_FROM              6 (ControlAccessDecision)
+             48 STORE_NAME               6 (ControlAccessDecision)
+             50 POP_TOP
+
+ 14          52 LOAD_BUILD_CLASS
+             54 LOAD_CONST               6 (<code object ControlLicenseService at 0x10924cea0, file "WeRobotCore/application/control_license.py", line 14>)
+             56 LOAD_CONST               7 ('ControlLicenseService')
+             58 MAKE_FUNCTION            0
+             60 LOAD_CONST               7 ('ControlLicenseService')
+             62 CALL_FUNCTION            2
+             64 STORE_NAME               7 (ControlLicenseService)
+             66 LOAD_CONST               2 (None)
+             68 RETURN_VALUE
+
+Disassembly of <code object ControlLicenseService at 0x10924cea0, file "WeRobotCore/application/control_license.py", line 14>:
+ 14           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('ControlLicenseService')
+              6 STORE_NAME               2 (__qualname__)
+
+ 16           8 LOAD_NAME                3 (time)
+             10 LOAD_ATTR                4 (monotonic)
+
+ 15          12 LOAD_CONST               1 (('clock',))
+             14 BUILD_CONST_KEY_MAP      1
+             16 LOAD_CONST               2 (<code object __init__ at 0x10924cdf0, file "WeRobotCore/application/control_license.py", line 15>)
+             18 LOAD_CONST               3 ('ControlLicenseService.__init__')
+             20 MAKE_FUNCTION            2 (kwdefaults)
+             22 STORE_NAME               5 (__init__)
+
+ 28          24 LOAD_CONST               4 (<code object _operation_lock at 0x10924c920, file "WeRobotCore/application/control_license.py", line 28>)
+             26 LOAD_CONST               5 ('ControlLicenseService._operation_lock')
+             28 MAKE_FUNCTION            0
+             30 STORE_NAME               6 (_operation_lock)
+
+ 33          32 LOAD_CONST               6 (<code object info at 0x10924c0e0, file "WeRobotCore/application/control_license.py", line 33>)
+             34 LOAD_CONST               7 ('ControlLicenseService.info')
+             36 MAKE_FUNCTION            0
+             38 STORE_NAME               7 (info)
+
+ 36          40 LOAD_CONST               8 (<code object verify_legacy at 0x10924c500, file "WeRobotCore/application/control_license.py", line 36>)
+             42 LOAD_CONST               9 ('ControlLicenseService.verify_legacy')
+             44 MAKE_FUNCTION            0
+             46 STORE_NAME               8 (verify_legacy)
+
+ 45          48 LOAD_CONST              10 (<code object check_legacy at 0x10924cc90, file "WeRobotCore/application/control_license.py", line 45>)
+             50 LOAD_CONST              11 ('ControlLicenseService.check_legacy')
+             52 MAKE_FUNCTION            0
+             54 STORE_NAME               9 (check_legacy)
+
+ 56          56 LOAD_CONST              12 (<code object verify at 0x10924c5b0, file "WeRobotCore/application/control_license.py", line 56>)
+             58 LOAD_CONST              13 ('ControlLicenseService.verify')
+             60 MAKE_FUNCTION            0
+             62 STORE_NAME              10 (verify)
+
+ 69          64 LOAD_CONST              14 (<code object activate at 0x10924cbe0, file "WeRobotCore/application/control_license.py", line 69>)
+             66 LOAD_CONST              15 ('ControlLicenseService.activate')
+             68 MAKE_FUNCTION            0
+             70 STORE_NAME              11 (activate)
+
+ 90          72 LOAD_CONST              16 (<code object unbind at 0x10924c710, file "WeRobotCore/application/control_license.py", line 90>)
+             74 LOAD_CONST              17 ('ControlLicenseService.unbind')
+             76 MAKE_FUNCTION            0
+             78 STORE_NAME              12 (unbind)
+
+105          80 LOAD_CONST              18 (<code object guard at 0x10924cb30, file "WeRobotCore/application/control_license.py", line 105>)
+             82 LOAD_CONST              19 ('ControlLicenseService.guard')
+             84 MAKE_FUNCTION            0
+             86 STORE_NAME              13 (guard)
+             88 LOAD_CONST              20 (None)
+             90 RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x10924cdf0, file "WeRobotCore/application/control_license.py", line 15>:
+ 17           0 LOAD_FAST                1 (machine_code)
+              2 LOAD_FAST                0 (self)
+              4 STORE_ATTR               0 (machine_code)
+
+ 18           6 LOAD_FAST                2 (transport)
+              8 LOAD_FAST                0 (self)
+             10 STORE_ATTR               1 (transport)
+
+ 19          12 LOAD_FAST                3 (secret_store)
+             14 LOAD_FAST                0 (self)
+             16 STORE_ATTR               2 (secret_store)
+
+ 20          18 LOAD_FAST                4 (seat_verifier)
+             20 LOAD_FAST                0 (self)
+             22 STORE_ATTR               3 (seat_verifier)
+
+ 21          24 LOAD_FAST                5 (clock)
+             26 LOAD_FAST                0 (self)
+             28 STORE_ATTR               4 (clock)
+
+ 22          30 LOAD_CONST               0 (None)
+             32 LOAD_FAST                0 (self)
+             34 STORE_ATTR               5 (_cached)
+
+ 23          36 LOAD_CONST               1 (0.0)
+             38 LOAD_FAST                0 (self)
+             40 STORE_ATTR               6 (_expires)
+
+ 24          42 LOAD_CONST               0 (None)
+             44 LOAD_FAST                0 (self)
+             46 STORE_ATTR               7 (_lock)
+
+ 25          48 LOAD_CONST               2 (False)
+             50 LOAD_FAST                0 (self)
+             52 STORE_ATTR               8 (revoked)
+
+ 26          54 LOAD_CONST               3 ('rpa.legacy-license.')
+             56 LOAD_FAST                1 (machine_code)
+             58 BINARY_ADD
+             60 LOAD_FAST                0 (self)
+             62 STORE_ATTR               9 (secret_key)
+             64 LOAD_CONST               0 (None)
+             66 RETURN_VALUE
+
+Disassembly of <code object _operation_lock at 0x10924c920, file "WeRobotCore/application/control_license.py", line 28>:
+ 29           0 LOAD_FAST                0 (self)
+              2 LOAD_ATTR                0 (_lock)
+              4 LOAD_CONST               0 (None)
+              6 IS_OP                    0
+              8 POP_JUMP_IF_FALSE       20
+
+ 30          10 LOAD_GLOBAL              1 (asyncio)
+             12 LOAD_METHOD              2 (Lock)
+             14 CALL_METHOD              0
+             16 LOAD_FAST                0 (self)
+             18 STORE_ATTR               0 (_lock)
+
+ 31     >>   20 LOAD_FAST                0 (self)
+             22 LOAD_ATTR                0 (_lock)
+             24 RETURN_VALUE
+
+Disassembly of <code object info at 0x10924c0e0, file "WeRobotCore/application/control_license.py", line 33>:
+ 34           0 LOAD_CONST               1 (True)
+              2 LOAD_CONST               2 ('machine_code')
+              4 LOAD_FAST                0 (self)
+              6 LOAD_ATTR                0 (machine_code)
+              8 BUILD_MAP                1
+             10 LOAD_CONST               3 (('success', 'data'))
+             12 BUILD_CONST_KEY_MAP      2
+             14 RETURN_VALUE
+
+Disassembly of <code object verify_legacy at 0x10924c500, file "WeRobotCore/application/control_license.py", line 36>:
+ 37           0 LOAD_FAST                0 (self)
+              2 LOAD_ATTR                0 (revoked)
+              4 POP_JUMP_IF_FALSE       16
+
+ 38           6 LOAD_CONST               1 (False)
+              8 LOAD_CONST               2 ('授权已解绑')
+             10 LOAD_CONST               3 (('valid', 'message'))
+             12 BUILD_CONST_KEY_MAP      2
+             14 RETURN_VALUE
+
+ 40     >>   16 LOAD_FAST                0 (self)
+             18 LOAD_ATTR                1 (transport)
+             20 LOAD_METHOD              2 (verify)
+             22 LOAD_FAST                0 (self)
+             24 LOAD_ATTR                3 (machine_code)
+             26 CALL_METHOD              1
+             28 GET_AWAITABLE
+             30 LOAD_CONST               0 (None)
+             32 YIELD_FROM
+             34 STORE_FAST               1 (result)
+
+ 41          36 LOAD_GLOBAL              4 (isinstance)
+             38 LOAD_FAST                1 (result)
+             40 LOAD_GLOBAL              5 (dict)
+             42 CALL_FUNCTION            2
+             44 POP_JUMP_IF_FALSE       62
+             46 LOAD_GLOBAL              4 (isinstance)
+             48 LOAD_FAST                1 (result)
+             50 LOAD_METHOD              6 (get)
+             52 LOAD_CONST               4 ('valid')
+             54 CALL_METHOD              1
+             56 LOAD_GLOBAL              7 (bool)
+             58 CALL_FUNCTION            2
+             60 POP_JUMP_IF_TRUE        70
+
+ 42     >>   62 LOAD_GLOBAL              8 (ValueError)
+             64 LOAD_CONST               5 ('invalid legacy verification response')
+             66 CALL_FUNCTION            1
+             68 RAISE_VARARGS            1
+
+ 43     >>   70 LOAD_FAST                1 (result)
+             72 RETURN_VALUE
+
+Disassembly of <code object check_legacy at 0x10924cc90, file "WeRobotCore/application/control_license.py", line 45>:
+ 46           0 LOAD_FAST                0 (self)
+              2 LOAD_METHOD              0 (_operation_lock)
+              4 CALL_METHOD              0
+              6 BEFORE_ASYNC_WITH
+              8 GET_AWAITABLE
+             10 LOAD_CONST               0 (None)
+             12 YIELD_FROM
+             14 SETUP_ASYNC_WITH       144 (to 160)
+             16 POP_TOP
+
+ 47          18 LOAD_FAST                0 (self)
+             20 LOAD_ATTR                1 (revoked)
+             22 POP_JUMP_IF_FALSE       46
+
+ 48          24 POP_BLOCK
+             26 LOAD_CONST               0 (None)
+             28 DUP_TOP
+             30 DUP_TOP
+             32 CALL_FUNCTION            3
+             34 GET_AWAITABLE
+             36 LOAD_CONST               0 (None)
+             38 YIELD_FROM
+             40 POP_TOP
+             42 LOAD_CONST               1 (False)
+             44 RETURN_VALUE
+
+ 49     >>   46 LOAD_FAST                0 (self)
+             48 LOAD_ATTR                2 (_cached)
+             50 LOAD_CONST               0 (None)
+             52 IS_OP                    1
+             54 POP_JUMP_IF_FALSE       96
+             56 LOAD_FAST                0 (self)
+             58 LOAD_METHOD              3 (clock)
+             60 CALL_METHOD              0
+             62 LOAD_FAST                0 (self)
+             64 LOAD_ATTR                4 (_expires)
+             66 COMPARE_OP               0 (<)
+             68 POP_JUMP_IF_FALSE       96
+
+ 50          70 LOAD_FAST                0 (self)
+             72 LOAD_ATTR                2 (_cached)
+             74 POP_BLOCK
+             76 ROT_TWO
+             78 LOAD_CONST               0 (None)
+             80 DUP_TOP
+             82 DUP_TOP
+             84 CALL_FUNCTION            3
+             86 GET_AWAITABLE
+             88 LOAD_CONST               0 (None)
+             90 YIELD_FROM
+             92 POP_TOP
+             94 RETURN_VALUE
+
+ 51     >>   96 LOAD_FAST                0 (self)
+             98 LOAD_METHOD              5 (verify_legacy)
+            100 CALL_METHOD              0
+            102 GET_AWAITABLE
+            104 LOAD_CONST               0 (None)
+            106 YIELD_FROM
+            108 STORE_FAST               1 (result)
+
+ 52         110 LOAD_FAST                1 (result)
+            112 LOAD_CONST               2 ('valid')
+            114 BINARY_SUBSCR
+            116 LOAD_FAST                0 (self)
+            118 STORE_ATTR               2 (_cached)
+
+ 53         120 LOAD_FAST                0 (self)
+            122 LOAD_METHOD              3 (clock)
+            124 CALL_METHOD              0
+            126 LOAD_CONST               3 (1800)
+            128 BINARY_ADD
+            130 LOAD_FAST                0 (self)
+            132 STORE_ATTR               4 (_expires)
+
+ 54         134 LOAD_FAST                0 (self)
+            136 LOAD_ATTR                2 (_cached)
+            138 POP_BLOCK
+            140 ROT_TWO
+            142 LOAD_CONST               0 (None)
+            144 DUP_TOP
+            146 DUP_TOP
+            148 CALL_FUNCTION            3
+            150 GET_AWAITABLE
+            152 LOAD_CONST               0 (None)
+            154 YIELD_FROM
+            156 POP_TOP
+            158 RETURN_VALUE
+        >>  160 WITH_EXCEPT_START
+            162 GET_AWAITABLE
+            164 LOAD_CONST               0 (None)
+            166 YIELD_FROM
+            168 POP_JUMP_IF_TRUE       172
+            170 RERAISE
+        >>  172 POP_TOP
+            174 POP_TOP
+            176 POP_TOP
+            178 POP_EXCEPT
+            180 POP_TOP
+            182 LOAD_CONST               0 (None)
+            184 RETURN_VALUE
+
+Disassembly of <code object verify at 0x10924c5b0, file "WeRobotCore/application/control_license.py", line 56>:
+ 57           0 LOAD_FAST                0 (self)
+              2 LOAD_ATTR                0 (revoked)
+              4 POP_JUMP_IF_TRUE        82
+              6 LOAD_FAST                0 (self)
+              8 LOAD_ATTR                1 (seat_verifier)
+             10 LOAD_CONST               0 (None)
+             12 IS_OP                    1
+             14 POP_JUMP_IF_FALSE       82
+
+ 58          16 SETUP_FINALLY           46 (to 64)
+
+ 59          18 LOAD_FAST                0 (self)
+             20 LOAD_METHOD              1 (seat_verifier)
+             22 CALL_METHOD              0
+             24 GET_AWAITABLE
+             26 LOAD_CONST               0 (None)
+             28 YIELD_FROM
+             30 POP_JUMP_IF_FALSE       60
+
+ 60          32 LOAD_CONST               1 (True)
+             34 LOAD_CONST               2 ('验证通过(Yoko)')
+
+ 61          36 LOAD_FAST                0 (self)
+             38 LOAD_ATTR                2 (machine_code)
+
+ 62          40 LOAD_FAST                0 (self)
+             42 LOAD_ATTR                1 (seat_verifier)
+             44 LOAD_ATTR                3 (expires_at)
+
+ 63          46 LOAD_CONST               3 ('yoko_seat')
+
+ 60          48 LOAD_CONST               4 (('machine_code', 'expires_at', 'license_type'))
+             50 BUILD_CONST_KEY_MAP      3
+             52 LOAD_CONST               5 (('valid', 'message', 'data'))
+             54 BUILD_CONST_KEY_MAP      3
+             56 POP_BLOCK
+             58 RETURN_VALUE
+        >>   60 POP_BLOCK
+             62 JUMP_FORWARD            18 (to 82)
+
+ 65     >>   64 DUP_TOP
+             66 LOAD_GLOBAL              4 (Exception)
+             68 JUMP_IF_NOT_EXC_MATCH    80
+             70 POP_TOP
+             72 POP_TOP
+             74 POP_TOP
+
+ 66          76 POP_EXCEPT
+             78 JUMP_FORWARD             2 (to 82)
+        >>   80 RERAISE
+
+ 67     >>   82 LOAD_FAST                0 (self)
+             84 LOAD_METHOD              5 (verify_legacy)
+             86 CALL_METHOD              0
+             88 GET_AWAITABLE
+             90 LOAD_CONST               0 (None)
+             92 YIELD_FROM
+             94 RETURN_VALUE
+
+Disassembly of <code object activate at 0x10924cbe0, file "WeRobotCore/application/control_license.py", line 69>:
+ 70           0 LOAD_FAST                2 (machine_code)
+              2 LOAD_FAST                0 (self)
+              4 LOAD_ATTR                0 (machine_code)
+              6 COMPARE_OP               3 (!=)
+              8 POP_JUMP_IF_FALSE       20
+
+ 71          10 LOAD_CONST               1 (False)
+             12 LOAD_CONST               2 ('机器码与当前设备不一致')
+             14 LOAD_CONST               3 (('valid', 'message'))
+             16 BUILD_CONST_KEY_MAP      2
+             18 RETURN_VALUE
+
+ 72     >>   20 LOAD_FAST                0 (self)
+             22 LOAD_METHOD              1 (_operation_lock)
+             24 CALL_METHOD              0
+             26 BEFORE_ASYNC_WITH
+             28 GET_AWAITABLE
+             30 LOAD_CONST               0 (None)
+             32 YIELD_FROM
+             34 EXTENDED_ARG             0
+             36 SETUP_ASYNC_WITH       254 (to 292)
+             38 POP_TOP
+
+ 73          40 LOAD_FAST                0 (self)
+             42 LOAD_ATTR                2 (revoked)
+             44 POP_JUMP_IF_FALSE       76
+
+ 74          46 LOAD_CONST               1 (False)
+             48 LOAD_CONST               4 ('授权已解绑，请重新启动客户端')
+             50 LOAD_CONST               3 (('valid', 'message'))
+             52 BUILD_CONST_KEY_MAP      2
+             54 POP_BLOCK
+             56 ROT_TWO
+             58 LOAD_CONST               0 (None)
+             60 DUP_TOP
+             62 DUP_TOP
+             64 CALL_FUNCTION            3
+             66 GET_AWAITABLE
+             68 LOAD_CONST               0 (None)
+             70 YIELD_FROM
+             72 POP_TOP
+             74 RETURN_VALUE
+
+ 75     >>   76 LOAD_FAST                0 (self)
+             78 LOAD_ATTR                3 (transport)
+             80 LOAD_METHOD              4 (activate)
+             82 LOAD_FAST                1 (activation_code)
+             84 LOAD_FAST                0 (self)
+             86 LOAD_ATTR                0 (machine_code)
+             88 CALL_METHOD              2
+             90 GET_AWAITABLE
+             92 LOAD_CONST               0 (None)
+             94 YIELD_FROM
+             96 STORE_FAST               3 (result)
+
+ 76          98 LOAD_FAST                3 (result)
+            100 LOAD_METHOD              5 (get)
+            102 LOAD_CONST               5 ('valid')
+            104 CALL_METHOD              1
+            106 LOAD_CONST               6 (True)
+            108 IS_OP                    1
+            110 POP_JUMP_IF_FALSE      136
+
+ 77         112 LOAD_FAST                3 (result)
+            114 POP_BLOCK
+            116 ROT_TWO
+            118 LOAD_CONST               0 (None)
+            120 DUP_TOP
+            122 DUP_TOP
+            124 CALL_FUNCTION            3
+            126 GET_AWAITABLE
+            128 LOAD_CONST               0 (None)
+            130 YIELD_FROM
+            132 POP_TOP
+            134 RETURN_VALUE
+
+ 78     >>  136 LOAD_FAST                0 (self)
+            138 LOAD_ATTR                0 (machine_code)
+
+ 79         140 LOAD_GLOBAL              6 (datetime)
+            142 LOAD_METHOD              7 (now)
+            144 CALL_METHOD              0
+            146 LOAD_METHOD              8 (isoformat)
+            148 CALL_METHOD              0
+
+ 80         150 LOAD_FAST                3 (result)
+            152 LOAD_METHOD              5 (get)
+            154 LOAD_CONST               7 ('data')
+            156 BUILD_MAP                0
+            158 CALL_METHOD              2
+
+ 78         160 LOAD_CONST               8 (('machine_code', 'activated_at', 'license_info'))
+            162 BUILD_CONST_KEY_MAP      3
+            164 STORE_FAST               4 (data)
+
+ 81         166 LOAD_FAST                0 (self)
+            168 LOAD_ATTR                9 (secret_store)
+            170 LOAD_METHOD             10 (set_secret)
+
+ 82         172 LOAD_FAST                0 (self)
+            174 LOAD_ATTR               11 (secret_key)
+            176 LOAD_GLOBAL             12 (json)
+            178 LOAD_ATTR               13 (dumps)
+            180 LOAD_FAST                4 (data)
+            182 LOAD_CONST               1 (False)
+            184 LOAD_CONST               9 (('ensure_ascii',))
+            186 CALL_FUNCTION_KW         2
+
+ 81         188 CALL_METHOD              2
+            190 GET_AWAITABLE
+            192 LOAD_CONST               0 (None)
+            194 YIELD_FROM
+            196 STORE_FAST               5 (saved)
+
+ 83         198 LOAD_FAST                5 (saved)
+            200 LOAD_ATTR               14 (success)
+            202 POP_JUMP_IF_TRUE       240
+
+ 84         204 LOAD_CONST               0 (None)
+            206 LOAD_FAST                0 (self)
+            208 STORE_ATTR              15 (_cached)
+
+ 85         210 LOAD_CONST               1 (False)
+            212 LOAD_CONST              10 ('服务端已激活，但本机授权信息保存失败，请重新验证授权')
+            214 LOAD_CONST               3 (('valid', 'message'))
+            216 BUILD_CONST_KEY_MAP      2
+            218 POP_BLOCK
+            220 ROT_TWO
+            222 LOAD_CONST               0 (None)
+            224 DUP_TOP
+            226 DUP_TOP
+            228 CALL_FUNCTION            3
+            230 GET_AWAITABLE
+            232 LOAD_CONST               0 (None)
+            234 YIELD_FROM
+            236 POP_TOP
+            238 RETURN_VALUE
+
+ 86     >>  240 LOAD_CONST               6 (True)
+            242 LOAD_FAST                0 (self)
+            244 STORE_ATTR              15 (_cached)
+
+ 87         246 LOAD_FAST                0 (self)
+            248 LOAD_METHOD             16 (clock)
+            250 CALL_METHOD              0
+            252 LOAD_CONST              11 (1800)
+            254 BINARY_ADD
+            256 LOAD_FAST                0 (self)
+            258 STORE_ATTR              17 (_expires)
+
+ 88         260 LOAD_CONST               6 (True)
+            262 LOAD_CONST              12 ('激活成功')
+            264 LOAD_FAST                4 (data)
+            266 LOAD_CONST              13 (('valid', 'message', 'data'))
+            268 BUILD_CONST_KEY_MAP      3
+            270 POP_BLOCK
+            272 ROT_TWO
+            274 LOAD_CONST               0 (None)
+            276 DUP_TOP
+            278 DUP_TOP
+            280 CALL_FUNCTION            3
+            282 GET_AWAITABLE
+            284 LOAD_CONST               0 (None)
+            286 YIELD_FROM
+            288 POP_TOP
+            290 RETURN_VALUE
+        >>  292 WITH_EXCEPT_START
+            294 GET_AWAITABLE
+            296 LOAD_CONST               0 (None)
+            298 YIELD_FROM
+            300 EXTENDED_ARG             1
+            302 POP_JUMP_IF_TRUE       306
+            304 RERAISE
+        >>  306 POP_TOP
+            308 POP_TOP
+            310 POP_TOP
+            312 POP_EXCEPT
+            314 POP_TOP
+            316 LOAD_CONST               0 (None)
+            318 RETURN_VALUE
+
+Disassembly of <code object unbind at 0x10924c710, file "WeRobotCore/application/control_license.py", line 90>:
+ 91           0 LOAD_FAST                0 (self)
+              2 LOAD_METHOD              0 (_operation_lock)
+              4 CALL_METHOD              0
+              6 BEFORE_ASYNC_WITH
+              8 GET_AWAITABLE
+             10 LOAD_CONST               0 (None)
+             12 YIELD_FROM
+             14 SETUP_ASYNC_WITH       124 (to 140)
+             16 POP_TOP
+
+ 92          18 LOAD_FAST                0 (self)
+             20 LOAD_ATTR                1 (transport)
+             22 LOAD_METHOD              2 (unbind)
+             24 LOAD_FAST                1 (activation_code)
+             26 LOAD_FAST                0 (self)
+             28 LOAD_ATTR                3 (machine_code)
+             30 CALL_METHOD              2
+             32 GET_AWAITABLE
+             34 LOAD_CONST               0 (None)
+             36 YIELD_FROM
+             38 STORE_FAST               2 (result)
+
+ 93          40 LOAD_FAST                2 (result)
+             42 LOAD_METHOD              4 (get)
+             44 LOAD_CONST               1 ('success')
+             46 CALL_METHOD              1
+             48 LOAD_CONST               2 (True)
+             50 IS_OP                    0
+             52 POP_JUMP_IF_FALSE      116
+
+ 96          54 LOAD_CONST               2 (True)
+             56 LOAD_FAST                0 (self)
+             58 STORE_ATTR               5 (revoked)
+
+ 97          60 LOAD_CONST               3 (False)
+             62 LOAD_FAST                0 (self)
+             64 STORE_ATTR               6 (_cached)
+
+ 98          66 LOAD_CONST               4 (0)
+             68 LOAD_FAST                0 (self)
+             70 STORE_ATTR               7 (_expires)
+
+ 99          72 SETUP_FINALLY           24 (to 98)
+
+100          74 LOAD_FAST                0 (self)
+             76 LOAD_ATTR                8 (secret_store)
+             78 LOAD_METHOD              9 (delete_secret)
+             80 LOAD_FAST                0 (self)
+             82 LOAD_ATTR               10 (secret_key)
+             84 CALL_METHOD              1
+             86 GET_AWAITABLE
+             88 LOAD_CONST               0 (None)
+             90 YIELD_FROM
+             92 POP_TOP
+             94 POP_BLOCK
+             96 JUMP_FORWARD            18 (to 116)
+
+101     >>   98 DUP_TOP
+            100 LOAD_GLOBAL             11 (Exception)
+            102 JUMP_IF_NOT_EXC_MATCH   114
+            104 POP_TOP
+            106 POP_TOP
+            108 POP_TOP
+
+102         110 POP_EXCEPT
+            112 JUMP_FORWARD             2 (to 116)
+        >>  114 RERAISE
+
+103     >>  116 LOAD_FAST                2 (result)
+            118 POP_BLOCK
+            120 ROT_TWO
+            122 LOAD_CONST               0 (None)
+            124 DUP_TOP
+            126 DUP_TOP
+            128 CALL_FUNCTION            3
+            130 GET_AWAITABLE
+            132 LOAD_CONST               0 (None)
+            134 YIELD_FROM
+            136 POP_TOP
+            138 RETURN_VALUE
+        >>  140 WITH_EXCEPT_START
+            142 GET_AWAITABLE
+            144 LOAD_CONST               0 (None)
+            146 YIELD_FROM
+            148 POP_JUMP_IF_TRUE       152
+            150 RERAISE
+        >>  152 POP_TOP
+            154 POP_TOP
+            156 POP_TOP
+            158 POP_EXCEPT
+            160 POP_TOP
+            162 LOAD_CONST               0 (None)
+            164 RETURN_VALUE
+
+Disassembly of <code object guard at 0x10924cb30, file "WeRobotCore/application/control_license.py", line 105>:
+106           0 LOAD_CLOSURE             0 (authorizer)
+              2 LOAD_CLOSURE             1 (self)
+              4 BUILD_TUPLE              2
+              6 LOAD_CONST               1 (<code object authorize at 0x10924c2f0, file "WeRobotCore/application/control_license.py", line 106>)
+              8 LOAD_CONST               2 ('ControlLicenseService.guard.<locals>.authorize')
+             10 MAKE_FUNCTION            8 (closure)
+             12 STORE_FAST               2 (authorize)
+
+115          14 LOAD_FAST                2 (authorize)
+             16 RETURN_VALUE
+
+Disassembly of <code object authorize at 0x10924c2f0, file "WeRobotCore/application/control_license.py", line 106>:
+107           0 LOAD_DEREF               1 (self)
+              2 LOAD_ATTR                0 (revoked)
+              4 POP_JUMP_IF_FALSE       20
+
+108           6 LOAD_GLOBAL              1 (ControlAccessDecision)
+              8 LOAD_ATTR                2 (denied)
+
+109          10 LOAD_CONST               1 ('LICENSE_INVALID')
+             12 LOAD_CONST               2 ('授权已解绑')
+
+108          14 LOAD_CONST               3 (('code', 'message'))
+             16 CALL_FUNCTION_KW         2
+             18 RETURN_VALUE
+
+110     >>   20 LOAD_DEREF               0 (authorizer)
+             22 CALL_FUNCTION            0
+             24 GET_AWAITABLE
+             26 LOAD_CONST               0 (None)
+             28 YIELD_FROM
+             30 STORE_FAST               0 (decision)
+
+111          32 LOAD_DEREF               1 (self)
+             34 LOAD_ATTR                0 (revoked)
+             36 POP_JUMP_IF_FALSE       52
+
+112          38 LOAD_GLOBAL              1 (ControlAccessDecision)
+             40 LOAD_ATTR                2 (denied)
+
+113          42 LOAD_CONST               1 ('LICENSE_INVALID')
+             44 LOAD_CONST               2 ('授权已解绑')
+
+112          46 LOAD_CONST               3 (('code', 'message'))
+             48 CALL_FUNCTION_KW         2
+             50 RETURN_VALUE
+
+114     >>   52 LOAD_FAST                0 (decision)
+             54 RETURN_VALUE

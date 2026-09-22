@@ -1,0 +1,2241 @@
+  1           0 LOAD_CONST               0 ('\n朋友圈评论任务适配器 - Task System V3\n\n这个适配器负责将 v2 的朋友圈评论任务适配到 v3 调度系统中，\n保持原有的业务逻辑和功能完整性。\n')
+              2 STORE_NAME               0 (__doc__)
+
+  8           4 LOAD_CONST               1 (0)
+              6 LOAD_CONST               2 (None)
+              8 IMPORT_NAME              1 (asyncio)
+             10 STORE_NAME               1 (asyncio)
+
+  9          12 LOAD_CONST               1 (0)
+             14 LOAD_CONST               2 (None)
+             16 IMPORT_NAME              2 (importlib)
+             18 STORE_NAME               2 (importlib)
+
+ 10          20 LOAD_CONST               1 (0)
+             22 LOAD_CONST               3 (('datetime', 'timedelta'))
+             24 IMPORT_NAME              3 (datetime)
+             26 IMPORT_FROM              3 (datetime)
+             28 STORE_NAME               3 (datetime)
+             30 IMPORT_FROM              4 (timedelta)
+             32 STORE_NAME               4 (timedelta)
+             34 POP_TOP
+
+ 11          36 LOAD_CONST               1 (0)
+             38 LOAD_CONST               4 (('Dict', 'Any', 'Optional', 'Type', 'List'))
+             40 IMPORT_NAME              5 (typing)
+             42 IMPORT_FROM              6 (Dict)
+             44 STORE_NAME               6 (Dict)
+             46 IMPORT_FROM              7 (Any)
+             48 STORE_NAME               7 (Any)
+             50 IMPORT_FROM              8 (Optional)
+             52 STORE_NAME               8 (Optional)
+             54 IMPORT_FROM              9 (Type)
+             56 STORE_NAME               9 (Type)
+             58 IMPORT_FROM             10 (List)
+             60 STORE_NAME              10 (List)
+             62 POP_TOP
+
+ 12          64 LOAD_CONST               1 (0)
+             66 LOAD_CONST               5 (('uuid4',))
+             68 IMPORT_NAME             11 (uuid)
+             70 IMPORT_FROM             12 (uuid4)
+             72 STORE_NAME              12 (uuid4)
+             74 POP_TOP
+
+ 14          76 LOAD_CONST               1 (0)
+             78 LOAD_CONST               6 (('TaskType', 'TaskPriority', 'TaskStatus', 'BaseTask', 'TimedBaseTask', 'ScheduleConfig', 'TriggerType', 'ExecutionMode', 'TaskExecutionContext', 'PermissionRequest', 'PermissionLevel'))
+             80 IMPORT_NAME             13 (WeRobotCore.task_system_v3.types)
+             82 IMPORT_FROM             14 (TaskType)
+             84 STORE_NAME              14 (TaskType)
+             86 IMPORT_FROM             15 (TaskPriority)
+             88 STORE_NAME              15 (TaskPriority)
+             90 IMPORT_FROM             16 (TaskStatus)
+             92 STORE_NAME              16 (TaskStatus)
+             94 IMPORT_FROM             17 (BaseTask)
+             96 STORE_NAME              17 (BaseTask)
+             98 IMPORT_FROM             18 (TimedBaseTask)
+            100 STORE_NAME              18 (TimedBaseTask)
+            102 IMPORT_FROM             19 (ScheduleConfig)
+            104 STORE_NAME              19 (ScheduleConfig)
+            106 IMPORT_FROM             20 (TriggerType)
+            108 STORE_NAME              20 (TriggerType)
+            110 IMPORT_FROM             21 (ExecutionMode)
+            112 STORE_NAME              21 (ExecutionMode)
+            114 IMPORT_FROM             22 (TaskExecutionContext)
+            116 STORE_NAME              22 (TaskExecutionContext)
+            118 IMPORT_FROM             23 (PermissionRequest)
+            120 STORE_NAME              23 (PermissionRequest)
+            122 IMPORT_FROM             24 (PermissionLevel)
+            124 STORE_NAME              24 (PermissionLevel)
+            126 POP_TOP
+
+ 19         128 LOAD_CONST               1 (0)
+            130 LOAD_CONST               7 (('PermissionManager',))
+            132 IMPORT_NAME             25 (WeRobotCore.task_system_v3.permission_manager)
+            134 IMPORT_FROM             26 (PermissionManager)
+            136 STORE_NAME              26 (PermissionManager)
+            138 POP_TOP
+
+ 22         140 LOAD_CONST               1 (0)
+            142 LOAD_CONST               8 (('TYPE_CHECKING',))
+            144 IMPORT_NAME              5 (typing)
+            146 IMPORT_FROM             27 (TYPE_CHECKING)
+            148 STORE_NAME              27 (TYPE_CHECKING)
+            150 POP_TOP
+
+ 23         152 LOAD_NAME               27 (TYPE_CHECKING)
+            154 POP_JUMP_IF_FALSE      168
+
+ 24         156 LOAD_CONST               1 (0)
+            158 LOAD_CONST               9 (('UnifiedScheduler',))
+            160 IMPORT_NAME             28 (WeRobotCore.task_system_v3.unified_scheduler)
+            162 IMPORT_FROM             29 (UnifiedScheduler)
+            164 STORE_NAME              29 (UnifiedScheduler)
+            166 POP_TOP
+
+ 27     >>  168 SETUP_FINALLY           20 (to 190)
+
+ 28         170 LOAD_CONST               1 (0)
+            172 LOAD_CONST              10 (('task_logger', 'get_logger'))
+            174 IMPORT_NAME             30 (WeRobotCore.utils.logger)
+            176 IMPORT_FROM             31 (task_logger)
+            178 STORE_NAME              31 (task_logger)
+            180 IMPORT_FROM             32 (get_logger)
+            182 STORE_NAME              32 (get_logger)
+            184 POP_TOP
+            186 POP_BLOCK
+            188 JUMP_FORWARD            42 (to 232)
+
+ 29     >>  190 DUP_TOP
+            192 LOAD_NAME               33 (ImportError)
+            194 JUMP_IF_NOT_EXC_MATCH   230
+            196 POP_TOP
+            198 POP_TOP
+            200 POP_TOP
+
+ 30         202 LOAD_CONST               1 (0)
+            204 LOAD_CONST               2 (None)
+            206 IMPORT_NAME             34 (logging)
+            208 STORE_NAME              34 (logging)
+
+ 31         210 LOAD_NAME               34 (logging)
+            212 LOAD_METHOD             35 (getLogger)
+            214 LOAD_NAME               36 (__name__)
+            216 CALL_METHOD              1
+            218 STORE_NAME              31 (task_logger)
+
+ 32         220 LOAD_NAME               34 (logging)
+            222 LOAD_ATTR               35 (getLogger)
+            224 STORE_NAME              32 (get_logger)
+            226 POP_EXCEPT
+            228 JUMP_FORWARD             2 (to 232)
+        >>  230 RERAISE
+
+ 35     >>  232 LOAD_BUILD_CLASS
+            234 LOAD_CONST              11 (<code object MomentCommentAdapter at 0x1073b9f50, file "WeRobotCore/task_system_v3/moment_comment_adapter.py", line 35>)
+            236 LOAD_CONST              12 ('MomentCommentAdapter')
+            238 MAKE_FUNCTION            0
+            240 LOAD_CONST              12 ('MomentCommentAdapter')
+            242 CALL_FUNCTION            2
+            244 STORE_NAME              37 (MomentCommentAdapter)
+            246 LOAD_CONST               2 (None)
+            248 RETURN_VALUE
+
+Disassembly of <code object MomentCommentAdapter at 0x1073b9f50, file "WeRobotCore/task_system_v3/moment_comment_adapter.py", line 35>:
+ 35           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('MomentCommentAdapter')
+              6 STORE_NAME               2 (__qualname__)
+
+ 36           8 LOAD_CONST               1 ('朋友圈评论任务适配器\n    \n    负责处理朋友圈评论任务的执行、调度和状态管理，\n    确保与 v2 系统的完全兼容性。\n    ')
+             10 STORE_NAME               3 (__doc__)
+
+ 42          12 LOAD_CONST              44 ((None,))
+
+ 44          14 LOAD_CONST               3 ('UnifiedScheduler')
+
+ 45          16 LOAD_NAME                4 (PermissionManager)
+
+ 42          18 LOAD_CONST               4 (('scheduler', 'permission_manager'))
+             20 BUILD_CONST_KEY_MAP      2
+             22 LOAD_CONST               5 (<code object __init__ at 0x1073ab710, file "WeRobotCore/task_system_v3/moment_comment_adapter.py", line 42>)
+             24 LOAD_CONST               6 ('MomentCommentAdapter.__init__')
+             26 MAKE_FUNCTION            5 (defaults, annotations)
+             28 STORE_NAME               5 (__init__)
+
+ 68          30 LOAD_NAME                6 (bool)
+             32 LOAD_CONST               7 (('return',))
+             34 BUILD_CONST_KEY_MAP      1
+             36 LOAD_CONST               8 (<code object start at 0x1073abdf0, file "WeRobotCore/task_system_v3/moment_comment_adapter.py", line 68>)
+             38 LOAD_CONST               9 ('MomentCommentAdapter.start')
+             40 MAKE_FUNCTION            4 (annotations)
+             42 STORE_NAME               7 (start)
+
+ 83          44 LOAD_CONST              45 ((None, None, None))
+
+ 85          46 LOAD_NAME                8 (Dict)
+             48 LOAD_NAME                9 (str)
+             50 LOAD_NAME               10 (Any)
+             52 BUILD_TUPLE              2
+             54 BINARY_SUBSCR
+
+ 86          56 LOAD_NAME               11 (Optional)
+             58 LOAD_NAME               12 (datetime)
+             60 BINARY_SUBSCR
+
+ 87          62 LOAD_NAME               11 (Optional)
+             64 LOAD_NAME               13 (ScheduleConfig)
+             66 BINARY_SUBSCR
+
+ 88          68 LOAD_NAME               11 (Optional)
+             70 LOAD_NAME                9 (str)
+             72 BINARY_SUBSCR
+
+ 89          74 LOAD_NAME                9 (str)
+
+ 83          76 LOAD_CONST              10 (('task_params', 'schedule_time', 'schedule_config', 'task_id', 'return'))
+             78 BUILD_CONST_KEY_MAP      5
+             80 LOAD_CONST              11 (<code object add_moment_comment_task at 0x1073ab0e0, file "WeRobotCore/task_system_v3/moment_comment_adapter.py", line 83>)
+             82 LOAD_CONST              12 ('MomentCommentAdapter.add_moment_comment_task')
+             84 MAKE_FUNCTION            5 (defaults, annotations)
+             86 STORE_NAME              14 (add_moment_comment_task)
+
+178          88 LOAD_CONST              46 ((None,))
+
+180          90 LOAD_NAME                8 (Dict)
+             92 LOAD_NAME                9 (str)
+             94 LOAD_NAME               10 (Any)
+             96 BUILD_TUPLE              2
+             98 BINARY_SUBSCR
+
+181         100 LOAD_NAME               11 (Optional)
+            102 LOAD_NAME                9 (str)
+            104 BINARY_SUBSCR
+
+182         106 LOAD_NAME                9 (str)
+
+178         108 LOAD_CONST              13 (('task_params', 'task_id', 'return'))
+            110 BUILD_CONST_KEY_MAP      3
+            112 LOAD_CONST              14 (<code object add_immediate_moment_comment_task at 0x1073ab450, file "WeRobotCore/task_system_v3/moment_comment_adapter.py", line 178>)
+            114 LOAD_CONST              15 ('MomentCommentAdapter.add_immediate_moment_comment_task')
+            116 MAKE_FUNCTION            5 (defaults, annotations)
+            118 STORE_NAME              15 (add_immediate_moment_comment_task)
+
+219         120 LOAD_CONST              47 ((60, None))
+
+221         122 LOAD_NAME                8 (Dict)
+            124 LOAD_NAME                9 (str)
+            126 LOAD_NAME               10 (Any)
+            128 BUILD_TUPLE              2
+            130 BINARY_SUBSCR
+
+222         132 LOAD_NAME               16 (int)
+
+223         134 LOAD_NAME               11 (Optional)
+            136 LOAD_NAME                9 (str)
+            138 BINARY_SUBSCR
+
+224         140 LOAD_NAME                9 (str)
+
+219         142 LOAD_CONST              17 (('task_params', 'interval_seconds', 'task_id', 'return'))
+            144 BUILD_CONST_KEY_MAP      4
+            146 LOAD_CONST              18 (<code object add_immediate_and_recurring_moment_comment_task at 0x1073ab030, file "WeRobotCore/task_system_v3/moment_comment_adapter.py", line 219>)
+            148 LOAD_CONST              19 ('MomentCommentAdapter.add_immediate_and_recurring_moment_comment_task')
+            150 MAKE_FUNCTION            5 (defaults, annotations)
+            152 STORE_NAME              17 (add_immediate_and_recurring_moment_comment_task)
+
+267         154 LOAD_NAME               18 (TaskExecutionContext)
+            156 LOAD_CONST              20 (('context',))
+            158 BUILD_CONST_KEY_MAP      1
+            160 LOAD_CONST              21 (<code object _handle_task_cancelled at 0x1073ab500, file "WeRobotCore/task_system_v3/moment_comment_adapter.py", line 267>)
+            162 LOAD_CONST              22 ('MomentCommentAdapter._handle_task_cancelled')
+            164 MAKE_FUNCTION            4 (annotations)
+            166 STORE_NAME              19 (_handle_task_cancelled)
+
+284         168 LOAD_NAME               18 (TaskExecutionContext)
+
+285         170 LOAD_NAME                8 (Dict)
+            172 LOAD_NAME                9 (str)
+            174 LOAD_NAME               10 (Any)
+            176 BUILD_TUPLE              2
+            178 BINARY_SUBSCR
+
+286         180 LOAD_NAME               10 (Any)
+
+282         182 LOAD_CONST              23 (('context', 'params', 'return'))
+            184 BUILD_CONST_KEY_MAP      3
+            186 LOAD_CONST              24 (<code object _execute_moment_comment_task at 0x1073abea0, file "WeRobotCore/task_system_v3/moment_comment_adapter.py", line 282>)
+            188 LOAD_CONST              25 ('MomentCommentAdapter._execute_moment_comment_task')
+            190 MAKE_FUNCTION            4 (annotations)
+            192 STORE_NAME              20 (_execute_moment_comment_task)
+
+434         194 LOAD_CONST              48 (('MomentCommentTask',))
+            196 LOAD_NAME                9 (str)
+            198 LOAD_NAME               21 (Type)
+            200 LOAD_CONST              27 (('class_name', 'return'))
+            202 BUILD_CONST_KEY_MAP      2
+            204 LOAD_CONST              28 (<code object _get_moment_comment_task_class at 0x1073b9660, file "WeRobotCore/task_system_v3/moment_comment_adapter.py", line 434>)
+            206 LOAD_CONST              29 ('MomentCommentAdapter._get_moment_comment_task_class')
+            208 MAKE_FUNCTION            5 (defaults, annotations)
+            210 STORE_NAME              22 (_get_moment_comment_task_class)
+
+483         212 LOAD_NAME               10 (Any)
+            214 LOAD_CONST               7 (('return',))
+            216 BUILD_CONST_KEY_MAP      1
+            218 LOAD_CONST              30 (<code object _execute_task_safely at 0x1073b9500, file "WeRobotCore/task_system_v3/moment_comment_adapter.py", line 483>)
+            220 LOAD_CONST              31 ('MomentCommentAdapter._execute_task_safely')
+            222 MAKE_FUNCTION            4 (annotations)
+            224 STORE_NAME              23 (_execute_task_safely)
+
+508         226 LOAD_NAME                8 (Dict)
+            228 LOAD_NAME                9 (str)
+            230 LOAD_NAME               10 (Any)
+            232 BUILD_TUPLE              2
+            234 BINARY_SUBSCR
+            236 LOAD_NAME               24 (TaskPriority)
+            238 LOAD_CONST              32 (('task_params', 'return'))
+            240 BUILD_CONST_KEY_MAP      2
+            242 LOAD_CONST              33 (<code object _get_task_priority at 0x1073b9d40, file "WeRobotCore/task_system_v3/moment_comment_adapter.py", line 508>)
+            244 LOAD_CONST              34 ('MomentCommentAdapter._get_task_priority')
+            246 MAKE_FUNCTION            4 (annotations)
+            248 STORE_NAME              25 (_get_task_priority)
+
+528         250 LOAD_NAME                9 (str)
+            252 LOAD_NAME                6 (bool)
+            254 LOAD_CONST              35 (('task_id', 'return'))
+            256 BUILD_CONST_KEY_MAP      2
+            258 LOAD_CONST              36 (<code object cancel_task at 0x1073b9b30, file "WeRobotCore/task_system_v3/moment_comment_adapter.py", line 528>)
+            260 LOAD_CONST              37 ('MomentCommentAdapter.cancel_task')
+            262 MAKE_FUNCTION            4 (annotations)
+            264 STORE_NAME              26 (cancel_task)
+
+547         266 LOAD_NAME                9 (str)
+            268 LOAD_NAME               11 (Optional)
+            270 LOAD_NAME                8 (Dict)
+            272 BINARY_SUBSCR
+            274 LOAD_CONST              35 (('task_id', 'return'))
+            276 BUILD_CONST_KEY_MAP      2
+            278 LOAD_CONST              38 (<code object get_task_status at 0x1073b9ea0, file "WeRobotCore/task_system_v3/moment_comment_adapter.py", line 547>)
+            280 LOAD_CONST              39 ('MomentCommentAdapter.get_task_status')
+            282 MAKE_FUNCTION            4 (annotations)
+            284 STORE_NAME              27 (get_task_status)
+
+558         286 LOAD_NAME               28 (List)
+            288 LOAD_NAME                8 (Dict)
+            290 BINARY_SUBSCR
+            292 LOAD_CONST               7 (('return',))
+            294 BUILD_CONST_KEY_MAP      1
+            296 LOAD_CONST              40 (<code object get_all_tasks at 0x1073b90e0, file "WeRobotCore/task_system_v3/moment_comment_adapter.py", line 558>)
+            298 LOAD_CONST              41 ('MomentCommentAdapter.get_all_tasks')
+            300 MAKE_FUNCTION            4 (annotations)
+            302 STORE_NAME              29 (get_all_tasks)
+
+578         304 LOAD_CONST              49 ((None, None, None))
+
+580         306 LOAD_NAME                8 (Dict)
+            308 LOAD_NAME                9 (str)
+            310 LOAD_NAME               10 (Any)
+            312 BUILD_TUPLE              2
+            314 BINARY_SUBSCR
+
+581         316 LOAD_NAME               11 (Optional)
+            318 LOAD_NAME               12 (datetime)
+            320 BINARY_SUBSCR
+
+582         322 LOAD_NAME               11 (Optional)
+            324 LOAD_NAME               13 (ScheduleConfig)
+            326 BINARY_SUBSCR
+
+583         328 LOAD_NAME               11 (Optional)
+            330 LOAD_NAME                9 (str)
+            332 BINARY_SUBSCR
+
+584         334 LOAD_NAME                9 (str)
+
+578         336 LOAD_CONST              10 (('task_params', 'schedule_time', 'schedule_config', 'task_id', 'return'))
+            338 BUILD_CONST_KEY_MAP      5
+            340 LOAD_CONST              42 (<code object replace_recurring_task at 0x1073b9450, file "WeRobotCore/task_system_v3/moment_comment_adapter.py", line 578>)
+            342 LOAD_CONST              43 ('MomentCommentAdapter.replace_recurring_task')
+            344 MAKE_FUNCTION            5 (defaults, annotations)
+            346 STORE_NAME              30 (replace_recurring_task)
+            348 LOAD_CONST               2 (None)
+            350 RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x1073ab710, file "WeRobotCore/task_system_v3/moment_comment_adapter.py", line 42>:
+ 48           0 LOAD_FAST                1 (scheduler)
+              2 LOAD_FAST                0 (self)
+              4 STORE_ATTR               0 (scheduler)
+
+ 49           6 LOAD_FAST                2 (permission_manager)
+              8 LOAD_FAST                0 (self)
+             10 STORE_ATTR               1 (permission_manager)
+
+ 50          12 BUILD_MAP                0
+             14 LOAD_FAST                0 (self)
+             16 STORE_ATTR               2 (task_class_cache)
+
+ 51          18 LOAD_GLOBAL              3 (get_logger)
+             20 LOAD_CONST               1 ('moment_comment_adapter')
+             22 CALL_FUNCTION            1
+             24 LOAD_FAST                0 (self)
+             26 STORE_ATTR               4 (logger)
+
+ 52          28 LOAD_GLOBAL              5 (task_logger)
+             30 LOAD_FAST                0 (self)
+             32 STORE_ATTR               5 (task_logger)
+
+ 53          34 LOAD_CONST               2 (False)
+             36 LOAD_FAST                0 (self)
+             38 STORE_ATTR               6 (_running)
+
+ 54          40 LOAD_CONST               2 (False)
+             42 LOAD_FAST                0 (self)
+             44 STORE_ATTR               7 (_paused)
+
+ 55          46 LOAD_CONST               2 (False)
+             48 LOAD_FAST                0 (self)
+             50 STORE_ATTR               8 (_multi_cycle_enabled)
+
+ 56          52 BUILD_LIST               0
+             54 LOAD_FAST                0 (self)
+             56 STORE_ATTR               9 (_selected_accounts)
+
+ 57          58 LOAD_CONST               3 (0)
+             60 LOAD_FAST                0 (self)
+             62 STORE_ATTR              10 (_cycle_cursor)
+
+ 58          64 BUILD_MAP                0
+             66 LOAD_FAST                0 (self)
+             68 STORE_ATTR              11 (_active_tasks)
+
+ 59          70 LOAD_FAST                3 (task_factory)
+             72 LOAD_CONST               0 (None)
+             74 IS_OP                    1
+             76 POP_JUMP_IF_FALSE       94
+             78 LOAD_GLOBAL             12 (callable)
+             80 LOAD_FAST                3 (task_factory)
+             82 CALL_FUNCTION            1
+             84 POP_JUMP_IF_TRUE        94
+
+ 60          86 LOAD_GLOBAL             13 (TypeError)
+             88 LOAD_CONST               4 ('task_factory must be callable or None')
+             90 CALL_FUNCTION            1
+             92 RAISE_VARARGS            1
+
+ 61     >>   94 LOAD_FAST                3 (task_factory)
+             96 LOAD_FAST                0 (self)
+             98 STORE_ATTR              14 (_task_factory)
+
+ 64         100 LOAD_FAST                0 (self)
+            102 LOAD_ATTR                0 (scheduler)
+            104 LOAD_METHOD             15 (register_task_executor)
+            106 LOAD_GLOBAL             16 (TaskType)
+            108 LOAD_ATTR               17 (MOMENT_COMMENT)
+            110 LOAD_FAST                0 (self)
+            112 LOAD_ATTR               18 (_execute_moment_comment_task)
+            114 CALL_METHOD              2
+            116 POP_TOP
+
+ 66         118 LOAD_FAST                0 (self)
+            120 LOAD_ATTR                0 (scheduler)
+            122 LOAD_METHOD             19 (add_event_listener)
+            124 LOAD_CONST               5 ('task_cancelled')
+            126 LOAD_FAST                0 (self)
+            128 LOAD_ATTR               20 (_handle_task_cancelled)
+            130 CALL_METHOD              2
+            132 POP_TOP
+            134 LOAD_CONST               0 (None)
+            136 RETURN_VALUE
+
+Disassembly of <code object start at 0x1073abdf0, file "WeRobotCore/task_system_v3/moment_comment_adapter.py", line 68>:
+ 70           0 SETUP_FINALLY           54 (to 56)
+
+ 71           2 LOAD_FAST                0 (self)
+              4 LOAD_ATTR                0 (_running)
+              6 POP_JUMP_IF_FALSE       26
+
+ 72           8 LOAD_FAST                0 (self)
+             10 LOAD_ATTR                1 (logger)
+             12 LOAD_METHOD              2 (info)
+             14 LOAD_CONST               1 ('朋友圈评论适配器已在运行')
+             16 CALL_METHOD              1
+             18 POP_TOP
+
+ 73          20 POP_BLOCK
+             22 LOAD_CONST               2 (True)
+             24 RETURN_VALUE
+
+ 75     >>   26 LOAD_CONST               2 (True)
+             28 LOAD_FAST                0 (self)
+             30 STORE_ATTR               0 (_running)
+
+ 76          32 LOAD_CONST               3 (False)
+             34 LOAD_FAST                0 (self)
+             36 STORE_ATTR               3 (_paused)
+
+ 77          38 LOAD_FAST                0 (self)
+             40 LOAD_ATTR                1 (logger)
+             42 LOAD_METHOD              2 (info)
+             44 LOAD_CONST               4 ('朋友圈评论适配器启动成功')
+             46 CALL_METHOD              1
+             48 POP_TOP
+
+ 78          50 POP_BLOCK
+             52 LOAD_CONST               2 (True)
+             54 RETURN_VALUE
+
+ 79     >>   56 DUP_TOP
+             58 LOAD_GLOBAL              4 (Exception)
+             60 JUMP_IF_NOT_EXC_MATCH   110
+             62 POP_TOP
+             64 STORE_FAST               1 (e)
+             66 POP_TOP
+             68 SETUP_FINALLY           32 (to 102)
+
+ 80          70 LOAD_FAST                0 (self)
+             72 LOAD_ATTR                1 (logger)
+             74 LOAD_METHOD              5 (error)
+             76 LOAD_CONST               5 ('朋友圈评论适配器启动失败: ')
+             78 LOAD_FAST                1 (e)
+             80 FORMAT_VALUE             0
+             82 BUILD_STRING             2
+             84 CALL_METHOD              1
+             86 POP_TOP
+
+ 81          88 POP_BLOCK
+             90 POP_EXCEPT
+             92 LOAD_CONST               6 (None)
+             94 STORE_FAST               1 (e)
+             96 DELETE_FAST              1 (e)
+             98 LOAD_CONST               3 (False)
+            100 RETURN_VALUE
+        >>  102 LOAD_CONST               6 (None)
+            104 STORE_FAST               1 (e)
+            106 DELETE_FAST              1 (e)
+            108 RERAISE
+        >>  110 RERAISE
+            112 LOAD_CONST               6 (None)
+            114 RETURN_VALUE
+
+Disassembly of <code object add_moment_comment_task at 0x1073ab0e0, file "WeRobotCore/task_system_v3/moment_comment_adapter.py", line 83>:
+101           0 LOAD_FAST                4 (task_id)
+              2 LOAD_CONST               1 (None)
+              4 IS_OP                    0
+              6 POP_JUMP_IF_FALSE       18
+
+102           8 LOAD_GLOBAL              0 (str)
+             10 LOAD_GLOBAL              1 (uuid4)
+             12 CALL_FUNCTION            0
+             14 CALL_FUNCTION            1
+             16 STORE_FAST               4 (task_id)
+
+104     >>   18 SETUP_FINALLY           46 (to 66)
+
+105          20 LOAD_GLOBAL              2 (bool)
+             22 LOAD_FAST                1 (task_params)
+             24 LOAD_METHOD              3 (get)
+             26 LOAD_CONST               2 ('multiCycleEnabled')
+             28 LOAD_CONST               3 (False)
+             30 CALL_METHOD              2
+             32 CALL_FUNCTION            1
+             34 LOAD_FAST                0 (self)
+             36 STORE_ATTR               4 (_multi_cycle_enabled)
+
+106          38 LOAD_GLOBAL              5 (list)
+             40 LOAD_FAST                1 (task_params)
+             42 LOAD_METHOD              3 (get)
+             44 LOAD_CONST               4 ('selectedAccounts')
+             46 BUILD_LIST               0
+             48 CALL_METHOD              2
+             50 CALL_FUNCTION            1
+             52 LOAD_FAST                0 (self)
+             54 STORE_ATTR               6 (_selected_accounts)
+
+107          56 LOAD_CONST               5 (0)
+             58 LOAD_FAST                0 (self)
+             60 STORE_ATTR               7 (_cycle_cursor)
+             62 POP_BLOCK
+             64 JUMP_FORWARD            36 (to 102)
+
+108     >>   66 DUP_TOP
+             68 LOAD_GLOBAL              8 (Exception)
+             70 JUMP_IF_NOT_EXC_MATCH   100
+             72 POP_TOP
+             74 POP_TOP
+             76 POP_TOP
+
+109          78 LOAD_CONST               3 (False)
+             80 LOAD_FAST                0 (self)
+             82 STORE_ATTR               4 (_multi_cycle_enabled)
+
+110          84 BUILD_LIST               0
+             86 LOAD_FAST                0 (self)
+             88 STORE_ATTR               6 (_selected_accounts)
+
+111          90 LOAD_CONST               5 (0)
+             92 LOAD_FAST                0 (self)
+             94 STORE_ATTR               7 (_cycle_cursor)
+             96 POP_EXCEPT
+             98 JUMP_FORWARD             2 (to 102)
+        >>  100 RERAISE
+
+115     >>  102 LOAD_FAST                4 (task_id)
+
+116         104 LOAD_FAST                1 (task_params)
+
+117         106 LOAD_CONST               6 ('moment_comment')
+
+118         108 LOAD_CONST               7 ('MomentCommentTask')
+
+114         110 LOAD_CONST               8 (('task_id', 'task_params', 'original_task_type', 'task_class_name'))
+            112 BUILD_CONST_KEY_MAP      4
+            114 STORE_FAST               5 (execution_params)
+
+121         116 LOAD_FAST                3 (schedule_config)
+            118 LOAD_CONST               1 (None)
+            120 IS_OP                    1
+            122 EXTENDED_ARG             1
+            124 POP_JUMP_IF_FALSE      272
+
+123         126 LOAD_FAST                3 (schedule_config)
+            128 LOAD_ATTR                9 (trigger_type)
+            130 LOAD_GLOBAL             10 (TriggerType)
+            132 LOAD_ATTR               11 (INTERVAL)
+            134 COMPARE_OP               2 (==)
+            136 POP_JUMP_IF_FALSE      242
+
+125         138 LOAD_FAST                3 (schedule_config)
+            140 LOAD_ATTR               12 (trigger_args)
+            142 LOAD_METHOD              3 (get)
+            144 LOAD_CONST               9 ('seconds')
+            146 LOAD_CONST              10 (60)
+            148 CALL_METHOD              2
+            150 STORE_FAST               6 (interval_seconds)
+
+126         152 LOAD_FAST                3 (schedule_config)
+            154 LOAD_ATTR               12 (trigger_args)
+            156 LOAD_METHOD              3 (get)
+            158 LOAD_CONST              11 ('start_time')
+            160 CALL_METHOD              1
+            162 STORE_FAST               7 (start_time)
+
+129         164 LOAD_GLOBAL             13 (ScheduleConfig)
+
+130         166 LOAD_GLOBAL             10 (TriggerType)
+            168 LOAD_ATTR               14 (OR_TRIGGER)
+
+132         170 LOAD_CONST              12 (True)
+
+133         172 LOAD_FAST                6 (interval_seconds)
+
+134         174 LOAD_FAST                7 (start_time)
+
+131         176 LOAD_CONST              13 (('immediate', 'interval_seconds', 'start_time'))
+            178 BUILD_CONST_KEY_MAP      3
+
+136         180 LOAD_FAST                3 (schedule_config)
+            182 LOAD_ATTR               15 (execution_mode)
+
+137         184 LOAD_FAST                3 (schedule_config)
+            186 LOAD_ATTR               16 (max_instances)
+
+129         188 LOAD_CONST              14 (('trigger_type', 'trigger_args', 'execution_mode', 'max_instances'))
+            190 CALL_FUNCTION_KW         4
+            192 STORE_FAST               8 (or_trigger_config)
+
+140         194 LOAD_FAST                0 (self)
+            196 LOAD_ATTR               17 (logger)
+            198 LOAD_METHOD             18 (info)
+            200 LOAD_CONST              15 ('将INTERVAL触发器转换为OR_TRIGGER以解决APScheduler 4.0立即执行问题，间隔: ')
+            202 LOAD_FAST                6 (interval_seconds)
+            204 FORMAT_VALUE             0
+            206 LOAD_CONST              16 ('秒')
+            208 BUILD_STRING             3
+            210 CALL_METHOD              1
+            212 POP_TOP
+
+142         214 LOAD_FAST                0 (self)
+            216 LOAD_ATTR               19 (scheduler)
+            218 LOAD_ATTR               20 (add_scheduled_task)
+
+143         220 LOAD_GLOBAL             21 (TaskType)
+            222 LOAD_ATTR               22 (MOMENT_COMMENT)
+
+144         224 LOAD_FAST                5 (execution_params)
+
+145         226 LOAD_FAST                8 (or_trigger_config)
+
+146         228 LOAD_FAST                4 (task_id)
+
+142         230 LOAD_CONST              17 (('task_type', 'params', 'schedule_config', 'task_id'))
+            232 CALL_FUNCTION_KW         4
+            234 GET_AWAITABLE
+            236 LOAD_CONST               1 (None)
+            238 YIELD_FROM
+            240 RETURN_VALUE
+
+150     >>  242 LOAD_FAST                0 (self)
+            244 LOAD_ATTR               19 (scheduler)
+            246 LOAD_ATTR               20 (add_scheduled_task)
+
+151         248 LOAD_GLOBAL             21 (TaskType)
+            250 LOAD_ATTR               22 (MOMENT_COMMENT)
+
+152         252 LOAD_FAST                5 (execution_params)
+
+153         254 LOAD_FAST                3 (schedule_config)
+
+154         256 LOAD_FAST                4 (task_id)
+
+150         258 LOAD_CONST              17 (('task_type', 'params', 'schedule_config', 'task_id'))
+            260 CALL_FUNCTION_KW         4
+            262 GET_AWAITABLE
+            264 LOAD_CONST               1 (None)
+            266 YIELD_FROM
+            268 RETURN_VALUE
+            270 JUMP_FORWARD            86 (to 358)
+
+156     >>  272 LOAD_FAST                2 (schedule_time)
+            274 LOAD_CONST               1 (None)
+            276 IS_OP                    0
+            278 EXTENDED_ARG             1
+            280 POP_JUMP_IF_FALSE      308
+
+158         282 LOAD_FAST                0 (self)
+            284 LOAD_ATTR               19 (scheduler)
+            286 LOAD_ATTR               23 (add_immediate_task)
+
+159         288 LOAD_GLOBAL             21 (TaskType)
+            290 LOAD_ATTR               22 (MOMENT_COMMENT)
+
+160         292 LOAD_FAST                5 (execution_params)
+
+161         294 LOAD_FAST                4 (task_id)
+
+158         296 LOAD_CONST              18 (('task_type', 'params', 'task_id'))
+            298 CALL_FUNCTION_KW         3
+            300 GET_AWAITABLE
+            302 LOAD_CONST               1 (None)
+            304 YIELD_FROM
+            306 RETURN_VALUE
+
+165     >>  308 LOAD_GLOBAL             13 (ScheduleConfig)
+
+166         310 LOAD_GLOBAL             10 (TriggerType)
+            312 LOAD_ATTR               24 (DATE)
+
+167         314 LOAD_CONST              19 ('run_time')
+            316 LOAD_FAST                2 (schedule_time)
+            318 BUILD_MAP                1
+
+168         320 LOAD_GLOBAL             25 (ExecutionMode)
+            322 LOAD_ATTR               26 (SCHEDULED)
+
+165         324 LOAD_CONST              20 (('trigger_type', 'trigger_args', 'execution_mode'))
+            326 CALL_FUNCTION_KW         3
+            328 STORE_FAST               3 (schedule_config)
+
+171         330 LOAD_FAST                0 (self)
+            332 LOAD_ATTR               19 (scheduler)
+            334 LOAD_ATTR               20 (add_scheduled_task)
+
+172         336 LOAD_GLOBAL             21 (TaskType)
+            338 LOAD_ATTR               22 (MOMENT_COMMENT)
+
+173         340 LOAD_FAST                5 (execution_params)
+
+174         342 LOAD_FAST                3 (schedule_config)
+
+175         344 LOAD_FAST                4 (task_id)
+
+171         346 LOAD_CONST              17 (('task_type', 'params', 'schedule_config', 'task_id'))
+            348 CALL_FUNCTION_KW         4
+            350 GET_AWAITABLE
+            352 LOAD_CONST               1 (None)
+            354 YIELD_FROM
+            356 RETURN_VALUE
+        >>  358 LOAD_CONST               1 (None)
+            360 RETURN_VALUE
+
+Disassembly of <code object add_immediate_moment_comment_task at 0x1073ab450, file "WeRobotCore/task_system_v3/moment_comment_adapter.py", line 178>:
+192           0 LOAD_FAST                2 (task_id)
+              2 LOAD_CONST               1 (None)
+              4 IS_OP                    0
+              6 POP_JUMP_IF_FALSE       18
+
+193           8 LOAD_GLOBAL              0 (str)
+             10 LOAD_GLOBAL              1 (uuid4)
+             12 CALL_FUNCTION            0
+             14 CALL_FUNCTION            1
+             16 STORE_FAST               2 (task_id)
+
+195     >>   18 SETUP_FINALLY           46 (to 66)
+
+196          20 LOAD_GLOBAL              2 (bool)
+             22 LOAD_FAST                1 (task_params)
+             24 LOAD_METHOD              3 (get)
+             26 LOAD_CONST               2 ('multiCycleEnabled')
+             28 LOAD_CONST               3 (False)
+             30 CALL_METHOD              2
+             32 CALL_FUNCTION            1
+             34 LOAD_FAST                0 (self)
+             36 STORE_ATTR               4 (_multi_cycle_enabled)
+
+197          38 LOAD_GLOBAL              5 (list)
+             40 LOAD_FAST                1 (task_params)
+             42 LOAD_METHOD              3 (get)
+             44 LOAD_CONST               4 ('selectedAccounts')
+             46 BUILD_LIST               0
+             48 CALL_METHOD              2
+             50 CALL_FUNCTION            1
+             52 LOAD_FAST                0 (self)
+             54 STORE_ATTR               6 (_selected_accounts)
+
+198          56 LOAD_CONST               5 (0)
+             58 LOAD_FAST                0 (self)
+             60 STORE_ATTR               7 (_cycle_cursor)
+             62 POP_BLOCK
+             64 JUMP_FORWARD            36 (to 102)
+
+199     >>   66 DUP_TOP
+             68 LOAD_GLOBAL              8 (Exception)
+             70 JUMP_IF_NOT_EXC_MATCH   100
+             72 POP_TOP
+             74 POP_TOP
+             76 POP_TOP
+
+200          78 LOAD_CONST               3 (False)
+             80 LOAD_FAST                0 (self)
+             82 STORE_ATTR               4 (_multi_cycle_enabled)
+
+201          84 BUILD_LIST               0
+             86 LOAD_FAST                0 (self)
+             88 STORE_ATTR               6 (_selected_accounts)
+
+202          90 LOAD_CONST               5 (0)
+             92 LOAD_FAST                0 (self)
+             94 STORE_ATTR               7 (_cycle_cursor)
+             96 POP_EXCEPT
+             98 JUMP_FORWARD             2 (to 102)
+        >>  100 RERAISE
+
+206     >>  102 LOAD_FAST                2 (task_id)
+
+207         104 LOAD_FAST                1 (task_params)
+
+208         106 LOAD_CONST               6 ('moment_comment')
+
+209         108 LOAD_CONST               7 ('MomentCommentTask')
+
+205         110 LOAD_CONST               8 (('task_id', 'task_params', 'original_task_type', 'task_class_name'))
+            112 BUILD_CONST_KEY_MAP      4
+            114 STORE_FAST               3 (execution_params)
+
+213         116 LOAD_FAST                0 (self)
+            118 LOAD_ATTR                9 (scheduler)
+            120 LOAD_ATTR               10 (add_immediate_task)
+
+214         122 LOAD_GLOBAL             11 (TaskType)
+            124 LOAD_ATTR               12 (MOMENT_COMMENT)
+
+215         126 LOAD_FAST                3 (execution_params)
+
+216         128 LOAD_FAST                2 (task_id)
+
+213         130 LOAD_CONST               9 (('task_type', 'params', 'task_id'))
+            132 CALL_FUNCTION_KW         3
+            134 GET_AWAITABLE
+            136 LOAD_CONST               1 (None)
+            138 YIELD_FROM
+            140 RETURN_VALUE
+
+Disassembly of <code object add_immediate_and_recurring_moment_comment_task at 0x1073ab030, file "WeRobotCore/task_system_v3/moment_comment_adapter.py", line 219>:
+235           0 LOAD_FAST                3 (task_id)
+              2 LOAD_CONST               1 (None)
+              4 IS_OP                    0
+              6 POP_JUMP_IF_FALSE       18
+
+236           8 LOAD_GLOBAL              0 (str)
+             10 LOAD_GLOBAL              1 (uuid4)
+             12 CALL_FUNCTION            0
+             14 CALL_FUNCTION            1
+             16 STORE_FAST               3 (task_id)
+
+240     >>   18 LOAD_FAST                3 (task_id)
+
+241          20 LOAD_FAST                1 (task_params)
+
+242          22 LOAD_CONST               2 ('moment_comment')
+
+243          24 LOAD_CONST               3 ('MomentCommentTask')
+
+239          26 LOAD_CONST               4 (('task_id', 'task_params', 'original_task_type', 'task_class_name'))
+             28 BUILD_CONST_KEY_MAP      4
+             30 STORE_FAST               4 (execution_params)
+
+247          32 LOAD_GLOBAL              2 (ScheduleConfig)
+
+248          34 LOAD_GLOBAL              3 (TriggerType)
+             36 LOAD_ATTR                4 (OR_TRIGGER)
+
+250          38 LOAD_CONST               5 (True)
+
+251          40 LOAD_FAST                2 (interval_seconds)
+
+252          42 LOAD_CONST               1 (None)
+
+249          44 LOAD_CONST               6 (('immediate', 'interval_seconds', 'start_time'))
+             46 BUILD_CONST_KEY_MAP      3
+
+254          48 LOAD_GLOBAL              5 (ExecutionMode)
+             50 LOAD_ATTR                6 (RECURRING)
+
+255          52 LOAD_CONST               7 (1)
+
+247          54 LOAD_CONST               8 (('trigger_type', 'trigger_args', 'execution_mode', 'max_instances'))
+             56 CALL_FUNCTION_KW         4
+             58 STORE_FAST               5 (or_trigger_config)
+
+258          60 LOAD_FAST                0 (self)
+             62 LOAD_ATTR                7 (logger)
+             64 LOAD_METHOD              8 (info)
+             66 LOAD_CONST               9 ('使用OrTrigger创建立即+循环朋友圈评论任务，间隔: ')
+             68 LOAD_FAST                2 (interval_seconds)
+             70 FORMAT_VALUE             0
+             72 LOAD_CONST              10 ('秒')
+             74 BUILD_STRING             3
+             76 CALL_METHOD              1
+             78 POP_TOP
+
+260          80 LOAD_FAST                0 (self)
+             82 LOAD_ATTR                9 (scheduler)
+             84 LOAD_ATTR               10 (add_scheduled_task)
+
+261          86 LOAD_GLOBAL             11 (TaskType)
+             88 LOAD_ATTR               12 (MOMENT_COMMENT)
+
+262          90 LOAD_FAST                4 (execution_params)
+
+263          92 LOAD_FAST                5 (or_trigger_config)
+
+264          94 LOAD_FAST                3 (task_id)
+
+260          96 LOAD_CONST              11 (('task_type', 'params', 'schedule_config', 'task_id'))
+             98 CALL_FUNCTION_KW         4
+            100 GET_AWAITABLE
+            102 LOAD_CONST               1 (None)
+            104 YIELD_FROM
+            106 RETURN_VALUE
+
+Disassembly of <code object _handle_task_cancelled at 0x1073ab500, file "WeRobotCore/task_system_v3/moment_comment_adapter.py", line 267>:
+269           0 LOAD_FAST                1 (context)
+              2 LOAD_ATTR                0 (task_id)
+              4 STORE_FAST               2 (task_id)
+
+270           6 LOAD_FAST                2 (task_id)
+              8 LOAD_FAST                0 (self)
+             10 LOAD_ATTR                1 (_active_tasks)
+             12 CONTAINS_OP              0
+             14 POP_JUMP_IF_FALSE      110
+
+271          16 LOAD_FAST                0 (self)
+             18 LOAD_ATTR                1 (_active_tasks)
+             20 LOAD_FAST                2 (task_id)
+             22 BINARY_SUBSCR
+             24 STORE_FAST               3 (instance)
+
+272          26 LOAD_FAST                0 (self)
+             28 LOAD_ATTR                2 (logger)
+             30 LOAD_METHOD              3 (info)
+             32 LOAD_CONST               1 ('[DEBUG] 找到任务实例: ')
+             34 LOAD_FAST                3 (instance)
+             36 FORMAT_VALUE             0
+             38 BUILD_STRING             2
+             40 CALL_METHOD              1
+             42 POP_TOP
+
+273          44 LOAD_GLOBAL              4 (hasattr)
+             46 LOAD_FAST                3 (instance)
+             48 LOAD_CONST               2 ('cancel')
+             50 CALL_FUNCTION            2
+             52 POP_JUMP_IF_FALSE      130
+
+274          54 LOAD_FAST                0 (self)
+             56 LOAD_ATTR                2 (logger)
+             58 LOAD_METHOD              3 (info)
+             60 LOAD_CONST               3 ('通知活跃的朋友圈评论任务终止: ')
+             62 LOAD_FAST                2 (task_id)
+             64 FORMAT_VALUE             0
+             66 BUILD_STRING             2
+             68 CALL_METHOD              1
+             70 POP_TOP
+
+275          72 LOAD_GLOBAL              5 (asyncio)
+             74 LOAD_METHOD              6 (iscoroutinefunction)
+             76 LOAD_FAST                3 (instance)
+             78 LOAD_ATTR                7 (cancel)
+             80 CALL_METHOD              1
+             82 POP_JUMP_IF_FALSE      100
+
+276          84 LOAD_FAST                3 (instance)
+             86 LOAD_METHOD              7 (cancel)
+             88 CALL_METHOD              0
+             90 GET_AWAITABLE
+             92 LOAD_CONST               4 (None)
+             94 YIELD_FROM
+             96 POP_TOP
+             98 JUMP_ABSOLUTE          130
+
+278     >>  100 LOAD_FAST                3 (instance)
+            102 LOAD_METHOD              7 (cancel)
+            104 CALL_METHOD              0
+            106 POP_TOP
+            108 JUMP_FORWARD            20 (to 130)
+
+280     >>  110 LOAD_FAST                0 (self)
+            112 LOAD_ATTR                2 (logger)
+            114 LOAD_METHOD              8 (warning)
+            116 LOAD_CONST               5 ('[DEBUG] 任务 ')
+            118 LOAD_FAST                2 (task_id)
+            120 FORMAT_VALUE             0
+            122 LOAD_CONST               6 (' 不在 MomentCommentAdapter 的 active_tasks 中')
+            124 BUILD_STRING             3
+            126 CALL_METHOD              1
+            128 POP_TOP
+        >>  130 LOAD_CONST               4 (None)
+            132 RETURN_VALUE
+
+Disassembly of <code object _execute_moment_comment_task at 0x1073abea0, file "WeRobotCore/task_system_v3/moment_comment_adapter.py", line 282>:
+296           0 LOAD_FAST                2 (params)
+              2 LOAD_METHOD              0 (get)
+              4 LOAD_CONST               1 ('task_id')
+              6 LOAD_FAST                1 (context)
+              8 LOAD_ATTR                1 (task_id)
+             10 CALL_METHOD              2
+             12 STORE_DEREF              2 (task_id)
+
+297          14 LOAD_FAST                2 (params)
+             16 LOAD_METHOD              0 (get)
+             18 LOAD_CONST               2 ('task_params')
+             20 BUILD_MAP                0
+             22 CALL_METHOD              2
+             24 STORE_FAST               3 (task_params)
+
+298          26 LOAD_FAST                2 (params)
+             28 LOAD_METHOD              0 (get)
+             30 LOAD_CONST               3 ('task_class_name')
+             32 LOAD_CONST               4 ('MomentCommentTask')
+             34 CALL_METHOD              2
+             36 STORE_FAST               4 (task_class_name)
+
+300          38 LOAD_GLOBAL              2 (asyncio)
+             40 LOAD_METHOD              3 (sleep)
+             42 LOAD_CONST               5 (2.0)
+             44 CALL_METHOD              1
+             46 GET_AWAITABLE
+             48 LOAD_CONST               6 (None)
+             50 YIELD_FROM
+             52 POP_TOP
+
+303          54 EXTENDED_ARG             2
+             56 SETUP_FINALLY          542 (to 600)
+
+304          58 LOAD_DEREF               1 (self)
+             60 LOAD_ATTR                4 (_task_factory)
+             62 LOAD_CONST               6 (None)
+             64 IS_OP                    1
+             66 POP_JUMP_IF_FALSE       76
+
+307          68 LOAD_GLOBAL              5 (LookupError)
+             70 LOAD_CONST               7 ('platform task factory owns account selection')
+             72 CALL_FUNCTION            1
+             74 RAISE_VARARGS            1
+
+308     >>   76 LOAD_CONST               8 (0)
+             78 LOAD_CONST               9 (('InstanceManagerV2',))
+             80 IMPORT_NAME              6 (WeRobotCore.core.instance_manager_v2)
+             82 IMPORT_FROM              7 (InstanceManagerV2)
+             84 STORE_FAST               5 (InstanceManagerV2)
+             86 POP_TOP
+
+309          88 LOAD_FAST                5 (InstanceManagerV2)
+             90 CALL_FUNCTION            0
+             92 STORE_FAST               6 (mgr)
+
+311          94 LOAD_DEREF               1 (self)
+             96 LOAD_ATTR                8 (_multi_cycle_enabled)
+             98 EXTENDED_ARG             1
+            100 POP_JUMP_IF_FALSE      400
+            102 LOAD_DEREF               1 (self)
+            104 LOAD_ATTR                9 (_selected_accounts)
+            106 EXTENDED_ARG             1
+            108 POP_JUMP_IF_FALSE      400
+
+312         110 LOAD_FAST                6 (mgr)
+            112 LOAD_METHOD             10 (list_instances)
+            114 CALL_METHOD              0
+            116 STORE_FAST               7 (instances)
+
+313         118 LOAD_GLOBAL             11 (set)
+            120 CALL_FUNCTION            0
+            122 STORE_FAST               8 (valid)
+
+314         124 LOAD_FAST                7 (instances)
+            126 GET_ITER
+        >>  128 FOR_ITER                56 (to 186)
+            130 STORE_FAST               9 (inst)
+
+315         132 LOAD_FAST                9 (inst)
+            134 LOAD_METHOD              0 (get)
+            136 LOAD_CONST              10 ('manually_exited')
+            138 LOAD_CONST              11 (False)
+            140 CALL_METHOD              2
+            142 POP_JUMP_IF_FALSE      146
+
+316         144 JUMP_ABSOLUTE          128
+
+317     >>  146 LOAD_FAST                9 (inst)
+            148 LOAD_METHOD              0 (get)
+            150 LOAD_CONST              12 ('account_info')
+            152 CALL_METHOD              1
+            154 JUMP_IF_TRUE_OR_POP    158
+            156 BUILD_MAP                0
+        >>  158 STORE_FAST              10 (info)
+
+318         160 LOAD_FAST               10 (info)
+            162 LOAD_METHOD              0 (get)
+            164 LOAD_CONST              13 ('account_id')
+            166 CALL_METHOD              1
+            168 STORE_FAST              11 (aid)
+
+319         170 LOAD_FAST               11 (aid)
+            172 POP_JUMP_IF_FALSE      128
+
+320         174 LOAD_FAST                8 (valid)
+            176 LOAD_METHOD             12 (add)
+            178 LOAD_FAST               11 (aid)
+            180 CALL_METHOD              1
+            182 POP_TOP
+            184 JUMP_ABSOLUTE          128
+
+321     >>  186 LOAD_GLOBAL             13 (len)
+            188 LOAD_DEREF               1 (self)
+            190 LOAD_ATTR                9 (_selected_accounts)
+            192 CALL_FUNCTION            1
+            194 STORE_FAST              12 (n)
+
+322         196 LOAD_FAST               12 (n)
+            198 LOAD_CONST               8 (0)
+            200 COMPARE_OP               4 (>)
+            202 POP_JUMP_IF_FALSE      214
+            204 LOAD_DEREF               1 (self)
+            206 LOAD_ATTR               14 (_cycle_cursor)
+            208 LOAD_FAST               12 (n)
+            210 BINARY_MODULO
+            212 JUMP_FORWARD             2 (to 216)
+        >>  214 LOAD_CONST               8 (0)
+        >>  216 STORE_FAST              13 (start)
+
+323         218 LOAD_CONST               6 (None)
+            220 STORE_FAST              14 (chosen)
+
+324         222 LOAD_GLOBAL             15 (range)
+            224 LOAD_FAST               12 (n)
+            226 CALL_FUNCTION            1
+            228 GET_ITER
+        >>  230 FOR_ITER                58 (to 290)
+            232 STORE_FAST              15 (i)
+
+325         234 LOAD_FAST               13 (start)
+            236 LOAD_FAST               15 (i)
+            238 BINARY_ADD
+            240 LOAD_FAST               12 (n)
+            242 BINARY_MODULO
+            244 STORE_FAST              16 (idx)
+
+326         246 LOAD_DEREF               1 (self)
+            248 LOAD_ATTR                9 (_selected_accounts)
+            250 LOAD_FAST               16 (idx)
+            252 BINARY_SUBSCR
+            254 STORE_FAST              17 (acc)
+
+327         256 LOAD_FAST               17 (acc)
+            258 LOAD_FAST                8 (valid)
+            260 CONTAINS_OP              0
+            262 POP_JUMP_IF_FALSE      230
+
+328         264 LOAD_FAST               17 (acc)
+            266 STORE_FAST              14 (chosen)
+
+329         268 LOAD_FAST               16 (idx)
+            270 LOAD_CONST              14 (1)
+            272 BINARY_ADD
+            274 LOAD_FAST               12 (n)
+            276 BINARY_MODULO
+            278 LOAD_DEREF               1 (self)
+            280 STORE_ATTR              14 (_cycle_cursor)
+
+330         282 POP_TOP
+            284 EXTENDED_ARG             1
+            286 JUMP_ABSOLUTE          290
+            288 JUMP_ABSOLUTE          230
+
+331     >>  290 LOAD_FAST               14 (chosen)
+            292 EXTENDED_ARG             1
+            294 POP_JUMP_IF_TRUE       350
+
+332         296 LOAD_FAST                6 (mgr)
+            298 LOAD_METHOD             16 (get_active_instance)
+            300 CALL_METHOD              0
+            302 STORE_FAST              18 (active)
+
+333         304 LOAD_FAST               18 (active)
+            306 EXTENDED_ARG             1
+            308 POP_JUMP_IF_FALSE      350
+            310 LOAD_FAST               18 (active)
+            312 LOAD_METHOD              0 (get)
+            314 LOAD_CONST              10 ('manually_exited')
+            316 LOAD_CONST              11 (False)
+            318 CALL_METHOD              2
+            320 EXTENDED_ARG             1
+            322 POP_JUMP_IF_TRUE       350
+            324 LOAD_FAST               18 (active)
+            326 LOAD_METHOD              0 (get)
+            328 LOAD_CONST              12 ('account_info')
+            330 CALL_METHOD              1
+            332 EXTENDED_ARG             1
+            334 POP_JUMP_IF_FALSE      350
+
+334         336 LOAD_FAST               18 (active)
+            338 LOAD_CONST              12 ('account_info')
+            340 BINARY_SUBSCR
+            342 LOAD_METHOD              0 (get)
+            344 LOAD_CONST              13 ('account_id')
+            346 CALL_METHOD              1
+            348 STORE_FAST              14 (chosen)
+
+335     >>  350 LOAD_FAST               14 (chosen)
+            352 EXTENDED_ARG             1
+            354 POP_JUMP_IF_FALSE      366
+
+336         356 LOAD_FAST               14 (chosen)
+            358 LOAD_FAST                3 (task_params)
+            360 LOAD_CONST              15 ('accountId')
+            362 STORE_SUBSCR
+            364 JUMP_FORWARD            32 (to 398)
+
+338     >>  366 LOAD_DEREF               1 (self)
+            368 LOAD_ATTR               17 (logger)
+            370 LOAD_METHOD             18 (info)
+            372 LOAD_CONST              16 ('多账号循环模式：无可用账号（全部已退出托管），跳过任务: ')
+            374 LOAD_DEREF               2 (task_id)
+            376 FORMAT_VALUE             0
+            378 BUILD_STRING             2
+            380 CALL_METHOD              1
+            382 POP_TOP
+
+339         384 LOAD_CONST              11 (False)
+            386 LOAD_CONST              17 (True)
+            388 LOAD_CONST              18 ('所有账号已退出托管')
+            390 LOAD_CONST              19 (('success', 'skipped', 'reason'))
+            392 BUILD_CONST_KEY_MAP      3
+            394 POP_BLOCK
+            396 RETURN_VALUE
+        >>  398 JUMP_FORWARD           196 (to 596)
+
+341     >>  400 LOAD_FAST                3 (task_params)
+            402 LOAD_METHOD              0 (get)
+            404 LOAD_CONST              20 ('selectedAccounts')
+            406 CALL_METHOD              1
+            408 EXTENDED_ARG             1
+            410 JUMP_IF_TRUE_OR_POP    414
+            412 BUILD_LIST               0
+        >>  414 STORE_FAST              19 (sel)
+
+342         416 LOAD_GLOBAL             19 (isinstance)
+            418 LOAD_FAST               19 (sel)
+            420 LOAD_GLOBAL             20 (list)
+            422 CALL_FUNCTION            2
+            424 EXTENDED_ARG             2
+            426 POP_JUMP_IF_FALSE      536
+            428 LOAD_GLOBAL             13 (len)
+            430 LOAD_FAST               19 (sel)
+            432 CALL_FUNCTION            1
+            434 LOAD_CONST               8 (0)
+            436 COMPARE_OP               4 (>)
+            438 EXTENDED_ARG             2
+            440 POP_JUMP_IF_FALSE      536
+
+344         442 LOAD_FAST                6 (mgr)
+            444 LOAD_METHOD             10 (list_instances)
+            446 CALL_METHOD              0
+            448 STORE_FAST               7 (instances)
+
+345         450 LOAD_CONST              21 (<code object <setcomp> at 0x1073abd40, file "WeRobotCore/task_system_v3/moment_comment_adapter.py", line 345>)
+            452 LOAD_CONST              22 ('MomentCommentAdapter._execute_moment_comment_task.<locals>.<setcomp>')
+            454 MAKE_FUNCTION            0
+
+347         456 LOAD_FAST                7 (instances)
+
+345         458 GET_ITER
+            460 CALL_FUNCTION            1
+            462 STORE_DEREF              0 (exited_ids)
+
+350         464 LOAD_CLOSURE             0 (exited_ids)
+            466 BUILD_TUPLE              1
+            468 LOAD_CONST              23 (<code object <listcomp> at 0x1073ab7c0, file "WeRobotCore/task_system_v3/moment_comment_adapter.py", line 350>)
+            470 LOAD_CONST              24 ('MomentCommentAdapter._execute_moment_comment_task.<locals>.<listcomp>')
+            472 MAKE_FUNCTION            8 (closure)
+            474 LOAD_FAST               19 (sel)
+            476 GET_ITER
+            478 CALL_FUNCTION            1
+            480 STORE_FAST              20 (active_sel)
+
+351         482 LOAD_FAST               20 (active_sel)
+            484 EXTENDED_ARG             1
+            486 POP_JUMP_IF_FALSE      502
+
+352         488 LOAD_FAST               20 (active_sel)
+            490 LOAD_CONST               8 (0)
+            492 BINARY_SUBSCR
+            494 LOAD_FAST                3 (task_params)
+            496 LOAD_CONST              15 ('accountId')
+            498 STORE_SUBSCR
+            500 JUMP_FORWARD            32 (to 534)
+
+354     >>  502 LOAD_DEREF               1 (self)
+            504 LOAD_ATTR               17 (logger)
+            506 LOAD_METHOD             18 (info)
+            508 LOAD_CONST              25 ('所有选中账号已退出托管，跳过任务: ')
+            510 LOAD_DEREF               2 (task_id)
+            512 FORMAT_VALUE             0
+            514 BUILD_STRING             2
+            516 CALL_METHOD              1
+            518 POP_TOP
+
+355         520 LOAD_CONST              11 (False)
+            522 LOAD_CONST              17 (True)
+            524 LOAD_CONST              18 ('所有账号已退出托管')
+            526 LOAD_CONST              19 (('success', 'skipped', 'reason'))
+            528 BUILD_CONST_KEY_MAP      3
+            530 POP_BLOCK
+            532 RETURN_VALUE
+        >>  534 JUMP_FORWARD            60 (to 596)
+
+358     >>  536 LOAD_FAST                6 (mgr)
+            538 LOAD_METHOD             16 (get_active_instance)
+            540 CALL_METHOD              0
+            542 STORE_FAST              18 (active)
+
+359         544 LOAD_FAST               18 (active)
+            546 EXTENDED_ARG             2
+            548 POP_JUMP_IF_FALSE      596
+            550 LOAD_FAST               18 (active)
+            552 LOAD_METHOD              0 (get)
+            554 LOAD_CONST              10 ('manually_exited')
+            556 LOAD_CONST              11 (False)
+            558 CALL_METHOD              2
+            560 EXTENDED_ARG             2
+            562 POP_JUMP_IF_FALSE      596
+
+360         564 LOAD_DEREF               1 (self)
+            566 LOAD_ATTR               17 (logger)
+            568 LOAD_METHOD             18 (info)
+            570 LOAD_CONST              26 ('当前活动实例已退出托管，跳过任务: ')
+            572 LOAD_DEREF               2 (task_id)
+            574 FORMAT_VALUE             0
+            576 BUILD_STRING             2
+            578 CALL_METHOD              1
+            580 POP_TOP
+
+361         582 LOAD_CONST              11 (False)
+            584 LOAD_CONST              17 (True)
+            586 LOAD_CONST              27 ('当前活动实例已退出托管')
+            588 LOAD_CONST              19 (('success', 'skipped', 'reason'))
+            590 BUILD_CONST_KEY_MAP      3
+            592 POP_BLOCK
+            594 RETURN_VALUE
+        >>  596 POP_BLOCK
+            598 JUMP_FORWARD            20 (to 620)
+
+362     >>  600 DUP_TOP
+            602 LOAD_GLOBAL             21 (Exception)
+            604 EXTENDED_ARG             2
+            606 JUMP_IF_NOT_EXC_MATCH   618
+            608 POP_TOP
+            610 POP_TOP
+            612 POP_TOP
+
+363         614 POP_EXCEPT
+            616 JUMP_FORWARD             2 (to 620)
+        >>  618 RERAISE
+
+365     >>  620 EXTENDED_ARG             1
+            622 SETUP_FINALLY          322 (to 946)
+
+369         624 LOAD_DEREF               1 (self)
+            626 LOAD_ATTR                4 (_task_factory)
+            628 LOAD_CONST               6 (None)
+            630 IS_OP                    1
+
+368         632 EXTENDED_ARG             2
+            634 POP_JUMP_IF_FALSE      642
+            636 LOAD_DEREF               1 (self)
+            638 LOAD_ATTR                4 (_task_factory)
+            640 JUMP_FORWARD            14 (to 656)
+
+370     >>  642 LOAD_DEREF               1 (self)
+            644 LOAD_METHOD             22 (_get_moment_comment_task_class)
+            646 LOAD_FAST                4 (task_class_name)
+            648 CALL_METHOD              1
+            650 GET_AWAITABLE
+            652 LOAD_CONST               6 (None)
+            654 YIELD_FROM
+
+367     >>  656 STORE_FAST              21 (task_class)
+
+374         658 LOAD_CONST               6 (None)
+            660 STORE_FAST              22 (schedule_time)
+
+375         662 LOAD_CONST              28 ('schedule_time')
+            664 LOAD_FAST                3 (task_params)
+            666 CONTAINS_OP              0
+            668 EXTENDED_ARG             2
+            670 POP_JUMP_IF_FALSE      682
+
+376         672 LOAD_FAST                3 (task_params)
+            674 LOAD_CONST              28 ('schedule_time')
+            676 BINARY_SUBSCR
+            678 STORE_FAST              22 (schedule_time)
+            680 JUMP_FORWARD            14 (to 696)
+
+377     >>  682 LOAD_FAST                1 (context)
+            684 LOAD_ATTR               23 (execution_time)
+            686 EXTENDED_ARG             2
+            688 POP_JUMP_IF_FALSE      696
+
+378         690 LOAD_FAST                1 (context)
+            692 LOAD_ATTR               23 (execution_time)
+            694 STORE_FAST              22 (schedule_time)
+
+381     >>  696 LOAD_DEREF               2 (task_id)
+            698 FORMAT_VALUE             0
+            700 LOAD_CONST              29 ('_')
+            702 LOAD_GLOBAL             24 (str)
+            704 LOAD_GLOBAL             25 (uuid4)
+            706 CALL_FUNCTION            0
+            708 CALL_FUNCTION            1
+            710 LOAD_CONST               6 (None)
+            712 LOAD_CONST              30 (8)
+            714 BUILD_SLICE              2
+            716 BINARY_SUBSCR
+            718 FORMAT_VALUE             0
+            720 BUILD_STRING             3
+            722 STORE_FAST              23 (batch_task_id)
+
+384         724 LOAD_FAST               21 (task_class)
+
+385         726 LOAD_FAST               23 (batch_task_id)
+
+386         728 LOAD_FAST                3 (task_params)
+
+387         730 LOAD_FAST               22 (schedule_time)
+
+388         732 LOAD_FAST                3 (task_params)
+            734 LOAD_METHOD              0 (get)
+            736 LOAD_CONST              31 ('schedule_config')
+            738 CALL_METHOD              1
+
+389         740 LOAD_FAST                3 (task_params)
+            742 LOAD_METHOD              0 (get)
+            744 LOAD_CONST              32 ('is_recurring')
+            746 LOAD_CONST              11 (False)
+            748 CALL_METHOD              2
+
+384         750 LOAD_CONST              33 (('task_id', 'params', 'schedule_time', 'schedule_config', 'is_recurring'))
+            752 CALL_FUNCTION_KW         5
+            754 STORE_FAST              24 (moment_comment_task)
+
+391         756 LOAD_CLOSURE             1 (self)
+            758 LOAD_CLOSURE             2 (task_id)
+            760 BUILD_TUPLE              2
+            762 LOAD_CONST              34 (<code object <lambda> at 0x1073ab870, file "WeRobotCore/task_system_v3/moment_comment_adapter.py", line 391>)
+            764 LOAD_CONST              35 ('MomentCommentAdapter._execute_moment_comment_task.<locals>.<lambda>')
+            766 MAKE_FUNCTION            8 (closure)
+            768 LOAD_FAST               24 (moment_comment_task)
+            770 STORE_ATTR              26 (_progress_callback)
+
+400         772 LOAD_FAST               24 (moment_comment_task)
+            774 LOAD_DEREF               1 (self)
+            776 LOAD_ATTR               27 (_active_tasks)
+            778 LOAD_DEREF               2 (task_id)
+            780 STORE_SUBSCR
+
+403         782 SETUP_FINALLY          142 (to 926)
+            784 SETUP_FINALLY           58 (to 844)
+
+405         786 LOAD_DEREF               1 (self)
+            788 LOAD_ATTR               17 (logger)
+            790 LOAD_METHOD             18 (info)
+            792 LOAD_CONST              36 ('开始执行朋友圈评论任务: ')
+            794 LOAD_FAST               23 (batch_task_id)
+            796 FORMAT_VALUE             0
+            798 BUILD_STRING             2
+            800 CALL_METHOD              1
+            802 POP_TOP
+
+414         804 LOAD_DEREF               1 (self)
+            806 LOAD_METHOD             28 (_execute_task_safely)
+            808 LOAD_FAST               24 (moment_comment_task)
+            810 CALL_METHOD              1
+            812 GET_AWAITABLE
+            814 LOAD_CONST               6 (None)
+            816 YIELD_FROM
+            818 STORE_FAST              25 (result)
+
+422         820 LOAD_FAST               25 (result)
+            822 POP_BLOCK
+            824 POP_BLOCK
+
+428         826 LOAD_DEREF               1 (self)
+            828 LOAD_ATTR               27 (_active_tasks)
+            830 LOAD_METHOD             29 (pop)
+            832 LOAD_DEREF               2 (task_id)
+            834 LOAD_CONST               6 (None)
+            836 CALL_METHOD              2
+            838 POP_TOP
+
+422         840 POP_BLOCK
+            842 RETURN_VALUE
+
+424     >>  844 DUP_TOP
+            846 LOAD_GLOBAL             21 (Exception)
+            848 EXTENDED_ARG             3
+            850 JUMP_IF_NOT_EXC_MATCH   906
+            852 POP_TOP
+            854 STORE_FAST              26 (e)
+            856 POP_TOP
+            858 SETUP_FINALLY           38 (to 898)
+
+425         860 LOAD_DEREF               1 (self)
+            862 LOAD_ATTR               17 (logger)
+            864 LOAD_METHOD             30 (error)
+            866 LOAD_CONST              37 ('朋友圈评论任务执行失败: ')
+            868 LOAD_FAST               23 (batch_task_id)
+            870 FORMAT_VALUE             0
+            872 LOAD_CONST              38 (', 错误: ')
+            874 LOAD_FAST               26 (e)
+            876 FORMAT_VALUE             0
+            878 BUILD_STRING             4
+            880 CALL_METHOD              1
+            882 POP_TOP
+
+426         884 RAISE_VARARGS            0
+            886 POP_BLOCK
+            888 POP_EXCEPT
+            890 LOAD_CONST               6 (None)
+            892 STORE_FAST              26 (e)
+            894 DELETE_FAST             26 (e)
+            896 JUMP_FORWARD            10 (to 908)
+        >>  898 LOAD_CONST               6 (None)
+            900 STORE_FAST              26 (e)
+            902 DELETE_FAST             26 (e)
+            904 RERAISE
+        >>  906 RERAISE
+        >>  908 POP_BLOCK
+
+428         910 LOAD_DEREF               1 (self)
+            912 LOAD_ATTR               27 (_active_tasks)
+            914 LOAD_METHOD             29 (pop)
+            916 LOAD_DEREF               2 (task_id)
+            918 LOAD_CONST               6 (None)
+            920 CALL_METHOD              2
+            922 POP_TOP
+            924 JUMP_FORWARD            16 (to 942)
+        >>  926 LOAD_DEREF               1 (self)
+            928 LOAD_ATTR               27 (_active_tasks)
+            930 LOAD_METHOD             29 (pop)
+            932 LOAD_DEREF               2 (task_id)
+            934 LOAD_CONST               6 (None)
+            936 CALL_METHOD              2
+            938 POP_TOP
+            940 RERAISE
+        >>  942 POP_BLOCK
+            944 JUMP_FORWARD            64 (to 1010)
+
+430     >>  946 DUP_TOP
+            948 LOAD_GLOBAL             21 (Exception)
+            950 EXTENDED_ARG             3
+            952 JUMP_IF_NOT_EXC_MATCH  1008
+            954 POP_TOP
+            956 STORE_FAST              26 (e)
+            958 POP_TOP
+            960 SETUP_FINALLY           38 (to 1000)
+
+431         962 LOAD_DEREF               1 (self)
+            964 LOAD_ATTR               17 (logger)
+            966 LOAD_METHOD             30 (error)
+            968 LOAD_CONST              37 ('朋友圈评论任务执行失败: ')
+            970 LOAD_DEREF               2 (task_id)
+            972 FORMAT_VALUE             0
+            974 LOAD_CONST              38 (', 错误: ')
+            976 LOAD_FAST               26 (e)
+            978 FORMAT_VALUE             0
+            980 BUILD_STRING             4
+            982 CALL_METHOD              1
+            984 POP_TOP
+
+432         986 RAISE_VARARGS            0
+            988 POP_BLOCK
+            990 POP_EXCEPT
+            992 LOAD_CONST               6 (None)
+            994 STORE_FAST              26 (e)
+            996 DELETE_FAST             26 (e)
+            998 JUMP_FORWARD            10 (to 1010)
+        >> 1000 LOAD_CONST               6 (None)
+           1002 STORE_FAST              26 (e)
+           1004 DELETE_FAST             26 (e)
+           1006 RERAISE
+        >> 1008 RERAISE
+        >> 1010 LOAD_CONST               6 (None)
+           1012 RETURN_VALUE
+
+Disassembly of <code object <setcomp> at 0x1073abd40, file "WeRobotCore/task_system_v3/moment_comment_adapter.py", line 345>:
+345           0 BUILD_SET                0
+              2 LOAD_FAST                0 (.0)
+        >>    4 FOR_ITER                36 (to 42)
+
+347           6 STORE_FAST               1 (inst)
+
+348           8 LOAD_FAST                1 (inst)
+             10 LOAD_METHOD              0 (get)
+             12 LOAD_CONST               0 ('manually_exited')
+             14 LOAD_CONST               1 (False)
+             16 CALL_METHOD              2
+             18 POP_JUMP_IF_FALSE        4
+
+346          20 LOAD_FAST                1 (inst)
+             22 LOAD_METHOD              0 (get)
+             24 LOAD_CONST               2 ('account_info')
+             26 CALL_METHOD              1
+             28 JUMP_IF_TRUE_OR_POP     32
+             30 BUILD_MAP                0
+        >>   32 LOAD_METHOD              0 (get)
+             34 LOAD_CONST               3 ('account_id')
+             36 CALL_METHOD              1
+             38 SET_ADD                  2
+             40 JUMP_ABSOLUTE            4
+        >>   42 RETURN_VALUE
+
+Disassembly of <code object <listcomp> at 0x1073ab7c0, file "WeRobotCore/task_system_v3/moment_comment_adapter.py", line 350>:
+350           0 BUILD_LIST               0
+              2 LOAD_FAST                0 (.0)
+        >>    4 FOR_ITER                16 (to 22)
+              6 STORE_FAST               1 (a)
+              8 LOAD_FAST                1 (a)
+             10 LOAD_DEREF               0 (exited_ids)
+             12 CONTAINS_OP              1
+             14 POP_JUMP_IF_FALSE        4
+             16 LOAD_FAST                1 (a)
+             18 LIST_APPEND              2
+             20 JUMP_ABSOLUTE            4
+        >>   22 RETURN_VALUE
+
+Disassembly of <code object <lambda> at 0x1073ab870, file "WeRobotCore/task_system_v3/moment_comment_adapter.py", line 391>:
+391           0 LOAD_DEREF               0 (self)
+              2 LOAD_ATTR                0 (permission_manager)
+              4 LOAD_ATTR                1 (report_progress)
+
+392           6 LOAD_DEREF               1 (task_id)
+
+393           8 LOAD_GLOBAL              2 (str)
+             10 LOAD_FAST                0 (detail)
+             12 CALL_FUNCTION            1
+             14 LOAD_CONST               0 (None)
+             16 LOAD_CONST               1 (500)
+             18 BUILD_SLICE              2
+             20 BINARY_SUBSCR
+
+394          22 LOAD_CONST               2 ('moment_comment_progress')
+
+391          24 LOAD_CONST               3 (('progress', 'stage'))
+             26 CALL_FUNCTION_KW         3
+             28 RETURN_VALUE
+
+Disassembly of <code object _get_moment_comment_task_class at 0x1073b9660, file "WeRobotCore/task_system_v3/moment_comment_adapter.py", line 434>:
+436           0 SETUP_FINALLY          248 (to 250)
+
+437           2 LOAD_FAST                0 (self)
+              4 LOAD_ATTR                0 (logger)
+              6 LOAD_METHOD              1 (debug)
+              8 LOAD_CONST               1 ('开始导入朋友圈评论任务类...')
+             10 CALL_METHOD              1
+             12 POP_TOP
+
+440          14 LOAD_CONST               2 (0)
+             16 LOAD_CONST               3 (None)
+             18 IMPORT_NAME              2 (sys)
+             20 STORE_FAST               2 (sys)
+
+441          22 LOAD_CONST               2 (0)
+             24 LOAD_CONST               3 (None)
+             26 IMPORT_NAME              3 (importlib.util)
+             28 STORE_FAST               3 (importlib)
+
+442          30 LOAD_CONST               2 (0)
+             32 LOAD_CONST               3 (None)
+             34 IMPORT_NAME              4 (os)
+             36 STORE_FAST               4 (os)
+
+445          38 LOAD_FAST                4 (os)
+             40 LOAD_ATTR                5 (path)
+             42 LOAD_METHOD              6 (dirname)
+             44 LOAD_FAST                4 (os)
+             46 LOAD_ATTR                5 (path)
+             48 LOAD_METHOD              7 (abspath)
+             50 LOAD_GLOBAL              8 (__file__)
+             52 CALL_METHOD              1
+             54 CALL_METHOD              1
+             56 STORE_FAST               5 (current_dir)
+
+446          58 LOAD_FAST                4 (os)
+             60 LOAD_ATTR                5 (path)
+             62 LOAD_METHOD              9 (join)
+             64 LOAD_FAST                5 (current_dir)
+             66 LOAD_CONST               4 ('..')
+             68 LOAD_CONST               4 ('..')
+             70 LOAD_CONST               5 ('task_system_v2')
+             72 LOAD_CONST               6 ('tasks')
+             74 LOAD_CONST               7 ('moment_comment_task.py')
+             76 CALL_METHOD              6
+             78 STORE_FAST               6 (task_file_path)
+
+447          80 LOAD_FAST                4 (os)
+             82 LOAD_ATTR                5 (path)
+             84 LOAD_METHOD             10 (normpath)
+             86 LOAD_FAST                6 (task_file_path)
+             88 CALL_METHOD              1
+             90 STORE_FAST               6 (task_file_path)
+
+449          92 LOAD_FAST                0 (self)
+             94 LOAD_ATTR                0 (logger)
+             96 LOAD_METHOD              1 (debug)
+             98 LOAD_CONST               8 ('尝试从文件加载任务类: ')
+            100 LOAD_FAST                6 (task_file_path)
+            102 FORMAT_VALUE             0
+            104 BUILD_STRING             2
+            106 CALL_METHOD              1
+            108 POP_TOP
+
+451         110 LOAD_FAST                4 (os)
+            112 LOAD_ATTR                5 (path)
+            114 LOAD_METHOD             11 (exists)
+            116 LOAD_FAST                6 (task_file_path)
+            118 CALL_METHOD              1
+            120 POP_JUMP_IF_FALSE      208
+
+453         122 LOAD_FAST                3 (importlib)
+            124 LOAD_ATTR               12 (util)
+            126 LOAD_METHOD             13 (spec_from_file_location)
+            128 LOAD_CONST               9 ('moment_comment_task')
+            130 LOAD_FAST                6 (task_file_path)
+            132 CALL_METHOD              2
+            134 STORE_FAST               7 (spec)
+
+454         136 LOAD_FAST                7 (spec)
+            138 POP_JUMP_IF_FALSE      208
+            140 LOAD_FAST                7 (spec)
+            142 LOAD_ATTR               14 (loader)
+            144 POP_JUMP_IF_FALSE      208
+
+455         146 LOAD_FAST                3 (importlib)
+            148 LOAD_ATTR               12 (util)
+            150 LOAD_METHOD             15 (module_from_spec)
+            152 LOAD_FAST                7 (spec)
+            154 CALL_METHOD              1
+            156 STORE_FAST               8 (moment_comment_module)
+
+458         158 LOAD_FAST                8 (moment_comment_module)
+            160 LOAD_FAST                2 (sys)
+            162 LOAD_ATTR               16 (modules)
+            164 LOAD_CONST               9 ('moment_comment_task')
+            166 STORE_SUBSCR
+
+460         168 LOAD_FAST                7 (spec)
+            170 LOAD_ATTR               14 (loader)
+            172 LOAD_METHOD             17 (exec_module)
+            174 LOAD_FAST                8 (moment_comment_module)
+            176 CALL_METHOD              1
+            178 POP_TOP
+
+463         180 LOAD_GLOBAL             18 (getattr)
+            182 LOAD_FAST                8 (moment_comment_module)
+            184 LOAD_FAST                1 (class_name)
+            186 CALL_FUNCTION            2
+            188 STORE_FAST               9 (MomentCommentTask)
+
+464         190 LOAD_FAST                0 (self)
+            192 LOAD_ATTR                0 (logger)
+            194 LOAD_METHOD              1 (debug)
+            196 LOAD_CONST              10 ('朋友圈评论任务类导入成功（文件方式）')
+            198 CALL_METHOD              1
+            200 POP_TOP
+
+465         202 LOAD_FAST                9 (MomentCommentTask)
+            204 POP_BLOCK
+            206 RETURN_VALUE
+
+468     >>  208 LOAD_FAST                0 (self)
+            210 LOAD_ATTR                0 (logger)
+            212 LOAD_METHOD              1 (debug)
+            214 LOAD_CONST              11 ('回退到直接导入方式...')
+            216 CALL_METHOD              1
+            218 POP_TOP
+
+469         220 LOAD_CONST               2 (0)
+            222 LOAD_CONST              12 (('MomentCommentTask',))
+            224 IMPORT_NAME             19 (WeRobotCore.task_system_v2.tasks.moment_comment_task)
+            226 IMPORT_FROM             20 (MomentCommentTask)
+            228 STORE_FAST               9 (MomentCommentTask)
+            230 POP_TOP
+
+470         232 LOAD_FAST                0 (self)
+            234 LOAD_ATTR                0 (logger)
+            236 LOAD_METHOD              1 (debug)
+            238 LOAD_CONST              13 ('朋友圈评论任务类导入成功（回退方式）')
+            240 CALL_METHOD              1
+            242 POP_TOP
+
+471         244 LOAD_FAST                9 (MomentCommentTask)
+            246 POP_BLOCK
+            248 RETURN_VALUE
+
+473     >>  250 DUP_TOP
+            252 LOAD_GLOBAL             21 (ImportError)
+            254 EXTENDED_ARG             1
+            256 JUMP_IF_NOT_EXC_MATCH   318
+            258 POP_TOP
+            260 STORE_FAST              10 (e)
+            262 POP_TOP
+            264 SETUP_FINALLY           44 (to 310)
+
+474         266 LOAD_FAST                0 (self)
+            268 LOAD_ATTR                0 (logger)
+            270 LOAD_METHOD             22 (error)
+            272 LOAD_CONST              14 ('导入朋友圈评论任务类时发生ImportError: ')
+            274 LOAD_FAST               10 (e)
+            276 FORMAT_VALUE             0
+            278 BUILD_STRING             2
+            280 CALL_METHOD              1
+            282 POP_TOP
+
+475         284 LOAD_GLOBAL             23 (RuntimeError)
+            286 LOAD_CONST              15 ('朋友圈评论任务类导入失败: ')
+            288 LOAD_FAST               10 (e)
+            290 FORMAT_VALUE             0
+            292 BUILD_STRING             2
+            294 CALL_FUNCTION            1
+            296 RAISE_VARARGS            1
+            298 POP_BLOCK
+            300 POP_EXCEPT
+            302 LOAD_CONST               3 (None)
+            304 STORE_FAST              10 (e)
+            306 DELETE_FAST             10 (e)
+            308 JUMP_FORWARD           146 (to 456)
+        >>  310 LOAD_CONST               3 (None)
+            312 STORE_FAST              10 (e)
+            314 DELETE_FAST             10 (e)
+            316 RERAISE
+
+476     >>  318 DUP_TOP
+            320 LOAD_GLOBAL             24 (AttributeError)
+            322 EXTENDED_ARG             1
+            324 JUMP_IF_NOT_EXC_MATCH   386
+            326 POP_TOP
+            328 STORE_FAST              10 (e)
+            330 POP_TOP
+            332 SETUP_FINALLY           44 (to 378)
+
+477         334 LOAD_FAST                0 (self)
+            336 LOAD_ATTR                0 (logger)
+            338 LOAD_METHOD             22 (error)
+            340 LOAD_CONST              16 ('导入朋友圈评论任务类时发生AttributeError: ')
+            342 LOAD_FAST               10 (e)
+            344 FORMAT_VALUE             0
+            346 BUILD_STRING             2
+            348 CALL_METHOD              1
+            350 POP_TOP
+
+478         352 LOAD_GLOBAL             23 (RuntimeError)
+            354 LOAD_CONST              17 ('朋友圈评论任务类属性错误: ')
+            356 LOAD_FAST               10 (e)
+            358 FORMAT_VALUE             0
+            360 BUILD_STRING             2
+            362 CALL_FUNCTION            1
+            364 RAISE_VARARGS            1
+            366 POP_BLOCK
+            368 POP_EXCEPT
+            370 LOAD_CONST               3 (None)
+            372 STORE_FAST              10 (e)
+            374 DELETE_FAST             10 (e)
+            376 JUMP_FORWARD            78 (to 456)
+        >>  378 LOAD_CONST               3 (None)
+            380 STORE_FAST              10 (e)
+            382 DELETE_FAST             10 (e)
+            384 RERAISE
+
+479     >>  386 DUP_TOP
+            388 LOAD_GLOBAL             25 (Exception)
+            390 EXTENDED_ARG             1
+            392 JUMP_IF_NOT_EXC_MATCH   454
+            394 POP_TOP
+            396 STORE_FAST              10 (e)
+            398 POP_TOP
+            400 SETUP_FINALLY           44 (to 446)
+
+480         402 LOAD_FAST                0 (self)
+            404 LOAD_ATTR                0 (logger)
+            406 LOAD_METHOD             22 (error)
+            408 LOAD_CONST              18 ('导入朋友圈评论任务类时发生未知错误:\n ')
+            410 LOAD_FAST               10 (e)
+            412 FORMAT_VALUE             0
+            414 BUILD_STRING             2
+            416 CALL_METHOD              1
+            418 POP_TOP
+
+481         420 LOAD_GLOBAL             23 (RuntimeError)
+            422 LOAD_CONST              15 ('朋友圈评论任务类导入失败: ')
+            424 LOAD_FAST               10 (e)
+            426 FORMAT_VALUE             0
+            428 BUILD_STRING             2
+            430 CALL_FUNCTION            1
+            432 RAISE_VARARGS            1
+            434 POP_BLOCK
+            436 POP_EXCEPT
+            438 LOAD_CONST               3 (None)
+            440 STORE_FAST              10 (e)
+            442 DELETE_FAST             10 (e)
+            444 JUMP_FORWARD            10 (to 456)
+        >>  446 LOAD_CONST               3 (None)
+            448 STORE_FAST              10 (e)
+            450 DELETE_FAST             10 (e)
+            452 RERAISE
+        >>  454 RERAISE
+        >>  456 LOAD_CONST               3 (None)
+            458 RETURN_VALUE
+
+Disassembly of <code object _execute_task_safely at 0x1073b9500, file "WeRobotCore/task_system_v3/moment_comment_adapter.py", line 483>:
+492           0 SETUP_FINALLY           92 (to 94)
+
+494           2 LOAD_GLOBAL              0 (hasattr)
+              4 LOAD_FAST                1 (task_instance)
+              6 LOAD_CONST               1 ('execute')
+              8 CALL_FUNCTION            2
+             10 POP_JUMP_IF_FALSE       82
+             12 LOAD_GLOBAL              1 (callable)
+             14 LOAD_FAST                1 (task_instance)
+             16 LOAD_ATTR                2 (execute)
+             18 CALL_FUNCTION            1
+             20 POP_JUMP_IF_FALSE       82
+
+495          22 LOAD_GLOBAL              3 (asyncio)
+             24 LOAD_METHOD              4 (iscoroutinefunction)
+             26 LOAD_FAST                1 (task_instance)
+             28 LOAD_ATTR                2 (execute)
+             30 CALL_METHOD              1
+             32 POP_JUMP_IF_FALSE       50
+
+496          34 LOAD_FAST                1 (task_instance)
+             36 LOAD_METHOD              2 (execute)
+             38 CALL_METHOD              0
+             40 GET_AWAITABLE
+             42 LOAD_CONST               2 (None)
+             44 YIELD_FROM
+             46 POP_BLOCK
+             48 RETURN_VALUE
+
+499     >>   50 LOAD_GLOBAL              3 (asyncio)
+             52 LOAD_METHOD              5 (get_event_loop)
+             54 CALL_METHOD              0
+             56 STORE_FAST               2 (loop)
+
+500          58 LOAD_FAST                2 (loop)
+             60 LOAD_METHOD              6 (run_in_executor)
+             62 LOAD_CONST               2 (None)
+             64 LOAD_FAST                1 (task_instance)
+             66 LOAD_ATTR                2 (execute)
+             68 CALL_METHOD              2
+             70 GET_AWAITABLE
+             72 LOAD_CONST               2 (None)
+             74 YIELD_FROM
+             76 POP_BLOCK
+             78 RETURN_VALUE
+             80 JUMP_FORWARD             8 (to 90)
+
+502     >>   82 LOAD_GLOBAL              7 (AttributeError)
+             84 LOAD_CONST               3 ('任务实例没有execute方法')
+             86 CALL_FUNCTION            1
+             88 RAISE_VARARGS            1
+        >>   90 POP_BLOCK
+             92 JUMP_FORWARD            56 (to 150)
+
+504     >>   94 DUP_TOP
+             96 LOAD_GLOBAL              8 (Exception)
+             98 JUMP_IF_NOT_EXC_MATCH   148
+            100 POP_TOP
+            102 STORE_FAST               3 (e)
+            104 POP_TOP
+            106 SETUP_FINALLY           32 (to 140)
+
+505         108 LOAD_FAST                0 (self)
+            110 LOAD_ATTR                9 (logger)
+            112 LOAD_METHOD             10 (error)
+            114 LOAD_CONST               4 ('任务执行异常: ')
+            116 LOAD_FAST                3 (e)
+            118 FORMAT_VALUE             0
+            120 BUILD_STRING             2
+            122 CALL_METHOD              1
+            124 POP_TOP
+
+506         126 RAISE_VARARGS            0
+            128 POP_BLOCK
+            130 POP_EXCEPT
+            132 LOAD_CONST               2 (None)
+            134 STORE_FAST               3 (e)
+            136 DELETE_FAST              3 (e)
+            138 JUMP_FORWARD            10 (to 150)
+        >>  140 LOAD_CONST               2 (None)
+            142 STORE_FAST               3 (e)
+            144 DELETE_FAST              3 (e)
+            146 RERAISE
+        >>  148 RERAISE
+        >>  150 LOAD_CONST               2 (None)
+            152 RETURN_VALUE
+
+Disassembly of <code object _get_task_priority at 0x1073b9d40, file "WeRobotCore/task_system_v3/moment_comment_adapter.py", line 508>:
+517           0 LOAD_FAST                1 (task_params)
+              2 LOAD_METHOD              0 (get)
+              4 LOAD_CONST               1 ('priority')
+              6 LOAD_CONST               2 ('normal')
+              8 CALL_METHOD              2
+             10 STORE_FAST               2 (priority_str)
+
+520          12 LOAD_GLOBAL              1 (TaskPriority)
+             14 LOAD_ATTR                2 (LOW)
+
+521          16 LOAD_GLOBAL              1 (TaskPriority)
+             18 LOAD_ATTR                3 (MEDIUM)
+
+522          20 LOAD_GLOBAL              1 (TaskPriority)
+             22 LOAD_ATTR                3 (MEDIUM)
+
+523          24 LOAD_GLOBAL              1 (TaskPriority)
+             26 LOAD_ATTR                4 (HIGH)
+
+519          28 LOAD_CONST               3 (('low', 'normal', 'medium', 'high'))
+             30 BUILD_CONST_KEY_MAP      4
+             32 STORE_FAST               3 (priority_mapping)
+
+526          34 LOAD_FAST                3 (priority_mapping)
+             36 LOAD_METHOD              0 (get)
+             38 LOAD_FAST                2 (priority_str)
+             40 LOAD_METHOD              5 (lower)
+             42 CALL_METHOD              0
+             44 LOAD_GLOBAL              1 (TaskPriority)
+             46 LOAD_ATTR                3 (MEDIUM)
+             48 CALL_METHOD              2
+             50 RETURN_VALUE
+
+Disassembly of <code object cancel_task at 0x1073b9b30, file "WeRobotCore/task_system_v3/moment_comment_adapter.py", line 528>:
+537           0 SETUP_FINALLY           46 (to 48)
+
+538           2 LOAD_FAST                0 (self)
+              4 LOAD_ATTR                0 (scheduler)
+              6 LOAD_METHOD              1 (cancel_task)
+              8 LOAD_FAST                1 (task_id)
+             10 CALL_METHOD              1
+             12 GET_AWAITABLE
+             14 LOAD_CONST               1 (None)
+             16 YIELD_FROM
+             18 STORE_FAST               2 (success)
+
+539          20 LOAD_FAST                2 (success)
+             22 POP_JUMP_IF_FALSE       42
+
+540          24 LOAD_FAST                0 (self)
+             26 LOAD_ATTR                2 (logger)
+             28 LOAD_METHOD              3 (info)
+             30 LOAD_CONST               2 ('已停止朋友圈评论任务: ')
+             32 LOAD_FAST                1 (task_id)
+             34 FORMAT_VALUE             0
+             36 BUILD_STRING             2
+             38 CALL_METHOD              1
+             40 POP_TOP
+
+542     >>   42 LOAD_FAST                2 (success)
+             44 POP_BLOCK
+             46 RETURN_VALUE
+
+543     >>   48 DUP_TOP
+             50 LOAD_GLOBAL              4 (Exception)
+             52 JUMP_IF_NOT_EXC_MATCH   108
+             54 POP_TOP
+             56 STORE_FAST               3 (e)
+             58 POP_TOP
+             60 SETUP_FINALLY           38 (to 100)
+
+544          62 LOAD_FAST                0 (self)
+             64 LOAD_ATTR                2 (logger)
+             66 LOAD_METHOD              5 (error)
+             68 LOAD_CONST               3 ('取消朋友圈评论任务失败: ')
+             70 LOAD_FAST                1 (task_id)
+             72 FORMAT_VALUE             0
+             74 LOAD_CONST               4 (', 错误: ')
+             76 LOAD_FAST                3 (e)
+             78 FORMAT_VALUE             0
+             80 BUILD_STRING             4
+             82 CALL_METHOD              1
+             84 POP_TOP
+
+545          86 POP_BLOCK
+             88 POP_EXCEPT
+             90 LOAD_CONST               1 (None)
+             92 STORE_FAST               3 (e)
+             94 DELETE_FAST              3 (e)
+             96 LOAD_CONST               5 (False)
+             98 RETURN_VALUE
+        >>  100 LOAD_CONST               1 (None)
+            102 STORE_FAST               3 (e)
+            104 DELETE_FAST              3 (e)
+            106 RERAISE
+        >>  108 RERAISE
+            110 LOAD_CONST               1 (None)
+            112 RETURN_VALUE
+
+Disassembly of <code object get_task_status at 0x1073b9ea0, file "WeRobotCore/task_system_v3/moment_comment_adapter.py", line 547>:
+556           0 LOAD_FAST                0 (self)
+              2 LOAD_ATTR                0 (scheduler)
+              4 LOAD_METHOD              1 (get_task_info)
+              6 LOAD_FAST                1 (task_id)
+              8 CALL_METHOD              1
+             10 GET_AWAITABLE
+             12 LOAD_CONST               1 (None)
+             14 YIELD_FROM
+             16 RETURN_VALUE
+
+Disassembly of <code object get_all_tasks at 0x1073b90e0, file "WeRobotCore/task_system_v3/moment_comment_adapter.py", line 558>:
+564           0 LOAD_FAST                0 (self)
+              2 LOAD_ATTR                0 (scheduler)
+              4 LOAD_METHOD              1 (get_all_tasks)
+              6 CALL_METHOD              0
+              8 GET_AWAITABLE
+             10 LOAD_CONST               1 (None)
+             12 YIELD_FROM
+             14 STORE_FAST               1 (all_tasks)
+
+566          16 BUILD_LIST               0
+             18 STORE_FAST               2 (moment_comment_tasks)
+
+567          20 LOAD_FAST                1 (all_tasks)
+             22 GET_ITER
+        >>   24 FOR_ITER                36 (to 62)
+             26 STORE_FAST               3 (task)
+
+569          28 LOAD_FAST                3 (task)
+             30 LOAD_METHOD              2 (get)
+             32 LOAD_CONST               2 ('type')
+             34 CALL_METHOD              1
+             36 STORE_FAST               4 (task_type)
+
+571          38 LOAD_FAST                4 (task_type)
+             40 LOAD_GLOBAL              3 (TaskType)
+             42 LOAD_ATTR                4 (MOMENT_COMMENT)
+             44 LOAD_ATTR                5 (value)
+             46 COMPARE_OP               2 (==)
+             48 POP_JUMP_IF_FALSE       24
+
+573          50 LOAD_FAST                2 (moment_comment_tasks)
+             52 LOAD_METHOD              6 (append)
+             54 LOAD_FAST                3 (task)
+             56 CALL_METHOD              1
+             58 POP_TOP
+             60 JUMP_ABSOLUTE           24
+
+576     >>   62 LOAD_FAST                2 (moment_comment_tasks)
+             64 RETURN_VALUE
+
+Disassembly of <code object replace_recurring_task at 0x1073b9450, file "WeRobotCore/task_system_v3/moment_comment_adapter.py", line 578>:
+596           0 LOAD_FAST                4 (task_id)
+              2 LOAD_CONST               1 (None)
+              4 IS_OP                    0
+              6 POP_JUMP_IF_FALSE       12
+
+597           8 LOAD_CONST               2 ('moment_comment_recurring')
+             10 STORE_FAST               4 (task_id)
+
+601     >>   12 LOAD_FAST                4 (task_id)
+
+602          14 LOAD_FAST                1 (task_params)
+
+603          16 LOAD_CONST               3 ('moment_comment')
+
+604          18 LOAD_CONST               4 ('MomentCommentTask')
+
+600          20 LOAD_CONST               5 (('task_id', 'task_params', 'original_task_type', 'task_class_name'))
+             22 BUILD_CONST_KEY_MAP      4
+             24 STORE_FAST               5 (execution_params)
+
+608          26 LOAD_FAST                3 (schedule_config)
+             28 LOAD_CONST               1 (None)
+             30 IS_OP                    0
+             32 POP_JUMP_IF_FALSE       74
+
+609          34 LOAD_FAST                1 (task_params)
+             36 LOAD_METHOD              0 (get)
+             38 LOAD_CONST               6 ('interval_seconds')
+             40 LOAD_CONST               7 (60)
+             42 CALL_METHOD              2
+             44 STORE_FAST               6 (interval_seconds)
+
+610          46 LOAD_GLOBAL              1 (ScheduleConfig)
+
+611          48 LOAD_GLOBAL              2 (TriggerType)
+             50 LOAD_ATTR                3 (OR_TRIGGER)
+
+613          52 LOAD_CONST               8 (True)
+
+614          54 LOAD_FAST                6 (interval_seconds)
+
+615          56 LOAD_CONST               1 (None)
+
+612          58 LOAD_CONST               9 (('immediate', 'interval_seconds', 'start_time'))
+             60 BUILD_CONST_KEY_MAP      3
+
+617          62 LOAD_GLOBAL              4 (ExecutionMode)
+             64 LOAD_ATTR                5 (RECURRING)
+
+618          66 LOAD_CONST              10 (1)
+
+610          68 LOAD_CONST              11 (('trigger_type', 'trigger_args', 'execution_mode', 'max_instances'))
+             70 CALL_FUNCTION_KW         4
+             72 STORE_FAST               3 (schedule_config)
+
+622     >>   74 LOAD_FAST                0 (self)
+             76 LOAD_ATTR                6 (scheduler)
+             78 LOAD_ATTR                7 (replace_recurring_task)
+
+623          80 LOAD_GLOBAL              8 (TaskType)
+             82 LOAD_ATTR                9 (MOMENT_COMMENT)
+
+624          84 LOAD_FAST                5 (execution_params)
+
+625          86 LOAD_FAST                3 (schedule_config)
+
+626          88 LOAD_FAST                4 (task_id)
+
+622          90 LOAD_CONST              12 (('task_type', 'params', 'schedule_config', 'task_id'))
+             92 CALL_FUNCTION_KW         4
+             94 GET_AWAITABLE
+             96 LOAD_CONST               1 (None)
+             98 YIELD_FROM
+            100 RETURN_VALUE

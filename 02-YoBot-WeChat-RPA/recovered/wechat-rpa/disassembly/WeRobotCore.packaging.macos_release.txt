@@ -1,0 +1,3835 @@
+   1           0 LOAD_CONST               0 ('Fail-closed release orchestration for the YokoAgent macOS RPA plugin.\n\nThe builder accepts no channel or capability-wave switches: this first joint\nartifact is always the official arm64 ``production/none`` Control.  All output\nis written below one new caller-owned directory outside the source checkout.\nNo credential value is written to the handoff report.\n')
+               2 STORE_NAME               0 (__doc__)
+
+   9           4 LOAD_CONST               1 (0)
+               6 LOAD_CONST               2 (('annotations',))
+               8 IMPORT_NAME              1 (__future__)
+              10 IMPORT_FROM              2 (annotations)
+              12 STORE_NAME               2 (annotations)
+              14 POP_TOP
+
+  11          16 LOAD_CONST               1 (0)
+              18 LOAD_CONST               3 (('dataclass',))
+              20 IMPORT_NAME              3 (dataclasses)
+              22 IMPORT_FROM              4 (dataclass)
+              24 STORE_NAME               4 (dataclass)
+              26 POP_TOP
+
+  12          28 LOAD_CONST               1 (0)
+              30 LOAD_CONST               4 (('sha256',))
+              32 IMPORT_NAME              5 (hashlib)
+              34 IMPORT_FROM              6 (sha256)
+              36 STORE_NAME               6 (sha256)
+              38 POP_TOP
+
+  13          40 LOAD_CONST               1 (0)
+              42 LOAD_CONST               5 (None)
+              44 IMPORT_NAME              7 (json)
+              46 STORE_NAME               7 (json)
+
+  14          48 LOAD_CONST               1 (0)
+              50 LOAD_CONST               5 (None)
+              52 IMPORT_NAME              8 (os)
+              54 STORE_NAME               8 (os)
+
+  15          56 LOAD_CONST               1 (0)
+              58 LOAD_CONST               6 (('Path',))
+              60 IMPORT_NAME              9 (pathlib)
+              62 IMPORT_FROM             10 (Path)
+              64 STORE_NAME              10 (Path)
+              66 POP_TOP
+
+  16          68 LOAD_CONST               1 (0)
+              70 LOAD_CONST               5 (None)
+              72 IMPORT_NAME             11 (platform)
+              74 STORE_NAME              11 (platform)
+
+  17          76 LOAD_CONST               1 (0)
+              78 LOAD_CONST               5 (None)
+              80 IMPORT_NAME             12 (re)
+              82 STORE_NAME              12 (re)
+
+  18          84 LOAD_CONST               1 (0)
+              86 LOAD_CONST               5 (None)
+              88 IMPORT_NAME             13 (subprocess)
+              90 STORE_NAME              13 (subprocess)
+
+  19          92 LOAD_CONST               1 (0)
+              94 LOAD_CONST               5 (None)
+              96 IMPORT_NAME             14 (sys)
+              98 STORE_NAME              14 (sys)
+
+  20         100 LOAD_CONST               1 (0)
+             102 LOAD_CONST               5 (None)
+             104 IMPORT_NAME             15 (time)
+             106 STORE_NAME              15 (time)
+
+  21         108 LOAD_CONST               1 (0)
+             110 LOAD_CONST               7 (('Callable', 'Mapping', 'Optional', 'Sequence'))
+             112 IMPORT_NAME             16 (typing)
+             114 IMPORT_FROM             17 (Callable)
+             116 STORE_NAME              17 (Callable)
+             118 IMPORT_FROM             18 (Mapping)
+             120 STORE_NAME              18 (Mapping)
+             122 IMPORT_FROM             19 (Optional)
+             124 STORE_NAME              19 (Optional)
+             126 IMPORT_FROM             20 (Sequence)
+             128 STORE_NAME              20 (Sequence)
+             130 POP_TOP
+
+  22         132 LOAD_CONST               1 (0)
+             134 LOAD_CONST               8 (('urlsplit',))
+             136 IMPORT_NAME             21 (urllib.parse)
+             138 IMPORT_FROM             22 (urlsplit)
+             140 STORE_NAME              22 (urlsplit)
+             142 POP_TOP
+
+  24         144 LOAD_CONST               1 (0)
+             146 LOAD_CONST               9 (('MACOS_PRODUCT_CONTROL_BUNDLE_IDENTIFIER', 'MACOS_PRODUCT_HELPER_BUNDLE_IDENTIFIER', 'MACOS_PRODUCT_HELPER_RELATIVE_PATH', 'MACOS_PRODUCT_TEAM_IDENTIFIER'))
+             148 IMPORT_NAME             23 (WeRobotCore.bootstrap.macos_product)
+             150 IMPORT_FROM             24 (MACOS_PRODUCT_CONTROL_BUNDLE_IDENTIFIER)
+             152 STORE_NAME              24 (MACOS_PRODUCT_CONTROL_BUNDLE_IDENTIFIER)
+             154 IMPORT_FROM             25 (MACOS_PRODUCT_HELPER_BUNDLE_IDENTIFIER)
+             156 STORE_NAME              25 (MACOS_PRODUCT_HELPER_BUNDLE_IDENTIFIER)
+             158 IMPORT_FROM             26 (MACOS_PRODUCT_HELPER_RELATIVE_PATH)
+             160 STORE_NAME              26 (MACOS_PRODUCT_HELPER_RELATIVE_PATH)
+             162 IMPORT_FROM             27 (MACOS_PRODUCT_TEAM_IDENTIFIER)
+             164 STORE_NAME              27 (MACOS_PRODUCT_TEAM_IDENTIFIER)
+             166 POP_TOP
+
+  30         168 LOAD_CONST               1 (0)
+             170 LOAD_CONST              10 (('MACOS_CONTROL_EXECUTABLE_NAME', 'MACOS_CONTROL_FRONTEND_RELATIVE_PATH', 'MACOS_PRODUCTION_BUILD_CHANNEL', 'assemble_unsigned_macos_control_bundle', 'inspect_macos_control_bundle'))
+             172 IMPORT_NAME             28 (WeRobotCore.packaging.macos_control)
+             174 IMPORT_FROM             29 (MACOS_CONTROL_EXECUTABLE_NAME)
+             176 STORE_NAME              29 (MACOS_CONTROL_EXECUTABLE_NAME)
+             178 IMPORT_FROM             30 (MACOS_CONTROL_FRONTEND_RELATIVE_PATH)
+             180 STORE_NAME              30 (MACOS_CONTROL_FRONTEND_RELATIVE_PATH)
+             182 IMPORT_FROM             31 (MACOS_PRODUCTION_BUILD_CHANNEL)
+             184 STORE_NAME              31 (MACOS_PRODUCTION_BUILD_CHANNEL)
+             186 IMPORT_FROM             32 (assemble_unsigned_macos_control_bundle)
+             188 STORE_NAME              32 (assemble_unsigned_macos_control_bundle)
+             190 IMPORT_FROM             33 (inspect_macos_control_bundle)
+             192 STORE_NAME              33 (inspect_macos_control_bundle)
+             194 POP_TOP
+
+  37         196 LOAD_CONST               1 (0)
+             198 LOAD_CONST              11 (('MACOS_HELPER_APP_NAME', 'MACOS_HELPER_EXECUTABLE_NAME', 'MacOSHelperBuildRequest', 'build_signed_macos_helper'))
+             200 IMPORT_NAME             34 (WeRobotCore.packaging.macos_helper)
+             202 IMPORT_FROM             35 (MACOS_HELPER_APP_NAME)
+             204 STORE_NAME              35 (MACOS_HELPER_APP_NAME)
+             206 IMPORT_FROM             36 (MACOS_HELPER_EXECUTABLE_NAME)
+             208 STORE_NAME              36 (MACOS_HELPER_EXECUTABLE_NAME)
+             210 IMPORT_FROM             37 (MacOSHelperBuildRequest)
+             212 STORE_NAME              37 (MacOSHelperBuildRequest)
+             214 IMPORT_FROM             38 (build_signed_macos_helper)
+             216 STORE_NAME              38 (build_signed_macos_helper)
+             218 POP_TOP
+
+  45         220 LOAD_CONST              12 ('yokoagent-macos-rpa-plugin-handoff')
+             222 STORE_NAME              39 (MACOS_AGENT_PLUGIN_HANDOFF_KIND)
+
+  46         224 LOAD_CONST              13 ('agent_generic')
+             226 STORE_NAME              40 (MACOS_AGENT_PLUGIN_RELEASE_CHANNEL)
+
+  47         228 LOAD_NAME               31 (MACOS_PRODUCTION_BUILD_CHANNEL)
+             230 STORE_NAME              41 (MACOS_AGENT_PLUGIN_BUILD_CHANNEL)
+
+  48         232 LOAD_CONST              14 ('none')
+             234 STORE_NAME              42 (MACOS_AGENT_PLUGIN_CAPABILITY_WAVE)
+
+  49         236 LOAD_CONST              15 ('arm64')
+             238 STORE_NAME              43 (MACOS_AGENT_PLUGIN_ARCHITECTURE)
+
+  50         240 LOAD_CONST              16 ('13.0')
+             242 STORE_NAME              44 (MACOS_AGENT_PLUGIN_MINIMUM_SYSTEM_VERSION)
+
+  51         244 LOAD_CONST              17 ('1.0')
+             246 STORE_NAME              45 (MACOS_AGENT_PLUGIN_RUNTIME_CONTRACT_VERSION)
+
+  52         248 LOAD_CONST              17 ('1.0')
+             250 STORE_NAME              46 (MACOS_AGENT_PLUGIN_DRIVER_API_VERSION)
+
+  53         252 LOAD_CONST              18 ('YokoWebot RPA Control.app')
+             254 STORE_NAME              47 (MACOS_CONTROL_APP_NAME)
+
+  54         256 LOAD_CONST              19 ('release-state.json')
+             258 STORE_NAME              48 (MACOS_RELEASE_STATE_NAME)
+
+  55         260 LOAD_CONST              20 ('handoff-report.json')
+             262 STORE_NAME              49 (MACOS_RELEASE_REPORT_NAME)
+
+  57         264 LOAD_NAME               12 (re)
+             266 LOAD_METHOD             50 (compile)
+             268 LOAD_CONST              21 ('^[A-Za-z0-9][A-Za-z0-9.+-]{0,63}$')
+             270 CALL_METHOD              1
+             272 STORE_NAME              51 (_APP_VERSION)
+
+  58         274 LOAD_NAME               12 (re)
+             276 LOAD_METHOD             50 (compile)
+             278 LOAD_CONST              22 ('^[A-Za-z0-9][A-Za-z0-9.-]{0,63}$')
+             280 CALL_METHOD              1
+             282 STORE_NAME              52 (_BUILD_VERSION)
+
+  59         284 LOAD_NAME               12 (re)
+             286 LOAD_METHOD             50 (compile)
+             288 LOAD_CONST              23 ('^[0-9a-f]{40}$')
+             290 CALL_METHOD              1
+             292 STORE_NAME              53 (_SOURCE_COMMIT)
+
+  60         294 LOAD_NAME               12 (re)
+             296 LOAD_METHOD             50 (compile)
+             298 LOAD_CONST              24 ('^origin/[A-Za-z0-9][A-Za-z0-9._/-]{0,190}$')
+             300 CALL_METHOD              1
+             302 STORE_NAME              54 (_SOURCE_REF)
+
+  61         304 LOAD_NAME               12 (re)
+             306 LOAD_METHOD             50 (compile)
+             308 LOAD_CONST              25 ('^[A-Za-z0-9][A-Za-z0-9._-]{0,127}$')
+             310 CALL_METHOD              1
+             312 STORE_NAME              55 (_NOTARY_PROFILE)
+
+  62         314 LOAD_NAME               12 (re)
+             316 LOAD_METHOD             50 (compile)
+
+  63         318 LOAD_CONST              26 ('^Developer ID Application: .+ \\(')
+
+  64         320 LOAD_NAME               12 (re)
+             322 LOAD_METHOD             56 (escape)
+             324 LOAD_NAME               27 (MACOS_PRODUCT_TEAM_IDENTIFIER)
+             326 CALL_METHOD              1
+
+  63         328 BINARY_ADD
+
+  65         330 LOAD_CONST              27 ('\\)$')
+
+  63         332 BINARY_ADD
+
+  62         334 CALL_METHOD              1
+             336 STORE_NAME              57 (_DEVELOPER_IDENTITY)
+
+  67         338 LOAD_NAME               58 (frozenset)
+
+  68         340 LOAD_CONST              28 ((b'\xfe\xed\xfa\xce', b'\xce\xfa\xed\xfe', b'\xfe\xed\xfa\xcf', b'\xcf\xfa\xed\xfe', b'\xca\xfe\xba\xbe', b'\xbe\xba\xfe\xca', b'\xca\xfe\xba\xbf', b'\xbf\xba\xfe\xca'))
+
+  67         342 CALL_FUNCTION            1
+             344 STORE_NAME              59 (_MACHO_MAGICS)
+
+  81         346 LOAD_BUILD_CLASS
+             348 LOAD_CONST              29 (<code object MacOSAgentPluginReleaseError at 0x10924b9d0, file "WeRobotCore/packaging/macos_release.py", line 81>)
+             350 LOAD_CONST              30 ('MacOSAgentPluginReleaseError')
+             352 MAKE_FUNCTION            0
+             354 LOAD_CONST              30 ('MacOSAgentPluginReleaseError')
+             356 LOAD_NAME               60 (RuntimeError)
+             358 CALL_FUNCTION            3
+             360 STORE_NAME              61 (MacOSAgentPluginReleaseError)
+
+  85         362 LOAD_NAME               17 (Callable)
+             364 LOAD_CONST              31 (Ellipsis)
+             366 LOAD_NAME               13 (subprocess)
+             368 LOAD_ATTR               62 (CompletedProcess)
+             370 BUILD_TUPLE              2
+             372 BINARY_SUBSCR
+             374 STORE_NAME              63 (CommandRunner)
+
+  86         376 LOAD_NAME               17 (Callable)
+             378 LOAD_CONST              31 (Ellipsis)
+             380 LOAD_NAME               18 (Mapping)
+             382 LOAD_NAME               64 (str)
+             384 LOAD_NAME               65 (object)
+             386 BUILD_TUPLE              2
+             388 BINARY_SUBSCR
+             390 BUILD_TUPLE              2
+             392 BINARY_SUBSCR
+             394 STORE_NAME              66 (EnvironmentChecker)
+
+  87         396 LOAD_NAME               17 (Callable)
+             398 LOAD_NAME               10 (Path)
+             400 LOAD_NAME               10 (Path)
+             402 BUILD_LIST               2
+             404 LOAD_NAME               18 (Mapping)
+             406 LOAD_NAME               64 (str)
+             408 LOAD_NAME               65 (object)
+             410 BUILD_TUPLE              2
+             412 BINARY_SUBSCR
+             414 BUILD_TUPLE              2
+             416 BINARY_SUBSCR
+             418 STORE_NAME              67 (FrontendPreparer)
+
+  88         420 LOAD_NAME               17 (Callable)
+             422 LOAD_CONST              31 (Ellipsis)
+             424 LOAD_NAME               18 (Mapping)
+             426 LOAD_NAME               64 (str)
+             428 LOAD_NAME               65 (object)
+             430 BUILD_TUPLE              2
+             432 BINARY_SUBSCR
+             434 BUILD_TUPLE              2
+             436 BINARY_SUBSCR
+             438 STORE_NAME              68 (FrontendBuilder)
+
+  89         440 LOAD_NAME               17 (Callable)
+             442 LOAD_CONST              31 (Ellipsis)
+             444 LOAD_NAME               18 (Mapping)
+             446 LOAD_NAME               64 (str)
+             448 LOAD_NAME               65 (object)
+             450 BUILD_TUPLE              2
+             452 BINARY_SUBSCR
+             454 BUILD_TUPLE              2
+             456 BINARY_SUBSCR
+             458 STORE_NAME              69 (HelperBuilder)
+
+  90         460 LOAD_NAME               17 (Callable)
+             462 LOAD_CONST              32 ((Ellipsis, None))
+             464 BINARY_SUBSCR
+             466 STORE_NAME              70 (ControlBuilder)
+
+  91         468 LOAD_NAME               17 (Callable)
+             470 LOAD_CONST              31 (Ellipsis)
+             472 LOAD_NAME               18 (Mapping)
+             474 LOAD_NAME               64 (str)
+             476 LOAD_NAME               65 (object)
+             478 BUILD_TUPLE              2
+             480 BINARY_SUBSCR
+             482 BUILD_TUPLE              2
+             484 BINARY_SUBSCR
+             486 STORE_NAME              71 (TestGate)
+
+  93         488 LOAD_CONST              33 (('test_runtime_lease_*.py', 'test_runtime_contract_*.py', 'test_runtime_product_contract.py', 'test_runtime_capability_catalog.py', 'test_control_access*.py', 'test_*control*.py', 'test_unified_scheduler_shutdown.py', 'test_macos*.py'))
+             490 STORE_NAME              72 (MACOS_RELEASE_TEST_PATTERNS)
+
+ 103         492 LOAD_CONST              34 ('v20.18.0')
+             494 STORE_NAME              73 (MACOS_FRONTEND_NODE_VERSION)
+
+ 104         496 LOAD_CONST              35 ('10.8.2')
+             498 STORE_NAME              74 (MACOS_FRONTEND_NPM_VERSION)
+
+ 105         500 LOAD_CONST              36 (('test:runtime-capabilities', 'test:session-ordering', 'test:startup'))
+             502 STORE_NAME              75 (MACOS_FRONTEND_TEST_SCRIPTS)
+
+ 112         504 LOAD_NAME                4 (dataclass)
+             506 LOAD_CONST              37 (True)
+             508 LOAD_CONST              38 (('frozen',))
+             510 CALL_FUNCTION_KW         1
+
+ 113         512 LOAD_BUILD_CLASS
+             514 LOAD_CONST              39 (<code object MacOSAgentPluginReleaseRequest at 0x10924b030, file "WeRobotCore/packaging/macos_release.py", line 112>)
+             516 LOAD_CONST              40 ('MacOSAgentPluginReleaseRequest')
+             518 MAKE_FUNCTION            0
+             520 LOAD_CONST              40 ('MacOSAgentPluginReleaseRequest')
+             522 CALL_FUNCTION            2
+             524 CALL_FUNCTION            1
+             526 STORE_NAME              76 (MacOSAgentPluginReleaseRequest)
+
+ 166         528 LOAD_CONST              41 (600)
+
+ 161         530 LOAD_CONST              42 (('timeout',))
+             532 BUILD_CONST_KEY_MAP      1
+             534 LOAD_CONST              43 ('CommandRunner')
+             536 LOAD_CONST              44 ('Sequence[str]')
+             538 LOAD_CONST              45 ('Path')
+             540 LOAD_CONST              46 ('int')
+             542 LOAD_CONST              47 ('subprocess.CompletedProcess')
+             544 LOAD_CONST              48 (('runner', 'arguments', 'cwd', 'timeout', 'return'))
+             546 BUILD_CONST_KEY_MAP      5
+             548 LOAD_CONST              49 (<code object _run_command at 0x10924bc90, file "WeRobotCore/packaging/macos_release.py", line 161>)
+             550 LOAD_CONST              50 ('_run_command')
+             552 MAKE_FUNCTION            6 (kwdefaults, annotations)
+             554 STORE_NAME              77 (_run_command)
+
+ 192         556 LOAD_CONST              51 (3)
+
+ 193         558 LOAD_NAME               15 (time)
+             560 LOAD_ATTR               78 (sleep)
+
+ 187         562 LOAD_CONST              52 (('attempts', 'sleeper'))
+             564 BUILD_CONST_KEY_MAP      2
+             566 LOAD_CONST              43 ('CommandRunner')
+             568 LOAD_CONST              45 ('Path')
+             570 LOAD_CONST              45 ('Path')
+             572 LOAD_CONST              46 ('int')
+             574 LOAD_CONST              53 ('Callable[[float], None]')
+             576 LOAD_CONST              54 ('None')
+             578 LOAD_CONST              55 (('runner', 'bundle_path', 'cwd', 'attempts', 'sleeper', 'return'))
+             580 BUILD_CONST_KEY_MAP      6
+             582 LOAD_CONST              56 (<code object _validate_stapled_bundle at 0x10924bdf0, file "WeRobotCore/packaging/macos_release.py", line 187>)
+             584 LOAD_CONST              57 ('_validate_stapled_bundle')
+             586 MAKE_FUNCTION            6 (kwdefaults, annotations)
+             588 STORE_NAME              79 (_validate_stapled_bundle)
+
+ 213         590 LOAD_CONST              45 ('Path')
+             592 LOAD_CONST              58 ('Mapping[str, object]')
+             594 LOAD_CONST              54 ('None')
+             596 LOAD_CONST              59 (('path', 'value', 'return'))
+             598 BUILD_CONST_KEY_MAP      3
+             600 LOAD_CONST              60 (<code object _write_json at 0x10924b3a0, file "WeRobotCore/packaging/macos_release.py", line 213>)
+             602 LOAD_CONST              61 ('_write_json')
+             604 MAKE_FUNCTION            4 (annotations)
+             606 STORE_NAME              80 (_write_json)
+
+ 225         608 LOAD_CONST              45 ('Path')
+             610 LOAD_CONST              62 ('str')
+             612 LOAD_CONST              63 (('path', 'return'))
+             614 BUILD_CONST_KEY_MAP      2
+             616 LOAD_CONST              64 (<code object _sha256 at 0x10924b190, file "WeRobotCore/packaging/macos_release.py", line 225>)
+             618 LOAD_CONST              65 ('_sha256')
+             620 MAKE_FUNCTION            4 (annotations)
+             622 STORE_NAME              81 (_sha256)
+
+ 233         624 LOAD_CONST              45 ('Path')
+             626 LOAD_CONST              45 ('Path')
+             628 LOAD_CONST              54 ('None')
+             630 LOAD_CONST              66 (('project_root', 'output_root', 'return'))
+             632 BUILD_CONST_KEY_MAP      3
+             634 LOAD_CONST              67 (<code object _require_external_output at 0x10924bd40, file "WeRobotCore/packaging/macos_release.py", line 233>)
+             636 LOAD_CONST              68 ('_require_external_output')
+             638 MAKE_FUNCTION            4 (annotations)
+             640 STORE_NAME              82 (_require_external_output)
+
+ 248         642 LOAD_CONST              40 ('MacOSAgentPluginReleaseRequest')
+             644 LOAD_CONST              43 ('CommandRunner')
+             646 LOAD_CONST              54 ('None')
+             648 LOAD_CONST              69 (('request', 'runner', 'return'))
+             650 BUILD_CONST_KEY_MAP      3
+             652 LOAD_CONST              70 (<code object _verify_source at 0x10924b660, file "WeRobotCore/packaging/macos_release.py", line 248>)
+             654 LOAD_CONST              71 ('_verify_source')
+             656 MAKE_FUNCTION            4 (annotations)
+             658 STORE_NAME              83 (_verify_source)
+
+ 277         660 LOAD_CONST              45 ('Path')
+             662 LOAD_CONST              58 ('Mapping[str, object]')
+             664 LOAD_CONST              72 (('project_root', 'return'))
+             666 BUILD_CONST_KEY_MAP      2
+             668 LOAD_CONST              73 (<code object _default_environment_checker at 0x10924ba80, file "WeRobotCore/packaging/macos_release.py", line 277>)
+             670 LOAD_CONST              74 ('_default_environment_checker')
+             672 MAKE_FUNCTION            4 (annotations)
+             674 STORE_NAME              84 (_default_environment_checker)
+
+ 285         676 LOAD_CONST              45 ('Path')
+             678 LOAD_CONST              45 ('Path')
+             680 LOAD_CONST              58 ('Mapping[str, object]')
+             682 LOAD_CONST              75 (('source', 'output', 'return'))
+             684 BUILD_CONST_KEY_MAP      3
+             686 LOAD_CONST              76 (<code object _default_frontend_preparer at 0x10924b870, file "WeRobotCore/packaging/macos_release.py", line 285>)
+             688 LOAD_CONST              77 ('_default_frontend_preparer')
+             690 MAKE_FUNCTION            4 (annotations)
+             692 STORE_NAME              85 (_default_frontend_preparer)
+
+ 296         694 LOAD_CONST              45 ('Path')
+             696 LOAD_CONST              45 ('Path')
+             698 LOAD_CONST              46 ('int')
+             700 LOAD_CONST              78 (('package_json', 'package_lock', 'return'))
+             702 BUILD_CONST_KEY_MAP      3
+             704 LOAD_CONST              79 (<code object _validate_frontend_dependency_lock at 0x10924bf50, file "WeRobotCore/packaging/macos_release.py", line 296>)
+             706 LOAD_CONST              80 ('_validate_frontend_dependency_lock')
+             708 MAKE_FUNCTION            4 (annotations)
+             710 STORE_NAME              86 (_validate_frontend_dependency_lock)
+
+ 358         712 LOAD_CONST              45 ('Path')
+             714 LOAD_CONST              62 ('str')
+             716 LOAD_CONST              45 ('Path')
+             718 LOAD_CONST              45 ('Path')
+             720 LOAD_CONST              43 ('CommandRunner')
+             722 LOAD_CONST              58 ('Mapping[str, object]')
+             724 LOAD_CONST              81 (('project_root', 'source_commit', 'work_dir', 'output_dir', 'command_runner', 'return'))
+             726 BUILD_CONST_KEY_MAP      6
+             728 LOAD_CONST              82 (<code object _default_frontend_builder at 0x109244030, file "WeRobotCore/packaging/macos_release.py", line 358>)
+             730 LOAD_CONST              83 ('_default_frontend_builder')
+             732 MAKE_FUNCTION            4 (annotations)
+             734 STORE_NAME              87 (_default_frontend_builder)
+
+ 483         736 LOAD_CONST              45 ('Path')
+             738 LOAD_CONST              43 ('CommandRunner')
+             740 LOAD_CONST              58 ('Mapping[str, object]')
+             742 LOAD_CONST              84 (('project_root', 'command_runner', 'return'))
+             744 BUILD_CONST_KEY_MAP      3
+             746 LOAD_CONST              85 (<code object _default_test_gate at 0x109244df0, file "WeRobotCore/packaging/macos_release.py", line 483>)
+             748 LOAD_CONST              86 ('_default_test_gate')
+             750 MAKE_FUNCTION            4 (annotations)
+             752 STORE_NAME              88 (_default_test_gate)
+
+ 510         754 LOAD_CONST              40 ('MacOSAgentPluginReleaseRequest')
+             756 LOAD_CONST              45 ('Path')
+             758 LOAD_CONST              45 ('Path')
+             760 LOAD_CONST              45 ('Path')
+             762 LOAD_CONST              43 ('CommandRunner')
+             764 LOAD_CONST              54 ('None')
+             766 LOAD_CONST              87 (('request', 'frontend_dir', 'dist_dir', 'work_dir', 'command_runner', 'return'))
+             768 BUILD_CONST_KEY_MAP      6
+             770 LOAD_CONST              88 (<code object _default_control_builder at 0x109244450, file "WeRobotCore/packaging/macos_release.py", line 510>)
+             772 LOAD_CONST              89 ('_default_control_builder')
+             774 MAKE_FUNCTION            4 (annotations)
+             776 STORE_NAME              89 (_default_control_builder)
+
+ 545         778 LOAD_CONST              45 ('Path')
+             780 LOAD_CONST              90 ('Sequence[Path]')
+             782 LOAD_CONST              91 (('bundle', 'return'))
+             784 BUILD_CONST_KEY_MAP      2
+             786 LOAD_CONST              92 (<code object _macho_files at 0x1090bdf50, file "WeRobotCore/packaging/macos_release.py", line 545>)
+             788 LOAD_CONST              93 ('_macho_files')
+             790 MAKE_FUNCTION            4 (annotations)
+             792 STORE_NAME              90 (_macho_files)
+
+ 564         794 LOAD_CONST              47 ('subprocess.CompletedProcess')
+             796 LOAD_CONST              54 ('None')
+             798 LOAD_CONST              94 (('completed', 'return'))
+             800 BUILD_CONST_KEY_MAP      2
+             802 LOAD_CONST              95 (<code object _verify_signature_output at 0x1090bd5b0, file "WeRobotCore/packaging/macos_release.py", line 564>)
+             804 LOAD_CONST              96 ('_verify_signature_output')
+             806 MAKE_FUNCTION            4 (annotations)
+             808 STORE_NAME              91 (_verify_signature_output)
+
+ 575         810 LOAD_CONST              45 ('Path')
+             812 LOAD_CONST              45 ('Path')
+             814 LOAD_CONST              43 ('CommandRunner')
+             816 LOAD_CONST              46 ('int')
+             818 LOAD_CONST              97 (('bundle', 'project_root', 'runner', 'return'))
+             820 BUILD_CONST_KEY_MAP      4
+             822 LOAD_CONST              98 (<code object _verify_signed_bundle at 0x1090bdd40, file "WeRobotCore/packaging/macos_release.py", line 575>)
+             824 LOAD_CONST              99 ('_verify_signed_bundle')
+             826 MAKE_FUNCTION            4 (annotations)
+             828 STORE_NAME              92 (_verify_signed_bundle)
+
+ 622         830 LOAD_CONST              62 ('str')
+             832 LOAD_CONST             100 ('Mapping[str, str]')
+             834 LOAD_CONST             101 (('value', 'return'))
+             836 BUILD_CONST_KEY_MAP      2
+             838 LOAD_CONST             102 (<code object _parse_notary_result at 0x1090bdc90, file "WeRobotCore/packaging/macos_release.py", line 622>)
+             840 LOAD_CONST             103 ('_parse_notary_result')
+             842 MAKE_FUNCTION            4 (annotations)
+             844 STORE_NAME              93 (_parse_notary_result)
+
+ 644         846 LOAD_CONST              58 ('Mapping[str, object]')
+             848 LOAD_CONST              40 ('MacOSAgentPluginReleaseRequest')
+             850 LOAD_CONST              54 ('None')
+             852 LOAD_CONST             104 (('report', 'request', 'return'))
+             854 BUILD_CONST_KEY_MAP      3
+             856 LOAD_CONST             105 (<code object _require_product_contract at 0x1090bd9d0, file "WeRobotCore/packaging/macos_release.py", line 644>)
+             858 LOAD_CONST             106 ('_require_product_contract')
+             860 MAKE_FUNCTION            4 (annotations)
+             862 STORE_NAME              94 (_require_product_contract)
+
+ 667         864 LOAD_NAME               13 (subprocess)
+             866 LOAD_ATTR               95 (run)
+
+ 668         868 LOAD_NAME               84 (_default_environment_checker)
+
+ 669         870 LOAD_NAME               88 (_default_test_gate)
+
+ 670         872 LOAD_NAME               87 (_default_frontend_builder)
+
+ 671         874 LOAD_NAME               85 (_default_frontend_preparer)
+
+ 672         876 LOAD_NAME               38 (build_signed_macos_helper)
+
+ 673         878 LOAD_NAME               89 (_default_control_builder)
+
+ 674         880 LOAD_CONST             107 ('')
+
+ 675         882 LOAD_CONST             107 ('')
+
+ 664         884 LOAD_CONST             108 (('command_runner', 'environment_checker', 'test_gate', 'frontend_builder', 'frontend_preparer', 'helper_builder', 'control_builder', 'platform_name', 'machine'))
+             886 BUILD_CONST_KEY_MAP      9
+             888 LOAD_CONST              40 ('MacOSAgentPluginReleaseRequest')
+             890 LOAD_CONST              43 ('CommandRunner')
+             892 LOAD_CONST             109 ('EnvironmentChecker')
+             894 LOAD_CONST             110 ('TestGate')
+             896 LOAD_CONST             111 ('FrontendBuilder')
+             898 LOAD_CONST             112 ('FrontendPreparer')
+             900 LOAD_CONST             113 ('HelperBuilder')
+             902 LOAD_CONST             114 ('ControlBuilder')
+             904 LOAD_CONST              62 ('str')
+             906 LOAD_CONST              62 ('str')
+             908 LOAD_CONST              58 ('Mapping[str, object]')
+             910 LOAD_CONST             115 (('request', 'command_runner', 'environment_checker', 'test_gate', 'frontend_builder', 'frontend_preparer', 'helper_builder', 'control_builder', 'platform_name', 'machine', 'return'))
+             912 BUILD_CONST_KEY_MAP     11
+             914 LOAD_CONST             116 (<code object build_macos_agent_plugin_release at 0x1090bd920, file "WeRobotCore/packaging/macos_release.py", line 664>)
+             916 LOAD_CONST             117 ('build_macos_agent_plugin_release')
+             918 MAKE_FUNCTION            6 (kwdefaults, annotations)
+             920 STORE_NAME              96 (build_macos_agent_plugin_release)
+
+1076         922 BUILD_LIST               0
+             924 LOAD_CONST             118 (('MACOS_AGENT_PLUGIN_ARCHITECTURE', 'MACOS_AGENT_PLUGIN_BUILD_CHANNEL', 'MACOS_AGENT_PLUGIN_CAPABILITY_WAVE', 'MACOS_AGENT_PLUGIN_HANDOFF_KIND', 'MACOS_AGENT_PLUGIN_MINIMUM_SYSTEM_VERSION', 'MACOS_AGENT_PLUGIN_RUNTIME_CONTRACT_VERSION', 'MACOS_AGENT_PLUGIN_DRIVER_API_VERSION', 'MACOS_AGENT_PLUGIN_RELEASE_CHANNEL', 'MACOS_CONTROL_APP_NAME', 'MACOS_FRONTEND_NODE_VERSION', 'MACOS_FRONTEND_NPM_VERSION', 'MACOS_FRONTEND_TEST_SCRIPTS', 'MACOS_RELEASE_REPORT_NAME', 'MACOS_RELEASE_STATE_NAME', 'MACOS_RELEASE_TEST_PATTERNS', 'MacOSAgentPluginReleaseError', 'MacOSAgentPluginReleaseRequest', 'build_macos_agent_plugin_release'))
+             926 LIST_EXTEND              1
+             928 STORE_NAME              97 (__all__)
+             930 LOAD_CONST               5 (None)
+             932 RETURN_VALUE
+
+Disassembly of <code object MacOSAgentPluginReleaseError at 0x10924b9d0, file "WeRobotCore/packaging/macos_release.py", line 81>:
+ 81           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('MacOSAgentPluginReleaseError')
+              6 STORE_NAME               2 (__qualname__)
+
+ 82           8 LOAD_CONST               1 ('A sanitized source, build, signing, notarization or package failure.')
+             10 STORE_NAME               3 (__doc__)
+             12 LOAD_CONST               2 (None)
+             14 RETURN_VALUE
+
+Disassembly of <code object MacOSAgentPluginReleaseRequest at 0x10924b030, file "WeRobotCore/packaging/macos_release.py", line 112>:
+112           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('MacOSAgentPluginReleaseRequest')
+              6 STORE_NAME               2 (__qualname__)
+              8 SETUP_ANNOTATIONS
+
+114          10 LOAD_CONST               1 ('Path')
+             12 LOAD_NAME                3 (__annotations__)
+             14 LOAD_CONST               2 ('project_root')
+             16 STORE_SUBSCR
+
+115          18 LOAD_CONST               1 ('Path')
+             20 LOAD_NAME                3 (__annotations__)
+             22 LOAD_CONST               3 ('output_root')
+             24 STORE_SUBSCR
+
+116          26 LOAD_CONST               4 ('str')
+             28 LOAD_NAME                3 (__annotations__)
+             30 LOAD_CONST               5 ('app_version')
+             32 STORE_SUBSCR
+
+117          34 LOAD_CONST               4 ('str')
+             36 LOAD_NAME                3 (__annotations__)
+             38 LOAD_CONST               6 ('build_version')
+             40 STORE_SUBSCR
+
+118          42 LOAD_CONST               4 ('str')
+             44 LOAD_NAME                3 (__annotations__)
+             46 LOAD_CONST               7 ('source_commit')
+             48 STORE_SUBSCR
+
+119          50 LOAD_CONST               4 ('str')
+             52 LOAD_NAME                3 (__annotations__)
+             54 LOAD_CONST               8 ('source_ref')
+             56 STORE_SUBSCR
+
+120          58 LOAD_CONST               4 ('str')
+             60 LOAD_NAME                3 (__annotations__)
+             62 LOAD_CONST               9 ('signing_identity')
+             64 STORE_SUBSCR
+
+121          66 LOAD_CONST               4 ('str')
+             68 LOAD_NAME                3 (__annotations__)
+             70 LOAD_CONST              10 ('notary_profile')
+             72 STORE_SUBSCR
+
+122          74 LOAD_NAME                4 (MACOS_AGENT_PLUGIN_ARCHITECTURE)
+             76 STORE_NAME               5 (architecture)
+             78 LOAD_CONST               4 ('str')
+             80 LOAD_NAME                3 (__annotations__)
+             82 LOAD_CONST              11 ('architecture')
+             84 STORE_SUBSCR
+
+124          86 LOAD_CONST              12 ('None')
+             88 LOAD_CONST              13 (('return',))
+             90 BUILD_CONST_KEY_MAP      1
+             92 LOAD_CONST              14 (<code object __post_init__ at 0x10924b7c0, file "WeRobotCore/packaging/macos_release.py", line 124>)
+             94 LOAD_CONST              15 ('MacOSAgentPluginReleaseRequest.__post_init__')
+             96 MAKE_FUNCTION            4 (annotations)
+             98 STORE_NAME               6 (__post_init__)
+
+153         100 LOAD_NAME                7 (property)
+
+154         102 LOAD_CONST               4 ('str')
+            104 LOAD_CONST              13 (('return',))
+            106 BUILD_CONST_KEY_MAP      1
+            108 LOAD_CONST              16 (<code object artifact_file_name at 0x10924b5b0, file "WeRobotCore/packaging/macos_release.py", line 153>)
+            110 LOAD_CONST              17 ('MacOSAgentPluginReleaseRequest.artifact_file_name')
+            112 MAKE_FUNCTION            4 (annotations)
+            114 CALL_FUNCTION            1
+            116 STORE_NAME               8 (artifact_file_name)
+            118 LOAD_CONST              18 (None)
+            120 RETURN_VALUE
+
+Disassembly of <code object __post_init__ at 0x10924b7c0, file "WeRobotCore/packaging/macos_release.py", line 124>:
+125           0 LOAD_CONST               1 (('project_root', 'output_root'))
+              2 GET_ITER
+        >>    4 FOR_ITER                62 (to 68)
+              6 STORE_FAST               1 (name)
+
+126           8 LOAD_GLOBAL              0 (isinstance)
+             10 LOAD_GLOBAL              1 (getattr)
+             12 LOAD_FAST                0 (self)
+             14 LOAD_FAST                1 (name)
+             16 CALL_FUNCTION            2
+             18 LOAD_GLOBAL              2 (Path)
+             20 CALL_FUNCTION            2
+             22 POP_JUMP_IF_TRUE        38
+
+127          24 LOAD_GLOBAL              3 (TypeError)
+             26 LOAD_CONST               2 ('{} must be a pathlib.Path')
+             28 LOAD_METHOD              4 (format)
+             30 LOAD_FAST                1 (name)
+             32 CALL_METHOD              1
+             34 CALL_FUNCTION            1
+             36 RAISE_VARARGS            1
+
+128     >>   38 LOAD_GLOBAL              1 (getattr)
+             40 LOAD_FAST                0 (self)
+             42 LOAD_FAST                1 (name)
+             44 CALL_FUNCTION            2
+             46 LOAD_METHOD              5 (is_absolute)
+             48 CALL_METHOD              0
+             50 POP_JUMP_IF_TRUE         4
+
+129          52 LOAD_GLOBAL              6 (ValueError)
+             54 LOAD_CONST               3 ('{} must be absolute')
+             56 LOAD_METHOD              4 (format)
+             58 LOAD_FAST                1 (name)
+             60 CALL_METHOD              1
+             62 CALL_FUNCTION            1
+             64 RAISE_VARARGS            1
+             66 JUMP_ABSOLUTE            4
+
+130     >>   68 LOAD_FAST                0 (self)
+             70 LOAD_ATTR                7 (output_root)
+             72 LOAD_METHOD              8 (exists)
+             74 CALL_METHOD              0
+             76 POP_JUMP_IF_FALSE       86
+
+131          78 LOAD_GLOBAL              6 (ValueError)
+             80 LOAD_CONST               4 ('output_root must not exist')
+             82 CALL_FUNCTION            1
+             84 RAISE_VARARGS            1
+
+132     >>   86 LOAD_FAST                0 (self)
+             88 LOAD_ATTR                7 (output_root)
+             90 LOAD_ATTR                9 (parent)
+             92 LOAD_METHOD             10 (is_dir)
+             94 CALL_METHOD              0
+             96 POP_JUMP_IF_TRUE       106
+
+133          98 LOAD_GLOBAL              6 (ValueError)
+            100 LOAD_CONST               5 ('output_root parent is unavailable')
+            102 CALL_FUNCTION            1
+            104 RAISE_VARARGS            1
+
+134     >>  106 LOAD_GLOBAL             11 (_APP_VERSION)
+            108 LOAD_METHOD             12 (fullmatch)
+            110 LOAD_FAST                0 (self)
+            112 LOAD_ATTR               13 (app_version)
+            114 CALL_METHOD              1
+            116 LOAD_CONST               0 (None)
+            118 IS_OP                    0
+            120 POP_JUMP_IF_FALSE      130
+
+135         122 LOAD_GLOBAL              6 (ValueError)
+            124 LOAD_CONST               6 ('app_version is invalid')
+            126 CALL_FUNCTION            1
+            128 RAISE_VARARGS            1
+
+136     >>  130 LOAD_GLOBAL             14 (_BUILD_VERSION)
+            132 LOAD_METHOD             12 (fullmatch)
+            134 LOAD_FAST                0 (self)
+            136 LOAD_ATTR               15 (build_version)
+            138 CALL_METHOD              1
+            140 LOAD_CONST               0 (None)
+            142 IS_OP                    0
+            144 POP_JUMP_IF_FALSE      154
+
+137         146 LOAD_GLOBAL              6 (ValueError)
+            148 LOAD_CONST               7 ('build_version is invalid')
+            150 CALL_FUNCTION            1
+            152 RAISE_VARARGS            1
+
+138     >>  154 LOAD_GLOBAL             16 (_SOURCE_COMMIT)
+            156 LOAD_METHOD             12 (fullmatch)
+            158 LOAD_FAST                0 (self)
+            160 LOAD_ATTR               17 (source_commit)
+            162 CALL_METHOD              1
+            164 LOAD_CONST               0 (None)
+            166 IS_OP                    0
+            168 POP_JUMP_IF_FALSE      178
+
+139         170 LOAD_GLOBAL              6 (ValueError)
+            172 LOAD_CONST               8 ('source_commit must be a full lowercase Git SHA')
+            174 CALL_FUNCTION            1
+            176 RAISE_VARARGS            1
+
+140     >>  178 LOAD_GLOBAL             18 (_SOURCE_REF)
+            180 LOAD_METHOD             12 (fullmatch)
+            182 LOAD_FAST                0 (self)
+            184 LOAD_ATTR               19 (source_ref)
+            186 CALL_METHOD              1
+            188 LOAD_CONST               0 (None)
+            190 IS_OP                    0
+            192 POP_JUMP_IF_TRUE       204
+            194 LOAD_CONST               9 ('..')
+            196 LOAD_FAST                0 (self)
+            198 LOAD_ATTR               19 (source_ref)
+            200 CONTAINS_OP              0
+            202 POP_JUMP_IF_FALSE      212
+
+141     >>  204 LOAD_GLOBAL              6 (ValueError)
+            206 LOAD_CONST              10 ('source_ref must be a remote-tracking origin ref')
+            208 CALL_FUNCTION            1
+            210 RAISE_VARARGS            1
+
+142     >>  212 LOAD_GLOBAL             20 (_DEVELOPER_IDENTITY)
+            214 LOAD_METHOD             12 (fullmatch)
+            216 LOAD_FAST                0 (self)
+            218 LOAD_ATTR               21 (signing_identity)
+            220 CALL_METHOD              1
+            222 LOAD_CONST               0 (None)
+            224 IS_OP                    0
+            226 POP_JUMP_IF_FALSE      242
+
+143         228 LOAD_GLOBAL              6 (ValueError)
+
+144         230 LOAD_CONST              11 ('signing_identity must be Developer ID Team {}')
+            232 LOAD_METHOD              4 (format)
+
+145         234 LOAD_GLOBAL             22 (MACOS_PRODUCT_TEAM_IDENTIFIER)
+
+144         236 CALL_METHOD              1
+
+143         238 CALL_FUNCTION            1
+            240 RAISE_VARARGS            1
+
+148     >>  242 LOAD_GLOBAL             23 (_NOTARY_PROFILE)
+            244 LOAD_METHOD             12 (fullmatch)
+            246 LOAD_FAST                0 (self)
+            248 LOAD_ATTR               24 (notary_profile)
+            250 CALL_METHOD              1
+            252 LOAD_CONST               0 (None)
+            254 IS_OP                    0
+            256 EXTENDED_ARG             1
+            258 POP_JUMP_IF_FALSE      268
+
+149         260 LOAD_GLOBAL              6 (ValueError)
+            262 LOAD_CONST              12 ('notary_profile name is invalid')
+            264 CALL_FUNCTION            1
+            266 RAISE_VARARGS            1
+
+150     >>  268 LOAD_FAST                0 (self)
+            270 LOAD_ATTR               25 (architecture)
+            272 LOAD_GLOBAL             26 (MACOS_AGENT_PLUGIN_ARCHITECTURE)
+            274 COMPARE_OP               3 (!=)
+            276 EXTENDED_ARG             1
+            278 POP_JUMP_IF_FALSE      288
+
+151         280 LOAD_GLOBAL              6 (ValueError)
+            282 LOAD_CONST              13 ('the official Agent plugin release is arm64 only')
+            284 CALL_FUNCTION            1
+            286 RAISE_VARARGS            1
+        >>  288 LOAD_CONST               0 (None)
+            290 RETURN_VALUE
+
+Disassembly of <code object artifact_file_name at 0x10924b5b0, file "WeRobotCore/packaging/macos_release.py", line 153>:
+155           0 LOAD_CONST               1 ('YokoWebot-RPA-{}-{}-macos-arm64.zip')
+              2 LOAD_METHOD              0 (format)
+
+156           4 LOAD_FAST                0 (self)
+              6 LOAD_ATTR                1 (app_version)
+
+157           8 LOAD_FAST                0 (self)
+             10 LOAD_ATTR                2 (build_version)
+
+155          12 CALL_METHOD              2
+             14 RETURN_VALUE
+
+Disassembly of <code object _run_command at 0x10924bc90, file "WeRobotCore/packaging/macos_release.py", line 161>:
+168           0 SETUP_FINALLY           48 (to 50)
+
+169           2 LOAD_FAST                0 (runner)
+
+170           4 LOAD_GLOBAL              0 (tuple)
+              6 LOAD_CONST               1 (<code object <genexpr> at 0x10924b500, file "WeRobotCore/packaging/macos_release.py", line 170>)
+              8 LOAD_CONST               2 ('_run_command.<locals>.<genexpr>')
+             10 MAKE_FUNCTION            0
+             12 LOAD_FAST                1 (arguments)
+             14 GET_ITER
+             16 CALL_FUNCTION            1
+             18 CALL_FUNCTION            1
+
+171          20 LOAD_GLOBAL              1 (str)
+             22 LOAD_FAST                2 (cwd)
+             24 CALL_FUNCTION            1
+
+172          26 LOAD_GLOBAL              2 (subprocess)
+             28 LOAD_ATTR                3 (PIPE)
+
+173          30 LOAD_GLOBAL              2 (subprocess)
+             32 LOAD_ATTR                3 (PIPE)
+
+174          34 LOAD_CONST               3 (True)
+
+175          36 LOAD_CONST               4 (False)
+
+176          38 LOAD_FAST                3 (timeout)
+
+169          40 LOAD_CONST               5 (('cwd', 'stdout', 'stderr', 'text', 'check', 'timeout'))
+             42 CALL_FUNCTION_KW         7
+             44 STORE_FAST               4 (completed)
+             46 POP_BLOCK
+             48 JUMP_FORWARD            46 (to 96)
+
+178     >>   50 DUP_TOP
+             52 LOAD_GLOBAL              4 (Exception)
+             54 JUMP_IF_NOT_EXC_MATCH    94
+             56 POP_TOP
+             58 STORE_FAST               5 (exc)
+             60 POP_TOP
+             62 SETUP_FINALLY           22 (to 86)
+
+179          64 LOAD_GLOBAL              5 (MacOSAgentPluginReleaseError)
+             66 LOAD_CONST               6 ('release command failed')
+             68 CALL_FUNCTION            1
+             70 LOAD_FAST                5 (exc)
+             72 RAISE_VARARGS            2
+             74 POP_BLOCK
+             76 POP_EXCEPT
+             78 LOAD_CONST               0 (None)
+             80 STORE_FAST               5 (exc)
+             82 DELETE_FAST              5 (exc)
+             84 JUMP_FORWARD            10 (to 96)
+        >>   86 LOAD_CONST               0 (None)
+             88 STORE_FAST               5 (exc)
+             90 DELETE_FAST              5 (exc)
+             92 RERAISE
+        >>   94 RERAISE
+
+180     >>   96 LOAD_GLOBAL              6 (isinstance)
+             98 LOAD_FAST                4 (completed)
+            100 LOAD_GLOBAL              2 (subprocess)
+            102 LOAD_ATTR                7 (CompletedProcess)
+            104 CALL_FUNCTION            2
+            106 POP_JUMP_IF_TRUE       116
+
+181         108 LOAD_GLOBAL              5 (MacOSAgentPluginReleaseError)
+            110 LOAD_CONST               7 ('release command runner is invalid')
+            112 CALL_FUNCTION            1
+            114 RAISE_VARARGS            1
+
+182     >>  116 LOAD_FAST                4 (completed)
+            118 LOAD_ATTR                8 (returncode)
+            120 LOAD_CONST               8 (0)
+            122 COMPARE_OP               3 (!=)
+            124 POP_JUMP_IF_FALSE      134
+
+183         126 LOAD_GLOBAL              5 (MacOSAgentPluginReleaseError)
+            128 LOAD_CONST               6 ('release command failed')
+            130 CALL_FUNCTION            1
+            132 RAISE_VARARGS            1
+
+184     >>  134 LOAD_FAST                4 (completed)
+            136 RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x10924b500, file "WeRobotCore/packaging/macos_release.py", line 170>:
+170           0 LOAD_FAST                0 (.0)
+        >>    2 FOR_ITER                14 (to 18)
+              4 STORE_FAST               1 (value)
+              6 LOAD_GLOBAL              0 (str)
+              8 LOAD_FAST                1 (value)
+             10 CALL_FUNCTION            1
+             12 YIELD_VALUE
+             14 POP_TOP
+             16 JUMP_ABSOLUTE            2
+        >>   18 LOAD_CONST               0 (None)
+             20 RETURN_VALUE
+
+Disassembly of <code object _validate_stapled_bundle at 0x10924bdf0, file "WeRobotCore/packaging/macos_release.py", line 187>:
+197           0 LOAD_FAST                3 (attempts)
+              2 LOAD_CONST               1 (1)
+              4 COMPARE_OP               0 (<)
+              6 POP_JUMP_IF_TRUE        16
+              8 LOAD_FAST                3 (attempts)
+             10 LOAD_CONST               2 (5)
+             12 COMPARE_OP               4 (>)
+             14 POP_JUMP_IF_FALSE       24
+
+198     >>   16 LOAD_GLOBAL              0 (ValueError)
+             18 LOAD_CONST               3 ('stapler validation attempts must be between 1 and 5')
+             20 CALL_FUNCTION            1
+             22 RAISE_VARARGS            1
+
+199     >>   24 LOAD_GLOBAL              1 (range)
+             26 LOAD_CONST               1 (1)
+             28 LOAD_FAST                3 (attempts)
+             30 LOAD_CONST               1 (1)
+             32 BINARY_ADD
+             34 CALL_FUNCTION            2
+             36 GET_ITER
+        >>   38 FOR_ITER                76 (to 116)
+             40 STORE_FAST               5 (attempt)
+
+200          42 SETUP_FINALLY           34 (to 78)
+
+201          44 LOAD_GLOBAL              2 (_run_command)
+
+202          46 LOAD_FAST                0 (runner)
+
+203          48 LOAD_CONST               4 ('xcrun')
+             50 LOAD_CONST               5 ('stapler')
+             52 LOAD_CONST               6 ('validate')
+             54 LOAD_GLOBAL              3 (str)
+             56 LOAD_FAST                1 (bundle_path)
+             58 CALL_FUNCTION            1
+             60 BUILD_TUPLE              4
+
+204          62 LOAD_FAST                2 (cwd)
+
+201          64 LOAD_CONST               7 (('cwd',))
+             66 CALL_FUNCTION_KW         3
+             68 POP_TOP
+
+206          70 POP_BLOCK
+             72 POP_TOP
+             74 LOAD_CONST               8 (None)
+             76 RETURN_VALUE
+
+207     >>   78 DUP_TOP
+             80 LOAD_GLOBAL              4 (MacOSAgentPluginReleaseError)
+             82 JUMP_IF_NOT_EXC_MATCH   112
+             84 POP_TOP
+             86 POP_TOP
+             88 POP_TOP
+
+208          90 LOAD_FAST                5 (attempt)
+             92 LOAD_FAST                3 (attempts)
+             94 COMPARE_OP               2 (==)
+             96 POP_JUMP_IF_FALSE      100
+
+209          98 RAISE_VARARGS            0
+
+210     >>  100 LOAD_FAST                4 (sleeper)
+            102 LOAD_CONST               9 (1.0)
+            104 CALL_FUNCTION            1
+            106 POP_TOP
+            108 POP_EXCEPT
+            110 JUMP_ABSOLUTE           38
+        >>  112 RERAISE
+            114 JUMP_ABSOLUTE           38
+        >>  116 LOAD_CONST               8 (None)
+            118 RETURN_VALUE
+
+Disassembly of <code object _write_json at 0x10924b3a0, file "WeRobotCore/packaging/macos_release.py", line 213>:
+214           0 LOAD_FAST                0 (path)
+              2 LOAD_METHOD              0 (with_name)
+              4 LOAD_CONST               1 ('.{}.tmp')
+              6 LOAD_METHOD              1 (format)
+              8 LOAD_FAST                0 (path)
+             10 LOAD_ATTR                2 (name)
+             12 CALL_METHOD              1
+             14 CALL_METHOD              1
+             16 STORE_FAST               2 (temporary)
+
+215          18 LOAD_GLOBAL              3 (json)
+             20 LOAD_ATTR                4 (dumps)
+
+216          22 LOAD_GLOBAL              5 (dict)
+             24 LOAD_FAST                1 (value)
+             26 CALL_FUNCTION            1
+
+217          28 LOAD_CONST               2 (False)
+
+218          30 LOAD_CONST               3 (2)
+
+219          32 LOAD_CONST               4 (True)
+
+215          34 LOAD_CONST               5 (('ensure_ascii', 'indent', 'sort_keys'))
+             36 CALL_FUNCTION_KW         4
+
+220          38 LOAD_CONST               6 ('\n')
+
+215          40 BINARY_ADD
+             42 STORE_FAST               3 (encoded)
+
+221          44 LOAD_FAST                2 (temporary)
+             46 LOAD_ATTR                6 (write_text)
+             48 LOAD_FAST                3 (encoded)
+             50 LOAD_CONST               7 ('utf-8')
+             52 LOAD_CONST               8 (('encoding',))
+             54 CALL_FUNCTION_KW         2
+             56 POP_TOP
+
+222          58 LOAD_GLOBAL              7 (os)
+             60 LOAD_METHOD              8 (replace)
+             62 LOAD_GLOBAL              9 (str)
+             64 LOAD_FAST                2 (temporary)
+             66 CALL_FUNCTION            1
+             68 LOAD_GLOBAL              9 (str)
+             70 LOAD_FAST                0 (path)
+             72 CALL_FUNCTION            1
+             74 CALL_METHOD              2
+             76 POP_TOP
+             78 LOAD_CONST               0 (None)
+             80 RETURN_VALUE
+
+Disassembly of <code object _sha256 at 0x10924b190, file "WeRobotCore/packaging/macos_release.py", line 225>:
+226           0 LOAD_GLOBAL              0 (sha256)
+              2 CALL_FUNCTION            0
+              4 STORE_FAST               1 (digest)
+
+227           6 LOAD_FAST                0 (path)
+              8 LOAD_METHOD              1 (open)
+             10 LOAD_CONST               1 ('rb')
+             12 CALL_METHOD              1
+             14 SETUP_WITH              50 (to 66)
+             16 STORE_DEREF              0 (stream)
+
+228          18 LOAD_GLOBAL              2 (iter)
+             20 LOAD_CLOSURE             0 (stream)
+             22 BUILD_TUPLE              1
+             24 LOAD_CONST               2 (<code object <lambda> at 0x10924b450, file "WeRobotCore/packaging/macos_release.py", line 228>)
+             26 LOAD_CONST               3 ('_sha256.<locals>.<lambda>')
+             28 MAKE_FUNCTION            8 (closure)
+             30 LOAD_CONST               4 (b'')
+             32 CALL_FUNCTION            2
+             34 GET_ITER
+        >>   36 FOR_ITER                14 (to 52)
+             38 STORE_FAST               2 (chunk)
+
+229          40 LOAD_FAST                1 (digest)
+             42 LOAD_METHOD              3 (update)
+             44 LOAD_FAST                2 (chunk)
+             46 CALL_METHOD              1
+             48 POP_TOP
+             50 JUMP_ABSOLUTE           36
+        >>   52 POP_BLOCK
+             54 LOAD_CONST               0 (None)
+             56 DUP_TOP
+             58 DUP_TOP
+             60 CALL_FUNCTION            3
+             62 POP_TOP
+             64 JUMP_FORWARD            16 (to 82)
+        >>   66 WITH_EXCEPT_START
+             68 POP_JUMP_IF_TRUE        72
+             70 RERAISE
+        >>   72 POP_TOP
+             74 POP_TOP
+             76 POP_TOP
+             78 POP_EXCEPT
+             80 POP_TOP
+
+230     >>   82 LOAD_FAST                1 (digest)
+             84 LOAD_METHOD              4 (hexdigest)
+             86 CALL_METHOD              0
+             88 RETURN_VALUE
+
+Disassembly of <code object <lambda> at 0x10924b450, file "WeRobotCore/packaging/macos_release.py", line 228>:
+228           0 LOAD_DEREF               0 (stream)
+              2 LOAD_METHOD              0 (read)
+              4 LOAD_CONST               1 (1048576)
+              6 CALL_METHOD              1
+              8 RETURN_VALUE
+
+Disassembly of <code object _require_external_output at 0x10924bd40, file "WeRobotCore/packaging/macos_release.py", line 233>:
+234           0 LOAD_FAST                1 (output_root)
+              2 LOAD_METHOD              0 (resolve)
+              4 CALL_METHOD              0
+              6 STORE_FAST               2 (output)
+
+235           8 LOAD_FAST                0 (project_root)
+             10 LOAD_ATTR                0 (resolve)
+             12 LOAD_CONST               1 (True)
+             14 LOAD_CONST               2 (('strict',))
+             16 CALL_FUNCTION_KW         1
+             18 STORE_FAST               3 (root)
+
+236          20 SETUP_FINALLY           14 (to 36)
+
+237          22 LOAD_FAST                2 (output)
+             24 LOAD_METHOD              1 (relative_to)
+             26 LOAD_FAST                3 (root)
+             28 CALL_METHOD              1
+             30 POP_TOP
+             32 POP_BLOCK
+             34 JUMP_FORWARD            18 (to 54)
+
+238     >>   36 DUP_TOP
+             38 LOAD_GLOBAL              2 (ValueError)
+             40 JUMP_IF_NOT_EXC_MATCH    52
+             42 POP_TOP
+             44 POP_TOP
+             46 POP_TOP
+
+239          48 POP_EXCEPT
+             50 JUMP_FORWARD            10 (to 62)
+        >>   52 RERAISE
+
+241     >>   54 LOAD_GLOBAL              3 (MacOSAgentPluginReleaseError)
+
+242          56 LOAD_CONST               3 ('release output must be outside the source checkout')
+
+241          58 CALL_FUNCTION            1
+             60 RAISE_VARARGS            1
+
+244     >>   62 LOAD_FAST                2 (output)
+             64 LOAD_GLOBAL              4 (Path)
+             66 LOAD_FAST                2 (output)
+             68 LOAD_ATTR                5 (anchor)
+             70 CALL_FUNCTION            1
+             72 COMPARE_OP               2 (==)
+             74 POP_JUMP_IF_TRUE        92
+             76 LOAD_FAST                2 (output)
+             78 LOAD_GLOBAL              4 (Path)
+             80 LOAD_METHOD              6 (home)
+             82 CALL_METHOD              0
+             84 LOAD_METHOD              0 (resolve)
+             86 CALL_METHOD              0
+             88 COMPARE_OP               2 (==)
+             90 POP_JUMP_IF_FALSE      100
+
+245     >>   92 LOAD_GLOBAL              3 (MacOSAgentPluginReleaseError)
+             94 LOAD_CONST               4 ('release output root is unsafe')
+             96 CALL_FUNCTION            1
+             98 RAISE_VARARGS            1
+        >>  100 LOAD_CONST               0 (None)
+            102 RETURN_VALUE
+
+Disassembly of <code object _verify_source at 0x10924b660, file "WeRobotCore/packaging/macos_release.py", line 248>:
+252           0 LOAD_FAST                0 (request)
+              2 LOAD_ATTR                0 (project_root)
+              4 LOAD_ATTR                1 (resolve)
+              6 LOAD_CONST               1 (True)
+              8 LOAD_CONST               2 (('strict',))
+             10 CALL_FUNCTION_KW         1
+             12 STORE_FAST               2 (project_root)
+
+253          14 LOAD_GLOBAL              2 (_run_command)
+
+254          16 LOAD_FAST                1 (runner)
+
+255          18 LOAD_CONST               3 (('git', 'rev-parse', 'HEAD'))
+
+256          20 LOAD_FAST                2 (project_root)
+
+253          22 LOAD_CONST               4 (('cwd',))
+             24 CALL_FUNCTION_KW         3
+             26 LOAD_ATTR                3 (stdout)
+             28 LOAD_METHOD              4 (strip)
+             30 CALL_METHOD              0
+             32 STORE_FAST               3 (head)
+
+258          34 LOAD_GLOBAL              2 (_run_command)
+
+259          36 LOAD_FAST                1 (runner)
+
+260          38 LOAD_CONST               5 ('git')
+             40 LOAD_CONST               6 ('rev-parse')
+             42 LOAD_CONST               7 ('--verify')
+             44 LOAD_FAST                0 (request)
+             46 LOAD_ATTR                5 (source_ref)
+             48 BUILD_TUPLE              4
+
+261          50 LOAD_FAST                2 (project_root)
+
+258          52 LOAD_CONST               4 (('cwd',))
+             54 CALL_FUNCTION_KW         3
+             56 LOAD_ATTR                3 (stdout)
+             58 LOAD_METHOD              4 (strip)
+             60 CALL_METHOD              0
+             62 STORE_FAST               4 (remote)
+
+263          64 LOAD_FAST                3 (head)
+             66 LOAD_FAST                0 (request)
+             68 LOAD_ATTR                6 (source_commit)
+             70 COMPARE_OP               3 (!=)
+             72 POP_JUMP_IF_TRUE        84
+             74 LOAD_FAST                4 (remote)
+             76 LOAD_FAST                0 (request)
+             78 LOAD_ATTR                6 (source_commit)
+             80 COMPARE_OP               3 (!=)
+             82 POP_JUMP_IF_FALSE       92
+
+264     >>   84 LOAD_GLOBAL              7 (MacOSAgentPluginReleaseError)
+
+265          86 LOAD_CONST               8 ('release source commit is not the pinned pushed ref')
+
+264          88 CALL_FUNCTION            1
+             90 RAISE_VARARGS            1
+
+267     >>   92 LOAD_GLOBAL              2 (_run_command)
+
+268          94 LOAD_FAST                1 (runner)
+
+269          96 LOAD_CONST               9 (('git', 'status', '--porcelain', '--untracked-files=normal'))
+
+270          98 LOAD_FAST                2 (project_root)
+
+267         100 LOAD_CONST               4 (('cwd',))
+            102 CALL_FUNCTION_KW         3
+            104 LOAD_ATTR                3 (stdout)
+            106 STORE_FAST               5 (status)
+
+272         108 LOAD_FAST                5 (status)
+            110 LOAD_METHOD              4 (strip)
+            112 CALL_METHOD              0
+            114 POP_JUMP_IF_FALSE      124
+
+273         116 LOAD_GLOBAL              7 (MacOSAgentPluginReleaseError)
+            118 LOAD_CONST              10 ('release source checkout is dirty')
+            120 CALL_FUNCTION            1
+            122 RAISE_VARARGS            1
+
+274     >>  124 LOAD_GLOBAL              2 (_run_command)
+            126 LOAD_FAST                1 (runner)
+            128 LOAD_CONST              11 (('git', 'diff', '--check'))
+            130 LOAD_FAST                2 (project_root)
+            132 LOAD_CONST               4 (('cwd',))
+            134 CALL_FUNCTION_KW         3
+            136 POP_TOP
+            138 LOAD_CONST               0 (None)
+            140 RETURN_VALUE
+
+Disassembly of <code object _default_environment_checker at 0x10924ba80, file "WeRobotCore/packaging/macos_release.py", line 277>:
+278           0 LOAD_CONST               1 (0)
+              2 LOAD_CONST               2 (('check_macos_build_environment',))
+              4 IMPORT_NAME              0 (scripts.check_macos_build_environment)
+              6 IMPORT_FROM              1 (check_macos_build_environment)
+              8 STORE_FAST               1 (check_macos_build_environment)
+             10 POP_TOP
+
+282          12 LOAD_FAST                1 (check_macos_build_environment)
+             14 LOAD_FAST                0 (project_root)
+             16 LOAD_CONST               3 (('project_root',))
+             18 CALL_FUNCTION_KW         1
+             20 RETURN_VALUE
+
+Disassembly of <code object _default_frontend_preparer at 0x10924b870, file "WeRobotCore/packaging/macos_release.py", line 285>:
+289           0 LOAD_CONST               1 (0)
+              2 LOAD_CONST               2 (('prepare_macos_product_frontend',))
+              4 IMPORT_NAME              0 (scripts.prepare_macos_product_frontend)
+              6 IMPORT_FROM              1 (prepare_macos_product_frontend)
+              8 STORE_FAST               2 (prepare_macos_product_frontend)
+             10 POP_TOP
+
+293          12 LOAD_FAST                2 (prepare_macos_product_frontend)
+             14 LOAD_FAST                0 (source)
+             16 LOAD_FAST                1 (output)
+             18 CALL_FUNCTION            2
+             20 RETURN_VALUE
+
+Disassembly of <code object _validate_frontend_dependency_lock at 0x10924bf50, file "WeRobotCore/packaging/macos_release.py", line 296>:
+300           0 SETUP_FINALLY           40 (to 42)
+
+301           2 LOAD_GLOBAL              0 (json)
+              4 LOAD_METHOD              1 (loads)
+              6 LOAD_FAST                0 (package_json)
+              8 LOAD_ATTR                2 (read_text)
+             10 LOAD_CONST               1 ('utf-8')
+             12 LOAD_CONST               2 (('encoding',))
+             14 CALL_FUNCTION_KW         1
+             16 CALL_METHOD              1
+             18 STORE_FAST               2 (package)
+
+302          20 LOAD_GLOBAL              0 (json)
+             22 LOAD_METHOD              1 (loads)
+             24 LOAD_FAST                1 (package_lock)
+             26 LOAD_ATTR                2 (read_text)
+             28 LOAD_CONST               1 ('utf-8')
+             30 LOAD_CONST               2 (('encoding',))
+             32 CALL_FUNCTION_KW         1
+             34 CALL_METHOD              1
+             36 STORE_FAST               3 (lock)
+             38 POP_BLOCK
+             40 JUMP_FORWARD            54 (to 96)
+
+303     >>   42 DUP_TOP
+             44 LOAD_GLOBAL              3 (OSError)
+             46 LOAD_GLOBAL              4 (UnicodeError)
+             48 LOAD_GLOBAL              0 (json)
+             50 LOAD_ATTR                5 (JSONDecodeError)
+             52 BUILD_TUPLE              3
+             54 JUMP_IF_NOT_EXC_MATCH    94
+             56 POP_TOP
+             58 STORE_FAST               4 (exc)
+             60 POP_TOP
+             62 SETUP_FINALLY           22 (to 86)
+
+304          64 LOAD_GLOBAL              6 (MacOSAgentPluginReleaseError)
+
+305          66 LOAD_CONST               3 ('pinned frontend dependency contract is invalid')
+
+304          68 CALL_FUNCTION            1
+
+306          70 LOAD_FAST                4 (exc)
+
+304          72 RAISE_VARARGS            2
+             74 POP_BLOCK
+             76 POP_EXCEPT
+             78 LOAD_CONST               0 (None)
+             80 STORE_FAST               4 (exc)
+             82 DELETE_FAST              4 (exc)
+             84 JUMP_FORWARD            10 (to 96)
+        >>   86 LOAD_CONST               0 (None)
+             88 STORE_FAST               4 (exc)
+             90 DELETE_FAST              4 (exc)
+             92 RERAISE
+        >>   94 RERAISE
+
+307     >>   96 LOAD_GLOBAL              7 (isinstance)
+             98 LOAD_FAST                2 (package)
+            100 LOAD_GLOBAL              8 (Mapping)
+            102 CALL_FUNCTION            2
+            104 POP_JUMP_IF_FALSE      116
+            106 LOAD_GLOBAL              7 (isinstance)
+            108 LOAD_FAST                3 (lock)
+            110 LOAD_GLOBAL              8 (Mapping)
+            112 CALL_FUNCTION            2
+            114 POP_JUMP_IF_TRUE       124
+
+308     >>  116 LOAD_GLOBAL              6 (MacOSAgentPluginReleaseError)
+
+309         118 LOAD_CONST               3 ('pinned frontend dependency contract is invalid')
+
+308         120 CALL_FUNCTION            1
+            122 RAISE_VARARGS            1
+
+311     >>  124 LOAD_FAST                3 (lock)
+            126 LOAD_METHOD              9 (get)
+            128 LOAD_CONST               4 ('packages')
+            130 CALL_METHOD              1
+            132 STORE_FAST               5 (packages)
+
+312         134 LOAD_GLOBAL              7 (isinstance)
+            136 LOAD_FAST                5 (packages)
+            138 LOAD_GLOBAL              8 (Mapping)
+            140 CALL_FUNCTION            2
+            142 POP_JUMP_IF_FALSE      154
+            144 LOAD_FAST                5 (packages)
+            146 LOAD_METHOD              9 (get)
+            148 LOAD_CONST               5 ('')
+            150 CALL_METHOD              1
+            152 JUMP_FORWARD             2 (to 156)
+        >>  154 LOAD_CONST               0 (None)
+        >>  156 STORE_FAST               6 (root)
+
+314         158 LOAD_FAST                3 (lock)
+            160 LOAD_METHOD              9 (get)
+            162 LOAD_CONST               6 ('lockfileVersion')
+            164 CALL_METHOD              1
+            166 LOAD_CONST               7 (3)
+            168 COMPARE_OP               3 (!=)
+
+313         170 POP_JUMP_IF_TRUE       222
+
+315         172 LOAD_GLOBAL              7 (isinstance)
+            174 LOAD_FAST                6 (root)
+            176 LOAD_GLOBAL              8 (Mapping)
+            178 CALL_FUNCTION            2
+
+313         180 POP_JUMP_IF_FALSE      222
+
+316         182 LOAD_FAST                6 (root)
+            184 LOAD_METHOD              9 (get)
+            186 LOAD_CONST               8 ('name')
+            188 CALL_METHOD              1
+            190 LOAD_FAST                2 (package)
+            192 LOAD_METHOD              9 (get)
+            194 LOAD_CONST               8 ('name')
+            196 CALL_METHOD              1
+            198 COMPARE_OP               3 (!=)
+
+313         200 POP_JUMP_IF_TRUE       222
+
+317         202 LOAD_FAST                6 (root)
+            204 LOAD_METHOD              9 (get)
+            206 LOAD_CONST               9 ('version')
+            208 CALL_METHOD              1
+            210 LOAD_FAST                2 (package)
+            212 LOAD_METHOD              9 (get)
+            214 LOAD_CONST               9 ('version')
+            216 CALL_METHOD              1
+            218 COMPARE_OP               3 (!=)
+
+313         220 POP_JUMP_IF_FALSE      230
+
+319     >>  222 LOAD_GLOBAL              6 (MacOSAgentPluginReleaseError)
+
+320         224 LOAD_CONST               3 ('pinned frontend dependency contract is invalid')
+
+319         226 CALL_FUNCTION            1
+            228 RAISE_VARARGS            1
+
+322     >>  230 LOAD_CONST              10 (0)
+            232 STORE_FAST               7 (dependency_count)
+
+323         234 LOAD_FAST                5 (packages)
+            236 LOAD_METHOD             10 (items)
+            238 CALL_METHOD              0
+            240 GET_ITER
+        >>  242 FOR_ITER               212 (to 456)
+            244 UNPACK_SEQUENCE          2
+            246 STORE_FAST               8 (dependency_path)
+            248 STORE_FAST               9 (dependency)
+
+324         250 LOAD_FAST                8 (dependency_path)
+            252 LOAD_CONST               5 ('')
+            254 COMPARE_OP               2 (==)
+            256 EXTENDED_ARG             1
+            258 POP_JUMP_IF_FALSE      262
+
+325         260 JUMP_ABSOLUTE          242
+
+327     >>  262 LOAD_GLOBAL              7 (isinstance)
+            264 LOAD_FAST                8 (dependency_path)
+            266 LOAD_GLOBAL             11 (str)
+            268 CALL_FUNCTION            2
+
+326         270 EXTENDED_ARG             1
+            272 POP_JUMP_IF_FALSE      298
+
+328         274 LOAD_FAST                8 (dependency_path)
+            276 LOAD_METHOD             12 (startswith)
+            278 LOAD_CONST              11 ('node_modules/')
+            280 CALL_METHOD              1
+
+326         282 EXTENDED_ARG             1
+            284 POP_JUMP_IF_FALSE      298
+
+329         286 LOAD_GLOBAL              7 (isinstance)
+            288 LOAD_FAST                9 (dependency)
+            290 LOAD_GLOBAL              8 (Mapping)
+            292 CALL_FUNCTION            2
+
+326         294 EXTENDED_ARG             1
+            296 POP_JUMP_IF_TRUE       306
+
+331     >>  298 LOAD_GLOBAL              6 (MacOSAgentPluginReleaseError)
+
+332         300 LOAD_CONST               3 ('pinned frontend dependency contract is invalid')
+
+331         302 CALL_FUNCTION            1
+            304 RAISE_VARARGS            1
+
+334     >>  306 LOAD_FAST                9 (dependency)
+            308 LOAD_METHOD              9 (get)
+            310 LOAD_CONST              12 ('resolved')
+            312 CALL_METHOD              1
+            314 STORE_FAST              10 (resolved)
+
+335         316 LOAD_FAST                9 (dependency)
+            318 LOAD_METHOD              9 (get)
+            320 LOAD_CONST              13 ('integrity')
+            322 CALL_METHOD              1
+            324 STORE_FAST              11 (integrity)
+
+336         326 LOAD_GLOBAL              7 (isinstance)
+            328 LOAD_FAST               10 (resolved)
+            330 LOAD_GLOBAL             11 (str)
+            332 CALL_FUNCTION            2
+            334 EXTENDED_ARG             1
+            336 POP_JUMP_IF_FALSE      346
+            338 LOAD_GLOBAL             13 (urlsplit)
+            340 LOAD_FAST               10 (resolved)
+            342 CALL_FUNCTION            1
+            344 JUMP_FORWARD             2 (to 348)
+        >>  346 LOAD_CONST               0 (None)
+        >>  348 STORE_FAST              12 (parsed)
+
+338         350 LOAD_FAST               12 (parsed)
+            352 LOAD_CONST               0 (None)
+            354 IS_OP                    0
+
+337         356 EXTENDED_ARG             1
+            358 POP_JUMP_IF_TRUE       438
+
+339         360 LOAD_FAST               12 (parsed)
+            362 LOAD_ATTR               14 (scheme)
+            364 LOAD_CONST              14 ('https')
+            366 COMPARE_OP               3 (!=)
+
+337         368 EXTENDED_ARG             1
+            370 POP_JUMP_IF_TRUE       438
+
+340         372 LOAD_FAST               12 (parsed)
+            374 LOAD_ATTR               15 (netloc)
+            376 LOAD_CONST              15 ('registry.npmjs.org')
+            378 COMPARE_OP               3 (!=)
+
+337         380 EXTENDED_ARG             1
+            382 POP_JUMP_IF_TRUE       438
+
+341         384 LOAD_FAST               12 (parsed)
+            386 LOAD_ATTR               16 (path)
+            388 LOAD_METHOD             12 (startswith)
+            390 LOAD_CONST              16 ('/')
+            392 CALL_METHOD              1
+
+337         394 EXTENDED_ARG             1
+            396 POP_JUMP_IF_FALSE      438
+
+342         398 LOAD_FAST               12 (parsed)
+            400 LOAD_ATTR               17 (query)
+
+337         402 EXTENDED_ARG             1
+            404 POP_JUMP_IF_TRUE       438
+
+343         406 LOAD_FAST               12 (parsed)
+            408 LOAD_ATTR               18 (fragment)
+
+337         410 EXTENDED_ARG             1
+            412 POP_JUMP_IF_TRUE       438
+
+344         414 LOAD_GLOBAL              7 (isinstance)
+            416 LOAD_FAST               11 (integrity)
+            418 LOAD_GLOBAL             11 (str)
+            420 CALL_FUNCTION            2
+
+337         422 EXTENDED_ARG             1
+            424 POP_JUMP_IF_FALSE      438
+
+345         426 LOAD_FAST               11 (integrity)
+            428 LOAD_METHOD             12 (startswith)
+            430 LOAD_CONST              17 ('sha512-')
+            432 CALL_METHOD              1
+
+337         434 EXTENDED_ARG             1
+            436 POP_JUMP_IF_TRUE       446
+
+347     >>  438 LOAD_GLOBAL              6 (MacOSAgentPluginReleaseError)
+
+348         440 LOAD_CONST              18 ('pinned frontend dependency source is not allowed')
+
+347         442 CALL_FUNCTION            1
+            444 RAISE_VARARGS            1
+
+350     >>  446 LOAD_FAST                7 (dependency_count)
+            448 LOAD_CONST              19 (1)
+            450 INPLACE_ADD
+            452 STORE_FAST               7 (dependency_count)
+            454 JUMP_ABSOLUTE          242
+
+351     >>  456 LOAD_FAST                7 (dependency_count)
+            458 LOAD_CONST              10 (0)
+            460 COMPARE_OP               2 (==)
+            462 EXTENDED_ARG             1
+            464 POP_JUMP_IF_FALSE      474
+
+352         466 LOAD_GLOBAL              6 (MacOSAgentPluginReleaseError)
+
+353         468 LOAD_CONST              20 ('pinned frontend dependency contract is empty')
+
+352         470 CALL_FUNCTION            1
+            472 RAISE_VARARGS            1
+
+355     >>  474 LOAD_FAST                7 (dependency_count)
+            476 RETURN_VALUE
+
+Disassembly of <code object _default_frontend_builder at 0x109244030, file "WeRobotCore/packaging/macos_release.py", line 358>:
+366           0 LOAD_FAST                2 (work_dir)
+              2 LOAD_METHOD              0 (exists)
+              4 CALL_METHOD              0
+              6 POP_JUMP_IF_TRUE        16
+              8 LOAD_FAST                3 (output_dir)
+             10 LOAD_METHOD              0 (exists)
+             12 CALL_METHOD              0
+             14 POP_JUMP_IF_FALSE       24
+
+367     >>   16 LOAD_GLOBAL              1 (MacOSAgentPluginReleaseError)
+
+368          18 LOAD_CONST               1 ('frontend build paths must not already exist')
+
+367          20 CALL_FUNCTION            1
+             22 RAISE_VARARGS            1
+
+370     >>   24 LOAD_FAST                2 (work_dir)
+             26 LOAD_ATTR                2 (parent)
+             28 LOAD_METHOD              3 (is_dir)
+             30 CALL_METHOD              0
+             32 POP_JUMP_IF_FALSE       44
+             34 LOAD_FAST                3 (output_dir)
+             36 LOAD_ATTR                2 (parent)
+             38 LOAD_METHOD              3 (is_dir)
+             40 CALL_METHOD              0
+             42 POP_JUMP_IF_TRUE        52
+
+371     >>   44 LOAD_GLOBAL              1 (MacOSAgentPluginReleaseError)
+
+372          46 LOAD_CONST               2 ('frontend build path parent is unavailable')
+
+371          48 CALL_FUNCTION            1
+             50 RAISE_VARARGS            1
+
+375     >>   52 LOAD_FAST                2 (work_dir)
+             54 LOAD_ATTR                4 (mkdir)
+             56 LOAD_CONST               3 (448)
+             58 LOAD_CONST               4 (('mode',))
+             60 CALL_FUNCTION_KW         1
+             62 POP_TOP
+
+376          64 LOAD_FAST                2 (work_dir)
+             66 LOAD_CONST               5 ('checkout')
+             68 BINARY_TRUE_DIVIDE
+             70 STORE_FAST               5 (checkout)
+
+377          72 LOAD_FAST                5 (checkout)
+             74 LOAD_ATTR                4 (mkdir)
+             76 LOAD_CONST               3 (448)
+             78 LOAD_CONST               4 (('mode',))
+             80 CALL_FUNCTION_KW         1
+             82 POP_TOP
+
+378          84 LOAD_FAST                2 (work_dir)
+             86 LOAD_CONST               6 ('webot-source.tar')
+             88 BINARY_TRUE_DIVIDE
+             90 STORE_FAST               6 (archive)
+
+379          92 LOAD_GLOBAL              5 (_run_command)
+
+380          94 LOAD_FAST                4 (command_runner)
+
+382          96 LOAD_CONST               7 ('git')
+
+383          98 LOAD_CONST               8 ('archive')
+
+384         100 LOAD_CONST               9 ('--format=tar')
+
+385         102 LOAD_CONST              10 ('--output')
+
+386         104 LOAD_GLOBAL              6 (str)
+            106 LOAD_FAST                6 (archive)
+            108 CALL_FUNCTION            1
+
+387         110 LOAD_FAST                1 (source_commit)
+
+388         112 LOAD_CONST              11 ('webot')
+
+381         114 BUILD_TUPLE              7
+
+390         116 LOAD_FAST                0 (project_root)
+
+379         118 LOAD_CONST              12 (('cwd',))
+            120 CALL_FUNCTION_KW         3
+            122 POP_TOP
+
+392         124 LOAD_FAST                6 (archive)
+            126 LOAD_METHOD              7 (is_file)
+            128 CALL_METHOD              0
+            130 POP_JUMP_IF_FALSE      146
+            132 LOAD_FAST                6 (archive)
+            134 LOAD_METHOD              8 (stat)
+            136 CALL_METHOD              0
+            138 LOAD_ATTR                9 (st_size)
+            140 LOAD_CONST              13 (0)
+            142 COMPARE_OP               1 (<=)
+            144 POP_JUMP_IF_FALSE      154
+
+393     >>  146 LOAD_GLOBAL              1 (MacOSAgentPluginReleaseError)
+
+394         148 LOAD_CONST              14 ('pinned frontend source archive was not created')
+
+393         150 CALL_FUNCTION            1
+            152 RAISE_VARARGS            1
+
+396     >>  154 LOAD_GLOBAL              5 (_run_command)
+
+397         156 LOAD_FAST                4 (command_runner)
+
+398         158 LOAD_CONST              15 ('tar')
+            160 LOAD_CONST              16 ('-xf')
+            162 LOAD_GLOBAL              6 (str)
+            164 LOAD_FAST                6 (archive)
+            166 CALL_FUNCTION            1
+            168 LOAD_CONST              17 ('-C')
+            170 LOAD_GLOBAL              6 (str)
+            172 LOAD_FAST                5 (checkout)
+            174 CALL_FUNCTION            1
+            176 BUILD_TUPLE              5
+
+399         178 LOAD_FAST                0 (project_root)
+
+396         180 LOAD_CONST              12 (('cwd',))
+            182 CALL_FUNCTION_KW         3
+            184 POP_TOP
+
+401         186 LOAD_FAST                5 (checkout)
+            188 LOAD_CONST              11 ('webot')
+            190 BINARY_TRUE_DIVIDE
+            192 STORE_FAST               7 (frontend_root)
+
+402         194 LOAD_FAST                7 (frontend_root)
+            196 LOAD_CONST              18 ('package.json')
+            198 BINARY_TRUE_DIVIDE
+            200 STORE_FAST               8 (package_json)
+
+403         202 LOAD_FAST                7 (frontend_root)
+            204 LOAD_CONST              19 ('package-lock.json')
+            206 BINARY_TRUE_DIVIDE
+            208 STORE_FAST               9 (package_lock)
+
+404         210 LOAD_GLOBAL             10 (any)
+            212 LOAD_CONST              20 (<code object <genexpr> at 0x10924b710, file "WeRobotCore/packaging/macos_release.py", line 404>)
+            214 LOAD_CONST              21 ('_default_frontend_builder.<locals>.<genexpr>')
+            216 MAKE_FUNCTION            0
+
+406         218 LOAD_FAST                8 (package_json)
+            220 LOAD_FAST                9 (package_lock)
+            222 BUILD_TUPLE              2
+
+404         224 GET_ITER
+            226 CALL_FUNCTION            1
+            228 CALL_FUNCTION            1
+            230 POP_JUMP_IF_FALSE      240
+
+408         232 LOAD_GLOBAL              1 (MacOSAgentPluginReleaseError)
+
+409         234 LOAD_CONST              22 ('pinned frontend dependency contract is unavailable')
+
+408         236 CALL_FUNCTION            1
+            238 RAISE_VARARGS            1
+
+411     >>  240 LOAD_GLOBAL             11 (_validate_frontend_dependency_lock)
+
+412         242 LOAD_FAST                8 (package_json)
+
+413         244 LOAD_FAST                9 (package_lock)
+
+411         246 CALL_FUNCTION            2
+            248 STORE_FAST              10 (dependency_count)
+
+416         250 LOAD_GLOBAL              5 (_run_command)
+
+417         252 LOAD_FAST                4 (command_runner)
+
+418         254 LOAD_CONST              23 (('node', '--version'))
+
+419         256 LOAD_FAST                7 (frontend_root)
+
+416         258 LOAD_CONST              12 (('cwd',))
+            260 CALL_FUNCTION_KW         3
+            262 LOAD_ATTR               12 (stdout)
+            264 LOAD_METHOD             13 (strip)
+            266 CALL_METHOD              0
+            268 STORE_FAST              11 (node_version)
+
+421         270 LOAD_GLOBAL              5 (_run_command)
+
+422         272 LOAD_FAST                4 (command_runner)
+
+423         274 LOAD_CONST              24 (('npm', '--version'))
+
+424         276 LOAD_FAST                7 (frontend_root)
+
+421         278 LOAD_CONST              12 (('cwd',))
+            280 CALL_FUNCTION_KW         3
+            282 LOAD_ATTR               12 (stdout)
+            284 LOAD_METHOD             13 (strip)
+            286 CALL_METHOD              0
+            288 STORE_FAST              12 (npm_version)
+
+427         290 LOAD_FAST               11 (node_version)
+            292 LOAD_GLOBAL             14 (MACOS_FRONTEND_NODE_VERSION)
+            294 COMPARE_OP               3 (!=)
+
+426         296 EXTENDED_ARG             1
+            298 POP_JUMP_IF_TRUE       310
+
+428         300 LOAD_FAST               12 (npm_version)
+            302 LOAD_GLOBAL             15 (MACOS_FRONTEND_NPM_VERSION)
+            304 COMPARE_OP               3 (!=)
+
+426         306 EXTENDED_ARG             1
+            308 POP_JUMP_IF_FALSE      318
+
+430     >>  310 LOAD_GLOBAL              1 (MacOSAgentPluginReleaseError)
+
+431         312 LOAD_CONST              25 ('formal frontend Node/npm toolchain is invalid')
+
+430         314 CALL_FUNCTION            1
+            316 RAISE_VARARGS            1
+
+434     >>  318 LOAD_GLOBAL              5 (_run_command)
+
+435         320 LOAD_FAST                4 (command_runner)
+
+436         322 LOAD_CONST              26 (('npm', 'ci', '--ignore-scripts', '--no-audit', '--no-fund'))
+
+443         324 LOAD_FAST                7 (frontend_root)
+
+444         326 LOAD_CONST              27 (1800)
+
+434         328 LOAD_CONST              28 (('cwd', 'timeout'))
+            330 CALL_FUNCTION_KW         4
+            332 POP_TOP
+
+446         334 LOAD_GLOBAL             16 (MACOS_FRONTEND_TEST_SCRIPTS)
+            336 GET_ITER
+        >>  338 FOR_ITER                28 (to 368)
+            340 STORE_FAST              13 (test_script)
+
+447         342 LOAD_GLOBAL              5 (_run_command)
+
+448         344 LOAD_FAST                4 (command_runner)
+
+449         346 LOAD_CONST              29 ('npm')
+            348 LOAD_CONST              30 ('run')
+            350 LOAD_FAST               13 (test_script)
+            352 BUILD_TUPLE              3
+
+450         354 LOAD_FAST                7 (frontend_root)
+
+451         356 LOAD_CONST              27 (1800)
+
+447         358 LOAD_CONST              28 (('cwd', 'timeout'))
+            360 CALL_FUNCTION_KW         4
+            362 POP_TOP
+            364 EXTENDED_ARG             1
+            366 JUMP_ABSOLUTE          338
+
+453     >>  368 LOAD_GLOBAL              5 (_run_command)
+
+454         370 LOAD_FAST                4 (command_runner)
+
+456         372 LOAD_CONST              29 ('npm')
+
+457         374 LOAD_CONST              30 ('run')
+
+458         376 LOAD_CONST              31 ('build')
+
+459         378 LOAD_CONST              32 ('--')
+
+460         380 LOAD_CONST              33 ('--dest')
+
+461         382 LOAD_GLOBAL              6 (str)
+            384 LOAD_FAST                3 (output_dir)
+            386 CALL_FUNCTION            1
+
+455         388 BUILD_TUPLE              6
+
+463         390 LOAD_FAST                7 (frontend_root)
+
+464         392 LOAD_CONST              27 (1800)
+
+453         394 LOAD_CONST              28 (('cwd', 'timeout'))
+            396 CALL_FUNCTION_KW         4
+            398 POP_TOP
+
+466         400 LOAD_FAST                3 (output_dir)
+            402 LOAD_METHOD              3 (is_dir)
+            404 CALL_METHOD              0
+            406 EXTENDED_ARG             1
+            408 POP_JUMP_IF_TRUE       418
+
+467         410 LOAD_GLOBAL              1 (MacOSAgentPluginReleaseError)
+
+468         412 LOAD_CONST              34 ('formal frontend build produced no output')
+
+467         414 CALL_FUNCTION            1
+            416 RAISE_VARARGS            1
+
+471     >>  418 LOAD_CONST              35 (1)
+
+472         420 LOAD_FAST                1 (source_commit)
+
+473         422 LOAD_FAST               11 (node_version)
+
+474         424 LOAD_FAST               12 (npm_version)
+
+475         426 LOAD_GLOBAL             17 (_sha256)
+            428 LOAD_FAST                8 (package_json)
+            430 CALL_FUNCTION            1
+
+476         432 LOAD_GLOBAL             17 (_sha256)
+            434 LOAD_FAST                9 (package_lock)
+            436 CALL_FUNCTION            1
+
+477         438 LOAD_FAST               10 (dependency_count)
+
+478         440 LOAD_CONST              36 ('npm-ci-ignore-scripts')
+
+479         442 LOAD_GLOBAL             18 (list)
+            444 LOAD_GLOBAL             16 (MACOS_FRONTEND_TEST_SCRIPTS)
+            446 CALL_FUNCTION            1
+
+470         448 LOAD_CONST              37 (('schemaVersion', 'sourceCommit', 'nodeVersion', 'npmVersion', 'packageJsonSha256', 'packageLockSha256', 'dependencyCount', 'installMode', 'testScripts'))
+            450 BUILD_CONST_KEY_MAP      9
+            452 RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x10924b710, file "WeRobotCore/packaging/macos_release.py", line 404>:
+404           0 LOAD_FAST                0 (.0)
+        >>    2 FOR_ITER                24 (to 28)
+
+406           4 STORE_FAST               1 (path)
+
+405           6 LOAD_FAST                1 (path)
+              8 LOAD_METHOD              0 (is_file)
+             10 CALL_METHOD              0
+             12 UNARY_NOT
+             14 JUMP_IF_TRUE_OR_POP     22
+             16 LOAD_FAST                1 (path)
+             18 LOAD_METHOD              1 (is_symlink)
+             20 CALL_METHOD              0
+        >>   22 YIELD_VALUE
+             24 POP_TOP
+             26 JUMP_ABSOLUTE            2
+        >>   28 LOAD_CONST               0 (None)
+             30 RETURN_VALUE
+
+Disassembly of <code object _default_test_gate at 0x109244df0, file "WeRobotCore/packaging/macos_release.py", line 483>:
+488           0 LOAD_GLOBAL              0 (MACOS_RELEASE_TEST_PATTERNS)
+              2 GET_ITER
+        >>    4 FOR_ITER                38 (to 44)
+              6 STORE_FAST               2 (pattern)
+
+489           8 LOAD_GLOBAL              1 (_run_command)
+
+490          10 LOAD_FAST                1 (command_runner)
+
+492          12 LOAD_GLOBAL              2 (sys)
+             14 LOAD_ATTR                3 (executable)
+
+493          16 LOAD_CONST               1 ('-m')
+
+494          18 LOAD_CONST               2 ('unittest')
+
+495          20 LOAD_CONST               3 ('discover')
+
+496          22 LOAD_CONST               4 ('-s')
+
+497          24 LOAD_CONST               5 ('tests')
+
+498          26 LOAD_CONST               6 ('-p')
+
+499          28 LOAD_FAST                2 (pattern)
+
+491          30 BUILD_TUPLE              8
+
+501          32 LOAD_FAST                0 (project_root)
+
+502          34 LOAD_CONST               7 (3600)
+
+489          36 LOAD_CONST               8 (('cwd', 'timeout'))
+             38 CALL_FUNCTION_KW         4
+             40 POP_TOP
+             42 JUMP_ABSOLUTE            4
+
+505     >>   44 LOAD_CONST               9 ('passed')
+
+506          46 LOAD_GLOBAL              4 (list)
+             48 LOAD_GLOBAL              0 (MACOS_RELEASE_TEST_PATTERNS)
+             50 CALL_FUNCTION            1
+
+504          52 LOAD_CONST              10 (('status', 'patterns'))
+             54 BUILD_CONST_KEY_MAP      2
+             56 RETURN_VALUE
+
+Disassembly of <code object _default_control_builder at 0x109244450, file "WeRobotCore/packaging/macos_release.py", line 510>:
+518           0 LOAD_GLOBAL              0 (_run_command)
+
+519           2 LOAD_FAST                4 (command_runner)
+
+521           4 LOAD_GLOBAL              1 (sys)
+              6 LOAD_ATTR                2 (executable)
+
+522           8 LOAD_GLOBAL              3 (str)
+             10 LOAD_FAST                0 (request)
+             12 LOAD_ATTR                4 (project_root)
+             14 LOAD_CONST               1 ('build_macos_control.py')
+             16 BINARY_TRUE_DIVIDE
+             18 CALL_FUNCTION            1
+
+523          20 LOAD_CONST               2 ('--app-version')
+
+524          22 LOAD_FAST                0 (request)
+             24 LOAD_ATTR                5 (app_version)
+
+525          26 LOAD_CONST               3 ('--build-version')
+
+526          28 LOAD_FAST                0 (request)
+             30 LOAD_ATTR                6 (build_version)
+
+527          32 LOAD_CONST               4 ('--architecture')
+
+528          34 LOAD_FAST                0 (request)
+             36 LOAD_ATTR                7 (architecture)
+
+529          38 LOAD_CONST               5 ('--signing-mode')
+
+530          40 LOAD_CONST               6 ('developer-id')
+
+531          42 LOAD_CONST               7 ('--signing-identity')
+
+532          44 LOAD_FAST                0 (request)
+             46 LOAD_ATTR                8 (signing_identity)
+
+533          48 LOAD_CONST               8 ('--frontend-dir')
+
+534          50 LOAD_GLOBAL              3 (str)
+             52 LOAD_FAST                1 (frontend_dir)
+             54 CALL_FUNCTION            1
+
+535          56 LOAD_CONST               9 ('--dist-dir')
+
+536          58 LOAD_GLOBAL              3 (str)
+             60 LOAD_FAST                2 (dist_dir)
+             62 CALL_FUNCTION            1
+
+537          64 LOAD_CONST              10 ('--work-dir')
+
+538          66 LOAD_GLOBAL              3 (str)
+             68 LOAD_FAST                3 (work_dir)
+             70 CALL_FUNCTION            1
+
+520          72 BUILD_TUPLE             18
+
+540          74 LOAD_FAST                0 (request)
+             76 LOAD_ATTR                4 (project_root)
+
+541          78 LOAD_CONST              11 (1800)
+
+518          80 LOAD_CONST              12 (('cwd', 'timeout'))
+             82 CALL_FUNCTION_KW         4
+             84 POP_TOP
+             86 LOAD_CONST               0 (None)
+             88 RETURN_VALUE
+
+Disassembly of <code object _macho_files at 0x1090bdf50, file "WeRobotCore/packaging/macos_release.py", line 545>:
+546           0 BUILD_LIST               0
+              2 STORE_FAST               1 (result)
+
+547           4 LOAD_GLOBAL              0 (sorted)
+              6 LOAD_FAST                0 (bundle)
+              8 LOAD_METHOD              1 (rglob)
+             10 LOAD_CONST               1 ('*')
+             12 CALL_METHOD              1
+             14 LOAD_CONST               2 (<code object <lambda> at 0x1090bda80, file "WeRobotCore/packaging/macos_release.py", line 547>)
+             16 LOAD_CONST               3 ('_macho_files.<locals>.<lambda>')
+             18 MAKE_FUNCTION            0
+             20 LOAD_CONST               4 (('key',))
+             22 CALL_FUNCTION_KW         2
+             24 GET_ITER
+        >>   26 FOR_ITER               144 (to 172)
+             28 STORE_FAST               2 (path)
+
+548          30 LOAD_FAST                2 (path)
+             32 LOAD_METHOD              2 (is_symlink)
+             34 CALL_METHOD              0
+             36 POP_JUMP_IF_TRUE        26
+             38 LOAD_FAST                2 (path)
+             40 LOAD_METHOD              3 (is_file)
+             42 CALL_METHOD              0
+             44 POP_JUMP_IF_TRUE        48
+
+549          46 JUMP_ABSOLUTE           26
+
+550     >>   48 SETUP_FINALLY           56 (to 106)
+
+551          50 LOAD_FAST                2 (path)
+             52 LOAD_METHOD              4 (open)
+             54 LOAD_CONST               5 ('rb')
+             56 CALL_METHOD              1
+             58 SETUP_WITH              26 (to 86)
+             60 STORE_FAST               3 (stream)
+
+552          62 LOAD_FAST                3 (stream)
+             64 LOAD_METHOD              5 (read)
+             66 LOAD_CONST               6 (4)
+             68 CALL_METHOD              1
+             70 STORE_FAST               4 (magic)
+             72 POP_BLOCK
+             74 LOAD_CONST               0 (None)
+             76 DUP_TOP
+             78 DUP_TOP
+             80 CALL_FUNCTION            3
+             82 POP_TOP
+             84 JUMP_FORWARD            16 (to 102)
+        >>   86 WITH_EXCEPT_START
+             88 POP_JUMP_IF_TRUE        92
+             90 RERAISE
+        >>   92 POP_TOP
+             94 POP_TOP
+             96 POP_TOP
+             98 POP_EXCEPT
+            100 POP_TOP
+        >>  102 POP_BLOCK
+            104 JUMP_FORWARD            46 (to 152)
+
+553     >>  106 DUP_TOP
+            108 LOAD_GLOBAL              6 (OSError)
+            110 JUMP_IF_NOT_EXC_MATCH   150
+            112 POP_TOP
+            114 STORE_FAST               5 (exc)
+            116 POP_TOP
+            118 SETUP_FINALLY           22 (to 142)
+
+554         120 LOAD_GLOBAL              7 (MacOSAgentPluginReleaseError)
+
+555         122 LOAD_CONST               7 ('release code inventory is unreadable')
+
+554         124 CALL_FUNCTION            1
+
+556         126 LOAD_FAST                5 (exc)
+
+554         128 RAISE_VARARGS            2
+            130 POP_BLOCK
+            132 POP_EXCEPT
+            134 LOAD_CONST               0 (None)
+            136 STORE_FAST               5 (exc)
+            138 DELETE_FAST              5 (exc)
+            140 JUMP_FORWARD            10 (to 152)
+        >>  142 LOAD_CONST               0 (None)
+            144 STORE_FAST               5 (exc)
+            146 DELETE_FAST              5 (exc)
+            148 RERAISE
+        >>  150 RERAISE
+
+557     >>  152 LOAD_FAST                4 (magic)
+            154 LOAD_GLOBAL              8 (_MACHO_MAGICS)
+            156 CONTAINS_OP              0
+            158 POP_JUMP_IF_FALSE       26
+
+558         160 LOAD_FAST                1 (result)
+            162 LOAD_METHOD              9 (append)
+            164 LOAD_FAST                2 (path)
+            166 CALL_METHOD              1
+            168 POP_TOP
+            170 JUMP_ABSOLUTE           26
+
+559     >>  172 LOAD_FAST                1 (result)
+            174 POP_JUMP_IF_TRUE       184
+
+560         176 LOAD_GLOBAL              7 (MacOSAgentPluginReleaseError)
+            178 LOAD_CONST               8 ('release contains no Mach-O code')
+            180 CALL_FUNCTION            1
+            182 RAISE_VARARGS            1
+
+561     >>  184 LOAD_GLOBAL             10 (tuple)
+            186 LOAD_FAST                1 (result)
+            188 CALL_FUNCTION            1
+            190 RETURN_VALUE
+
+Disassembly of <code object <lambda> at 0x1090bda80, file "WeRobotCore/packaging/macos_release.py", line 547>:
+547           0 LOAD_FAST                0 (item)
+              2 LOAD_METHOD              0 (as_posix)
+              4 CALL_METHOD              0
+              6 RETURN_VALUE
+
+Disassembly of <code object _verify_signature_output at 0x1090bd5b0, file "WeRobotCore/packaging/macos_release.py", line 564>:
+565           0 LOAD_CONST               1 ('{}\n{}')
+              2 LOAD_METHOD              0 (format)
+              4 LOAD_FAST                0 (completed)
+              6 LOAD_ATTR                1 (stdout)
+              8 LOAD_FAST                0 (completed)
+             10 LOAD_ATTR                2 (stderr)
+             12 CALL_METHOD              2
+             14 STORE_FAST               1 (text)
+
+567          16 LOAD_CONST               2 ('TeamIdentifier={}')
+             18 LOAD_METHOD              0 (format)
+             20 LOAD_GLOBAL              3 (MACOS_PRODUCT_TEAM_IDENTIFIER)
+             22 CALL_METHOD              1
+             24 LOAD_FAST                1 (text)
+             26 CONTAINS_OP              1
+
+566          28 POP_JUMP_IF_TRUE        54
+
+568          30 LOAD_CONST               3 ('Authority=Developer ID Application:')
+             32 LOAD_FAST                1 (text)
+             34 CONTAINS_OP              1
+
+566          36 POP_JUMP_IF_TRUE        54
+
+569          38 LOAD_CONST               4 ('flags=0x10000(runtime)')
+             40 LOAD_FAST                1 (text)
+             42 CONTAINS_OP              1
+
+566          44 POP_JUMP_IF_TRUE        54
+
+570          46 LOAD_CONST               5 ('Timestamp=')
+             48 LOAD_FAST                1 (text)
+             50 CONTAINS_OP              1
+
+566          52 POP_JUMP_IF_FALSE       62
+
+572     >>   54 LOAD_GLOBAL              4 (MacOSAgentPluginReleaseError)
+             56 LOAD_CONST               6 ('release code signature is invalid')
+             58 CALL_FUNCTION            1
+             60 RAISE_VARARGS            1
+        >>   62 LOAD_CONST               0 (None)
+             64 RETURN_VALUE
+
+Disassembly of <code object _verify_signed_bundle at 0x1090bdd40, file "WeRobotCore/packaging/macos_release.py", line 575>:
+581           0 LOAD_GLOBAL              0 (_run_command)
+
+582           2 LOAD_FAST                2 (runner)
+
+583           4 LOAD_CONST               1 ('codesign')
+              6 LOAD_CONST               2 ('--verify')
+              8 LOAD_CONST               3 ('--deep')
+             10 LOAD_CONST               4 ('--strict')
+             12 LOAD_GLOBAL              1 (str)
+             14 LOAD_FAST                0 (bundle)
+             16 CALL_FUNCTION            1
+             18 BUILD_TUPLE              5
+
+584          20 LOAD_FAST                1 (project_root)
+
+581          22 LOAD_CONST               5 (('cwd',))
+             24 CALL_FUNCTION_KW         3
+             26 POP_TOP
+
+586          28 LOAD_GLOBAL              2 (_verify_signature_output)
+
+587          30 LOAD_GLOBAL              0 (_run_command)
+
+588          32 LOAD_FAST                2 (runner)
+
+589          34 LOAD_CONST               1 ('codesign')
+             36 LOAD_CONST               6 ('--display')
+             38 LOAD_CONST               7 ('--verbose=4')
+             40 LOAD_GLOBAL              1 (str)
+             42 LOAD_FAST                0 (bundle)
+             44 CALL_FUNCTION            1
+             46 BUILD_TUPLE              4
+
+590          48 LOAD_FAST                1 (project_root)
+
+587          50 LOAD_CONST               5 (('cwd',))
+             52 CALL_FUNCTION_KW         3
+
+586          54 CALL_FUNCTION            1
+             56 POP_TOP
+
+593          58 LOAD_FAST                0 (bundle)
+             60 LOAD_GLOBAL              3 (MACOS_PRODUCT_HELPER_RELATIVE_PATH)
+             62 BINARY_TRUE_DIVIDE
+             64 STORE_FAST               3 (helper)
+
+594          66 LOAD_GLOBAL              2 (_verify_signature_output)
+
+595          68 LOAD_GLOBAL              0 (_run_command)
+
+596          70 LOAD_FAST                2 (runner)
+
+597          72 LOAD_CONST               1 ('codesign')
+             74 LOAD_CONST               6 ('--display')
+             76 LOAD_CONST               7 ('--verbose=4')
+             78 LOAD_GLOBAL              1 (str)
+             80 LOAD_FAST                3 (helper)
+             82 CALL_FUNCTION            1
+             84 BUILD_TUPLE              4
+
+598          86 LOAD_FAST                1 (project_root)
+
+595          88 LOAD_CONST               5 (('cwd',))
+             90 CALL_FUNCTION_KW         3
+
+594          92 CALL_FUNCTION            1
+             94 POP_TOP
+
+601          96 LOAD_GLOBAL              4 (_macho_files)
+             98 LOAD_FAST                0 (bundle)
+            100 CALL_FUNCTION            1
+            102 STORE_FAST               4 (macho_files)
+
+602         104 LOAD_FAST                4 (macho_files)
+            106 GET_ITER
+        >>  108 FOR_ITER                80 (to 190)
+            110 STORE_FAST               5 (code_path)
+
+603         112 LOAD_GLOBAL              0 (_run_command)
+
+604         114 LOAD_FAST                2 (runner)
+
+605         116 LOAD_CONST               8 ('lipo')
+            118 LOAD_CONST               9 ('-archs')
+            120 LOAD_GLOBAL              1 (str)
+            122 LOAD_FAST                5 (code_path)
+            124 CALL_FUNCTION            1
+            126 BUILD_TUPLE              3
+
+606         128 LOAD_FAST                1 (project_root)
+
+603         130 LOAD_CONST               5 (('cwd',))
+            132 CALL_FUNCTION_KW         3
+            134 LOAD_ATTR                5 (stdout)
+            136 LOAD_METHOD              6 (strip)
+            138 CALL_METHOD              0
+            140 STORE_FAST               6 (architecture)
+
+608         142 LOAD_FAST                6 (architecture)
+            144 LOAD_GLOBAL              7 (MACOS_AGENT_PLUGIN_ARCHITECTURE)
+            146 COMPARE_OP               3 (!=)
+            148 POP_JUMP_IF_FALSE      158
+
+609         150 LOAD_GLOBAL              8 (MacOSAgentPluginReleaseError)
+
+610         152 LOAD_CONST              10 ('release contains code outside the arm64 policy')
+
+609         154 CALL_FUNCTION            1
+            156 RAISE_VARARGS            1
+
+612     >>  158 LOAD_GLOBAL              2 (_verify_signature_output)
+
+613         160 LOAD_GLOBAL              0 (_run_command)
+
+614         162 LOAD_FAST                2 (runner)
+
+615         164 LOAD_CONST               1 ('codesign')
+            166 LOAD_CONST               6 ('--display')
+            168 LOAD_CONST               7 ('--verbose=4')
+            170 LOAD_GLOBAL              1 (str)
+            172 LOAD_FAST                5 (code_path)
+            174 CALL_FUNCTION            1
+            176 BUILD_TUPLE              4
+
+616         178 LOAD_FAST                1 (project_root)
+
+613         180 LOAD_CONST               5 (('cwd',))
+            182 CALL_FUNCTION_KW         3
+
+612         184 CALL_FUNCTION            1
+            186 POP_TOP
+            188 JUMP_ABSOLUTE          108
+
+619     >>  190 LOAD_GLOBAL              9 (len)
+            192 LOAD_FAST                4 (macho_files)
+            194 CALL_FUNCTION            1
+            196 RETURN_VALUE
+
+Disassembly of <code object _parse_notary_result at 0x1090bdc90, file "WeRobotCore/packaging/macos_release.py", line 622>:
+623           0 SETUP_FINALLY           14 (to 16)
+
+624           2 LOAD_GLOBAL              0 (json)
+              4 LOAD_METHOD              1 (loads)
+              6 LOAD_FAST                0 (value)
+              8 CALL_METHOD              1
+             10 STORE_FAST               1 (payload)
+             12 POP_BLOCK
+             14 JUMP_FORWARD            52 (to 68)
+
+625     >>   16 DUP_TOP
+             18 LOAD_GLOBAL              2 (TypeError)
+             20 LOAD_GLOBAL              0 (json)
+             22 LOAD_ATTR                3 (JSONDecodeError)
+             24 BUILD_TUPLE              2
+             26 JUMP_IF_NOT_EXC_MATCH    66
+             28 POP_TOP
+             30 STORE_FAST               2 (exc)
+             32 POP_TOP
+             34 SETUP_FINALLY           22 (to 58)
+
+626          36 LOAD_GLOBAL              4 (MacOSAgentPluginReleaseError)
+
+627          38 LOAD_CONST               1 ('Apple notarization returned an invalid response')
+
+626          40 CALL_FUNCTION            1
+
+628          42 LOAD_FAST                2 (exc)
+
+626          44 RAISE_VARARGS            2
+             46 POP_BLOCK
+             48 POP_EXCEPT
+             50 LOAD_CONST               0 (None)
+             52 STORE_FAST               2 (exc)
+             54 DELETE_FAST              2 (exc)
+             56 JUMP_FORWARD            10 (to 68)
+        >>   58 LOAD_CONST               0 (None)
+             60 STORE_FAST               2 (exc)
+             62 DELETE_FAST              2 (exc)
+             64 RERAISE
+        >>   66 RERAISE
+
+629     >>   68 LOAD_GLOBAL              5 (isinstance)
+             70 LOAD_FAST                1 (payload)
+             72 LOAD_GLOBAL              6 (Mapping)
+             74 CALL_FUNCTION            2
+             76 POP_JUMP_IF_FALSE       92
+             78 LOAD_FAST                1 (payload)
+             80 LOAD_METHOD              7 (get)
+             82 LOAD_CONST               2 ('status')
+             84 CALL_METHOD              1
+             86 LOAD_CONST               3 ('Accepted')
+             88 COMPARE_OP               3 (!=)
+             90 POP_JUMP_IF_FALSE      100
+
+630     >>   92 LOAD_GLOBAL              4 (MacOSAgentPluginReleaseError)
+
+631          94 LOAD_CONST               4 ('Apple notarization did not return Accepted')
+
+630          96 CALL_FUNCTION            1
+             98 RAISE_VARARGS            1
+
+633     >>  100 LOAD_FAST                1 (payload)
+            102 LOAD_METHOD              7 (get)
+            104 LOAD_CONST               5 ('id')
+            106 CALL_METHOD              1
+            108 STORE_FAST               3 (submission_id)
+
+635         110 LOAD_GLOBAL              5 (isinstance)
+            112 LOAD_FAST                3 (submission_id)
+            114 LOAD_GLOBAL              8 (str)
+            116 CALL_FUNCTION            2
+
+634         118 POP_JUMP_IF_FALSE      136
+
+636         120 LOAD_GLOBAL              9 (re)
+            122 LOAD_METHOD             10 (fullmatch)
+            124 LOAD_CONST               6 ('[0-9A-Fa-f-]{36}')
+            126 LOAD_FAST                3 (submission_id)
+            128 CALL_METHOD              2
+            130 LOAD_CONST               0 (None)
+            132 IS_OP                    0
+
+634         134 POP_JUMP_IF_FALSE      144
+
+638     >>  136 LOAD_GLOBAL              4 (MacOSAgentPluginReleaseError)
+
+639         138 LOAD_CONST               7 ('Apple notarization response has no valid submission id')
+
+638         140 CALL_FUNCTION            1
+            142 RAISE_VARARGS            1
+
+641     >>  144 LOAD_FAST                3 (submission_id)
+            146 LOAD_CONST               3 ('Accepted')
+            148 LOAD_CONST               8 (('id', 'status'))
+            150 BUILD_CONST_KEY_MAP      2
+            152 RETURN_VALUE
+
+Disassembly of <code object _require_product_contract at 0x1090bd9d0, file "WeRobotCore/packaging/macos_release.py", line 644>:
+649           0 LOAD_GLOBAL              0 (MACOS_PRODUCT_CONTROL_BUNDLE_IDENTIFIER)
+
+650           2 LOAD_GLOBAL              1 (MACOS_PRODUCT_TEAM_IDENTIFIER)
+
+651           4 LOAD_FAST                1 (request)
+              6 LOAD_ATTR                2 (build_version)
+
+652           8 LOAD_FAST                1 (request)
+             10 LOAD_ATTR                2 (build_version)
+
+653          12 LOAD_FAST                1 (request)
+             14 LOAD_ATTR                3 (app_version)
+
+654          16 LOAD_FAST                1 (request)
+             18 LOAD_ATTR                4 (architecture)
+
+655          20 LOAD_GLOBAL              5 (MACOS_AGENT_PLUGIN_BUILD_CHANNEL)
+
+656          22 LOAD_GLOBAL              6 (MACOS_AGENT_PLUGIN_CAPABILITY_WAVE)
+
+648          24 LOAD_CONST               1 (('controlBundleIdentifier', 'teamIdentifier', 'controlBundleVersion', 'helperBundleVersion', 'appVersion', 'architecture', 'buildChannel', 'capabilityWave'))
+             26 BUILD_CONST_KEY_MAP      8
+             28 STORE_FAST               2 (expected)
+
+658          30 LOAD_GLOBAL              7 (any)
+             32 LOAD_CLOSURE             0 (report)
+             34 BUILD_TUPLE              1
+             36 LOAD_CONST               2 (<code object <genexpr> at 0x1090bdea0, file "WeRobotCore/packaging/macos_release.py", line 658>)
+             38 LOAD_CONST               3 ('_require_product_contract.<locals>.<genexpr>')
+             40 MAKE_FUNCTION            8 (closure)
+             42 LOAD_FAST                2 (expected)
+             44 LOAD_METHOD              8 (items)
+             46 CALL_METHOD              0
+             48 GET_ITER
+             50 CALL_FUNCTION            1
+             52 CALL_FUNCTION            1
+             54 POP_JUMP_IF_FALSE       64
+
+659          56 LOAD_GLOBAL              9 (MacOSAgentPluginReleaseError)
+
+660          58 LOAD_CONST               4 ('assembled product does not match the pinned release contract')
+
+659          60 CALL_FUNCTION            1
+             62 RAISE_VARARGS            1
+        >>   64 LOAD_CONST               0 (None)
+             66 RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x1090bdea0, file "WeRobotCore/packaging/macos_release.py", line 658>:
+658           0 LOAD_FAST                0 (.0)
+        >>    2 FOR_ITER                24 (to 28)
+              4 UNPACK_SEQUENCE          2
+              6 STORE_FAST               1 (key)
+              8 STORE_FAST               2 (value)
+             10 LOAD_DEREF               0 (report)
+             12 LOAD_METHOD              0 (get)
+             14 LOAD_FAST                1 (key)
+             16 CALL_METHOD              1
+             18 LOAD_FAST                2 (value)
+             20 COMPARE_OP               3 (!=)
+             22 YIELD_VALUE
+             24 POP_TOP
+             26 JUMP_ABSOLUTE            2
+        >>   28 LOAD_CONST               0 (None)
+             30 RETURN_VALUE
+
+Disassembly of <code object build_macos_agent_plugin_release at 0x1090bd920, file "WeRobotCore/packaging/macos_release.py", line 664>:
+ 679           0 LOAD_GLOBAL              0 (isinstance)
+               2 LOAD_DEREF               1 (request)
+               4 LOAD_GLOBAL              1 (MacOSAgentPluginReleaseRequest)
+               6 CALL_FUNCTION            2
+               8 POP_JUMP_IF_TRUE        18
+
+ 680          10 LOAD_GLOBAL              2 (TypeError)
+              12 LOAD_CONST               1 ('request must be a MacOSAgentPluginReleaseRequest')
+              14 CALL_FUNCTION            1
+              16 RAISE_VARARGS            1
+
+ 681     >>   18 LOAD_FAST                8 (platform_name)
+              20 JUMP_IF_TRUE_OR_POP     26
+              22 LOAD_GLOBAL              3 (sys)
+              24 LOAD_ATTR                4 (platform)
+         >>   26 STORE_FAST              10 (current_platform)
+
+ 682          28 LOAD_FAST                9 (machine)
+              30 JUMP_IF_TRUE_OR_POP     38
+              32 LOAD_GLOBAL              4 (platform)
+              34 LOAD_METHOD              5 (machine)
+              36 CALL_METHOD              0
+         >>   38 LOAD_METHOD              6 (lower)
+              40 CALL_METHOD              0
+              42 STORE_FAST              11 (current_machine)
+
+ 683          44 LOAD_FAST               11 (current_machine)
+              46 LOAD_CONST               2 ('aarch64')
+              48 COMPARE_OP               2 (==)
+              50 POP_JUMP_IF_FALSE       56
+
+ 684          52 LOAD_CONST               3 ('arm64')
+              54 STORE_FAST              11 (current_machine)
+
+ 686     >>   56 LOAD_FAST               10 (current_platform)
+              58 LOAD_CONST               4 ('darwin')
+              60 COMPARE_OP               3 (!=)
+
+ 685          62 POP_JUMP_IF_TRUE        72
+
+ 687          64 LOAD_FAST               11 (current_machine)
+              66 LOAD_GLOBAL              7 (MACOS_AGENT_PLUGIN_ARCHITECTURE)
+              68 COMPARE_OP               3 (!=)
+
+ 685          70 POP_JUMP_IF_FALSE       80
+
+ 689     >>   72 LOAD_GLOBAL              8 (MacOSAgentPluginReleaseError)
+
+ 690          74 LOAD_CONST               5 ('Agent plugin release requires native arm64 macOS')
+
+ 689          76 CALL_FUNCTION            1
+              78 RAISE_VARARGS            1
+
+ 693     >>   80 LOAD_DEREF               1 (request)
+              82 LOAD_ATTR                9 (project_root)
+              84 LOAD_ATTR               10 (resolve)
+              86 LOAD_CONST               6 (True)
+              88 LOAD_CONST               7 (('strict',))
+              90 CALL_FUNCTION_KW         1
+              92 STORE_FAST              12 (project_root)
+
+ 694          94 LOAD_GLOBAL             11 (_require_external_output)
+              96 LOAD_FAST               12 (project_root)
+              98 LOAD_DEREF               1 (request)
+             100 LOAD_ATTR               12 (output_root)
+             102 CALL_FUNCTION            2
+             104 POP_TOP
+
+ 695         106 LOAD_GLOBAL             13 (_verify_source)
+             108 LOAD_DEREF               1 (request)
+             110 LOAD_FAST                1 (command_runner)
+             112 CALL_FUNCTION            2
+             114 POP_TOP
+
+ 696         116 SETUP_FINALLY           16 (to 134)
+
+ 697         118 LOAD_GLOBAL             14 (dict)
+             120 LOAD_FAST                2 (environment_checker)
+             122 LOAD_FAST               12 (project_root)
+             124 CALL_FUNCTION            1
+             126 CALL_FUNCTION            1
+             128 STORE_FAST              13 (build_environment)
+             130 POP_BLOCK
+             132 JUMP_FORWARD            46 (to 180)
+
+ 698     >>  134 DUP_TOP
+             136 LOAD_GLOBAL             15 (Exception)
+             138 JUMP_IF_NOT_EXC_MATCH   178
+             140 POP_TOP
+             142 STORE_FAST              14 (exc)
+             144 POP_TOP
+             146 SETUP_FINALLY           22 (to 170)
+
+ 699         148 LOAD_GLOBAL              8 (MacOSAgentPluginReleaseError)
+
+ 700         150 LOAD_CONST               8 ('formal macOS build environment is invalid')
+
+ 699         152 CALL_FUNCTION            1
+
+ 701         154 LOAD_FAST               14 (exc)
+
+ 699         156 RAISE_VARARGS            2
+             158 POP_BLOCK
+             160 POP_EXCEPT
+             162 LOAD_CONST               9 (None)
+             164 STORE_FAST              14 (exc)
+             166 DELETE_FAST             14 (exc)
+             168 JUMP_FORWARD            10 (to 180)
+         >>  170 LOAD_CONST               9 (None)
+             172 STORE_FAST              14 (exc)
+             174 DELETE_FAST             14 (exc)
+             176 RERAISE
+         >>  178 RERAISE
+
+ 702     >>  180 SETUP_FINALLY           20 (to 202)
+
+ 703         182 LOAD_GLOBAL             14 (dict)
+
+ 704         184 LOAD_FAST                3 (test_gate)
+
+ 705         186 LOAD_FAST               12 (project_root)
+
+ 706         188 LOAD_FAST                1 (command_runner)
+
+ 704         190 LOAD_CONST              10 (('project_root', 'command_runner'))
+             192 CALL_FUNCTION_KW         2
+
+ 703         194 CALL_FUNCTION            1
+             196 STORE_FAST              15 (test_report)
+             198 POP_BLOCK
+             200 JUMP_FORWARD            46 (to 248)
+
+ 709     >>  202 DUP_TOP
+             204 LOAD_GLOBAL             15 (Exception)
+             206 JUMP_IF_NOT_EXC_MATCH   246
+             208 POP_TOP
+             210 STORE_FAST              14 (exc)
+             212 POP_TOP
+             214 SETUP_FINALLY           22 (to 238)
+
+ 710         216 LOAD_GLOBAL              8 (MacOSAgentPluginReleaseError)
+
+ 711         218 LOAD_CONST              11 ('formal macOS release tests did not pass')
+
+ 710         220 CALL_FUNCTION            1
+
+ 712         222 LOAD_FAST               14 (exc)
+
+ 710         224 RAISE_VARARGS            2
+             226 POP_BLOCK
+             228 POP_EXCEPT
+             230 LOAD_CONST               9 (None)
+             232 STORE_FAST              14 (exc)
+             234 DELETE_FAST             14 (exc)
+             236 JUMP_FORWARD            10 (to 248)
+         >>  238 LOAD_CONST               9 (None)
+             240 STORE_FAST              14 (exc)
+             242 DELETE_FAST             14 (exc)
+             244 RERAISE
+         >>  246 RERAISE
+
+ 713     >>  248 LOAD_FAST               15 (test_report)
+             250 LOAD_METHOD             16 (get)
+             252 LOAD_CONST              12 ('status')
+             254 CALL_METHOD              1
+             256 LOAD_CONST              13 ('passed')
+             258 COMPARE_OP               3 (!=)
+             260 EXTENDED_ARG             1
+             262 POP_JUMP_IF_FALSE      272
+
+ 714         264 LOAD_GLOBAL              8 (MacOSAgentPluginReleaseError)
+
+ 715         266 LOAD_CONST              11 ('formal macOS release tests did not pass')
+
+ 714         268 CALL_FUNCTION            1
+             270 RAISE_VARARGS            1
+
+ 719     >>  272 LOAD_GLOBAL             13 (_verify_source)
+             274 LOAD_DEREF               1 (request)
+             276 LOAD_FAST                1 (command_runner)
+             278 CALL_FUNCTION            2
+             280 POP_TOP
+
+ 721         282 LOAD_DEREF               1 (request)
+             284 LOAD_ATTR               12 (output_root)
+             286 LOAD_ATTR               17 (mkdir)
+             288 LOAD_CONST              14 (448)
+             290 LOAD_CONST              15 (('mode',))
+             292 CALL_FUNCTION_KW         1
+             294 POP_TOP
+
+ 722         296 LOAD_DEREF               1 (request)
+             298 LOAD_ATTR               12 (output_root)
+             300 LOAD_GLOBAL             18 (MACOS_RELEASE_STATE_NAME)
+             302 BINARY_TRUE_DIVIDE
+             304 STORE_DEREF              3 (state_path)
+
+ 723         306 LOAD_CONST              16 ('INITIALIZED')
+             308 STORE_DEREF              2 (stage)
+
+ 725         310 LOAD_CONST              17 ('str')
+             312 LOAD_CONST              18 ('None')
+             314 LOAD_CONST              19 (('status', 'return'))
+             316 BUILD_CONST_KEY_MAP      2
+             318 LOAD_CLOSURE             1 (request)
+             320 LOAD_CLOSURE             2 (stage)
+             322 LOAD_CLOSURE             3 (state_path)
+             324 BUILD_TUPLE              3
+             326 LOAD_CONST              20 (<code object record at 0x1090bdbe0, file "WeRobotCore/packaging/macos_release.py", line 725>)
+             328 LOAD_CONST              21 ('build_macos_agent_plugin_release.<locals>.record')
+             330 MAKE_FUNCTION           12 (annotations, closure)
+             332 STORE_FAST              16 (record)
+
+ 736         334 LOAD_FAST               16 (record)
+             336 LOAD_CONST              22 ('RUNNING')
+             338 CALL_FUNCTION            1
+             340 POP_TOP
+
+ 737         342 EXTENDED_ARG             5
+             344 SETUP_FINALLY         1314 (to 1660)
+
+ 738         346 LOAD_DEREF               1 (request)
+             348 LOAD_ATTR               12 (output_root)
+             350 LOAD_CONST              23 ('work')
+             352 BINARY_TRUE_DIVIDE
+             354 STORE_FAST              17 (work_root)
+
+ 739         356 LOAD_DEREF               1 (request)
+             358 LOAD_ATTR               12 (output_root)
+             360 LOAD_CONST              24 ('artifacts')
+             362 BINARY_TRUE_DIVIDE
+             364 STORE_FAST              18 (artifacts_root)
+
+ 740         366 LOAD_DEREF               1 (request)
+             368 LOAD_ATTR               12 (output_root)
+             370 LOAD_CONST              25 ('evidence')
+             372 BINARY_TRUE_DIVIDE
+             374 STORE_FAST              19 (evidence_root)
+
+ 741         376 LOAD_FAST               17 (work_root)
+             378 LOAD_ATTR               17 (mkdir)
+             380 LOAD_CONST              14 (448)
+             382 LOAD_CONST              15 (('mode',))
+             384 CALL_FUNCTION_KW         1
+             386 POP_TOP
+
+ 742         388 LOAD_FAST               18 (artifacts_root)
+             390 LOAD_ATTR               17 (mkdir)
+             392 LOAD_CONST              14 (448)
+             394 LOAD_CONST              15 (('mode',))
+             396 CALL_FUNCTION_KW         1
+             398 POP_TOP
+
+ 743         400 LOAD_FAST               19 (evidence_root)
+             402 LOAD_ATTR               17 (mkdir)
+             404 LOAD_CONST              14 (448)
+             406 LOAD_CONST              15 (('mode',))
+             408 CALL_FUNCTION_KW         1
+             410 POP_TOP
+
+ 745         412 LOAD_CONST              26 ('FRONTEND_BUILT')
+             414 STORE_DEREF              2 (stage)
+
+ 746         416 LOAD_FAST               17 (work_root)
+             418 LOAD_CONST              27 ('frontend-build')
+             420 BINARY_TRUE_DIVIDE
+             422 STORE_FAST              20 (frontend_build_dir)
+
+ 747         424 LOAD_FAST               17 (work_root)
+             426 LOAD_CONST              28 ('frontend-legacy')
+             428 BINARY_TRUE_DIVIDE
+             430 STORE_FAST              21 (legacy_frontend_dir)
+
+ 748         432 LOAD_GLOBAL             14 (dict)
+
+ 749         434 LOAD_FAST                4 (frontend_builder)
+
+ 750         436 LOAD_FAST               12 (project_root)
+
+ 751         438 LOAD_DEREF               1 (request)
+             440 LOAD_ATTR               19 (source_commit)
+
+ 752         442 LOAD_FAST               20 (frontend_build_dir)
+
+ 753         444 LOAD_FAST               21 (legacy_frontend_dir)
+
+ 754         446 LOAD_FAST                1 (command_runner)
+
+ 749         448 LOAD_CONST              29 (('project_root', 'source_commit', 'work_dir', 'output_dir', 'command_runner'))
+             450 CALL_FUNCTION_KW         5
+
+ 748         452 CALL_FUNCTION            1
+             454 STORE_FAST              22 (frontend_build_report)
+
+ 757         456 LOAD_FAST               22 (frontend_build_report)
+             458 LOAD_METHOD             16 (get)
+             460 LOAD_CONST              30 ('sourceCommit')
+             462 CALL_METHOD              1
+             464 LOAD_DEREF               1 (request)
+             466 LOAD_ATTR               19 (source_commit)
+             468 COMPARE_OP               3 (!=)
+             470 EXTENDED_ARG             1
+             472 POP_JUMP_IF_FALSE      482
+
+ 758         474 LOAD_GLOBAL              8 (MacOSAgentPluginReleaseError)
+
+ 759         476 LOAD_CONST              31 ('formal frontend was not built from the pinned source')
+
+ 758         478 CALL_FUNCTION            1
+             480 RAISE_VARARGS            1
+
+ 761     >>  482 LOAD_FAST               16 (record)
+             484 LOAD_CONST              22 ('RUNNING')
+             486 CALL_FUNCTION            1
+             488 POP_TOP
+
+ 763         490 LOAD_CONST              32 ('FRONTEND_PREPARED')
+             492 STORE_DEREF              2 (stage)
+
+ 764         494 LOAD_FAST               17 (work_root)
+             496 LOAD_CONST              33 ('frontend')
+             498 BINARY_TRUE_DIVIDE
+             500 STORE_FAST              23 (frontend_dir)
+
+ 765         502 LOAD_GLOBAL             14 (dict)
+
+ 766         504 LOAD_FAST                5 (frontend_preparer)
+             506 LOAD_FAST               21 (legacy_frontend_dir)
+             508 LOAD_FAST               23 (frontend_dir)
+             510 CALL_FUNCTION            2
+
+ 765         512 CALL_FUNCTION            1
+             514 STORE_FAST              24 (frontend_report)
+
+ 769         516 LOAD_FAST               24 (frontend_report)
+             518 LOAD_METHOD             16 (get)
+             520 LOAD_CONST              34 ('runtimeCapabilityMode')
+             522 CALL_METHOD              1
+             524 LOAD_CONST              35 ('runtime_required')
+             526 COMPARE_OP               3 (!=)
+
+ 768         528 EXTENDED_ARG             2
+             530 POP_JUMP_IF_TRUE       548
+
+ 770         532 LOAD_FAST               24 (frontend_report)
+             534 LOAD_METHOD             16 (get)
+             536 LOAD_CONST              36 ('startupPresentation')
+             538 CALL_METHOD              1
+             540 LOAD_CONST              37 ('classic')
+             542 COMPARE_OP               3 (!=)
+
+ 768         544 EXTENDED_ARG             2
+             546 POP_JUMP_IF_FALSE      556
+
+ 772     >>  548 LOAD_GLOBAL              8 (MacOSAgentPluginReleaseError)
+
+ 773         550 LOAD_CONST              38 ('prepared frontend does not match production policy')
+
+ 772         552 CALL_FUNCTION            1
+             554 RAISE_VARARGS            1
+
+ 775     >>  556 LOAD_FAST               16 (record)
+             558 LOAD_CONST              22 ('RUNNING')
+             560 CALL_FUNCTION            1
+             562 POP_TOP
+
+ 777         564 LOAD_CONST              39 ('HELPER_BUILT')
+             566 STORE_DEREF              2 (stage)
+
+ 778         568 LOAD_FAST               17 (work_root)
+             570 LOAD_CONST              40 ('helper-output')
+             572 BINARY_TRUE_DIVIDE
+             574 STORE_FAST              25 (helper_output_root)
+
+ 779         576 LOAD_FAST               25 (helper_output_root)
+             578 LOAD_ATTR               17 (mkdir)
+             580 LOAD_CONST              14 (448)
+             582 LOAD_CONST              15 (('mode',))
+             584 CALL_FUNCTION_KW         1
+             586 POP_TOP
+
+ 780         588 LOAD_FAST               25 (helper_output_root)
+             590 LOAD_GLOBAL             20 (MACOS_HELPER_APP_NAME)
+             592 BINARY_TRUE_DIVIDE
+             594 STORE_FAST              26 (helper_app)
+
+ 781         596 LOAD_FAST               17 (work_root)
+             598 LOAD_CONST              41 ('helper-build')
+             600 BINARY_TRUE_DIVIDE
+             602 STORE_FAST              27 (helper_work)
+
+ 782         604 LOAD_GLOBAL             14 (dict)
+
+ 783         606 LOAD_FAST                6 (helper_builder)
+
+ 784         608 LOAD_GLOBAL             21 (MacOSHelperBuildRequest)
+
+ 785         610 LOAD_FAST               12 (project_root)
+
+ 786         612 LOAD_FAST               26 (helper_app)
+
+ 787         614 LOAD_FAST               27 (helper_work)
+
+ 788         616 LOAD_DEREF               1 (request)
+             618 LOAD_ATTR               22 (app_version)
+
+ 789         620 LOAD_DEREF               1 (request)
+             622 LOAD_ATTR               23 (build_version)
+
+ 790         624 LOAD_DEREF               1 (request)
+             626 LOAD_ATTR               24 (signing_identity)
+
+ 791         628 LOAD_DEREF               1 (request)
+             630 LOAD_ATTR               25 (architecture)
+
+ 784         632 LOAD_CONST              42 (('project_root', 'output_bundle_path', 'work_dir', 'app_version', 'build_version', 'signing_identity', 'architecture'))
+             634 CALL_FUNCTION_KW         7
+
+ 793         636 LOAD_FAST                1 (command_runner)
+
+ 794         638 LOAD_FAST               10 (current_platform)
+
+ 795         640 LOAD_FAST               11 (current_machine)
+
+ 783         642 LOAD_CONST              43 (('command_runner', 'platform_name', 'machine'))
+             644 CALL_FUNCTION_KW         4
+
+ 782         646 CALL_FUNCTION            1
+             648 STORE_DEREF              0 (helper_report)
+
+ 799         650 LOAD_GLOBAL             26 (MACOS_PRODUCT_HELPER_BUNDLE_IDENTIFIER)
+
+ 800         652 LOAD_GLOBAL             27 (MACOS_PRODUCT_TEAM_IDENTIFIER)
+
+ 801         654 LOAD_DEREF               1 (request)
+             656 LOAD_ATTR               22 (app_version)
+
+ 802         658 LOAD_DEREF               1 (request)
+             660 LOAD_ATTR               23 (build_version)
+
+ 803         662 LOAD_DEREF               1 (request)
+             664 LOAD_ATTR               25 (architecture)
+
+ 804         666 LOAD_CONST               6 (True)
+
+ 798         668 LOAD_CONST              44 (('bundleIdentifier', 'teamIdentifier', 'appVersion', 'buildVersion', 'architecture', 'developerIdVerified'))
+             670 BUILD_CONST_KEY_MAP      6
+             672 STORE_FAST              28 (expected_helper)
+
+ 806         674 LOAD_GLOBAL             28 (any)
+             676 LOAD_CLOSURE             0 (helper_report)
+             678 BUILD_TUPLE              1
+             680 LOAD_CONST              45 (<code object <genexpr> at 0x1090bddf0, file "WeRobotCore/packaging/macos_release.py", line 806>)
+             682 LOAD_CONST              46 ('build_macos_agent_plugin_release.<locals>.<genexpr>')
+             684 MAKE_FUNCTION            8 (closure)
+
+ 808         686 LOAD_FAST               28 (expected_helper)
+             688 LOAD_METHOD             29 (items)
+             690 CALL_METHOD              0
+
+ 806         692 GET_ITER
+             694 CALL_FUNCTION            1
+             696 CALL_FUNCTION            1
+             698 EXTENDED_ARG             2
+             700 POP_JUMP_IF_FALSE      710
+
+ 810         702 LOAD_GLOBAL              8 (MacOSAgentPluginReleaseError)
+             704 LOAD_CONST              47 ('formal Helper was not verified')
+             706 CALL_FUNCTION            1
+             708 RAISE_VARARGS            1
+
+ 811     >>  710 LOAD_FAST               16 (record)
+             712 LOAD_CONST              22 ('RUNNING')
+             714 CALL_FUNCTION            1
+             716 POP_TOP
+
+ 813         718 LOAD_CONST              48 ('CONTROL_BUILT')
+             720 STORE_DEREF              2 (stage)
+
+ 814         722 LOAD_FAST               17 (work_root)
+             724 LOAD_CONST              49 ('control-dist')
+             726 BINARY_TRUE_DIVIDE
+             728 STORE_FAST              29 (control_dist)
+
+ 815         730 LOAD_FAST               17 (work_root)
+             732 LOAD_CONST              50 ('control-build')
+             734 BINARY_TRUE_DIVIDE
+             736 STORE_FAST              30 (control_work)
+
+ 816         738 LOAD_FAST                7 (control_builder)
+
+ 817         740 LOAD_DEREF               1 (request)
+
+ 818         742 LOAD_FAST               23 (frontend_dir)
+
+ 819         744 LOAD_FAST               29 (control_dist)
+
+ 820         746 LOAD_FAST               30 (control_work)
+
+ 821         748 LOAD_FAST                1 (command_runner)
+
+ 816         750 LOAD_CONST              51 (('request', 'frontend_dir', 'dist_dir', 'work_dir', 'command_runner'))
+             752 CALL_FUNCTION_KW         5
+             754 POP_TOP
+
+ 823         756 LOAD_FAST               29 (control_dist)
+             758 LOAD_GLOBAL             30 (MACOS_CONTROL_APP_NAME)
+             760 BINARY_TRUE_DIVIDE
+             762 STORE_FAST              31 (control_app)
+
+ 824         764 LOAD_FAST               31 (control_app)
+             766 LOAD_METHOD             31 (is_dir)
+             768 CALL_METHOD              0
+             770 EXTENDED_ARG             3
+             772 POP_JUMP_IF_TRUE       782
+
+ 825         774 LOAD_GLOBAL              8 (MacOSAgentPluginReleaseError)
+
+ 826         776 LOAD_CONST              52 ('formal Control build produced no app bundle')
+
+ 825         778 CALL_FUNCTION            1
+             780 RAISE_VARARGS            1
+
+ 828     >>  782 LOAD_FAST               16 (record)
+             784 LOAD_CONST              22 ('RUNNING')
+             786 CALL_FUNCTION            1
+             788 POP_TOP
+
+ 830         790 LOAD_CONST              53 ('ASSEMBLED')
+             792 STORE_DEREF              2 (stage)
+
+ 831         794 LOAD_FAST               17 (work_root)
+             796 LOAD_CONST              54 ('assembled')
+             798 BINARY_TRUE_DIVIDE
+             800 STORE_FAST              32 (assembled_root)
+
+ 832         802 LOAD_FAST               32 (assembled_root)
+             804 LOAD_ATTR               17 (mkdir)
+             806 LOAD_CONST              14 (448)
+             808 LOAD_CONST              15 (('mode',))
+             810 CALL_FUNCTION_KW         1
+             812 POP_TOP
+
+ 833         814 LOAD_FAST               32 (assembled_root)
+             816 LOAD_GLOBAL             30 (MACOS_CONTROL_APP_NAME)
+             818 BINARY_TRUE_DIVIDE
+             820 STORE_FAST              33 (assembled_app)
+
+ 834         822 LOAD_GLOBAL             32 (assemble_unsigned_macos_control_bundle)
+
+ 835         824 LOAD_FAST               31 (control_app)
+
+ 836         826 LOAD_FAST               26 (helper_app)
+
+ 837         828 LOAD_FAST               33 (assembled_app)
+
+ 838         830 LOAD_DEREF               1 (request)
+             832 LOAD_ATTR               25 (architecture)
+
+ 839         834 LOAD_GLOBAL             33 (MACOS_AGENT_PLUGIN_BUILD_CHANNEL)
+
+ 834         836 LOAD_CONST              55 (('control_bundle_path', 'helper_bundle_path', 'output_bundle_path', 'architecture', 'expected_build_channel'))
+             838 CALL_FUNCTION_KW         5
+             840 POP_TOP
+
+ 841         842 LOAD_GLOBAL             14 (dict)
+
+ 842         844 LOAD_GLOBAL             34 (inspect_macos_control_bundle)
+
+ 843         846 LOAD_FAST               33 (assembled_app)
+
+ 844         848 LOAD_DEREF               1 (request)
+             850 LOAD_ATTR               25 (architecture)
+
+ 845         852 LOAD_GLOBAL             33 (MACOS_AGENT_PLUGIN_BUILD_CHANNEL)
+
+ 842         854 LOAD_CONST              56 (('architecture', 'expected_build_channel'))
+             856 CALL_FUNCTION_KW         3
+
+ 841         858 CALL_FUNCTION            1
+             860 STORE_FAST              34 (assembled_report)
+
+ 848         862 LOAD_GLOBAL             35 (_require_product_contract)
+             864 LOAD_FAST               34 (assembled_report)
+             866 LOAD_DEREF               1 (request)
+             868 CALL_FUNCTION            2
+             870 POP_TOP
+
+ 849         872 LOAD_FAST               16 (record)
+             874 LOAD_CONST              22 ('RUNNING')
+             876 CALL_FUNCTION            1
+             878 POP_TOP
+
+ 851         880 LOAD_CONST              57 ('SIGNED')
+             882 STORE_DEREF              2 (stage)
+
+ 852         884 LOAD_GLOBAL             36 (_run_command)
+
+ 853         886 LOAD_FAST                1 (command_runner)
+
+ 855         888 LOAD_CONST              58 ('codesign')
+
+ 856         890 LOAD_CONST              59 ('--force')
+
+ 857         892 LOAD_CONST              60 ('--sign')
+
+ 858         894 LOAD_DEREF               1 (request)
+             896 LOAD_ATTR               24 (signing_identity)
+
+ 859         898 LOAD_CONST              61 ('--identifier')
+
+ 860         900 LOAD_GLOBAL             37 (MACOS_PRODUCT_CONTROL_BUNDLE_IDENTIFIER)
+
+ 861         902 LOAD_CONST              62 ('--options')
+
+ 862         904 LOAD_CONST              63 ('runtime')
+
+ 863         906 LOAD_CONST              64 ('--timestamp')
+
+ 864         908 LOAD_CONST              65 ('--entitlements')
+
+ 865         910 LOAD_GLOBAL             38 (str)
+             912 LOAD_FAST               12 (project_root)
+             914 LOAD_CONST              66 ('build')
+             916 BINARY_TRUE_DIVIDE
+             918 LOAD_CONST              67 ('macos')
+             920 BINARY_TRUE_DIVIDE
+             922 LOAD_CONST              68 ('control.entitlements.plist')
+             924 BINARY_TRUE_DIVIDE
+             926 CALL_FUNCTION            1
+
+ 866         928 LOAD_GLOBAL             38 (str)
+             930 LOAD_FAST               33 (assembled_app)
+             932 CALL_FUNCTION            1
+
+ 854         934 BUILD_TUPLE             12
+
+ 868         936 LOAD_FAST               12 (project_root)
+
+ 852         938 LOAD_CONST              69 (('cwd',))
+             940 CALL_FUNCTION_KW         3
+             942 POP_TOP
+
+ 870         944 LOAD_GLOBAL             39 (_verify_signed_bundle)
+
+ 871         946 LOAD_FAST               33 (assembled_app)
+
+ 872         948 LOAD_FAST               12 (project_root)
+
+ 873         950 LOAD_FAST                1 (command_runner)
+
+ 870         952 LOAD_CONST              70 (('project_root', 'runner'))
+             954 CALL_FUNCTION_KW         3
+             956 STORE_FAST              35 (macho_count)
+
+ 875         958 LOAD_FAST               16 (record)
+             960 LOAD_CONST              22 ('RUNNING')
+             962 CALL_FUNCTION            1
+             964 POP_TOP
+
+ 877         966 LOAD_CONST              71 ('NOTARY_SUBMITTED')
+             968 STORE_DEREF              2 (stage)
+
+ 878         970 LOAD_FAST               19 (evidence_root)
+             972 LOAD_CONST              72 ('notary-input.zip')
+             974 BINARY_TRUE_DIVIDE
+             976 STORE_FAST              36 (notary_input)
+
+ 879         978 LOAD_GLOBAL             36 (_run_command)
+
+ 880         980 LOAD_FAST                1 (command_runner)
+
+ 882         982 LOAD_CONST              73 ('ditto')
+
+ 883         984 LOAD_CONST              74 ('-c')
+
+ 884         986 LOAD_CONST              75 ('-k')
+
+ 885         988 LOAD_CONST              76 ('--sequesterRsrc')
+
+ 886         990 LOAD_CONST              77 ('--keepParent')
+
+ 887         992 LOAD_GLOBAL             38 (str)
+             994 LOAD_FAST               33 (assembled_app)
+             996 CALL_FUNCTION            1
+
+ 888         998 LOAD_GLOBAL             38 (str)
+            1000 LOAD_FAST               36 (notary_input)
+            1002 CALL_FUNCTION            1
+
+ 881        1004 BUILD_TUPLE              7
+
+ 890        1006 LOAD_FAST               12 (project_root)
+
+ 879        1008 LOAD_CONST              69 (('cwd',))
+            1010 CALL_FUNCTION_KW         3
+            1012 POP_TOP
+
+ 892        1014 LOAD_FAST               36 (notary_input)
+            1016 LOAD_METHOD             40 (is_file)
+            1018 CALL_METHOD              0
+            1020 EXTENDED_ARG             4
+            1022 POP_JUMP_IF_TRUE      1032
+
+ 893        1024 LOAD_GLOBAL              8 (MacOSAgentPluginReleaseError)
+            1026 LOAD_CONST              78 ('notary input was not created')
+            1028 CALL_FUNCTION            1
+            1030 RAISE_VARARGS            1
+
+ 894     >> 1032 LOAD_GLOBAL             41 (_sha256)
+            1034 LOAD_FAST               36 (notary_input)
+            1036 CALL_FUNCTION            1
+            1038 STORE_FAST              37 (notary_input_sha256)
+
+ 895        1040 LOAD_GLOBAL             42 (_parse_notary_result)
+
+ 896        1042 LOAD_GLOBAL             36 (_run_command)
+
+ 897        1044 LOAD_FAST                1 (command_runner)
+
+ 899        1046 LOAD_CONST              79 ('xcrun')
+
+ 900        1048 LOAD_CONST              80 ('notarytool')
+
+ 901        1050 LOAD_CONST              81 ('submit')
+
+ 902        1052 LOAD_GLOBAL             38 (str)
+            1054 LOAD_FAST               36 (notary_input)
+            1056 CALL_FUNCTION            1
+
+ 903        1058 LOAD_CONST              82 ('--keychain-profile')
+
+ 904        1060 LOAD_DEREF               1 (request)
+            1062 LOAD_ATTR               43 (notary_profile)
+
+ 905        1064 LOAD_CONST              83 ('--wait')
+
+ 906        1066 LOAD_CONST              84 ('--output-format')
+
+ 907        1068 LOAD_CONST              85 ('json')
+
+ 898        1070 BUILD_TUPLE              9
+
+ 909        1072 LOAD_FAST               12 (project_root)
+
+ 910        1074 LOAD_CONST              86 (3600)
+
+ 896        1076 LOAD_CONST              87 (('cwd', 'timeout'))
+            1078 CALL_FUNCTION_KW         4
+            1080 LOAD_ATTR               44 (stdout)
+
+ 895        1082 CALL_FUNCTION            1
+            1084 STORE_FAST              38 (notary)
+
+ 913        1086 LOAD_FAST               16 (record)
+            1088 LOAD_CONST              22 ('RUNNING')
+            1090 CALL_FUNCTION            1
+            1092 POP_TOP
+
+ 915        1094 LOAD_CONST              88 ('STAPLED')
+            1096 STORE_DEREF              2 (stage)
+
+ 916        1098 LOAD_GLOBAL             36 (_run_command)
+
+ 917        1100 LOAD_FAST                1 (command_runner)
+
+ 918        1102 LOAD_CONST              79 ('xcrun')
+            1104 LOAD_CONST              89 ('stapler')
+            1106 LOAD_CONST              90 ('staple')
+            1108 LOAD_GLOBAL             38 (str)
+            1110 LOAD_FAST               33 (assembled_app)
+            1112 CALL_FUNCTION            1
+            1114 BUILD_TUPLE              4
+
+ 919        1116 LOAD_FAST               12 (project_root)
+
+ 916        1118 LOAD_CONST              69 (('cwd',))
+            1120 CALL_FUNCTION_KW         3
+            1122 POP_TOP
+
+ 921        1124 LOAD_GLOBAL             45 (_validate_stapled_bundle)
+
+ 922        1126 LOAD_FAST                1 (command_runner)
+
+ 923        1128 LOAD_FAST               33 (assembled_app)
+
+ 924        1130 LOAD_FAST               12 (project_root)
+
+ 921        1132 LOAD_CONST              69 (('cwd',))
+            1134 CALL_FUNCTION_KW         3
+            1136 POP_TOP
+
+ 926        1138 LOAD_GLOBAL             36 (_run_command)
+
+ 927        1140 LOAD_FAST                1 (command_runner)
+
+ 928        1142 LOAD_CONST              91 ('spctl')
+            1144 LOAD_CONST              92 ('--assess')
+            1146 LOAD_CONST              93 ('--type')
+            1148 LOAD_CONST              94 ('execute')
+            1150 LOAD_GLOBAL             38 (str)
+            1152 LOAD_FAST               33 (assembled_app)
+            1154 CALL_FUNCTION            1
+            1156 BUILD_TUPLE              5
+
+ 929        1158 LOAD_FAST               12 (project_root)
+
+ 926        1160 LOAD_CONST              69 (('cwd',))
+            1162 CALL_FUNCTION_KW         3
+            1164 POP_TOP
+
+ 931        1166 LOAD_GLOBAL             39 (_verify_signed_bundle)
+
+ 932        1168 LOAD_FAST               33 (assembled_app)
+
+ 933        1170 LOAD_FAST               12 (project_root)
+
+ 934        1172 LOAD_FAST                1 (command_runner)
+
+ 931        1174 LOAD_CONST              70 (('project_root', 'runner'))
+            1176 CALL_FUNCTION_KW         3
+            1178 STORE_FAST              39 (macho_count_after_staple)
+
+ 936        1180 LOAD_FAST               39 (macho_count_after_staple)
+            1182 LOAD_FAST               35 (macho_count)
+            1184 COMPARE_OP               3 (!=)
+            1186 EXTENDED_ARG             4
+            1188 POP_JUMP_IF_FALSE     1198
+
+ 937        1190 LOAD_GLOBAL              8 (MacOSAgentPluginReleaseError)
+
+ 938        1192 LOAD_CONST              95 ('release code inventory changed after stapling')
+
+ 937        1194 CALL_FUNCTION            1
+            1196 RAISE_VARARGS            1
+
+ 940     >> 1198 LOAD_GLOBAL             14 (dict)
+
+ 941        1200 LOAD_GLOBAL             34 (inspect_macos_control_bundle)
+
+ 942        1202 LOAD_FAST               33 (assembled_app)
+
+ 943        1204 LOAD_DEREF               1 (request)
+            1206 LOAD_ATTR               25 (architecture)
+
+ 944        1208 LOAD_GLOBAL             33 (MACOS_AGENT_PLUGIN_BUILD_CHANNEL)
+
+ 941        1210 LOAD_CONST              56 (('architecture', 'expected_build_channel'))
+            1212 CALL_FUNCTION_KW         3
+
+ 940        1214 CALL_FUNCTION            1
+            1216 STORE_FAST              40 (product_report)
+
+ 947        1218 LOAD_GLOBAL             35 (_require_product_contract)
+            1220 LOAD_FAST               40 (product_report)
+            1222 LOAD_DEREF               1 (request)
+            1224 CALL_FUNCTION            2
+            1226 POP_TOP
+
+ 948        1228 LOAD_FAST               16 (record)
+            1230 LOAD_CONST              22 ('RUNNING')
+            1232 CALL_FUNCTION            1
+            1234 POP_TOP
+
+ 950        1236 LOAD_CONST              96 ('ARCHIVED')
+            1238 STORE_DEREF              2 (stage)
+
+ 951        1240 LOAD_FAST               18 (artifacts_root)
+            1242 LOAD_DEREF               1 (request)
+            1244 LOAD_ATTR               46 (artifact_file_name)
+            1246 BINARY_TRUE_DIVIDE
+            1248 STORE_FAST              41 (artifact)
+
+ 952        1250 LOAD_GLOBAL             36 (_run_command)
+
+ 953        1252 LOAD_FAST                1 (command_runner)
+
+ 955        1254 LOAD_CONST              73 ('ditto')
+
+ 956        1256 LOAD_CONST              74 ('-c')
+
+ 957        1258 LOAD_CONST              75 ('-k')
+
+ 958        1260 LOAD_CONST              76 ('--sequesterRsrc')
+
+ 959        1262 LOAD_CONST              77 ('--keepParent')
+
+ 960        1264 LOAD_GLOBAL             38 (str)
+            1266 LOAD_FAST               33 (assembled_app)
+            1268 CALL_FUNCTION            1
+
+ 961        1270 LOAD_GLOBAL             38 (str)
+            1272 LOAD_FAST               41 (artifact)
+            1274 CALL_FUNCTION            1
+
+ 954        1276 BUILD_TUPLE              7
+
+ 963        1278 LOAD_FAST               12 (project_root)
+
+ 952        1280 LOAD_CONST              69 (('cwd',))
+            1282 CALL_FUNCTION_KW         3
+            1284 POP_TOP
+
+ 965        1286 LOAD_FAST               41 (artifact)
+            1288 LOAD_METHOD             40 (is_file)
+            1290 CALL_METHOD              0
+            1292 EXTENDED_ARG             5
+            1294 POP_JUMP_IF_FALSE     1312
+            1296 LOAD_FAST               41 (artifact)
+            1298 LOAD_METHOD             47 (stat)
+            1300 CALL_METHOD              0
+            1302 LOAD_ATTR               48 (st_size)
+            1304 LOAD_CONST              97 (0)
+            1306 COMPARE_OP               1 (<=)
+            1308 EXTENDED_ARG             5
+            1310 POP_JUMP_IF_FALSE     1320
+
+ 966     >> 1312 LOAD_GLOBAL              8 (MacOSAgentPluginReleaseError)
+
+ 967        1314 LOAD_CONST              98 ('final distribution ZIP was not created')
+
+ 966        1316 CALL_FUNCTION            1
+            1318 RAISE_VARARGS            1
+
+ 969     >> 1320 LOAD_GLOBAL             41 (_sha256)
+            1322 LOAD_FAST               41 (artifact)
+            1324 CALL_FUNCTION            1
+            1326 STORE_FAST              42 (artifact_sha256)
+
+ 970        1328 LOAD_FAST               41 (artifact)
+            1330 LOAD_METHOD             47 (stat)
+            1332 CALL_METHOD              0
+            1334 LOAD_ATTR               48 (st_size)
+            1336 STORE_FAST              43 (artifact_size)
+
+ 971        1338 LOAD_FAST               16 (record)
+            1340 LOAD_CONST              22 ('RUNNING')
+            1342 CALL_FUNCTION            1
+            1344 POP_TOP
+
+ 973        1346 LOAD_CONST              99 ('ARCHIVE_REVERIFIED')
+            1348 STORE_DEREF              2 (stage)
+
+ 974        1350 LOAD_FAST               17 (work_root)
+            1352 LOAD_CONST             100 ('archive-reverification')
+            1354 BINARY_TRUE_DIVIDE
+            1356 STORE_FAST              44 (extracted_root)
+
+ 975        1358 LOAD_FAST               44 (extracted_root)
+            1360 LOAD_ATTR               17 (mkdir)
+            1362 LOAD_CONST              14 (448)
+            1364 LOAD_CONST              15 (('mode',))
+            1366 CALL_FUNCTION_KW         1
+            1368 POP_TOP
+
+ 976        1370 LOAD_GLOBAL             36 (_run_command)
+
+ 977        1372 LOAD_FAST                1 (command_runner)
+
+ 978        1374 LOAD_CONST              73 ('ditto')
+            1376 LOAD_CONST             101 ('-x')
+            1378 LOAD_CONST              75 ('-k')
+            1380 LOAD_GLOBAL             38 (str)
+            1382 LOAD_FAST               41 (artifact)
+            1384 CALL_FUNCTION            1
+            1386 LOAD_GLOBAL             38 (str)
+            1388 LOAD_FAST               44 (extracted_root)
+            1390 CALL_FUNCTION            1
+            1392 BUILD_TUPLE              5
+
+ 979        1394 LOAD_FAST               12 (project_root)
+
+ 976        1396 LOAD_CONST              69 (('cwd',))
+            1398 CALL_FUNCTION_KW         3
+            1400 POP_TOP
+
+ 981        1402 LOAD_FAST               44 (extracted_root)
+            1404 LOAD_GLOBAL             30 (MACOS_CONTROL_APP_NAME)
+            1406 BINARY_TRUE_DIVIDE
+            1408 STORE_FAST              45 (extracted_app)
+
+ 982        1410 LOAD_GLOBAL             14 (dict)
+
+ 983        1412 LOAD_GLOBAL             34 (inspect_macos_control_bundle)
+
+ 984        1414 LOAD_FAST               45 (extracted_app)
+
+ 985        1416 LOAD_DEREF               1 (request)
+            1418 LOAD_ATTR               25 (architecture)
+
+ 986        1420 LOAD_GLOBAL             33 (MACOS_AGENT_PLUGIN_BUILD_CHANNEL)
+
+ 983        1422 LOAD_CONST              56 (('architecture', 'expected_build_channel'))
+            1424 CALL_FUNCTION_KW         3
+
+ 982        1426 CALL_FUNCTION            1
+            1428 STORE_FAST              46 (extracted_product_report)
+
+ 989        1430 LOAD_FAST               46 (extracted_product_report)
+            1432 LOAD_FAST               40 (product_report)
+            1434 COMPARE_OP               3 (!=)
+            1436 EXTENDED_ARG             5
+            1438 POP_JUMP_IF_FALSE     1448
+
+ 990        1440 LOAD_GLOBAL              8 (MacOSAgentPluginReleaseError)
+
+ 991        1442 LOAD_CONST             102 ('final ZIP changed the signed product structure')
+
+ 990        1444 CALL_FUNCTION            1
+            1446 RAISE_VARARGS            1
+
+ 994     >> 1448 LOAD_GLOBAL             39 (_verify_signed_bundle)
+
+ 995        1450 LOAD_FAST               45 (extracted_app)
+
+ 996        1452 LOAD_FAST               12 (project_root)
+
+ 997        1454 LOAD_FAST                1 (command_runner)
+
+ 994        1456 LOAD_CONST              70 (('project_root', 'runner'))
+            1458 CALL_FUNCTION_KW         3
+
+ 999        1460 LOAD_FAST               35 (macho_count)
+
+ 994        1462 COMPARE_OP               3 (!=)
+
+ 993        1464 EXTENDED_ARG             5
+            1466 POP_JUMP_IF_FALSE     1476
+
+1001        1468 LOAD_GLOBAL              8 (MacOSAgentPluginReleaseError)
+
+1002        1470 LOAD_CONST             103 ('final ZIP changed the signed code inventory')
+
+1001        1472 CALL_FUNCTION            1
+            1474 RAISE_VARARGS            1
+
+1004     >> 1476 LOAD_GLOBAL             45 (_validate_stapled_bundle)
+
+1005        1478 LOAD_FAST                1 (command_runner)
+
+1006        1480 LOAD_FAST               45 (extracted_app)
+
+1007        1482 LOAD_FAST               12 (project_root)
+
+1004        1484 LOAD_CONST              69 (('cwd',))
+            1486 CALL_FUNCTION_KW         3
+            1488 POP_TOP
+
+1009        1490 LOAD_GLOBAL             36 (_run_command)
+
+1010        1492 LOAD_FAST                1 (command_runner)
+
+1011        1494 LOAD_CONST              91 ('spctl')
+            1496 LOAD_CONST              92 ('--assess')
+            1498 LOAD_CONST              93 ('--type')
+            1500 LOAD_CONST              94 ('execute')
+            1502 LOAD_GLOBAL             38 (str)
+            1504 LOAD_FAST               45 (extracted_app)
+            1506 CALL_FUNCTION            1
+            1508 BUILD_TUPLE              5
+
+1012        1510 LOAD_FAST               12 (project_root)
+
+1009        1512 LOAD_CONST              69 (('cwd',))
+            1514 CALL_FUNCTION_KW         3
+            1516 POP_TOP
+
+1016        1518 LOAD_CONST             104 (1)
+
+1017        1520 LOAD_GLOBAL             49 (MACOS_AGENT_PLUGIN_HANDOFF_KIND)
+
+1018        1522 LOAD_CONST             105 ('RELEASE_READY')
+
+1020        1524 LOAD_DEREF               1 (request)
+            1526 LOAD_ATTR               19 (source_commit)
+
+1021        1528 LOAD_DEREF               1 (request)
+            1530 LOAD_ATTR               50 (source_ref)
+
+1022        1532 LOAD_CONST               6 (True)
+
+1023        1534 LOAD_CONST               6 (True)
+
+1019        1536 LOAD_CONST             106 (('commit', 'ref', 'clean', 'pushedRefMatched'))
+            1538 BUILD_CONST_KEY_MAP      4
+
+1026        1540 LOAD_GLOBAL             51 (MACOS_AGENT_PLUGIN_RELEASE_CHANNEL)
+
+1027        1542 LOAD_GLOBAL             33 (MACOS_AGENT_PLUGIN_BUILD_CHANNEL)
+
+1028        1544 LOAD_GLOBAL             52 (MACOS_AGENT_PLUGIN_CAPABILITY_WAVE)
+
+1029        1546 LOAD_DEREF               1 (request)
+            1548 LOAD_ATTR               25 (architecture)
+
+1030        1550 LOAD_GLOBAL             53 (MACOS_AGENT_PLUGIN_MINIMUM_SYSTEM_VERSION)
+
+1032        1552 LOAD_GLOBAL             54 (MACOS_AGENT_PLUGIN_RUNTIME_CONTRACT_VERSION)
+
+1034        1554 LOAD_GLOBAL             55 (MACOS_AGENT_PLUGIN_DRIVER_API_VERSION)
+
+1025        1556 LOAD_CONST             107 (('releaseChannel', 'buildChannel', 'capabilityWave', 'architecture', 'minimumSystemVersion', 'runtimeContractVersion', 'driverApiVersion'))
+            1558 BUILD_CONST_KEY_MAP      7
+
+1036        1560 BUILD_MAP                0
+
+1037        1562 LOAD_FAST               40 (product_report)
+
+1036        1564 DICT_UPDATE              1
+
+1038        1566 LOAD_CONST               6 (True)
+
+1039        1568 LOAD_CONST               6 (True)
+
+1040        1570 LOAD_FAST               35 (macho_count)
+
+1036        1572 LOAD_CONST             108 (('outerSignatureVerified', 'notarizationVerified', 'machOCount'))
+            1574 BUILD_CONST_KEY_MAP      3
+            1576 DICT_UPDATE              1
+
+1042        1578 LOAD_DEREF               0 (helper_report)
+
+1043        1580 LOAD_FAST               22 (frontend_build_report)
+
+1044        1582 LOAD_FAST               13 (build_environment)
+
+1045        1584 LOAD_FAST               15 (test_report)
+
+1046        1586 BUILD_MAP                0
+
+1047        1588 LOAD_FAST               38 (notary)
+
+1046        1590 DICT_UPDATE              1
+
+1048        1592 LOAD_FAST               37 (notary_input_sha256)
+
+1049        1594 LOAD_CONST               6 (True)
+
+1050        1596 LOAD_CONST               6 (True)
+
+1046        1598 LOAD_CONST             109 (('inputSha256', 'stapled', 'gatekeeperVerified'))
+            1600 BUILD_CONST_KEY_MAP      3
+            1602 DICT_UPDATE              1
+
+1053        1604 LOAD_DEREF               1 (request)
+            1606 LOAD_ATTR               46 (artifact_file_name)
+
+1054        1608 LOAD_FAST               42 (artifact_sha256)
+
+1055        1610 LOAD_FAST               43 (artifact_size)
+
+1056        1612 LOAD_CONST             110 ('ditto-zip-keepParent')
+
+1057        1614 LOAD_CONST               6 (True)
+
+1052        1616 LOAD_CONST             111 (('fileName', 'sha256', 'size', 'format', 'postArchiveVerification'))
+            1618 BUILD_CONST_KEY_MAP      5
+
+1015        1620 LOAD_CONST             112 (('schemaVersion', 'kind', 'status', 'source', 'target', 'product', 'helperBuild', 'frontendBuild', 'buildEnvironment', 'testGate', 'notarization', 'artifact'))
+            1622 BUILD_CONST_KEY_MAP     12
+            1624 STORE_FAST              47 (report)
+
+1060        1626 LOAD_GLOBAL             56 (_write_json)
+            1628 LOAD_DEREF               1 (request)
+            1630 LOAD_ATTR               12 (output_root)
+            1632 LOAD_GLOBAL             57 (MACOS_RELEASE_REPORT_NAME)
+            1634 BINARY_TRUE_DIVIDE
+            1636 LOAD_FAST               47 (report)
+            1638 CALL_FUNCTION            2
+            1640 POP_TOP
+
+1061        1642 LOAD_CONST             113 ('COMPLETE')
+            1644 STORE_DEREF              2 (stage)
+
+1062        1646 LOAD_FAST               16 (record)
+            1648 LOAD_CONST             113 ('COMPLETE')
+            1650 CALL_FUNCTION            1
+            1652 POP_TOP
+
+1063        1654 LOAD_FAST               47 (report)
+            1656 POP_BLOCK
+            1658 RETURN_VALUE
+
+1064     >> 1660 DUP_TOP
+            1662 LOAD_GLOBAL             15 (Exception)
+            1664 EXTENDED_ARG             6
+            1666 JUMP_IF_NOT_EXC_MATCH  1760
+            1668 POP_TOP
+            1670 STORE_FAST              14 (exc)
+            1672 POP_TOP
+            1674 SETUP_FINALLY           76 (to 1752)
+
+1065        1676 SETUP_FINALLY           12 (to 1690)
+
+1066        1678 LOAD_FAST               16 (record)
+            1680 LOAD_CONST             114 ('FAILED')
+            1682 CALL_FUNCTION            1
+            1684 POP_TOP
+            1686 POP_BLOCK
+            1688 JUMP_FORWARD            20 (to 1710)
+
+1067     >> 1690 DUP_TOP
+            1692 LOAD_GLOBAL             15 (Exception)
+            1694 EXTENDED_ARG             6
+            1696 JUMP_IF_NOT_EXC_MATCH  1708
+            1698 POP_TOP
+            1700 POP_TOP
+            1702 POP_TOP
+
+1068        1704 POP_EXCEPT
+            1706 JUMP_FORWARD             2 (to 1710)
+         >> 1708 RERAISE
+
+1069     >> 1710 LOAD_GLOBAL              0 (isinstance)
+            1712 LOAD_FAST               14 (exc)
+            1714 LOAD_GLOBAL              8 (MacOSAgentPluginReleaseError)
+            1716 CALL_FUNCTION            2
+            1718 EXTENDED_ARG             6
+            1720 POP_JUMP_IF_FALSE     1724
+
+1070        1722 RAISE_VARARGS            0
+
+1071     >> 1724 LOAD_GLOBAL              8 (MacOSAgentPluginReleaseError)
+
+1072        1726 LOAD_CONST             115 ('macOS Agent plugin release failed at {}')
+            1728 LOAD_METHOD             58 (format)
+            1730 LOAD_DEREF               2 (stage)
+            1732 CALL_METHOD              1
+
+1071        1734 CALL_FUNCTION            1
+
+1073        1736 LOAD_FAST               14 (exc)
+
+1071        1738 RAISE_VARARGS            2
+            1740 POP_BLOCK
+            1742 POP_EXCEPT
+            1744 LOAD_CONST               9 (None)
+            1746 STORE_FAST              14 (exc)
+            1748 DELETE_FAST             14 (exc)
+            1750 JUMP_FORWARD            10 (to 1762)
+         >> 1752 LOAD_CONST               9 (None)
+            1754 STORE_FAST              14 (exc)
+            1756 DELETE_FAST             14 (exc)
+            1758 RERAISE
+         >> 1760 RERAISE
+         >> 1762 LOAD_CONST               9 (None)
+            1764 RETURN_VALUE
+
+Disassembly of <code object record at 0x1090bdbe0, file "WeRobotCore/packaging/macos_release.py", line 725>:
+726           0 LOAD_GLOBAL              0 (_write_json)
+
+727           2 LOAD_DEREF               2 (state_path)
+
+729           4 LOAD_CONST               1 (1)
+
+730           6 LOAD_FAST                0 (status)
+
+731           8 LOAD_DEREF               1 (stage)
+
+732          10 LOAD_DEREF               0 (request)
+             12 LOAD_ATTR                1 (source_commit)
+
+728          14 LOAD_CONST               2 (('schemaVersion', 'status', 'stage', 'sourceCommit'))
+             16 BUILD_CONST_KEY_MAP      4
+
+726          18 CALL_FUNCTION            2
+             20 POP_TOP
+             22 LOAD_CONST               0 (None)
+             24 RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x1090bddf0, file "WeRobotCore/packaging/macos_release.py", line 806>:
+806           0 LOAD_FAST                0 (.0)
+        >>    2 FOR_ITER                24 (to 28)
+
+808           4 UNPACK_SEQUENCE          2
+              6 STORE_FAST               1 (key)
+              8 STORE_FAST               2 (value)
+
+807          10 LOAD_DEREF               0 (helper_report)
+             12 LOAD_METHOD              0 (get)
+             14 LOAD_FAST                1 (key)
+             16 CALL_METHOD              1
+             18 LOAD_FAST                2 (value)
+             20 COMPARE_OP               3 (!=)
+             22 YIELD_VALUE
+             24 POP_TOP
+             26 JUMP_ABSOLUTE            2
+        >>   28 LOAD_CONST               0 (None)
+             30 RETURN_VALUE

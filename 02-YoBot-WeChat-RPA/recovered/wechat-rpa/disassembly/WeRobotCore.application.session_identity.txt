@@ -1,0 +1,74 @@
+  1           0 LOAD_CONST               0 ("Platform-neutral conversation identity used inside shared workflows.\n\nWindows Legacy currently exposes integer hashes while cross-platform drivers\nuse string identifiers.  Shared application caches must not inherit either\ndriver's native representation, so they use one canonical string key without\nchanging the compatibility payload passed to existing API and task consumers.\n")
+              2 STORE_NAME               0 (__doc__)
+
+  9           4 LOAD_CONST               1 (0)
+              6 LOAD_CONST               2 (('Union',))
+              8 IMPORT_NAME              1 (typing)
+             10 IMPORT_FROM              2 (Union)
+             12 STORE_NAME               2 (Union)
+             14 POP_TOP
+
+ 12          16 LOAD_NAME                2 (Union)
+             18 LOAD_NAME                3 (str)
+             20 LOAD_NAME                4 (int)
+             22 BUILD_TUPLE              2
+             24 BINARY_SUBSCR
+             26 STORE_NAME               5 (SessionIdInput)
+
+ 15          28 LOAD_NAME                5 (SessionIdInput)
+             30 LOAD_NAME                3 (str)
+             32 LOAD_CONST               3 (('session_id', 'return'))
+             34 BUILD_CONST_KEY_MAP      2
+             36 LOAD_CONST               4 (<code object normalize_session_key at 0x109244d40, file "WeRobotCore/application/session_identity.py", line 15>)
+             38 LOAD_CONST               5 ('normalize_session_key')
+             40 MAKE_FUNCTION            4 (annotations)
+             42 STORE_NAME               6 (normalize_session_key)
+             44 LOAD_CONST               6 (None)
+             46 RETURN_VALUE
+
+Disassembly of <code object normalize_session_key at 0x109244d40, file "WeRobotCore/application/session_identity.py", line 15>:
+ 24           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                0 (session_id)
+              4 LOAD_GLOBAL              1 (bool)
+              6 CALL_FUNCTION            2
+              8 POP_JUMP_IF_TRUE        18
+             10 LOAD_FAST                0 (session_id)
+             12 LOAD_CONST               1 (None)
+             14 IS_OP                    0
+             16 POP_JUMP_IF_FALSE       26
+
+ 25     >>   18 LOAD_GLOBAL              2 (ValueError)
+             20 LOAD_CONST               2 ('session_id must be a non-empty string or integer')
+             22 CALL_FUNCTION            1
+             24 RAISE_VARARGS            1
+
+ 26     >>   26 LOAD_GLOBAL              0 (isinstance)
+             28 LOAD_FAST                0 (session_id)
+             30 LOAD_GLOBAL              3 (str)
+             32 LOAD_GLOBAL              4 (int)
+             34 BUILD_TUPLE              2
+             36 CALL_FUNCTION            2
+             38 POP_JUMP_IF_TRUE        48
+
+ 27          40 LOAD_GLOBAL              5 (TypeError)
+             42 LOAD_CONST               3 ('session_id must be a string or integer')
+             44 CALL_FUNCTION            1
+             46 RAISE_VARARGS            1
+
+ 29     >>   48 LOAD_GLOBAL              3 (str)
+             50 LOAD_FAST                0 (session_id)
+             52 CALL_FUNCTION            1
+             54 LOAD_METHOD              6 (strip)
+             56 CALL_METHOD              0
+             58 STORE_FAST               1 (key)
+
+ 30          60 LOAD_FAST                1 (key)
+             62 POP_JUMP_IF_TRUE        72
+
+ 31          64 LOAD_GLOBAL              2 (ValueError)
+             66 LOAD_CONST               2 ('session_id must be a non-empty string or integer')
+             68 CALL_FUNCTION            1
+             70 RAISE_VARARGS            1
+
+ 32     >>   72 LOAD_FAST                1 (key)
+             74 RETURN_VALUE

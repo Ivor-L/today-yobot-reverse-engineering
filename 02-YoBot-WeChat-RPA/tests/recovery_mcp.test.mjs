@@ -1,0 +1,31 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {RecoveryMcp} from '../standalone/app/recovery-mcp.js';
+test('MCP loopback authentication, initialize, discovery, validation, error propagation and rotation',async t=>{
+ const seen=[];const mcp=new RecoveryMcp(async request=>{seen.push(request);return {success:true,status:request.method==='POST'?409:200,bodyText:JSON.stringify(request.method==='POST'?{detail:{code:'OPERATION_FAILED'}}:{success:true})};});
+ t.after(()=>mcp.close());
+ let info=await mcp.configure({enabled:true});assert.equal(new URL(info.endpoint).hostname,'127.0.0.1');
+ const rpc=(method,params={},extra={})=>fetch(info.endpoint,{method:'POST',headers:{'Content-Type':'application/json',Authorization:`Bearer ${info.token}`,...extra},body:JSON.stringify({jsonrpc:'2.0',id:1,method,params})});
+ assert.equal((await fetch(info.endpoint,{method:'POST'})).status,401);
+ assert.equal((await rpc('ping',{}, {Origin:'https://example.invalid'})).status,403);
+ let response=await rpc('initialize',{protocolVersion:'2025-03-26'});assert.equal((await response.json()).result.protocolVersion,'2025-03-26');
+ response=await rpc('tools/list');assert.equal((await response.json()).result.tools.length,7);
+ response=await rpc('tools/call',{name:'wechat_status'});assert.equal((await response.json()).result.isError,false);assert.equal(seen[0].path,'/api/agent/instances_status');assert.equal(typeof (await mcp.configure({enabled:true})).last_called_at,'number');
+ response=await rpc('tools/call',{name:'wechat_sync_contacts',arguments:{account_id:'account',type:'friend'}});const result=(await response.json()).result;assert.equal(result.isError,true);assert.match(result.content[0].text,/OPERATION_FAILED/);
+ const count=seen.length;response=await rpc('tools/call',{name:'wechat_sync_contacts',arguments:{account_id:'account',type:'wrong'}});assert.equal((await response.json()).error.code,-32602);assert.equal(seen.length,count);
+ response=await rpc('tools/call',{name:'wechat_list_contacts',arguments:{account_id:'a&b'}});await response.json();assert.equal(seen.at(-1).path,'/api/contacts?account_id=a%26b');
+ const old=info;const same=await mcp.configure({enabled:true});assert.equal(same.token,info.token);info=await mcp.configure({enabled:true,regenerate_token:true});assert.notEqual(info.token,old.token);assert.equal((await rpc('ping',{}, {Authorization:`Bearer ${old.token}`})).status,401);
+ await mcp.configure({enabled:false});assert.equal(mcp.server,null);
+});
+test('history routes, exact send account mapping, rejection and business failure without retry', async t=>{
+ const seen=[];const mcp=new RecoveryMcp(async request=>{seen.push(request);return {success:true,status:200,bodyText:JSON.stringify({success:false,error:'TEST_BUSINESS_FAILURE'})};});
+ t.after(()=>mcp.close());const info=await mcp.configure({enabled:true});
+ const call=async(name,args)=> (await fetch(info.endpoint,{method:'POST',headers:{'Content-Type':'application/json',Authorization:`Bearer ${info.token}`},body:JSON.stringify({jsonrpc:'2.0',id:1,method:'tools/call',params:{name,arguments:args}})})).json();
+ await call('wechat_list_history_sessions',{});assert.deepEqual(seen.pop(),{path:'/api/chat/history_sessions',method:'GET'});
+ await call('wechat_get_history_messages',{account_id:'a&b',session_id:'群 #1'});assert.equal(seen.pop().path,'/api/chat/history_messages/%E7%BE%A4%20%231?account_id=a%26b');
+ for(const args of [{account_id:'a',session_id:'../x'},{account_id:'a',session_id:'..'}])assert.equal((await call('wechat_get_history_messages',args)).error.code,-32602);
+ for(const args of [{user:'friend',message:'hi'},{account_id:'a',user:'friend',message:' '},{account_id:'a',user:'friend',message:'hi',extra:true}])assert.equal((await call('wechat_send_message',args)).error.code,-32602);
+ assert.equal(seen.length,0);
+ const result=await call('wechat_send_message',{account_id:'sender',user:'recipient',message:'hello\nworld'});
+ assert.equal(result.result.isError,true);assert.equal(seen.length,1);assert.deepEqual(seen[0],{path:'/api/chat/send_message',method:'POST',body:{accountId:'sender',user:'recipient',message:'hello\nworld'}});
+});

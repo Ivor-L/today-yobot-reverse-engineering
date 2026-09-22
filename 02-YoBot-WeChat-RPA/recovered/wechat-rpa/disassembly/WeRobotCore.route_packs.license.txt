@@ -1,0 +1,312 @@
+  1           0 LOAD_CONST               0 ('Existing Windows license routes, without importing the Windows API host.')
+              2 STORE_NAME               0 (__doc__)
+
+  2           4 LOAD_CONST               1 (0)
+              6 LOAD_CONST               2 (('APIRouter', 'BackgroundTasks', 'Security'))
+              8 IMPORT_NAME              1 (fastapi)
+             10 IMPORT_FROM              2 (APIRouter)
+             12 STORE_NAME               2 (APIRouter)
+             14 IMPORT_FROM              3 (BackgroundTasks)
+             16 STORE_NAME               3 (BackgroundTasks)
+             18 IMPORT_FROM              4 (Security)
+             20 STORE_NAME               4 (Security)
+             22 POP_TOP
+
+  3          24 LOAD_CONST               1 (0)
+             26 LOAD_CONST               3 (('BaseModel', 'Field'))
+             28 IMPORT_NAME              5 (pydantic)
+             30 IMPORT_FROM              6 (BaseModel)
+             32 STORE_NAME               6 (BaseModel)
+             34 IMPORT_FROM              7 (Field)
+             36 STORE_NAME               7 (Field)
+             38 POP_TOP
+
+  4          40 LOAD_CONST               1 (0)
+             42 LOAD_CONST               4 (('JSONResponse',))
+             44 IMPORT_NAME              8 (fastapi.responses)
+             46 IMPORT_FROM              9 (JSONResponse)
+             48 STORE_NAME               9 (JSONResponse)
+             50 POP_TOP
+
+  7          52 LOAD_BUILD_CLASS
+             54 LOAD_CONST               5 (<code object ActivationRequest at 0x10924bc90, file "WeRobotCore/route_packs/license.py", line 7>)
+             56 LOAD_CONST               6 ('ActivationRequest')
+             58 MAKE_FUNCTION            0
+             60 LOAD_CONST               6 ('ActivationRequest')
+             62 LOAD_NAME                6 (BaseModel)
+             64 CALL_FUNCTION            3
+             66 STORE_NAME              10 (ActivationRequest)
+
+ 12          68 LOAD_BUILD_CLASS
+             70 LOAD_CONST               7 (<code object UnbindRequest at 0x10924b5b0, file "WeRobotCore/route_packs/license.py", line 12>)
+             72 LOAD_CONST               8 ('UnbindRequest')
+             74 MAKE_FUNCTION            0
+             76 LOAD_CONST               8 ('UnbindRequest')
+             78 LOAD_NAME                6 (BaseModel)
+             80 CALL_FUNCTION            3
+             82 STORE_NAME              11 (UnbindRequest)
+
+ 16          84 LOAD_CONST               9 (<code object create_license_router at 0x10924b7c0, file "WeRobotCore/route_packs/license.py", line 16>)
+             86 LOAD_CONST              10 ('create_license_router')
+             88 MAKE_FUNCTION            0
+             90 STORE_NAME              12 (create_license_router)
+             92 LOAD_CONST              11 (None)
+             94 RETURN_VALUE
+
+Disassembly of <code object ActivationRequest at 0x10924bc90, file "WeRobotCore/route_packs/license.py", line 7>:
+  7           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('ActivationRequest')
+              6 STORE_NAME               2 (__qualname__)
+              8 SETUP_ANNOTATIONS
+
+  8          10 LOAD_NAME                3 (Field)
+             12 LOAD_CONST               1 (1)
+             14 LOAD_CONST               2 (256)
+             16 LOAD_CONST               3 (('min_length', 'max_length'))
+             18 CALL_FUNCTION_KW         2
+             20 STORE_NAME               4 (activation_code)
+             22 LOAD_NAME                5 (str)
+             24 LOAD_NAME                6 (__annotations__)
+             26 LOAD_CONST               4 ('activation_code')
+             28 STORE_SUBSCR
+
+  9          30 LOAD_NAME                3 (Field)
+             32 LOAD_CONST               5 ('^[0-9A-F]{4}(?:-[0-9A-F]{4}){3}$')
+             34 LOAD_CONST               6 (('pattern',))
+             36 CALL_FUNCTION_KW         1
+             38 STORE_NAME               7 (machine_code)
+             40 LOAD_NAME                5 (str)
+             42 LOAD_NAME                6 (__annotations__)
+             44 LOAD_CONST               7 ('machine_code')
+             46 STORE_SUBSCR
+             48 LOAD_CONST               8 (None)
+             50 RETURN_VALUE
+
+Disassembly of <code object UnbindRequest at 0x10924b5b0, file "WeRobotCore/route_packs/license.py", line 12>:
+ 12           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('UnbindRequest')
+              6 STORE_NAME               2 (__qualname__)
+              8 SETUP_ANNOTATIONS
+
+ 13          10 LOAD_NAME                3 (Field)
+             12 LOAD_CONST               1 (1)
+             14 LOAD_CONST               2 (256)
+             16 LOAD_CONST               3 (('min_length', 'max_length'))
+             18 CALL_FUNCTION_KW         2
+             20 STORE_NAME               4 (activation_code)
+             22 LOAD_NAME                5 (str)
+             24 LOAD_NAME                6 (__annotations__)
+             26 LOAD_CONST               4 ('activation_code')
+             28 STORE_SUBSCR
+             30 LOAD_CONST               5 (None)
+             32 RETURN_VALUE
+
+Disassembly of <code object create_license_router at 0x10924b7c0, file "WeRobotCore/route_packs/license.py", line 16>:
+ 17           0 LOAD_GLOBAL              0 (APIRouter)
+              2 LOAD_GLOBAL              1 (Security)
+              4 LOAD_FAST                1 (auth_dependency)
+              6 CALL_FUNCTION            1
+              8 BUILD_LIST               1
+             10 LOAD_CONST               1 (('dependencies',))
+             12 CALL_FUNCTION_KW         1
+             14 STORE_FAST               3 (router)
+
+ 19          16 LOAD_CONST               2 (<code object call at 0x10924b920, file "WeRobotCore/route_packs/license.py", line 19>)
+             18 LOAD_CONST               3 ('create_license_router.<locals>.call')
+             20 MAKE_FUNCTION            0
+             22 STORE_DEREF              0 (call)
+
+ 27          24 LOAD_FAST                3 (router)
+             26 LOAD_METHOD              2 (get)
+             28 LOAD_CONST               4 ('/api/license/info')
+             30 CALL_METHOD              1
+
+ 28          32 LOAD_CLOSURE             0 (call)
+             34 LOAD_CLOSURE             1 (service)
+             36 BUILD_TUPLE              2
+             38 LOAD_CONST               5 (<code object info at 0x10924b9d0, file "WeRobotCore/route_packs/license.py", line 27>)
+             40 LOAD_CONST               6 ('create_license_router.<locals>.info')
+             42 MAKE_FUNCTION            8 (closure)
+             44 CALL_FUNCTION            1
+             46 STORE_FAST               4 (info)
+
+ 31          48 LOAD_FAST                3 (router)
+             50 LOAD_METHOD              2 (get)
+             52 LOAD_CONST               7 ('/api/license/machine-code')
+             54 CALL_METHOD              1
+
+ 32          56 LOAD_CLOSURE             1 (service)
+             58 BUILD_TUPLE              1
+             60 LOAD_CONST               8 (<code object machine_code at 0x10924b660, file "WeRobotCore/route_packs/license.py", line 31>)
+             62 LOAD_CONST               9 ('create_license_router.<locals>.machine_code')
+             64 MAKE_FUNCTION            8 (closure)
+             66 CALL_FUNCTION            1
+             68 STORE_FAST               5 (machine_code)
+
+ 35          70 LOAD_FAST                3 (router)
+             72 LOAD_METHOD              2 (get)
+             74 LOAD_CONST              10 ('/api/license/verify')
+             76 CALL_METHOD              1
+
+ 36          78 LOAD_CLOSURE             0 (call)
+             80 LOAD_CLOSURE             1 (service)
+             82 BUILD_TUPLE              2
+             84 LOAD_CONST              11 (<code object verify at 0x10924ba80, file "WeRobotCore/route_packs/license.py", line 35>)
+             86 LOAD_CONST              12 ('create_license_router.<locals>.verify')
+             88 MAKE_FUNCTION            8 (closure)
+             90 CALL_FUNCTION            1
+             92 STORE_FAST               6 (verify)
+
+ 39          94 LOAD_FAST                3 (router)
+             96 LOAD_METHOD              3 (post)
+             98 LOAD_CONST              13 ('/api/license/activate')
+            100 CALL_METHOD              1
+
+ 40         102 LOAD_GLOBAL              4 (ActivationRequest)
+            104 LOAD_CONST              14 (('request',))
+            106 BUILD_CONST_KEY_MAP      1
+            108 LOAD_CLOSURE             0 (call)
+            110 LOAD_CLOSURE             1 (service)
+            112 BUILD_TUPLE              2
+            114 LOAD_CONST              15 (<code object activate at 0x10924bbe0, file "WeRobotCore/route_packs/license.py", line 39>)
+            116 LOAD_CONST              16 ('create_license_router.<locals>.activate')
+            118 MAKE_FUNCTION           12 (annotations, closure)
+            120 CALL_FUNCTION            1
+            122 STORE_FAST               7 (activate)
+
+ 43         124 LOAD_FAST                3 (router)
+            126 LOAD_METHOD              3 (post)
+            128 LOAD_CONST              17 ('/api/license/unbind')
+            130 CALL_METHOD              1
+
+ 44         132 LOAD_GLOBAL              5 (UnbindRequest)
+            134 LOAD_GLOBAL              6 (BackgroundTasks)
+            136 LOAD_CONST              18 (('request', 'background'))
+            138 BUILD_CONST_KEY_MAP      2
+            140 LOAD_CLOSURE             0 (call)
+            142 LOAD_CLOSURE             1 (service)
+            144 LOAD_CLOSURE             2 (shutdown)
+            146 BUILD_TUPLE              3
+            148 LOAD_CONST              19 (<code object unbind at 0x10924b190, file "WeRobotCore/route_packs/license.py", line 43>)
+            150 LOAD_CONST              20 ('create_license_router.<locals>.unbind')
+            152 MAKE_FUNCTION           12 (annotations, closure)
+            154 CALL_FUNCTION            1
+            156 STORE_FAST               8 (unbind)
+
+ 50         158 LOAD_FAST                3 (router)
+            160 RETURN_VALUE
+
+Disassembly of <code object call at 0x10924b920, file "WeRobotCore/route_packs/license.py", line 19>:
+ 20           0 SETUP_FINALLY           16 (to 18)
+
+ 21           2 LOAD_FAST                0 (operation)
+              4 LOAD_FAST                1 (args)
+              6 CALL_FUNCTION_EX         0
+              8 GET_AWAITABLE
+             10 LOAD_CONST               0 (None)
+             12 YIELD_FROM
+             14 POP_BLOCK
+             16 RETURN_VALUE
+
+ 22     >>   18 DUP_TOP
+             20 LOAD_GLOBAL              0 (Exception)
+             22 JUMP_IF_NOT_EXC_MATCH    54
+             24 POP_TOP
+             26 POP_TOP
+             28 POP_TOP
+
+ 23          30 LOAD_GLOBAL              1 (JSONResponse)
+             32 LOAD_CONST               1 (500)
+
+ 24          34 LOAD_CONST               2 (False)
+             36 LOAD_CONST               3 ('LICENSE_CHECK_ERROR')
+
+ 25          38 LOAD_CONST               4 ('授权验证服务异常')
+
+ 23          40 LOAD_CONST               5 (('success', 'code', 'message'))
+             42 BUILD_CONST_KEY_MAP      3
+             44 LOAD_CONST               6 (('status_code', 'content'))
+             46 CALL_FUNCTION_KW         2
+             48 ROT_FOUR
+             50 POP_EXCEPT
+             52 RETURN_VALUE
+        >>   54 RERAISE
+             56 LOAD_CONST               0 (None)
+             58 RETURN_VALUE
+
+Disassembly of <code object info at 0x10924b9d0, file "WeRobotCore/route_packs/license.py", line 27>:
+ 29           0 LOAD_DEREF               0 (call)
+              2 LOAD_DEREF               1 (service)
+              4 LOAD_ATTR                0 (info)
+              6 CALL_FUNCTION            1
+              8 GET_AWAITABLE
+             10 LOAD_CONST               0 (None)
+             12 YIELD_FROM
+             14 RETURN_VALUE
+
+Disassembly of <code object machine_code at 0x10924b660, file "WeRobotCore/route_packs/license.py", line 31>:
+ 33           0 LOAD_CONST               1 ('machine_code')
+              2 LOAD_DEREF               0 (service)
+              4 LOAD_ATTR                0 (machine_code)
+              6 BUILD_MAP                1
+              8 RETURN_VALUE
+
+Disassembly of <code object verify at 0x10924ba80, file "WeRobotCore/route_packs/license.py", line 35>:
+ 37           0 LOAD_DEREF               0 (call)
+              2 LOAD_DEREF               1 (service)
+              4 LOAD_ATTR                0 (verify)
+              6 CALL_FUNCTION            1
+              8 GET_AWAITABLE
+             10 LOAD_CONST               0 (None)
+             12 YIELD_FROM
+             14 RETURN_VALUE
+
+Disassembly of <code object activate at 0x10924bbe0, file "WeRobotCore/route_packs/license.py", line 39>:
+ 41           0 LOAD_DEREF               0 (call)
+              2 LOAD_DEREF               1 (service)
+              4 LOAD_ATTR                0 (activate)
+              6 LOAD_FAST                0 (request)
+              8 LOAD_ATTR                1 (activation_code)
+             10 LOAD_FAST                0 (request)
+             12 LOAD_ATTR                2 (machine_code)
+             14 CALL_FUNCTION            3
+             16 GET_AWAITABLE
+             18 LOAD_CONST               0 (None)
+             20 YIELD_FROM
+             22 RETURN_VALUE
+
+Disassembly of <code object unbind at 0x10924b190, file "WeRobotCore/route_packs/license.py", line 43>:
+ 45           0 LOAD_DEREF               0 (call)
+              2 LOAD_DEREF               1 (service)
+              4 LOAD_ATTR                0 (unbind)
+              6 LOAD_FAST                0 (request)
+              8 LOAD_ATTR                1 (activation_code)
+             10 CALL_FUNCTION            2
+             12 GET_AWAITABLE
+             14 LOAD_CONST               0 (None)
+             16 YIELD_FROM
+             18 STORE_FAST               2 (result)
+
+ 46          20 LOAD_GLOBAL              2 (isinstance)
+             22 LOAD_FAST                2 (result)
+             24 LOAD_GLOBAL              3 (dict)
+             26 CALL_FUNCTION            2
+             28 POP_JUMP_IF_FALSE       54
+             30 LOAD_FAST                2 (result)
+             32 LOAD_METHOD              4 (get)
+             34 LOAD_CONST               1 ('success')
+             36 CALL_METHOD              1
+             38 LOAD_CONST               2 (True)
+             40 IS_OP                    0
+             42 POP_JUMP_IF_FALSE       54
+
+ 47          44 LOAD_FAST                1 (background)
+             46 LOAD_METHOD              5 (add_task)
+             48 LOAD_DEREF               2 (shutdown)
+             50 CALL_METHOD              1
+             52 POP_TOP
+
+ 48     >>   54 LOAD_FAST                2 (result)
+             56 RETURN_VALUE

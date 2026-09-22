@@ -1,0 +1,1553 @@
+  1           0 LOAD_CONST               0 ("macOS Keychain implementation of the shared :class:`SecretStore` Port.\n\nThe adapter is safe to import on every platform.  PyObjC's Security bridge is\nloaded only when a native operation is requested, so Windows packaging and\nlegacy startup do not gain a macOS dependency.\n\nSecrets belong to the signed plugin control plane, not the RPA Helper.  New\nitems receive an explicit current-application ACL, stay on the current device,\nand are queried with authentication UI disabled.  A caller that cannot satisfy\nthe Keychain ACL therefore fails closed instead of displaying an unexpected\nsystem prompt or falling back to plaintext persistence.\n")
+              2 STORE_NAME               0 (__doc__)
+
+ 14           4 LOAD_CONST               1 (0)
+              6 LOAD_CONST               2 (None)
+              8 IMPORT_NAME              1 (hmac)
+             10 STORE_NAME               1 (hmac)
+
+ 15          12 LOAD_CONST               1 (0)
+             14 LOAD_CONST               2 (None)
+             16 IMPORT_NAME              2 (re)
+             18 STORE_NAME               2 (re)
+
+ 16          20 LOAD_CONST               1 (0)
+             22 LOAD_CONST               2 (None)
+             24 IMPORT_NAME              3 (sys)
+             26 STORE_NAME               3 (sys)
+
+ 17          28 LOAD_CONST               1 (0)
+             30 LOAD_CONST               3 (('Any', 'Callable', 'Optional', 'Protocol'))
+             32 IMPORT_NAME              4 (typing)
+             34 IMPORT_FROM              5 (Any)
+             36 STORE_NAME               5 (Any)
+             38 IMPORT_FROM              6 (Callable)
+             40 STORE_NAME               6 (Callable)
+             42 IMPORT_FROM              7 (Optional)
+             44 STORE_NAME               7 (Optional)
+             46 IMPORT_FROM              8 (Protocol)
+             48 STORE_NAME               8 (Protocol)
+             50 POP_TOP
+
+ 19          52 LOAD_CONST               1 (0)
+             54 LOAD_CONST               4 (('AutomationError', 'ErrorCode', 'OperationResult'))
+             56 IMPORT_NAME              9 (WeRobotCore.domain)
+             58 IMPORT_FROM             10 (AutomationError)
+             60 STORE_NAME              10 (AutomationError)
+             62 IMPORT_FROM             11 (ErrorCode)
+             64 STORE_NAME              11 (ErrorCode)
+             66 IMPORT_FROM             12 (OperationResult)
+             68 STORE_NAME              12 (OperationResult)
+             70 POP_TOP
+
+ 22          72 LOAD_CONST               5 ('com.yokowebot.secrets.v1')
+             74 STORE_NAME              13 (MACOS_KEYCHAIN_SERVICE)
+
+ 23          76 LOAD_CONST               6 (128)
+             78 STORE_NAME              14 (_MAX_KEY_LENGTH)
+
+ 24          80 LOAD_CONST               7 (255)
+             82 STORE_NAME              15 (_MAX_SERVICE_LENGTH)
+
+ 25          84 LOAD_CONST               8 (65536)
+             86 STORE_NAME              16 (_MAX_SECRET_BYTES)
+
+ 26          88 LOAD_NAME                2 (re)
+             90 LOAD_METHOD             17 (compile)
+             92 LOAD_CONST               9 ('^[A-Za-z0-9][A-Za-z0-9._-]*$')
+             94 CALL_METHOD              1
+             96 STORE_NAME              18 (_VALID_KEY)
+
+ 29          98 LOAD_BUILD_CLASS
+            100 LOAD_CONST              10 (<code object MacKeychainBackendError at 0x1073b9710, file "WeRobotCore/adapters/platform/macos_keychain.py", line 29>)
+            102 LOAD_CONST              11 ('MacKeychainBackendError')
+            104 MAKE_FUNCTION            0
+            106 LOAD_CONST              11 ('MacKeychainBackendError')
+            108 LOAD_NAME               19 (RuntimeError)
+            110 CALL_FUNCTION            3
+            112 STORE_NAME              20 (MacKeychainBackendError)
+
+ 39         114 LOAD_BUILD_CLASS
+            116 LOAD_CONST              12 (<code object MacKeychainBackend at 0x1073b9ea0, file "WeRobotCore/adapters/platform/macos_keychain.py", line 39>)
+            118 LOAD_CONST              13 ('MacKeychainBackend')
+            120 MAKE_FUNCTION            0
+            122 LOAD_CONST              13 ('MacKeychainBackend')
+            124 LOAD_NAME                8 (Protocol)
+            126 CALL_FUNCTION            3
+            128 STORE_NAME              21 (MacKeychainBackend)
+
+ 52         130 LOAD_BUILD_CLASS
+            132 LOAD_CONST              14 (<code object MacSecurityKeychainBackend at 0x1073aaea0, file "WeRobotCore/adapters/platform/macos_keychain.py", line 52>)
+            134 LOAD_CONST              15 ('MacSecurityKeychainBackend')
+            136 MAKE_FUNCTION            0
+            138 LOAD_CONST              15 ('MacSecurityKeychainBackend')
+            140 CALL_FUNCTION            2
+            142 STORE_NAME              22 (MacSecurityKeychainBackend)
+
+191         144 LOAD_BUILD_CLASS
+            146 LOAD_CONST              16 (<code object MacKeychainSecretStore at 0x1073aaa80, file "WeRobotCore/adapters/platform/macos_keychain.py", line 191>)
+            148 LOAD_CONST              17 ('MacKeychainSecretStore')
+            150 MAKE_FUNCTION            0
+            152 LOAD_CONST              17 ('MacKeychainSecretStore')
+            154 CALL_FUNCTION            2
+            156 STORE_NAME              23 (MacKeychainSecretStore)
+            158 LOAD_CONST               2 (None)
+            160 RETURN_VALUE
+
+Disassembly of <code object MacKeychainBackendError at 0x1073b9710, file "WeRobotCore/adapters/platform/macos_keychain.py", line 29>:
+ 29           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('MacKeychainBackendError')
+              6 STORE_NAME               2 (__qualname__)
+
+ 30           8 LOAD_CONST               1 ('Sanitized native Keychain failure that never contains secret material.')
+             10 STORE_NAME               3 (__doc__)
+
+ 32          12 LOAD_CONST               6 ((None,))
+             14 LOAD_NAME                4 (str)
+             16 LOAD_NAME                5 (Optional)
+             18 LOAD_NAME                6 (int)
+             20 BINARY_SUBSCR
+             22 LOAD_CONST               2 (None)
+             24 LOAD_CONST               3 (('operation', 'status', 'return'))
+             26 BUILD_CONST_KEY_MAP      3
+             28 LOAD_CLOSURE             0 (__class__)
+             30 BUILD_TUPLE              1
+             32 LOAD_CONST               4 (<code object __init__ at 0x1072e0ea0, file "WeRobotCore/adapters/platform/macos_keychain.py", line 32>)
+             34 LOAD_CONST               5 ('MacKeychainBackendError.__init__')
+             36 MAKE_FUNCTION           13 (defaults, annotations, closure)
+             38 STORE_NAME               7 (__init__)
+             40 LOAD_CLOSURE             0 (__class__)
+             42 DUP_TOP
+             44 STORE_NAME               8 (__classcell__)
+             46 RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x1072e0ea0, file "WeRobotCore/adapters/platform/macos_keychain.py", line 32>:
+ 33           0 LOAD_GLOBAL              0 (str)
+              2 LOAD_FAST                1 (operation)
+              4 CALL_FUNCTION            1
+              6 LOAD_FAST                0 (self)
+              8 STORE_ATTR               1 (operation)
+
+ 34          10 LOAD_FAST                2 (status)
+             12 LOAD_CONST               0 (None)
+             14 IS_OP                    0
+             16 POP_JUMP_IF_FALSE       22
+             18 LOAD_CONST               0 (None)
+             20 JUMP_FORWARD             6 (to 28)
+        >>   22 LOAD_GLOBAL              2 (int)
+             24 LOAD_FAST                2 (status)
+             26 CALL_FUNCTION            1
+        >>   28 LOAD_FAST                0 (self)
+             30 STORE_ATTR               3 (status)
+
+ 35          32 LOAD_FAST                0 (self)
+             34 LOAD_ATTR                3 (status)
+             36 LOAD_CONST               0 (None)
+             38 IS_OP                    0
+             40 POP_JUMP_IF_FALSE       46
+             42 LOAD_CONST               1 ('')
+             44 JUMP_FORWARD            10 (to 56)
+        >>   46 LOAD_CONST               2 (' (OSStatus={})')
+             48 LOAD_METHOD              4 (format)
+             50 LOAD_FAST                0 (self)
+             52 LOAD_ATTR                3 (status)
+             54 CALL_METHOD              1
+        >>   56 STORE_FAST               3 (suffix)
+
+ 36          58 LOAD_GLOBAL              5 (super)
+             60 CALL_FUNCTION            0
+             62 LOAD_METHOD              6 (__init__)
+             64 LOAD_CONST               3 ('macOS Keychain {} failed{}')
+             66 LOAD_METHOD              4 (format)
+             68 LOAD_FAST                0 (self)
+             70 LOAD_ATTR                1 (operation)
+             72 LOAD_FAST                3 (suffix)
+             74 CALL_METHOD              2
+             76 CALL_METHOD              1
+             78 POP_TOP
+             80 LOAD_CONST               0 (None)
+             82 RETURN_VALUE
+
+Disassembly of <code object MacKeychainBackend at 0x1073b9ea0, file "WeRobotCore/adapters/platform/macos_keychain.py", line 39>:
+ 39           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('MacKeychainBackend')
+              6 STORE_NAME               2 (__qualname__)
+
+ 40           8 LOAD_CONST               1 ('Raw byte access owned by a macOS Keychain implementation.')
+             10 STORE_NAME               3 (__doc__)
+
+ 42          12 LOAD_NAME                4 (str)
+             14 LOAD_NAME                4 (str)
+             16 LOAD_NAME                5 (Optional)
+             18 LOAD_NAME                6 (bytes)
+             20 BINARY_SUBSCR
+             22 LOAD_CONST               2 (('service', 'account', 'return'))
+             24 BUILD_CONST_KEY_MAP      3
+             26 LOAD_CONST               3 (<code object read_secret at 0x1073b9870, file "WeRobotCore/adapters/platform/macos_keychain.py", line 42>)
+             28 LOAD_CONST               4 ('MacKeychainBackend.read_secret')
+             30 MAKE_FUNCTION            4 (annotations)
+             32 STORE_NAME               7 (read_secret)
+
+ 45          34 LOAD_NAME                4 (str)
+             36 LOAD_NAME                4 (str)
+             38 LOAD_NAME                6 (bytes)
+             40 LOAD_CONST               5 (None)
+             42 LOAD_CONST               6 (('service', 'account', 'value', 'return'))
+             44 BUILD_CONST_KEY_MAP      4
+             46 LOAD_CONST               7 (<code object write_secret at 0x1073b97c0, file "WeRobotCore/adapters/platform/macos_keychain.py", line 45>)
+             48 LOAD_CONST               8 ('MacKeychainBackend.write_secret')
+             50 MAKE_FUNCTION            4 (annotations)
+             52 STORE_NAME               8 (write_secret)
+
+ 48          54 LOAD_NAME                4 (str)
+             56 LOAD_NAME                4 (str)
+             58 LOAD_CONST               5 (None)
+             60 LOAD_CONST               2 (('service', 'account', 'return'))
+             62 BUILD_CONST_KEY_MAP      3
+             64 LOAD_CONST               9 (<code object delete_secret at 0x1073b9c90, file "WeRobotCore/adapters/platform/macos_keychain.py", line 48>)
+             66 LOAD_CONST              10 ('MacKeychainBackend.delete_secret')
+             68 MAKE_FUNCTION            4 (annotations)
+             70 STORE_NAME               9 (delete_secret)
+             72 LOAD_CONST               5 (None)
+             74 RETURN_VALUE
+
+Disassembly of <code object read_secret at 0x1073b9870, file "WeRobotCore/adapters/platform/macos_keychain.py", line 42>:
+ 43           0 LOAD_CONST               0 (None)
+              2 RETURN_VALUE
+
+Disassembly of <code object write_secret at 0x1073b97c0, file "WeRobotCore/adapters/platform/macos_keychain.py", line 45>:
+ 46           0 LOAD_CONST               0 (None)
+              2 RETURN_VALUE
+
+Disassembly of <code object delete_secret at 0x1073b9c90, file "WeRobotCore/adapters/platform/macos_keychain.py", line 48>:
+ 49           0 LOAD_CONST               0 (None)
+              2 RETURN_VALUE
+
+Disassembly of <code object MacSecurityKeychainBackend at 0x1073aaea0, file "WeRobotCore/adapters/platform/macos_keychain.py", line 52>:
+ 52           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('MacSecurityKeychainBackend')
+              6 STORE_NAME               2 (__qualname__)
+
+ 53           8 LOAD_CONST               1 ('Security.framework generic-password backend through lazy PyObjC.')
+             10 STORE_NAME               3 (__doc__)
+
+ 55          12 LOAD_CONST              27 ((None, None))
+
+ 57          14 LOAD_NAME                4 (Optional)
+             16 LOAD_NAME                5 (Callable)
+             18 BUILD_LIST               0
+             20 LOAD_NAME                6 (Any)
+             22 BUILD_TUPLE              2
+             24 BINARY_SUBSCR
+             26 BINARY_SUBSCR
+
+ 58          28 LOAD_NAME                4 (Optional)
+             30 LOAD_NAME                5 (Callable)
+             32 BUILD_LIST               0
+             34 LOAD_NAME                6 (Any)
+             36 BUILD_TUPLE              2
+             38 BINARY_SUBSCR
+             40 BINARY_SUBSCR
+
+ 59          42 LOAD_CONST               2 (None)
+
+ 55          44 LOAD_CONST               3 (('security_loader', 'authentication_context_factory', 'return'))
+             46 BUILD_CONST_KEY_MAP      3
+             48 LOAD_CONST               4 (<code object __init__ at 0x1073b9f50, file "WeRobotCore/adapters/platform/macos_keychain.py", line 55>)
+             50 LOAD_CONST               5 ('MacSecurityKeychainBackend.__init__')
+             52 MAKE_FUNCTION            5 (defaults, annotations)
+             54 STORE_NAME               7 (__init__)
+
+ 65          56 LOAD_NAME                8 (staticmethod)
+
+ 66          58 LOAD_CONST               6 (<code object _load_security at 0x1073b9d40, file "WeRobotCore/adapters/platform/macos_keychain.py", line 65>)
+             60 LOAD_CONST               7 ('MacSecurityKeychainBackend._load_security')
+             62 MAKE_FUNCTION            0
+             64 CALL_FUNCTION            1
+             66 STORE_NAME               9 (_load_security)
+
+ 75          68 LOAD_NAME                8 (staticmethod)
+
+ 76          70 LOAD_CONST               8 (<code object _create_authentication_context at 0x1073b9be0, file "WeRobotCore/adapters/platform/macos_keychain.py", line 75>)
+             72 LOAD_CONST               9 ('MacSecurityKeychainBackend._create_authentication_context')
+             74 MAKE_FUNCTION            0
+             76 CALL_FUNCTION            1
+             78 STORE_NAME              10 (_create_authentication_context)
+
+ 89          80 LOAD_NAME                8 (staticmethod)
+
+ 90          82 LOAD_NAME                6 (Any)
+             84 LOAD_NAME               11 (str)
+             86 LOAD_NAME               12 (int)
+             88 LOAD_CONST               2 (None)
+             90 LOAD_CONST              10 (('security', 'operation', 'status', 'return'))
+             92 BUILD_CONST_KEY_MAP      4
+             94 LOAD_CONST              11 (<code object _expect_success at 0x1073aa0e0, file "WeRobotCore/adapters/platform/macos_keychain.py", line 89>)
+             96 LOAD_CONST              12 ('MacSecurityKeychainBackend._expect_success')
+             98 MAKE_FUNCTION            4 (annotations)
+            100 CALL_FUNCTION            1
+            102 STORE_NAME              13 (_expect_success)
+
+ 94         104 LOAD_NAME                6 (Any)
+            106 LOAD_NAME               11 (str)
+            108 LOAD_NAME               11 (str)
+            110 LOAD_CONST              13 (('security', 'service', 'account'))
+            112 BUILD_CONST_KEY_MAP      3
+            114 LOAD_CONST              14 (<code object _identity_query at 0x1073aaf50, file "WeRobotCore/adapters/platform/macos_keychain.py", line 94>)
+            116 LOAD_CONST              15 ('MacSecurityKeychainBackend._identity_query')
+            118 MAKE_FUNCTION            4 (annotations)
+            120 STORE_NAME              14 (_identity_query)
+
+105         122 LOAD_NAME                6 (Any)
+            124 LOAD_CONST              16 (('security',))
+            126 BUILD_CONST_KEY_MAP      1
+            128 LOAD_CONST              17 (<code object _current_application_access at 0x1073aa500, file "WeRobotCore/adapters/platform/macos_keychain.py", line 105>)
+            130 LOAD_CONST              18 ('MacSecurityKeychainBackend._current_application_access')
+            132 MAKE_FUNCTION            4 (annotations)
+            134 STORE_NAME              15 (_current_application_access)
+
+127         136 LOAD_NAME               11 (str)
+            138 LOAD_NAME               11 (str)
+            140 LOAD_NAME                4 (Optional)
+            142 LOAD_NAME               16 (bytes)
+            144 BINARY_SUBSCR
+            146 LOAD_CONST              19 (('service', 'account', 'return'))
+            148 BUILD_CONST_KEY_MAP      3
+            150 LOAD_CONST              20 (<code object read_secret at 0x1073aa030, file "WeRobotCore/adapters/platform/macos_keychain.py", line 127>)
+            152 LOAD_CONST              21 ('MacSecurityKeychainBackend.read_secret')
+            154 MAKE_FUNCTION            4 (annotations)
+            156 STORE_NAME              17 (read_secret)
+
+145         158 LOAD_NAME               11 (str)
+            160 LOAD_NAME               11 (str)
+            162 LOAD_NAME               16 (bytes)
+            164 LOAD_CONST               2 (None)
+            166 LOAD_CONST              22 (('service', 'account', 'value', 'return'))
+            168 BUILD_CONST_KEY_MAP      4
+            170 LOAD_CONST              23 (<code object write_secret at 0x1073aa5b0, file "WeRobotCore/adapters/platform/macos_keychain.py", line 145>)
+            172 LOAD_CONST              24 ('MacSecurityKeychainBackend.write_secret')
+            174 MAKE_FUNCTION            4 (annotations)
+            176 STORE_NAME              18 (write_secret)
+
+178         178 LOAD_NAME               11 (str)
+            180 LOAD_NAME               11 (str)
+            182 LOAD_CONST               2 (None)
+            184 LOAD_CONST              19 (('service', 'account', 'return'))
+            186 BUILD_CONST_KEY_MAP      3
+            188 LOAD_CONST              25 (<code object delete_secret at 0x1073aabe0, file "WeRobotCore/adapters/platform/macos_keychain.py", line 178>)
+            190 LOAD_CONST              26 ('MacSecurityKeychainBackend.delete_secret')
+            192 MAKE_FUNCTION            4 (annotations)
+            194 STORE_NAME              19 (delete_secret)
+            196 LOAD_CONST               2 (None)
+            198 RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x1073b9f50, file "WeRobotCore/adapters/platform/macos_keychain.py", line 55>:
+ 60           0 LOAD_FAST                1 (security_loader)
+              2 JUMP_IF_TRUE_OR_POP      8
+              4 LOAD_FAST                0 (self)
+              6 LOAD_ATTR                0 (_load_security)
+        >>    8 LOAD_FAST                0 (self)
+             10 STORE_ATTR               1 (_security_loader)
+
+ 62          12 LOAD_FAST                2 (authentication_context_factory)
+             14 JUMP_IF_TRUE_OR_POP     20
+             16 LOAD_FAST                0 (self)
+             18 LOAD_ATTR                2 (_create_authentication_context)
+
+ 61     >>   20 LOAD_FAST                0 (self)
+             22 STORE_ATTR               3 (_authentication_context_factory)
+             24 LOAD_CONST               0 (None)
+             26 RETURN_VALUE
+
+Disassembly of <code object _load_security at 0x1073b9d40, file "WeRobotCore/adapters/platform/macos_keychain.py", line 65>:
+ 67           0 LOAD_GLOBAL              0 (sys)
+              2 LOAD_ATTR                1 (platform)
+              4 LOAD_CONST               1 ('darwin')
+              6 COMPARE_OP               3 (!=)
+              8 POP_JUMP_IF_FALSE       18
+
+ 68          10 LOAD_GLOBAL              2 (MacKeychainBackendError)
+             12 LOAD_CONST               2 ('is unavailable on this platform')
+             14 CALL_FUNCTION            1
+             16 RAISE_VARARGS            1
+
+ 69     >>   18 SETUP_FINALLY           12 (to 32)
+
+ 70          20 LOAD_CONST               3 (0)
+             22 LOAD_CONST               0 (None)
+             24 IMPORT_NAME              3 (Security)
+             26 STORE_FAST               0 (Security)
+             28 POP_BLOCK
+             30 JUMP_FORWARD            46 (to 78)
+
+ 71     >>   32 DUP_TOP
+             34 LOAD_GLOBAL              4 (Exception)
+             36 JUMP_IF_NOT_EXC_MATCH    76
+             38 POP_TOP
+             40 STORE_FAST               1 (exc)
+             42 POP_TOP
+             44 SETUP_FINALLY           22 (to 68)
+
+ 72          46 LOAD_GLOBAL              2 (MacKeychainBackendError)
+             48 LOAD_CONST               4 ('PyObjC Security bridge is unavailable')
+             50 CALL_FUNCTION            1
+             52 LOAD_FAST                1 (exc)
+             54 RAISE_VARARGS            2
+             56 POP_BLOCK
+             58 POP_EXCEPT
+             60 LOAD_CONST               0 (None)
+             62 STORE_FAST               1 (exc)
+             64 DELETE_FAST              1 (exc)
+             66 JUMP_FORWARD            10 (to 78)
+        >>   68 LOAD_CONST               0 (None)
+             70 STORE_FAST               1 (exc)
+             72 DELETE_FAST              1 (exc)
+             74 RERAISE
+        >>   76 RERAISE
+
+ 73     >>   78 LOAD_FAST                0 (Security)
+             80 RETURN_VALUE
+
+Disassembly of <code object _create_authentication_context at 0x1073b9be0, file "WeRobotCore/adapters/platform/macos_keychain.py", line 75>:
+ 77           0 LOAD_GLOBAL              0 (sys)
+              2 LOAD_ATTR                1 (platform)
+              4 LOAD_CONST               1 ('darwin')
+              6 COMPARE_OP               3 (!=)
+              8 POP_JUMP_IF_FALSE       18
+
+ 78          10 LOAD_GLOBAL              2 (MacKeychainBackendError)
+             12 LOAD_CONST               2 ('authentication is unavailable on this platform')
+             14 CALL_FUNCTION            1
+             16 RAISE_VARARGS            1
+
+ 79     >>   18 SETUP_FINALLY           12 (to 32)
+
+ 80          20 LOAD_CONST               3 (0)
+             22 LOAD_CONST               0 (None)
+             24 IMPORT_NAME              3 (LocalAuthentication)
+             26 STORE_FAST               0 (LocalAuthentication)
+             28 POP_BLOCK
+             30 JUMP_FORWARD            46 (to 78)
+
+ 81     >>   32 DUP_TOP
+             34 LOAD_GLOBAL              4 (Exception)
+             36 JUMP_IF_NOT_EXC_MATCH    76
+             38 POP_TOP
+             40 STORE_FAST               1 (exc)
+             42 POP_TOP
+             44 SETUP_FINALLY           22 (to 68)
+
+ 82          46 LOAD_GLOBAL              2 (MacKeychainBackendError)
+
+ 83          48 LOAD_CONST               4 ('PyObjC LocalAuthentication bridge is unavailable')
+
+ 82          50 CALL_FUNCTION            1
+
+ 84          52 LOAD_FAST                1 (exc)
+
+ 82          54 RAISE_VARARGS            2
+             56 POP_BLOCK
+             58 POP_EXCEPT
+             60 LOAD_CONST               0 (None)
+             62 STORE_FAST               1 (exc)
+             64 DELETE_FAST              1 (exc)
+             66 JUMP_FORWARD            10 (to 78)
+        >>   68 LOAD_CONST               0 (None)
+             70 STORE_FAST               1 (exc)
+             72 DELETE_FAST              1 (exc)
+             74 RERAISE
+        >>   76 RERAISE
+
+ 85     >>   78 LOAD_FAST                0 (LocalAuthentication)
+             80 LOAD_ATTR                5 (LAContext)
+             82 LOAD_METHOD              6 (alloc)
+             84 CALL_METHOD              0
+             86 LOAD_METHOD              7 (init)
+             88 CALL_METHOD              0
+             90 STORE_FAST               2 (context)
+
+ 86          92 LOAD_FAST                2 (context)
+             94 LOAD_METHOD              8 (setInteractionNotAllowed_)
+             96 LOAD_CONST               5 (True)
+             98 CALL_METHOD              1
+            100 POP_TOP
+
+ 87         102 LOAD_FAST                2 (context)
+            104 RETURN_VALUE
+
+Disassembly of <code object _expect_success at 0x1073aa0e0, file "WeRobotCore/adapters/platform/macos_keychain.py", line 89>:
+ 91           0 LOAD_GLOBAL              0 (int)
+              2 LOAD_FAST                2 (status)
+              4 CALL_FUNCTION            1
+              6 LOAD_GLOBAL              0 (int)
+              8 LOAD_FAST                0 (security)
+             10 LOAD_ATTR                1 (errSecSuccess)
+             12 CALL_FUNCTION            1
+             14 COMPARE_OP               3 (!=)
+             16 POP_JUMP_IF_FALSE       28
+
+ 92          18 LOAD_GLOBAL              2 (MacKeychainBackendError)
+             20 LOAD_FAST                1 (operation)
+             22 LOAD_FAST                2 (status)
+             24 CALL_FUNCTION            2
+             26 RAISE_VARARGS            1
+        >>   28 LOAD_CONST               0 (None)
+             30 RETURN_VALUE
+
+Disassembly of <code object _identity_query at 0x1073aaf50, file "WeRobotCore/adapters/platform/macos_keychain.py", line 94>:
+ 96           0 LOAD_FAST                1 (security)
+              2 LOAD_ATTR                0 (kSecClass)
+              4 LOAD_FAST                1 (security)
+              6 LOAD_ATTR                1 (kSecClassGenericPassword)
+
+ 97           8 LOAD_FAST                1 (security)
+             10 LOAD_ATTR                2 (kSecAttrService)
+             12 LOAD_FAST                2 (service)
+
+ 98          14 LOAD_FAST                1 (security)
+             16 LOAD_ATTR                3 (kSecAttrAccount)
+             18 LOAD_FAST                3 (account)
+
+ 99          20 LOAD_FAST                1 (security)
+             22 LOAD_ATTR                4 (kSecAttrSynchronizable)
+             24 LOAD_CONST               1 (False)
+
+100          26 LOAD_FAST                1 (security)
+             28 LOAD_ATTR                5 (kSecUseAuthenticationContext)
+
+101          30 LOAD_FAST                0 (self)
+             32 LOAD_METHOD              6 (_authentication_context_factory)
+             34 CALL_METHOD              0
+
+ 95          36 BUILD_MAP                5
+             38 RETURN_VALUE
+
+Disassembly of <code object _current_application_access at 0x1073aa500, file "WeRobotCore/adapters/platform/macos_keychain.py", line 105>:
+106           0 LOAD_FAST                1 (security)
+              2 LOAD_METHOD              0 (SecTrustedApplicationCreateFromPath)
+
+107           4 LOAD_CONST               0 (None)
+
+108           6 LOAD_CONST               0 (None)
+
+106           8 CALL_METHOD              2
+             10 UNPACK_SEQUENCE          2
+             12 STORE_FAST               2 (trusted_status)
+             14 STORE_FAST               3 (trusted_application)
+
+110          16 LOAD_FAST                0 (self)
+             18 LOAD_METHOD              1 (_expect_success)
+
+111          20 LOAD_FAST                1 (security)
+
+112          22 LOAD_CONST               1 ('could not bind the current application identity')
+
+113          24 LOAD_FAST                2 (trusted_status)
+
+110          26 CALL_METHOD              3
+             28 POP_TOP
+
+115          30 LOAD_FAST                1 (security)
+             32 LOAD_METHOD              2 (SecAccessCreate)
+
+116          34 LOAD_CONST               2 ('YokoWebot protected secret')
+
+117          36 LOAD_FAST                3 (trusted_application)
+             38 BUILD_LIST               1
+
+118          40 LOAD_CONST               0 (None)
+
+115          42 CALL_METHOD              3
+             44 UNPACK_SEQUENCE          2
+             46 STORE_FAST               4 (access_status)
+             48 STORE_FAST               5 (access)
+
+120          50 LOAD_FAST                0 (self)
+             52 LOAD_METHOD              1 (_expect_success)
+
+121          54 LOAD_FAST                1 (security)
+
+122          56 LOAD_CONST               3 ('could not create the application access policy')
+
+123          58 LOAD_FAST                4 (access_status)
+
+120          60 CALL_METHOD              3
+             62 POP_TOP
+
+125          64 LOAD_FAST                5 (access)
+             66 RETURN_VALUE
+
+Disassembly of <code object read_secret at 0x1073aa030, file "WeRobotCore/adapters/platform/macos_keychain.py", line 127>:
+128           0 LOAD_FAST                0 (self)
+              2 LOAD_METHOD              0 (_security_loader)
+              4 CALL_METHOD              0
+              6 STORE_FAST               3 (security)
+
+129           8 LOAD_FAST                0 (self)
+             10 LOAD_METHOD              1 (_identity_query)
+             12 LOAD_FAST                3 (security)
+             14 LOAD_FAST                1 (service)
+             16 LOAD_FAST                2 (account)
+             18 CALL_METHOD              3
+             20 STORE_FAST               4 (query)
+
+130          22 LOAD_FAST                4 (query)
+             24 LOAD_METHOD              2 (update)
+
+132          26 LOAD_FAST                3 (security)
+             28 LOAD_ATTR                3 (kSecReturnData)
+             30 LOAD_CONST               1 (True)
+
+133          32 LOAD_FAST                3 (security)
+             34 LOAD_ATTR                4 (kSecMatchLimit)
+             36 LOAD_FAST                3 (security)
+             38 LOAD_ATTR                5 (kSecMatchLimitOne)
+
+131          40 BUILD_MAP                2
+
+130          42 CALL_METHOD              1
+             44 POP_TOP
+
+136          46 LOAD_FAST                3 (security)
+             48 LOAD_METHOD              6 (SecItemCopyMatching)
+             50 LOAD_FAST                4 (query)
+             52 LOAD_CONST               0 (None)
+             54 CALL_METHOD              2
+             56 UNPACK_SEQUENCE          2
+             58 STORE_FAST               5 (status)
+             60 STORE_FAST               6 (result)
+
+137          62 LOAD_GLOBAL              7 (int)
+             64 LOAD_FAST                5 (status)
+             66 CALL_FUNCTION            1
+             68 LOAD_GLOBAL              7 (int)
+             70 LOAD_FAST                3 (security)
+             72 LOAD_ATTR                8 (errSecItemNotFound)
+             74 CALL_FUNCTION            1
+             76 COMPARE_OP               2 (==)
+             78 POP_JUMP_IF_FALSE       84
+
+138          80 LOAD_CONST               0 (None)
+             82 RETURN_VALUE
+
+139     >>   84 LOAD_FAST                0 (self)
+             86 LOAD_METHOD              9 (_expect_success)
+             88 LOAD_FAST                3 (security)
+             90 LOAD_CONST               2 ('read')
+             92 LOAD_FAST                5 (status)
+             94 CALL_METHOD              3
+             96 POP_TOP
+
+140          98 SETUP_FINALLY           10 (to 110)
+
+141         100 LOAD_GLOBAL             10 (bytes)
+            102 LOAD_FAST                6 (result)
+            104 CALL_FUNCTION            1
+            106 POP_BLOCK
+            108 RETURN_VALUE
+
+142     >>  110 DUP_TOP
+            112 LOAD_GLOBAL             11 (Exception)
+            114 JUMP_IF_NOT_EXC_MATCH   154
+            116 POP_TOP
+            118 STORE_FAST               7 (exc)
+            120 POP_TOP
+            122 SETUP_FINALLY           22 (to 146)
+
+143         124 LOAD_GLOBAL             12 (MacKeychainBackendError)
+            126 LOAD_CONST               3 ('returned invalid data')
+            128 CALL_FUNCTION            1
+            130 LOAD_FAST                7 (exc)
+            132 RAISE_VARARGS            2
+            134 POP_BLOCK
+            136 POP_EXCEPT
+            138 LOAD_CONST               0 (None)
+            140 STORE_FAST               7 (exc)
+            142 DELETE_FAST              7 (exc)
+            144 JUMP_FORWARD            10 (to 156)
+        >>  146 LOAD_CONST               0 (None)
+            148 STORE_FAST               7 (exc)
+            150 DELETE_FAST              7 (exc)
+            152 RERAISE
+        >>  154 RERAISE
+        >>  156 LOAD_CONST               0 (None)
+            158 RETURN_VALUE
+
+Disassembly of <code object write_secret at 0x1073aa5b0, file "WeRobotCore/adapters/platform/macos_keychain.py", line 145>:
+146           0 LOAD_FAST                0 (self)
+              2 LOAD_METHOD              0 (_security_loader)
+              4 CALL_METHOD              0
+              6 STORE_FAST               4 (security)
+
+147           8 LOAD_FAST                0 (self)
+             10 LOAD_METHOD              1 (_identity_query)
+             12 LOAD_FAST                4 (security)
+             14 LOAD_FAST                1 (service)
+             16 LOAD_FAST                2 (account)
+             18 CALL_METHOD              3
+             20 STORE_FAST               5 (query)
+
+148          22 LOAD_FAST                4 (security)
+             24 LOAD_METHOD              2 (SecItemUpdate)
+
+149          26 LOAD_FAST                5 (query)
+
+150          28 LOAD_FAST                4 (security)
+             30 LOAD_ATTR                3 (kSecValueData)
+             32 LOAD_FAST                3 (value)
+             34 BUILD_MAP                1
+
+148          36 CALL_METHOD              2
+             38 STORE_FAST               6 (update_status)
+
+152          40 LOAD_GLOBAL              4 (int)
+             42 LOAD_FAST                6 (update_status)
+             44 CALL_FUNCTION            1
+             46 LOAD_GLOBAL              4 (int)
+             48 LOAD_FAST                4 (security)
+             50 LOAD_ATTR                5 (errSecSuccess)
+             52 CALL_FUNCTION            1
+             54 COMPARE_OP               2 (==)
+             56 POP_JUMP_IF_FALSE       62
+
+153          58 LOAD_CONST               0 (None)
+             60 RETURN_VALUE
+
+154     >>   62 LOAD_GLOBAL              4 (int)
+             64 LOAD_FAST                6 (update_status)
+             66 CALL_FUNCTION            1
+             68 LOAD_GLOBAL              4 (int)
+             70 LOAD_FAST                4 (security)
+             72 LOAD_ATTR                6 (errSecItemNotFound)
+             74 CALL_FUNCTION            1
+             76 COMPARE_OP               3 (!=)
+             78 POP_JUMP_IF_FALSE       90
+
+155          80 LOAD_GLOBAL              7 (MacKeychainBackendError)
+             82 LOAD_CONST               1 ('update')
+             84 LOAD_FAST                6 (update_status)
+             86 CALL_FUNCTION            2
+             88 RAISE_VARARGS            1
+
+157     >>   90 LOAD_FAST                0 (self)
+             92 LOAD_METHOD              8 (_current_application_access)
+             94 LOAD_FAST                4 (security)
+             96 CALL_METHOD              1
+             98 STORE_FAST               7 (access)
+
+158         100 LOAD_GLOBAL              9 (dict)
+            102 LOAD_FAST                5 (query)
+            104 CALL_FUNCTION            1
+            106 STORE_FAST               8 (attributes)
+
+159         108 LOAD_FAST                8 (attributes)
+            110 LOAD_METHOD             10 (update)
+
+160         112 LOAD_FAST                4 (security)
+            114 LOAD_ATTR               11 (kSecAttrAccessible)
+
+161         116 LOAD_FAST                4 (security)
+            118 LOAD_ATTR               12 (kSecAttrAccessibleAfterFirstUnlockThisDeviceOnly)
+
+163         120 LOAD_FAST                4 (security)
+            122 LOAD_ATTR               13 (kSecAttrAccess)
+            124 LOAD_FAST                7 (access)
+
+164         126 LOAD_FAST                4 (security)
+            128 LOAD_ATTR                3 (kSecValueData)
+            130 LOAD_FAST                3 (value)
+
+159         132 BUILD_MAP                3
+            134 CALL_METHOD              1
+            136 POP_TOP
+
+166         138 LOAD_FAST                4 (security)
+            140 LOAD_METHOD             14 (SecItemAdd)
+            142 LOAD_FAST                8 (attributes)
+            144 LOAD_CONST               0 (None)
+            146 CALL_METHOD              2
+            148 UNPACK_SEQUENCE          2
+            150 STORE_FAST               9 (add_status)
+            152 STORE_FAST              10 (_)
+
+167         154 LOAD_GLOBAL              4 (int)
+            156 LOAD_FAST                9 (add_status)
+            158 CALL_FUNCTION            1
+            160 LOAD_GLOBAL              4 (int)
+            162 LOAD_FAST                4 (security)
+            164 LOAD_ATTR               15 (errSecDuplicateItem)
+            166 CALL_FUNCTION            1
+            168 COMPARE_OP               2 (==)
+            170 POP_JUMP_IF_FALSE      208
+
+170         172 LOAD_FAST                4 (security)
+            174 LOAD_METHOD              2 (SecItemUpdate)
+
+171         176 LOAD_FAST                5 (query)
+
+172         178 LOAD_FAST                4 (security)
+            180 LOAD_ATTR                3 (kSecValueData)
+            182 LOAD_FAST                3 (value)
+            184 BUILD_MAP                1
+
+170         186 CALL_METHOD              2
+            188 STORE_FAST              11 (retry_status)
+
+174         190 LOAD_FAST                0 (self)
+            192 LOAD_METHOD             16 (_expect_success)
+            194 LOAD_FAST                4 (security)
+            196 LOAD_CONST               2 ('concurrent update')
+            198 LOAD_FAST               11 (retry_status)
+            200 CALL_METHOD              3
+            202 POP_TOP
+
+175         204 LOAD_CONST               0 (None)
+            206 RETURN_VALUE
+
+176     >>  208 LOAD_FAST                0 (self)
+            210 LOAD_METHOD             16 (_expect_success)
+            212 LOAD_FAST                4 (security)
+            214 LOAD_CONST               3 ('add')
+            216 LOAD_FAST                9 (add_status)
+            218 CALL_METHOD              3
+            220 POP_TOP
+            222 LOAD_CONST               0 (None)
+            224 RETURN_VALUE
+
+Disassembly of <code object delete_secret at 0x1073aabe0, file "WeRobotCore/adapters/platform/macos_keychain.py", line 178>:
+179           0 LOAD_FAST                0 (self)
+              2 LOAD_METHOD              0 (_security_loader)
+              4 CALL_METHOD              0
+              6 STORE_FAST               3 (security)
+
+180           8 LOAD_FAST                3 (security)
+             10 LOAD_METHOD              1 (SecItemDelete)
+
+181          12 LOAD_FAST                0 (self)
+             14 LOAD_METHOD              2 (_identity_query)
+             16 LOAD_FAST                3 (security)
+             18 LOAD_FAST                1 (service)
+             20 LOAD_FAST                2 (account)
+             22 CALL_METHOD              3
+
+180          24 CALL_METHOD              1
+             26 STORE_FAST               4 (status)
+
+183          28 LOAD_GLOBAL              3 (int)
+             30 LOAD_FAST                4 (status)
+             32 CALL_FUNCTION            1
+
+184          34 LOAD_GLOBAL              3 (int)
+             36 LOAD_FAST                3 (security)
+             38 LOAD_ATTR                4 (errSecSuccess)
+             40 CALL_FUNCTION            1
+
+185          42 LOAD_GLOBAL              3 (int)
+             44 LOAD_FAST                3 (security)
+             46 LOAD_ATTR                5 (errSecItemNotFound)
+             48 CALL_FUNCTION            1
+
+183          50 BUILD_TUPLE              2
+             52 CONTAINS_OP              0
+             54 POP_JUMP_IF_FALSE       60
+
+187          56 LOAD_CONST               0 (None)
+             58 RETURN_VALUE
+
+188     >>   60 LOAD_GLOBAL              6 (MacKeychainBackendError)
+             62 LOAD_CONST               1 ('delete')
+             64 LOAD_FAST                4 (status)
+             66 CALL_FUNCTION            2
+             68 RAISE_VARARGS            1
+             70 LOAD_CONST               0 (None)
+             72 RETURN_VALUE
+
+Disassembly of <code object MacKeychainSecretStore at 0x1073aaa80, file "WeRobotCore/adapters/platform/macos_keychain.py", line 191>:
+191           0 LOAD_NAME                0 (__name__)
+              2 STORE_NAME               1 (__module__)
+              4 LOAD_CONST               0 ('MacKeychainSecretStore')
+              6 STORE_NAME               2 (__qualname__)
+
+192           8 LOAD_CONST               1 ('Verified UTF-8 facade over a product-scoped macOS Keychain service.')
+             10 STORE_NAME               3 (__doc__)
+
+196          12 LOAD_NAME                4 (MACOS_KEYCHAIN_SERVICE)
+
+197          14 LOAD_CONST               2 (None)
+
+194          16 BUILD_TUPLE              2
+
+196          18 LOAD_NAME                5 (str)
+
+197          20 LOAD_NAME                6 (Optional)
+             22 LOAD_NAME                7 (MacKeychainBackend)
+             24 BINARY_SUBSCR
+
+198          26 LOAD_CONST               2 (None)
+
+194          28 LOAD_CONST               3 (('service_name', 'backend', 'return'))
+             30 BUILD_CONST_KEY_MAP      3
+             32 LOAD_CONST               4 (<code object __init__ at 0x1073aab30, file "WeRobotCore/adapters/platform/macos_keychain.py", line 194>)
+             34 LOAD_CONST               5 ('MacKeychainSecretStore.__init__')
+             36 MAKE_FUNCTION            5 (defaults, annotations)
+             38 STORE_NAME               8 (__init__)
+
+213          40 LOAD_NAME                9 (staticmethod)
+
+214          42 LOAD_NAME                5 (str)
+             44 LOAD_NAME                5 (str)
+             46 LOAD_CONST               6 (('key', 'return'))
+             48 BUILD_CONST_KEY_MAP      2
+             50 LOAD_CONST               7 (<code object _validate_key at 0x1073aa450, file "WeRobotCore/adapters/platform/macos_keychain.py", line 213>)
+             52 LOAD_CONST               8 ('MacKeychainSecretStore._validate_key')
+             54 MAKE_FUNCTION            4 (annotations)
+             56 CALL_FUNCTION            1
+             58 STORE_NAME              10 (_validate_key)
+
+226          60 LOAD_NAME                5 (str)
+             62 LOAD_NAME                6 (Optional)
+             64 LOAD_NAME               11 (bytes)
+             66 BINARY_SUBSCR
+             68 LOAD_CONST               6 (('key', 'return'))
+             70 BUILD_CONST_KEY_MAP      2
+             72 LOAD_CONST               9 (<code object _read_bytes at 0x1073aadf0, file "WeRobotCore/adapters/platform/macos_keychain.py", line 226>)
+             74 LOAD_CONST              10 ('MacKeychainSecretStore._read_bytes')
+             76 MAKE_FUNCTION            4 (annotations)
+             78 STORE_NAME              12 (_read_bytes)
+
+241          80 LOAD_NAME                5 (str)
+             82 LOAD_NAME                6 (Optional)
+             84 LOAD_NAME                5 (str)
+             86 BINARY_SUBSCR
+             88 LOAD_CONST               6 (('key', 'return'))
+             90 BUILD_CONST_KEY_MAP      2
+             92 LOAD_CONST              11 (<code object get_secret at 0x1073aa7c0, file "WeRobotCore/adapters/platform/macos_keychain.py", line 241>)
+             94 LOAD_CONST              12 ('MacKeychainSecretStore.get_secret')
+             96 MAKE_FUNCTION            4 (annotations)
+             98 STORE_NAME              13 (get_secret)
+
+254         100 LOAD_NAME                5 (str)
+            102 LOAD_NAME                5 (str)
+            104 LOAD_NAME               14 (OperationResult)
+            106 LOAD_CONST              13 (('key', 'value', 'return'))
+            108 BUILD_CONST_KEY_MAP      3
+            110 LOAD_CONST              14 (<code object set_secret at 0x1073aa9d0, file "WeRobotCore/adapters/platform/macos_keychain.py", line 254>)
+            112 LOAD_CONST              15 ('MacKeychainSecretStore.set_secret')
+            114 MAKE_FUNCTION            4 (annotations)
+            116 STORE_NAME              15 (set_secret)
+
+296         118 LOAD_NAME                5 (str)
+            120 LOAD_NAME               14 (OperationResult)
+            122 LOAD_CONST               6 (('key', 'return'))
+            124 BUILD_CONST_KEY_MAP      2
+            126 LOAD_CONST              16 (<code object delete_secret at 0x1073aac90, file "WeRobotCore/adapters/platform/macos_keychain.py", line 296>)
+            128 LOAD_CONST              17 ('MacKeychainSecretStore.delete_secret')
+            130 MAKE_FUNCTION            4 (annotations)
+            132 STORE_NAME              16 (delete_secret)
+            134 LOAD_CONST               2 (None)
+            136 RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x1073aab30, file "WeRobotCore/adapters/platform/macos_keychain.py", line 194>:
+200           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                1 (service_name)
+              4 LOAD_GLOBAL              1 (str)
+              6 CALL_FUNCTION            2
+
+199           8 POP_JUMP_IF_FALSE       36
+
+201          10 LOAD_GLOBAL              2 (len)
+             12 LOAD_FAST                1 (service_name)
+             14 CALL_FUNCTION            1
+             16 LOAD_GLOBAL              3 (_MAX_SERVICE_LENGTH)
+             18 COMPARE_OP               4 (>)
+
+199          20 POP_JUMP_IF_TRUE        36
+
+202          22 LOAD_GLOBAL              4 (_VALID_KEY)
+             24 LOAD_METHOD              5 (fullmatch)
+             26 LOAD_FAST                1 (service_name)
+             28 CALL_METHOD              1
+             30 LOAD_CONST               0 (None)
+             32 IS_OP                    0
+
+199          34 POP_JUMP_IF_FALSE       44
+
+204     >>   36 LOAD_GLOBAL              6 (ValueError)
+             38 LOAD_CONST               1 ('service_name must use 1-255 safe ASCII namespace characters')
+             40 CALL_FUNCTION            1
+             42 RAISE_VARARGS            1
+
+205     >>   44 LOAD_FAST                2 (backend)
+             46 LOAD_CONST               0 (None)
+             48 IS_OP                    0
+             50 POP_JUMP_IF_FALSE       58
+
+206          52 LOAD_GLOBAL              7 (MacSecurityKeychainBackend)
+             54 CALL_FUNCTION            0
+             56 STORE_FAST               2 (backend)
+
+207     >>   58 LOAD_CONST               2 (('read_secret', 'write_secret', 'delete_secret'))
+             60 GET_ITER
+        >>   62 FOR_ITER                34 (to 98)
+             64 STORE_FAST               3 (method_name)
+
+208          66 LOAD_GLOBAL              8 (callable)
+             68 LOAD_GLOBAL              9 (getattr)
+             70 LOAD_FAST                2 (backend)
+             72 LOAD_FAST                3 (method_name)
+             74 LOAD_CONST               0 (None)
+             76 CALL_FUNCTION            3
+             78 CALL_FUNCTION            1
+             80 POP_JUMP_IF_TRUE        62
+
+209          82 LOAD_GLOBAL             10 (TypeError)
+             84 LOAD_CONST               3 ('backend does not provide {}')
+             86 LOAD_METHOD             11 (format)
+             88 LOAD_FAST                3 (method_name)
+             90 CALL_METHOD              1
+             92 CALL_FUNCTION            1
+             94 RAISE_VARARGS            1
+             96 JUMP_ABSOLUTE           62
+
+210     >>   98 LOAD_FAST                1 (service_name)
+            100 LOAD_FAST                0 (self)
+            102 STORE_ATTR              12 (_service_name)
+
+211         104 LOAD_FAST                2 (backend)
+            106 LOAD_FAST                0 (self)
+            108 STORE_ATTR              13 (_backend)
+            110 LOAD_CONST               0 (None)
+            112 RETURN_VALUE
+
+Disassembly of <code object _validate_key at 0x1073aa450, file "WeRobotCore/adapters/platform/macos_keychain.py", line 213>:
+216           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                0 (key)
+              4 LOAD_GLOBAL              1 (str)
+              6 CALL_FUNCTION            2
+
+215           8 POP_JUMP_IF_FALSE       36
+
+217          10 LOAD_GLOBAL              2 (len)
+             12 LOAD_FAST                0 (key)
+             14 CALL_FUNCTION            1
+             16 LOAD_GLOBAL              3 (_MAX_KEY_LENGTH)
+             18 COMPARE_OP               4 (>)
+
+215          20 POP_JUMP_IF_TRUE        36
+
+218          22 LOAD_GLOBAL              4 (_VALID_KEY)
+             24 LOAD_METHOD              5 (fullmatch)
+             26 LOAD_FAST                0 (key)
+             28 CALL_METHOD              1
+             30 LOAD_CONST               0 (None)
+             32 IS_OP                    0
+
+215          34 POP_JUMP_IF_FALSE       48
+
+220     >>   36 LOAD_GLOBAL              6 (AutomationError)
+
+221          38 LOAD_GLOBAL              7 (ErrorCode)
+             40 LOAD_ATTR                8 (INVALID_ARGUMENT)
+
+222          42 LOAD_CONST               1 ('secret key must use 1-128 ASCII letters, digits, dot, underscore or dash')
+
+220          44 CALL_FUNCTION            2
+             46 RAISE_VARARGS            1
+
+224     >>   48 LOAD_FAST                0 (key)
+             50 RETURN_VALUE
+
+Disassembly of <code object _read_bytes at 0x1073aadf0, file "WeRobotCore/adapters/platform/macos_keychain.py", line 226>:
+227           0 SETUP_FINALLY           20 (to 22)
+
+228           2 LOAD_FAST                0 (self)
+              4 LOAD_ATTR                0 (_backend)
+              6 LOAD_METHOD              1 (read_secret)
+              8 LOAD_FAST                0 (self)
+             10 LOAD_ATTR                2 (_service_name)
+             12 LOAD_FAST                1 (key)
+             14 CALL_METHOD              2
+             16 STORE_FAST               2 (value)
+             18 POP_BLOCK
+             20 JUMP_FORWARD            50 (to 72)
+
+229     >>   22 DUP_TOP
+             24 LOAD_GLOBAL              3 (Exception)
+             26 JUMP_IF_NOT_EXC_MATCH    70
+             28 POP_TOP
+             30 STORE_FAST               3 (exc)
+             32 POP_TOP
+             34 SETUP_FINALLY           26 (to 62)
+
+230          36 LOAD_GLOBAL              4 (AutomationError)
+
+231          38 LOAD_GLOBAL              5 (ErrorCode)
+             40 LOAD_ATTR                6 (OPERATION_FAILED)
+
+232          42 LOAD_CONST               1 ('macOS Keychain could not read the secret')
+
+230          44 CALL_FUNCTION            2
+
+233          46 LOAD_FAST                3 (exc)
+
+230          48 RAISE_VARARGS            2
+             50 POP_BLOCK
+             52 POP_EXCEPT
+             54 LOAD_CONST               0 (None)
+             56 STORE_FAST               3 (exc)
+             58 DELETE_FAST              3 (exc)
+             60 JUMP_FORWARD            10 (to 72)
+        >>   62 LOAD_CONST               0 (None)
+             64 STORE_FAST               3 (exc)
+             66 DELETE_FAST              3 (exc)
+             68 RERAISE
+        >>   70 RERAISE
+
+234     >>   72 LOAD_FAST                2 (value)
+             74 LOAD_CONST               0 (None)
+             76 IS_OP                    1
+             78 POP_JUMP_IF_FALSE      102
+             80 LOAD_GLOBAL              7 (isinstance)
+             82 LOAD_FAST                2 (value)
+             84 LOAD_GLOBAL              8 (bytes)
+             86 CALL_FUNCTION            2
+             88 POP_JUMP_IF_TRUE       102
+
+235          90 LOAD_GLOBAL              4 (AutomationError)
+
+236          92 LOAD_GLOBAL              5 (ErrorCode)
+             94 LOAD_ATTR                6 (OPERATION_FAILED)
+
+237          96 LOAD_CONST               2 ('macOS Keychain returned an invalid secret value')
+
+235          98 CALL_FUNCTION            2
+            100 RAISE_VARARGS            1
+
+239     >>  102 LOAD_FAST                2 (value)
+            104 RETURN_VALUE
+
+Disassembly of <code object get_secret at 0x1073aa7c0, file "WeRobotCore/adapters/platform/macos_keychain.py", line 241>:
+242           0 LOAD_FAST                0 (self)
+              2 LOAD_METHOD              0 (_validate_key)
+              4 LOAD_FAST                1 (key)
+              6 CALL_METHOD              1
+              8 STORE_FAST               2 (normalized_key)
+
+243          10 LOAD_FAST                0 (self)
+             12 LOAD_METHOD              1 (_read_bytes)
+             14 LOAD_FAST                2 (normalized_key)
+             16 CALL_METHOD              1
+             18 STORE_FAST               3 (value)
+
+244          20 LOAD_FAST                3 (value)
+             22 LOAD_CONST               0 (None)
+             24 IS_OP                    0
+             26 POP_JUMP_IF_FALSE       32
+
+245          28 LOAD_CONST               0 (None)
+             30 RETURN_VALUE
+
+246     >>   32 SETUP_FINALLY           16 (to 50)
+
+247          34 LOAD_FAST                3 (value)
+             36 LOAD_ATTR                2 (decode)
+             38 LOAD_CONST               1 ('utf-8')
+             40 LOAD_CONST               2 ('strict')
+             42 LOAD_CONST               3 (('errors',))
+             44 CALL_FUNCTION_KW         2
+             46 POP_BLOCK
+             48 RETURN_VALUE
+
+248     >>   50 DUP_TOP
+             52 LOAD_GLOBAL              3 (UnicodeDecodeError)
+             54 JUMP_IF_NOT_EXC_MATCH    98
+             56 POP_TOP
+             58 STORE_FAST               4 (exc)
+             60 POP_TOP
+             62 SETUP_FINALLY           26 (to 90)
+
+249          64 LOAD_GLOBAL              4 (AutomationError)
+
+250          66 LOAD_GLOBAL              5 (ErrorCode)
+             68 LOAD_ATTR                6 (OPERATION_FAILED)
+
+251          70 LOAD_CONST               4 ('macOS Keychain secret is not valid UTF-8')
+
+249          72 CALL_FUNCTION            2
+
+252          74 LOAD_FAST                4 (exc)
+
+249          76 RAISE_VARARGS            2
+             78 POP_BLOCK
+             80 POP_EXCEPT
+             82 LOAD_CONST               0 (None)
+             84 STORE_FAST               4 (exc)
+             86 DELETE_FAST              4 (exc)
+             88 JUMP_FORWARD            10 (to 100)
+        >>   90 LOAD_CONST               0 (None)
+             92 STORE_FAST               4 (exc)
+             94 DELETE_FAST              4 (exc)
+             96 RERAISE
+        >>   98 RERAISE
+        >>  100 LOAD_CONST               0 (None)
+            102 RETURN_VALUE
+
+Disassembly of <code object set_secret at 0x1073aa9d0, file "WeRobotCore/adapters/platform/macos_keychain.py", line 254>:
+255           0 SETUP_FINALLY           14 (to 16)
+
+256           2 LOAD_FAST                0 (self)
+              4 LOAD_METHOD              0 (_validate_key)
+              6 LOAD_FAST                1 (key)
+              8 CALL_METHOD              1
+             10 STORE_FAST               3 (normalized_key)
+             12 POP_BLOCK
+             14 JUMP_FORWARD            54 (to 70)
+
+257     >>   16 DUP_TOP
+             18 LOAD_GLOBAL              1 (AutomationError)
+             20 JUMP_IF_NOT_EXC_MATCH    68
+             22 POP_TOP
+             24 STORE_FAST               4 (exc)
+             26 POP_TOP
+             28 SETUP_FINALLY           30 (to 60)
+
+258          30 LOAD_GLOBAL              2 (OperationResult)
+             32 LOAD_METHOD              3 (failed)
+             34 LOAD_FAST                4 (exc)
+             36 LOAD_ATTR                4 (code)
+             38 LOAD_GLOBAL              5 (str)
+             40 LOAD_FAST                4 (exc)
+             42 CALL_FUNCTION            1
+             44 CALL_METHOD              2
+             46 POP_BLOCK
+             48 ROT_FOUR
+             50 POP_EXCEPT
+             52 LOAD_CONST               0 (None)
+             54 STORE_FAST               4 (exc)
+             56 DELETE_FAST              4 (exc)
+             58 RETURN_VALUE
+        >>   60 LOAD_CONST               0 (None)
+             62 STORE_FAST               4 (exc)
+             64 DELETE_FAST              4 (exc)
+             66 RERAISE
+        >>   68 RERAISE
+
+259     >>   70 LOAD_GLOBAL              6 (isinstance)
+             72 LOAD_FAST                2 (value)
+             74 LOAD_GLOBAL              5 (str)
+             76 CALL_FUNCTION            2
+             78 POP_JUMP_IF_FALSE       84
+             80 LOAD_FAST                2 (value)
+             82 POP_JUMP_IF_TRUE        98
+
+260     >>   84 LOAD_GLOBAL              2 (OperationResult)
+             86 LOAD_METHOD              3 (failed)
+
+261          88 LOAD_GLOBAL              7 (ErrorCode)
+             90 LOAD_ATTR                8 (INVALID_ARGUMENT)
+
+262          92 LOAD_CONST               1 ('secret value must be a non-empty string')
+
+260          94 CALL_METHOD              2
+             96 RETURN_VALUE
+
+264     >>   98 SETUP_FINALLY           18 (to 118)
+
+265         100 LOAD_FAST                2 (value)
+            102 LOAD_ATTR                9 (encode)
+            104 LOAD_CONST               2 ('utf-8')
+            106 LOAD_CONST               3 ('strict')
+            108 LOAD_CONST               4 (('errors',))
+            110 CALL_FUNCTION_KW         2
+            112 STORE_FAST               5 (encoded)
+            114 POP_BLOCK
+            116 JUMP_FORWARD            32 (to 150)
+
+266     >>  118 DUP_TOP
+            120 LOAD_GLOBAL             10 (UnicodeEncodeError)
+            122 JUMP_IF_NOT_EXC_MATCH   148
+            124 POP_TOP
+            126 POP_TOP
+            128 POP_TOP
+
+267         130 LOAD_GLOBAL              2 (OperationResult)
+            132 LOAD_METHOD              3 (failed)
+
+268         134 LOAD_GLOBAL              7 (ErrorCode)
+            136 LOAD_ATTR                8 (INVALID_ARGUMENT)
+
+269         138 LOAD_CONST               5 ('secret value must be valid UTF-8')
+
+267         140 CALL_METHOD              2
+            142 ROT_FOUR
+            144 POP_EXCEPT
+            146 RETURN_VALUE
+        >>  148 RERAISE
+
+271     >>  150 LOAD_GLOBAL             11 (len)
+            152 LOAD_FAST                5 (encoded)
+            154 CALL_FUNCTION            1
+            156 LOAD_GLOBAL             12 (_MAX_SECRET_BYTES)
+            158 COMPARE_OP               4 (>)
+            160 POP_JUMP_IF_FALSE      176
+
+272         162 LOAD_GLOBAL              2 (OperationResult)
+            164 LOAD_METHOD              3 (failed)
+
+273         166 LOAD_GLOBAL              7 (ErrorCode)
+            168 LOAD_ATTR                8 (INVALID_ARGUMENT)
+
+274         170 LOAD_CONST               6 ('secret value exceeds the 65536-byte limit')
+
+272         172 CALL_METHOD              2
+            174 RETURN_VALUE
+
+276     >>  176 SETUP_FINALLY           82 (to 260)
+
+277         178 LOAD_FAST                0 (self)
+            180 LOAD_ATTR               13 (_backend)
+            182 LOAD_METHOD             14 (write_secret)
+            184 LOAD_FAST                0 (self)
+            186 LOAD_ATTR               15 (_service_name)
+            188 LOAD_FAST                3 (normalized_key)
+            190 LOAD_FAST                5 (encoded)
+            192 CALL_METHOD              3
+            194 POP_TOP
+
+278         196 LOAD_FAST                0 (self)
+            198 LOAD_METHOD             16 (_read_bytes)
+            200 LOAD_FAST                3 (normalized_key)
+            202 CALL_METHOD              1
+            204 STORE_FAST               6 (readback)
+
+279         206 LOAD_FAST                6 (readback)
+            208 LOAD_CONST               0 (None)
+            210 IS_OP                    0
+            212 POP_JUMP_IF_TRUE       228
+            214 LOAD_GLOBAL             17 (hmac)
+            216 LOAD_METHOD             18 (compare_digest)
+            218 LOAD_FAST                6 (readback)
+            220 LOAD_FAST                5 (encoded)
+            222 CALL_METHOD              2
+            224 EXTENDED_ARG             0
+            226 POP_JUMP_IF_TRUE       244
+
+280     >>  228 LOAD_GLOBAL              2 (OperationResult)
+            230 LOAD_METHOD              3 (failed)
+
+281         232 LOAD_GLOBAL              7 (ErrorCode)
+            234 LOAD_ATTR               19 (ACTION_NOT_VERIFIED)
+
+282         236 LOAD_CONST               7 ('macOS Keychain write could not be verified')
+
+280         238 CALL_METHOD              2
+            240 POP_BLOCK
+            242 RETURN_VALUE
+
+284     >>  244 LOAD_GLOBAL              2 (OperationResult)
+            246 LOAD_ATTR               20 (succeeded)
+
+285         248 LOAD_CONST               8 ('secret stored in macOS Keychain')
+
+286         250 LOAD_CONST               9 (True)
+
+284         252 LOAD_CONST              10 (('verified',))
+            254 CALL_FUNCTION_KW         2
+            256 POP_BLOCK
+            258 RETURN_VALUE
+
+288     >>  260 DUP_TOP
+            262 LOAD_GLOBAL              1 (AutomationError)
+            264 EXTENDED_ARG             1
+            266 JUMP_IF_NOT_EXC_MATCH   320
+            268 POP_TOP
+            270 STORE_FAST               4 (exc)
+            272 POP_TOP
+            274 SETUP_FINALLY           36 (to 312)
+
+289         276 LOAD_GLOBAL              2 (OperationResult)
+            278 LOAD_ATTR                3 (failed)
+            280 LOAD_FAST                4 (exc)
+            282 LOAD_ATTR                4 (code)
+            284 LOAD_GLOBAL              5 (str)
+            286 LOAD_FAST                4 (exc)
+            288 CALL_FUNCTION            1
+            290 LOAD_FAST                4 (exc)
+            292 LOAD_ATTR               21 (retryable)
+            294 LOAD_CONST              11 (('retryable',))
+            296 CALL_FUNCTION_KW         3
+            298 POP_BLOCK
+            300 ROT_FOUR
+            302 POP_EXCEPT
+            304 LOAD_CONST               0 (None)
+            306 STORE_FAST               4 (exc)
+            308 DELETE_FAST              4 (exc)
+            310 RETURN_VALUE
+        >>  312 LOAD_CONST               0 (None)
+            314 STORE_FAST               4 (exc)
+            316 DELETE_FAST              4 (exc)
+            318 RERAISE
+
+290     >>  320 DUP_TOP
+            322 LOAD_GLOBAL             22 (Exception)
+            324 EXTENDED_ARG             1
+            326 JUMP_IF_NOT_EXC_MATCH   352
+            328 POP_TOP
+            330 POP_TOP
+            332 POP_TOP
+
+291         334 LOAD_GLOBAL              2 (OperationResult)
+            336 LOAD_METHOD              3 (failed)
+
+292         338 LOAD_GLOBAL              7 (ErrorCode)
+            340 LOAD_ATTR               23 (OPERATION_FAILED)
+
+293         342 LOAD_CONST              12 ('macOS Keychain could not store the secret')
+
+291         344 CALL_METHOD              2
+            346 ROT_FOUR
+            348 POP_EXCEPT
+            350 RETURN_VALUE
+        >>  352 RERAISE
+            354 LOAD_CONST               0 (None)
+            356 RETURN_VALUE
+
+Disassembly of <code object delete_secret at 0x1073aac90, file "WeRobotCore/adapters/platform/macos_keychain.py", line 296>:
+297           0 SETUP_FINALLY           14 (to 16)
+
+298           2 LOAD_FAST                0 (self)
+              4 LOAD_METHOD              0 (_validate_key)
+              6 LOAD_FAST                1 (key)
+              8 CALL_METHOD              1
+             10 STORE_FAST               2 (normalized_key)
+             12 POP_BLOCK
+             14 JUMP_FORWARD            54 (to 70)
+
+299     >>   16 DUP_TOP
+             18 LOAD_GLOBAL              1 (AutomationError)
+             20 JUMP_IF_NOT_EXC_MATCH    68
+             22 POP_TOP
+             24 STORE_FAST               3 (exc)
+             26 POP_TOP
+             28 SETUP_FINALLY           30 (to 60)
+
+300          30 LOAD_GLOBAL              2 (OperationResult)
+             32 LOAD_METHOD              3 (failed)
+             34 LOAD_FAST                3 (exc)
+             36 LOAD_ATTR                4 (code)
+             38 LOAD_GLOBAL              5 (str)
+             40 LOAD_FAST                3 (exc)
+             42 CALL_FUNCTION            1
+             44 CALL_METHOD              2
+             46 POP_BLOCK
+             48 ROT_FOUR
+             50 POP_EXCEPT
+             52 LOAD_CONST               0 (None)
+             54 STORE_FAST               3 (exc)
+             56 DELETE_FAST              3 (exc)
+             58 RETURN_VALUE
+        >>   60 LOAD_CONST               0 (None)
+             62 STORE_FAST               3 (exc)
+             64 DELETE_FAST              3 (exc)
+             66 RERAISE
+        >>   68 RERAISE
+
+301     >>   70 SETUP_FINALLY           62 (to 134)
+
+302          72 LOAD_FAST                0 (self)
+             74 LOAD_ATTR                6 (_backend)
+             76 LOAD_METHOD              7 (delete_secret)
+             78 LOAD_FAST                0 (self)
+             80 LOAD_ATTR                8 (_service_name)
+             82 LOAD_FAST                2 (normalized_key)
+             84 CALL_METHOD              2
+             86 POP_TOP
+
+303          88 LOAD_FAST                0 (self)
+             90 LOAD_METHOD              9 (_read_bytes)
+             92 LOAD_FAST                2 (normalized_key)
+             94 CALL_METHOD              1
+             96 LOAD_CONST               0 (None)
+             98 IS_OP                    1
+            100 POP_JUMP_IF_FALSE      118
+
+304         102 LOAD_GLOBAL              2 (OperationResult)
+            104 LOAD_METHOD              3 (failed)
+
+305         106 LOAD_GLOBAL             10 (ErrorCode)
+            108 LOAD_ATTR               11 (ACTION_NOT_VERIFIED)
+
+306         110 LOAD_CONST               1 ('macOS Keychain deletion could not be verified')
+
+304         112 CALL_METHOD              2
+            114 POP_BLOCK
+            116 RETURN_VALUE
+
+308     >>  118 LOAD_GLOBAL              2 (OperationResult)
+            120 LOAD_ATTR               12 (succeeded)
+
+309         122 LOAD_CONST               2 ('secret deleted from macOS Keychain')
+
+310         124 LOAD_CONST               3 (True)
+
+308         126 LOAD_CONST               4 (('verified',))
+            128 CALL_FUNCTION_KW         2
+            130 POP_BLOCK
+            132 RETURN_VALUE
+
+312     >>  134 DUP_TOP
+            136 LOAD_GLOBAL              1 (AutomationError)
+            138 JUMP_IF_NOT_EXC_MATCH   192
+            140 POP_TOP
+            142 STORE_FAST               3 (exc)
+            144 POP_TOP
+            146 SETUP_FINALLY           36 (to 184)
+
+313         148 LOAD_GLOBAL              2 (OperationResult)
+            150 LOAD_ATTR                3 (failed)
+            152 LOAD_FAST                3 (exc)
+            154 LOAD_ATTR                4 (code)
+            156 LOAD_GLOBAL              5 (str)
+            158 LOAD_FAST                3 (exc)
+            160 CALL_FUNCTION            1
+            162 LOAD_FAST                3 (exc)
+            164 LOAD_ATTR               13 (retryable)
+            166 LOAD_CONST               5 (('retryable',))
+            168 CALL_FUNCTION_KW         3
+            170 POP_BLOCK
+            172 ROT_FOUR
+            174 POP_EXCEPT
+            176 LOAD_CONST               0 (None)
+            178 STORE_FAST               3 (exc)
+            180 DELETE_FAST              3 (exc)
+            182 RETURN_VALUE
+        >>  184 LOAD_CONST               0 (None)
+            186 STORE_FAST               3 (exc)
+            188 DELETE_FAST              3 (exc)
+            190 RERAISE
+
+314     >>  192 DUP_TOP
+            194 LOAD_GLOBAL             14 (Exception)
+            196 JUMP_IF_NOT_EXC_MATCH   222
+            198 POP_TOP
+            200 POP_TOP
+            202 POP_TOP
+
+315         204 LOAD_GLOBAL              2 (OperationResult)
+            206 LOAD_METHOD              3 (failed)
+
+316         208 LOAD_GLOBAL             10 (ErrorCode)
+            210 LOAD_ATTR               15 (OPERATION_FAILED)
+
+317         212 LOAD_CONST               6 ('macOS Keychain could not delete the secret')
+
+315         214 CALL_METHOD              2
+            216 ROT_FOUR
+            218 POP_EXCEPT
+            220 RETURN_VALUE
+        >>  222 RERAISE
+            224 LOAD_CONST               0 (None)
+            226 RETURN_VALUE
